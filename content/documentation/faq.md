@@ -50,7 +50,7 @@ Please see [the list of NATS clients](/documentation/clients/nats-clients/) for 
 
 ## Technical Questions
 
-### What is the difference between Request() and Publish()? <a name="reqvspub" style='position:relative; top:-90px;'>&nbsp;</a>
+### <a name="reqvspub"></a>What is the difference between Request() and Publish()?
 
 Publish() sends a message to `gnatsd` with a subject as its address, and `gnatsd` delivers the message to any interested/eligible subscriber of that subject. Optionally, you may also send along a reply subject with your message, which provides a way for subscribers who have received your message(s) to send messages back to you.
 
