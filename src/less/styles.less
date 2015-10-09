@@ -1,0 +1,327 @@
+
+// Include base bootstrap
+@import "bootstrap/bootstrap.less";
+
+// Colors
+@nats-brand-primary:      #182945;
+@nats-brand-secondary:    #46A5E5;
+@nats-brand-ternary:      #A8CB17;
+
+@nats-brand-gray-light:   #f5f6f9;
+@nats-brand-gray:         #c0c1c4;
+@nats-brand-gray-dark:    #666;
+
+// Variable Overrides
+@text-color:              @nats-brand-gray-dark;
+@font-family-sans-serif:  'Source Sans Pro', sans-serif;
+//@font-size-base:          16px;
+@link-color:              @nats-brand-secondary;
+@link-hover-color:        darken(@link-color, 15%);
+
+// Navbar
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:            @screen-md-min;
+// Basics of a navbar
+@navbar-height:                    86px;
+@navbar-margin-bottom:             @line-height-computed;
+@navbar-border-radius:             @border-radius-base;
+@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:       340px;
+
+@navbar-default-color:             #fff;
+@navbar-default-bg:                @nats-brand-primary;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+
+// Navbar links
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          #fff;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         #fff;
+@navbar-default-link-active-bg:            transparent;
+@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:               @navbar-default-link-color;
+@navbar-default-brand-hover-color:         lighten(@nats-brand-primary, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:           lighten(@nats-brand-primary, 10%);
+@navbar-default-toggle-icon-bar-bg:        #fff;
+@navbar-default-toggle-border-color:       #fff;
+
+//== Carousel
+@carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+
+@carousel-control-color:                      #fff;
+@carousel-control-width:                      15%;
+@carousel-control-opacity:                    .5;
+@carousel-control-font-size:                  20px;
+
+@carousel-indicator-active-bg:                @nats-brand-secondary;
+@carousel-indicator-border-color:             @nats-brand-secondary;
+
+@carousel-caption-color:                      #fff;
+
+//== Pills
+@nav-pills-active-link-hover-bg:            @component-active-bg;
+@nav-pills-active-link-hover-color:         @component-active-color;
+
+// Code
+@code-color:                  @nats-brand-gray-dark;
+@code-bg:                     #eee;
+
+// Footer
+@footer-text-color:       @nats-brand-gray;
+@footer-link-hover:       @nats-brand-secondary;
+@footer-link:             @nats-brand-secondary;
+
+// #############################################################################
+
+// General Styles
+html {
+  background-color: @nats-brand-gray-light;
+}
+body {
+  background-color: #fff;
+  padding-top: 120px;
+  font-size: 16px;
+
+  #main-con {
+    margin-bottom: 30px;
+  }
+}
+// Anchor fix for sticky header
+a[name]:before {
+  display: block;
+  content: " ";
+  margin-top: -85px;
+  height: 85px;
+  visibility: hidden;
+}
+
+// Tables
+table {
+  .table();
+  .table-striped();
+}
+
+// Navbar
+nav.navbar-default {
+  .navbar-brand {
+    padding: 0px 0px 0px 0px;
+    margin-right: 30px;
+    &:hover {
+      background-color: @navbar-default-brand-hover-color;
+    }
+    img {
+      height: 100%;
+    }
+  }
+  ul.navbar-nav {
+    font-size: 18px;
+    li {
+      a {
+        //text-transform: uppercase;
+      }
+      .dropdown-menu {
+        font-size: 14px;
+        .dropdown-header {
+          font-size: 14px;
+          color: @nats-brand-gray;
+        }
+        .divider {
+          background-color: @nats-brand-gray-dark;
+        }
+      }
+      @media (min-width: @screen-md-min) {
+        a {
+          padding: 33px 0px 12px 0px;
+          margin: 0px 15px 20px;
+        }
+        a:hover, a:active, a:focus, &.active a {
+          outline: 0;
+          border-bottom: 1px solid #fff;
+          padding: 33px 0px 12px 0px;
+          margin: 0px 15px 20px;
+        }
+      }
+      @media (max-width: @screen-md-min) {
+        a:hover, a:active, a:focus, &.active a, &.active a:hover {
+          outline: 0;
+          background-color: lighten(@nats-brand-primary, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Left Nav
+#left-nav-con {
+  ul.sub-menu {
+    li {
+      &.main-menu-item {
+        margin-bottom: 15px;
+      }
+      a.main-menu-item-title {
+        color: @nats-brand-primary;
+      }
+      &.active {
+        a.main-menu-item-title {
+          font-weight: bold;
+          color: @nats-brand-primary;
+        }
+      }
+
+      ul {
+        padding: 2px 0px 20px 0px;
+        li {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &.active {
+            font-weight: bold;
+
+            a {
+
+            }
+          }
+          a {
+
+          }
+        }
+      }
+    }
+  }
+}
+
+// Homepage
+#performance-graph {
+  a.graph-con {
+    display: block;
+    text-align: center;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+#quote-carousel-con {
+  padding: 60px 20px;
+  position: relative;
+
+  #quote-carousel {
+    position: static;
+
+    ul.carousel-inner {
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        .quote-con{
+          height: 275px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          .quote-inner {
+            text-align: center;
+            p {
+                margin-bottom: 15px;
+            }
+            a.quote-logo {
+              width: 90px;
+              display: block;
+              margin: 0 auto;
+              margin-bottom: 15px;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+          // Breakpoint adjustments for quotes
+          @media (max-width: @screen-xs-max) {
+            height: 500px;
+          }
+          @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+            height: 325px;
+          }
+          @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+            height: 325px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Community
+#community-page {
+  .community-notice-panel {
+    text-align: center;
+  }
+}
+
+// Downloads
+#download-page {
+
+  ul.download-list {
+    li {
+      h3,h4,h5 {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+// Support
+table#support-table {
+  thead {
+    background: @nats-brand-primary;
+    color: #fff;
+    tr {
+      th {
+        border: none;
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+
+    tr {
+      td:first-child {
+        background: @nats-brand-gray-light;
+      }
+      td:nth-child(2),
+      td:nth-child(3) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Documentation
+
+
+// Footer
+footer {
+  background-color: @nats-brand-gray-light;
+  color: @footer-text-color;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  .container {
+
+  }
+
+  .copyright {
+    font-size: 14px;
+  }
+  .supported {
+    text-transform: uppercase;
+  }
+}

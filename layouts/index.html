@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    {{ if .Site.Params.leftNav }}
+    <div id="left-nav-con" class="col-md-3">
+      {{ partial "side-menu.html" . }}
+    </div>
+    {{ end }}
+    <div class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
+      {{ range .Data.Pages }}
+          {{if eq .Type "index" }}
+              {{.Content}}
+          {{end}}
+      {{ end }}
+
+      {{ partial "quick-view.html" . }}
+      <hr>
+      {{ partial "performance.html" . }}
+      <hr>
+      {{ partial "quotes.html" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
