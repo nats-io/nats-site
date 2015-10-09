@@ -19,9 +19,9 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 
 ## NATS protocol conventions
 
-**Subject names**: Subject names, including reply subject (INBOX) names, must be alphanumeric strings with no embedded whitespace, but may be delimited by dots or hyphens, e.g.:
+**Subject names**: Subject names, including reply subject (INBOX) names, are case-insensitive and must be alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
 
-`FOO`, `BAR`, `FOO-BAR`, `FOO.BAR` and `FOO.BAR.BAZ` are valid subject names
+`FOO`, `BAR`, `foo.bar`, `foo.BAR`, `FOO.BAR` and `FOO.BAR.BAZ` are all valid subject names
 
 **Wildcards**: NATS supports the use of wildcards in subject subscriptions.
 
@@ -31,7 +31,7 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 For example, the wildcard subscriptions `foo.*.quux` and `foo.>` both match `foo.bar.quux`, but only the latter matches `foo.bar.baz`.  With the full wildcard,
 it is also possible to express interest in every single topic that is occurring on NATS: `sub > 1`.
 
-**Delimiters**: The fields of NATS protocol messages are delimited by whitespace (i.e. space or tab).
+**Field Delimiters**: The fields of NATS protocol messages are delimited by whitespace (such as `SPACE` or `TAB(\t)`). Multiple whitespace characters will be treated as a single field delimiter.
 
 **Newlines**: Like other text-based protocols, NATS uses `CR+LF` (i.e. `\r\n`) to terminate protocol messages. The only other place that a newline may appear is immediately prior to, or embedded within, the message payload in a `PUB` or `MSG`protocol message.
 
@@ -52,7 +52,7 @@ The following table briefly describes the NATS protocol messages. Click the name
 | [`UNSUB`](#UNSUB)    | Client         | Unsubscribe (or auto-unsubscribe) from subject
 | [`MSG`](#MSG)        | Server         | Delivers a message payload to a subscriber
 | [`PING`](#PINGPONG)  | Both           | PING keep-alive message
-| [`PONG`](#PONGPONG)  | Both           | PONG keep-alive response
+| [`PONG`](#PINGPONG)  | Both           | PONG keep-alive response
 | [`+OK`](#OKERR)      | Both           | Acknowledges well-formed protocol message in `verbose` mode
 | [`-ERR`](#OKERR)     | Both           | Indicates a protocol error. Will cause client disconnect.
 
@@ -60,20 +60,13 @@ The following table briefly describes the NATS protocol messages. Click the name
 
 The following sections explain each protocol message.
 
-## INFO <a name="INFO" style='position:relative; top:-90px;'>&nbsp;</a>
+## INFO <a name="INFO"></a>
 
-As soon as the server accepts a connection from the client, it will send information about itself. Below you can see a sample connection string from a telnet connection to the `demo.nats.io` site.
+### Syntax
 
-```
-telnet demo.nats.io 4222
+`INFO {["option_name":option_value],...}`
 
-Trying 107.170.221.32...
-Connected to demo.nats.io.
-Escape character is '^]'.
-INFO {"server_id":"1ec445b504f4edfb4cf7927c707dd717","version":"0.6.6","go":"go1.4.2","host":"0.0.0.0","port":4222,"auth_required":false,"ssl_required":false,"max_payload":1048576}
-```
-
-Among the array of INFO parameters, you will find the following important parameters:
+The valid options are as follows:
 
 * `server_id`: The unique identifier of the NATS server
 * `version`: The version of the NATS server
@@ -84,16 +77,30 @@ Among the array of INFO parameters, you will find the following important parame
 * `ssl_required`: If this is set, then the client must authenticate using SSL.
 * `max_payload`: Maximum payload size that the server will accept from the client.
 
-## CONNECT <a name="CONNECT" style='position:relative; top:-90px;'>&nbsp;</a>
+### Description
+
+As soon as the server accepts a connection from the client, it will send information about itself and the configuration and security requirements that are necessary for the client to successfully authenticate with the server and exchange messages. 
+
+### Example
+
+Below you can see a sample connection string from a telnet connection to the `demo.nats.io` site.
+
+```
+telnet demo.nats.io 4222
+
+Trying 107.170.221.32...
+Connected to demo.nats.io.
+Escape character is '^]'.
+INFO {"server_id":"1ec445b504f4edfb4cf7927c707dd717","version":"0.6.6","go":"go1.4.2","host":"0.0.0.0","port":4222,"auth_required":false,"ssl_required":false,"max_payload":1048576}
+```
+
+## CONNECT <a name="CONNECT"></a>
 
 ### Syntax
 
 `CONNECT {["option_name":option_value],...}`
 
-### Description
-The `CONNECT` message is analogous to the `INFO` message. Once the client has established a TCP/IP socket connection with the NATS server, and an `INFO` message has been received from the server, the client may send a `CONNECT` message to the NATS server to provide more information about the current connection as well as security information.
-
-The valid parameters are as follows:
+The valid options are as follows:
 
 * `verbose`: Turns on [`+OK`](#OKERR) protocol acknowledgements.
 * `pedantic`: Turns on additional strict format checking, e.g. for properly formed subjects
@@ -105,6 +112,8 @@ The valid parameters are as follows:
 * `lang`: The implementation language of the client.
 * `version`: The version of the client.
 
+### Description
+The `CONNECT` message is analogous to the `INFO` message. Once the client has established a TCP/IP socket connection with the NATS server, and an `INFO` message has been received from the server, the client may send a `CONNECT` message to the NATS server to provide more information about the current connection as well as security information.
 
 ### Example
 Here is an example from the default string of the Go client:
@@ -115,7 +124,7 @@ CONNECT {"verbose":false,"pedantic":false,"ssl_required":false,"name":"","lang":
 
 Most clients set `verbose` to `false` by default. This means that  that the server will not be sending an `+OK` payload back to the client after the server ingested the message.
 
-## PUB <a name="PUB" style='position:relative; top:-90px;'>&nbsp;</a>
+## PUB <a name="PUB"></a>
 
 ### Syntax
 `PUB <subject> [reply-to] <#bytes>\r\n[payload]\r\n`
@@ -144,7 +153,7 @@ To publish an empty message to subject NOTIFY:
 
 `PUB NOTIFY 0\r\n\r\n`
 
-## SUB <a name="SUB" style='position:relative; top:-90px;'>&nbsp;</a>
+## SUB <a name="SUB"></a>
 
 ### Syntax
 `SUB <subject> [queue group] <sid>\r\n`
@@ -169,7 +178,7 @@ To subscribe the current connection to the subject `BAR` as part of distribution
 
 `SUB BAR G1 44\r\n`
 
-## UNSUB <a name="UNSUB" style='position:relative; top:-90px;'>&nbsp;</a>
+## UNSUB <a name="UNSUB"></a>
 
 ### Syntax
 
@@ -194,7 +203,7 @@ To auto-unsubscribe from `FOO` after 5 messages have been received:
 
 `UNSUB 1 5\r\n`
 
-## MSG <a name="MSG" style='position:relative; top:-90px;'>&nbsp;</a>
+## MSG <a name="MSG"></a>
 
 ### Syntax
 
@@ -222,7 +231,7 @@ Deliver the same message along with a reply inbox:
 
 `MSG FOO.BAR 9 INBOX.34 11\r\nHello World\r\n`
 
-## PING/PONG <a name="PINGPONG" style='position:relative; top:-90px;'>&nbsp;</a>
+## PING/PONG <a name="PINGPONG"></a>
 
 ### Description
 
@@ -243,7 +252,7 @@ Connection closed by foreign host.
 
 If the server sends a ping request, you can reply with a pong message to notify the server that you are still interested. You can also ping the server and will receive a pong reply. The ping/pong interval is configurable.
 
-## +OK/ERR <a name="OKERR" style='position:relative; top:-90px;'>&nbsp;</a>
+## +OK/ERR <a name="OKERR"></a>
 
 ### Syntax
 

@@ -1,9 +1,9 @@
 +++
-title = "FAQs"
+title = "FAQ"
 category = "concepts"
 showChildren=true
 [menu.main]
-  name = "FAQs"
+  name = "FAQ"
   weight = 0
   identifier = "faq"
   parent = "getting started"
