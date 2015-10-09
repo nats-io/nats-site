@@ -31,7 +31,7 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 For example, the wildcard subscriptions `foo.*.quux` and `foo.>` both match `foo.bar.quux`, but only the latter matches `foo.bar.baz`.  With the full wildcard,
 it is also possible to express interest in every single topic that is occurring on NATS: `sub > 1`.
 
-**Field Delimiters**: The fields of NATS protocol messages are delimited by whitespace (space ` ` or tab (`\t`). Multiple whitespace characters will be treated as a single field delimiter.
+**Field Delimiters**: The fields of NATS protocol messages are delimited by whitespace characters '` `' (space)  or `\t` (tab). Multiple whitespace characters will be treated as a single field delimiter.
 
 **Newlines**: Like other text-based protocols, NATS uses `CR` followed by `LF` (`CR+LF`, `\r\n`, `0x0D0A`) to terminate protocol messages. This newline sequence is also used to mark the beginning of the actual message payload in a `PUB` or `MSG`protocol message. 
 
