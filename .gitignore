@@ -1,0 +1,11 @@
+# General
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# HUGO
+/public
+
+# Node
+node_modules
+npm-debug.log

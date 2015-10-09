@@ -1,0 +1,9 @@
+baseurl = "http://nats.io/"
+languageCode = "en-us"
+title = "NATS by Apcera"
+
+[params]
+  leftNav = false
+  description = "NATS - NATS was created as a central nervous system for cloud native and distributed systems, and provides the foundation for modern, reliable, and scalable cloud and distributed systems."
+  author = "The NATS team"
+  mainMenu=[ "home", "download", "clients", "documentation", "support", "community" ]

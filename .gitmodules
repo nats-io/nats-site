@@ -1,0 +1,3 @@
+[submodule "themes/nats"]
+	path = themes/nats
+	url = git@github.com:nats-io/nats-theme.git
