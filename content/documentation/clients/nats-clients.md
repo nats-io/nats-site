@@ -20,6 +20,7 @@ There are several open source client libraries for NATS from which you can choos
 - [Go client](https://github.com/nats-io/nats)
 - [Node.js client](https://github.com/nats-io/node-nats)
 - [Ruby client](https://github.com/nats-io/ruby-nats)
+- [Nginx C client](https://github.com/nats-io/nginx-nats)
 
 ## Community clients
 
