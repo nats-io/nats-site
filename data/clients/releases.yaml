@@ -62,6 +62,30 @@ Releases:
   docs:
     - file: repos/derekcollison-ruby-nats/README.md
 
+- name: C
+  type: supported client
+  version_num: 0.0.0
+  repo_url: https://github.com/nats-io/cnats
+  release_notes: |
+    Release 0.1.5-alpha on October 9, 2015.
+  downloads:
+    - name: Source
+      url: https://github.com/nats-io/cnats/archive/v0.1.5-alpha.zip
+    - name: View on GitHub
+      url: https://github.com/nats-io/cnats
+  has_docs: false
+
+- name: NGINX
+  type: supported client
+  version_num: 0.0.0
+  repo_url: https://github.com/nats-io/nginx-nats
+  release_notes: |
+    Last updated August 18, 2015.
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/nginx-nats
+  has_docs: false
+  
 - name: Haskell
   type: external client
   version_num: 0.0.0
@@ -116,19 +140,6 @@ Releases:
       url: https://github.com/DawnAngel/lua-nats
   docs:
     - file: repos/lua-nats/README.md
-
-- name: Nginx
-  type: external client
-  version_num: 0.0.0
-  repo_url: https://github.com/nats-io/nginx-nats
-  release_notes: |
-    Last updated June 19, 2015.
-  downloads:
-    - name: View on GitHub
-      url: https://github.com/nats-io/nginx-nats
-  has_docs: true
-  docs:
-    - file: repos/nginx-nats/README.md
 
 - name: PHP
   type: external client
