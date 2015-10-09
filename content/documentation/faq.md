@@ -70,7 +70,7 @@ There are several options available, thanks to the active NATS community:
 
 * [nats-mon](https://github.com/repejota/nats-mon) is a monitoring tool developed by Raül Pérez and Adrià Cidre.
 
-A more detailed overview of monitoring is available in the [monitoring section](/server/gnatsd-monitor-debug/).
+A more detailed overview of monitoring is available under [Server Monitoring](/documentation/server/gnatsd-monitoring/).
 
 ### <a name="queuegroups"></a>Does NATS do queuing? Does NATS do load balancing?
 
@@ -82,18 +82,18 @@ This form of distributed queueing is done in real time, and messages are not per
 
 NATS maintains and constantly updates the interest graph (subjects and their subscribers) in real time. Do not think of it as a "directory" that is aggregated over time. The interest graph dynamic, and will change constantly as publishers and subscribers come and go.
 
-If you are determined to gather this information, it can indirectly derived at any instant in time by polling the monitoring endpoint for /connz and /routez. See the [monitoring section](/server/gnatsd-monitor-debug/)for more information.
+If you are determined to gather this information, it can be indirectly derived at any instant in time by polling the monitoring endpoint for /connz and /routez. See [Server Monitoring](/documentation/server/gnatsd-monitoring/) for more information.
 
 ### <a name="wildcards"></a>Does NATS support subject wildcards?
 
 Yes. The valid wildcards are as follows:
 
-`'.'` is the token separator.
+The dot character `'.'` is the token separator.
 
-`'*'` is a token wildcard match.
+The asterisk character `'*'` is a token wildcard match.
 
  	e.g foo.* matches foo.bar, foo.baz, but not foo.bar.baz.
-`'>'` is a full wildcard match.
+The greater-than symbol `'>'` is a full wildcard match.
 
 	e.g. foo.> matches foo.bar, foo.baz, foo.bar.baz, foo.bar.1, etc.
 
