@@ -62,7 +62,6 @@ git submodule foreach git pull origin master
 
 Build the site and start the server:
 ```
-cd site/
 hugo server -w --port=1414 --theme=nats --buildDrafts
 ```
 
