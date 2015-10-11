@@ -1,16 +1,42 @@
 # NATS documentation
 
-NATS documentation is a work in progress. This repository will be open sourced at nats-io once a baseline set of content is created.
+This repository contains the source content for http://nats.io/documentation.
+The [nats.io](http://nats.io) website is built from Markdown content using [Hugo](gohugo.io), a static site generator written in [Go](http://golang.org/).
 
-- NATS Concepts
-- NATS Server
-- NATS Clients
-- NATS Internals
-- NATS Tutorials
+This documentation repository and the [main repository for the nats.io site](github.com/nats-io/nats-site) share a [common CSS theme submodule](http://github.com/nats-io/nats-theme/).
 
-## Adding documentation
+## Contributing content
 
-Each page added needs a header like the following:
+We view this project as a perpetual work in progress that can greatly benefit from and be enriched by the knowledge, wisdom and experience of our community.
+ 
+We follow the standard Fork-and-Branch GitHub workflow.
+If you're not familiar with this process, please refer to either of the following excellent guides:
+
+- ['Forking Projects' GitHub Guide](https://guides.github.com/activities/forking/)
+- ['Fork a Repo' GitHub Help article](https://help.github.com/articles/fork-a-repo/)
+
+We welcome and will review and discuss with you any contributions or corrections submitted via GitHub Pull Request.
+
+
+### Content Organization
+
+The NATS documentation is a collection of Markdown articles located in `nats-docs/content and organized into the following categories/subdirectories:
+
+
+| Category        | Subirectory
+|-----------------|----------------
+| Getting Started | `documentation` 
+| Clients         | `documentation/clients`
+| Concepts        | `documentation/concepts`
+| Internals       | `documentation/internals`
+| Tutorials       | `documentation/tutorials`
+
+
+The Markdown documents contained in these directories are assembled by Hugo and listed in their respective categories in a navigation menu at the left side of every page. 
+
+### Adding pages
+
+Any new page should be a Markdown document placed in the appropriate directory. Each page added needs a header like the following:
 
 ```
 +++
@@ -27,54 +53,36 @@ weight = 1
 - Weight: When listing pages it signifies its importance and where it should land in the list.
 - Description: Optional
 
-## Local Development
+### Adding categories
 
-Install HUGO:
-```
-go get -u -v github.com/spf13/hugo
-```
+Modify `nats-docs/config.toml` to add the category and its weight (list position) to menu.main:
 
-Clone repository:
 ```
-git clone git@github.com:nats-io/nats-docs.git
-```
-
-Change to the directory:
-```
-cd nats-docs/
-```
-
-Get NATS theme:
-```
-git submodule init
-```
-
-Next you need to pull in the theme submodule.
-
-For the first time:
-```
-git submodule update
-```
-Or, to update to the latest if it has changed since first pulling it in:
-```
-git submodule foreach git pull origin master
-```
-
-Build the site and start the server:
-```
-hugo server -w --port=1414 --theme=nats --buildDrafts
-```
-
-## Deploy
-Will build the site without live reload and make ready for production.
-```
-hugo --theme=nats --buildDrafts
+[[menu.main]]
+  name = "getting started"
+  weight = 0
+[[menu.main]]
+  name = "clients"
+  weight = 1
+[[menu.main]]
+  name = "concepts"
+  weight = 2
+[[menu.main]]
+  name = "internals"
+  weight = 3
+[[menu.main]]
+  name = "server"
+  weight = 4
+[[menu.main]]
+  name = "tutorials"
+  weight = 5
 ```
 
 ## Style guidelines and conventions for documentation
 
-- Use topic-based files and titling
+- Use topic-based files and titles
 - Use only headers 1 (#), 2 (##) and 3 (###)
+- Use single spaces to separate sentences
 - Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
 	- Links: `[NATS](http://nats.io/)`
 	- Cross references: `[client libraries](/documentation/clients/nats-clients/)`
@@ -83,24 +91,50 @@ hugo --theme=nats --buildDrafts
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
 - Graphics: save as *.png; source in /content/documentation/img/nats-img-src.graffle
 
-## Contributing content
+## Checking your work
 
-1) Clone the repo: `git clone git@github.com:nats-io/nats-docs.git`.
+To make sure your changes render correctly, you can build and preview the site on your local system using Hugo. 
+The great thing about Hugo is that it detects content updates and will re-render the Markdown to HTML in real time.
+This means that as you save your edits, 
 
-2) CD to nats-docs directory.
 
-3) Update local repo with latest changes: `git pull origin master`.
+###Install HUGO:
+**Note 1:** On OS X, if you have [Homebrew](http://brew.sh), installation is even easier: just run `brew install hugo`.
 
-4) Create local branch: `git checkout -b <local-branch-name>` .
 
-5) Make your changes/additions to using markdown.
+**Note 2:** Hugo requires Go 1.4+. If Go is not already installed on your system, you can [get it here](https://golang.org/dl/).
 
-6) Run `git status` to see the changes.
+Now install Hugo:
+```
+go get -u -v github.com/spf13/hugo
+```
 
-7) Run `git add .` to add the files to the commit.
+Clone your forked copy of the repository:
+```
+git clone git@github.com:<YOUR GIT USERNAME>/nats-docs.git
+```
 
-8) Commit the changes: `git commit -a -m “my commit message”`.
+Change to the directory:
+```
+cd nats-docs/
+```
 
-9) Push changes to github: `git push -u origin <local-branch-name>`.
+Initialize the nats-theme submodule:
+```
+git submodule init
+```
 
-9) Go to GitHub.com, do a PR, and tag (`@`) people to review.
+If this is the first time, pull in the nats-theme submodule:
+
+```
+git submodule update
+```
+Or, if the linked nats-theme submodule (repo) has changed since first pulling it in:
+```
+git submodule foreach git pull origin master
+```
+
+Build the site and start the server:
+```
+hugo server -w --port=1414 --theme=nats --buildDrafts
+```
