@@ -15,7 +15,8 @@ If you're not familiar with this process, please refer to either of the followin
 - ['Forking Projects' GitHub Guide](https://guides.github.com/activities/forking/)
 - ['Fork a Repo' GitHub Help article](https://help.github.com/articles/fork-a-repo/)
 
-We welcome and will review and discuss with you any contributions or corrections submitted via GitHub Pull Request.
+We encourage and welcome your contributions. 
+We will review and discuss with you any contributions or corrections submitted via GitHub Pull Request.
 
 
 ### Content Organization
@@ -94,8 +95,7 @@ Modify `nats-docs/config.toml` to add the category and its weight (list position
 ## Checking your work
 
 To make sure your changes render correctly, you can build and preview the site on your local system using Hugo. 
-The great thing about Hugo is that it detects content updates and will re-render the Markdown to HTML in real time.
-This means that as you save your edits, 
+One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will re-render the Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
 
 
 ###Install HUGO:
