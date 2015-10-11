@@ -85,7 +85,7 @@ Releases:
     - name: View on GitHub
       url: https://github.com/nats-io/nginx-nats
   has_docs: false
-  
+
 - name: Haskell
   type: external client
   version_num: 0.0.0
@@ -143,13 +143,13 @@ Releases:
 
 - name: PHP
   type: external client
-  version_num: 0.1.2
-  repo_url: https://github.com/tyagihas/java_nats
+  version_num: 0.4.0
+  repo_url: https://github.com/repejota/phpnats
   release_notes: |
-    Last updated to v0.1.2 on October 1, 2015.
+    Last updated to v0.4.0 on October 11, 2015.
   downloads:
     - name: Source
-      url: https://github.com/repejota/phpnats/archive/0.1.2.tar.gz
+      url: https://github.com/repejota/phpnats/archive/0.4.0.tar.gz
     - name: View on GitHub
       url: https://github.com/repejota/phpnats
   docs:
