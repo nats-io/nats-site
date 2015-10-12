@@ -1,7 +1,7 @@
 # nats.io
 
 This repository contains the source content for http://nats.io.
-The [nats.io](http://nats.io) website is built from Markdown content using [Hugo](gohugo.io), a static site generator written in [Go](http://golang.org/).
+The [nats.io](http://nats.io) website is built from raw HTML and Markdown content using [Hugo](gohugo.io), a static site generator written in [Go](http://golang.org/).
 
 This repository and the [documentation repository for the nats.io site](github.com/nats-io/nats-docs) share a [common CSS theme submodule](http://github.com/nats-io/nats-theme/).
 
@@ -21,12 +21,12 @@ We will review and discuss with you any contributions or corrections submitted v
 
 ### Content Organization
 
-The basic organization of the site is very simple, with each top navigation link corresponding to a single Markdown file in the `nats-site/content` directory. 
-The Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
+The basic organization of the site is very simple, with each top navigation link corresponding to a single HTML or Markdown file in the `nats-site/content` directory. 
+The HTML documents and any Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
 
 ### Adding pages
 
-Any new page should be a Markdown document placed in the appropriate directory. Each page added needs a header like the following:
+Any new page should be a raw HTML or Markdown document placed beneath the `content` directory. Each page added needs a header like the following:
 
 ```
 +++
@@ -53,15 +53,15 @@ title = "NATS by Apcera"
 ```
 
 
-## Style guidelines and conventions for documentation
+## Style guidelines and conventions for Markdown
 
 - Use topic-based files and titles
 - Use only headers 1 (#), 2 (##) and 3 (###)
 - Use single spaces to separate sentences
 - Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
 	- Links: `[NATS](http://nats.io/)`
-	- Cross references: `[client libraries](/documentation/clients/nats-clients/)`
-	- Images: `![drawing](/documentation/img/nats-msg.png)`
+	- Cross references: `[Clients](/clients/)`
+	- Images: `![drawing](/img/nats-msg.png)`
 - Triple ticks for code, commands to run, user operations, input/output
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
 - Graphics: save as *.png; source in /content/documentation/img/nats-img-src.graffle
@@ -69,7 +69,7 @@ title = "NATS by Apcera"
 ## Checking your work
 
 To make sure your changes render correctly, you can build and preview the site on your local system using Hugo. 
-One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will re-render the Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
+One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will render Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
 
 
 ###Install HUGO:
