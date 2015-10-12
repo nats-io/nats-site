@@ -78,7 +78,7 @@ NATS provides the following unique features:
 	- If a client app is slow consuming messages, NATS will cut off the client.
 	- If a client is not responsive within the ping-pong interval, the server cuts it off.
 	- Clients implement retry logic.
-- [Test-based protocol](/documentation/internals/nats-protocol/)
+- [Text-based protocol](/documentation/internals/nats-protocol/)
 	- Makes it easy to get started with new clients.
 	- Does not affect server performance.
 	- Can [Telnet](https://en.wikipedia.org/wiki/Telnet) directly to the server and send messages across the wire.
