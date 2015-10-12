@@ -64,7 +64,7 @@ title = "NATS by Apcera"
 	- Images: `![drawing](/img/nats-msg.png)`
 - Triple ticks for code, commands to run, user operations, input/output
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
-- Graphics: save as *.png; source in /content/documentation/img/nats-img-src.graffle
+- Graphics: save as *.png; source in /src/img/nats-brokered-throughput-comparison.png
 
 ## Checking your work
 
