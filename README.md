@@ -1,7 +1,7 @@
 # nats.io
 
 This repository contains the source content for http://nats.io.
-The [nats.io](http://nats.io) website is built from raw HTML and Markdown content using [Hugo](gohugo.io), a static site generator written in [Go](http://golang.org/).
+The [nats.io](http://nats.io) website is based on the [Bootstrap](http://getbootstrap.com) framework, and built from raw HTML and Markdown content using [Hugo](gohugo.io), a static site generator written in [Go](http://golang.org/).
 
 This repository and the [documentation repository for the nats.io site](github.com/nats-io/nats-docs) share a [common CSS theme submodule](http://github.com/nats-io/nats-theme/).
 
@@ -53,7 +53,9 @@ title = "NATS by Apcera"
 ```
 
 
-## Style guidelines and conventions for Markdown
+## Style guidelines and conventions 
+
+### Markdown
 
 - Use topic-based files and titles
 - Use only headers 1 (#), 2 (##) and 3 (###)
@@ -65,6 +67,14 @@ title = "NATS by Apcera"
 - Triple ticks for code, commands to run, user operations, input/output
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
 - Graphics: save as `*.png`; source in `/src/img/nats-brokered-throughput-comparison.png`
+
+### Everything else
+
+The site is based on the [Bootstrap](http://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast --just like NATS!
+Please keep these principles in mind as you design new content for the [nats.io](http://nats.io) site. 
+
+For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](http://getbootstrap.com).
+
 
 ## Checking your work
 
