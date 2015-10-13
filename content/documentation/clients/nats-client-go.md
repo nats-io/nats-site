@@ -19,7 +19,7 @@ category = "clients"
 To install the Go client library for NATS:
 
 ```
-go get github.com/apcera/nats
+go get github.com/nats-io/nats
 ```
 
 ## Go client demos

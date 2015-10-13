@@ -29,7 +29,7 @@ Check out the tutorial [Develop Go Clients for NATS](/documentation/tutorials/na
 
 ## Client connection options
 
-Client can connect in authenticated or unauthenticated mode, as well as verbose mode. See the protocol documentation for details.
+Clients can connect in authenticated or unauthenticated mode, as well as verbose mode which enables acknowledgements. See the [protocol documentation](/internals/nats-protocol/#CONNECT) for details.
 
 ## Client authorization
 
