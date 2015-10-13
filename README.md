@@ -70,8 +70,8 @@ title = "NATS by Apcera"
 
 ### Everything else
 
-The site is based on the [Bootstrap](http://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast --just like NATS!
-Please keep these principles in mind as you design new content for the [nats.io](http://nats.io) site. 
+The site is based on the [Bootstrap](http://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
+Please keep these principles in mind as you modify existing content or design new content for the [nats.io](http://nats.io) site. 
 
 For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](http://getbootstrap.com).
 
