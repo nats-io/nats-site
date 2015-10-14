@@ -124,9 +124,6 @@ nav.navbar-default {
   ul.navbar-nav {
     font-size: 18px;
     li {
-      a {
-        //text-transform: uppercase;
-      }
       .dropdown-menu {
         font-size: 14px;
         .dropdown-header {
@@ -141,12 +138,14 @@ nav.navbar-default {
         a {
           padding: 33px 0px 12px 0px;
           margin: 0px 15px 20px;
+
         }
         a:hover, a:active, a:focus, &.active a {
           outline: 0;
           border-bottom: 1px solid #fff;
           padding: 33px 0px 12px 0px;
           margin: 0px 15px 20px;
+
         }
       }
       @media (max-width: @screen-md-min) {
@@ -154,8 +153,37 @@ nav.navbar-default {
           outline: 0;
           background-color: lighten(@nats-brand-primary, 10%);
         }
+        &.active, &.open {
+          a.main-item,
+          a.main-item:hover {
+            background-color: lighten(@nats-brand-primary, 10%);
+          }
+        }
+        &.active, &.open {
+          ul {
+            li.active {
+              a.sub-item {
+                background-color: lighten(@nats-brand-primary, 10%);
+                &:hover, &:active, &:focus {
+                  background-color: lighten(@nats-brand-primary, 10%);
+                }
+              }
+            }
+          }
+          a.sub-item {
+            background-color: transparent;
+            &:hover, &:active, &:focus {
+              background-color: lighten(@nats-brand-primary, 10%);
+            }
+          }
+        }
+        a.sub-item:hover {
+          background-color: lighten(@nats-brand-primary, 10%);
+        }
       }
+
     }
+
   }
 }
 
