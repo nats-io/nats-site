@@ -63,39 +63,33 @@
           {{ $onDocs := .Site.Params.leftNav }}
           {{ if isset .Site.Params "mainMenu" }}
           {{ $currentUrl := .Permalink }}
+          {{ $currentNode := . }}
           <ul class="nav navbar-nav navbar-right">
             {{ range $item := .Site.Params.mainMenu }}
             {{ $itemUrl := printf "%s%s/" $baseUrl $item }}
-
             {{ if and ( eq $item "documentation" ) ( $onDocs ) }}
-            <li class="hidden-xs hidden-sm" {{ if eq $currentUrl $itemUrl }}class="active"{{ end }}><a href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
-            <li class="dropdown hidden-md hidden-lg">
-              <a href="/documentation" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ title $item }} <span class="caret"></span></a>
+
+            <li class="hidden-xs hidden-sm{{ if eq $currentUrl $itemUrl }} active{{ end }}"><a class="main-item" href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
+            <li class="dropdown hidden-md hidden-lg {{ if eq $currentUrl $itemUrl }} active{{ end }}">
+              <a class="main-item" href="/documentation" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ title $item }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 {{ range $mainMenu }}
                 {{ if ne .Identifier "documentation" }}
-
-                {{ if .URL }}
-                <li><a href="{{ .URL }}">{{.Name}}</a></li>
-                {{ else }}
                 <li class="dropdown-header">{{ title .Name }}</li>
-                {{ end }}
 
                 {{ range .Children }}
                 {{ if ne .Identifier ""}}
-
-                <li><a href="{{ .URL }}">{{.Name}}</a></li>
-
+                <li class="{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} active{{ end }}"><a class="sub-item" href="{{ .URL }}">{{.Name}}</a></li>
                 {{ end }}
                 {{ end }}
+
                 <li role="separator" class="divider"></li>
-
                 {{ end }}
                 {{ end }}
               </ul>
             </li>
             {{ else }}
-            <li {{ if eq $currentUrl $itemUrl }}class="active"{{ end }}><a href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
+            <li class="{{ if eq $currentUrl $itemUrl }} active{{ end }}"><a class="main-item" href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
             {{ end }}
             {{ end }}
           </ul>
