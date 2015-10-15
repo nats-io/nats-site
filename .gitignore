@@ -5,6 +5,7 @@ ehthumbs.db
 
 # HUGO
 /public
+/themes/*
 
 # Node
 node_modules
