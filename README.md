@@ -17,13 +17,16 @@ Change to the directory
 cd nats-site/
 ```
 
-Get NATS theme
-```
-git submodule init
-```
+Get the NATS HUGO theme
 
-Next you need to pull in the theme submodule:
-`git submodule update` for the first time, or `git submodule foreach git pull origin master` for updating it to the latest if it's changed since first pulling it in.
+If you you want to modify the NATS theme, fork the [NATS theme](https://github.com/nats-io/nats-theme), then `git clone` your forked repository.
+```
+git clone git@github.com:YOUR-USERNAME/nats-theme.git themes/nats
+```
+If you just want the theme for presentation while you make changes, you can just clone the [NATS theme](https://github.com/nats-io/nats-theme) directly.
+```
+git clone git@github.com:nats-io/nats-theme.git  themes/nats
+```
 
 Build the site and start the server:
 ```
