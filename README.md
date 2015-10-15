@@ -8,14 +8,14 @@ This documentation repository and the [main repository for the nats.io site](git
 ## Contributing content
 
 We view this project as a perpetual work in progress that can greatly benefit from and be enriched by the knowledge, wisdom and experience of our community.
- 
+
 We follow the standard Fork-and-Branch GitHub workflow.
 If you're not familiar with this process, please refer to either of the following excellent guides:
 
 - ['Forking Projects' GitHub Guide](https://guides.github.com/activities/forking/)
 - ['Fork a Repo' GitHub Help article](https://help.github.com/articles/fork-a-repo/)
 
-We encourage and welcome your contributions. 
+We encourage and welcome your contributions.
 We will review and discuss with you any contributions or corrections submitted via GitHub Pull Request.
 
 
@@ -26,14 +26,14 @@ The NATS documentation is a collection of Markdown articles located in `nats-doc
 
 | Category        | Subirectory
 |-----------------|----------------
-| Getting Started | `documentation` 
+| Getting Started | `documentation`
 | Clients         | `documentation/clients`
 | Concepts        | `documentation/concepts`
 | Internals       | `documentation/internals`
 | Tutorials       | `documentation/tutorials`
 
 
-The Markdown documents contained in these directories are assembled by Hugo and listed in their respective categories in a navigation menu at the left side of every page. 
+The Markdown documents contained in these directories are assembled by Hugo and listed in their respective categories in a navigation menu at the left side of every page.
 
 ### Adding pages
 
@@ -94,7 +94,7 @@ Modify `nats-docs/config.toml` to add the category and its weight (list position
 
 ## Checking your work
 
-To make sure your changes render correctly, you can build and preview the site on your local system using Hugo. 
+To make sure your changes render correctly, you can build and preview the site on your local system using Hugo.
 One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will re-render the Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
 
 
@@ -119,19 +119,15 @@ Change to the directory:
 cd nats-docs/
 ```
 
-Initialize the nats-theme submodule:
-```
-git submodule init
-```
+Get the NATS HUGO theme
 
-If this is the first time, pull in the nats-theme submodule:
-
+If you you want to modify the NATS theme, fork the [NATS theme](https://github.com/nats-io/nats-theme), then `git clone` your forked repository.
 ```
-git submodule update
+git clone git@github.com:YOUR-USERNAME/nats-theme.git themes/nats
 ```
-Or, if the linked nats-theme submodule (repo) has changed since first pulling it in:
+If you just want the theme for presentation while you make changes, you can just clone the [NATS theme](https://github.com/nats-io/nats-theme) directly.
 ```
-git submodule foreach git pull origin master
+git clone git@github.com:nats-io/nats-theme.git  themes/nats
 ```
 
 Build the site and start the server:
