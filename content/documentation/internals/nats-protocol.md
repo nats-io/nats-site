@@ -51,8 +51,8 @@ The following table briefly describes the NATS protocol messages. Click the name
 | [`MSG`](#MSG)        | Server         | Delivers a message payload to a subscriber
 | [`PING`](#PINGPONG)  | Both           | PING keep-alive message
 | [`PONG`](#PINGPONG)  | Both           | PONG keep-alive response
-| [`+OK`](#OKERR)      | Both           | Acknowledges well-formed protocol message in `verbose` mode
-| [`-ERR`](#OKERR)     | Both           | Indicates a protocol error. Will cause client disconnect.
+| [`+OK`](#OKERR)      | Server         | Acknowledges well-formed protocol message in `verbose` mode
+| [`-ERR`](#OKERR)     | Server         | Indicates a protocol error. Will cause client disconnect.
 
 
 
