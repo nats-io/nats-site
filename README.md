@@ -52,6 +52,16 @@ title = "NATS by Apcera"
   mainMenu=[ "home", "download", "clients", "documentation", "support", "community" ]
 ```
 
+### Adding Quotes and Logos to homepage
+To add a new quote and logo to the homepage you are going to have to modify the theme for NATS. Once you have cloned your forked theme into `theme/nats`, modify this file `themes/nats/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
+
+If you have a logo to go along with the quote, just add a full size `.jpg` or `.png` logo to `src/user_logos`. Then run the following to generate a resized version of the logo and to place it in the correct location `static/img/user_logos`. Then just link do the generated image in `static/img/user_logos` in the `themes/nats/layouts/partials/quotes.html` file.
+```
+gulp
+```
+*In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet.*
+
+***
 
 ## Style guidelines and conventions
 
