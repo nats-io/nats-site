@@ -14,7 +14,7 @@ category = "server"
 
 NATS supports running each server in clustered mode. You can cluster servers together for high volume messaging systems and resiliency and high availability. Clients are cluster-aware.
 
-Note that NATS clustered servers have a limit of one hop. Apcera recommends using a full mesh network topology.
+Note that NATS clustered servers have a forwarding limit of one hop. This means that each `gnatsd` instance will **only** forward messages that it has received **from a client** to the immediately adjacent `gnatsd` instances to which it has routes. Messages received **from** a route will only be distributed to local clients. Therefore a full mesh cluster, or complete graph, is recommended for NATS to function as intended and as described throughout the documentation. 
 
 ## Usage
 
@@ -30,12 +30,12 @@ Below is an example of how to setup gnatsd cluster using Docker.
 
 We put 3 different configurations (one per gnatsd server) under a folder named conf as follows:
 
-tree conf
-
-conf
-|-- gnatsd-A.conf
-|-- gnatsd-B.conf
-|-- gnatsd-C.conf
+```
+|-- conf
+    |-- gnatsd-A.conf
+    |-- gnatsd-B.conf
+    |-- gnatsd-C.conf
+```
 
 Each one of those files have the following content below: (Here I am using ip 192.168.59.103 as an example, so just replace with the proper ip from your server)
 
