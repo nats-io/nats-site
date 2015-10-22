@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">
+    <h3>Download it</h3>
+
+    {{ range $.Site.Data.clients }}
+    {{ range .Releases }}
+    {{ if eq .name "gnatsd" }}
+
+    <p><a href="{{ range first 1 .downloads }}{{ .url }}{{ end }}" class="btn btn-primary btn-lg">Download Source: V {{ .version_num }}</a></p>
+
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+  </div>
+  <div class="col-md-3">
+    <h3>Quick Links</h3>
+    <ul class="list-unstyled">
+      <li><a href="https://github.com/nats-io">NATS can be found on GitHub</a></li>
+      <li><a href="https://hub.docker.com/_/nats/">NATS is a Docker Official Image</a></li>
+      <li><a href="http://www.meetup.com/NATS-Cloud-Native-Meetup/">The NATS Meetup</a> group is where you can join to be informed of upcoming meetups</li>
+    </ul>
+  </div>
+</div>
