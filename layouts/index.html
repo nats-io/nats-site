@@ -13,11 +13,13 @@
           {{end}}
       {{ end }}
 
+      {{ if ne .Site.Params.leftNav true }}
       {{ partial "quick-view.html" . }}
       <hr>
       {{ partial "performance.html" . }}
       <hr>
       {{ partial "quotes.html" . }}
+      {{ end }}
     </div>
   </div>
 </div>
