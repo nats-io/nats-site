@@ -4,6 +4,6 @@ title = "NATS by Apcera"
 
 [params]
   leftNav = false
-  description = "NATS - NATS was created as a central nervous system for cloud native and distributed systems, and provides the foundation for modern, reliable, and scalable cloud and distributed systems."
+  description = "NATS acts as a central nervous system for distributed systems at scale, such as mobile devices, IoT networks, and cloud native infrastructure. Written in Go, NATS powers some of the largest cloud platforms in production today. Unlike traditional enterprise messaging systems, NATS has an always-on dial tone that does whatever it takes to remain available. NATS was created by Derek Collison, Founder/CEO of Apcera who has spent 20+ years designing, building, and using publish-subscribe messaging systems."
   author = "The NATS team"
   mainMenu=[ "home", "download", "clients", "documentation", "support", "community", "blog" ]
