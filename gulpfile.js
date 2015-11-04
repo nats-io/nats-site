@@ -23,7 +23,7 @@ gulp.task('userLogos', function() {
 gulp.task('partnerLogos', function() {
   return gulp.src('src/partner_logos/**/*')
         .pipe(gm(function (gmfile) {
-          return gmfile.resize(300, 200);
+          return gmfile.resize(250, 150);
         }))
         .pipe(gulp.dest('static/img/partner_logos'))
         .pipe(notify({ message: 'Finished resizing partner logo'}));
