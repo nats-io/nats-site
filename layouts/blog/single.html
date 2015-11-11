@@ -3,7 +3,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="page-header">
-        <h1>{{ title .Title }}<br> <small>{{ .Description }}</small></h1>
+        <h1>{{ title .Title }}</h1>
+        <p>{{ .Params.author }}<br><small>{{ .Date.Format "January 2, 2006" }}</small></p>
       </div>
     </div>
   </div>
@@ -12,12 +13,8 @@
       {{ .Content }}
     </div>
     <div class="col-md-3">
-
       <div class="well well-sm">
         <!-- Post-specific stats -->
-        <h4>{{ .Date.Format "January 2, 2006" }}<br>
-        <small>{{ .WordCount }} words</small></h4>
-        <hr>
         <strong>Categories</strong>
         <ul class="list-unstyled">
         {{ range .Params.categories }}
