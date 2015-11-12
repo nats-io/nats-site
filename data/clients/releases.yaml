@@ -80,10 +80,10 @@ Releases:
   version_num: 0.0.0
   repo_url: https://github.com/nats-io/csnats
   release_notes: |
-    Release 0.1.1-alpha on November 5, 2015.
+    Release 0.2.1-alpha on November 11, 2015.
   downloads:
     - name: Source
-      url: https://github.com/nats-io/csnats/archive/v0.1-alpha.zip
+      url: https://github.com/nats-io/csnats/archive/v0.2-alpha.zip
     - name: View on GitHub
       url: https://github.com/nats-io/csnats
   has_docs: false
