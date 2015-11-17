@@ -3,17 +3,22 @@
   <div class="row">
     <div class="col-md-12">
       {{ .Content }}
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Server</h2>
       {{ range $.Site.Data.clients }}
         {{ range .Releases }}
         {{ if eq .name "gnatsd" }}
 
         <div class="panel panel-default">
-          <div class="panel-body">
+          <div class="panel-body download-server">
 
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-3 title-con">
                 <h3>{{ .name }}{{ if in .type "client" }} Client{{ else if in .type "server" }} Server{{ end }}</h3>
+                {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
               </div>
               <div class="col-md-6">
 
@@ -27,7 +32,7 @@
               <div class="col-md-3">
                 {{ if .downloads }}
                 <dl>
-                  <dt>Download</dt>
+                  <dt>Download <i class="fa fa-download"></i></dt>
                   {{ range .downloads }}
                   <dd><a href="{{ .url }}">{{ .name }}</a></dd>
                   {{ end }}
@@ -45,5 +50,22 @@
 
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Clients</h2>
+      {{ range $.Site.Data.clients }}
+         {{ partial "releases.html" . }}
+      {{ end }}
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <p><em>Please <a href="mailto:info@nats.io?subject=NATS External Client">contact us</a> to add your external client to the download list.</em></p>
+    </div>
+  </div>
+
 </div>
 {{ partial "footer.html" . }}
