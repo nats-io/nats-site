@@ -77,15 +77,17 @@ Releases:
     - name: View on GitHub
       url: https://github.com/nats-io/csnats
 
-- name: NGINX
+- name: Java
   type: supported client
-  version_num: 0.0.0
-  repo_url: https://github.com/nats-io/nginx-nats
+  version_num: 0.1.0
+  repo_url: https://github.com/nats-io/jnats
   release_notes: |
-    Last updated August 18, 2015.
+    Release 0.1.0-alpha on November 16th, 2015
   downloads:
+    - name: Source
+      url: https://github.com/nats-io/jnats/archive/v0.1.0-alpha1.tar.gz
     - name: View on GitHub
-      url: https://github.com/nats-io/nginx-nats
+      url: https://github.com/nats-io/jnats
 
 - name: Haskell
   type: external client
@@ -101,29 +103,15 @@ Releases:
   docs:
     - file: repos/ondrap_nats_queue/README.md
 
-- name: Java
+- name: NGINX
   type: supported client
-  version_num: 0.1.0
-  repo_url: https://github.com/nats-io/jnats
-  release_notes: |
-    Release 0.1.0-alpha on November 16th, 2015
-  downloads:
-    - name: Source
-      url: https://github.com/nats-io/jnats/archive/v0.1.0-alpha1.tar.gz
-    - name: View on GitHub
-      url: https://github.com/nats-io/jnats
-
-- name: Java+Spring
-  type: external client
   version_num: 0.0.0
-  repo_url: https://github.com/cloudfoundry-community/java-nats
+  repo_url: https://github.com/nats-io/nginx-nats
   release_notes: |
-    [maven-release-plugin] copy for tag 0.6.1 from March 21, 2014.
+    Last updated August 18, 2015.
   downloads:
-    - name: Source
-      url: https://github.com/cloudfoundry-community/java-nats/archive/0.6.1.tar.gz
     - name: View on GitHub
-      url: https://github.com/cloudfoundry-community/java-nats
+      url: https://github.com/nats-io/nginx-nats
 
 - name: Lua
   type: external client
