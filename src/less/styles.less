@@ -3,9 +3,11 @@
 @import "bootstrap/bootstrap.less";
 
 // Colors
-@nats-brand-primary:      #232A45;
-@nats-brand-secondary:    #27aae1;
-@nats-brand-ternary:      #A8CB17;
+@nats-brand-primary:      #232a45;  // Main Dark blue
+@nats-brand-secondary:    #27aae1;  // Light Blue - Logo
+@nats-brand-ternary:      #8dc63f;  // Light Green - Logo
+@nats-brand-quaternary:   #34a574;  // Dark green - Logo
+@nats-brand-quinary:      #375c93;  // Dark Blue - Logo
 
 @nats-brand-gray-light:   #f5f6f9;
 @nats-brand-gray:         #c0c1c4;
@@ -296,11 +298,21 @@ nav.navbar-default {
 
 // Downloads
 #download-page {
+  .download-server,
+  .download-client {
+    h3,h4,h5 {
+      margin-top: 0px;
+    }
+    dl {
+      dt {
+        color: @nats-brand-quinary;
+      }
+    }
+    .title-con {
+      height: 100px;
 
-  ul.download-list {
-    li {
-      h3,h4,h5 {
-        margin-top: 0px;
+      h3 {
+        color: @nats-brand-quinary;
       }
     }
   }
