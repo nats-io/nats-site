@@ -54,7 +54,7 @@ If you run the NATS server with monitoring enabled, you see the following messag
 
 ```
 [5] 2015/06/30 19:28:58.631339 [INF] Starting gnatsd version 0.6.0
-[5] 2015/06/30 19:28:58.631442 [INF] Starting http monitor on port 8333
+[5] 2015/06/30 19:28:58.631442 [INF] Starting http monitor on port 8222
 [5] 2015/06/30 19:28:58.631633 [INF] Listening for client connections on 0.0.0.0:4222
 [5] 2015/06/30 19:28:58.631714 [INF] gnatsd is ready
 ```
