@@ -19,6 +19,16 @@ gulp.task('userLogos', function() {
         .pipe(notify({ message: 'Finished resizing image'}));
 });
 
+// Resize Partner Logos
+gulp.task('partnerLogos', function() {
+  return gulp.src('src/partner_logos/**/*')
+        .pipe(gm(function (gmfile) {
+          return gmfile.resize(250, 150);
+        }))
+        .pipe(gulp.dest('static/img/partner_logos'))
+        .pipe(notify({ message: 'Finished resizing partner logo'}));
+});
+
 // Images
 gulp.task('img', ['userLogos'], function() {
   return gulp.src('src/img/**/*')
@@ -29,8 +39,9 @@ gulp.task('img', ['userLogos'], function() {
 // Watch
 gulp.task('watch', function() {
   gulp.watch('src/user_logos/**/*', ['userLogos']);
+  gulp.watch('src/partner_logos/**/*', ['partnerLogos']);
   gulp.watch('src/img/**/*', ['img']);
 });
 
 // Default Task
-gulp.task('default', ['userLogos','img','watch']);
+gulp.task('default', ['userLogos','partnerLogos','img','watch']);
