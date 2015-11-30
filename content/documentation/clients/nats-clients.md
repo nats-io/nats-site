@@ -20,15 +20,16 @@ There are several open source client libraries for NATS from which you can choos
 - [Go client](https://github.com/nats-io/nats)
 - [Node.js client](https://github.com/nats-io/node-nats)
 - [Ruby client](https://github.com/nats-io/ruby-nats)
+- [Java client](https://github.com/nats-io/jnats)
 - [C client](https://github.com/nats-io/cnats)
+- [C# client](https://github.com/nats-io/csnats)
 - [Nginx C client](https://github.com/nats-io/nginx-nats)
 
 ## Community clients
 
 The following NATS clients are provided by the community:
 
-- [Java](https://github.com/tyagihas/java_nats)
-- [Spring](https://github.com/mheath/jnats)
+- [Spring](https://github.com/cloudfoundry-community/java-nats)
 - [Lua](https://github.com/DawnAngel/lua-nats)
 - [PHP](https://github.com/repejota/phpnats)
 - [Python](https://github.com/mcuadros/pynats)
