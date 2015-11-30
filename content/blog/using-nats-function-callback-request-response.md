@@ -1,9 +1,9 @@
 +++
 categories = ["Engineering"]
-date = "2015-11-06T11:22:41-08:00"
+date = "2015-11-11T11:22:41-08:00"
 tags = ["nats"]
 title = "Using NATS: Function, Callback, Request, Response"
-
+author = "Brian Flannery"
 +++
 
 Bill Chute of [Acadiant Limited](http://www.acadiant.com/) has been using NATS for some time, and has given us some great feedback along the way. As Bill has stated in the past

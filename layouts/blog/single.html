@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <a href="/blog"><i class="fa fa-backward"></i> Back to Blog</a>
       <div class="page-header">
-        <h1>{{ title .Title }}<br><small>{{ .Date.Format "January 2, 2006" }}</small></h1>
+        <h1>{{ title .Title }}</h1>
       </div>
     </div>
   </div>
@@ -15,6 +15,12 @@
       <a href="/blog"><i class="fa fa-backward"></i> Back to Blog</a>
     </div>
     <div class="col-md-3">
+      <dl class="blog-entry-meta">
+        <dt>Author</dt>
+        <dd>{{ .Params.author }}</dd>
+        <dt>Date</dt>
+        <dd>{{ .Date.Format "January 2, 2006" }}</dd>
+      </dl>
       <div class="well well-sm">
         <!-- Post-specific stats -->
         <strong>Categories</strong>

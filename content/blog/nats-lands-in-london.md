@@ -1,6 +1,6 @@
 +++
 categories = ["Community"]
-date = "2015-11-05T11:45:03-08:00"
+date = "2015-11-07T11:45:03-08:00"
 tags = ["nats", "london", "meetup"]
 title = "NATS Lands in London"
 author = "Brian Flannery"

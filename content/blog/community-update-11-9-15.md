@@ -1,8 +1,9 @@
 +++
 categories = ["Community"]
-date = "2015-11-06T10:27:09-08:00"
+date = "2015-11-09T10:27:09-08:00"
 tags = ["london", "community update"]
 title = "Community Update at The London NATS User Group Meetup"
+author = "Brian Flannery"
 +++
 
 The audience at the London Meetup was great! We had many local companies represented, and some of the leaders of other meetups such as Alexandre González Rodríguez (one of the organizers of the [Go London](http://www.meetup.com/GO-London/)! Meetups), and Milos Gajdos (co-organizer of the [Kubernetes London](http://www.meetup.com/Kubernetes-London/) Meetups) present as well. I enjoyed meeting everyone, and getting your feedback after the talks.
