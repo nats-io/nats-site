@@ -28,9 +28,6 @@ Releases:
       url: https://github.com/nats-io/nats/archive/v1.1.2.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/nats
-  has_docs: true
-  docs:
-    - file: repos/apcera_nats/README.md
 
 - name: Node.js
   type: supported client
@@ -43,9 +40,6 @@ Releases:
       url: https://github.com/nats-io/node-nats/archive/v0.4.4.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/node-nats
-  has_docs: true
-  docs:
-    - file: repos/derekcollison_node_nats/README.md
 
 - name: Ruby
   type: supported client
@@ -58,46 +52,42 @@ Releases:
       url: https://github.com/nats-io/ruby-nats/archive/v0.5.0.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/ruby-nats
-  has_docs: true
-  docs:
-    - file: repos/derekcollison-ruby-nats/README.md
 
 - name: C
   type: supported client
-  version_num: 0.0.0
+  version_num: 1.0.1
   repo_url: https://github.com/nats-io/cnats
   release_notes: |
-    Release 0.1.5-alpha on October 9, 2015.
+    Release 1.0.1 on November 12, 2015.
   downloads:
     - name: Source
-      url: https://github.com/nats-io/cnats/archive/v0.1.5-alpha.zip
+      url: https://github.com/nats-io/cnats/archive/v1.0.1.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/cnats
-  has_docs: false
 
 - name: C#
   type: supported client
   version_num: 0.0.0
   repo_url: https://github.com/nats-io/csnats
   release_notes: |
-    Release 0.1.1-alpha on November 5, 2015.
+    Release 0.2.1-alpha on November 11, 2015.
   downloads:
     - name: Source
-      url: https://github.com/nats-io/csnats/archive/v0.1-alpha.zip
+      url: https://github.com/nats-io/csnats/archive/v0.2-alpha.zip
     - name: View on GitHub
       url: https://github.com/nats-io/csnats
-  has_docs: false
 
-- name: NGINX
+- name: Java
   type: supported client
-  version_num: 0.0.0
-  repo_url: https://github.com/nats-io/nginx-nats
+  version_num: 0.1.0
+  repo_url: https://github.com/nats-io/jnats
   release_notes: |
-    Last updated August 18, 2015.
+    Release 0.1.0-alpha on November 16th, 2015
   downloads:
+    - name: Source
+      url: https://github.com/nats-io/jnats/archive/v0.1.0-alpha1.tar.gz
     - name: View on GitHub
-      url: https://github.com/nats-io/nginx-nats
-  has_docs: false
+      url: https://github.com/nats-io/jnats
 
 - name: Haskell
   type: external client
@@ -113,34 +103,15 @@ Releases:
   docs:
     - file: repos/ondrap_nats_queue/README.md
 
-- name: Java
-  type: external client
+- name: NGINX
+  type: supported client
   version_num: 0.0.0
-  repo_url: https://github.com/tyagihas/java_nats
+  repo_url: https://github.com/nats-io/nginx-nats
   release_notes: |
-    Last updated to v0.5.1 on January 12, 2015.
+    Last updated August 18, 2015.
   downloads:
     - name: View on GitHub
-      url: https://github.com/tyagihas/java_nats
-  has_docs: true
-  docs:
-    - file: repos/tyagihas_java_nats/README.md
-
-- name: Java+Spring
-  type: external client
-  version_num: 0.0.0
-  repo_url: https://github.com/cloudfoundry-community/java-nats
-  release_notes: |
-    [maven-release-plugin] copy for tag 0.6.1 from March 21, 2014.
-  downloads:
-    - name: Source
-      url: https://github.com/cloudfoundry-community/java-nats/archive/0.6.1.tar.gz
-    - name: View on GitHub
-      url: https://github.com/cloudfoundry-community/java-nats
-  has_docs: true
-  docs:
-    - file: repos/cloudfoundry-community_java-nats/README.md
-    - file: repos/cloudfoundry-community_java-nats/client-spring/README.md
+      url: https://github.com/nats-io/nginx-nats
 
 - name: Lua
   type: external client
@@ -151,8 +122,6 @@ Releases:
   downloads:
     - name: View on GitHub
       url: https://github.com/DawnAngel/lua-nats
-  docs:
-    - file: repos/lua-nats/README.md
 
 - name: PHP
   type: external client
@@ -165,8 +134,6 @@ Releases:
       url: https://github.com/repejota/phpnats/archive/0.4.0.tar.gz
     - name: View on GitHub
       url: https://github.com/repejota/phpnats
-  docs:
-    - file: repos/phpnats/README.md
 
 - name: Python
   type: external client
@@ -177,37 +144,30 @@ Releases:
   downloads:
     - name: View on GitHub
       url: https://github.com/mcuadros/pynats
-  has_docs: true
-  docs:
-    - file: repos/mcuadros_pynats/README.md
 
 - name: Rust
   type: external client
   version_num: 0.1.1
   repo_url: https://github.com/jedisct1/rust-nats
+  release_notes: |
+    Last updated September 8th, 2015
   downloads:
     - name: Source
       url: https://github.com/jedisct1/rust-nats/archive/master.zip
     - name: View on GitHub
       url: https://github.com/jedisct1/rust-nats/
-  release_notes: |
-    Last updated September 8th, 2015
-  docs:
-    - file: repos/rust-nats/README.md
 
 - name: Scala
   type: external client
   version_num: 0.0.0
   repo_url: https://github.com/tyagihas/scala_nats
+  release_notes: |
+    No Release Notes
   downloads:
     - name: Source
       url: https://github.com/tyagihas/scala_nats/archive/master.zip
     - name: View on GitHub
       url: https://github.com/tyagihas/scala_nats/
-  release_notes: |
-    No Release Notes
-  docs:
-    - file: repos/tyagihas_scala_nats/README.md
 
 - name: Spring API
   type: external client
@@ -218,23 +178,17 @@ Releases:
   downloads:
     - name: View on GitHub
       url: https://github.com/cloudfoundry-community/java-nats/tree/master/client-spring
-  docs:
-    - |
-      # Spring API
-      <a href="http://cloudfoundry-community.github.io/java-nats/apidocs/0.5.1/client-spring/index.html" target="_blank">http://cloudfoundry-community.github.io/java-nats/apidocs/0.5.1/client-spring/index.html</a>
 
 - name: nats-server
   type: external server
   repo_url: https://github.com/apcera/gnatsd/
-  docs:
-    - |
-      # nats-server
-      The nats-server (Ruby version) is deprecated and gnatsd is the primary server.
 
 - name: gnatsd
   type: supported server
   version_num: 0.6.8
   repo_url: https://github.com/nats-io/gnatsd
+  release_notes: |
+    Release v0.6.8 on September 18th 2015.<br>Docker image last updated August 7, 2015.
   downloads:
     - name: Source
       url: https://github.com/nats-io/gnatsd/archive/v0.6.8.tar.gz
@@ -246,7 +200,3 @@ Releases:
       url: https://github.com/nats-io/gnatsd/releases/download/v0.6.8/gnatsd-v0.6.8-darwin-amd64.tar.gz
     - name: Docker Image
       url: https://registry.hub.docker.com/u/apcera/gnatsd/
-  release_notes: |
-    Release v0.6.8 on September 18th 2015.<br>Docker image last updated August 7, 2015.
-  docs:
-    - file: repos/apcera_gnatsd/README.md
