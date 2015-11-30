@@ -24,6 +24,7 @@ We will review and discuss with you any contributions or corrections submitted v
 The basic organization of the site is very simple, with each top navigation link corresponding to a single HTML or Markdown file in the `nats-site/content` directory.
 The HTML documents and any Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
 
+
 ### Adding pages
 
 Any new page should be a raw HTML or Markdown document placed beneath the `content` directory. Each page added needs a header like the following:
@@ -61,9 +62,80 @@ gulp
 ```
 *In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet.*
 
+### Adding a new blog entry
+To add a new blog entry, use the `hugo new` command like the following:
+
+```
+	hugo new blog/page-url-for-blog-post.md
+```
+
+Replace `page-url-for-blog-post` with a seo friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
+
+Once the command is run you can find the new blog entry in `/blog/nats-lands-in-london.md`.
+
+In the frontmatter of the new entry you will see this:
+
+```
+	+++
+	categories = ["x", "y"]
+	date = "2015-11-05T11:45:03-08:00"
+	tags = ["x", "y"]
+	title = "nats lands in london"
+	
+	+++
+```
+
+#### Categories
+For Categories you are going to add on or more of the following:
+
+- General
+- Engineering
+- Community
+
+So for our example we would change `categories` in the frontmatter to:
+
+```
+	categories = ["Community"]
+```
+
+#### Date
+The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`
+
+#### Tags
+For Tags, you can add as many tags as you feel are needed and they can be anything:
+
+```
+	tags = ["nats","london","community"]
+```
+
+#### Title
+A default title is generated from the url you provided with the `hugo` command but we recommend you change this to something is better suited for display purposes. Example: `title = "NATS Lands In London"`
+
+#### Blog Entry Content
+
+##### Images
+To add images to a blog entry, first place them in `/src/blog`. You may add images of any size, but please make sure they are at least 800x600 for quality purposes. Once added, run `gulp` in the root of the repo. This will automatically resize any images added and put them in the proper place.
+
+You may link to these images then. Example: `<img src="/img/blog/IMAGE-NAME.png">`
+
+##### Embded Tweets
+To add an embeded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
+
+```
+	<div class="tweet-embed-con">
+	  <!-- Twitter Embed code goes here -->
+	</div>
+```
+
+Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed example.
+
+
+##### Content
+For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
+
 ***
 
-## Style guidelines and conventions
+## <a name="styleguide"></a>Style guidelines and conventions
 
 ### Markdown
 

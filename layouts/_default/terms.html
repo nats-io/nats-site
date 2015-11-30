@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Tags</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {{ $data := .Data }}
+      {{ range $key, $value := .Data.Terms }}
+      <a class="label label-primary" href="/{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }} <span class="">{{ len $value }}</span></a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
