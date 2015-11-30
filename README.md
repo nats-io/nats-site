@@ -132,5 +132,5 @@ git clone git@github.com:nats-io/nats-theme.git  themes/nats
 
 Build the site and start the server:
 ```
-hugo server -w --port=1414 --theme=nats --buildDrafts
+hugo server -w --port=1515 --theme=nats --buildDrafts
 ```
