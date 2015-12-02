@@ -1,0 +1,41 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>NATS Blog</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      {{ range .Data.Pages }}
+      <h3>
+          <a href="{{ .Permalink }}">{{ .Title }}</a><br>
+          <small>Posted on {{ .Date.Format "Jan 2, 2006" }}</small>
+      </h3>
+      <p>{{ .Summary }} <a href="{{ .Permalink }}">Read More&#8230;</a></p>
+      <hr>
+    	{{ end }}
+    </div>
+    <div class="col-md-3">
+
+      {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+        <h3>{{ title $taxonomyname }}</h3>
+        {{ if eq $taxonomyname "tags" }}
+          {{ range $key, $value := $taxonomy }}
+          <a class="label label-default" href="/tags/{{ $key | urlize }}">{{ $key }}</a>
+          {{ end }}
+        {{ else if eq $taxonomyname "categories" }}
+          <ul class="list-unstyled">
+          {{ range $key, $value := $taxonomy }}
+            <li><a href="/categories/{{ $key | urlize }}">{{ title $key }}</a></li>
+          {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}

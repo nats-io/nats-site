@@ -29,6 +29,16 @@ gulp.task('partnerLogos', function() {
         .pipe(notify({ message: 'Finished resizing partner logo'}));
 });
 
+// Resize Blog Images
+gulp.task('blogImages', function() {
+  return gulp.src('src/blog/**/*')
+        .pipe(gm(function (gmfile) {
+          return gmfile.resize(800, 600);
+        }))
+        .pipe(gulp.dest('static/img/blog'))
+        .pipe(notify({ message: 'Finished resizing blog image'}));
+});
+
 // Images
 gulp.task('img', ['userLogos'], function() {
   return gulp.src('src/img/**/*')
@@ -40,8 +50,9 @@ gulp.task('img', ['userLogos'], function() {
 gulp.task('watch', function() {
   gulp.watch('src/user_logos/**/*', ['userLogos']);
   gulp.watch('src/partner_logos/**/*', ['partnerLogos']);
+  gulp.watch('src/blog/**/*', ['blogImages']);
   gulp.watch('src/img/**/*', ['img']);
 });
 
 // Default Task
-gulp.task('default', ['userLogos','partnerLogos','img','watch']);
+gulp.task('default', ['userLogos', 'partnerLogos', 'blogImages', 'img', 'watch']);
