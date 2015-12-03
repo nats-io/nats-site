@@ -10,11 +10,13 @@
   <div class="row">
     <div class="col-md-9">
       {{ range .Data.Pages }}
-      <h3>
-          <a href="{{ .Permalink }}">{{ .Title }}</a><br>
-          <small>Posted on {{ .Date.Format "Jan 2, 2006" }}</small>
-      </h3>
-      <p>{{ .Summary }} <a href="{{ .Permalink }}">Read More&#8230;</a></p>
+      <div class="row">
+        <div class="col-md-12">
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a><br></h3>
+          <p>By: <strong>{{ .Params.author }}</strong> - Date: <strong>{{ .Date.Format "January 2, 2006" }}</strong></p>
+          <p>{{ .Summary }} <a href="{{ .RelPermalink }}">Read More&#8230;</a></p>
+        </div>
+      </div>
       <hr>
     	{{ end }}
     </div>
