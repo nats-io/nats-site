@@ -8,7 +8,7 @@ author = "Brian Flannery"
 
 As the community and innovation around the NATS.io project has grown this year, we’ve had many requests for meetups, and have had some great content submitted to us by the community in support of these events.
 
-The meetup held in San Francisco in August was fantastic, and we had a great series of talks there.  Wally Quevedo, a core member of the NATS team, gave a must-watch talk on monitoring gnatsd servers - the video is posted over on the [Apcera blog](https://www.apcera.com/blog/monitoring-gnatsd-servers-nats-top).
+The meetup held in San Francisco in August was fantastic, and we had a great series of talks there.  Wally Quevedo, a core member of the NATS team, gave a must-watch talk on [monitoring gnatsd servers](https://www.apcera.com/blog/monitoring-gnatsd-servers-nats-top).
 
 <div class="tweet-embed-con">
   <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">We are kicking off first <a href="https://twitter.com/hashtag/NATSio?src=hash">#NATSio</a> London Meetup 🙋 <a href="https://t.co/NjulXL2Ut1">pic.twitter.com/NjulXL2Ut1</a></p>&mdash; Hack gone Ops (@milosgajdos) <a href="https://twitter.com/milosgajdos/status/656528572618842112">October 20, 2015</a></blockquote>
