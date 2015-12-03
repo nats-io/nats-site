@@ -2,6 +2,10 @@
 // Include base bootstrap
 @import "bootstrap/bootstrap.less";
 
+// Include Fonts for use
+@import "font-awesome.less";
+@import "socialicious.less";
+
 // Colors
 @nats-brand-primary:      #232a45;  // Main Dark blue
 @nats-brand-secondary:    #27aae1;  // Light Blue - Logo
@@ -298,6 +302,30 @@ nav.navbar-default {
 #community-page {
   .community-notice-panel {
     text-align: center;
+  }
+  .meetup-con {
+    padding-top: 20px;
+  }
+  @media (max-width: @screen-sm-max) {
+    .meetup-con {
+      text-align: center;
+    }
+  }
+  .partners-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .col-md-3 {
+
+      a {
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  #social-con {
+    font-size: 56px;
   }
 }
 

@@ -42,12 +42,20 @@ gulp.task('img', function() {
         .pipe(notify({ message: 'Finished copying image'}));
 });
 
+// Fonts
+gulp.task('font', function() {
+  return gulp.src('src/fonts/**/*')
+        .pipe(gulp.dest('static/fonts'))
+        .pipe(notify({ message: 'Finished copying font'}));
+});
+
 // Watch
 gulp.task('watch', function() {
   gulp.watch('src/less/**/*.less', ['less']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch('src/img/**/*', ['img']);
+  gulp.watch('src/font/**/*', ['font']);
 });
 
 // Default Task
-gulp.task('default', ['less','js','img','watch']);
+gulp.task('default', ['less','js','img','font','watch']);
