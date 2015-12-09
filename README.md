@@ -54,12 +54,13 @@ title = "NATS by Apcera"
 ```
 
 ### Adding Quotes and Logos to homepage
-To add a new quote and logo to the homepage you are going to have to modify the theme for NATS. Once you have cloned your forked theme into `theme/nats`, modify this file `themes/nats/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
+To add a new quote and logo to the homepage you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
 
-If you have a logo to go along with the quote, just add a full size `.jpg` or `.png` logo to `src/user_logos`. Then run the following to generate a resized version of the logo and to place it in the correct location `static/img/user_logos`. Then just link do the generated image in `static/img/user_logos` in the `themes/nats/layouts/partials/quotes.html` file.
-```
-gulp
-```
+If you have a logo to go along with the quote, just add a full size `.jpeg` or `.png` logo to `/src/user_logos`. Then run `gulp` in the terminal to generate the proper image size. Then link do the generated image in `static/img/user_logos`. Example: `<img src="/img/user_logos/FILENAME.EXT">`
+
+### Adding Partner logo
+To add a new partner logo to `/partners` you must add a large logo of either `.png` or `.jpeg` to `/src/partner_logos`. Then run `gulp` in the terminal to generate the proper image size. Then just link do the generated image in `static/img/partner_logos`. Example: `<img src="/img/partner_logos/FILENAME.EXT">`
+
 *In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet.*
 
 ### Adding a new blog entry
