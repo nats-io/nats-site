@@ -198,5 +198,5 @@ Releases:
       url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-linux-amd64.tar.gz
     - name: Mac OS X Binary
       url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-darwin-amd64.tar.gz
-    - name: Docker Image
-      url: https://registry.hub.docker.com/u/apcera/gnatsd/
+    - name: Official Docker Image
+      url: https://hub.docker.com/_/nats/
