@@ -1,5 +1,5 @@
 +++
-title = "Intro"
+title = "NATS Documentation"
 category = "documentation"
 showChildren=true
 [menu.main]
