@@ -1,9 +1,9 @@
 baseurl = "http://nats.io/"
 languageCode = "en-us"
-title = "NATS by Apcera"
+title = "NATS - Cloud Native, Open Source, High Performance Messaging"
 
 [params]
   leftNav = false
-  description = "NATS acts as a central nervous system for distributed systems at scale, such as mobile devices, IoT networks, and cloud native infrastructure. Written in Go, NATS powers some of the largest cloud platforms in production today. Unlike traditional enterprise messaging systems, NATS has an always-on dial tone that does whatever it takes to remain available. NATS was created by Derek Collison, Founder/CEO of Apcera who has spent 20+ years designing, building, and using publish-subscribe messaging systems."
+  description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
   author = "The NATS team"
   mainMenu=[ "home", "download", "documentation", "support", "community", "blog" ]
