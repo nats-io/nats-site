@@ -12,7 +12,7 @@
 
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>{{if .Title}}{{.Site.Title}} - {{ .Title }}{{else}}{{.Site.Title}}{{end}}</title>
+    <title>{{if eq .Title ""}}{{.Site.Title}}{{else}}{{ .Title }}{{end}}</title>
 
     <!-- CSS -->
     <link href="/css/styles.css" rel="stylesheet">
