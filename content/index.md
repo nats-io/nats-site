@@ -1,6 +1,6 @@
 +++
 date = "2015-09-01T17:05:52-07:00"
-title = ""
+title = "NATS Documentation"
 type = "index"
 +++
 
