@@ -67,13 +67,13 @@ Releases:
 
 - name: C#
   type: supported client
-  version_num: 0.0.0
+  version_num: 0.3.0
   repo_url: https://github.com/nats-io/csnats
   release_notes: |
-    Release 0.2.1-alpha on November 11th, 2015.
+    Release 0.3.0-beta on December 11th, 2015.
   downloads:
     - name: Source
-      url: https://github.com/nats-io/csnats/archive/v0.2-alpha.zip
+      url: https://github.com/nats-io/csnats/archive/v0.3.0-beta.zip
     - name: View on GitHub
       url: https://github.com/nats-io/csnats
 
