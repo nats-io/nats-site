@@ -58,7 +58,7 @@ Releases:
   version_num: 1.2.6
   repo_url: https://github.com/nats-io/cnats
   release_notes: |
-    Release 1.2.6 on December 18, 2015.
+    Release 1.2.6 on December 18th, 2015.
   downloads:
     - name: Source
       url: https://github.com/nats-io/cnats/archive/v1.2.6.tar.gz
