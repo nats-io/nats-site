@@ -1,27 +1,19 @@
-<ul class="list-unstyled download-list">
-{{ range .Releases }}
-{{ if and (ne .name "gnatsd") (ne .name "nats-server") }}
-  <li>
+<div class="row">
+  {{ range .Releases }}
+  {{ if and (ne .name "gnatsd") (ne .name "nats-server") }}
+  <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-body download-client">
 
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-7 title-con">
             <h3>{{ .name }}{{ if in .type "client" }} Client{{ else if in .type "server" }} Server{{ end }}</h3>
-            {{ if in .type "supported" }}<p>Supported by Apcera</p>{{ end }}
+            {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
           </div>
-          <div class="col-md-6">
-            {{ if .release_notes }}
-            <h4>Release Notes:</h4>
-            {{ .release_notes | safeHTML }}
-            {{ else }}
-            <p>No release notes.</p>
-            {{ end }}
-          </div>
-          <div class="col-md-3">
+          <div class="col-md-5">
             {{ if .downloads }}
             <dl>
-              <dt>Download</dt>
+              <dt>Download <i class="fa fa-download"></i></dt>
               {{ range .downloads }}
               <dd><a href="{{ .url }}">{{ .name }}</a></dd>
               {{ end }}
@@ -30,9 +22,20 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-12">
+            {{ if .release_notes }}
+            <h4>Release Notes:</h4>
+            {{ .release_notes | safeHTML }}
+            {{ else }}
+            <p>No release notes.</p>
+            {{ end }}
+          </div>
+        </div>
+
       </div>
     </div>
-  </li>
-{{ end }}
-{{ end }}
-</ul>
+  </div>
+  {{ end }}
+  {{ end }}
+</div>
