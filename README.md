@@ -61,7 +61,7 @@ If you have a logo to go along with the quote, just add a full size `.jpeg` or `
 ### Adding Partner logo
 To add a new partner logo to `/partners` you must add a large logo of either `.png` or `.jpeg` to `/src/partner_logos`. Then run `gulp` in the terminal to generate the proper image size. Then just link do the generated image in `static/img/partner_logos`. Example: `<img src="/img/partner_logos/FILENAME.EXT">`
 
-*In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet.*
+*In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet. The `gulp-gm` dependency additionally requires that GraphicsMagick or ImageMagick be [installed on your system](https://github.com/scalableminds/gulp-gm).*
 
 ### Adding a new blog entry
 To add a new blog entry, use the `hugo new` command like the following:
