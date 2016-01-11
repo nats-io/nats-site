@@ -8,7 +8,7 @@ author = "Colin Sullivan"
 
 Performance at scale is critically important for building distributed systems today.  Microservices and IoT require applications to be distributed across a physical or virtual infrastructure, comprised of thousands, possibly millions of endpoints, many of which can be .NET services or applications.  The end user needs these services to operate seamlessly, requiring extremely fast, lightweight, scalable, resilient, and always-on communication - NATS.
 
-In developing the [NATS C# .NET Client](https://github.com/nats-io/csnats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client can publish over 3 million messages per second within a Windows VM on a MacBook pro!**
+In developing the [NATS C# .NET Client](https://github.com/nats-io/csnats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client, currently as a beta release, can publish over 3 million messages per second within a Windows VM on a MacBook pro.**
 
 While mirroring functionality and internals of other Apcera supported clients, the NATS .NET client public API will make the .NET developer feel at home with object serialization, IDisposable interfaces, and delegates for handling NATS events.  The NATS .NET client is fully managed and strong named.
 
@@ -55,7 +55,7 @@ using (IEncodedConnection c = new ConnectionFactory().CreateEncodedConnection())
 
 Functions that serialize and deserialize objects can be set through the API, allowing complete customization.
 
-One aspect of the NATS .NET client is the use of delegates, including the creation of muticast delegates at runtime.  This allows the developer to componentize, adding and removing functionality based on application state. 
+The NATS .NET client offers full use of delegates, including updating a multicast delegate on an active subscriber.  This allows the developer to componentize, adding and removing functionality based on application state. 
 
 The code below demonstrates this, printing the 4th and 5th message received on subject "foo" through temporarily multicasting the delegate.
 
