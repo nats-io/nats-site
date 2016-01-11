@@ -21,9 +21,22 @@ There are several open source client libraries for NATS from which you can choos
 - [Node.js client](https://github.com/nats-io/node-nats)
 - [Ruby client](https://github.com/nats-io/ruby-nats)
 - [Java client](https://github.com/nats-io/jnats)
-- [C client](https://github.com/nats-io/cnats) with [API documentation](http://nats-io.github.io/cnats/)
-- [C# client](https://github.com/nats-io/csnats) with [API documentation](http://nats-io.github.io/csnats/)
+- [C client](https://github.com/nats-io/cnats)
+- [C# client](https://github.com/nats-io/csnats)
 - [Nginx C client](https://github.com/nats-io/nginx-nats)
+
+## API documentation for supported clients
+
+- [C client API documentation](http://nats-io.github.io/cnats/)
+- [C# client API documentation](http://nats-io.github.io/csnats/)
+- [Go client API documentation](http://localhost:6060/pkg/github.com/nats-io/nats/) (see below)
+
+For the Go NATS client, use the built in Golang documentation tool [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) to generate API documentation. To do this:
+
+- Clone the Go NATS client repository: `git clone git@github.com:nats-io/nats.git`
+- CD to the local directory: `$GOPATH/src/github.com/nats-io/nats`
+- Run the Godoc tool: `godoc -http=:6060`
+- Browse to the documentation: `http://localhost:6060/pkg/github.com/nats-io/nats/`
 
 ## Community clients
 
