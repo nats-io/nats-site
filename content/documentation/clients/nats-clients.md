@@ -21,8 +21,8 @@ There are several open source client libraries for NATS from which you can choos
 - [Node.js client](https://github.com/nats-io/node-nats)
 - [Ruby client](https://github.com/nats-io/ruby-nats)
 - [Java client](https://github.com/nats-io/jnats)
-- [C client](https://github.com/nats-io/cnats) with [API documentation](http://htmlpreview.github.io/?https://github.com/nats-io/cnats/blob/master/doc/html/index.html)
-- [C# client](https://github.com/nats-io/csnats) with [API documentation](http://htmlpreview.github.io/?https://github.com/nats-io/csnats/blob/master/documentation/NATS.Client/html/index.html)
+- [C client](https://github.com/nats-io/cnats) with [API documentation](http://nats-io.github.io/cnats/)
+- [C# client](https://github.com/nats-io/csnats) with [API documentation](http://nats-io.github.io/csnats/)
 - [Nginx C client](https://github.com/nats-io/nginx-nats)
 
 ## Community clients
