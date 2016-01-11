@@ -29,6 +29,7 @@ There are several open source client libraries for NATS from which you can choos
 
 - [C client API documentation](http://nats-io.github.io/cnats/)
 - [C# client API documentation](http://nats-io.github.io/csnats/)
+- [Java client API documentation](http://nats-io.github.io/jnats)
 - Go client API documentation (see instructions below)
 
 For the Go NATS client, use the built in Golang documentation tool [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) to generate API documentation. To do this:
