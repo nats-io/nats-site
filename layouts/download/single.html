@@ -10,14 +10,14 @@
       <h2>Server</h2>
       {{ range $.Site.Data.clients }}
         {{ range .Releases }}
-        {{ if eq .name "gnatsd" }}
+        {{ if eq .name "NATS Server" }}
 
         <div class="panel panel-default">
           <div class="panel-body download-server">
 
             <div class="row">
               <div class="col-md-3 title-con">
-                <h3>{{ .name }}{{ if in .type "client" }} Client{{ else if in .type "server" }} Server{{ end }}</h3>
+                <h3>{{ .name }}</h3>
                 {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
               </div>
               <div class="col-md-6">

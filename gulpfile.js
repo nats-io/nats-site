@@ -13,7 +13,7 @@ var gulp =          require('gulp'),
 gulp.task('userLogos', function() {
   return gulp.src('src/user_logos/**/*')
         .pipe(gm(function (gmfile) {
-          return gmfile.resize(100, 100);
+          return gmfile.resize(150, 100);
         }))
         .pipe(gulp.dest('static/img/user_logos'))
         .pipe(notify({ message: 'Finished resizing image'}));
