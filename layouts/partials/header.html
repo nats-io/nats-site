@@ -26,8 +26,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="{{ urlize .Title }}-page">
-
+  <body id="{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq (relURL .URL) ("/" | safeHTML) }}home{{else}}{{ urlize .Title }}{{ end }}-page">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
