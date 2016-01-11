@@ -1,13 +1,13 @@
 <div class="row">
   {{ range .Releases }}
-  {{ if and (ne .name "gnatsd") (ne .name "nats-server") }}
+  {{ if ne .name "NATS Server" }}
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-body download-client">
 
         <div class="row">
           <div class="col-md-7 title-con">
-            <h3>{{ .name }}{{ if in .type "client" }} Client{{ else if in .type "server" }} Server{{ end }}</h3>
+            <h3>{{ .name }}{{ if in .type "client" }} Client{{ end }}</h3>
             {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
           </div>
           <div class="col-md-5">
