@@ -4,7 +4,7 @@
 
     {{ range $.Site.Data.clients }}
     {{ range .Releases }}
-    {{ if eq .name "gnatsd" }}
+    {{ if eq .name "NATS Server" }}
 
     <p><a href="{{ range first 1 .downloads }}{{ .url }}{{ end }}" class="btn btn-primary btn-lg">Download Source: V {{ .version_num }}</a></p>
 
