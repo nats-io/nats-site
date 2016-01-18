@@ -55,13 +55,13 @@ Releases:
 
 - name: C
   type: supported client
-  version_num: 1.2.6
+  version_num: 1.2.8
   repo_url: https://github.com/nats-io/cnats
   release_notes: |
-    Release 1.2.6 on December 18th, 2015.
+    Release 1.2.8 on January 18th, 2016.
   downloads:
     - name: Source
-      url: https://github.com/nats-io/cnats/archive/v1.2.6.tar.gz
+      url: https://github.com/nats-io/cnats/archive/v1.2.8.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/cnats
 
