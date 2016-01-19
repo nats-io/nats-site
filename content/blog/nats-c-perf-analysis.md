@@ -7,7 +7,7 @@ author = "Ivan Kozlovic"
 
 +++
 
-When I was tasked with writting a C client for NATS, I quickly realized the amount of work required. Modern languages provide a lot of common objects/structures that I would need for this project. I could have used existing libraries to do that for me, but either because I came from a non open source background, or because I liked the idea of providing something that was self contained, I chose to implement it myself. But there was so much to do, that for the NATS code itself, I decided that I would use as the model the excellent [Go Client](https://github.com/nats-io/nats). Also, we were going to provide several [Apcera](http://www.apcera.com) supported clients, and for maintainability sake, it was better that our clients' implementation all follow the same model anyway. 
+When I was tasked with writing a C client for NATS, I decided to use the excellent [Go Client](https://github.com/nats-io/nats) as the model. We were going to provide more [Apcera](http://www.apcera.com) supported clients, and for maintainability sake, it was better that all our clients' implementation follow the same model.
 
 However, before getting the very first alpha release out, I was not happy with the performance results. I decided to use a tool to instrument the code and see where the bottlenecks were.
 
