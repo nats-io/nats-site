@@ -79,13 +79,15 @@ Releases:
 
 - name: Java
   type: supported client
-  version_num: 0.1.0
+  version_num: 0.3.1
   repo_url: https://github.com/nats-io/jnats
   release_notes: |
-    Release 0.1.0-alpha on November 16th, 2015
+    Release 0.3.1 on January 18th, 2016
   downloads:
-    - name: Source
-      url: https://github.com/nats-io/jnats/archive/v0.1.0-alpha1.tar.gz
+    - name: Source (.zip)
+      url: https://github.com/nats-io/jnats/archive/jnats-0.3.1.zip
+    - name: Source (.tar.gz)
+      url:  https://github.com/nats-io/jnats/archive/jnats-0.3.1.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/jnats
 
