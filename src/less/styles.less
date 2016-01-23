@@ -12,6 +12,13 @@
 @nats-brand-quaternary:   #34a574;  // Dark green - Logo
 @nats-brand-quinary:      #375c93;  // Dark Blue - Logo
 
+// Nats new colour scheme
+@nats-brand-background:   #00011f;
+@nats-colour-blue-lite:   #23a9e1;
+@nats-colour-blue-dark:   #365d95;
+@nats-colour-green-lite:  #8dc641;
+@nats-colour-green-dark:  #30a675;
+
 @nats-brand-gray-light:   #f5f6f9;
 @nats-brand-gray:         #c0c1c4;
 @nats-brand-gray-dark:    #666;
@@ -28,7 +35,7 @@
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:            @screen-md-min;
 // Basics of a navbar
-@navbar-height:                    86px;
+@navbar-height:                    77px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
@@ -98,14 +105,44 @@ body {
   #main-con {
     margin-bottom: 30px;
   }
+  @media (max-width: @screen-xs-max) {
+    padding-top: 90px;
+  }
 }
 // Anchor fix for sticky header
 a[name]:before {
   display: block;
   content: " ";
   margin-top: -85px;
-  height: 85px;
+  height: 77px;
   visibility: hidden;
+}
+
+// Colour text
+.nats-colour-blue-lite {
+  color: @nats-colour-blue-lite;
+}
+.nats-colour-blue-dark {
+  color: @nats-colour-blue-dark;
+}
+.nats-colour-green-lite {
+  color: @nats-colour-green-lite;
+}
+.nats-colour-green-dark {
+  color: @nats-colour-green-dark;
+}
+
+// Social Icons
+.social-icon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  width: 50px;
+  height: 50px;
+  margin: 0px -5px -16px -5px;
+}
+.twitter-icon {
+  background-image: url(/img/social/twitter-lrg-icon.png);
 }
 
 // Labels
@@ -145,15 +182,15 @@ nav.navbar-default {
       }
       @media (min-width: @screen-md-min) {
         a {
-          padding: 33px 0px 12px 0px;
-          margin: 0px 15px 20px;
+          padding: 28px 0px 12px 0px;
+          margin: 0px 15px 17px;
 
         }
         a:hover, a:active, a:focus, &.active a {
           outline: 0;
           border-bottom: 1px solid #fff;
-          padding: 33px 0px 12px 0px;
-          margin: 0px 15px 20px;
+          padding: 28px 0px 12px 0px;
+          margin: 0px 15px 16px;
 
         }
       }
@@ -192,6 +229,9 @@ nav.navbar-default {
       }
 
     }
+
+  }
+  &.home-page {
 
   }
 }
@@ -235,62 +275,171 @@ nav.navbar-default {
   }
 }
 
-// Homepage
-#performance-graph {
-  a.graph-con {
+// Home Page
+html#home-html {
+  background-color: @nats-brand-background;
+}
+#home-page {
+  background-color: @nats-brand-background;
+
+  .navbar-default {
+    background: @nats-brand-background;
+    border-color: transparent;
+  }
+  .background-con {
+    background: url(/img/home-background.jpg) repeat-x center bottom;
+  }
+  .homepage-brand {
     display: block;
+    width: 458px;
+    margin-bottom: 30px;
+    .center-block();
+  }
+  #homepage-content {
+    padding-top: 60px;
     text-align: center;
-    img {
-      max-width: 100%;
-      height: auto;
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+    .lead {
+      font-family: @font-family-sans-serif;
+      font-weight: 200;
+      color: #fff;
+      font-size: 34px;
+      margin-bottom: 400px;
+    }
+    .extra-info {
+      font-weight: 100;
+      font-size: 24px;
+      word-break: keep-all;
+      margin-bottom: 75px;
+
+      a.nats-colour-blue-lite {
+        margin-right: 15px;
+        line-height: 50px;
+
+        &:visited, &:hover {
+          color: @nats-colour-blue-lite;
+          text-decoration: none;
+        }
+      }
+      a.nats-colour-green-lite {
+        margin-bottom: 10px;
+
+        &:visited, &:hover {
+          color: @nats-colour-green-lite;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    .background-con {
+      background: url(/img/home-background-sm.jpg) repeat-x center bottom;
+    }
+    .homepage-brand {
+      width: 300px;
+    }
+    #homepage-content {
+      padding-top: 0px;
+      h1 {
+        font-size: 28px;
+      }
+      .lead {
+        font-size: 18px;
+        margin-bottom: 190px;
+      }
+      .extra-info {
+        font-size: 18px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .homepage-brand {
+      width: 350px;
+    }
+    #homepage-content {
+      padding-top: 30px;
+      h1 {
+        font-size: 34px;
+      }
+      .lead {
+        font-size: 24px;
+        margin-bottom: 350px;
+      }
+      .extra-info {
+        font-size: 24px;
+      }
     }
   }
 }
-#quote-carousel-con {
-  padding: 60px 20px;
-  position: relative;
+// End Home
 
-  #quote-carousel {
-    position: static;
+// About Page
+#about-page {
 
-    ul.carousel-inner {
-      margin: 0px;
-      padding: 0px;
+  // Performance Graph
+  #performance-graph {
+    a.graph-con {
+      display: block;
+      text-align: center;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  // Quotes Carousel
+  #quote-carousel-con {
+    padding: 60px 20px;
+    position: relative;
 
-      li {
-        .quote-con{
-          height: 275px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
+    #quote-carousel {
+      position: static;
 
-          .quote-inner {
-            text-align: center;
-            p {
+      ul.carousel-inner {
+        margin: 0px;
+        padding: 0px;
+
+        li {
+          .quote-con{
+            height: 275px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .quote-inner {
+              text-align: center;
+              p {
+                  margin-bottom: 15px;
+              }
+              a.quote-logo {
+                display: block;
+                margin: 0 auto;
                 margin-bottom: 15px;
+              }
             }
-            a.quote-logo {
-              display: block;
-              margin: 0 auto;
-              margin-bottom: 15px;
+            // Breakpoint adjustments for quotes
+            @media (max-width: @screen-xs-max) {
+              height: 500px;
             }
-          }
-          // Breakpoint adjustments for quotes
-          @media (max-width: @screen-xs-max) {
-            height: 500px;
-          }
-          @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-            height: 325px;
-          }
-          @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-            height: 325px;
+            @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+              height: 325px;
+            }
+            @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+              height: 325px;
+            }
           }
         }
       }
     }
   }
 }
+// End About
 
 // Community
 #community-page {
