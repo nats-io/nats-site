@@ -43,7 +43,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #fff;
-@navbar-default-bg:                @nats-brand-primary;
+@navbar-default-bg:                @nats-brand-background;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
@@ -158,11 +158,10 @@ table {
 
 // Navbar
 nav.navbar-default {
+  background: @nats-brand-background url(/img/header-background.png) repeat-x top center;
+
   .navbar-brand {
     padding: 0px 0px 0px 0px;
-    &:hover {
-      background-color: @navbar-default-brand-hover-color;
-    }
     img {
       height: 100%;
     }
@@ -467,30 +466,62 @@ html#home-html {
       }
     }
   }
-  #social-con {
-
-  }
 }
 
 // Downloads
 #download-page {
+  .panel-default {
+    min-height: 160px
+  }
   .download-server,
   .download-client {
     h3,h4,h5 {
       margin-top: 0px;
     }
-    dl {
-      dt {
-        color: @nats-brand-quinary;
-      }
-    }
     .title-con {
-      height: 100px;
-
       h3 {
-        color: @nats-brand-quinary;
+        margin-bottom: 5px;
       }
     }
+    .release-con {
+      h4 {
+        font-weight: bold;;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+    }
+    .download-con {
+      h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      dl {
+        dt {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .supported {
+      font-size: 17px;
+      font-weight: 100;
+      img {
+        margin-top: -2px;
+        margin-left: 5px;
+      }
+    }
+  }
+  .download-server-con {
+
+  }
+  .download-clients-con {
+    margin-bottom: 30px;
+  }
+  .external-clients-con {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
   }
 }
 
