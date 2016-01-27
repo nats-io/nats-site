@@ -17,42 +17,6 @@
 #     Markdown-formatted text block: Praesent a mattis velit. Pellentesque posuere justo ut massa porttitor, sit amet adipiscing risus luctus. Mauris vitae arcu sed lectus posuere luctus eu sed mauris.
 #   - file: another file, referenced by file path
 Releases:
-- name: Go
-  type: supported client
-  version_num: 1.1.6
-  repo_url: https://github.com/nats-io/nats
-  release_notes: |
-    Release v1.1.6 on December 9th, 2015.
-  downloads:
-    - name: Source
-      url: https://github.com/nats-io/nats/archive/v1.1.6.tar.gz
-    - name: View on GitHub
-      url: https://github.com/nats-io/nats
-
-- name: Node.js
-  type: supported client
-  version_num: 0.4.2
-  repo_url: https://github.com/nats-io/node-nats
-  release_notes: |
-    Release v.0.4.4, September 9th, 2015
-  downloads:
-    - name: Source
-      url: https://github.com/nats-io/node-nats/archive/v0.4.4.tar.gz
-    - name: View on GitHub
-      url: https://github.com/nats-io/node-nats
-
-- name: Ruby
-  type: supported client
-  version_num: 0.0.0
-  repo_url: https://github.com/nats-io/ruby-nats
-  release_notes: |
-    Release 0.5.0 on June 19th, 2015.
-  downloads:
-    - name: Source
-      url: https://github.com/nats-io/ruby-nats/archive/v0.5.0.tar.gz
-    - name: View on GitHub
-      url: https://github.com/nats-io/ruby-nats
-
 - name: C
   type: supported client
   version_num: 1.2.8
@@ -60,8 +24,6 @@ Releases:
   release_notes: |
     Release 1.2.8 on January 18th, 2016.
   downloads:
-    - name: Source
-      url: https://github.com/nats-io/cnats/archive/v1.2.8.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/cnats
 
@@ -72,10 +34,28 @@ Releases:
   release_notes: |
     Release 0.3.0-beta on December 11th, 2015.
   downloads:
-    - name: Source
-      url: https://github.com/nats-io/csnats/archive/v0.3.0-beta.zip
     - name: View on GitHub
       url: https://github.com/nats-io/csnats
+
+- name: Elixir
+  type: supported client
+  version_num: 0.1.4-alpha
+  repo_url: https://github.com/nats-io/elixir-nats
+  release_notes: |
+    Release v0.1.4-alpha on January 27th, 2016.
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/elixir-nats
+
+- name: Go
+  type: supported client
+  version_num: 1.1.6
+  repo_url: https://github.com/nats-io/nats
+  release_notes: |
+    Release v1.1.6 on December 9th, 2015.
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/nats
 
 - name: Java
   type: supported client
@@ -84,36 +64,38 @@ Releases:
   release_notes: |
     Release 0.3.1 on January 18th, 2016
   downloads:
-    - name: Source (.zip)
-      url: https://github.com/nats-io/jnats/archive/jnats-0.3.1.zip
-    - name: Source (.tar.gz)
-      url:  https://github.com/nats-io/jnats/archive/jnats-0.3.1.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/jnats
+
+- name: Node.js
+  type: supported client
+  version_num: 0.4.2
+  repo_url: https://github.com/nats-io/node-nats
+  release_notes: |
+    Release v.0.4.4, September 9th, 2015
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/node-nats
+
+- name: Ruby
+  type: supported client
+  version_num: 0.0.0
+  repo_url: https://github.com/nats-io/ruby-nats
+  release_notes: |
+    Release 0.5.0 on June 19th, 2015.
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/ruby-nats
 
 - name: Haskell
   type: external client
   version_num: 0.0.0
   repo_url: https://github.com/ondrap/nats-queue
-  downloads:
-    - name: Source
-      url: https://github.com/ondrap/nats-queue/archive/master.zip
-    - name: View on GitHub
-      url: https://github.com/ondrap/nats-queue
   release_notes: |
     Last updated to 1.2.0 on Nov. 25th, 2014
-  docs:
-    - file: repos/ondrap_nats_queue/README.md
-
-- name: NGINX
-  type: supported client
-  version_num: 0.0.0
-  repo_url: https://github.com/nats-io/nginx-nats
-  release_notes: |
-    Last updated August 18th, 2015.
   downloads:
     - name: View on GitHub
-      url: https://github.com/nats-io/nginx-nats
+      url: https://github.com/ondrap/nats-queue
 
 - name: Lua
   type: external client
@@ -125,6 +107,16 @@ Releases:
     - name: View on GitHub
       url: https://github.com/DawnAngel/lua-nats
 
+- name: NGINX
+  type: supported client
+  version_num: 0.0.0
+  repo_url: https://github.com/nats-io/nginx-nats
+  release_notes: |
+    Last updated August 18th, 2015.
+  downloads:
+    - name: View on GitHub
+      url: https://github.com/nats-io/nginx-nats
+
 - name: PHP
   type: external client
   version_num: 0.4.0
@@ -132,8 +124,6 @@ Releases:
   release_notes: |
     Last updated to v0.4.0 on October 11th, 2015.
   downloads:
-    - name: Source
-      url: https://github.com/repejota/phpnats/archive/0.4.0.tar.gz
     - name: View on GitHub
       url: https://github.com/repejota/phpnats
 
@@ -154,8 +144,6 @@ Releases:
   release_notes: |
     Last updated September 8th, 2015
   downloads:
-    - name: Source
-      url: https://github.com/jedisct1/rust-nats/archive/master.zip
     - name: View on GitHub
       url: https://github.com/jedisct1/rust-nats/
 
@@ -166,8 +154,6 @@ Releases:
   release_notes: |
     No Release Notes
   downloads:
-    - name: Source
-      url: https://github.com/tyagihas/scala_nats/archive/master.zip
     - name: View on GitHub
       url: https://github.com/tyagihas/scala_nats/
 
@@ -188,8 +174,6 @@ Releases:
   release_notes: |
     Release v0.7.2 on December 9th, 2015.<br> Docker Image last updated December 9th, 2015.
   downloads:
-    - name: Source
-      url: https://github.com/nats-io/gnatsd/archive/v0.7.2.tar.gz
     - name: View on GitHub
       url: https://github.com/nats-io/gnatsd
     - name: Linux Binary
