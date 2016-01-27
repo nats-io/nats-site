@@ -8,28 +8,22 @@
         <div class="row">
           <div class="col-md-7 title-con">
             <h3>{{ .name }}{{ if in .type "client" }} Client{{ end }}</h3>
-            {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
+            {{ if in .type "supported" }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
           </div>
-          <div class="col-md-5">
-            {{ if .downloads }}
-            <dl>
-              <dt>Download <i class="fa fa-download"></i></dt>
-              {{ range .downloads }}
-              <dd><a href="{{ .url }}">{{ .name }}</a></dd>
+          <div class="col-md-5 download-con">
+            <div class="download-con">
+              <h4>Download</h4>
+              <p><a href="{{ .repo_url }}">View on Github</a></p>
+            </div>
+            <div class="release-con">
+              {{ if .release_notes }}
+              <h4>Release Notes:</h4>
+              {{ .release_notes | safeHTML }}
+              {{ else }}
+              <p>No release notes.</p>
               {{ end }}
-            </dl>
-            {{ end }}
-          </div>
-        </div>
+            </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            {{ if .release_notes }}
-            <h4>Release Notes:</h4>
-            {{ .release_notes | safeHTML }}
-            {{ else }}
-            <p>No release notes.</p>
-            {{ end }}
           </div>
         </div>
 

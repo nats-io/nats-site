@@ -5,7 +5,7 @@
       {{ .Content }}
     </div>
   </div>
-  <div class="row">
+  <div class="row download-server-con">
     <div class="col-md-12">
       <h2>Server</h2>
       {{ range $.Site.Data.clients }}
@@ -18,9 +18,9 @@
             <div class="row">
               <div class="col-md-3 title-con">
                 <h3>{{ .name }}</h3>
-                {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
+                {{ if in .type "supported" }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 release-con">
 
                 {{ if .release_notes }}
                 <h4>Release Notes:</h4>
@@ -29,11 +29,11 @@
                 <p>No release notes.</p>
                 {{ end }}
               </div>
-              <div class="col-md-3">
-                {{ if .downloads }}
+              <div class="col-md-3 download-con">
+                {{ if .links }}
                 <dl>
-                  <dt>Download <i class="fa fa-download"></i></dt>
-                  {{ range .downloads }}
+                  <dt>Download</dt>
+                  {{ range .links }}
                   <dd><a href="{{ .url }}">{{ .name }}</a></dd>
                   {{ end }}
                 </dl>
@@ -50,8 +50,8 @@
 
     </div>
   </div>
-  <hr>
-  <div class="row">
+
+  <div class="row download-clients-con">
     <div class="col-md-12">
       <h2>Clients</h2>
       {{ range $.Site.Data.clients }}
@@ -60,8 +60,7 @@
     </div>
   </div>
 
-  <hr>
-  <div class="row">
+  <div class="row external-clients-con">
     <div class="col-md-12">
       <p><em>Please <a href="mailto:info@nats.io?subject=NATS External Client">contact us</a> to add your external client to the download list.</em></p>
     </div>

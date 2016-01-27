@@ -6,7 +6,7 @@
     {{ range .Releases }}
     {{ if eq .name "NATS Server" }}
 
-    <p><a href="{{ range first 1 .downloads }}{{ .url }}{{ end }}" class="btn btn-primary btn-lg">Download Source: V {{ .version_num }}</a></p>
+    <p><a href="{{ range first 1 .links }}{{ .url }}{{ end }}" class="btn btn-primary btn-lg">Download Source: V {{ .version_num }}</a></p>
 
     {{ end }}
     {{ end }}
