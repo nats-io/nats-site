@@ -6,7 +6,7 @@ title = "SCALE14x Wrap Up: New Venue, Same Great Event! "
 author = "Brian Flannery"
 +++
 
-I’ve attended [SCALE](https://www.socallinuxexpo.org/scale/14x) a few times in the past, and have always been impressed with the event that the SCALE team put on each year; but I hadn’t attended in a few years, and it has gone from strength to strength in that time!
+I’ve attended [SCALE](https://www.socallinuxexpo.org/scale/14x) a few times in the past, and have always been impressed with the event that the SCALE team puts on each year; but I hadn’t attended in a few years, and it has gone from strength to strength in that time!
 
 There are more booths, training sessions, breakout talks / BOF’s, and more developers and interesting open source community members to hear from and collaborate with. As a result, SCALE was held for the first time at the more spacious Pasadena Convention Center:
 
