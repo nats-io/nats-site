@@ -10,26 +10,23 @@ I’ve attended [SCALE] (https://www.socallinuxexpo.org/scale/14x) a few times i
 
 There are more booths, training sessions, breakout talks / BOF’s, and more developers and interesting open source community members to hear from and collaborate with. As a result, SCALE was held for the first time at the more spacious Pasadena Convention Center:
 
-<img src="/img/blog/20160121_084632.jpg">
+<img class="img-responsive center-block" src="/img/blog/scale01262016/20160121_084632.jpg" alt="SCALE at the Pasadena Convention Center">
 
 The talks were great, and I can’t wait to view some more of them on YouTube since I could only attend a handful!
 
 As some of you may recall, last year NATS was featured at SCALE in a talk by [Derek Collison] (https://twitter.com/derekcollison) - the creator of NATS and Founder of Apcera:
 
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="center-block" width="560" height="315" src="https://www.youtube.com/embed/5GcAgMPECxE" frameborder="0" allowfullscreen></iframe>
+</div>
 <br>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5GcAgMPECxE" frameborder="0" allowfullscreen></iframe>
-<br>
-
-<br>
 This year, we decided to take things to the next level, and were a sponsor!  The NATS booth had steady traffic, and we enjoyed giving away Shirts, Stickers, whitepapers, and a Sphere BB-8:
 
-
-<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Start your weekend with a chance to win a <a href="https://twitter.com/Sphero">@Sphero</a> BB-8! Swing by Booth 705 at <a href="https://twitter.com/hashtag/scale14x?src=hash">#scale14x</a> and get entered to win: <a href="https://t.co/KPMlq5l8Ib">pic.twitter.com/KPMlq5l8Ib</a></p>&mdash; NATS.io (@nats_io) <a href="https://twitter.com/nats_io/status/690905559252373505">January 23, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
+<div class="tweet-embed-con">
+  <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Start your weekend with a chance to win a <a href="https://twitter.com/Sphero">@Sphero</a> BB-8! Swing by Booth 705 at <a href="https://twitter.com/hashtag/scale14x?src=hash">#scale14x</a> and get entered to win: <a href="https://t.co/KPMlq5l8Ib">pic.twitter.com/KPMlq5l8Ib</a></p>&mdash; NATS.io (@nats_io) <a href="https://twitter.com/nats_io/status/690905559252373505">January 23, 2016</a></blockquote>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 I am pleased to announce that [Swee Sng] (https://www.linkedin.com/in/sweehuatsng) is the lucky winner of the Sphero BB-8. Congrats Swee, We hope you will enjoy it!
 
@@ -39,15 +36,15 @@ I had some really insightful conversations with some of you about IoT messaging 
 
 Here are a few photos from the booth:
 
+<img class="img-responsive center-block" src="/img/blog/scale01262016/IMG_0434.jpg" alt="NATS booth at SCALE">
 
-<img src="/img/blog/20160121_084632.jpg">
 [Harsh Karmakar] (https://twitter.com/hkarmark) and [Henry Stapp] (https://twitter.com/hpstapp) enjoying meeting attendees and manning the booth
 
+<img class="img-responsive center-block" src="/img/blog/scale01262016/IMG_0431.jpg" alt="NATS booth at SCALE">
 
-<img src="src/blog/IMG_0431.JPG">
 That’s me -- need a NATS shirt? I have you covered (pun intended!) -- just drop me a line [brian@apcera.com] (mailto:brian@apcera.com)
 
-<img src="src/blog/IMG_0430.JPG">
+<img class="img-responsive center-block" src="/img/blog/scale01262016/IMG_0430.jpg" alt="NATS booth at SCALE">
 
 Interested in learning more about NATS? I’d be happy to hear your input and welcome you to the NATS Community.
 
