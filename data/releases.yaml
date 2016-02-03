@@ -1,0 +1,201 @@
+# ==========
+# RELEASES
+# ==========
+
+# name: {{ gnatsd, Go, Node.js, Python, &c. }}
+# type: {{ supported server. supported client, external client }}
+# version_num: displayed on Download page
+# repo_url: GitHub URL
+# release_notes: |
+#   Release text. Markdown and HTML formatting is OK. Excerpt length default is 20 words, but you can also insert a <br> to specify the excerpt breakpoint manually.
+# links: either a placeholder, e.g., "Coming Soon!", or a list of links:
+#   - name: Source
+#     url: #
+# docs: a list of files and inline content blocks. If empty, release will not be included in Documentation.
+#   - file: use the relative path in /_includes
+#   - |
+#     Markdown-formatted text block: Praesent a mattis velit. Pellentesque posuere justo ut massa porttitor, sit amet adipiscing risus luctus. Mauris vitae arcu sed lectus posuere luctus eu sed mauris.
+#   - file: another file, referenced by file path
+Releases:
+- name: C
+  type: client
+  supported: true
+  version_num: 1.2.8
+  release_notes: |
+    Release 1.2.8 on January 18th, 2016.
+  github:
+    - user: nats-io
+      repo: cnats
+      link: https://github.com/nats-io/cnats
+
+- name: C#
+  type: client
+  supported: true
+  version_num: 0.3.0
+  release_notes: |
+    Release 0.3.0-beta on December 11th, 2015.
+  github:
+    - user: nats-io
+      repo: csnats
+      link: https://github.com/nats-io/csnats
+
+- name: Elixir
+  type: client
+  supported: true
+  version_num: 0.1.4-alpha
+  release_notes: |
+    Release v0.1.4-alpha on January 27th, 2016.
+  github:
+    - user: nats-io
+      repo: elixir-nats
+      link: https://github.com/nats-io/elixir-nats
+
+- name: Go
+  type: client
+  supported: true
+  version_num: 1.1.6
+  release_notes: |
+    Release v1.1.6 on December 9th, 2015.
+  github:
+    - user: nats-io
+      repo: nats
+      link: https://github.com/nats-io/nats
+
+- name: Java
+  type: client
+  supported: true
+  version_num: 0.3.1
+  release_notes: |
+    Release 0.3.1 on January 18th, 2016
+  github:
+    - user: nats-io
+      repo: jnats
+      link: https://github.com/nats-io/jnats
+
+- name: NGINX
+  type: client
+  supported: true
+  version_num: 0.0.0
+  release_notes: |
+    Last updated August 18th, 2015.
+  github:
+    - user: nats-io
+      repo: nginx-nats
+      link: https://github.com/nats-io/nginx-nats
+
+- name: Node.js
+  type: client
+  supported: true
+  version_num: 0.4.2
+  release_notes: |
+    Release v.0.4.4, September 9th, 2015
+  github:
+    - user: nats-io
+      repo: node-nats
+      link: https://github.com/nats-io/node-nats
+
+- name: Ruby
+  type: client
+  supported: true
+  version_num: 0.0.0
+  release_notes: |
+    Release 0.5.0 on June 19th, 2015.
+  github:
+    - user: nats-io
+      repo: ruby-nats
+      link: https://github.com/nats-io/ruby-nats
+
+- name: Haskell
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    Last updated to 1.2.0 on Nov. 25th, 2014
+  github:
+    - user: ondrap
+      repo: nats-queue
+      link: https://github.com/ondrap/nats-queue
+
+- name: Lua
+  type: client
+  supported: false
+  version_num: 0.0.4
+  release_notes: |
+    Last updated to v 0.0.2 on July 16th, 2015
+  github:
+    - user: DawnAngel
+      repo: lua-nats
+      link: https://github.com/DawnAngel/lua-nats
+
+- name: PHP
+  type: client
+  supported: false
+  version_num: 0.4.0
+  release_notes: |
+    Last updated to v0.4.0 on October 11th, 2015.
+  github:
+    - user: repejota
+      repo: phpnats
+      link: https://github.com/repejota/phpnats
+
+- name: Python
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    Last updated September 19th, 2014.
+  github:
+    - user: mcuadros
+      repo: pynats
+      link: https://github.com/mcuadros/pynats
+
+- name: Rust
+  type: client
+  supported: false
+  version_num: 0.1.1
+  release_notes: |
+    Last updated September 8th, 2015
+  github:
+    - user: jedisct1
+      repo: rust-nats
+      link: https://github.com/jedisct1/rust-nats
+
+- name: Scala
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    No Release Notes
+  github:
+    - user: tyagihas
+      repo: scala_nats
+      link: https://github.com/tyagihas/scala_nats
+
+- name: Spring API
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    No release notes.
+  github:
+    - user: cloudfoundry-community
+      repo: java-nats
+      link: https://github.com/cloudfoundry-community/java-nats/tree/master/client-spring
+
+- name: NATS Server
+  type: server
+  supported: true
+  version_num: 0.7.2
+  release_notes: |
+    Release v0.7.2 on December 9th, 2015.<br> Docker Image last updated December 9th, 2015.
+  github:
+    - user: nats-io
+      repo: gnatsd
+      link: https://github.com/nats-io/gnatsd
+  links:
+  - name: Linux Binary
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-linux-amd64.tar.gz
+  - name: Mac OS X Binary
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-darwin-amd64.tar.gz
+  - name: Official Docker Image
+    url: https://hub.docker.com/_/nats/

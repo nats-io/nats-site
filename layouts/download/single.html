@@ -8,9 +8,9 @@
   <div class="row download-server-con">
     <div class="col-md-12">
       <h2>Server</h2>
-      {{ range $.Site.Data.clients }}
+      {{ range $.Site.Data }}
         {{ range .Releases }}
-        {{ if eq .name "NATS Server" }}
+        {{ if eq .type "server" }}
 
         <div class="panel panel-default">
           <div class="panel-body download-server">
@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-md-3 title-con">
                 <h3>{{ .name }}</h3>
-                {{ if in .type "supported" }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+                {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
               </div>
               <div class="col-md-6 release-con">
 
@@ -54,7 +54,7 @@
   <div class="row download-clients-con">
     <div class="col-md-12">
       <h2>Clients</h2>
-      {{ range $.Site.Data.clients }}
+      {{ range $.Site.Data }}
          {{ partial "releases.html" . }}
       {{ end }}
     </div>

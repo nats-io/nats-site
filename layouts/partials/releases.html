@@ -8,7 +8,8 @@
         <div class="row">
           <div class="col-md-7 title-con">
             <h3>{{ .name }}{{ if in .type "client" }} Client{{ end }}</h3>
-            {{ if in .type "supported" }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+            {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+            <p class="supported">View on Github</p>
           </div>
           <div class="col-md-5 download-con">
             <div class="download-con">
