@@ -2,20 +2,19 @@
 # RELEASES
 # ==========
 
-# name: {{ gnatsd, Go, Node.js, Python, &c. }}
-# type: {{ supported server. supported client, external client }}
-# version_num: displayed on Download page
-# repo_url: GitHub URL
-# release_notes: |
-#   Release text. Markdown and HTML formatting is OK. Excerpt length default is 20 words, but you can also insert a <br> to specify the excerpt breakpoint manually.
-# links: either a placeholder, e.g., "Coming Soon!", or a list of links:
-#   - name: Source
-#     url: #
-# docs: a list of files and inline content blocks. If empty, release will not be included in Documentation.
-#   - file: use the relative path in /_includes
-#   - |
-#     Markdown-formatted text block: Praesent a mattis velit. Pellentesque posuere justo ut massa porttitor, sit amet adipiscing risus luctus. Mauris vitae arcu sed lectus posuere luctus eu sed mauris.
-#   - file: another file, referenced by file path
+# Clients Example
+
+# - name: Name of the Client
+#   type: client - Make sure to give it type client, this is used for display purposes
+#   supported: true/false - This is to indicated if Apcera will be supporting this client or not
+#   version_num: 1.2.8 - Numeric version number of the client
+#   release_notes: |
+#     A short description of the release notes can go here. Example: "Release 1.2.8 on January 18th, 2016."
+#   github:
+#     - user: Username of the owners github account
+#       repo: Repository name on github
+#       link: URL to the repo on github. Example: https://github.com/nats-io/cnats
+
 Releases:
 - name: C
   type: client
