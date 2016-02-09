@@ -19,7 +19,7 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 
 ## NATS protocol conventions
 
-**Subject names**: Subject names, including reply subject (INBOX) names, are case-insensitive and must be alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
+**Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
 
 `FOO`, `BAR`, `foo.bar`, `foo.BAR`, `FOO.BAR` and `FOO.BAR.BAZ` are all valid subject names
 
@@ -29,19 +29,24 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 - The greater than symbol (`>`) matches any length of the tail of a subject, and can only be the last token. This is also known as the _full wildcard_.
 
 For example, the wildcard subscriptions `foo.*.quux` and `foo.>` both match `foo.bar.quux`, but only the latter matches `foo.bar.baz`.  With the full wildcard,
-it is also possible to express interest in every single topic that is occurring on NATS: `sub > 1`.
+it is also possible to express interest in every subject that may exist in NATS: `sub > 1`.
 
-**Field Delimiters**: The fields of NATS protocol messages are delimited by whitespace characters '` `' (space)  or `\t` (tab). Multiple whitespace characters will be treated as a single field delimiter.
+**Field Delimiters**: The fields of NATS protocol messages are delimited by whitespace characters '` `' (space)  or `\t` (tab). 
+Multiple whitespace characters will be treated as a single field delimiter.
 
-**Newlines**: Like other text-based protocols, NATS uses `CR` followed by `LF` (`CR+LF`, `\r\n`, `0x0D0A`) to terminate protocol messages. This newline sequence is also used to mark the beginning of the actual message payload in a `PUB` or `MSG`protocol message. 
+**Newlines**: Like other text-based protocols, NATS uses `CR` followed by `LF` (`CR+LF`, `\r\n`, `0x0D0A`) to terminate protocol messages. 
+This newline sequence is also used to mark the beginning of the actual message payload in a `PUB` or `MSG` protocol message. 
 
 
 ## NATS protocol messages
 
-The following table briefly describes the NATS protocol messages. Click the name to see more detailed information, including syntax:
+The following table briefly describes the NATS protocol messages. 
+NATS protocol operation names are case insensitive, thus `SUB foo 1\r\n` and `sub foo 1\r\n` are equivalent.
+
+Click the name to see more detailed information, including syntax:
 
 
-| Name                 | Sent By        |    Description
+| OP Name              | Sent By        |    Description
 | -------------------- |:-------------- |:--------------------------------------------
 | [`INFO`](#INFO)      | Server         | Sent to client after initial TCP/IP connection
 | [`CONNECT`](#CONNECT)| Client         | Sent to server to specify connection information
