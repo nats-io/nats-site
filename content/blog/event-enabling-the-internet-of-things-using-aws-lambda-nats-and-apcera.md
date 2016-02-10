@@ -2,7 +2,7 @@
 categories = ["Engineering"]
 date = "2016-02-10T11:22:41-08:00"
 tags = ["nats", "AWS", "lambda", "IoT"]
-title = "Securely Event-enabling the Internet of Things: A Conceptual Approach via AWS Lambda, NATS, and Apcera"
+title = "Event Enabling the Internet of Things using AWS Lambda, NATS and Apcera"
 author = "Dean Sheehan"
 +++
 
@@ -40,11 +40,11 @@ In addition to ‘on demand’ execution via the API Gateway, &lambda; provides 
 
 All very simple, and you are only charged for the compute resources consumed for the actual function execution, not a complete EC2 instance sitting there most of its time idle waiting for something to do.
 
-## APCERA and NATS
+## Apcera and NATS
 
-The APCERA trusted cloud platform provides all of the machinery necessary to support &lambda; functions in a multi-cloud, multi-language in a well governed manner. NATS provides a simple, fast and highly scalable message transport. A marriage made in heaven. Here’s how I went about introducing the two and creating a &lambda; framework.
+The Apcera trusted cloud platform provides all of the machinery necessary to support &lambda; functions in a multi-cloud, multi-language in a well governed manner. NATS provides a simple, fast and highly scalable message transport. A marriage made in heaven. Here’s how I went about introducing the two and creating a &lambda; framework.
 
-The first step was to enable an AWS Lambda function to be deployable to APCERA ‘as is’. This was simply a matter of taking the scaffolding required for a typical Node.js web application (think Node.js / Express), separating that out from the &lambda; function and creating a package artifact for that scaffolding so that it could be reused, by way of package dependencies, time and time again for different function implementations. Pretty much boiled down to ‘tar’ up the scaffolding directory and then uploading to APCERA as a package.
+The first step was to enable an AWS Lambda function to be deployable to Apcera ‘as is’. This was simply a matter of taking the scaffolding required for a typical Node.js web application (think Node.js / Express), separating that out from the &lambda; function and creating a package artifact for that scaffolding so that it could be reused, by way of package dependencies, time and time again for different function implementations. Pretty much boiled down to ‘tar’ up the scaffolding directory and then uploading to Apcera as a package.
 
 `$ apc package from file scaffolding.tar --provides package.scaffolding`
 
@@ -60,13 +60,13 @@ allowing you to the deploy the function with
 
 `$ apc app create myfunction`
 
-The next step was to create a Dispatcher that would expose a URL through the APCERA HTTP(S) Routers and using the APCERA API spin up Job instances on demand based on the deployed function packages in response to requests against the URL. As well as spinning jobs up on demand, I extended the Dispatcher to manage a simple pool of standby jobs to ensure near immediate availability of an execution environment for a function.
+The next step was to create a Dispatcher that would expose a URL through the Apcera HTTP(S) Routers and using the Apcera API spin up Job instances on demand based on the deployed function packages in response to requests against the URL. As well as spinning jobs up on demand, I extended the Dispatcher to manage a simple pool of standby jobs to ensure near immediate availability of an execution environment for a function.
 
 Some new commands allowed me to manage the mapping of function packages through to function names against the Dispatcher URL.
 
 `$ apc-fn bind -p package::/sandbox.dean/myfunction -f myfunction`
 
-We now had a function &lambda; framework within APCERA with an HTTP API Gateway
+We now had a function &lambda; framework within Apcera with an HTTP API Gateway
 
 `$ curl http://lambda.apcera.demo.net/myfunction hello`
 
@@ -74,16 +74,16 @@ he diagram below outlines the flow between the main components in the system:
 
 <img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_1.png">
 
-1. An HTTP(S) request is received by the APCERA Routers
-2. The APCERA Router redirects the request to the Dispatcher that is running somewhere within the cluster.
-3. The Dispatcher looks at the URL being accessed and the mappings it has of URL fragments to function packages held in the APCERA Package Repository.
-4. If the Dispatcher has a mapping registered it uses the APCERA API to instantiate a Job based on the function package
+1. An HTTP(S) request is received by the Apcera Routers
+2. The Apcera Router redirects the request to the Dispatcher that is running somewhere within the cluster.
+3. The Dispatcher looks at the URL being accessed and the mappings it has of URL fragments to function packages held in the Apcera Package Repository.
+4. If the Dispatcher has a mapping registered it uses the Apcera API to instantiate a Job based on the function package
 5. The Dispatcher invokes the function within the newly created Function Job instance
 (Not show in the diagram) Dispatcher discards the Function Job instance once the function has completed - or potentially timedout.
 
 ## Binding to NATS
 
-Binding to NATS was the final piece of the puzzle and once again this was very easy thanks to the simplicity of NATS Node.js client library and the APCERA platform. A couple more commands then made it possible to manage the NATS subject to function name binding.
+Binding to NATS was the final piece of the puzzle and once again this was very easy thanks to the simplicity of NATS Node.js client library and the Apcera platform. A couple more commands then made it possible to manage the NATS subject to function name binding.
 
 `$ apc-fn nats bind -s myfunction.lambda -f myfunction`
 
@@ -101,11 +101,11 @@ hello
 <img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_2.png">
 
 ## Conclusion & Futures
-Implementing a &lambda; framework in APCERA was very easy, as was connecting it up to NATS.
+Implementing a &lambda; framework in Apcera was very easy, as was connecting it up to NATS.
 
 As with AWS Lambda, the benefits of this approach are the simplicity of development and deployment relative to creating full blown cloud native applications, even using something as simple as Node.js / Express, and that the compute resource utilisation is kept to the minimum whilst also expressing your code in a manner that is highly scalable and fault tolerant.
 
-In addition to AWS Lambda, the APCERA / NATS / &lambda; framework enables functions to be executed in multiple clouds (including on-premise) in accordance with overarching governance policies, resource availability, latency and service access requirements.
+In addition to AWS Lambda, the Apcera / NATS / &lambda; framework enables functions to be executed in multiple clouds (including on-premise) in accordance with overarching governance policies, resource availability, latency and service access requirements.
 
 ## Where next?
 
