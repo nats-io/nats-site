@@ -8,7 +8,7 @@ author = "Dean Sheehan"
 
 Recently I decided to see how easy it would be to create an [AWS Lambda] (https://aws.amazon.com/lambda/) equivalent within the [Apcera] (https://www.apcera.com/) trusted cloud platform and use [NATS] (https://www.nats.io) as an event source for triggering function invocations. This blog entry gives an outline of AWS Lambda, the approach I took to get a first implementation up and running and offers up some thoughts on possible futures.
 
-What is AWS Lambda?
+## What is AWS Lambda?
 
 AWS Lambda (&lambda;) is computation without computers, or at least without the explicit notion of computer machines, virtual or physical hosts. In many ways the ultimate evolution of Platform As A Service and Microservice architectures.
 
@@ -24,7 +24,7 @@ where the input *event* object provides access to any data passed to the functio
 
 That’s it. write your function and deploy it &lambda; for execution when and wherever it is needed without worrying about how.
 
-So when, or rather why, is your &lambda; function executed? Well, you can configure &lambda; so that your function is exposed through an HTTP API Gateway enabling you cause the function to be evaluated in response to a URL access.
+So when, or rather why, is your &lambda; function executed? Well, you can configure &lambda; so that your function is exposed through an HTTP API Gateway causing your function to be evaluated in response to a URL access.
 
 `$ curl https://myawsdomain.com/myfunction`
 
@@ -42,13 +42,13 @@ All very simple, and you are only charged for the compute resources consumed for
 
 ## Apcera and NATS
 
-The Apcera trusted cloud platform provides all of the machinery necessary to support &lambda; functions in a multi-cloud, multi-language in a well governed manner. NATS provides a simple, fast and highly scalable message transport. A marriage made in heaven. Here’s how I went about introducing the two and creating a &lambda; framework.
+The Apcera trusted cloud platform provides all of the machinery necessary to support &lambda; functions in a multi-cloud, multi-language and a well governed manner. NATS provides a simple, fast and highly scalable message transport. A marriage made in heaven. Here’s how I went about introducing the two and creating a &lambda; framework.
 
 The first step was to enable an AWS Lambda function to be deployable to Apcera ‘as is’. This was simply a matter of taking the scaffolding required for a typical Node.js web application (think Node.js / Express), separating that out from the &lambda; function and creating a package artifact for that scaffolding so that it could be reused, by way of package dependencies, time and time again for different function implementations. Pretty much boiled down to ‘tar’ up the scaffolding directory and then uploading to Apcera as a package.
 
 `$ apc package from file scaffolding.tar --provides package.scaffolding`
 
-This meant that a &lambda; function was then deployable ‘as is’ by virtue of adding a manifest file that including a dependency on the scaffolding package.
+This meant that a &lambda; function was then deployable ‘as is’ by virtue of adding a manifest file that included a dependency on the scaffolding package.
 
 ```
 package_dependecies: [
@@ -60,17 +60,17 @@ allowing you to the deploy the function with
 
 `$ apc app create myfunction`
 
-The next step was to create a Dispatcher that would expose a URL through the Apcera HTTP(S) Routers and using the Apcera API spin up Job instances on demand based on the deployed function packages in response to requests against the URL. As well as spinning jobs up on demand, I extended the Dispatcher to manage a simple pool of standby jobs to ensure near immediate availability of an execution environment for a function.
+The next step was to create a Dispatcher that would expose a URL through the Apcera HTTP(S) Routers and using the Apcera API to spin up Job instances on demand based on the deployed function packages in response to requests against the URL. As well as spinning jobs up on demand, I extended the Dispatcher to manage a simple pool of standby jobs to ensure near immediate availability of an execution environment for a function.
 
 Some new commands allowed me to manage the mapping of function packages through to function names against the Dispatcher URL.
 
 `$ apc-fn bind -p package::/sandbox.dean/myfunction -f myfunction`
 
-We now had a function &lambda; framework within Apcera with an HTTP API Gateway
+We now have a functioning &lambda; framework within Apcera with an HTTP API Gateway
 
 `$ curl http://lambda.apcera.demo.net/myfunction hello`
 
-he diagram below outlines the flow between the main components in the system:
+The diagram below outlines the flow between the main components in the system:
 
 <img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_1.png">
 
