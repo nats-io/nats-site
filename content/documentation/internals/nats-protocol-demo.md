@@ -39,7 +39,7 @@ INFO {"server_id":"ad29ea9cbb16f2865c177bbd4db446ca","version":"0.6.8","go":"go1
 
 **3. Run the subscriber.**
 
-On the wildcard subject `foo.*` with message size limit of `90` bytes.
+Subscribe to the wildcard subject `foo.*` with subject ID of `90`.
 
 ```
 sub foo.* 90
@@ -52,9 +52,9 @@ sub foo.* 90
 +OK
 ```
 
-**4. Open a second terminal.**
+**4. Open a second terminal window.**
 
-You'll use terminal this is the publisher.
+You'll use this terminal for the publisher.
 
 **5. Connect to NATS.**
 
@@ -74,7 +74,7 @@ INFO {"server_id":"ad29ea9cbb16f2865c177bbd4db446ca","version":"0.6.8","go":"go1
 
 **6. Publish a message.**
 
-The message includes the command (`pub`), subject (`foo.bar`), and length of the payload (`5`). Press enter and provide the payload (`hello`).
+The message includes the command (`pub`), subject (`foo.bar`), and length of the payload (`5`). Press enter and provide the payload (`hello`), then press enter again.
 
 ```
 pub foo.bar 5
@@ -89,7 +89,7 @@ hello
 +OK
 ```
 
-Subscriber result: `MSG` + subject name + max payload size + actual payload size + message payload `hello`.
+Subscriber result: `MSG` + subject name + subscription ID + message payload size + message payload `hello`.
 
 ```
 sub foo.* 90
@@ -98,10 +98,10 @@ MSG foo.bar 90 5
 hello
 ```
 
-**7. Publish another message with reply box.**
+**7. Publish another message with reply subject.**
 
 ```
-pub foo.bar optional-reply-box 5
+pub foo.bar optional.reply.subject 5
 hello
 +OK
 ```
@@ -109,7 +109,7 @@ hello
 Subscriber result: `MSG` indicating message receipt.
 
 ```
-MSG foo.bar 90 optional-reply-box 5
+MSG foo.bar 90 optional.reply.subject 5
 hello
 ```
 
@@ -120,13 +120,13 @@ You can use the `UNSUB` command to unsubscribe from a message.
 Run the subscriber to unsubscribe:
 
 ```
-unsub foo.* 90
+unsub 90 
 ```
 
-Subscriber result: `+OK` indicating successful disinterest.
+Subscriber result: `+OK` indicating successful deregistration of interest.
 
 ```
-unsub foo.* 90
+unsub 90
 +OK
 ```
 
@@ -142,7 +142,7 @@ sub foo.* 90
 
 **10. Explore the ping/pong interval.**
 
-You may have noticed that your clients receive `ping` requests from the server. If your client is not active, or does not respond to the server pings within the ping/pong interval, the server disconnects the client. The err message is `-ERR 'Stale Connection'`.
+If you leave your telnet session open for a few minutes, you may notice that your clients receives `ping` requests from the server. If your client is not active, or does not respond to the server pings within the ping/pong interval, the server disconnects the client. The error message is `-ERR 'Stale Connection'`.
 
 You can send a `ping` request to the serve and receive a `PONG` reply. For example:
 
