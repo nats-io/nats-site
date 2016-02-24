@@ -28,9 +28,9 @@ gulp.task('less', function() {
 
 // Javascript
 gulp.task('js', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src(['src/js/moment.js', 'src/js/**/*.js'])
         .pipe(concat('index.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('static/js'))
         .pipe(notify({ message: 'Finished JavaScript'}));
 });

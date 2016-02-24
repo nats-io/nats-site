@@ -99,14 +99,11 @@ html {
 }
 body {
   background-color: #fff;
-  padding-top: 120px;
+  padding-top: 75px;
   font-size: 16px;
 
   #main-con {
     margin-bottom: 30px;
-  }
-  @media (max-width: @screen-xs-max) {
-    padding-top: 90px;
   }
 }
 // Anchor fix for sticky header
@@ -284,6 +281,11 @@ html#home-html {
   .navbar-default {
     background: @nats-brand-background;
     border-color: transparent;
+    .container {
+      width: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
   .background-con {
     background: url(/img/home-background.jpg) repeat-x center bottom;
@@ -307,13 +309,13 @@ html#home-html {
       font-weight: 200;
       color: #fff;
       font-size: 34px;
-      margin-bottom: 400px;
+      margin-bottom: 275px;
     }
     .extra-info {
       font-weight: 100;
       font-size: 24px;
       word-break: keep-all;
-      margin-bottom: 75px;
+      margin-bottom: 80px;
 
       a.nats-colour-blue-lite {
         margin-right: 15px;
@@ -379,18 +381,35 @@ html#home-html {
 
 // About Page
 #about-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
 
-  // Performance Graph
-  #performance-graph {
-    a.graph-con {
-      display: block;
-      text-align: center;
-      img {
-        max-width: 100%;
-        height: auto;
-      }
     }
   }
+  #canvas-con {
+    canvas#throughputChart {
+
+    }
+  }
+  .embed-responsive {
+    margin-bottom: 30px;
+  }
+  // Recent Posts
+  #recent-posts {
+
+    h4 {
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+
+  }
+
   // Quotes Carousel
   #quote-carousel-con {
     padding: 60px 20px;
@@ -442,6 +461,15 @@ html#home-html {
 
 // Community
 #community-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
+
+    }
+  }
   .community-notice-panel {
     text-align: center;
   }
@@ -471,7 +499,7 @@ html#home-html {
 // Downloads
 #download-page {
   .panel-default {
-    min-height: 160px
+    min-height: 200px
   }
   .download-server,
   .download-client {
@@ -491,6 +519,7 @@ html#home-html {
       }
     }
     .download-con {
+      margin-bottom: 15px;
       h4 {
         font-size: 16px;
         font-weight: bold;
