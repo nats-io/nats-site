@@ -1,21 +1,27 @@
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
   <div class="row">
-    {{ if .Site.Params.leftNav }}
-    <div id="left-nav-con" class="col-md-3">
-      {{ partial "side-menu.html" . }}
-    </div>
-    {{ end }}
-    <div class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
+    <div class="col-md-12">
       {{.Content}}
 
-      {{ if ne .Site.Params.leftNav true }}
-      {{ partial "quick-view.html" . }}
+      <div class="row">
+        <div class="col-md-6">
+          <p>Written in Go, NATS is available as a client for approximately a dozen languages, many of which are supported by the Apcera team. Here’s the full list of <a href="/download">NATS clients</a>.</p>
+        </div>
+        <div class="col-md-6">
+          <p>NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments.. You can learn more about the design characteristics in the <a href="">NATS FAQ</a>.</p>
+        </div>
+      </div>
+
       <hr>
-      {{ partial "performance.html" . }}
-      <hr>
-      {{ partial "quotes.html" . }}
-      {{ end }}
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Recent Posts</h3>
+          {{ partial "recent-posts.html" . }}
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

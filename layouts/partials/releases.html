@@ -9,12 +9,15 @@
           <div class="col-md-7 title-con">
             <h3>{{ .name }}{{ if in .type "client" }} Client{{ end }}</h3>
             {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
-            <p class="supported">View on Github</p>
           </div>
           <div class="col-md-5 download-con">
             <div class="download-con">
-              <h4>Download</h4>
-              <p><a href="{{ .repo_url }}">View on Github</a></p>
+              <ul class="list-unstyled">
+              {{ range first 1 .github }}
+              <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+              <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+              {{ end }}
+              </ul>
             </div>
             <div class="release-con">
               {{ if .release_notes }}

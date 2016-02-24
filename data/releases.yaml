@@ -30,9 +30,9 @@ Releases:
 - name: C#
   type: client
   supported: true
-  version_num: 0.3.0
+  version_num: 0.4.0
   release_notes: |
-    Release 0.3.0-beta on December 11th, 2015.
+    Release 0.4.0 on February 11th, 2016.
   github:
     - user: nats-io
       repo: csnats
@@ -85,9 +85,9 @@ Releases:
 - name: Node.js
   type: client
   supported: true
-  version_num: 0.4.2
+  version_num: 0.5.4
   release_notes: |
-    Release v.0.4.4, September 9th, 2015
+    Release v.0.5.4, Jan 8th, 2016
   github:
     - user: nats-io
       repo: node-nats
@@ -96,9 +96,9 @@ Releases:
 - name: Ruby
   type: client
   supported: true
-  version_num: 0.0.0
+  version_num: 0.5.1
   release_notes: |
-    Release 0.5.0 on June 19th, 2015.
+    Release 0.5.1 on August 6th, 2015.
   github:
     - user: nats-io
       repo: ruby-nats
