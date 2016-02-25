@@ -370,7 +370,44 @@ html#home-html {
     }
 
   }
+}
+// End About
 
+// Community
+#community-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
+
+    }
+  }
+  .community-notice-panel {
+    text-align: center;
+  }
+  .meetup-con {
+    padding-top: 20px;
+  }
+  @media (max-width: @screen-sm-max) {
+    .meetup-con {
+      text-align: center;
+    }
+  }
+  .partners-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .col-md-3 {
+
+      a {
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
   // Quotes Carousel
   #quote-carousel-con {
     padding: 60px 20px;
@@ -413,44 +450,6 @@ html#home-html {
               height: 325px;
             }
           }
-        }
-      }
-    }
-  }
-}
-// End About
-
-// Community
-#community-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
-  .community-notice-panel {
-    text-align: center;
-  }
-  .meetup-con {
-    padding-top: 20px;
-  }
-  @media (max-width: @screen-sm-max) {
-    .meetup-con {
-      text-align: center;
-    }
-  }
-  .partners-con {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .col-md-3 {
-
-      a {
-        img {
-          margin: 0 auto;
         }
       }
     }
@@ -647,6 +646,9 @@ html#home-html {
   }
   .blog-nav-con-upper {
     padding-top: 30px;
+  }
+  .embed-responsive {
+    margin-bottom: 30px;
   }
 }
 
