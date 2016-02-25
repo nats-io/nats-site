@@ -46,4 +46,4 @@ nats-top -ms 8222 --cacert ca.pem
 ## Changed
  - Aborts polling in case first request to monitoring port failed
 
- I’m interested in any questions, feedback, and comments you have on nats-top - please feel free to reach me via Twitter or Github.
+ I’m interested in any questions, feedback, and comments you have on nats-top - please feel free to reach me via [Twitter](https://twitter.com/wallyqs) or [Github](https://github.com/wallyqs).
