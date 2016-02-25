@@ -107,6 +107,7 @@
 html {
   background-color: @nats-brand-gray-light;
 }
+
 body {
   background-color: #fff;
   padding-top: 75px;
@@ -116,6 +117,7 @@ body {
     margin-bottom: 30px;
   }
 }
+
 // Anchor fix for sticky header
 a[name]:before {
   display: block;
@@ -190,6 +192,14 @@ h6 {
 table {
   .table();
   .table-striped();
+}
+
+// Content Background
+#main-con {
+  background: url(/img/about-neuron.png) right top no-repeat;
+  @media (max-width: @screen-md-min) {
+    background: transparent;
+  }
 }
 
 // Navbar
@@ -383,9 +393,6 @@ html#home-html {
 
 // About Page
 #about-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
   .page-header {
     border-bottom: none;
     h1 {
@@ -416,9 +423,6 @@ html#home-html {
 
 // Community
 #community-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
   .page-header {
     border-bottom: none;
     h1 {
@@ -499,9 +503,6 @@ html#home-html {
 
 // Downloads
 #download-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
   .page-header {
     border-bottom: none;
     h1 {
@@ -566,9 +567,6 @@ html#home-html {
 
 // Support
 #support-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
   .page-header {
     border-bottom: none;
     h1 {
@@ -603,9 +601,12 @@ html#home-html {
 
 // Documentation
 #nats-documentation-detail-page {
-  #documentation-content {
-    background: url(/img/about-neuron.png) right top no-repeat;
+  #main-con {
+    background: url(/img/about-neuron-docs.png) right top no-repeat;
     padding-top: 20px;
+    @media (max-width: @screen-md-min) {
+      background: transparent;
+    }
   }
   // Left Nav
   #left-nav-con {
