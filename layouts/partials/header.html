@@ -51,9 +51,8 @@
             {{ range $item := .Site.Params.mainMenu }}
             {{ $itemUrl := printf "%s%s/" $baseUrl $item }}
             {{ if and ( eq $item "documentation" ) ( $onDocs ) }}
-
             <li class="hidden-xs hidden-sm{{ if eq $currentUrl $itemUrl }} active{{ end }}"><a class="main-item" href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
-            <li class="dropdown hidden-md hidden-lg {{ if eq $currentUrl $itemUrl }} active{{ end }}">
+            <li class="dropdown hidden-md hidden-lg active">
               <a class="main-item" href="/documentation" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ title $item }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 {{ range $mainMenu }}
