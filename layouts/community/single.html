@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      {{.Content}}
+
+      <hr>
+
+      {{ partial "quotes.html" . }}
+
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
