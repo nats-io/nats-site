@@ -232,46 +232,6 @@ nav.navbar-default {
   }
 }
 
-// Left Nav
-#left-nav-con {
-  padding-top: 20px;
-  ul.sub-menu {
-    li {
-      &.main-menu-item {
-        margin-bottom: 15px;
-      }
-      a.main-menu-item-title {
-        color: @nats-brand-primary;
-      }
-      &.active {
-        a.main-menu-item-title {
-          font-weight: bold;
-          color: @nats-brand-primary;
-        }
-      }
-
-      ul {
-        padding: 2px 0px 20px 0px;
-        li {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          &.active {
-            font-weight: bold;
-
-            a {
-
-            }
-          }
-          a {
-
-          }
-        }
-      }
-    }
-  }
-}
-
 // Home Page
 html#home-html {
   background-color: @nats-brand-background;
@@ -601,8 +561,53 @@ html#home-html {
   }
 }
 
-
 // Documentation
+#nats-documentation-detail-page {
+  #documentation-content {
+    background: url(/img/about-neuron.png) right top no-repeat;
+    padding-top: 20px;
+  }
+  // Left Nav
+  #left-nav-con {
+    padding-top: 40px;
+    ul.sub-menu {
+      li {
+        &.main-menu-item {
+          margin-bottom: 15px;
+        }
+        .main-menu-item-title {
+          font-size: 18px;
+          color: @nats-brand-primary;
+        }
+        &.active {
+          a.main-menu-item-title {
+            font-weight: bold;
+            color: @nats-brand-primary;
+          }
+        }
+
+        ul {
+          padding: 2px 0px 20px 0px;
+          li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.active {
+              font-weight: bold;
+
+              a {
+
+              }
+            }
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // Blog
 #blogs-page {
