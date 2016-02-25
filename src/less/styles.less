@@ -234,6 +234,7 @@ nav.navbar-default {
 
 // Left Nav
 #left-nav-con {
+  padding-top: 20px;
   ul.sub-menu {
     li {
       &.main-menu-item {
@@ -498,6 +499,15 @@ html#home-html {
 
 // Downloads
 #download-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
+
+    }
+  }
   .panel-default {
     min-height: 200px
   }
@@ -555,46 +565,83 @@ html#home-html {
 }
 
 // Support
-table#support-table {
-  thead {
-    background: @nats-brand-primary;
-    color: #fff;
-    tr {
-      th {
-        border: none;
-        text-align: center;
-      }
+#support-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
+
     }
   }
-  tbody {
-
-    tr {
-      td:first-child {
-        background: @nats-brand-gray-light;
+  table#support-table {
+    thead {
+      background: @nats-brand-primary;
+      color: #fff;
+      tr {
+        th {
+          border: none;
+          text-align: center;
+        }
       }
-      td:nth-child(2),
-      td:nth-child(3) {
-        text-align: center;
+    }
+    tbody {
+
+      tr {
+        td:first-child {
+          background: @nats-brand-gray-light;
+        }
+        td:nth-child(2),
+        td:nth-child(3) {
+          text-align: center;
+        }
       }
     }
   }
 }
+
 
 // Documentation
 
 // Blog
-.tweet-embed-con {
-  padding: 10px 0px;
-  iframe {
-    margin: 0px auto;
+#blogs-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
+  }
+  .page-header {
+    border-bottom: none;
+    h1 {
+
+    }
+  }
+  .tweet-embed-con {
+    padding: 10px 0px;
+    iframe {
+      margin: 0px auto;
+    }
+  }
+  dl.blog-entry-meta {
+    dt {
+
+    }
+    dd {
+      margin-bottom: 10px;
+    }
   }
 }
-dl.blog-entry-meta {
-  dt {
-
+#blog-post-page {
+  #main-con {
+    background: url(/img/about-neuron.png) right top no-repeat;
   }
-  dd {
-    margin-bottom: 10px;
+  .page-header {
+    border-bottom: none;
+    h1 {
+
+    }
+  }
+  .blog-nav-con-upper {
+    padding-top: 30px;
   }
 }
 
