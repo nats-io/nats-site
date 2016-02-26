@@ -6,6 +6,8 @@ var gulp =          require('gulp'),
     watch =         require('gulp-watch'),
     less =          require('gulp-less'),
     gm =            require('gulp-gm'),
+    imageResize =   require('gulp-image-resize'),
+    gulpif =        require('gulp-if'),
     autoprefixer =  require('gulp-autoprefixer'),
     sourcemaps =    require('gulp-sourcemaps');
 
@@ -31,12 +33,19 @@ gulp.task('partnerLogos', function() {
 
 // Resize Blog Images
 gulp.task('blogImages', function() {
-  return gulp.src('src/blog/**/*')
-        .pipe(gm(function (gmfile) {
-          return gmfile.resize(800, 600);
+  return gulp.src('src/blog/**/*.{png,jpg,jpeg}')
+        .pipe(imageResize({
+          width : 800
         }))
         .pipe(gulp.dest('static/img/blog'))
         .pipe(notify({ message: 'Finished resizing blog image'}));
+});
+
+// Will have to improve this later on
+gulp.task('blogImagesGifs', function() {
+  return gulp.src('src/blog/**/*.gif')
+        .pipe(gulp.dest('static/img/blog'))
+        .pipe(notify({ message: 'Finished copying gif blog image'}));
 });
 
 // Images
@@ -51,8 +60,9 @@ gulp.task('watch', function() {
   gulp.watch('src/user_logos/**/*', ['userLogos']);
   gulp.watch('src/partner_logos/**/*', ['partnerLogos']);
   gulp.watch('src/blog/**/*', ['blogImages']);
+  gulp.watch('src/blog/**/*', ['blogImagesGifs']);
   gulp.watch('src/img/**/*', ['img']);
 });
 
 // Default Task
-gulp.task('default', ['userLogos', 'partnerLogos', 'blogImages', 'img', 'watch']);
+gulp.task('default', ['userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'img', 'watch']);

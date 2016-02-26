@@ -5,12 +5,12 @@
       {{ .Content }}
     </div>
   </div>
-  <div class="row">
+  <div class="row download-server-con">
     <div class="col-md-12">
       <h2>Server</h2>
-      {{ range $.Site.Data.clients }}
+      {{ range $.Site.Data }}
         {{ range .Releases }}
-        {{ if eq .name "NATS Server" }}
+        {{ if eq .type "server" }}
 
         <div class="panel panel-default">
           <div class="panel-body download-server">
@@ -18,10 +18,9 @@
             <div class="row">
               <div class="col-md-3 title-con">
                 <h3>{{ .name }}</h3>
-                {{ if in .type "supported" }}<p>Supported by <a href="https://www.apcera.com" target="_blank">Apcera</a></p>{{ end }}
+                {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
               </div>
-              <div class="col-md-6">
-
+              <div class="col-md-6 release-con">
                 {{ if .release_notes }}
                 <h4>Release Notes:</h4>
                 {{ .release_notes | safeHTML }}
@@ -29,11 +28,11 @@
                 <p>No release notes.</p>
                 {{ end }}
               </div>
-              <div class="col-md-3">
-                {{ if .downloads }}
+              <div class="col-md-3 download-con">
+                {{ if .links }}
                 <dl>
                   <dt>Download</dt>
-                  {{ range .downloads }}
+                  {{ range .links }}
                   <dd><a href="{{ .url }}">{{ .name }}</a></dd>
                   {{ end }}
                 </dl>
@@ -50,18 +49,17 @@
 
     </div>
   </div>
-  <hr>
-  <div class="row">
+
+  <div class="row download-clients-con">
     <div class="col-md-12">
       <h2>Clients</h2>
-      {{ range $.Site.Data.clients }}
+      {{ range $.Site.Data }}
          {{ partial "releases.html" . }}
       {{ end }}
     </div>
   </div>
 
-  <hr>
-  <div class="row">
+  <div class="row external-clients-con">
     <div class="col-md-12">
       <p><em>Please <a href="mailto:info@nats.io?subject=NATS External Client">contact us</a> to add your external client to the download list.</em></p>
     </div>

@@ -9,6 +9,8 @@
     "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.1.0",
     "gulp-gm": "0.0.8",
+    "gulp-if": "^2.0.0",
+    "gulp-image-resize": "^0.7.1",
     "gulp-less": "^3.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
