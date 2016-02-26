@@ -156,6 +156,9 @@ h6 {
     font-size: floor((@font-size-base * 1.4));
   }
 }
+.page-header {
+  border-bottom: none;
+}
 // Colour text
 .nats-colour-blue-lite {
   color: @nats-colour-blue-lite;
@@ -196,6 +199,7 @@ table {
 
 // Content Background
 #main-con {
+  min-height: 600px;
   background: url(/img/about-neuron.png) right top no-repeat;
   @media (max-width: @screen-md-min) {
     background: transparent;
@@ -397,12 +401,6 @@ html#home-html {
 
 // About Page
 #about-page {
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
   #canvas-con {
     canvas#throughputChart {
 
@@ -427,12 +425,6 @@ html#home-html {
 
 // Community
 #community-page {
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
   .community-notice-panel {
     text-align: center;
   }
@@ -507,12 +499,6 @@ html#home-html {
 
 // Downloads
 #download-page {
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
   .panel-default {
     min-height: 200px
   }
@@ -571,12 +557,6 @@ html#home-html {
 
 // Support
 #support-page {
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
   table#support-table {
     thead {
       background: @nats-brand-blue-dark;
@@ -656,15 +636,6 @@ html#home-html {
 
 // Blog
 #blogs-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
   .tweet-embed-con {
     padding: 10px 0px;
     iframe {
@@ -681,37 +652,28 @@ html#home-html {
   }
 }
 #blog-post-page {
-  #main-con {
-    background: url(/img/about-neuron.png) right top no-repeat;
-  }
-  .page-header {
-    border-bottom: none;
-    h1 {
-
-    }
-  }
-  .blog-nav-con-upper {
-    padding-top: 30px;
-  }
   .embed-responsive {
     margin-bottom: 30px;
   }
+}
+.blog-nav-con-upper {
+  padding-top: 30px;
 }
 
 // Footer
 footer {
   background-color: @nats-brand-gray-light;
   color: @footer-text-color;
-  padding-top: 30px;
-  padding-bottom: 60px;
+  padding-top: 20px;
+  font-size: 14px;
   .container {
 
   }
 
   .copyright {
-    font-size: 14px;
+    margin-bottom: 10px;
   }
   .supported {
-    text-transform: uppercase;
+    padding-top: 2px;
   }
 }
