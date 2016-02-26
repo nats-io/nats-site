@@ -7,7 +7,7 @@ SectionPagesMenu = "main"
   leftNav = true
   description = "NATS documentation"
   author = "The NATS team"
-  mainMenu=[ "home", "download", "documentation", "support", "community", "blog" ]
+  mainMenu=[ "about", "download", "documentation", "support", "community", "blog" ]
   noCategoryLink = true
 
 [[menu.main]]
