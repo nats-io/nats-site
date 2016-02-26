@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="row">
+        <div class="col-md-7">
+          <div class="blog-nav-con-upper">
+            <a href="/blog"><i class="fa fa-backward"></i> Back to Blog</a>
+          </div>
+          <div class="page-header">
+            <h1>{{ .Title }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          {{ range .Data.Pages }}
+          <div class="row">
+            <div class="col-md-12">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a><br></h3>
+              <p>By: <strong>{{ .Params.author }}</strong> - Date: <strong>{{ .Date.Format "January 2, 2006" }}</strong></p>
+              <p>{{ .Summary }} <a href="{{ .RelPermalink }}">Read More&#8230;</a></p>
+            </div>
+          </div>
+          <hr>
+        	{{ end }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
