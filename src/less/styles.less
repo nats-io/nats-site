@@ -30,7 +30,7 @@
 
 // Navbar
 // Navbar collapse
-//** Point at which the navbar becomes uncollapsed.
+// Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:                     @screen-md-min;
 // Basics of a navbar
 @navbar-height:                             77px;
@@ -308,7 +308,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center bottom;
+    background: url(/img/home-background.jpg) repeat-x center 65%;
   }
   .homepage-brand {
     display: block;
@@ -329,18 +329,17 @@ html#home-html {
       font-weight: 200;
       color: #fff;
       font-size: 34px;
-      margin-bottom: 275px;
+
     }
     .extra-info {
       font-weight: 100;
       font-size: 24px;
       word-break: keep-all;
-      margin-bottom: 80px;
+      margin-bottom: 350px;
 
       a.nats-colour-blue-lite {
         margin-right: 15px;
         line-height: 50px;
-
         &:visited, &:hover {
           color: @nats-colour-blue-lite;
           text-decoration: none;
@@ -348,17 +347,22 @@ html#home-html {
       }
       a.nats-colour-green-lite {
         margin-bottom: 10px;
-
         &:visited, &:hover {
           color: @nats-colour-green-lite;
           text-decoration: none;
         }
       }
     }
+    .bottom-info{
+      margin-top: 30px;
+      text-align: left;
+      font-size: 20px;
+      color: #ddd;
+    }
   }
   @media (max-width: @screen-xs-max) {
     .background-con {
-      background: url(/img/home-background-sm.jpg) repeat-x center bottom;
+      background: url(/img/home-background-sm.jpg) repeat-x center;
     }
     .homepage-brand {
       width: 300px;
