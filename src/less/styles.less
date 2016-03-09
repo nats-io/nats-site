@@ -308,7 +308,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center 65%;
+    background: url(/img/home-background.jpg) repeat-x center 54%;
   }
   .homepage-brand {
     display: block;
@@ -359,7 +359,44 @@ html#home-html {
       font-size: 20px;
       color: #ddd;
     }
+    .bottom-logo-container{
+      width: 100%;
+      position: relative;
+      height: 100px;
+      svg{
+        width: 18%;
+        position: absolute;
+        bottom: 0%;
+        .st0{
+          fill: #fff;
+        }
+      }
+      svg.ericsson{
+        width: 24%;
+        left: 0%;
+        bottom: -6px;
+      }
+      svg.htc{
+        width: 11%;
+        left: 26%;
+      }
+      svg.baidu{
+        width: 18%;
+        left: 39%;
+        bottom: -3px;
+      }
+      svg.siemens{
+        width: 19%;
+        left: 59%;
+        bottom: -9px;
+      }
+      svg.vmware{
+        width: 19%;
+        left: 80%;
+      }
+    }
   }
+
   @media (max-width: @screen-xs-max) {
     .background-con {
       background: url(/img/home-background-sm.jpg) repeat-x center;
@@ -380,6 +417,41 @@ html#home-html {
         font-size: 18px;
         margin-bottom: 50px;
       }
+      .bottom-logo-container{
+        width: 100%;
+        text-align: center;
+        overflow: visible;
+
+        svg{
+          max-width: 170px;
+          position: relative;
+          display: block;
+          float: none;
+          margin: 4% auto;
+          clear: both;
+          left: 0% !important;
+          .st0{
+            fill: #fff;
+          }
+        }
+        svg.ericsson{
+          width: 55%;
+        }
+        svg.htc{
+          width: 35%;
+          max-width: 130px;
+        }
+        svg.baidu{
+          width: 50%;
+        }
+        svg.siemens{
+          width: 50%;
+        }
+        svg.vmware{
+          width: 50%;
+          margin-top: 6%;
+        }
+      }
     }
   }
   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -397,6 +469,11 @@ html#home-html {
       }
       .extra-info {
         font-size: 24px;
+      }
+      .bottom-logo-container{
+        svg.vmware{
+          bottom: -3px;
+        }
       }
     }
   }
