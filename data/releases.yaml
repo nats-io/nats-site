@@ -19,9 +19,9 @@ Releases:
 - name: C
   type: client
   supported: true
-  version_num: 1.2.8
+  version_num: 1.2.10
   release_notes: |
-    Release 1.2.8 on January 18th, 2016.
+    Release 1.2.10 on February 26th, 2016.
   github:
     - user: nats-io
       repo: cnats
