@@ -418,40 +418,50 @@ html#home-html {
         margin-bottom: 50px;
       }
       .bottom-logo-container{
-        width: 100%;
-        text-align: center;
-        overflow: visible;
-
-        svg{
-          max-width: 170px;
-          position: relative;
-          display: block;
-          float: none;
-          margin: 4% auto;
-          clear: both;
-          left: 0% !important;
-          .st0{
-            fill: #fff;
-          }
-        }
-        svg.ericsson{
-          width: 55%;
-        }
-        svg.htc{
-          width: 35%;
-          max-width: 130px;
-        }
-        svg.baidu{
-          width: 50%;
-        }
         svg.siemens{
-          width: 50%;
+          bottom: -6px;
         }
         svg.vmware{
-          width: 50%;
-          margin-top: 6%;
+          bottom: -4px;
         }
       }
+
+    }
+  }
+
+  @media (max-width: @screen-xs-min){
+      #homepage-content{
+        .bottom-logo-container{
+          width: 100%;
+          overflow: visible;
+          svg{
+            max-width: 170px;
+            position: relative;
+            display: block;
+            margin: 4% auto;
+            left: 0% !important;
+            .st0{
+              fill: #fff;
+            }
+          }
+          svg.ericsson{
+            width: 55%;
+          }
+          svg.htc{
+            width: 35%;
+            max-width: 130px;
+          }
+          svg.baidu{
+            width: 50%;
+          }
+          svg.siemens{
+            width: 50%;
+          }
+          svg.vmware{
+            width: 50%;
+            margin-top: 6%;
+          }
+        }
     }
   }
   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
