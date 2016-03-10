@@ -294,10 +294,20 @@ html#home-html {
 #home-page {
   #main-con {
     background: transparent;
+    margin-bottom: 0px;
   }
-
+  #navbar{
+    text-align: center;
+  }
+  .nav.navbar-right{
+    float: none !important;
+    display: inline-block;
+  }
+  #homepage-footer{
+    margin-top: 40px;
+    background-color: @nats-brand-background;
+  }
   background-color: @nats-brand-background;
-
   .navbar-default {
     background: @nats-brand-background;
     border-color: transparent;
@@ -308,7 +318,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center 54%;
+    background: url(/img/home-background.jpg) repeat-x center 55%;
   }
   .homepage-brand {
     display: block;
@@ -319,7 +329,6 @@ html#home-html {
   #homepage-content {
     padding-top: 60px;
     text-align: center;
-
     h1 {
       font-size: 42px;
       margin-bottom: 15px;
@@ -336,7 +345,6 @@ html#home-html {
       font-size: 24px;
       word-break: keep-all;
       margin-bottom: 350px;
-
       a.nats-colour-blue-lite {
         margin-right: 15px;
         line-height: 50px;
@@ -358,6 +366,9 @@ html#home-html {
       text-align: left;
       font-size: 20px;
       color: #ddd;
+    }
+    #github-buttons iframe{
+      margin: 0px 10px 20px 0px;
     }
     .bottom-logo-container{
       width: 100%;
@@ -383,12 +394,12 @@ html#home-html {
       svg.baidu{
         width: 18%;
         left: 39%;
-        bottom: -3px;
+        bottom: -4px;
       }
       svg.siemens{
         width: 19%;
         left: 59%;
-        bottom: -9px;
+        bottom: -10px;
       }
       svg.vmware{
         width: 19%;
@@ -399,7 +410,7 @@ html#home-html {
 
   @media (max-width: @screen-xs-max) {
     .background-con {
-      background: url(/img/home-background-sm.jpg) repeat-x center;
+      background: url(/img/home-background-sm.jpg) repeat-x center 35%;
     }
     .homepage-brand {
       width: 300px;
@@ -411,55 +422,71 @@ html#home-html {
       }
       .lead {
         font-size: 18px;
-        margin-bottom: 190px;
       }
       .extra-info {
         font-size: 18px;
-        margin-bottom: 50px;
+        margin-bottom: 150px;
       }
       .bottom-logo-container{
+        svg.htc{
+          bottom: -2px;
+        }
         svg.siemens{
-          bottom: -6px;
+          bottom: -8px;
         }
         svg.vmware{
           bottom: -4px;
         }
       }
-
     }
   }
 
   @media (max-width: @screen-xs-min){
       #homepage-content{
+        .lead{
+          margin-bottom: 10px;
+        }
         .bottom-logo-container{
           width: 100%;
           overflow: visible;
           svg{
-            max-width: 170px;
             position: relative;
-            display: block;
-            margin: 4% auto;
+            display: inline-block;
             left: 0% !important;
+            padding: 10px;
             .st0{
               fill: #fff;
             }
           }
           svg.ericsson{
             width: 55%;
+            float: left;
+
           }
           svg.htc{
             width: 35%;
-            max-width: 130px;
+/*            max-width: 100px;*/
+            float: left;
+            margin-top: 4px;
           }
           svg.baidu{
             width: 50%;
+            float: left;
+            margin-bottom: 5%;
           }
           svg.siemens{
             width: 50%;
+            float: left;
+            margin-top: 4.2%;
           }
           svg.vmware{
             width: 50%;
-            margin-top: 6%;
+            margin-top: 8%;
+            margin-bottom: 10%;
+            float: none;
+            display: block;
+            clear: both;
+            margin-left: 25%;
           }
         }
     }
@@ -468,14 +495,18 @@ html#home-html {
     .homepage-brand {
       width: 350px;
     }
+          .background-con {
+        background-position: center 40%;
+      }
     #homepage-content {
       padding-top: 30px;
+
       h1 {
         font-size: 34px;
       }
       .lead {
         font-size: 24px;
-        margin-bottom: 350px;
+/*        margin-bottom: 350px;*/
       }
       .extra-info {
         font-size: 24px;
