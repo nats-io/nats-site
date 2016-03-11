@@ -282,15 +282,13 @@ nav.navbar-default {
     }
 
   }
-  &.home-page {
-
-  }
 }
 
 // Home Page
 html#home-html {
   background-color: @nats-brand-background;
 }
+
 #home-page {
   #main-con {
     background: transparent;
@@ -304,8 +302,15 @@ html#home-html {
     display: inline-block;
   }
   #homepage-footer{
-    margin-top: 40px;
+    margin: 20px 0px;
     background-color: @nats-brand-background;
+    #dark-powered-by-apcera{
+      max-width: 262.5px;
+    }
+    .copyright{
+      padding-top: 2px;
+      color: white;
+    }
   }
   background-color: @nats-brand-background;
   .navbar-default {
@@ -318,7 +323,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center 55%;
+    background: url(/img/home-background.jpg) repeat-x center 48%;
   }
   .homepage-brand {
     display: block;
@@ -344,7 +349,7 @@ html#home-html {
       font-weight: 100;
       font-size: 24px;
       word-break: keep-all;
-      margin-bottom: 350px;
+      margin-bottom: 130px;
       a.nats-colour-blue-lite {
         margin-right: 15px;
         line-height: 50px;
@@ -362,18 +367,35 @@ html#home-html {
       }
     }
     .bottom-info{
-      margin-top: 30px;
+      margin-top: 150px;
       text-align: left;
-      font-size: 20px;
-      color: #ddd;
+      font-size: 22px;
+      color: #fff;
+      padding: 0px 10px;
+      &.bottom-info-2{
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
     }
-    #github-buttons iframe{
-      margin: 0px 10px 20px 0px;
+    #download-button{
+      background-color: @nats-colour-blue-lite;
+      color: white;
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      transition: box-shadow .25s linear;
+      &:focus {outline:0;}
+      &:hover{
+              -webkit-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+      -moz-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+      box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+      };
+      .download-text{ padding: 0px 5px; }
     }
     .bottom-logo-container{
       width: 100%;
       position: relative;
-      height: 100px;
+      min-height: 100px;
       svg{
         width: 18%;
         position: absolute;
@@ -406,11 +428,12 @@ html#home-html {
         left: 80%;
       }
     }
+
   }
 
   @media (max-width: @screen-xs-max) {
     .background-con {
-      background: url(/img/home-background-sm.jpg) repeat-x center 35%;
+      background: url(/img/home-background-sm.jpg) repeat-x center 160px;
     }
     .homepage-brand {
       width: 300px;
@@ -422,10 +445,15 @@ html#home-html {
       }
       .lead {
         font-size: 18px;
+        margin-bottom: 10px;
       }
       .extra-info {
         font-size: 18px;
-        margin-bottom: 150px;
+        margin-bottom: 65px;
+      }
+      .bottom-info{
+        margin-top: 65px;
+        font-size: 18px;
       }
       .bottom-logo-container{
         svg.htc{
@@ -437,6 +465,21 @@ html#home-html {
         svg.vmware{
           bottom: -4px;
         }
+      }
+    }
+    #homepage-footer{
+      text-align: center;
+      .row{
+        display: table;
+        margin: 0 auto;
+      }
+      .copyright{
+        display: table-footer-group;
+        float: none;
+      }
+      .supported{
+        display: table-header-group;
+        float: none;
       }
     }
   }
@@ -457,6 +500,9 @@ html#home-html {
             .st0{
               fill: #fff;
             }
+          }
+          .bottom-info{
+            font-size: 16px;
           }
           svg.ericsson{
             width: 55%;
@@ -489,16 +535,22 @@ html#home-html {
             margin-left: 25%;
           }
         }
-    }
-  }
-  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-    .homepage-brand {
-      width: 350px;
-    }
-          .background-con {
-        background-position: center 40%;
       }
-    #homepage-content {
+    }
+   @media (min-width: @screen-md-min) and (max-width: @screen-md-max){
+    .background-con {
+      background-position: center 45%;
+    }
+   }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+      .homepage-brand {
+        width: 350px;
+      }
+      .background-con {
+          background-position: center 30%;
+      }
+      #homepage-content {
       padding-top: 30px;
 
       h1 {
@@ -533,14 +585,12 @@ html#home-html {
   }
   // Recent Posts
   #recent-posts {
-
     h5 {
       margin-bottom: 0px;
     }
     p {
       margin-bottom: 15px;
     }
-
   }
 }
 // End About
