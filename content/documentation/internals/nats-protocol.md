@@ -19,14 +19,17 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 
 ## NATS protocol conventions
 
-**Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
+**Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be non-empty alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
 
 `FOO`, `BAR`, `foo.bar`, `foo.BAR`, `FOO.BAR` and `FOO.BAR.BAZ` are all valid subject names
+
+`FOO. BAR`, `foo. .bar` and`foo..bar` are *not* valid subject names
 
 **Wildcards**: NATS supports the use of wildcards in subject subscriptions.
 
 - The asterisk character (`*`) matches any token at any level of the subject.
 - The greater than symbol (`>`) matches any length of the tail of a subject, and can only be the last token. This is also known as the _full wildcard_.
+- Wildcards must be separate tokens (`foo.*.baz` or `foo.>` are syntactically valid; `foo*.bar`, `f*o.b*r` and `foo>` are not)
 
 For example, the wildcard subscriptions `foo.*.quux` and `foo.>` both match `foo.bar.quux`, but only the latter matches `foo.bar.baz`.  With the full wildcard,
 it is also possible to express interest in every subject that may exist in NATS: `sub > 1`.
