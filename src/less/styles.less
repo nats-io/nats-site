@@ -98,7 +98,7 @@
 
 // Footer
 @footer-text-color:                         @nats-brand-gray;
-@footer-link-hover:                         @nats-colour-blue-lite;
+@footer-link-hover:                         @link-hover-color;
 @footer-link:                               @nats-colour-blue-lite;
 
 // #############################################################################
@@ -197,6 +197,17 @@ table {
   .table-striped();
 }
 
+// Custom 5 column grid setting
+.col-sm-15{
+  width: 20%;
+
+  @media (max-width: @screen-xs-max) {
+    width: 50%;
+  }
+}
+
+// Main Content Styles
+
 // Content Background
 #main-con {
   min-height: 600px;
@@ -288,7 +299,6 @@ nav.navbar-default {
 html#home-html {
   background-color: @nats-brand-background;
 }
-
 #home-page {
   #main-con {
     background: transparent;
@@ -301,17 +311,6 @@ html#home-html {
     float: none !important;
     display: inline-block;
   }
-  #homepage-footer{
-    margin: 20px 0px;
-    background-color: @nats-brand-background;
-    #dark-powered-by-apcera{
-      max-width: 262.5px;
-    }
-    .copyright{
-      padding-top: 2px;
-      color: white;
-    }
-  }
   background-color: @nats-brand-background;
   .navbar-default {
     background: @nats-brand-background;
@@ -323,7 +322,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center 48%;
+    background: url(/img/home-background.jpg) repeat-x center 300px;
   }
   .homepage-brand {
     display: block;
@@ -349,7 +348,7 @@ html#home-html {
       font-weight: 100;
       font-size: 24px;
       word-break: keep-all;
-      margin-bottom: 130px;
+      margin-bottom: 315px;
       a.nats-colour-blue-lite {
         margin-right: 15px;
         line-height: 50px;
@@ -367,74 +366,48 @@ html#home-html {
       }
     }
     .bottom-info{
-      margin-top: 150px;
       text-align: left;
       font-size: 22px;
       color: #fff;
-      padding: 0px 10px;
-      &.bottom-info-2{
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
+      margin-bottom: 30px;
     }
-    #download-button{
-      background-color: @nats-colour-blue-lite;
+    #download-button {
+      background-color: @nats-colour-green-lite;
+      font-size: 28px;
       color: white;
       -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
       -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
       box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
       transition: box-shadow .25s linear;
-      &:focus {outline:0;}
+      &:focus {
+        outline:0;
+      }
       &:hover{
-              -webkit-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
-      -moz-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
-      box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+        -moz-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+        box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
       };
-      .download-text{ padding: 0px 5px; }
-    }
-    .bottom-logo-container{
-      width: 100%;
-      position: relative;
-      min-height: 100px;
-      svg{
-        width: 18%;
-        position: absolute;
-        bottom: 0%;
-        .st0{
-          fill: #fff;
-        }
-      }
-      svg.ericsson{
-        width: 24%;
-        left: 0%;
-        bottom: -6px;
-      }
-      svg.htc{
-        width: 11%;
-        left: 26%;
-      }
-      svg.baidu{
-        width: 18%;
-        left: 39%;
-        bottom: -4px;
-      }
-      svg.siemens{
-        width: 19%;
-        left: 59%;
-        bottom: -10px;
-      }
-      svg.vmware{
-        width: 19%;
-        left: 80%;
-        bottom: -1px;
+      .download-text{
+        padding: 0px 5px;
       }
     }
+    #bottom-logo-container {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
 
+      .col-xs-6 {
+        align-self: flex-end;
+        margin-bottom: 30px;
+      }
+    }
   }
 
   @media (max-width: @screen-xs-max) {
     .background-con {
-      background: url(/img/home-background-sm.jpg) repeat-x center 160px;
+      background: url(/img/home-background-sm.jpg) repeat-x center 200px;
     }
     .homepage-brand {
       width: 300px;
@@ -446,26 +419,14 @@ html#home-html {
       }
       .lead {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
       .extra-info {
         font-size: 18px;
-        margin-bottom: 65px;
+        margin-bottom: 200px;
       }
       .bottom-info{
-        margin-top: 65px;
         font-size: 18px;
-      }
-      .bottom-logo-container{
-        svg.htc{
-          bottom: -2px;
-        }
-        svg.siemens{
-          bottom: -8px;
-        }
-        svg.vmware{
-          bottom: -4px;
-        }
       }
     }
     #homepage-footer{
@@ -484,81 +445,14 @@ html#home-html {
       }
     }
   }
-
-  @media (max-width: @screen-xs-min){
-      #homepage-content{
-        .lead{
-          margin-bottom: 10px;
-        }
-        .bottom-logo-container{
-          width: 100%;
-          overflow: visible;
-          svg{
-            position: relative;
-            display: inline-block;
-            left: 0% !important;
-            padding: 10px;
-            .st0{
-              fill: #fff;
-            }
-          }
-          .bottom-info{
-            font-size: 16px;
-          }
-          svg.ericsson{
-            width: 55%;
-            float: left;
-
-          }
-          svg.htc{
-            width: 35%;
-/*            max-width: 100px;*/
-            float: left;
-            margin-top: 4px;
-          }
-          svg.baidu{
-            width: 50%;
-            float: left;
-            margin-bottom: 5%;
-          }
-          svg.siemens{
-            width: 50%;
-            float: left;
-            margin-top: 4.2%;
-          }
-          svg.vmware{
-            width: 50%;
-            margin-top: 8%;
-            margin-bottom: 10%;
-            float: none;
-            display: block;
-            clear: both;
-            margin-left: 25%;
-          }
-        }
-      }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .homepage-brand {
+      width: 350px;
     }
-   @media (min-width: @screen-md-min) and (max-width: @screen-md-max){
     .background-con {
-      background-position: center 45%;
+        background-position: center 190px;
     }
-     #homepage-content {
-        .bottom-logo-container{
-          svg.vmware{
-            bottom: -3px;
-          }
-        }
-      }
-   }
-
-    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-      .homepage-brand {
-        width: 350px;
-      }
-      .background-con {
-          background-position: center 30%;
-      }
-      #homepage-content {
+    #homepage-content {
       padding-top: 30px;
 
       h1 {
@@ -566,15 +460,9 @@ html#home-html {
       }
       .lead {
         font-size: 24px;
-/*        margin-bottom: 350px;*/
       }
       .extra-info {
         font-size: 24px;
-      }
-      .bottom-logo-container{
-        svg.vmware{
-          bottom: -4px;
-        }
       }
     }
   }
@@ -605,6 +493,13 @@ html#home-html {
 
 // Community
 #community-page {
+  #social-con {
+    .social-list {
+      img {
+        width: 32px;
+      }
+    }
+  }
   .community-notice-panel {
     text-align: center;
   }
@@ -847,13 +742,38 @@ footer {
   padding-top: 20px;
   font-size: 14px;
   .container {
-
   }
-
   .copyright {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    .social {
+      margin-bottom: 10px;
+      font-size: 34px;
+      a {
+        display: inline-block;
+        margin-right: 5px;
+      }
+      img {
+        width: 32px;
+      }
+    }
   }
   .supported {
-    padding-top: 2px;
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+  &#home-page-footer {
+    background-color: transparent;
+    color: white;
+    #dark-powered-by-apcera{
+      max-width: 262.5px;
+    }
+    .copyright{
+      .social {
+
+      }
+    }
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
+    }
   }
 }

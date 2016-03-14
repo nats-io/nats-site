@@ -1,20 +1,29 @@
-    {{if eq .IsHome false}}
     <!-- Footer -->
-    <footer>
+    <footer{{ if .IsHome }} id="home-page-footer"{{ end }}>
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-4 copyright">
-            <p>NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.</p>
-            <p><a href="#licenseModal" data-toggle="modal" data-target="#licenseModal">View License</a></p>
+            <p class="social">
+              <a target="_blank" href="https://twitter.com/nats_io"><img alt="twitter" src="/img/social/twitter.png"/></a>
+              <a target="_blank" href="https://groups.google.com/forum/#!forum/natsio"><img alt="Google Groups" src="/img/social/google.png"/></a>
+              <a target="_blank" href="https://github.com/nats-io"><img alt="github" src="/img/social/github{{ if .IsHome }}_light{{end}}.png"/></a>
+              <a target="_blank" href="https://docs.google.com/a/apcera.com/forms/d/104yA7oqq7SPoMDG_J9MnVE74gVwBnTmVHKP5ABHoM5k/viewform?embedded=true"><img alt="Slack" src="/img/social/slack.png"/></a>
+            </p>
+            <p>NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source software</a> (<a href="#licenseModal" data-toggle="modal" data-target="#licenseModal">View License</a>), as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.</p>
           </div>
-          <div class="col-xs-12 col-sm-3 col-sm-offset-5 supported">
-            <p><a href="http://apcera.com/" target="_blank"><img class="img-responsive" src="/img/powered-by-apcera.png" alt="Apcera"></a></p>
+          <div class="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-5 supported">
+            <p><a href="http://apcera.com/" target="_blank">
+              {{ if .IsHome }}
+              <img class="img-responsive" src="/img/sponsored-apcera-logo-dark.svg" alt="Sponsored By Apcera">
+              {{ else }}
+              <img class="img-responsive" src="/img/sponsored-apcera-logo.svg" alt="Sponsored By Apcera">
+              {{end}}
+            </a></p>
           </div>
         </div>
       </div>
     </footer>
     <!-- End Footer -->
-    {{end}}
 
     <!-- License Modal -->
     <div class="modal fade" id="licenseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
