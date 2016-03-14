@@ -373,7 +373,7 @@ html#home-html {
     }
     #download-button {
       background-color: @nats-colour-green-lite;
-      font-size: 22px;
+      font-size: 28px;
       color: white;
       -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
       -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
@@ -397,29 +397,11 @@ html#home-html {
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+
       .col-xs-6 {
         align-self: flex-end;
         margin-bottom: 30px;
       }
-      img {
-        width: 90%;
-      }
-      .ericsson {
-        img {
-          width: 100%;
-        }
-      }
-      .htc {
-        img {
-          width: 65%;
-        }
-      }
-      .baidu {
-        img {
-        }
-      }
-      .siemens { }
-      .vmware { }
     }
   }
 
@@ -445,9 +427,6 @@ html#home-html {
       }
       .bottom-info{
         font-size: 18px;
-      }
-      .bottom-logo-container{
-
       }
     }
     #homepage-footer{
@@ -514,6 +493,13 @@ html#home-html {
 
 // Community
 #community-page {
+  #social-con {
+    .social-list {
+      img {
+        width: 32px;
+      }
+    }
+  }
   .community-notice-panel {
     text-align: center;
   }
@@ -758,24 +744,22 @@ footer {
   .container {
   }
   .copyright {
+    margin-bottom: 20px;
     .social {
-      margin-bottom: 0px;
+      margin-bottom: 10px;
       font-size: 34px;
-      a, a:visited {
-        color: @footer-text-color;
+      a {
         display: inline-block;
         margin-right: 5px;
-        span {
-          display: none;
-        }
-        &:hover {
-          color: @footer-link-hover;
-        }
+      }
+      img {
+        width: 32px;
       }
     }
   }
   .supported {
-    padding-top: 6px;
+    padding-top: 14px;
+    margin-bottom: 20px;
   }
   &#home-page-footer {
     background-color: transparent;
@@ -785,12 +769,7 @@ footer {
     }
     .copyright{
       .social {
-        a, a:visited {
-          color: #fff;
-          &:hover {
-            color: @footer-link-hover;
-          }
-        }
+
       }
     }
     @media (max-width: @screen-xs-max) {
