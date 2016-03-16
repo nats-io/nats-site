@@ -2,8 +2,8 @@
 // Include base bootstrap
 @import "bootstrap/bootstrap.less";
 
-// Include base bootstrap
-@import "font-awesome/font-awesome.less";
+// Icomoon Icons
+@import "util/icons.less";
 
 
 // Primary Colours
@@ -20,6 +20,12 @@
 
 @nats-brand-gray:                           #c0c1c4;
 @nats-brand-gray-dark:                      #666;
+
+//Social Brand Colors
+@nats-brand-twitter:                        #55acee;
+@nats-brand-google:                         #dd4b39;
+@nats-brand-github-light:                   #fff;
+@nats-brand-github-dark:                    #000;
 
 // Variable Overrides
 @text-color:                                @nats-brand-gray-dark;
@@ -495,6 +501,21 @@ html#home-html {
       img {
         width: 32px;
       }
+      .icon-twitter,
+      .icon-google-plus,
+      .icon-mark-github{
+        vertical-align: middle;
+        font-size: 30px;
+      }
+      .icon-twitter{
+        color: @nats-brand-twitter;
+      }
+      .icon-google-plus{
+        color: @nats-brand-google;
+      }
+      .icon-mark-github{
+        color: @nats-brand-github-dark;
+      }
     }
   }
   .community-notice-panel {
@@ -745,9 +766,26 @@ footer {
     .social {
       margin-bottom: 10px;
       font-size: 34px;
+      .icon-twitter,
+      .icon-google-plus,
+      .icon-mark-github{
+        vertical-align: sub;
+      }
+      .icon-twitter{
+        color: @nats-brand-twitter;
+      }
+      .icon-google-plus{
+        color: @nats-brand-google;
+      }
+      .icon-mark-github{
+        color: @nats-brand-github-dark;
+      }
       a {
         display: inline-block;
         margin-right: 5px;
+        &:hover{
+          text-decoration: none;
+        }
       }
       img {
         width: 32px;
@@ -764,9 +802,9 @@ footer {
     #dark-powered-by-apcera{
       max-width: 262.5px;
     }
-    .copyright{
-      .social {
-
+    .social {
+      .icon-mark-github{
+        color: @nats-brand-github-light;
       }
     }
     @media (max-width: @screen-xs-max) {
