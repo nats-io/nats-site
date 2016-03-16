@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-md-9">
-      {{ range .Data.Pages }}
+      {{ range (.Paginator 10).Pages }}
       <div class="row">
         <div class="col-md-12">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a><br></h3>
@@ -39,5 +39,6 @@
 
     </div>
   </div>
+  {{ template "_internal/pagination.html" . }}
 </div>
 {{ partial "footer.html" . }}
