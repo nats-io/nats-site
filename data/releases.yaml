@@ -104,6 +104,17 @@ Releases:
       repo: ruby-nats
       link: https://github.com/nats-io/ruby-nats
 
+- name: Arduino
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    Last udpated on March 15th, 2015.
+  github:
+    - user: joshglendenning
+      repo: arduino-nats
+      link: https://github.com/joshglendenning/arduino-nats
+
 - name: Haskell
   type: client
   supported: false
