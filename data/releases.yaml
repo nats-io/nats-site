@@ -87,11 +87,33 @@ Releases:
   supported: true
   version_num: 0.5.4
   release_notes: |
-    Release v.0.5.4, Jan 8th, 2016
+    Release v.0.5.4, January 8th, 2016
   github:
     - user: nats-io
       repo: node-nats
       link: https://github.com/nats-io/node-nats
+
+- name: Python Asyncio
+  type: client
+  supported: true
+  version_num: 0.1.0
+  release_notes: |
+    Release v.0.1.0, February 2nd, 2016
+  github:
+    - user: nats-io
+      repo: asyncio-nats
+      link: https://github.com/nats-io/asyncio-nats
+
+- name: Python Tornado
+  type: client
+  supported: true
+  version_num: 0.2.2
+  release_notes: |
+    Release v.0.2.2, December 22nd, 2015
+  github:
+    - user: nats-io
+      repo: python-nats
+      link: https://github.com/nats-io/python-nats
 
 - name: Ruby
   type: client
@@ -120,7 +142,7 @@ Releases:
   supported: false
   version_num: 0.0.0
   release_notes: |
-    Last updated to 1.2.0 on Nov. 25th, 2014
+    Last updated to 1.2.0 on November 25th, 2014
   github:
     - user: ondrap
       repo: nats-queue
@@ -158,6 +180,17 @@ Releases:
     - user: mcuadros
       repo: pynats
       link: https://github.com/mcuadros/pynats
+
+- name: Python Twisted
+  type: client
+  supported: false
+  version_num: 0.0.0
+  release_notes: |
+    Last updated January 14th, 2016.
+  github:
+    - user: johnwlockwood
+      repo: txnats
+      link: https://github.com/johnwlockwood/txnats
 
 - name: Rust
   type: client
