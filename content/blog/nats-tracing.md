@@ -10,6 +10,10 @@ At [Sendify](https://www.sendify.se) we've been using nats as a simple and effec
 I came across Nats a few years ago when building a relatively small microservice backed system and it worked wonderfully. 
 With that experience, I introduced it to Sendify this year as the main nervous system for inter-service communication. 
 
+Our system is mainly processing api requests to various freight carriers based on user searches though we're also building integration 
+for public api access as well. We have a mix of legacy php and newer golang services. We're running everything as containers 
+on docker swarm.
+
 <img class="img-responsive" alt="Sendify infrastructure" src="/img/blog/nats-tracing.png">
 
 One simple requirement when building a system in this way is the need for tracing requests. 
