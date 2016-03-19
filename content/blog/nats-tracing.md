@@ -56,7 +56,8 @@ func (n *Nats) Publish(subject string, currentContext *NatsContext, data Payload
 ...
 ```
 
-The result being that we have a tracing uuid per initial request and a list of the services the request made it's way through from a given starting point. An improvement would be to tie the same uuid to the incoming http request using a middleware and only fall back to uuid for non-user related requests.
+The result being that we have a tracing uuid per request chain and a list of the services the request made it's way 
+through. An improvement would be to tie the uuid to the incoming http request using a middleware.
 
 You can find a full example of the code [here](https://github.com/byrnedo/apibase/blob/master/natsio/)
 
