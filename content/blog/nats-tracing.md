@@ -8,6 +8,9 @@ author = "Donal Byrne"
 
 At [Sendify](https://www.sendify.se) we've been using nats as a simple and effective means of communicating between our backend services. I came across Nats a few years ago when building a relatively small microservice backed system and it worked wonderfully. With that experience, I introduced it to Sendify this year as the main nervous system for inter-service communication. One simple requirement when building a system in this way is the need for tracing requests. To implement this, we're simply wrapping the nats (golang) client and implementing our own Publish, PublishRequest and Request methods to add a uuid to each new request and simply chaining a tag for each service a request makes it's way through. Since we're using the protobuf serializer we also need to define a message type for this tracing payload. 
 
+<img class="img-responsive" alt="Sendify infrastructure" src="/img/blog/nats-tracing.png">
+
+
 An example of our protobuf schema:
 
 ```
