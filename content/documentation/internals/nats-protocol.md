@@ -28,7 +28,7 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 **Wildcards**: NATS supports the use of wildcards in subject subscriptions.
 
 - The asterisk character (`*`) matches any token at any level of the subject.
-- The greater than symbol (`>`) matches any length of the tail of a subject, and can only be the last token. This is also known as the _full wildcard_.
+- The greater than symbol (`>`), also known as the _full wildcard_, matches one or more tokens at the tail of a subject, and must be the last token. The wildcarded subject `foo.>` will match `foo.bar` or `foo.bar.baz.1`, but not `foo`. 
 - Wildcards must be separate tokens (`foo.*.baz` or `foo.>` are syntactically valid; `foo*.bar`, `f*o.b*r` and `foo>` are not)
 
 For example, the wildcard subscriptions `foo.*.quux` and `foo.>` both match `foo.bar.quux`, but only the latter matches `foo.bar.baz`.  With the full wildcard,
