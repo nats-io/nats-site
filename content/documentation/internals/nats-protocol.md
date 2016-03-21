@@ -19,7 +19,7 @@ The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRK
 
 ## NATS protocol conventions
 
-**Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be non-empty alphanumeric strings with no embedded whitespace, but may be delimited by dots, e.g.:
+**Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be non-empty alphanumeric strings with no embedded whitespace, and optionally token-delimited using the dot character (`.`), e.g.:
 
 `FOO`, `BAR`, `foo.bar`, `foo.BAR`, `FOO.BAR` and `FOO.BAR.BAZ` are all valid subject names
 
