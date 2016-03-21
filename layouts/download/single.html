@@ -29,14 +29,15 @@
                 {{ end }}
               </div>
               <div class="col-md-3 download-con">
-                {{ if .links }}
-                <dl>
-                  <dt>Download</dt>
-                  {{ range .links }}
-                  <dd><a href="{{ .url }}">{{ .name }}</a></dd>
+                <ul class="list-unstyled">
+                  {{ range first 1 .github }}
+                  <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+                  <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
                   {{ end }}
-                </dl>
-                {{ end }}
+                  {{ range .links }}
+                  <li><a href="{{ .url }}">{{ .name }}</a></li>
+                  {{ end }}
+                </ul>
               </div>
             </div>
 
