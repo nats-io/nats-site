@@ -9,6 +9,7 @@ SectionPagesMenu = "main"
   author = "The NATS team"
   mainMenu=[ "about", "download", "documentation", "support", "community", "blog" ]
   noCategoryLink = true
+  githubBaseUrl = "https://github.com/nats-io/nats-docs/edit/master/content"
 
 [[menu.main]]
   name = "getting started"
