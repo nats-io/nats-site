@@ -137,6 +137,17 @@ Releases:
       repo: arduino-nats
       link: https://github.com/joshglendenning/arduino-nats
 
+- name: Erlang
+  type: client
+  supported: false
+  version_num: 0.2.3
+  release_notes: |
+    Release 0.2.3 on March 21th, 2016.
+  github:
+    - user: yuce
+      repo: teacup_nats
+      link: https://github.com/yuce/teacup_nats
+
 - name: Haskell
   type: client
   supported: false
