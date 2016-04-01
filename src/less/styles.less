@@ -1,0 +1,818 @@
+
+// Include base bootstrap
+@import "bootstrap/bootstrap.less";
+
+// Icomoon Icons
+@import "util/icons.less";
+
+
+// Primary Colours
+@nats-brand-background:                     #00011f;
+@nats-colour-blue-lite:                     #27aae1;
+@nats-colour-blue-dark:                     #375c93;
+@nats-colour-green-lite:                    #8dc63f;
+@nats-colour-green-dark:                    #34a574;
+
+// Secondary Colours
+@nats-brand-gray-light:                     #f5f6f9;
+@nats-brand-blue-dark:                      #2e3957;
+@nats-brand-black:                          #000;
+
+@nats-brand-gray:                           #c0c1c4;
+@nats-brand-gray-dark:                      #666;
+
+//Social Brand Colors
+@nats-brand-twitter:                        #55acee;
+@nats-brand-google:                         #dd4b39;
+@nats-brand-github-light:                   #fff;
+@nats-brand-github-dark:                    #000;
+
+// Variable Overrides
+@text-color:                                @nats-brand-gray-dark;
+@font-family-sans-serif:                    'Source Sans Pro', sans-serif;
+@font-family-monospace:                     'Source Code Pro', ;
+//@font-size-base:                            16px;
+@link-color:                                @nats-colour-blue-lite;
+@link-hover-color:                          darken(@link-color, 15%);
+
+// Navbar
+// Navbar collapse
+// Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:                     @screen-md-min;
+// Basics of a navbar
+@navbar-height:                             77px;
+@navbar-margin-bottom:                      @line-height-computed;
+@navbar-border-radius:                      @border-radius-base;
+@navbar-padding-horizontal:                 floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:                   ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:                340px;
+
+@navbar-default-color:                      #fff;
+@navbar-default-bg:                         @nats-brand-background;
+@navbar-default-border:                     darken(@navbar-default-bg, 6.5%);
+
+// Navbar links
+@navbar-default-link-color:                 #fff;
+@navbar-default-link-hover-color:           #fff;
+@navbar-default-link-hover-bg:              transparent;
+@navbar-default-link-active-color:          #fff;
+@navbar-default-link-active-bg:             transparent;
+@navbar-default-link-disabled-color:        #ccc;
+@navbar-default-link-disabled-bg:           transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:                @navbar-default-link-color;
+@navbar-default-brand-hover-color:          lighten(@nats-brand-blue-dark, 10%);
+@navbar-default-brand-hover-bg:             transparent;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:            lighten(@nats-brand-blue-dark, 10%);
+@navbar-default-toggle-icon-bar-bg:         #fff;
+@navbar-default-toggle-border-color:        #fff;
+
+//== Carousel
+@carousel-text-shadow:                      0 1px 2px rgba(0,0,0,.6);
+
+@carousel-control-color:                    #fff;
+@carousel-control-width:                    15%;
+@carousel-control-opacity:                  .5;
+@carousel-control-font-size:                20px;
+
+@carousel-indicator-active-bg:              @nats-colour-blue-lite;
+@carousel-indicator-border-color:           @nats-colour-blue-lite;
+
+@carousel-caption-color:                    #fff;
+
+//== Pills
+@nav-pills-active-link-hover-bg:            @component-active-bg;
+@nav-pills-active-link-hover-color:         @component-active-color;
+
+// Type
+@font-size-base:                            16px;
+@font-size-h1:                              floor((@font-size-base * 2.3)); // ~36px
+@font-size-h2:                              floor((@font-size-base * 1.8)); // ~28px
+@font-size-h3:                              ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:                              ceil((@font-size-base * 1.25)); // ~21px
+@font-size-h5:                              @font-size-base;
+@font-size-h6:                              ceil((@font-size-base * 0.85)); // ~12px
+
+// Code
+@code-color:                                @nats-brand-gray-dark;
+@code-bg:                                   #eee;
+
+// Labels
+@label-default-bg:                          #ccc;
+
+// Footer
+@footer-text-color:                         @nats-brand-gray;
+@footer-link-hover:                         @link-hover-color;
+@footer-link:                               @nats-colour-blue-lite;
+
+// #############################################################################
+
+// General Styles
+html {
+  background-color: @nats-brand-gray-light;
+}
+
+body {
+  background-color: #fff;
+  padding-top: 75px;
+  font-size: 16px;
+
+  #main-con {
+    margin-bottom: 30px;
+  }
+}
+
+// Anchor fix for sticky header
+a[name]:before {
+  display: block;
+  content: " ";
+  margin-top: -85px;
+  height: 77px;
+  visibility: hidden;
+}
+
+// Headers
+h1 {
+  font-weight: 400;
+}
+h2 {
+  font-weight: 400;
+}
+h3 {
+  font-weight: 600;
+  color: @nats-colour-blue-dark;
+}
+h4 {
+  font-weight: 600;
+  color: @nats-colour-blue-dark;
+}
+h5 {
+  font-weight: 700;
+}
+h6 {
+  font-weight: 400;
+}
+.lead {
+  font-size: floor((@font-size-base * 1.15));
+  font-weight: 400;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: floor((@font-size-base * 1.4));
+  }
+}
+.page-header {
+  border-bottom: none;
+}
+// Colour text
+.nats-colour-blue-lite {
+  color: @nats-colour-blue-lite;
+}
+.nats-colour-blue-dark {
+  color: @nats-colour-blue-dark;
+}
+.nats-colour-green-lite {
+  color: @nats-colour-green-lite;
+}
+.nats-colour-green-dark {
+  color: @nats-colour-green-dark;
+}
+
+// Social Icons
+.social-icon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  width: 50px;
+  height: 50px;
+  margin: 0px -5px -16px -5px;
+}
+
+// Labels
+.label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// Tables
+table {
+  .table();
+  .table-striped();
+}
+
+// Custom 5 column grid setting
+.col-sm-15{
+  width: 20%;
+
+  @media (max-width: @screen-xs-max) {
+    width: 50%;
+  }
+}
+
+// Main Content Styles
+
+// Content Background
+#main-con {
+  min-height: 600px;
+  background: url(/img/about-neuron.png) right top no-repeat;
+  @media (max-width: @screen-md-min) {
+    background: transparent;
+  }
+}
+
+// Navbar
+nav.navbar-default {
+  background: @nats-brand-background url(/img/header-background.png) repeat-x top center;
+
+  .navbar-brand {
+    padding: 0px 0px 0px 0px;
+    img {
+      height: 100%;
+    }
+  }
+  ul.navbar-nav {
+    font-size: 18px;
+    li {
+      .dropdown-menu {
+        font-size: 14px;
+        .dropdown-header {
+          font-size: 14px;
+          color: @nats-brand-gray;
+        }
+        .divider {
+          background-color: @nats-brand-gray-dark;
+        }
+      }
+      @media (min-width: @screen-md-min) {
+        a {
+          padding: 28px 0px 12px 0px;
+          margin: 0px 15px 17px;
+
+        }
+        a:hover, a:active, a:focus, &.active a {
+          outline: 0;
+          //border-bottom: 1px solid #fff;
+          border-bottom: none;
+          padding: 28px 0px 12px 0px;
+          margin: 0px 15px 16px;
+          color: @nats-colour-green-lite;
+
+        }
+      }
+      @media (max-width: @screen-md-min) {
+        a:hover, a:active, a:focus, &.active a, &.active a:hover {
+          outline: 0;
+          background-color: lighten(@nats-brand-blue-dark, 10%);
+        }
+        &.active, &.open {
+          a.main-item,
+          a.main-item:hover {
+            background-color: lighten(@nats-brand-blue-dark, 10%);
+          }
+        }
+        &.active, &.open {
+          ul {
+            li.active {
+              a.sub-item {
+                background-color: lighten(@nats-brand-blue-dark, 10%);
+                &:hover, &:active, &:focus {
+                  background-color: lighten(@nats-brand-blue-dark, 10%);
+                }
+              }
+            }
+          }
+          a.sub-item {
+            background-color: transparent;
+            &:hover, &:active, &:focus {
+              background-color: lighten(@nats-brand-blue-dark, 10%);
+            }
+          }
+        }
+        a.sub-item:hover {
+          background-color: lighten(@nats-brand-blue-dark, 10%);
+        }
+      }
+
+    }
+
+  }
+}
+
+// Home Page
+html#home-html {
+  background-color: @nats-brand-background;
+}
+#home-page {
+  #main-con {
+    background: transparent;
+    margin-bottom: 0px;
+  }
+  #navbar{
+    text-align: center;
+  }
+  .nav.navbar-right{
+    float: none !important;
+    display: inline-block;
+  }
+  background-color: @nats-brand-background;
+  .navbar-default {
+    background: @nats-brand-background;
+    border-color: transparent;
+    .container {
+      width: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  .background-con {
+    background: url(/img/home-background.jpg) repeat-x center 300px;
+  }
+  .homepage-brand {
+    display: block;
+    width: 458px;
+    margin-bottom: 30px;
+    .center-block();
+  }
+  #homepage-content {
+    padding-top: 60px;
+    text-align: center;
+    color: #ffffff;
+    h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+    .lead {
+      font-family: @font-family-sans-serif;
+      font-weight: 200;
+      font-size: 34px;
+
+    }
+    .extra-info {
+      font-weight: 100;
+      font-size: 24px;
+      word-break: keep-all;
+      margin-bottom: 315px;
+      a.nats-colour-blue-lite {
+        margin-right: 15px;
+        line-height: 50px;
+        &:visited, &:hover {
+          color: @nats-colour-blue-lite;
+          text-decoration: none;
+        }
+      }
+      a.nats-colour-green-lite {
+        margin-bottom: 10px;
+        &:visited, &:hover {
+          color: @nats-colour-green-lite;
+          text-decoration: none;
+        }
+      }
+    }
+    .bottom-info{
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+    #download-button {
+      background-color: @nats-colour-green-lite;
+      font-size: 28px;
+      color: white;
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      box-shadow: 0px 0px 0px 0px rgba(255,255,255,0.65);
+      transition: box-shadow .25s linear;
+      &:focus {
+        outline:0;
+      }
+      &:hover{
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+        -moz-box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+        box-shadow: 0px 0px 15px 6px rgba(255,255,255,0.65);
+      };
+    }
+    #bottom-logo-container {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .col-xs-6 {
+        align-self: flex-end;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  @media (max-width: @screen-xs-max) {
+    .background-con {
+      background: url(/img/home-background-sm.jpg) repeat-x center 200px;
+    }
+    .homepage-brand {
+      width: 300px;
+    }
+    #homepage-content {
+      padding-top: 0px;
+      h1 {
+        font-size: 28px;
+      }
+      .lead {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .extra-info {
+        font-size: 18px;
+        margin-bottom: 200px;
+      }
+      .bottom-info{
+        font-size: 18px;
+      }
+    }
+    #homepage-footer{
+      text-align: center;
+      .row{
+        display: table;
+        margin: 0 auto;
+      }
+      .copyright{
+        display: table-footer-group;
+        float: none;
+      }
+      .supported{
+        display: table-header-group;
+        float: none;
+      }
+    }
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .homepage-brand {
+      width: 350px;
+    }
+    .background-con {
+        background-position: center 190px;
+    }
+    #homepage-content {
+      padding-top: 30px;
+
+      h1 {
+        font-size: 34px;
+      }
+      .lead {
+        font-size: 24px;
+      }
+      .extra-info {
+        font-size: 24px;
+      }
+    }
+  }
+}
+// End Home
+
+// About Page
+#about-page {
+  #canvas-con {
+    canvas#throughputChart {
+
+    }
+  }
+  .embed-responsive {
+    margin-bottom: 30px;
+  }
+  // Recent Posts
+  #recent-posts {
+    h5 {
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+  }
+}
+// End About
+
+// Community
+#community-page {
+  #social-con {
+    .social-list {
+      img {
+        width: 32px;
+      }
+      a:hover{
+        text-decoration: none;
+      }
+      .icon-twitter,
+      .icon-google-plus,
+      .icon-mark-github{
+        vertical-align: middle;
+        font-size: 30px;
+      }
+      .icon-twitter{
+        color: @nats-brand-twitter;
+      }
+      .icon-google-plus{
+        color: @nats-brand-google;
+      }
+      .icon-mark-github{
+        color: @nats-brand-github-dark;
+      }
+    }
+  }
+  .community-notice-panel {
+    text-align: center;
+  }
+  .meetup-con {
+    padding-top: 20px;
+  }
+  @media (max-width: @screen-sm-max) {
+    .meetup-con {
+      text-align: center;
+    }
+  }
+  .partners-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .col-md-3 {
+
+      a {
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  // Quotes Carousel
+  #quote-carousel-con {
+    padding: 60px 20px;
+    position: relative;
+
+    #quote-carousel {
+      position: static;
+
+      ul.carousel-inner {
+        margin: 0px;
+        padding: 0px;
+
+        li {
+          .quote-con{
+            height: 275px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .quote-inner {
+              text-align: center;
+              p {
+                  margin-bottom: 15px;
+              }
+              a.quote-logo {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 15px;
+              }
+            }
+            // Breakpoint adjustments for quotes
+            @media (max-width: @screen-xs-max) {
+              height: 500px;
+            }
+            @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+              height: 325px;
+            }
+            @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+              height: 325px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Downloads
+#download-page {
+  .panel-default {
+    min-height: 200px
+  }
+  .download-server,
+  .download-client {
+    h3,h4,h5 {
+      margin-top: 0px;
+    }
+    .title-con {
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+    .release-con {
+      h4 {
+        font-weight: bold;;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+    }
+    .download-con {
+      margin-bottom: 15px;
+      h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      dl {
+        dt {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .supported {
+      font-size: 17px;
+      font-weight: 100;
+      img {
+        margin-top: -2px;
+        margin-left: 5px;
+      }
+    }
+  }
+  .download-server-con {
+
+  }
+  .download-clients-con {
+    margin-bottom: 30px;
+  }
+  .external-clients-con {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+}
+
+// Support
+#support-page {
+  table#support-table {
+    thead {
+      background: @nats-brand-blue-dark;
+      color: #fff;
+      tr {
+        th {
+          border: none;
+          text-align: center;
+        }
+      }
+    }
+    tbody {
+
+      tr {
+        td:first-child {
+          background: @nats-brand-gray-light;
+        }
+        td:nth-child(2),
+        td:nth-child(3) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Documentation
+#nats-documentation-detail-page {
+  #main-con {
+    background: url(/img/about-neuron-docs.png) right top no-repeat;
+    padding-top: 20px;
+    @media (max-width: @screen-md-min) {
+      background: transparent;
+    }
+  }
+  // Left Nav
+  #left-nav-con {
+    padding-top: 40px;
+    ul.sub-menu {
+      li {
+        &.main-menu-item {
+          margin-bottom: 15px;
+        }
+        .main-menu-item-title {
+          font-size: 18px;
+          color: @nats-brand-blue-dark;
+        }
+        &.active {
+          a.main-menu-item-title {
+            font-weight: bold;
+            color: @nats-brand-blue-dark;
+          }
+        }
+
+        ul {
+          padding: 2px 0px 20px 0px;
+          li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.active {
+              font-weight: bold;
+
+              a {
+
+              }
+            }
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Blog
+#blogs-page {
+  .tweet-embed-con {
+    padding: 10px 0px;
+    iframe {
+      margin: 0px auto;
+    }
+  }
+  dl.blog-entry-meta {
+    dt {
+
+    }
+    dd {
+      margin-bottom: 10px;
+    }
+  }
+}
+#blog-post-page {
+  .embed-responsive {
+    margin-bottom: 30px;
+  }
+}
+.icon-back{
+  font-size: 12px;
+}
+.blog-nav-con-upper {
+  padding-top: 30px;
+}
+
+// Footer
+footer {
+  background-color: @nats-brand-gray-light;
+  color: @footer-text-color;
+  padding-top: 20px;
+  font-size: 14px;
+  .container {
+  }
+  .copyright {
+    margin-bottom: 20px;
+    .social {
+      margin-bottom: 10px;
+      font-size: 34px;
+      .icon-twitter,
+      .icon-google-plus,
+      .icon-mark-github{
+        vertical-align: sub;
+        font-size: 30px;
+      }
+      .icon-twitter{
+        color: @nats-brand-twitter;
+      }
+      .icon-google-plus{
+        color: @nats-brand-google;
+      }
+      .icon-mark-github{
+        color: @nats-brand-github-dark;
+      }
+      a {
+        display: inline-block;
+        margin-right: 5px;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      img {
+        width: 32px;
+      }
+    }
+  }
+  .supported {
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+  &#home-page-footer {
+    background-color: transparent;
+    color: white;
+    #dark-powered-by-apcera{
+      max-width: 262.5px;
+    }
+    .social {
+      .icon-mark-github{
+        color: @nats-brand-github-light;
+      }
+    }
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
+    }
+  }
+}

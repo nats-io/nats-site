@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    {{ if .Site.Params.leftNav }}
+    <div id="left-nav-con" class="col-md-3">
+      {{ partial "side-menu.html" . }}
+    </div>
+    {{ end }}
+    <div class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
+      <ul>
+      {{ range .Data.Pages }}
+        <li>
+    			<h3 class="doc-entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} #Draft{{ end }}</a></h3>
+    			<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 02, 2006" }}</time></p>
+        </li>
+    	{{ end }}
+      </ul>
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
