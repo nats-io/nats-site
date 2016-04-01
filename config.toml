@@ -1,0 +1,31 @@
+baseurl = "http://nats.io/"
+languageCode = "en-us"
+title = "NATS by Apcera - Documentation"
+SectionPagesMenu = "main"
+
+[params]
+  leftNav = true
+  description = "NATS documentation"
+  author = "The NATS team"
+  mainMenu=[ "about", "download", "documentation", "support", "community", "blog" ]
+  noCategoryLink = true
+  githubBaseUrl = "https://github.com/nats-io/nats-docs/edit/master/content"
+
+[[menu.main]]
+  name = "getting started"
+  weight = 0
+[[menu.main]]
+  name = "clients"
+  weight = 1
+[[menu.main]]
+  name = "concepts"
+  weight = 2
+[[menu.main]]
+  name = "internals"
+  weight = 3
+[[menu.main]]
+  name = "server"
+  weight = 4
+[[menu.main]]
+  name = "tutorials"
+  weight = 5
