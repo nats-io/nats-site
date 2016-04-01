@@ -1,0 +1,75 @@
+<ul class="sub-menu list-unstyled">
+  {{ $currentNode := . }}
+  {{ range .Site.Menus.documentation }}
+
+	<li class="main-menu-item{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }} active{{end}}">
+
+    {{ if .URL }}
+    <a class="main-menu-item-title" href="{{ .URL }}">{{.Name}}</a>
+    {{ else }}
+    <span class="main-menu-item-title">{{ title .Name }}</span>
+    {{ end }}
+
+
+    {{ $.Scratch.Set "CurrentMenu" . }}
+    {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
+    {{ if .HasChildren }}
+    <ul class="list-unstyled">
+    {{ range .Children }}
+    {{ if ne .Identifier ""}}
+    <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
+      <a href="{{.URL}}">{{ .Name }} </a>
+
+      {{ $.Scratch.Set "CurrentMenu" . }}
+   		{{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
+   		{{ if .HasChildren }}
+   	    <ul class="list-unstyled">
+   	      {{ range .Children }}
+   	      {{ if ne .Identifier ""}}
+     	    <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
+     	      <a href="{{.URL}}">{{ .Name }}</a>
+
+            {{ $.Scratch.Set "CurrentMenu" . }}
+            {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
+            {{ if .HasChildren }}
+            <ul class="list-unstyled">
+              {{ range .Children }}
+              {{ if ne .Identifier ""}}
+              <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
+                <a href="{{.URL}}">{{ .Name }} </a>
+
+                {{ $.Scratch.Set "CurrentMenu" . }}
+                {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
+                {{ if .HasChildren }}
+                <ul class="list-unstyled">
+                  {{ range .Children }}
+                  {{ if ne .Identifier ""}}
+                  <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
+                    <a href="{{.URL}}">{{ .Name }} </a>
+                  </li>
+                  {{ end }}
+                  {{ end }}
+                </ul>
+                {{ end }}
+
+              </li>
+              {{ end }}
+              {{ end }}
+            </ul>
+            {{ end }}
+
+     	    </li>
+   	      {{ end }}
+   	      {{ end }}
+   	    </ul>
+   	    {{ end }}
+
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+
+  </li>
+  {{end}}
+</ul>

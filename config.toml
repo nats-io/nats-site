@@ -1,0 +1,35 @@
+baseurl = "http://nats.io/"
+languageCode = "en-us"
+title = "NATS - Cloud Native, Open Source, High Performance Messaging"
+
+[params]
+  leftNav = false
+  description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
+  author = "The NATS team"
+  mainMenu=[ "about", "download", "documentation", "support", "community", "blog" ]
+
+  baseurl = "http://nats.io/"
+  languageCode = "en-us"
+  title = "NATS by Apcera - Documentation"
+  SectionPagesMenu = "main"
+  noCategoryLink = true
+  githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
+
+[[menu.documentation]]
+  name = "getting started"
+  weight = 0
+[[menu.documentation]]
+  name = "clients"
+  weight = 1
+[[menu.documentation]]
+  name = "concepts"
+  weight = 2
+[[menu.documentation]]
+  name = "internals"
+  weight = 3
+[[menu.documentation]]
+  name = "server"
+  weight = 4
+[[menu.documentation]]
+  name = "tutorials"
+  weight = 5
