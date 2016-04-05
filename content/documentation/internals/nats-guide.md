@@ -47,19 +47,19 @@ The client must then authenticate to connect to the server. For example:
 nats.Connect("nats://foo:bar@localhost:4222")
 ```
 
-## Verbose mode (acks)
+## Verbose mode
 
-You can run NATS in verbose mode and require acknowledgments (acks). This means that you get the `+OK` string returned when a message is successfully published or processed. Message acknowledgments can be disabled by setting verbose mode to false on the NATS server.
+When 'verbose' is enabled (via the `CONNECT` message), the NATS server will return `+OK` to acknowledge receipt of a valid protocol message. 
+The NATS server automatically runs in verbose mode. 
+Most client implementations disable verbose mode (set it to `false` in the `CONNECT` message) for performance reasons.
 
-The NATS server automatically runs in verbose mode. Most client implementations disable verbose mode (set to false) for performance reasons.
+## Pedantic mode
 
-## Pendantic mode
-
-A client such as the Ruby client may also support pedantic mode. Pedantic mode gives you everything.
+A client may also support 'pedantic' mode. Pedantic mode indicates to the server that strict protocol enforcement is required.
 
 ## Ping/pong interval
 
-NATS implements auto-pruning. When you connect to the server, the server expects you to be active. The NATS server pings each subscriber, expecting a reply. If there is no reply within the configurable time limit, the server disconnects the client.
+NATS implements auto-pruning. When a client connects to the server, the server expects that client to be active. Periodically, the NATS server pings each subscriber, expecting a reply. If there is no reply within the configurable time limit, the server disconnects the client.
 
 ## Parsing the protocol
 
