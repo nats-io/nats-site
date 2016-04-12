@@ -31,6 +31,7 @@ showChildren=true
 * [Does NATS impose any limits on the # of subjects?] (#numsubj)
 * [Does NATS guarantee message delivery?] (#gmd)
 * [How do I gracefully shut down an asynchronous subscriber?] (#unsubscribe)
+* [How do I create subjects?] (#createsubjects)
 
 ## General
 ### <a name="NATS"></a>What is NATS?
@@ -112,7 +113,10 @@ NATS does have a message size limitation that is enforced by the server and comm
 
 ### <a name="numsubj"></a>Does NATS impose any limits on the # of subjects?
 
-The maximum number of subjects is currently 2^32 (i.e. the max value of uint32). This may change in the future. The current implementation (which predates some native Go data structures) is a custom Hashmap. We will eventually move to native Go data structures as we test and verify relative performance.
+The maximum number of subjects is currently 2^32 (i.e. the max value of Go's uint32 type). 
+This may change in the future. 
+The current implementation (which predates some native Go data structures) is a custom Hashmap. 
+We will eventually move to native Go data structures as we test and verify relative performance.
 
 ### <a name="gmd"></a>Does NATS guarantee message delivery?
 
@@ -120,4 +124,11 @@ Currently, NATS implements what is commonly referred to as "at-most-once" delive
 
 ### <a name="unsubscribe"></a>How do I gracefully shut down an asynchronous subscriber?
 
-To gracefully shutdown an asynchronous subscriber so that any outstanding MsgHandlers have a chance to complete outstanding work, call sub.Unsubscribe(). There is a Go routine per subscription. These will be cleaned up on Unsubscribe(), or upon connection teardown.
+To gracefully shutdown an asynchronous subscriber so that any outstanding MsgHandlers have a chance to complete outstanding work, call sub.Unsubscribe(). 
+There is a Go routine per subscription. 
+These will be cleaned up on Unsubscribe(), or upon connection teardown.
+
+### <a name="createsubjects"></a>How do I create subjects?
+
+Subjects are created and pruned (deleted) dynamically based on interest (subscriptions). 
+This means that a subject does not exist in a NATS cluster until a client subscribes to it, and the subject goes away after the last subscribing client unsubscribes from that subject.
