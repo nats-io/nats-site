@@ -52,7 +52,7 @@ Below we’ll discuss implementations of the NATS plugins for the transport, bro
 
 ## Transport
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS1.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS1.png">
 
 The transport is the go-micro interface for synchronous communication. It uses fairly common Socket semantics similar to other Go code with Listen, Dial and Accept. These concepts and patterns are well understood for synchronous communication using tcp, http, etc but it can be somewhat more difficult to adapt to a message bus. A connection is established with the message bus rather than with a service itself. To get around this we use the notion of a pseudo connection with topics and channels.
 
@@ -64,7 +64,7 @@ A client which wants to communicate with this service will use transport.Dial to
 
 When either side wants to close the connection, they simply call `transport.Close` which will terminate the connection to NATS.
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS2.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS2.png">
 
 ## Using the transport plugin
 
@@ -99,13 +99,13 @@ type Transport interface {
 
 ## Broker
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS3.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS3.png">
 
 The broker is the go-micro interface for asynchronous messaging. It provides a high level generic implementation that applies across most message brokers. NATS, by its very nature, is an asynchronous messaging system, it’s made for use as a message broker. There’s only one caveat, NATS does not persist messages. While this may not be ideal for some, we still believe NATS can and should be used as a broker with go-micro. Where persistence is not required, it allows for a highly scalable pub sub architecture.
 
 NATS provides a very straight forward Publish and Subscribe mechanism with the concepts of Topics, Channels, etc. There was no real fancy work required here to make it work. Messages can be published in an asynchronous fire and forget manner. Subscribers using the same channel name form a Queue Group in NATS which will then allow messages to automatically be evenly distributed across the subscribers.
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS4.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS4.png">
 
 ## Using the broker plugin
 
@@ -142,7 +142,7 @@ type Broker interface {
 
 ## Registry
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS5.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS5.png">
 
 The registry is the go-micro interface for service discovery. You might be thinking. Service discovery using a message bus? Does that even work? Indeed it does and rather well. Many people using a message bus for their transport will avoid using any kind of separate discovery mechanism. This is because the message bus itself can handle routing via topics and channels. Topics defined as service names can be used as the routing key, automatically load balancing between instances of a service that subscribe to the topic.
 
@@ -164,7 +164,7 @@ So to sum up how it works:
 3. Listen for responses and unsubscribe after a time limit
 4. Aggregate response and return result
 
-<img class="img-responsive center-block" src="/img/blog/MicroNATS6.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS6.png">
 
 ## Using the registry plugin
 
@@ -208,7 +208,7 @@ In terms of architecture in a cloud native world, our past experiences suggest t
 
 Micro is an incredibly flexible runtime agnostic microservices system. It’s designed to run anywhere and in any configuration. It’s view of the world is guided by the service registry. Clusters of services can be localised and namespaced within a pool of machines, AZs or regions based entirely on which registry you provide the service access to. In combination with NATS clustering it allows you to build a highly available architecture to serve your needs.
 
-<img class="img-responsive center-block" src="/src/blog/MicroNATS7.png">
+<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS7.png">
 
 ## Summary
 [NATS](http://www.nats.io) is a scalable and performant messaging system which we believe fits nicely into the microservice ecosystem. It plays extremely well with Micro and as we’ve demonstrated can be used as a plugin for the [Registry](https://godoc.org/github.com/micro/go-plugins/registry/nats), [Transport](https://godoc.org/github.com/micro/go-plugins/transport/nats) or [Broker](https://godoc.org/github.com/micro/go-plugins/broker/nats). We’ve implemented all three to highlight just how flexible NATS can be.
