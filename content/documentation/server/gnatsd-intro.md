@@ -32,7 +32,7 @@ A fully configured NATS server is provided as a [Docker image](/documentation/se
 
 ## Clustering
 
-One of the [design goals](/documentation/concepts/nats-intro/) of NATS is that it be always on and available like a dial tone. To implement this design goal, NATS provides mechanisms for [clustering servers](/documentation/server/gnatsd-cluster/) to achieve resiliency and high availability.
+One of the [design goals](/documentation/index/) of NATS is that it be always on and available like a dial tone. To implement this design goal, NATS provides mechanisms for [clustering servers](/documentation/server/gnatsd-cluster/) to achieve resiliency and high availability.
 
 ## Auto-Pruning
 
@@ -40,7 +40,7 @@ NATS provides built-in mechanisms to manage [slow consumers](/documentation/serv
 
 ## Monitoring and Troubleshooting
 
-The NATS server exposes a monitoring port and several endpoints with JSON payloads that you can use to [monitor the system](/documentation/server/gnatsd-monitor-debug/) and create custom monitoring applications.
+The NATS server exposes a monitoring port and several endpoints with JSON payloads that you can use to [monitor the system](/documentation/server/gnatsd-monitoring/) and create custom monitoring applications.
 
 ## Server Statistics
 
