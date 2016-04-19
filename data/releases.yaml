@@ -140,9 +140,9 @@ Releases:
 - name: Erlang
   type: client
   supported: false
-  version_num: 0.3.3
+  version_num: 0.4.0
   release_notes: |
-    Release 0.3.3 on April 3rd, 2016.
+    Release 0.4.0 on April 17th, 2016.
   github:
     - user: yuce
       repo: teacup_nats
