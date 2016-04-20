@@ -20,7 +20,7 @@ From the above summary description, we hope it is clear that the implementation 
 Below are photos of the physical portion of the system and short sample videos of it in operation. These photos and videos demonstrate the monitoring and control aspects of the concept, which are the underpinnings of the social and civic aspects.
 Here is a photo of the overall physical piping system model, which would be augmented with emulated devices to constitute the variety of water devices typically available to users.
 
-<img class="img-responsive center-block" src="/img/blog/micronats/RipplePicture.jpeg">
+<img class="img-responsive center-block" src="/img/blog/RipplePicture.jpeg">
 
 On the top right is the water supply inlet. There are four water consumption endpoints connected to this inlet. Each of these endpoints has a solenoid-operated valve and flow-meter in-line. Each flow meter will measure water consumption and report the consumption to the server via NATS resulting in the application of the consumption toward a quota. Depending on water used relative to quotas, and participation in other means of social water conservation, personalized rewards are provided to water users.
 The first connection to the left of the inlet provides water to the water reclamation tank, which is the black basin on the right below the piping system. This connection is used to fill the reclamation tank in the event that insufficient water has been reclaimed (i.e., rainwater or graywater) to supply the need of devices (e.g., toilet tank refill) that are fed from reclaimed water.
@@ -28,15 +28,16 @@ The next three connections to the left of the reclamation tank feed line can rep
 
 Here is a video of a water consumption device providing graywater to the reclamation tank (which will result in no quota consumption for using this device given the overall policy as currently specified). This device is then switched to simply drain in the normal manner (i.e., by switching basins), in which case consumption relative to a quota would be calculated. This encourages the installation of water reclamation systems in a home or business. During the consumption of water, the exact user and device are known. Furthermore, all users will have collectively established their quotas based on balancing sensitivity to civic need with personal preferences.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f8c6g1DOMcY" frameborder="0" allowfullscreen></iframe>
-
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/f8c6g1DOMcY" frameborder="0" allowfullscreen></iframe>
+</div>
 
 Here, we see a short example depiction of a toilet tank being refilled with the water that has been reclaimed. Another use of the reclaimed water could be for watering of personal gardens:
 
-<br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7X4SGwogauA" frameborder="0" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7X4SGwogauA" frameborder="0" allowfullscreen></iframe>
+</div>
 
-<br>
 Ripple has obtained great support to this point. We hope to advance the NATS ecosystem with the eco-friendly use case Ripple represents.
 Please consider Voting for and Liking this social/civic IoT project. Votes for Ripple will help us advance this NATS use case to the finalist round, and are greatly appreciated!
 
