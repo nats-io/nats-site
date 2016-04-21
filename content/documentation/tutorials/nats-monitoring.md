@@ -48,4 +48,4 @@ The endpoint [http://localhost:8222/varz](http://localhost:8222/varz) reports va
 
 The endpoint [http://localhost:8222/connz](http://localhost:8222/connz) show details about the connections. Launch a publisher and refresh the endpoint to see the statistics. The [http://localhost:8222/varz](http://localhost:8222/varz) shows the number of messages processed by the server.
 
-Launch another subscriber and check out the [http://localhost:8222/subscriptionsz](http://localhost:8222/subscriptionsz) endpoint. You’ll see that there are two subscribers. Publish more messages and monitor the results using the various endpoints. The [http://localhost:8222/routz](http://localhost:8222/routz) endpoint shows the current routes.
+Launch another subscriber and check out the [http://localhost:8222/subscriptionsz](http://localhost:8222/subscriptionsz) endpoint. You’ll see that there are two subscribers. Publish more messages and monitor the results using the various endpoints. The [http://localhost:8222/routez](http://localhost:8222/routez) endpoint shows the current routes.
