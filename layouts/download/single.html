@@ -1,3 +1,4 @@
+{{ $.Scratch.Set "pageRelUrl" .RelPermalink }}
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
   <div class="row">
@@ -6,7 +7,7 @@
       {{ partial "side-menu-downloads.html" . }}
     </div>
     {{ end }}
-    <div class="{{ if eq .RelPermalink "/download/" }}col-md-9{{ else }}col-md-12{{ end }}">
+    <div class="{{ if ne ($.Scratch.Get "pageRelUrl") "/download/" }}col-md-9{{ else }}col-md-12{{ end }}">
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
       <div class="row download-server-con">
@@ -77,7 +78,52 @@
 
       {{ .Content }}
 
-      
+      {{ range $.Site.Data }}
+      {{ range .Releases }}
+
+        {{ range first 1 .github }}
+          {{ $.Scratch.Set "githubUser" .user }}
+          {{ $.Scratch.Set "githubRepo" .repo }}
+        {{ end }}
+
+        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
+        <div class="row">
+          <div class="col-md-4">
+            <h1>{{ .name }}</h1>
+            {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+            <ul class="list-unstyled">
+              {{ range first 1 .github }}
+              <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+              <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+              {{ end }}
+              {{ range .links }}
+              <li><a href="{{ .url }}">{{ .name }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <h3>Language: {{ .language }}</h3>
+            {{ range first 1 .github }}
+            <!-- Watch -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
+            <!-- Star -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO" data-icon="octicon-star" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/stargazers" data-count-api="/repos/{{.user}}/{{.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{.user}}/{{.repo}} on GitHub">Star</a>
+            <!-- Fork -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/network" data-count-api="/repos/{{.user}}/{{.repo}}#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork {{.user}}/{{.repo}} on GitHub">Fork</a>
+            {{ end }}
+
+            {{ if .release_notes }}
+            <h4>Release Notes:</h4>
+            {{ .release_notes | safeHTML }}
+            {{ else }}
+            <p>No release notes.</p>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+
+      {{ end }}
+      {{ end }}
 
       {{ end }}
     </div>
