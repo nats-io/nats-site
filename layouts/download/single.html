@@ -6,18 +6,16 @@
       {{ partial "side-menu-downloads.html" . }}
     </div>
     {{ end }}
-    <div class="{{ if eq .RelPermalink "/download/" }}col-md-9{{ else }}col-md-12{{ end }}">
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
-      <div class="row download-server-con">
-        <div class="col-md-12">
-          <article class="table">
+      <div class="download-server-con col-md-12">
+          <article class="nats--downloads">
             <h2>Server</h2>
             {{ range .Releases }}
             {{ if eq .type "server" }}
-            <section class="table-cell">
+            <section class="download--item">
               <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
-              <figure class="something-semantic">
+              <figure class="download-item--links">
                 {{ range first 1 .github }}
                 <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
                 <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
@@ -27,18 +25,16 @@
             {{ end }}
             {{ end }}
           </article>
-        </div>
       </div>
 
-      <div class="row download-clients-con">
-        <div class="col-md-12">
-          <article class="table">
+      <div class="download-clients-con col-md-12">
+          <article class="nats--downloads">
             <h2>Apcera Supported Clients</h2>
             {{ range .Releases }}
             {{ if and ( ne .name "NATS Server" ) ( .supported ) }}
-            <section class="table-cell">
+            <section class="download--item">
               <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
-              <figure class="something-semantic">
+              <figure class="download-item--links">
                 {{ range first 1 .github }}
                 <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
                 <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
@@ -48,18 +44,16 @@
             {{ end }}
             {{ end }}
           </article>
-        </div>
       </div>
 
-      <div class="row download-clients-con">
-        <div class="col-md-12">
-          <article class="table">
+      <div class="download-clients-con col-md-12">
+          <article class="nats--downloads">
             <h2>Community Clients</h2>
             {{ range .Releases }}
             {{ if and ( ne .name "NATS Server" ) ( eq .supported false ) }}
-            <section class="table-cell">
+            <section class="download--item">
               <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
-              <figure class="something-semantic">
+              <figure class="download-item--links">
                 {{ range first 1 .github }}
                 <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
                 <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
@@ -69,7 +63,6 @@
             {{ end }}
             {{ end }}
           </article>
-        </div>
       </div>
 
       {{ end }}
@@ -80,7 +73,6 @@
       
 
       {{ end }}
-    </div>
   </div>
   <div class="row external-clients-con">
     <div class="col-md-12">
