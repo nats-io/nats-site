@@ -108,6 +108,12 @@
 @footer-link-hover:                         @link-hover-color;
 @footer-link:                               @nats-colour-blue-lite;
 
+
+//Downloads
+
+@download-row-background:                         #f8f9fb;
+@download-row-border:                             #e7e7e7;
+
 // #############################################################################
 
 // General Styles
@@ -855,5 +861,30 @@ footer {
     @media (max-width: @screen-xs-max) {
       text-align: center;
     }
+  }
+}
+
+.nats--downloads{
+  margin-bottom: 20px;
+}
+.download-item--links{
+  margin: 20px 0;
+}
+.download--item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  h3{
+    margin: 20px 0;
+  }
+  &:nth-child(even){
+    background: @download-row-background;
+    border-top: 1px solid @download-row-border;
+    border-bottom: 1px solid @download-row-border;
+  }
+  span + span{
+    margin-left: 15px;
   }
 }
