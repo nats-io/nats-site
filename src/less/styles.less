@@ -600,7 +600,6 @@ html#home-html {
 #download-page {
   // Left Nav
   #left-nav-con {
-    padding-top: 40px;
     ul.sub-menu {
       li {
         &.main-menu-item {
@@ -887,4 +886,28 @@ footer {
   span + span{
     margin-left: 15px;
   }
+}
+
+.download--header {
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: @screen-md-max){
+  .download--header {
+      height: 100px;
+  }
+}
+
+
+.download-details--headline{
+  margin-top: 0;
+}
+
+.download-details--wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+.download--details {
+    margin-right: 50px;
 }

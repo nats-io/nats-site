@@ -1,13 +1,16 @@
 {{ $.Scratch.Set "pageRelUrl" .RelPermalink }}
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
+  <div class="download--header">
+    <h1>Downloads</h1>
+  </div>
   <div class="row">
     {{ if ne .RelPermalink "/download/" }}
-    <div id="left-nav-con" class="col-md-3 hidden-xs hidden-sm">
+    <div id="left-nav-con" class="col-md-4 hidden-xs hidden-sm">
       {{ partial "side-menu-downloads.html" . }}
     </div>
     {{ end }}
-    <div class="{{ if ne ($.Scratch.Get "pageRelUrl") "/download/" }}col-md-9{{ else }}col-md-12{{ end }}">
+    <div class="{{ if ne ($.Scratch.Get "pageRelUrl") "/download/" }}col-md-8{{ else }}col-md-12{{ end }}">
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
       <div class="download-server-con col-md-12">
@@ -66,12 +69,10 @@
             {{ end }}
           </article>
       </div>
-
       {{ end }}
+
       {{ else }}
-
       {{ .Content }}
-
       {{ range $.Site.Data }}
       {{ range .Releases }}
 
@@ -79,11 +80,10 @@
           {{ $.Scratch.Set "githubUser" .user }}
           {{ $.Scratch.Set "githubRepo" .repo }}
         {{ end }}
-
         {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
-        <div class="row">
-          <div class="col-md-4">
-            <h1>{{ .name }}</h1>
+          <h1 class="download-details--headline">{{ .name }}</h1>
+          <div class="download-details--wrapper">
+          <div class="download--details">
             {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
             <ul class="list-unstyled">
               {{ range first 1 .github }}
@@ -95,8 +95,8 @@
               {{ end }}
             </ul>
           </div>
-          <div class="col-md-8">
-            <h3>Language: {{ .language }}</h3>
+          <div class="download--github">
+            <h6>Language: {{ .language }}</h6>
             {{ range first 1 .github }}
             <!-- Watch -->
             <a class="github-button" href="https://github.com/AWESOME/REPO" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
@@ -113,7 +113,7 @@
             <p>No release notes.</p>
             {{ end }}
           </div>
-        </div>
+          </div>
         {{ end }}
 
       {{ end }}
