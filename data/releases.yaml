@@ -180,9 +180,9 @@ Releases:
   release_notes: |
     Last updated to v 0.0.2 on July 16th, 2015
   github:
-    - user: DawnAngel
+    - user: dawnangel
       repo: lua-nats
-      link: https://github.com/DawnAngel/lua-nats
+      link: https://github.com/dawnangel/lua-nats
 
 - name: PHP
   type: client
