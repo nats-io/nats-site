@@ -7254,6 +7254,31 @@ html#home-html {
     height: 325px;
   }
 }
+#download-page #left-nav-con {
+  padding-top: 40px;
+}
+#download-page #left-nav-con ul.sub-menu li.main-menu-item {
+  margin-bottom: 15px;
+}
+#download-page #left-nav-con ul.sub-menu li .main-menu-item-title {
+  font-size: 18px;
+  color: #2e3957;
+}
+#download-page #left-nav-con ul.sub-menu li.active a.main-menu-item-title {
+  font-weight: bold;
+  color: #2e3957;
+}
+#download-page #left-nav-con ul.sub-menu li ul {
+  padding: 2px 0px 20px 0px;
+}
+#download-page #left-nav-con ul.sub-menu li ul li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#download-page #left-nav-con ul.sub-menu li ul li.active {
+  font-weight: bold;
+}
 #download-page .panel-default {
   min-height: 200px;
 }

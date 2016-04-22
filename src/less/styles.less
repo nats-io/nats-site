@@ -592,6 +592,47 @@ html#home-html {
 
 // Downloads
 #download-page {
+  // Left Nav
+  #left-nav-con {
+    padding-top: 40px;
+    ul.sub-menu {
+      li {
+        &.main-menu-item {
+          margin-bottom: 15px;
+        }
+        .main-menu-item-title {
+          font-size: 18px;
+          color: @nats-brand-blue-dark;
+        }
+        &.active {
+          a.main-menu-item-title {
+            font-weight: bold;
+            color: @nats-brand-blue-dark;
+          }
+        }
+
+        ul {
+          padding: 2px 0px 20px 0px;
+          li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.active {
+              font-weight: bold;
+
+              a {
+
+              }
+            }
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+  
   .panel-default {
     min-height: 200px
   }
