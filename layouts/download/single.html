@@ -112,6 +112,14 @@
             {{ else }}
             <p>No release notes.</p>
             {{ end }}
+
+            {{ range first 1 .author }}
+            {{ if .name }}
+            <h4>Author:</h4>
+            <p><a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
+            {{ end }}
+            {{ end }}
+
           </div>
           </div>
         {{ end }}
