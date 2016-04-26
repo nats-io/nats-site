@@ -1,70 +1,138 @@
+
+{{ $.Scratch.Set "pageRelUrl" .RelPermalink }}
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
-  <div class="row">
-    <div class="col-md-12">
-      {{ .Content }}
-    </div>
+  <div class="page-header">
+    <h1>Download</h1>
   </div>
-  <div class="row download-server-con">
-    <div class="col-md-12">
-      <h2>Server</h2>
+  <div class="row">
+    {{ if ne .RelPermalink "/download/" }}
+    <div id="left-nav-con" class="col-md-4 hidden-xs hidden-sm">
+      {{ partial "side-menu-downloads.html" . }}
+    </div>
+    {{ end }}
+    <div class="{{ if ne ($.Scratch.Get "pageRelUrl") "/download/" }}col-md-8{{ else }}col-md-12{{ end }}">
+      {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
-        {{ range .Releases }}
-        {{ if eq .type "server" }}
-
-        <div class="panel panel-default">
-          <div class="panel-body download-server">
-
-            <div class="row">
-              <div class="col-md-3 title-con">
-                <h3>{{ .name }}</h3>
-                {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
-              </div>
-              <div class="col-md-6 release-con">
-                {{ if .release_notes }}
-                <h4>Release Notes:</h4>
-                {{ .release_notes | safeHTML }}
-                {{ else }}
-                <p>No release notes.</p>
+      <div class="download-server-con col-md-12">
+          <article class="nats--downloads">
+            <h2>Server</h2>
+            {{ range .Releases }}
+            {{ if eq .type "server" }}
+            <section class="download--item">
+              <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
+              <figure class="download-item--links">
+                {{ range first 1 .github }}
+                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
+                <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
                 {{ end }}
-              </div>
-              <div class="col-md-3 download-con">
-                <ul class="list-unstyled">
-                  {{ range first 1 .github }}
-                  <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
-                  <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
-                  {{ end }}
-                  {{ range .links }}
-                  <li><a href="{{ .url }}">{{ .name }}</a></li>
-                  {{ end }}
-                </ul>
-              </div>
-            </div>
+              </figure>
+            </section>
+            {{ end }}
+            {{ end }}
+          </article>
+      </div>
+
+      <div class="download-clients-con col-md-12">
+          <article class="nats--downloads">
+            <h2>Apcera Supported Clients</h2>
+            {{ range .Releases }}
+            {{ if and ( ne .name "NATS Server" ) ( .supported ) }}
+            <section class="download--item">
+              <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
+              <figure class="download-item--links">
+                {{ range first 1 .github }}
+                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
+                <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
+                {{ end }}
+              </figure>
+            </section>
+            {{ end }}
+            {{ end }}
+          </article>
+      </div>
+
+      <div class="download-clients-con col-md-12">
+          <article class="nats--downloads">
+            <h2>Community Clients</h2>
+            {{ range .Releases }}
+            {{ if and ( ne .name "NATS Server" ) ( eq .supported false ) }}
+            <section class="download--item">
+              <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
+              <figure class="download-item--links">
+                {{ range first 1 .github }}
+                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
+                <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
+                {{ end }}
+              </figure>
+            </section>
+            {{ end }}
+            {{ end }}
+          </article>
+      </div>
+      {{ end }}
+
+      {{ else }}
+      {{ .Content }}
+      {{ range $.Site.Data }}
+      {{ range .Releases }}
+
+        {{ range first 1 .github }}
+          {{ $.Scratch.Set "githubUser" .user }}
+          {{ $.Scratch.Set "githubRepo" .repo }}
+        {{ end }}
+        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
+          <h1 class="download-details--headline">{{ .name }}</h1>
+          <div class="download-details--wrapper">
+          <div class="download--details">
+            {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+            <ul class="list-unstyled">
+              {{ range first 1 .github }}
+              <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+              <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+              {{ end }}
+              {{ range .links }}
+              <li><a href="{{ .url }}">{{ .name }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          <div class="download--github">
+            <h6>Language: {{ .language }}</h6>
+            {{ range first 1 .github }}
+            <!-- Watch -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
+            <!-- Star -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO" data-icon="octicon-star" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/stargazers" data-count-api="/repos/{{.user}}/{{.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{.user}}/{{.repo}} on GitHub">Star</a>
+            <!-- Fork -->
+            <a class="github-button" href="https://github.com/AWESOME/REPO/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/network" data-count-api="/repos/{{.user}}/{{.repo}}#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork {{.user}}/{{.repo}} on GitHub">Fork</a>
+            {{ end }}
+
+            {{ if .release_notes }}
+            <h4>Release Notes:</h4>
+            {{ .release_notes | safeHTML }}
+            {{ else }}
+            <p>No release notes.</p>
+            {{ end }}
+
+            {{ range first 1 .author }}
+            {{ if .name }}
+            <h4>Author:</h4>
+            <p><a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
+            {{ end }}
+            {{ end }}
 
           </div>
-        </div>
+          </div>
+        {{ end }}
 
-        {{ end }}
-        {{ end }}
+      {{ end }}
       {{ end }}
 
-    </div>
-  </div>
-
-  <div class="row download-clients-con">
-    <div class="col-md-12">
-      <h2>Clients</h2>
-      {{ range $.Site.Data }}
-         {{ partial "releases.html" . }}
       {{ end }}
-    </div>
   </div>
-
-  <div class="row external-clients-con">
-    <div class="col-md-12">
+  <div class="external-clients-con col-md-12">
       <p><em>Please <a href="mailto:info@nats.io?subject=NATS External Client">contact us</a> to add your external client to the download list.</em></p>
-    </div>
   </div>
-
+</div>
 </div>
 {{ partial "footer.html" . }}

@@ -33,3 +33,13 @@ title = "NATS - Cloud Native, Open Source, High Performance Messaging"
 [[menu.documentation]]
   name = "tutorials"
   weight = 5
+
+[[menu.downloads]]
+  name = "Server"
+  weight = 0
+[[menu.downloads]]
+  name = "Apcera Supported Clients"
+  weight = 1
+[[menu.downloads]]
+  name = "Community Clients"
+  weight = 2

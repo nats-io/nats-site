@@ -108,6 +108,12 @@
 @footer-link-hover:                         @link-hover-color;
 @footer-link:                               @nats-colour-blue-lite;
 
+
+//Downloads
+
+@download-row-background:                         #f8f9fb;
+@download-row-border:                             #e7e7e7;
+
 // #############################################################################
 
 // General Styles
@@ -592,6 +598,46 @@ html#home-html {
 
 // Downloads
 #download-page {
+  // Left Nav
+  #left-nav-con {
+    ul.sub-menu {
+      li {
+        &.main-menu-item {
+          margin-bottom: 15px;
+        }
+        .main-menu-item-title {
+          font-size: 18px;
+          color: @nats-brand-blue-dark;
+        }
+        &.active {
+          a.main-menu-item-title {
+            font-weight: bold;
+            color: @nats-brand-blue-dark;
+          }
+        }
+
+        ul {
+          padding: 2px 0px 20px 0px;
+          li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.active {
+              font-weight: bold;
+
+              a {
+
+              }
+            }
+            a {
+
+            }
+          }
+        }
+      }
+    }
+  }
+  
   .panel-default {
     min-height: 200px
   }
@@ -645,6 +691,7 @@ html#home-html {
     text-align: center;
     font-size: 22px;
     margin-bottom: 25px;
+    margin-top: 25px;
   }
 }
 
@@ -815,4 +862,53 @@ footer {
       text-align: center;
     }
   }
+}
+
+.nats--downloads{
+  margin-bottom: 20px;
+}
+.download-item--links{
+  margin: 20px 0;
+}
+.download--item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  h3{
+    margin: 20px 0;
+  }
+  &:nth-child(even){
+    background: @download-row-background;
+    border-top: 1px solid @download-row-border;
+    border-bottom: 1px solid @download-row-border;
+  }
+  span + span{
+    margin-left: 15px;
+  }
+}
+
+.download--header {
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: @screen-md-max){
+  .download--header {
+      height: 100px;
+  }
+}
+
+
+.download-details--headline{
+  margin-top: 0;
+}
+
+.download-details--wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+.download--details {
+    margin-right: 50px;
 }

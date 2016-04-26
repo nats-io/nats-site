@@ -6,17 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="description" content="{{if eq .Description ""}}{{ .Site.Params.description }}{{else}}{{ .Description }}{{end}}">
     <meta name="author" content="{{ .Site.Params.author }}">
     <meta name="generator" content="Hugo 0.13">
-
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>{{if eq .Title ""}}
-    {{.Site.Title}}
-    {{else}}
-        {{ .Title }} {{ .Description }}
-{{end}}</title>
+    <title>{{if eq .Title ""}}{{.Site.Title}}{{else}}{{ .Title }}{{end}}</title>
 
     <!-- CSS -->
     <link href="/css/styles.css" rel="stylesheet">
@@ -29,7 +24,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page">
+  <body id="{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page">
     <nav class="navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}">
       <div class="container">
         <div class="navbar-header">

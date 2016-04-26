@@ -19,6 +19,10 @@ Releases:
 - name: C
   type: client
   supported: true
+  language: C
+  author:
+    - name:
+      link:
   version_num: 1.2.10
   release_notes: |
     Release 1.2.10 on February 26th, 2016.
@@ -30,6 +34,10 @@ Releases:
 - name: C#
   type: client
   supported: true
+  language: C#
+  author:
+    - name:
+      link:
   version_num: 0.4.0
   release_notes: |
     Release 0.4.0 on February 11th, 2016.
@@ -41,6 +49,10 @@ Releases:
 - name: Elixir
   type: client
   supported: true
+  language: Elixir
+  author:
+    - name:
+      link:
   version_num: 0.1.4-alpha
   release_notes: |
     Release v0.1.4-alpha on January 27th, 2016.
@@ -52,6 +64,10 @@ Releases:
 - name: Go
   type: client
   supported: true
+  language: Golang
+  author:
+    - name:
+      link:
   version_num: 1.1.6
   release_notes: |
     Release v1.1.6 on December 9th, 2015.
@@ -63,6 +79,10 @@ Releases:
 - name: Java
   type: client
   supported: true
+  language: Java
+  author:
+    - name:
+      link:
   version_num: 0.4.1
   release_notes: |
     Release 0.4.1 on April 3rd, 2016
@@ -74,6 +94,10 @@ Releases:
 - name: NGINX
   type: client
   supported: true
+  language: C
+  author:
+    - name:
+      link:
   version_num: 0.0.0
   release_notes: |
     Last updated August 18th, 2015.
@@ -85,6 +109,10 @@ Releases:
 - name: Node.js
   type: client
   supported: true
+  language: Javascript
+  author:
+    - name:
+      link:
   version_num: 0.5.4
   release_notes: |
     Release v.0.5.4, January 8th, 2016
@@ -96,6 +124,10 @@ Releases:
 - name: Python Asyncio
   type: client
   supported: true
+  language: Python
+  author:
+    - name:
+      link:
   version_num: 0.1.0
   release_notes: |
     Release v.0.1.0, February 2nd, 2016
@@ -107,6 +139,10 @@ Releases:
 - name: Python Tornado
   type: client
   supported: true
+  language: Python
+  author:
+    - name:
+      link:
   version_num: 0.2.2
   release_notes: |
     Release v.0.2.2, December 22nd, 2015
@@ -118,6 +154,10 @@ Releases:
 - name: Ruby
   type: client
   supported: true
+  language: Ruby
+  author:
+    - name:
+      link:
   version_num: 0.5.1
   release_notes: |
     Release 0.5.1 on August 6th, 2015.
@@ -129,6 +169,10 @@ Releases:
 - name: Arduino
   type: client
   supported: false
+  language: C++
+  author:
+    - name: Josh Glendenning
+      link: https://github.com/joshglendenning
   version_num: 0.0.0
   release_notes: |
     Last udpated on March 15th, 2015.
@@ -140,6 +184,10 @@ Releases:
 - name: Erlang
   type: client
   supported: false
+  language: Erlang
+  author:
+    - name: Yuce Tekol
+      link: https://github.com/yuce
   version_num: 0.4.0
   release_notes: |
     Release 0.4.0 on April 17th, 2016.
@@ -151,6 +199,10 @@ Releases:
 - name: Haskell
   type: client
   supported: false
+  language: Haskell
+  author:
+    - name: Ondrej Palkovsky
+      link: https://github.com/ondrap
   version_num: 0.0.0
   release_notes: |
     Last updated to 1.2.0 on November 25th, 2014
@@ -162,17 +214,25 @@ Releases:
 - name: Lua
   type: client
   supported: false
+  language: Lua
+  author:
+    - name: Eric Pinto
+      link: https://github.com/DawnAngel
   version_num: 0.0.4
   release_notes: |
     Last updated to v 0.0.2 on July 16th, 2015
   github:
-    - user: DawnAngel
+    - user: dawnangel
       repo: lua-nats
-      link: https://github.com/DawnAngel/lua-nats
+      link: https://github.com/dawnangel/lua-nats
 
 - name: PHP
   type: client
   supported: false
+  language: PHP
+  author:
+    - name: Raül Pérez
+      link: https://github.com/repejota
   version_num: 0.4.0
   release_notes: |
     Last updated to v0.4.0 on October 11th, 2015.
@@ -184,6 +244,10 @@ Releases:
 - name: Python
   type: client
   supported: false
+  language: Python
+  author:
+    - name: Máximo Cuadros
+      link: https://github.com/mcuadros
   version_num: 0.0.0
   release_notes: |
     Last updated September 19th, 2014.
@@ -195,6 +259,10 @@ Releases:
 - name: Python Twisted
   type: client
   supported: false
+  language: Python
+  author:
+    - name: John Lockwood
+      link: https://github.com/johnwlockwood
   version_num: 0.0.0
   release_notes: |
     Last updated January 14th, 2016.
@@ -206,6 +274,10 @@ Releases:
 - name: Rust
   type: client
   supported: false
+  language: Rust
+  author:
+    - name: Frank Denis
+      link: https://github.com/jedisct1
   version_num: 0.1.1
   release_notes: |
     Last updated September 8th, 2015
@@ -217,6 +289,10 @@ Releases:
 - name: Scala
   type: client
   supported: false
+  language: Scala
+  author:
+    - name: Teppei Yagihashi
+      link: https://github.com/tyagihas
   version_num: 0.0.0
   release_notes: |
     No Release Notes
@@ -228,6 +304,10 @@ Releases:
 - name: Spring API
   type: client
   supported: false
+  language: Java
+  author:
+    - name: Mike Heath
+      link: https://github.com/mheath
   version_num: 0.0.0
   release_notes: |
     No release notes.
@@ -239,6 +319,10 @@ Releases:
 - name: NATS Server
   type: server
   supported: true
+  language: Golang
+  author:
+    - name:
+      link:
   version_num: 0.7.2
   release_notes: |
     Release v0.7.2 on December 9th, 2015.<br> Docker Image last updated December 9th, 2015.
