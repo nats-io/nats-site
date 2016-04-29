@@ -1,6 +1,6 @@
 +++
 categories = ["Engineering", "Community"]
-date = "2016-04-11T11:25:41-08:00"
+date = "2016-04-29"
 tags = ["NATS", "Connector", "java", "Tutorial"]
 title = "Using the NATS Connector Framework"
 author = "Colin Sullivan"
