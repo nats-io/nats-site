@@ -15,7 +15,7 @@ The NATS Connector Framework provides a foundation to build a **connector** - an
 
 ### Usability
 
-The NATS Connector framework is written in Java - Java is popular, known by developers, and most technologies -especially legacy - provide a Java API. This will allows the connector framework to be used in bridging a multitude of different technologies.
+The NATS Connector framework is written in Java - Java is popular, known by developers, and most technologies - especially legacy - provide a Java API. This will allow the connector framework to be used in bridging a multitude of different technologies.
 
 For extensibility, the connector framework was designed with a plug-in architecture. Developers code a class to a simple, straightforward java interface, then a connector instance is started referencing their class. That's it - the framework does the rest - logging, startup and shutdown, event management, and basic setup and usage of NATS. While NATS is already simple and easy to use, this allows valuable time to be focused on domain expertise rather than writing general application code for a bridge.
 
