@@ -11,7 +11,7 @@ Our NATS-powered Validation Services in Action
 ![drawing](/img/blog/nias-nats-screenshot.png)
 
 
-I'd like to focus for this blog on what NATS has helped us to achieve. There are a whole set of other great entries on this site looking at various aspects of technical implementations, and the NATS community as a whole is incredibly responsive and helpful; so if you have questions about how to do something just have a read here and ask a question in the NATS Slack channel for pretty much immediate gratification.
+I'd like to focus for this blog on what NATS has helped us to achieve. There are a whole set of other great entries on this site looking at various aspects of technical implementations, and the NATS community as a whole is incredibly responsive and helpful; so if you have questions about how to do something just have a read around here, and you can always ask a question in the NATS Slack channel for pretty much immediate gratification.
 
 For this post, though, I want to look at what using NATS has eanbled us to do, which wasn't really possible before - I'm hoping our example might make it clearer quite why you would choose to use NATS in the heart of your product if you face business needs in any way like ours.
 
