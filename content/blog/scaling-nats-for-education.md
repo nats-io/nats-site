@@ -36,7 +36,7 @@ Each component of NIAS is a standalone utility that does something useful, and a
 
 There's a whole bunch of these services; Privacy Filtering, a small 'graph' datastore that links entities from different inbound data models, lightweight analytics, and the set I want to focus on here that specialise in data validation.
 
-So here's our validation scenario. Schools and school authorities need to register students for online national assessment. For that to work well, there's a whole set of business conditions that need to be tested. Are students in the right year groups for the  tests based on their birthdates, are there duplicate records for students, are they enrolled in more than one school, does the supllied data match the required schema for structure and content etc. etc.
+So here's our validation scenario. Schools and school authorities need to register students for online national assessment. For that to work well, there's a whole set of business conditions that need to be tested. Are students in the right year groups for the  tests based on their birthdates, are there duplicate records for students, are they enrolled in more than one school, does the suplied data match the required schema for structure and content etc. etc.
 
 Modelling and implementing each of these as a discete validation service makes them nice and easy to reason about. By running them all against a messaging backbone and using queue groups in NATS it becomes easy to run all of the validations in parallel, and on top of the raw NATS performance the end result for the user is a very quick validation cycle.
 
