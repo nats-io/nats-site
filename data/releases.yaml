@@ -68,9 +68,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.1.6
+  version_num: 1.2.0
   release_notes: |
-    Release v1.1.6 on December 9th, 2015.
+    Release v1.2.0 on April 25th, 2016.
   github:
     - user: nats-io
       repo: nats
@@ -113,9 +113,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.5.4
+  version_num: 0.6.2
   release_notes: |
-    Release v.0.5.4, January 8th, 2016
+    Release v.0.6.2, April 9th, 2016
   github:
     - user: nats-io
       repo: node-nats
@@ -128,9 +128,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.0
+  version_num: 0.2.0
   release_notes: |
-    Release v.0.1.0, February 2nd, 2016
+    Release v0.2.0 on March 21st, 2016.
   github:
     - user: nats-io
       repo: asyncio-nats
@@ -158,9 +158,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.5.1
+  version_num: 0.6.0
   release_notes: |
-    Release 0.5.1 on August 6th, 2015.
+    Release v0.6.0 on March 22nd, 2016.
   github:
     - user: nats-io
       repo: ruby-nats
@@ -225,6 +225,21 @@ Releases:
     - user: dawnangel
       repo: lua-nats
       link: https://github.com/dawnangel/lua-nats
+
+- name: Perl
+  type: client
+  supported: false
+  language: Perl
+  author:
+    - name: carwynmoore
+      link: https://github.com/carwynmoore
+  version_num: 0.0.0
+  release_notes: |
+    Last updated on May 9th, 2016.
+  github:
+    - user: carwynmoore
+      repo: perl-nats
+      link: https://github.com/carwynmoore/perl-nats
 
 - name: PHP
   type: client
