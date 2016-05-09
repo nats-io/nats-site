@@ -8,9 +8,13 @@ author = "Brian Flannery"
 
 The [Linux Foundation’s](https://twitter.com/linuxfoundation) [OpenIoT Summit](http://events.linuxfoundation.org/events/openiot-summit/program/about) was held in San Diego in April, and for those of you who attended and maybe went home with some swag, you’ll remember the [NATS](http://www.nats.io) team had a booth. What you may not remember a month later are the details of [Larry McQueary’s](https://github.com/mcqueary) overview of NATS at one of the speaking [sessions](http://sched.co/6DBE). As a refresher, the recording of the talk is now available for viewing on YouTube. You can see a quick demo of NATS later in the video (starting [here](https://youtu.be/6uPopWEdldU?t=32m42s)), and QnA at the [end](https://youtu.be/6uPopWEdldU?t=38m30s). The full video is available below:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6uPopWEdldU" frameborder="0" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6uPopWEdldU" frameborder="0" allowfullscreen></iframe>
+</div>
 
 The slides Larry presents in the talk are available via (SlideShare)[http://www.slideshare.net/Apcera/nats-a-central-nervous-system-for-iot-messaging-larry-mcqueary].
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/8ASh85n4erfhQa" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
 
 Among the key points Larry makes is that traditional messaging systems disappoint because:
 
