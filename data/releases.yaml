@@ -347,8 +347,8 @@ Releases:
       link: https://github.com/nats-io/gnatsd
   links:
   - name: Linux Binary
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-linux-amd64.tar.gz
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.0/gnatsd-v0.8.0-linux-amd64.zip
   - name: Mac OS X Binary
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.7.2/gnatsd-v0.7.2-darwin-amd64.tar.gz
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.0/gnatsd-v0.8.0-darwin-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
