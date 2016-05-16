@@ -22,9 +22,17 @@ In this tutorial you install and run the NATS server (`gnatsd`). You can follow 
 
 **1. Install the NATS server.**
 
+To install the latest released version of the NATS server, download one of the pre-built release binaries which are available for OSX, Linux (x86-64/ARM), and Windows. Instructions for using these binaries are on the [GitHub releases page](https://github.com/nats-io/gnatsd/releases). 
+
+You can also install the latest version of the NATS server using the [official Docker image](https://hub.docker.com/_/nats/).
+
+Another way to install NATS is using Go:
+
 ```
 go get github.com/nats-io/gnatsd
 ```
+
+Note that this method may not install the latest released version.
 
 **2. Start the NATS server.**
 
@@ -37,9 +45,9 @@ gnatsd
 When the server starts successfully, you will see that the NATS server listens for client connections on TCP Port 4222:
 
 ```
-[1] 2015/08/12 15:18:22.301550 [INF] Starting gnatsd version 0.6.4
-[1] 2015/08/12 15:18:22.301762 [INF] Listening for client connections on 0.0.0.0:4222
-[1] 2015/08/12 15:18:22.301769 [INF] gnatsd is ready
+[35483] 2016/05/09 22:00:56.966499 [INF] Starting nats-server version 0.8.0
+[35483] 2016/05/09 22:00:56.966658 [INF] Listening for client connections on 0.0.0.0:4222
+[35483] 2016/05/09 22:00:56.968883 [INF] Server is ready
 ```
 
 **3. Start the NATS server with monitoring enabled.**
@@ -53,10 +61,10 @@ gnatsd -m 8222
 If you run the NATS server with monitoring enabled, you see the following messages:
 
 ```
-[5] 2015/06/30 19:28:58.631339 [INF] Starting gnatsd version 0.6.0
-[5] 2015/06/30 19:28:58.631442 [INF] Starting http monitor on port 8222
-[5] 2015/06/30 19:28:58.631633 [INF] Listening for client connections on 0.0.0.0:4222
-[5] 2015/06/30 19:28:58.631714 [INF] gnatsd is ready
+[35490] 2016/05/09 22:13:35.523638 [INF] Starting nats-server version 0.8.0
+[35490] 2016/05/09 22:13:35.523738 [INF] Starting http monitor on 0.0.0.0:8222
+[35490] 2016/05/09 22:13:35.523823 [INF] Listening for client connections on 0.0.0.0:4222
+[35490] 2016/05/09 22:13:35.523849 [INF] Server is ready
 ```
 
 **4. Start the NATS server with routes enabled.**
@@ -64,9 +72,9 @@ If you run the NATS server with monitoring enabled, you see the following messag
 If routing is enabled, route (server) connections listen on port 6222.
 
 ```
-[1] 2015/08/12 15:18:22.301550 [INF] Starting gnatsd version 0.6.4
-[1] 2015/08/12 15:18:22.301594 [INF] Starting http monitor on port 8222
-[1] 2015/08/12 15:18:22.301707 [INF] Listening for route connections on :6222
-[1] 2015/08/12 15:18:22.301762 [INF] Listening for client connections on 0.0.0.0:4222
-[1] 2015/08/12 15:18:22.301769 [INF] gnatsd is ready
+[35490] 2016/05/09 22:13:35.523638 [INF] Starting nats-server version 0.8.0
+[35490] 2016/05/09 22:13:35.523738 [INF] Starting http monitor on 0.0.0.0:8222
+[35490] 2015/08/12 15:18:22.301707 [INF] Listening for route connections on 0.0.0.0:6222
+[35490] 2016/05/09 22:13:35.523823 [INF] Listening for client connections on 0.0.0.0:4222
+[35490] 2016/05/09 22:13:35.523849 [INF] Server is ready
 ```
