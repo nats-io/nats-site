@@ -1,6 +1,5 @@
 +++
-date = "2016-05-03T09:00:56+10:00"
-draft = true
+date = "2016-05-17"
 title = "Scaling NATS for Education"
 categories = ["Community"]
 author = "Matt Farmer"
@@ -26,7 +25,7 @@ Where we intersect in the technology space is to identify those structural gaps 
 
 We can't provide any direct incentives, but what we can do is create open source tools to solve those problems and then make them available to everyone to embed or use as easily as possible.
 
-Our latest toolset is a suite of services that provide a whole bunch of useful integration tools. In the popular language of today you could call it a micro-services architecture. My only hesitation in actually calling it that is that I feel increasingly like the Will Munny character in 'Unforgiven' - "I've sent messages across every protocol that walks or crawled at one time or another" - I fell in love with message-based architectures a long time ago, have always felt them to be inherently helpful in dealing with complex problems, and here we all are in the wondeful world of reactive systems. 
+Our latest toolset is a suite of services that provide a whole bunch of useful integration tools. In the popular language of today you could call it a micro-services architecture. My only hesitation in actually calling it that is that I feel increasingly like the Will Munny character in 'Unforgiven' - "I've sent messages across every protocol that walks or crawled at one time or another" - I fell in love with message-based architectures a long time ago, have always felt them to be inherently helpful in dealing with complex problems, and here we all are in the wondeful world of reactive systems.
 
 I'm truly glad that the rest of the world has caught up with us queue-junkies, but sometimes with a little bit of that feeling when the obscure band you loved suddenly gets famous and everybody else loves them too. Okay, enough with grizzled neck-beard nostalgia - if everyone loves messaging that's all to the good with me.
 
@@ -69,29 +68,3 @@ You could rightly point out that some of the benefit comes from choosing the rig
 That makes a huge difference when you are a small team trying to solve difficult problems so that others can benefit. The raw engineering of NATS is truly impressive and we love the performance, but its the fact that we can scale our tools to meet any possible usage scenario from single-user to cloud-scale without having to rethink our architecture or deployment that makes NATS a crucial differentiator for us.
 
 You can find all of our stuff (rough and ready though it may be) on our Github account [NSIP Github](https://github.com/nsip/), and we are always keen to share and help especially those of you out there also in the ed-tech domain.
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
