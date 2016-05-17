@@ -6865,14 +6865,6 @@ table .table {
 table > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
-.col-sm-15 {
-  width: 20%;
-}
-@media (max-width: 767px) {
-  .col-sm-15 {
-    width: 50%;
-  }
-}
 #main-con {
   min-height: 600px;
   background: url(/img/about-neuron.png) right top no-repeat;
