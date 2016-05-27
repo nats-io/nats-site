@@ -6718,8 +6718,8 @@ button.close {
 }
 @font-face {
   font-family: 'nats';
-  src: url('/fonts/nats.eot?ek0aal');
-  src: url('/fonts/fonts/nats.eot?ek0aal#iefix') format('embedded-opentype'), url('/fonts/nats.ttf?ek0aal') format('truetype'), url('/fonts/nats.woff?ek0aal') format('woff'), url('/fonts/nats.svg?ek0aal#nats') format('svg');
+  src: url('/fonts/nats.eot?22bw7o');
+  src: url('/fonts/nats.eot?22bw7o#iefix') format('embedded-opentype'), url('/fonts/nats.ttf?22bw7o') format('truetype'), url('/fonts/nats.woff?22bw7o') format('woff'), url('/fonts/nats.svg?22bw7o#nats') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -6737,23 +6737,23 @@ button.close {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-back:before {
+.icon-google-plus:before {
+  content: "\e905";
+}
+.icon-slack:before {
   content: "\e900";
 }
-.icon-forward:before {
-  content: "\e901";
-}
-.icon-logo-github:before {
-  content: "\f092";
-}
-.icon-mark-github:before {
-  content: "\f00a";
-}
-.icon-google-plus:before {
+.icon-backward2:before {
   content: "\e902";
 }
-.icon-twitter:before {
+.icon-forward3:before {
   content: "\e903";
+}
+.icon-twitter:before {
+  content: "\e904";
+}
+.icon-github:before {
+  content: "\e901";
 }
 html {
   background-color: #f5f6f9;
@@ -7148,7 +7148,7 @@ html#home-html {
 }
 #community-page #social-con .social-list .icon-twitter,
 #community-page #social-con .social-list .icon-google-plus,
-#community-page #social-con .social-list .icon-mark-github {
+#community-page #social-con .social-list .icon-github {
   vertical-align: middle;
   font-size: 30px;
 }
@@ -7158,7 +7158,7 @@ html#home-html {
 #community-page #social-con .social-list .icon-google-plus {
   color: #dd4b39;
 }
-#community-page #social-con .social-list .icon-mark-github {
+#community-page #social-con .social-list .icon-github {
   color: #000;
 }
 #community-page .community-notice-panel {
@@ -7405,18 +7405,10 @@ footer .copyright .social {
 }
 footer .copyright .social .icon-twitter,
 footer .copyright .social .icon-google-plus,
-footer .copyright .social .icon-mark-github {
+footer .copyright .social .icon-slack,
+footer .copyright .social .icon-github {
   vertical-align: sub;
   font-size: 30px;
-}
-footer .copyright .social .icon-twitter {
-  color: #55acee;
-}
-footer .copyright .social .icon-google-plus {
-  color: #dd4b39;
-}
-footer .copyright .social .icon-mark-github {
-  color: #000;
 }
 footer .copyright .social a {
   display: inline-block;
@@ -7439,7 +7431,7 @@ footer#home-page-footer {
 footer#home-page-footer #dark-powered-by-apcera {
   max-width: 262.5px;
 }
-footer#home-page-footer .social .icon-mark-github {
+footer#home-page-footer .social .icon {
   color: #fff;
 }
 @media (max-width: 767px) {
