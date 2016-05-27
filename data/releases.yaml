@@ -38,9 +38,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.4.0
+  version_num: 0.5.0
   release_notes: |
-    Release 0.4.0 on February 11th, 2016.
+    Release 0.5.0 on May 25th, 2016.
   github:
     - user: nats-io
       repo: csnats
