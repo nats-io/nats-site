@@ -23,7 +23,7 @@ There are several open source client libraries for NATS from which you can choos
 - [Java client](https://github.com/nats-io/jnats)
 - [C client](https://github.com/nats-io/cnats)
 - [C# client](https://github.com/nats-io/csnats)
-- [Nginx C client](https://github.com/nats-io/nginx-nats)
+- [NGINX C client](https://github.com/nats-io/nginx-nats)
 
 ## API documentation for supported clients
 

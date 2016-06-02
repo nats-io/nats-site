@@ -20,7 +20,7 @@ NATS provides a lightweight [server](/documentation/server/gnatsd-intro/) that i
 
 ## NATS clients
 
-There are several [client libraries](/documentation/clients/nats-clients/) for NATS. Apcera actively maintains and supports the Go, Node, and Ruby clients, and there are several community-provided clients.
+There are several [client libraries](/documentation/clients/nats-clients/) for NATS. Apcera actively maintains and supports the Go, Node, Ruby, Java, C, C# and NGINX C clients, and there are several community-provided clients.
 
 You can write your own client in any language you choose. NATS provides a simple, [text-based protocol](/documentation/internals/nats-protocol/) that makes [writing clients](/documentation/internals/nats-guide) a breeze.
 
