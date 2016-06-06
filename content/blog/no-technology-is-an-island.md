@@ -1,6 +1,6 @@
 +++
 categories = ["Engineering", "Community"]
-date = "2016-06-7T10:59:20-08:00"
+date = "2016-06-07"
 tags = ["nats", "connectors", "big data"]
 title = "No Technology is an Island: The NATS Connector Framework"
 author = "Steve Dischinger"
@@ -12,9 +12,9 @@ One of life's best lessons is simple things tend to win. So that is why we are s
 
 For those of you that missed it you can watch Colin & Brian explain the Connector Framework and how you can win limited edition NATS Swag by building a connector (HINT: if you submit a Connector to us by June 30th…):
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/eEaZw1lc_p8" frameborder="0" allowfullscreen></iframe>
-
-
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe width="420" height="315" src="https://www.youtube.com/embed/eEaZw1lc_p8" frameborder="0" allowfullscreen></iframe>
+</div>
 
 Here are just a couple of examples:
 
@@ -25,6 +25,9 @@ Here are just a couple of examples:
 
 An example of how useful Connectors can be is the solution Logimethods is delivering around SMART Metering using NATS with Apache Spark, which was recently discussed at a NATS Meetup:
 
-http://www.slideshare.net/Apcera/big-data-analytics-with-nats-and-apache-spark
-
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe src="//www.slideshare.net/slideshow/embed_code/key/EffW4fBq2DZIXu" allowfullscreen></iframe>
+</div>
 Be interesting to see what else the community comes up with over the next few weeks. Maybe connectors for MQTT, Prometheus, or Elastic next? ....But I'm guessing our inventory of custom NATS Hoodies will be gone soon!
+
+<img class="img-responsive center-block" src="/img/blog/win-a-hoodie.jpg">
