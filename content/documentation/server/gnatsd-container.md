@@ -76,4 +76,4 @@ $ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:
 
 ## Tutorial
 
-See the [NATS Docker tutorial](/documentation/tutorials/nats-docker/) for instructions on using the NATS server Docker image.
+See the [NATS Docker tutorial](/documentation/tutorials/gnatsd-docker/ for instructions on using the NATS server Docker image.
