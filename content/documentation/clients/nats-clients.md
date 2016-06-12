@@ -49,3 +49,4 @@ The following NATS clients are provided by the community:
 - [Python](https://github.com/mcuadros/pynats)
 - [Scala](https://github.com/tyagihas/scala_nats/)
 - [Haskell](https://github.com/ondrap/nats-queue)
+- [C# MyNatsClient](https://github.com/danielwertheim/mynatsclient)
