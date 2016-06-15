@@ -68,6 +68,16 @@ gulp.task('partnerLogos', function() {
     .pipe(notify({ message: 'Finished resizing partner logo'}));
 });
 
+// Resize User Logos
+gulp.task('companyLogos', function() {
+  return gulp.src('src/company_logos/**/*')
+    .pipe(gm(function (gmfile) {
+      return gmfile.resize(150, 100);
+    }))
+    .pipe(gulp.dest('static/img/company_logos'))
+    .pipe(notify({ message: 'Finished resizing company logo'}));
+});
+
 // Resize Documentaiton Images
 gulp.task('docsImages', function() {
   return gulp.src('src/documentation/**/*.{png,jpg,jpeg}')
@@ -100,9 +110,10 @@ gulp.task('watch', function() {
   gulp.watch('src/font/**/*', [ 'font' ]);
   gulp.watch('src/user_logos/**/*', [ 'userLogos' ]);
   gulp.watch('src/partner_logos/**/*', [ 'partnerLogos' ]);
+  gulp.watch('src/company_logos/**/*', [ 'companyLogos' ]);
   gulp.watch('src/blog/**/*', [ 'blogImages' ]);
   gulp.watch('src/blog/**/*', [ 'blogImagesGifs' ]);
 });
 
 // Default Task
-gulp.task('default', [ 'less','js','img','font','watch', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
+gulp.task('default', [ 'less','js','img','font','watch', 'docsImages', 'userLogos', 'partnerLogos', 'companyLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
