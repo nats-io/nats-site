@@ -7000,10 +7000,12 @@ html#home-html {
   font-size: 42px;
   margin-bottom: 15px;
 }
-#home-page #homepage-content .lead {
+#home-page #homepage-content h2 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200;
   font-size: 34px;
+  margin-bottom: 22px;
+  line-height: 1.4;
 }
 #home-page #homepage-content .extra-info {
   font-weight: 100;
