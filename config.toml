@@ -38,8 +38,11 @@ title = "NATS - Cloud Native, Open Source, High Performance Messaging"
   name = "Server"
   weight = 0
 [[menu.downloads]]
-  name = "Apcera Supported Clients"
+  name = "Streaming"
   weight = 1
 [[menu.downloads]]
-  name = "Community Clients"
+  name = "Apcera Supported Clients"
   weight = 2
+[[menu.downloads]]
+  name = "Community Clients"
+  weight = 3

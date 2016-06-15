@@ -33,6 +33,25 @@
           </article>
       </div>
 
+      <div class="download-server-con col-md-12">
+          <article class="nats--downloads">
+            <h2>Streaming</h2>
+            {{ range .Releases }}
+            {{ if eq .type "streaming" }}
+            <section class="download--item">
+              <h3><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h3>
+              <figure class="download-item--links">
+                {{ range first 1 .github }}
+                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
+                <span><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></span>
+                {{ end }}
+              </figure>
+            </section>
+            {{ end }}
+            {{ end }}
+          </article>
+      </div>
+
       <div class="download-clients-con col-md-12">
           <article class="nats--downloads">
             <h2>Apcera Supported Clients</h2>

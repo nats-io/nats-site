@@ -1,6 +1,6 @@
 <div class="row">
   {{ range .Releases }}
-  {{ if ne .name "NATS Server" }}
+  {{ if eq .type "client" }}
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-body download-client">
