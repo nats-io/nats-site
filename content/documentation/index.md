@@ -52,13 +52,7 @@ With [NATS Streaming](/documentation/streaming/nats-streaming-intro/), a data st
 
 - Event streaming with replay from specific time or sequence (or relevant offset)
 - Durable susbcriptions for transient clients  
-
-NATS philosophy holds that high levels of quality-of-service should be built into the client. Only request-reply is built in. NATS does not provide:
-
-- Persistence
-- Transactions
-- Enhanced delivery modes
-- Enterprise queueing
+- Persistent/guaranteed message delivery
 
 ## NATS messaging models
 
