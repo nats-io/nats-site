@@ -6982,7 +6982,7 @@ html#home-html {
   padding-right: 30px;
 }
 #home-page .background-con {
-  background: url(/img/home-background.jpg) repeat-x center 300px;
+  background: url(/img/home-background.jpg) repeat-x center 360px;
 }
 #home-page .homepage-brand {
   width: 458px;
@@ -7078,7 +7078,8 @@ html#home-html {
     background: url(/img/home-background-sm.jpg) repeat-x center 200px;
   }
   #home-page .homepage-brand {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
   }
   #home-page #homepage-content {
     padding-top: 0px;
@@ -7118,7 +7119,7 @@ html#home-html {
     width: 350px;
   }
   #home-page .background-con {
-    background-position: center 190px;
+    background-position: center 330px;
   }
   #home-page #homepage-content {
     padding-top: 30px;
@@ -7258,6 +7259,11 @@ html#home-html {
 #download-page #left-nav-con ul.sub-menu li.active a.main-menu-item-title {
   font-weight: bold;
   color: #2e3957;
+}
+#download-page #left-nav-con ul.sub-menu li .main-menu-item-title.header {
+  display: inline-block;
+  font-size: 22px;
+  color: #375c93;
 }
 #download-page #left-nav-con ul.sub-menu li ul {
   padding: 2px 0px 20px 0px;

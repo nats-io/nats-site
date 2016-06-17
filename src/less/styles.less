@@ -323,7 +323,7 @@ html#home-html {
     }
   }
   .background-con {
-    background: url(/img/home-background.jpg) repeat-x center 300px;
+    background: url(/img/home-background.jpg) repeat-x center 360px;
   }
   .homepage-brand {
     display: block;
@@ -408,7 +408,8 @@ html#home-html {
       background: url(/img/home-background-sm.jpg) repeat-x center 200px;
     }
     .homepage-brand {
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
     }
     #homepage-content {
       padding-top: 0px;
@@ -448,7 +449,7 @@ html#home-html {
       width: 350px;
     }
     .background-con {
-        background-position: center 190px;
+        background-position: center 330px;
     }
     #homepage-content {
       padding-top: 30px;
@@ -607,7 +608,11 @@ html#home-html {
             color: @nats-brand-blue-dark;
           }
         }
-
+        .main-menu-item-title.header {
+          display: inline-block;
+          font-size: 22px;
+          color: @nats-colour-blue-dark;
+        }
         ul {
           padding: 2px 0px 20px 0px;
           li {

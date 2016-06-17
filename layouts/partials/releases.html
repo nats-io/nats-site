@@ -6,11 +6,11 @@
       <div class="panel-body download-client">
 
         <div class="row">
-          <div class="col-md-7 title-con">
+          <div class="col-md-8 title-con">
             <h3>{{ .name }}{{ if in .type "client" }} Client{{ end }}</h3>
             {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
           </div>
-          <div class="col-md-5 download-con">
+          <div class="col-md-4 download-con">
             <div class="download-con">
               <ul class="list-unstyled">
               {{ range first 1 .github }}

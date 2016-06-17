@@ -35,14 +35,40 @@ title = "NATS - Cloud Native, Open Source, High Performance Messaging"
   weight = 5
 
 [[menu.downloads]]
-  name = "Server"
-  weight = 0
-[[menu.downloads]]
-  name = "Streaming"
+  name = "NATS"
   weight = 1
+  identifier = "nats"
+  [[menu.downloads]]
+    name = "Server"
+    weight = 0
+    identifier = "nats-server"
+    parent = "nats"
+  [[menu.downloads]]
+    name = "Apcera Supported Clients"
+    weight = 1
+    identifier = "nats-clients"
+    parent = "nats"
+  [[menu.downloads]]
+    name = "Community Clients"
+    weight = 2
+    identifier = "nats-comunity"
+    parent = "nats"
 [[menu.downloads]]
-  name = "Apcera Supported Clients"
-  weight = 2
-[[menu.downloads]]
-  name = "Community Clients"
-  weight = 3
+  name = "NATS Streaming"
+  weight = 0
+  identifier = "nats-streaming"
+  [[menu.downloads]]
+    name = "Server"
+    weight = 0
+    identifier = "streaming-server"
+    parent = "nats-streaming"
+  [[menu.downloads]]
+    name = "Apcera Supported Clients"
+    weight = 1
+    identifier = "streaming-clients"
+    parent = "nats-streaming"
+  [[menu.downloads]]
+    name = "Community Clients"
+    weight = 2
+    identifier = "streaming-comunity"
+    parent = "nats-streaming"
