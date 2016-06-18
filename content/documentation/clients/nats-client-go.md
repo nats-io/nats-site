@@ -38,7 +38,7 @@ nc, _ := nats.Connect(nats.DefaultURL)
 nc.Publish("foo", []byte("Hello World"))
 
 // Simple Async Subscriber
-nc.Subscribe("foo", func(m *Msg) {
+nc.Subscribe("foo", func(m *nats.Msg) {
     fmt.Printf("Received a message: %s\n", string(m.Data))
 })
 
@@ -54,7 +54,7 @@ sub.Unsubscribe()
 msg, err := nc.Request("help", []byte("help me"), 10*time.Millisecond)
 
 // Replies
-nc.Subscribe("help", func(m *Msg) {
+nc.Subscribe("help", func(m *nats.Msg) {
     nc.Publish(m.Reply, []byte("I can help!"))
 })
 
@@ -70,15 +70,15 @@ The asterisk character (`*`) matches any token at any level of the subject.
 The greater than symbol (`>`) matches any length of the tail of a subject, and can only be the last token. For example: the wildcard subscription `foo.>` will match `foo.bar`, `foo.bar.baz`, and `foo.foo.bar.bax.22`.
 
 ```
-nc.Subscribe("foo.*.baz", func(m *Msg) {
+nc.Subscribe("foo.*.baz", func(m *nats.Msg) {
     fmt.Printf("Msg received on [%s] : %s\n", m.Subject, string(m.Data));
 })
 
-nc.Subscribe("foo.bar.*", func(m *Msg) {
+nc.Subscribe("foo.bar.*", func(m *nats.Msg) {
     fmt.Printf("Msg received on [%s] : %s\n", m.Subject, string(m.Data));
 })
 
-nc.Subscribe("foo.>", func(m *Msg) {
+nc.Subscribe("foo.>", func(m *nats.Msg) {
     fmt.Printf("Msg received on [%s] : %s\n", m.Subject, string(m.Data));
 })
 
@@ -91,7 +91,7 @@ nc.Publish("foo.bar.baz", []byte("Hello World"))
 All subscriptions with the same queue name will form a queue group. NATS queuing semantics stipulate that each message will be delivered to only one subscriber per queue group. You can have as many queue groups as you wish. Normal subscribers will continue to work as expected.
 
 ```
-nc.QueueSubscribe("foo", "job_workers", func(_ *Msg) {
+nc.QueueSubscribe("foo", "job_workers", func(_ *nats.Msg) {
   received += 1;
 })
 ```
@@ -296,7 +296,7 @@ sub.AutoUnsubscribe(MAX_WANTED)
 nc1 := nats.Connect("nats://host1:4222")
 nc2 := nats.Connect("nats://host2:4222")
 
-nc1.Subscribe("foo", func(m *Msg) {
+nc1.Subscribe("foo", func(m *nats.Msg) {
     fmt.Printf("Received a message: %s\n", string(m.Data))
 })
 
