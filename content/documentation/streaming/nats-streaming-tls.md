@@ -22,9 +22,9 @@ For example, if you pass the NATS streaming server a file with a several users, 
 
 ## Using TLS 
 
-While there are several TLS related parameters for the NATS Streaming server, securing the server's connection is straightforward. Bear in mind that the NATS Streaming server and the embedded NATS server have a server-client relationship where the NATS Streaming server is a client of it's embedded NATS server.
+While there are several TLS related parameters for the NATS Streaming server, securing the server's connection is straightforward. However, bear in mind that the NATS Streaming server embeds the NATS server resulting in a client-server relationship where the NATS Streaming server is a client of it's embedded NATS server.
 
-That means two sets of TLS configuration parameters must be used: TLS server parameters for the embedded NATS server, and TLS client parameters for the streaming server itself.
+That means two sets of TLS configuration parameters must be used: TLS server parameters for the embedded NATS server, and TLS client parameters for the NATS Streaming server itself.
 
 The streaming server specifies it's TLS client certificates with the following three parameters:
 
@@ -48,7 +48,7 @@ The embedded NATS server specifies TLS server certificates with these:
         --tlscacert <file>           Client certificate CA for verification
 ```
 
-The server parameters are used the same way you'd secure a typical NATS server.
+The server parameters are used the same way you'd [secure a typical NATS server]((https://github.com/nats-io/gnatsd#securing-nats).
 
 Proper usage of the NATS Streaming Server requires the use of both client and server parameters.
 
