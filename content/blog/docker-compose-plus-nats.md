@@ -205,21 +205,21 @@ services:
 
 **Next**, we use `docker-compose -f build.ym build` to first create our containers:
 
-![Blog Image](/img/blog/docker-compose-plus-nats/docker-compose-build.png "Blog Image")
+[![Blog Image](/img/blog/docker-compose-plus-nats/docker-compose-build.png "Blog Image")](/img/blog/docker-compose-plus-nats/docker-compose-build.png)
 
 **Then**, we start our services with docker-compose up:
 
-![Blog Image](/img/blog/docker-compose-plus-nats/docker-compose-start-services.png "Blog Image")
+[![Blog Image](/img/blog/docker-compose-plus-nats/docker-compose-start-services.png "Blog Image")](/img/blog/docker-compose-plus-nats/docker-compose-start-services.png)
 
 In this example, we have the API server expose a `/createTask` route, and doing a quick smoke test by sending a request with curl to confirm that requests are flowing through NATS:
 
-![Blog Image](/img/blog/docker-compose-plus-nats/api-route-create-task.png "Blog Image")
+[![Blog Image](/img/blog/docker-compose-plus-nats/api-route-create-task.png "Blog Image")](/img/blog/docker-compose-plus-nats/api-route-create-task.png)
 
 **And** since we are using -DV in order to activate trace and debugging in the NATS server we can also confirm the traffic.
 
 **NOTE**: This is ok for a dev/test environment (and for the purposes of this example) but not recommended for production, as it impacts performance.
 
-![Blog Image](/img/blog/docker-compose-plus-nats/comfirm-traffic.png "Blog Image")
+[![Blog Image](/img/blog/docker-compose-plus-nats/comfirm-traffic.png "Blog Image")](/img/blog/docker-compose-plus-nats/comfirm-traffic.png)
 
 So! There you have it. A quick example showing how simple NATS is. NATS - much like containers themselves - is all about simplicity and scalability.
 
