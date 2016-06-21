@@ -2,6 +2,11 @@ baseurl = "http://nats.io/"
 languageCode = "en-us"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"
 
+pygmentsCodeFences = "true"
+pygmentsuseclasses = "true"
+pygmentsstyle = "native"
+
+
 [params]
   leftNav = false
   description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
