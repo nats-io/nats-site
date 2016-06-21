@@ -10,3 +10,6 @@ ehthumbs.db
 # Node
 node_modules
 npm-debug.log
+
+#Eclipse
+.project

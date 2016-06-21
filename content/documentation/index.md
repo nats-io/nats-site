@@ -26,20 +26,21 @@ You can write your own client in any language you choose. NATS provides a simple
 
 ## NATS design goals
 
-The core principles underlying NATS are performance, scalability, and ease-of-use. Based on these principles, NATS is designed to be:
+The core principles underlying NATS are performance, scalability, and ease-of-use. Based on these principles, NATS is designed around the following core features:
 
 - Highly performant (fast)
 - Always on and available (dial tone)
 - Extremely lightweight (small footprint)
-- At most once delivery (fire and forget)
+- Support for multiple qualities of service (including guaranteed "at-least-once" delivery with [NATS Streaming](/documentation/streaming/nats-streaming-intro/))
 - Support for various messaging models and use cases (flexible)
 
 ## NATS use cases
 
-NATS is a fire-and-forget messaging system designed to natively support modern cloud architectures. Because complexity does not scale, NATS is designed to be easy to use and implement.
+NATS is a simple yet powerful messaging system designed to natively support modern cloud architectures. Because complexity does not scale, NATS is designed to be easy to use and implement, while offering multiple qualities of service.
 
 Some of the types of use cases that are ideal for NATS include:
 
+- High througput message fanout
 - Addressing, discovery
 - Command and control (control plane)
 - Load balancing
@@ -47,12 +48,11 @@ Some of the types of use cases that are ideal for NATS include:
 - Location transparency
 - Fault tolerance
 
-NATS philosophy holds that high levels of quality-of-service should be built into the client. Only request-reply is built in. NATS does not provide:
+With [NATS Streaming](/documentation/streaming/nats-streaming-intro/), a data streaming service for NATS, additional use cases include:
 
-- Persistence
-- Transactions
-- Enhanced delivery modes
-- Enterprise queueing
+- Event streaming with replay from specific time or sequence (or relevant offset)
+- Durable susbcriptions for transient clients  
+- Persistent/guaranteed message delivery
 
 ## NATS messaging models
 
@@ -66,7 +66,7 @@ NATS supports various messaging models, including:
 
 NATS provides the following unique features:
 
-- [Pure pub sub](/documentation/server/gnatsd-intro/)
+- [Pure pub-sub](/documentation/server/gnatsd-intro/)
 	- Never assumes the audience.
 	- Always "on" dial tone.
 - [Clustered mode server](/documentation/server/gnatsd-cluster/)
@@ -82,6 +82,15 @@ NATS provides the following unique features:
 	- Makes it easy to get started with new clients.
 	- Does not affect server performance.
 	- Can [Telnet](https://en.wikipedia.org/wiki/Telnet) directly to the server and send messages across the wire.
+- Multiple qualities of service (QoS)
+    - At-most-once delivery (TCP level reliability) - NATS delivers messages to immediately eligible subscribers but does not persist the messages.
+    - At-least-once delivery (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/)) - Messages persisted until delivery to subscribers has been confirmed, or timeout expires, or storage exhausted. 
+- Durable subscriptions (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/))
+    - Subscription delivery state is maintained so that durable subscriptions may pick up where they left off during a previous session.
+- Event streaming service (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/))
+    - Messages may be persisted to memory, file, or other secondary storage for later replay by time, sequence number, or relative offset.
+- Last/Initial value caching (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/))
+    - Subscription delivery can begin with the most recently published message for a subscription.
 
 ## NATS FAQs
 
