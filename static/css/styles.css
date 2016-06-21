@@ -7345,7 +7345,7 @@ html#home-html {
 #home-page #homepage-content #download-button:hover {
   box-shadow: 0px 0px 15px 6px rgba(255, 255, 255, 0.65);
 }
-#home-page #homepage-content #bottom-logo-container {
+#home-page #homepage-content .bottom-logo-container {
   text-align: center;
   display: -webkit-box;
   display: -webkit-flex;
@@ -7363,7 +7363,16 @@ html#home-html {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-#home-page #homepage-content #bottom-logo-container .col-xs-6 {
+#home-page #homepage-content .bottom-logo-container .ge svg {
+  width: 40%;
+}
+#home-page #homepage-content .bottom-logo-container .htc svg {
+  width: 70%;
+}
+#home-page #homepage-content .bottom-logo-container .pivotal svg {
+  width: 90%;
+}
+#home-page #homepage-content .bottom-logo-container .col-xs-6 {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
