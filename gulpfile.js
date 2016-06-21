@@ -79,7 +79,7 @@ gulp.task('docsImages', function() {
 gulp.task('blogImages', function() {
   return gulp.src('src/blog/**/*.{png,jpg,jpeg}')
     .pipe(imageResize({
-      width : 800
+      width : 900
     }))
     .pipe(gulp.dest('static/img/blog'))
     .pipe(notify({ message: 'Finished resizing blog image'}));
