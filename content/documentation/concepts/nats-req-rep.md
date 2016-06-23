@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Request Reply"
 category = "concepts"
-[menu.documentation]
+[menu.main]
   name = "Request Reply"
   weight = 3
   identifier = "concepts-nats-req-rep"
-  parent = "concepts"
+  parent = "Concepts"
 +++
 
 # NATS Request Reply

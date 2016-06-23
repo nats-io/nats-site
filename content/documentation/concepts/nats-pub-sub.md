@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Publish Subscribe"
 category = "concepts"
-[menu.documentation]
+[menu.main]
   name = "Publish Subscribe"
   weight = 2
   identifier = "concepts-nats-pub-sub"
-  parent = "concepts"
+  parent = "Concepts"
 +++
 
 # NATS Publish Subscribe

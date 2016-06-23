@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Go Client"
 description = "Usage details for Go NATS client"
 category = "clients"
-[menu.documentation]
+[menu.main]
   name = "Go Client"
   weight = 1
   identifier = "clients-go-client"
-  parent = "clients"
+  parent = "Clients"
 +++
 
 # Go Client for NATS

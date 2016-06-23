@@ -257,55 +257,52 @@ nav.navbar-default {
           background-color: @nats-brand-gray-dark;
         }
       }
-      @media (min-width: @screen-md-min) {
-        a {
-          padding: 28px 0px 12px 0px;
-          margin: 0px 15px 17px;
+      a.main-item:hover, a.main-item:active, a.main-item:focus, &.active a.main-item {
+        outline: 0;
+        color: @nats-colour-green-lite;
 
-        }
-        a:hover, a:active, a:focus, &.active a {
-          outline: 0;
-          //border-bottom: 1px solid #fff;
-          border-bottom: none;
-          padding: 28px 0px 12px 0px;
-          margin: 0px 15px 16px;
-          color: @nats-colour-green-lite;
+      }
+      // @media (min-width: @screen-md-min) {
+      //   a {
+      //     padding: 28px 0px 12px 0px;
+      //     margin: 0px 15px 17px;
+      //
+      //   }
 
-        }
-      }
-      @media (max-width: @screen-md-min) {
-        a:hover, a:active, a:focus, &.active a, &.active a:hover {
-          outline: 0;
-          background-color: lighten(@nats-brand-blue-dark, 10%);
-        }
-        &.active, &.open {
-          a.main-item,
-          a.main-item:hover {
-            background-color: lighten(@nats-brand-blue-dark, 10%);
-          }
-        }
-        &.active, &.open {
-          ul {
-            li.active {
-              a.sub-item {
-                background-color: lighten(@nats-brand-blue-dark, 10%);
-                &:hover, &:active, &:focus {
-                  background-color: lighten(@nats-brand-blue-dark, 10%);
-                }
-              }
-            }
-          }
-          a.sub-item {
-            background-color: transparent;
-            &:hover, &:active, &:focus {
-              background-color: lighten(@nats-brand-blue-dark, 10%);
-            }
-          }
-        }
-        a.sub-item:hover {
-          background-color: lighten(@nats-brand-blue-dark, 10%);
-        }
-      }
+      // }
+      // @media (max-width: @screen-md-min) {
+      //   a:hover, a:active, a:focus, &.active a, &.active a:hover {
+      //     outline: 0;
+      //     background-color: lighten(@nats-brand-blue-dark, 10%);
+      //   }
+      //   &.active, &.open {
+      //     a.main-item,
+      //     a.main-item:hover {
+      //       background-color: lighten(@nats-brand-blue-dark, 10%);
+      //     }
+      //   }
+      //   &.active, &.open {
+      //     ul {
+      //       li.active {
+      //         a.sub-item {
+      //           background-color: lighten(@nats-brand-blue-dark, 10%);
+      //           &:hover, &:active, &:focus {
+      //             background-color: lighten(@nats-brand-blue-dark, 10%);
+      //           }
+      //         }
+      //       }
+      //     }
+      //     a.sub-item {
+      //       background-color: transparent;
+      //       &:hover, &:active, &:focus {
+      //         background-color: lighten(@nats-brand-blue-dark, 10%);
+      //       }
+      //     }
+      //   }
+      //   a.sub-item:hover {
+      //     background-color: lighten(@nats-brand-blue-dark, 10%);
+      //   }
+      // }
 
     }
 

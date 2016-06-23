@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Protocol Demo"
 category = "internals"
-[menu.documentation]
+[menu.main]
   name = "Protocol Demo"
   weight = 2
   identifier = "internals-nats-protocol-demo"
-  parent = "internals"
+  parent = "Internals"
 +++
 
 # NATS Protocol Demo

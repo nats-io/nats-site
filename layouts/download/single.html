@@ -6,127 +6,14 @@
     <h1>Download</h1>
   </div>
   <div class="row">
-    {{ if ne .RelPermalink "/download/" }}
     <div id="left-nav-con" class="col-md-3 hidden-xs hidden-sm">
       {{ partial "side-menu-downloads.html" . }}
     </div>
-    {{ end }}
-    <div class="{{ if ne ($.Scratch.Get "pageRelUrl") "/download/" }}col-md-9{{ else }}col-md-12{{ end }}">
+    <div class="col-md-9">
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
-
-      <div class="row">
-        <div class="col-md-6">
-          <h2>NATS</h2>
-          <article class="nats--downloads">
-            <h3>Server</h3>
-            {{ range .Releases }}
-            {{ if eq .type "nats-server" }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article>
-          <hr>
-          <article class="nats--downloads">
-            <h3>Apcera Supported Clients</h3>
-            {{ range .Releases }}
-            {{ if and ( eq .type "nats-client" ) ( .supported ) }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article>
-          <hr>
-          <article class="nats--downloads">
-            <h3>Community Clients</h3>
-            {{ range .Releases }}
-            {{ if and ( eq .type "nats-client" ) ( eq .supported false ) }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article>
-        </div>
-
-        <div class="col-md-6">
-          <h2>NATS Streaming</h2>
-          <article class="nats--downloads">
-            <h3>Server</h3>
-            {{ range .Releases }}
-            {{ if eq .type "streaming-server" }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article>
-          <hr>
-          <article class="nats--downloads">
-            <h3>Apcera Supported Clients</h3>
-            {{ range .Releases }}
-            {{ if and ( eq .type "streaming-client" ) ( .supported ) }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article>
-          <!-- <hr>
-          <article class="nats--downloads">
-            <h3>Community Clients</h3>
-            {{ range .Releases }}
-            {{ if and ( eq .type "streaming-client" ) ( eq .supported false ) }}
-            <section class="download--item">
-              <h4><a href="/download/{{ range first 1 .github }}{{ .user | urlize  }}/{{ .repo | urlize }}{{ end }}">{{ .name }}</a></h4>
-              <figure class="download-item--links">
-                {{ range first 1 .github }}
-                <span><a href="{{ .link }}" target="_blank">View on Github</a></span>
-                <span><a href="{{ .link }}/releases/latest" target="_blank">Download</a></span>
-                {{ end }}
-              </figure>
-            </section>
-            {{ end }}
-            {{ end }}
-          </article> -->
-        </div>
-
-      </div>
-
-
+      <h2>Some heading</h2>
+      <p class="lead">Some text should go here ont he download page.</p>
 
       {{ end }}
 

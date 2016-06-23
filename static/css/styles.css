@@ -7192,64 +7192,12 @@ nav.navbar-default ul.navbar-nav li .dropdown-menu .dropdown-header {
 nav.navbar-default ul.navbar-nav li .dropdown-menu .divider {
   background-color: #666;
 }
-@media (min-width: 992px) {
-  nav.navbar-default ul.navbar-nav li a {
-    padding: 28px 0px 12px 0px;
-    margin: 0px 15px 17px;
-  }
-  nav.navbar-default ul.navbar-nav li a:hover,
-  nav.navbar-default ul.navbar-nav li a:active,
-  nav.navbar-default ul.navbar-nav li a:focus,
-  nav.navbar-default ul.navbar-nav li.active a {
-    outline: 0;
-    border-bottom: none;
-    padding: 28px 0px 12px 0px;
-    margin: 0px 15px 16px;
-    color: #8dc63f;
-  }
-}
-@media (max-width: 992px) {
-  nav.navbar-default ul.navbar-nav li a:hover,
-  nav.navbar-default ul.navbar-nav li a:active,
-  nav.navbar-default ul.navbar-nav li a:focus,
-  nav.navbar-default ul.navbar-nav li.active a,
-  nav.navbar-default ul.navbar-nav li.active a:hover {
-    outline: 0;
-    background-color: #404f78;
-  }
-  nav.navbar-default ul.navbar-nav li.active a.main-item,
-  nav.navbar-default ul.navbar-nav li.open a.main-item,
-  nav.navbar-default ul.navbar-nav li.active a.main-item:hover,
-  nav.navbar-default ul.navbar-nav li.open a.main-item:hover {
-    background-color: #404f78;
-  }
-  nav.navbar-default ul.navbar-nav li.active ul li.active a.sub-item,
-  nav.navbar-default ul.navbar-nav li.open ul li.active a.sub-item {
-    background-color: #404f78;
-  }
-  nav.navbar-default ul.navbar-nav li.active ul li.active a.sub-item:hover,
-  nav.navbar-default ul.navbar-nav li.open ul li.active a.sub-item:hover,
-  nav.navbar-default ul.navbar-nav li.active ul li.active a.sub-item:active,
-  nav.navbar-default ul.navbar-nav li.open ul li.active a.sub-item:active,
-  nav.navbar-default ul.navbar-nav li.active ul li.active a.sub-item:focus,
-  nav.navbar-default ul.navbar-nav li.open ul li.active a.sub-item:focus {
-    background-color: #404f78;
-  }
-  nav.navbar-default ul.navbar-nav li.active a.sub-item,
-  nav.navbar-default ul.navbar-nav li.open a.sub-item {
-    background-color: transparent;
-  }
-  nav.navbar-default ul.navbar-nav li.active a.sub-item:hover,
-  nav.navbar-default ul.navbar-nav li.open a.sub-item:hover,
-  nav.navbar-default ul.navbar-nav li.active a.sub-item:active,
-  nav.navbar-default ul.navbar-nav li.open a.sub-item:active,
-  nav.navbar-default ul.navbar-nav li.active a.sub-item:focus,
-  nav.navbar-default ul.navbar-nav li.open a.sub-item:focus {
-    background-color: #404f78;
-  }
-  nav.navbar-default ul.navbar-nav li a.sub-item:hover {
-    background-color: #404f78;
-  }
+nav.navbar-default ul.navbar-nav li a.main-item:hover,
+nav.navbar-default ul.navbar-nav li a.main-item:active,
+nav.navbar-default ul.navbar-nav li a.main-item:focus,
+nav.navbar-default ul.navbar-nav li.active a.main-item {
+  outline: 0;
+  color: #8dc63f;
 }
 html#home-html {
   background-color: #00011f;

@@ -2,11 +2,11 @@
 title = "NATS Documentation"
 category = "documentation"
 showChildren=true
-[menu.documentation]
+[menu.main]
   name = "Intro"
   weight = -100
   identifier = "intro"
-  parent = "getting started"
+  parent = "Getting Started"
 +++
 
 
@@ -84,7 +84,7 @@ NATS provides the following unique features:
 	- Can [Telnet](https://en.wikipedia.org/wiki/Telnet) directly to the server and send messages across the wire.
 - Multiple qualities of service (QoS)
     - At-most-once delivery (TCP level reliability) - NATS delivers messages to immediately eligible subscribers but does not persist the messages.
-    - At-least-once delivery (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/)) - Messages persisted until delivery to subscribers has been confirmed, or timeout expires, or storage exhausted. 
+    - At-least-once delivery (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/)) - Messages persisted until delivery to subscribers has been confirmed, or timeout expires, or storage exhausted.
 - Durable subscriptions (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/))
     - Subscription delivery state is maintained so that durable subscriptions may pick up where they left off during a previous session.
 - Event streaming service (via [NATS Streaming](/documentation/streaming/nats-streaming-intro/))

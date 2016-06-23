@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Explore NATS Queueing"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Explore NATS Queueing"
   weight = 7
   identifier = "tutorial-nats-queueing"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Explore NATS Queueing

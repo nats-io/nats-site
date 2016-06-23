@@ -3,11 +3,11 @@ date = "2015-06-17"
 title = "Securing NATS Streaming Server"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Securing NATS Streaming Server"
   weight = 1
   identifier = "streaming-nats-streaming-security"
-  parent = "server"
+  parent = "Streaming"
 +++
 
 This section describes how to secure the NATS Streaming Server, including user authentication and TLS certificates.
@@ -20,7 +20,7 @@ When using a configuration file with multi-user authorization, you must use the 
 
 For example, if you pass the NATS streaming server a file with a several users, you must run the streaming server as a user such as "Joe" who is defined in the configuration file.
 
-## Using TLS 
+## Using TLS
 
 While there are several TLS related parameters for the NATS Streaming server, securing the server's connection is straightforward. However, bear in mind that the NATS Streaming server embeds the NATS server resulting in a client-server relationship where the NATS Streaming server is a client of it's embedded NATS server.
 
@@ -36,7 +36,7 @@ The streaming server specifies it's TLS client certificates with the following t
     -tls_client_cacert           Client certificate CA for the streaming server
 ```
 
-These could be the same certificates used with your NATS streaming clients. 
+These could be the same certificates used with your NATS streaming clients.
 
 The embedded NATS server specifies TLS server certificates with these:
 

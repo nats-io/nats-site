@@ -2,11 +2,11 @@
 title = "FAQ"
 category = "concepts"
 showChildren=true
-[menu.documentation]
+[menu.main]
   name = "FAQ"
   weight = 0
   identifier = "faq"
-  parent = "getting started"
+  parent = "Getting Started"
 +++
 
 # NATS Frequently Asked Questions
@@ -36,10 +36,10 @@ showChildren=true
 
 ## General
 ### <a name="NATS"></a>What is NATS?
-NATS is an open source, lightweight, high-performance cloud native infrastructure messaging system. It implements a highly scalable and elegant publish-subscribe (pub/sub) distribution model. The performant nature of NATS make it an ideal base for building modern, reliable, scalable cloud native distributed systems. 
+NATS is an open source, lightweight, high-performance cloud native infrastructure messaging system. It implements a highly scalable and elegant publish-subscribe (pub/sub) distribution model. The performant nature of NATS make it an ideal base for building modern, reliable, scalable cloud native distributed systems.
 
 NATS is offered in two interoperable modules: the core NATS platform (referred to simply as "NATS" throughout this site), and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service that can be employed to add event streaming, delivery guarantees, and historical data replay to NATS.
- 
+
 NATS was created by Derek Collison, who has over 20 years designing, building, and using publish-subscribe messaging systems. NATS is sponsored and maintained by [Apcera](https://www.apcera.com/).
 
 ### <a name="gnatsdlang"></a>What language is NATS written in?
@@ -118,14 +118,14 @@ NATS does have a message size limitation that is enforced by the server and comm
 
 ### <a name="numsubj"></a>Does NATS impose any limits on the # of subjects?
 
-The maximum number of subjects is currently 2^32 (i.e. the max value of Go's uint32 type). 
-This may change in the future. 
-The current implementation (which predates some native Go data structures) is a custom Hashmap. 
+The maximum number of subjects is currently 2^32 (i.e. the max value of Go's uint32 type).
+This may change in the future.
+The current implementation (which predates some native Go data structures) is a custom Hashmap.
 We will eventually move to native Go data structures as we test and verify relative performance.
 
 ### <a name="gmd"></a>Does NATS guarantee message delivery?
 
-NATS is offered as two components: the basic platform (referred to simply as "NATS") and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), which is a data streaming service based on NATS. 
+NATS is offered as two components: the basic platform (referred to simply as "NATS") and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), which is a data streaming service based on NATS.
 
 - **NATS** implements what is commonly referred to as "at-most-once" delivery. This means that messages are guaranteed to arrive intact, in order from a given publisher, but not across different publishers. NATS does everything required to remain on and provide a dial-tone. However, if a subscriber is problematic or goes offline it will not receive messages, as the basic NATS platform is a simple pub-sub transport system that offers only TCP reliability.
 
@@ -133,15 +133,15 @@ NATS is offered as two components: the basic platform (referred to simply as "NA
 
 ### <a name="historical"></a>Does NATS support replay/redelivery of historical data?
 
-Yes, historical data may be persisted to memory or secondary storage and replayed using [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service based on (and compatible with) NATS. 
+Yes, historical data may be persisted to memory or secondary storage and replayed using [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service based on (and compatible with) NATS.
 
 ### <a name="unsubscribe"></a>How do I gracefully shut down an asynchronous subscriber?
 
-To gracefully shutdown an asynchronous subscriber so that any outstanding MsgHandlers have a chance to complete outstanding work, call sub.Unsubscribe(). 
-There is a Go routine per subscription. 
+To gracefully shutdown an asynchronous subscriber so that any outstanding MsgHandlers have a chance to complete outstanding work, call sub.Unsubscribe().
+There is a Go routine per subscription.
 These will be cleaned up on Unsubscribe(), or upon connection teardown.
 
 ### <a name="createsubjects"></a>How do I create subjects?
 
-Subjects are created and pruned (deleted) dynamically based on interest (subscriptions). 
+Subjects are created and pruned (deleted) dynamically based on interest (subscriptions).
 This means that a subject does not exist in a NATS cluster until a client subscribes to it, and the subject goes away after the last subscribing client unsubscribes from that subject.

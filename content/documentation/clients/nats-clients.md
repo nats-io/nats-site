@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "NATS Clients"
 category = "clients"
-[menu.documentation]
+[menu.main]
   name = "NATS Clients"
   weight = 0
   identifier = "clients-nats-clients"
-  parent = "clients"
+  parent = "Clients"
 +++
 
 # NATS Clients

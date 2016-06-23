@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Install NATS Streaming Server"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Install NATS Streaming Server"
   weight = 2
   identifier = "tutorial-nats-streaming-install"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Install and Run NATS Streaming Server

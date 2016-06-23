@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Containerization"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Containerization"
   weight = 6
   identifier = "server-gnatsd-container"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Containerization

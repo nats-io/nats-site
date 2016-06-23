@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Server Monitoring"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Monitoring"
   weight = 9
   identifier = "server-gnatsd-monitoring"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Monitoring

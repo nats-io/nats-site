@@ -93,11 +93,11 @@ Any new page should be a Markdown document placed inside `/content/documentation
 date = "2015-09-27"
 title = "NATS Messaging"
 category = "concepts"
-[menu.documentation]
+[menu.main]
   name = "Messaging"
   weight = 1
   identifier = "concepts-nats-messaging"
-  parent = "concepts"
+  parent = "Concepts"
 +++
 ```
 
@@ -114,25 +114,25 @@ For the menu portion, follow this:
 
 #### Adding categories
 
-Modify `config.toml` to add the category and its weight (list position) to menu.documentation:
+Modify `config.toml` to add the category and its weight (list position) to menu.main:
 
 ```
-[[menu.documentation]]
+[[menu.main]]
   name = "getting started"
   weight = 0
-[[menu.documentation]]
+[[menu.main]]
   name = "clients"
   weight = 1
-[[menu.documentation]]
+[[menu.main]]
   name = "concepts"
   weight = 2
-[[menu.documentation]]
+[[menu.main]]
   name = "internals"
   weight = 3
-[[menu.documentation]]
+[[menu.main]]
   name = "server"
   weight = 4
-[[menu.documentation]]
+[[menu.main]]
   name = "tutorials"
   weight = 5
 ```

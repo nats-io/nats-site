@@ -3,11 +3,11 @@ date = "2015-06-17"
 title = "NATS Streaming"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "NATS Streaming"
   weight = 1
   identifier = "streaming-nats-streaming-intro"
-  parent = "server"
+  parent = "Streaming"
 +++
 
 # NATS Streaming
@@ -28,10 +28,10 @@ In addition to the features of the core NATS platform, NATS Streaming provides t
     - Timestamp - the received timestamp, in nanoseconds.
     - Redelivered - A flag signifiying wither this message has been redelivered by the server
     - CRC32 - An optional IEEE CRC32
-- **Message/event persistence** - NATS Streaming offers configurable message persistence either in-memory or via flat files. The storage subsystem uses a public interface that allows contributors to develop their own custom implementations. 
-- **At-least-once-delivery** - NATS Streaming offers message acknowledgements between publisher and server (for publish operations) and between subscriber and server (to conirm message delivery). Messages are persisted by the server in memory or secondary storage (or other external storage) and will be redelivered to eligible subscribing clients as needed. 
+- **Message/event persistence** - NATS Streaming offers configurable message persistence either in-memory or via flat files. The storage subsystem uses a public interface that allows contributors to develop their own custom implementations.
+- **At-least-once-delivery** - NATS Streaming offers message acknowledgements between publisher and server (for publish operations) and between subscriber and server (to conirm message delivery). Messages are persisted by the server in memory or secondary storage (or other external storage) and will be redelivered to eligible subscribing clients as needed.
 - **Publisher rate limiting** - NATS Streaming provides a connection option called `MaxPubAcksInFlight` that effectively limits the number of unacknowledged messages that a publisher may have in-flight at any given time. When this maximum is reached, further async publish calls will block until the number of unacknowledged messages falls below the specified limit.
-- **Rate matching/limiting per subscriber** - Subscriptions may specify a `MaxInFlight` option that designates the maximum number of outstanding acknowledgements (messages that have been delivered but not acknowledged) that NATS Streaming will allow for a given subscription. When this limit is reached, NATS Streaming will suspend delivery of messages to this subscription until the number of unacknowledged messages falls below the specified limit. 
+- **Rate matching/limiting per subscriber** - Subscriptions may specify a `MaxInFlight` option that designates the maximum number of outstanding acknowledgements (messages that have been delivered but not acknowledged) that NATS Streaming will allow for a given subscription. When this limit is reached, NATS Streaming will suspend delivery of messages to this subscription until the number of unacknowledged messages falls below the specified limit.
 - **Historical message replay by subject** - New subscriptions may specify a start position in the stream of messages stored for the subscribed subject's channel. By using this option, message delivery may begin at:
     - The earliest message stored for this subject
     - The most recently stored message for this subject, prior to the start of the current subscription. This is commonly thought of as "last value" or "initial value" caching.
@@ -39,7 +39,7 @@ In addition to the features of the core NATS platform, NATS Streaming provides t
     - An historical offset from the current server date/time, e.g. the last 30 seconds.
     - A specific message sequence number
 - **Durable subscriptions** - Subscriptions may also specify a "durable name" which will survive client restarts. Durable subscriptions cause the server to track the last acknowledged message sequence number for a client and durable name. When the client restarts/resubscribes, and uses the same client ID and durable name, the server will resume delivery beginning with the earliest unacknowledged message for this durable subscription.  
- 
+
 ## Installation
 
 NATS provides a [server binary](/documentation/tutorials/nats-streaming-install/) for Linux, Mac, and Windows. You can install the server from source on any platform you choose.
@@ -47,5 +47,3 @@ NATS provides a [server binary](/documentation/tutorials/nats-streaming-install/
 ## Usage, Configuration and Administration
 
 NATS provides a rich set of commands and parameters to configure all aspects of the server. Please refer to the [README](https://github.com/nats-io/nats-streaming-server/) for further info on usage, configuration, and administration.
-
-

@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Benchmark and Tune NATS"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Benchmark and Tune NATS"
   weight = 10
   identifier = "tutorial-nats-benchmarking"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Benchmark and Tune NATS

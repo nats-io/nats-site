@@ -3,11 +3,11 @@ date = "2016-06-18"
 title = "Getting Started with NATS Streaming"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Getting started with NATS Streaming"
   weight = 9
   identifier = "tutorial-nats-streaming"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 This tutorial demonstrates NATS Streaming using the example publish/subscribe clients in the [Go NATS Streaming repository](https://github.com/nats-io/go-nats-streaming.git). 

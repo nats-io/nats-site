@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Ruby Client"
 category = "clients"
-[menu.documentation]
+[menu.main]
   name = "Ruby Client"
   weight = 3
   identifier = "clients-ruby-client"
-  parent = "clients"
+  parent = "Clients"
 +++
 
 # Ruby Client for NATS
