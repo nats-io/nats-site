@@ -46,6 +46,6 @@ NATS provides a [server binary](/documentation/tutorials/nats-streaming-install/
 
 ## Usage, Configuration and Administration
 
-NATS provides a rich set of commands and parameters to configure all aspects of the server. Please refer to the [README](https://github.com/nats-io/nats-streaming-server/) for further info on usage, configuration, and administration.
+NATS Streaming provides a rich set of commands and parameters to configure all aspects of the server. Please refer to the [README](https://github.com/nats-io/nats-streaming-server/) for further info on usage, configuration, and administration.
 
 
