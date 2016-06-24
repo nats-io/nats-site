@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "NATS Server"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "NATS Server"
   weight = 1
   identifier = "server-gnatsd-intro"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server

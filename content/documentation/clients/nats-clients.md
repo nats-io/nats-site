@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "NATS Clients"
 category = "clients"
-[menu.documentation]
+[menu.main]
   name = "NATS Clients"
   weight = 0
   identifier = "clients-nats-clients"
-  parent = "clients"
+  parent = "Clients"
 +++
 
 # NATS Clients
@@ -17,27 +17,28 @@ There are several open source client libraries for NATS from which you can choos
 
 [Apcera](https://www.apcera.com/) actively maintains and supports the following NATS clients:
 
-- [Go client](https://github.com/nats-io/nats)
+### NATS
+
+- [Go client](https://github.com/nats-io/nats) (see below for API documentation)
 - [Node.js client](https://github.com/nats-io/node-nats)
 - [Ruby client](https://github.com/nats-io/ruby-nats)
-- [Java client](https://github.com/nats-io/jnats)
-- [C client](https://github.com/nats-io/cnats)
-- [C# client](https://github.com/nats-io/csnats)
+- [Java client](https://github.com/nats-io/jnats) ([API doc](http://nats-io.github.io/jnats/))
+- [C client](https://github.com/nats-io/cnats) ([API doc](http://nats-io.github.io/cnats/))
+- [C# client](https://github.com/nats-io/csnats) ([API doc](http://nats-io.github.io/csnats/))
 - [NGINX C client](https://github.com/nats-io/nginx-nats)
 
-## API documentation for supported clients
+### NATS Streaming
+- [Go client](https://github.com/nats-io/go-nats-streaming) 
+- [Java client](https://github.com/nats-io/java-nats-streaming) ([API documentation](http://nats-io.github.io/jnats/))
 
-- [C client API documentation](http://nats-io.github.io/cnats/)
-- [C# client API documentation](http://nats-io.github.io/csnats/)
-- [Java client API documentation](http://nats-io.github.io/jnats)
-- Go client API documentation (see instructions below)
+## API documentation for Go
 
-For the Go NATS client, use the built-in Golang documentation tool [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) to generate API documentation. To do this:
+For the Go NATS and NATS Streaming client, use the built-in Golang documentation tool [Godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) to generate API documentation. To do this:
 
-- Clone the Go NATS client repository: `git clone git@github.com:nats-io/nats.git`
-- CD to the local directory: `$GOPATH/src/github.com/nats-io/nats`
+- Clone the Go NATS client repository: `git clone git@github.com:nats-io/nats.git` (or `git clone git@github.com:nats-io/go-nats-streaming.git`)
+- CD to the local directory: `$GOPATH/src/github.com/nats-io/nats` (or `$GOPATH/src/github.com/nats-io/go-nats-streaming`)
 - Run the Godoc tool: `godoc -http=:6060`
-- Browse to the documentation: `http://localhost:6060/pkg/github.com/nats-io/nats/`
+- Browse to the documentation: `http://localhost:6060/pkg/github.com/nats-io/nats/` (or `http://localhost:6060/pkg/github.com/nats-io/go-nats-streaming/`
 
 ## Community clients
 

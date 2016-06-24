@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Server Authorization"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Authorization"
   weight = 3
   identifier = "server-gnatsd-auth"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Authorization
@@ -86,7 +86,7 @@ nats://S3Cr3T0k3n!@localhost:4222
 
 In addition to TLS functionality, the server now also supports hashing of passwords and authentication tokens using `bcrypt`. To take advantage of this, simply replace the plaintext password in the configuration with its `bcrypt` hash, and the server will automatically utilize `bcrypt` as needed.
 
-A utility for creating `bcrypt` hashes is included with the gnatsd distribution (`util/mkpasswd.go`). Running it with no arguments will generate a new secure password along with the associated hash. This can be used for a password or a token in the configuration. 
+A utility for creating `bcrypt` hashes is included with the gnatsd distribution (`util/mkpasswd.go`). Running it with no arguments will generate a new secure password along with the associated hash. This can be used for a password or a token in the configuration.
 
 ```
 ~/go/src/github.com/nats-io/gnatsd/util> go build mkpasswd.go

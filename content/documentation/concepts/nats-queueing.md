@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Queueing"
 category = "concepts"
-[menu.documentation]
+[menu.main]
   name = "Queueing"
   weight = 4
   identifier = "concepts-nats-queueing"
-  parent = "concepts"
+  parent = "Concepts"
 +++
 
 # NATS Queueing

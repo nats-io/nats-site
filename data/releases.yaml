@@ -5,7 +5,7 @@
 # Clients Example
 
 # - name: Name of the Client
-#   type: client - Make sure to give it type client, this is used for display purposes
+#   type: nats-client - Make sure to give it type client, this is used for display purposes
 #   supported: true/false - This is to indicated if Apcera will be supporting this client or not
 #   version_num: 1.2.8 - Numeric version number of the client
 #   release_notes: |
@@ -17,7 +17,7 @@
 
 Releases:
 - name: C
-  type: client
+  type: nats-client
   supported: true
   language: C
   author:
@@ -32,7 +32,7 @@ Releases:
       link: https://github.com/nats-io/cnats
 
 - name: C#
-  type: client
+  type: nats-client
   supported: true
   language: C#
   author:
@@ -47,7 +47,7 @@ Releases:
       link: https://github.com/nats-io/csnats
 
 - name: Elixir
-  type: client
+  type: nats-client
   supported: true
   language: Elixir
   author:
@@ -62,7 +62,7 @@ Releases:
       link: https://github.com/nats-io/elixir-nats
 
 - name: Go
-  type: client
+  type: nats-client
   supported: true
   language: Golang
   author:
@@ -77,7 +77,7 @@ Releases:
       link: https://github.com/nats-io/nats
 
 - name: Java
-  type: client
+  type: nats-client
   supported: true
   language: Java
   author:
@@ -92,7 +92,7 @@ Releases:
       link: https://github.com/nats-io/jnats
 
 - name: NGINX
-  type: client
+  type: nats-client
   supported: true
   language: C
   author:
@@ -107,7 +107,7 @@ Releases:
       link: https://github.com/nats-io/nginx-nats
 
 - name: Node.js
-  type: client
+  type: nats-client
   supported: true
   language: Javascript
   author:
@@ -122,7 +122,7 @@ Releases:
       link: https://github.com/nats-io/node-nats
 
 - name: Python Asyncio
-  type: client
+  type: nats-client
   supported: true
   language: Python
   author:
@@ -137,7 +137,7 @@ Releases:
       link: https://github.com/nats-io/asyncio-nats
 
 - name: Python Tornado
-  type: client
+  type: nats-client
   supported: true
   language: Python
   author:
@@ -152,7 +152,7 @@ Releases:
       link: https://github.com/nats-io/python-nats
 
 - name: Ruby
-  type: client
+  type: nats-client
   supported: true
   language: Ruby
   author:
@@ -167,7 +167,7 @@ Releases:
       link: https://github.com/nats-io/ruby-nats
 
 - name: Arduino
-  type: client
+  type: nats-client
   supported: false
   language: C++
   author:
@@ -182,7 +182,7 @@ Releases:
       link: https://github.com/joshglendenning/arduino-nats
 
 - name: Erlang
-  type: client
+  type: nats-client
   supported: false
   language: Erlang
   author:
@@ -197,7 +197,7 @@ Releases:
       link: https://github.com/yuce/teacup_nats
 
 - name: Haskell
-  type: client
+  type: nats-client
   supported: false
   language: Haskell
   author:
@@ -212,7 +212,7 @@ Releases:
       link: https://github.com/ondrap/nats-queue
 
 - name: Lua
-  type: client
+  type: nats-client
   supported: false
   language: Lua
   author:
@@ -227,7 +227,7 @@ Releases:
       link: https://github.com/dawnangel/lua-nats
 
 - name: Perl
-  type: client
+  type: nats-client
   supported: false
   language: Perl
   author:
@@ -242,7 +242,7 @@ Releases:
       link: https://github.com/carwynmoore/perl-nats
 
 - name: PHP
-  type: client
+  type: nats-client
   supported: false
   language: PHP
   author:
@@ -257,7 +257,7 @@ Releases:
       link: https://github.com/repejota/phpnats
 
 - name: Python
-  type: client
+  type: nats-client
   supported: false
   language: Python
   author:
@@ -272,7 +272,7 @@ Releases:
       link: https://github.com/mcuadros/pynats
 
 - name: Python Twisted
-  type: client
+  type: nats-client
   supported: false
   language: Python
   author:
@@ -287,7 +287,7 @@ Releases:
       link: https://github.com/johnwlockwood/txnats
 
 - name: Rust
-  type: client
+  type: nats-client
   supported: false
   language: Rust
   author:
@@ -302,7 +302,7 @@ Releases:
       link: https://github.com/jedisct1/rust-nats
 
 - name: Scala
-  type: client
+  type: nats-client
   supported: false
   language: Scala
   author:
@@ -317,7 +317,7 @@ Releases:
       link: https://github.com/tyagihas/scala_nats
 
 - name: Spring API
-  type: client
+  type: nats-client
   supported: false
   language: Java
   author:
@@ -331,8 +331,23 @@ Releases:
       repo: java-nats
       link: https://github.com/cloudfoundry-community/java-nats/tree/master/client-spring
 
+- name: Go
+  type: streaming-client
+  supported: true
+  language: Golang
+  author:
+    - name:
+      link:
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on June 23rd, 2016.
+  github:
+    - user: nats-io
+      repo: go-nats-streaming
+      link: https://github.com/nats-io/go-nats-streaming
+
 - name: NATS Server
-  type: server
+  type: nats-server
   supported: true
   language: Golang
   author:
@@ -360,3 +375,31 @@ Releases:
     url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
+
+- name: NATS Streaming Server
+  type: streaming-server
+  supported: true
+  language: Golang
+  author:
+    - name:
+      link:
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on June 23rd, 2016.
+  github:
+    - user: nats-io
+      repo: nats-streaming-server
+      link: https://github.com/nats-io/nats-streaming-server
+  links:
+  - name: nats-streaming-server-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-darwin-amd64.zip
+  - name: nats-streaming-server-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-386.zip
+  - name: nats-streaming-server-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-amd64.zip
+  - name: nats-streaming-server-linux-arm.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-arm.zip
+  - name: nats-streaming-server-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-windows-386.zip
+  - name: nats-streaming-server-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-windows-amd64.zip

@@ -100,6 +100,7 @@ gulp.task('watch', function() {
   gulp.watch('src/font/**/*', [ 'font' ]);
   gulp.watch('src/user_logos/**/*', [ 'userLogos' ]);
   gulp.watch('src/partner_logos/**/*', [ 'partnerLogos' ]);
+  gulp.watch('src/company_logos/**/*', [ 'companyLogos' ]);
   gulp.watch('src/blog/**/*', [ 'blogImages' ]);
   gulp.watch('src/blog/**/*', [ 'blogImagesGifs' ]);
 });

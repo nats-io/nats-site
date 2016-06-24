@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Message Statistics"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Message Statistics"
   weight = 10
   identifier = "server-gnatsd-top"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Top for Message Statistics

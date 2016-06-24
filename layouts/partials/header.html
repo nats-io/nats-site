@@ -41,40 +41,43 @@
           {{end}}
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          {{ $mainMenu := .Site.Menus.main }}
-          {{ $onDocs := .Site.Params.leftNav }}
-          {{ if isset .Site.Params "mainMenu" }}
-          {{ $currentUrl := .Permalink }}
-          {{ $currentNode := . }}
           <ul class="nav navbar-nav navbar-right">
-            {{ range $item := .Site.Params.mainMenu }}
-            {{ $itemUrl := printf "%s%s/" $baseUrl $item }}
-            {{ if and ( eq $item "documentation" ) ( $onDocs ) }}
-            <li class="hidden-xs hidden-sm{{ if eq $currentUrl $itemUrl }} active{{ end }}"><a class="main-item" href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
-            <li class="dropdown hidden-md hidden-lg active">
-              <a class="main-item" href="/documentation" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ title $item }} <span class="caret"></span></a>
+            {{ $currentNode := . }}
+            {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+            <!-- <li class="hidden-md hidden-lg dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}">
+              <a href="{{.URL}}" class="main-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ .Pre }}{{ .Name }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                {{ range $mainMenu }}
-                {{ if ne .Identifier "documentation" }}
-                <li class="dropdown-header">{{ title .Name }}</li>
-
+              {{ range .Children }}
+                <li class="dropdown-header{{ if .HasChildren }} main-header{{ end }}">{{ .Name }}</li>
+                {{ if .HasChildren }}
                 {{ range .Children }}
-                {{ if ne .Identifier ""}}
-                <li class="{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} active{{ end }}"><a class="sub-item" href="{{ .URL }}">{{.Name}}</a></li>
+                  {{ if .HasChildren }}
+                  <li class="dropdown-header">{{ .Name }}</li>
+                  {{ range .Children }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
+                  {{ else }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
                 {{ end }}
+                {{ else }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
                 {{ end }}
-
                 <li role="separator" class="divider"></li>
-                {{ end }}
-                {{ end }}
+              {{ end }}
               </ul>
+            <li> -->
+            <li class="dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}">
+              <a class="main-item" href="{{.URL}}">{{ .Pre }}<span>{{ .Name }}</span></a>
             </li>
-            {{ else }}
-            <li class="{{ if eq $currentUrl $itemUrl }} active{{ end }}"><a class="main-item" href="/{{ if ne $item "home"}}{{ $item }}{{ end }}">{{ title $item }}</a></li>
-            {{ end }}
-            {{ end }}
+            {{else}}
+            <li class="dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}">
+              <a class="main-item" href="{{.URL}}">{{ .Pre }}<span>{{ .Name }}</span></a>
+            </li>
+            {{end}}
+            {{end}}
           </ul>
-          {{ end }}
         </div><!--/.nav-collapse -->
       </div>
     </nav>

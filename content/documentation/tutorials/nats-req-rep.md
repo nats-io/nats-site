@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Explore NATS Request Reply"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Explore NATS Request Reply"
   weight = 6
   identifier = "tutorial-nats-req-rep"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Explore NATS Request Reply

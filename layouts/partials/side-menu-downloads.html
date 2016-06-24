@@ -1,75 +1,41 @@
 <ul class="sub-menu list-unstyled">
   {{ $currentNode := . }}
-  {{ range .Site.Menus.downloads }}
 
-	<li class="main-menu-item{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }} active{{end}}">
-
-    {{ if .URL }}
-    <a class="main-menu-item-title" href="{{ .URL }}">{{.Name}}</a>
-    {{ else }}
-    <span class="main-menu-item-title">{{ title .Name }}</span>
-    {{ end }}
-
-
-    {{ $.Scratch.Set "CurrentMenu" . }}
-    {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
-    {{ if .HasChildren }}
-    <ul class="list-unstyled">
-    {{ range .Children }}
-    {{ if ne .Identifier ""}}
-    <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
-      <a href="{{.URL}}">{{ .Name }} </a>
-
-      {{ $.Scratch.Set "CurrentMenu" . }}
-   		{{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
-   		{{ if .HasChildren }}
-   	    <ul class="list-unstyled">
-   	      {{ range .Children }}
-   	      {{ if ne .Identifier ""}}
-     	    <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
-     	      <a href="{{.URL}}">{{ .Name }}</a>
-
-            {{ $.Scratch.Set "CurrentMenu" . }}
-            {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
-            {{ if .HasChildren }}
-            <ul class="list-unstyled">
+  {{ range .Site.Menus.main }}
+  {{ if eq .Identifier "download" }}
+  {{ if .HasChildren }}
+  <ul class="list-unstyled">
+  {{ range .Children }}
+    <li>
+      <div class="panel panel-default">
+        <div class="panel-heading">{{ title .Name }}</div>
+        <div class="panel-body">
+          {{ if .HasChildren }}
+          <ul class="list-unstyled">
+            {{ range .Children }}
+            <li>
+              <span class="main-menu-item-title">{{ title .Name }}</span>
+              {{ if .HasChildren }}
+              <ul class="list-unstyled">
               {{ range .Children }}
-              {{ if ne .Identifier ""}}
-              <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
-                <a href="{{.URL}}">{{ .Name }} </a>
-
-                {{ $.Scratch.Set "CurrentMenu" . }}
-                {{ $.Scratch.Add "Breadcrumbs" (print " > <a href='" .URL  "'>" .Name "</a>" )  }}
-                {{ if .HasChildren }}
-                <ul class="list-unstyled">
-                  {{ range .Children }}
-                  {{ if ne .Identifier ""}}
-                  <li class="{{if or ($currentNode.IsMenuCurrent "documentation" .) ($currentNode.HasMenuCurrent "documentation" .) }}active{{end}}">
-                    <a href="{{.URL}}">{{ .Name }} </a>
-                  </li>
-                  {{ end }}
-                  {{ end }}
-                </ul>
-                {{ end }}
-
-              </li>
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
               {{ end }}
+              </ul>
+              {{ else }}
+              <ul class="list-unstyled">
+                <li><a href="mailto:info@nats.io?subject=NATS External Client">Contact us</a> to add your client!</a></li>
+              </ul>
               {{ end }}
-            </ul>
+            </li>
             {{ end }}
-
-     	    </li>
-   	      {{ end }}
-   	      {{ end }}
-   	    </ul>
-   	    {{ end }}
-
-      </li>
-      {{ end }}
-      {{ end }}
-    </ul>
-    {{ end }}
-
-  </li>
-  {{end}}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+    </li>
+  {{ end }}
+  </ul>
+  {{end }}
+  {{end }}
+  {{end }}
 </ul>

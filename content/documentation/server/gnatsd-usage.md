@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Server Usage"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Usage"
   weight = 2
   identifier = "server-gnatsd-usage"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Usage

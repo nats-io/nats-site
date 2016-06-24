@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Develop Go Clients for NATS"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Develop Go Clients for NATS"
   weight = 11
   identifier = "tutorial-nats-client-dev"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Develop Go Clients for NATS

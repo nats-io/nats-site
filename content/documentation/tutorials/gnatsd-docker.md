@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Run NATS Docker Image"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Run NATS Docker Image"
   weight = 4
   identifier = "tutorial-gnatsd-docker"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Run NATS Server Docker Image

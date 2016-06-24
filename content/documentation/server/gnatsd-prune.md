@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Auto Pruning Clients"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Auto Pruning Clients"
   weight = 8
   identifier = "server-gnatsd-prune"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Auto Pruning of Clients

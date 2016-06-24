@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Node Client"
 category = "clients"
-[menu.documentation]
+[menu.main]
   name = "Node Client"
   weight = 2
   identifier = "clients-node-client"
-  parent = "clients"
+  parent = "Clients"
 +++
 
 # Node.js Client for NATS
