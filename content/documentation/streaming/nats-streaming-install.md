@@ -7,7 +7,7 @@ category = "tutorials"
   name = "Install NATS Streaming Server"
   weight = 2
   identifier = "tutorial-nats-streaming-install"
-  parent = "Tutorials"
+  parent = "Streaming"
 +++
 
 # Install and Run NATS Streaming Server

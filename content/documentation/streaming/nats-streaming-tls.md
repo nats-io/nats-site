@@ -5,7 +5,7 @@ description = ""
 category = "server"
 [menu.main]
   name = "Securing NATS Streaming Server"
-  weight = 1
+  weight = 3
   identifier = "streaming-nats-streaming-security"
   parent = "Streaming"
 +++

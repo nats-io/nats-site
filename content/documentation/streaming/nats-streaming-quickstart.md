@@ -7,7 +7,7 @@ category = "tutorials"
   name = "Getting started with NATS Streaming"
   weight = 9
   identifier = "tutorial-nats-streaming"
-  parent = "Tutorials"
+  parent = "Streaming"
 +++
 
 This tutorial demonstrates NATS Streaming using the example publish/subscribe clients in the [Go NATS Streaming repository](https://github.com/nats-io/go-nats-streaming.git). 
