@@ -7060,7 +7060,14 @@ body {
   font-size: 16px;
 }
 body #main-con {
+  min-height: 600px;
   margin-bottom: 30px;
+  background: url(/img/about-neuron.png) right -30px no-repeat;
+}
+@media (max-width: 992px) {
+  body #main-con {
+    background: transparent;
+  }
 }
 a[name]:before {
   display: block;
@@ -7161,15 +7168,6 @@ table .table {
 table > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
-#main-con {
-  min-height: 600px;
-  background: url(/img/about-neuron.png) right top no-repeat;
-}
-@media (max-width: 992px) {
-  #main-con {
-    background: transparent;
-  }
-}
 nav.navbar-default {
   background: #00011f url(/img/header-background.png) repeat-x top center;
 }
@@ -7192,6 +7190,15 @@ nav.navbar-default ul.navbar-nav li .dropdown-menu .dropdown-header {
 nav.navbar-default ul.navbar-nav li .dropdown-menu .divider {
   background-color: #666;
 }
+nav.navbar-default ul.navbar-nav li .dropdown-menu li {
+  padding-left: 15px;
+}
+nav.navbar-default ul.navbar-nav li .dropdown-menu li.dropdown-menu {
+  padding-left: 20px;
+}
+nav.navbar-default ul.navbar-nav li .dropdown-menu li.main-header {
+  padding-left: 15px;
+}
 nav.navbar-default ul.navbar-nav li a.main-item:hover,
 nav.navbar-default ul.navbar-nav li a.main-item:active,
 nav.navbar-default ul.navbar-nav li a.main-item:focus,
@@ -7209,12 +7216,16 @@ html#home-html {
   background: transparent;
   margin-bottom: 0px;
 }
-#home-page #navbar {
-  text-align: center;
+@media (min-width: 991px) {
+  #home-page #navbar {
+    text-align: center;
+  }
+  #home-page .nav.navbar-right {
+    display: inline-block;
+  }
 }
 #home-page .nav.navbar-right {
   float: none !important;
-  display: inline-block;
 }
 #home-page .navbar-default {
   background: #00011f;
@@ -7550,6 +7561,12 @@ html#home-html {
     height: 325px;
   }
 }
+#download-page #main-con {
+  padding-top: 20px;
+}
+#download-page #left-nav-con {
+  padding-top: 30px;
+}
 #download-page #left-nav-con ul.sub-menu li.main-menu-item {
   margin-bottom: 15px;
 }
@@ -7657,7 +7674,7 @@ html#home-html {
   }
 }
 #nats-documentation-detail-page #left-nav-con {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 #nats-documentation-detail-page #left-nav-con ul.sub-menu li.main-menu-item {
   margin-bottom: 15px;
@@ -7747,72 +7764,6 @@ footer#home-page-footer .social .icon {
   footer#home-page-footer {
     text-align: center;
   }
-}
-.nats--downloads {
-  margin-bottom: 20px;
-}
-.download-item--links {
-  margin: 20px 0;
-}
-.download--item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  padding: 0 10px;
-}
-.download--item h3 {
-  margin: 20px 0;
-}
-.download--item:nth-child(even) {
-  background: #f8f9fb;
-  border-top: 1px solid #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
-}
-.download--item span + span {
-  margin-left: 15px;
-}
-.download--header {
-  height: 200px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-@media (max-width: 1199px) {
-  .download--header {
-    height: 100px;
-  }
-}
-.download-details--headline {
-  margin-top: 0;
-}
-.download-details--wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-.download--details {
-  margin-right: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */

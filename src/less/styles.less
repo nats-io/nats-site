@@ -142,8 +142,14 @@ body {
   padding-top: 75px;
   font-size: 16px;
 
+  // Content Background
   #main-con {
+    min-height: 600px;
     margin-bottom: 30px;
+    background: url(/img/about-neuron.png) right -30px no-repeat;
+    @media (max-width: @screen-md-min) {
+      background: transparent;
+    }
   }
 }
 
@@ -225,15 +231,6 @@ table {
 
 // Main Content Styles
 
-// Content Background
-#main-con {
-  min-height: 600px;
-  background: url(/img/about-neuron.png) right top no-repeat;
-  @media (max-width: @screen-md-min) {
-    background: transparent;
-  }
-}
-
 // Navbar
 nav.navbar-default {
   background: @nats-brand-background url(/img/header-background.png) repeat-x top center;
@@ -255,6 +252,15 @@ nav.navbar-default {
         }
         .divider {
           background-color: @nats-brand-gray-dark;
+        }
+        li {
+          padding-left: 15px;
+          &.dropdown-menu {
+            padding-left: 20px;
+          }
+          &.main-header {
+            padding-left: 15px;
+          }
         }
       }
       a.main-item:hover, a.main-item:active, a.main-item:focus, &.active a.main-item {
@@ -318,12 +324,16 @@ html#home-html {
     background: transparent;
     margin-bottom: 0px;
   }
-  #navbar{
-    text-align: center;
+  @media (min-width: @screen-sm-max) {
+    #navbar{
+      text-align: center;
+    }
+    .nav.navbar-right{
+      display: inline-block;
+    }
   }
   .nav.navbar-right{
     float: none !important;
-    display: inline-block;
   }
   background-color: @nats-brand-background;
   .navbar-default {
@@ -644,8 +654,12 @@ html#home-html {
 
 // Downloads
 #download-page {
+  #main-con {
+    padding-top: 20px;
+  }
   // Left Nav
   #left-nav-con {
+    padding-top: 30px;
     ul.sub-menu {
       li {
         &.main-menu-item {
@@ -687,6 +701,55 @@ html#home-html {
       }
     }
   }
+
+  // .nats--downloads{
+  //   margin-bottom: 20px;
+  // }
+  // .download-item--links{
+  //   margin: 20px 0;
+  // }
+  // .download--item{
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   flex-wrap: wrap;
+  //   padding: 0 10px;
+  //   h3{
+  //     margin: 20px 0;
+  //   }
+  //   &:nth-child(even){
+  //     background: @download-row-background;
+  //     border-top: 1px solid @download-row-border;
+  //     border-bottom: 1px solid @download-row-border;
+  //   }
+  //   span + span{
+  //     margin-left: 15px;
+  //   }
+  // }
+  //
+  // .download--header {
+  //     height: 200px;
+  //     display: flex;
+  //     align-items: center;
+  // }
+  // @media (max-width: @screen-md-max){
+  //   .download--header {
+  //       height: 100px;
+  //   }
+  // }
+  //
+  //
+  // .download-details--headline{
+  //   margin-top: 0;
+  // }
+  //
+  // .download-details--wrapper{
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
+  // .download--details {
+  //     margin-right: 50px;
+  // }
 
   .panel-default {
     min-height: 200px
@@ -784,7 +847,7 @@ html#home-html {
   }
   // Left Nav
   #left-nav-con {
-    padding-top: 40px;
+    padding-top: 30px;
     ul.sub-menu {
       li {
         &.main-menu-item {
@@ -913,53 +976,4 @@ footer {
       text-align: center;
     }
   }
-}
-
-.nats--downloads{
-  margin-bottom: 20px;
-}
-.download-item--links{
-  margin: 20px 0;
-}
-.download--item{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0 10px;
-  h3{
-    margin: 20px 0;
-  }
-  &:nth-child(even){
-    background: @download-row-background;
-    border-top: 1px solid @download-row-border;
-    border-bottom: 1px solid @download-row-border;
-  }
-  span + span{
-    margin-left: 15px;
-  }
-}
-
-.download--header {
-    height: 200px;
-    display: flex;
-    align-items: center;
-}
-@media (max-width: @screen-md-max){
-  .download--header {
-      height: 100px;
-  }
-}
-
-
-.download-details--headline{
-  margin-top: 0;
-}
-
-.download-details--wrapper{
-  display: flex;
-  flex-wrap: wrap;
-}
-.download--details {
-    margin-right: 50px;
 }
