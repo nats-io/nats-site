@@ -338,9 +338,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.0.0
+  version_num: 0.1.0
   release_notes: |
-
+    Release v0.1.0 on June 23rd, 2016.
   github:
     - user: nats-io
       repo: go-nats-streaming
@@ -383,9 +383,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.1
+  version_num: 0.1.0
   release_notes: |
-
+    Release v0.1.0 on June 23rd, 2016.
   github:
     - user: nats-io
       repo: nats-streaming-server
