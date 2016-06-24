@@ -12,21 +12,9 @@ category = "server"
 
 # NATS Server Monitoring
 
-To monitor the NATS messaging system, NATS provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endopints, including `varz`, `connz`, `routez`, and `subscriptionsz`. All endpoints return a JSON object.
+To monitor the NATS messaging system, NATS provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endopints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subz). All endpoints return a JSON object.
 
 The NATS monitoring endpoints support JSONP and CORS, making it easy to create single page monitoring web applications.
-
-## Monitoring demo
-
-To see a demonstration of NATS monitoring, run the following types of commands:
-
-```
-curl demo.nats.io:8222/varz
-```
-
-```
-curl demo.nats.io:8222/connz
-```
 
 ## Enabling monitoring
 
@@ -35,6 +23,7 @@ To enable the monitoring server, start the NATS server with the monitoring flag 
 Monitoring options
 
     -m, --http_port PORT             HTTP PORT for monitoring
+    -ms,--https_port PORT            Use HTTPS PORT for monitoring
 
 Example:
 
@@ -45,17 +34,19 @@ gnatsd -m 8222
 You should see that the NATS server starts with the HTTP monitoring port enabled:
 
 ```
-[4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.6.4
+[4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.8.0
 [4528] 2015/08/19 20:09:58.573007 [INF] Starting http monitor on port 8222
 [4528] 2015/08/19 20:09:58.573071 [INF] Listening for client connections on 0.0.0.0:4222
 [4528] 2015/08/19 20:09:58.573090 [INF] gnatsd is ready</td>
 ```
 
+To test, run '``gnatsd -m 8222``', then go to <a href="http://localhost:8222/" target="_blank">http://localhost:8222/</a>
+
 ## Monitoring endpoints
 
-The following sections describe each supported monitoring endpoint: `varz`, `connz`, `routez`, and `subscriptionsz`.
+The following sections describe each supported monitoring endpoint: `varz`, `connz`, `routez`, and `subsz`.
 
-### varz
+### /varz
 
 The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localhost:8222/varz</a> reports various general statistics.
 
@@ -94,7 +85,7 @@ The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localho
 }
 ```
 
-### connz
+### /connz
 
 The endpoint <a href="http://localhost:8222/connz" target="_blank">http://localhost:8222/connz</a> reports more detailed information on current connections. It uses a paging mechanism which defaults to 1024 connections.
 
@@ -145,7 +136,7 @@ You can also report detailed subscription information on a per connection basis 
 }
 ```
 
-### routez
+### /routez
 
 The endpoint <a href="http://localhost:8222/routez" target="_blank">http://localhost:8222/routez</a> reports information on active routes for a cluster. Routes are expected to be low, so there is no paging mechanism with this endpoint.
 
@@ -173,7 +164,7 @@ The `routez` endpoint does support the `subs` argument from the `/connz` endpoin
 }
 ```
 
-### subscriptionsz
+### /subsz
 
 The endpoint <a href="http://localhost:8222/subscriptionsz" target="_blank">http://localhost:8222/subscriptionsz</a> reports detailed information about the current subscriptions and the routing data structure.
 
@@ -209,3 +200,4 @@ $.getJSON('http://localhost:8222/connz?callback=?', function(data) {
 });
 
 ```
+
