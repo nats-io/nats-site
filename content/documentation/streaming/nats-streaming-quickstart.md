@@ -32,7 +32,6 @@ Two options:
 
 Run the binary that you downloaded, for example: `$ ./nats-streaming-server`
 
-
 Or, run from source:
 
 ```
@@ -43,12 +42,13 @@ $ go run nats-streaming-server.go
 You should see the following, indicating that the NATS Streaming Server is running:
 
 ```
-[64741] 2016/06/14 20:26:06.043324 [INF] Starting nats-streaming-server[test-cluster] version 0.0.1.alpha
-[64741] 2016/06/14 20:26:06.043669 [INF] Starting nats-server version 0.8.2
-[64741] 2016/06/14 20:26:06.043689 [INF] Listening for client connections on localhost:4222
-[64741] 2016/06/14 20:26:06.045406 [INF] Server is ready
-[64741] 2016/06/14 20:26:06.129946 [INF] STREAM: Message store is MEMORY
-[64741] 2016/06/14 20:26:06.129966 [INF] STREAM: Maximum of 1000000 will be stored
+go run nats-streaming-server.go
+[89999] 2016/06/25 08:54:35.399071 [INF] Starting nats-streaming-server[test-cluster] version 0.1.0
+[89999] 2016/06/25 08:54:35.399315 [INF] Starting nats-server version 0.9.0.beta
+[89999] 2016/06/25 08:54:35.399326 [INF] Listening for client connections on localhost:4222
+[89999] 2016/06/25 08:54:35.400721 [INF] Server is ready
+[89999] 2016/06/25 08:54:35.737589 [INF] STAN: Message store is MEMORY
+[89999] 2016/06/25 08:54:35.737610 [INF] STAN: Maximum of 1000000 will be stored
 ```
 
 **Run the publisher client**
@@ -80,7 +80,7 @@ Listening on [foo], clientID=[myID], qgroup=[] durable=[]
 [#3] Received on [foo]: 'sequence:3 subject:"foo" data:"msg three" timestamp:1465962215567601196
 ```
 
-**Explore subscription options**
+**Explore other subscription options**
 
 ```
 	--seq <seqno>                   Start at seqno
