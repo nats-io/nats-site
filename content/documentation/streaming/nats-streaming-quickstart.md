@@ -10,80 +10,83 @@ category = "tutorials"
   parent = "Streaming"
 +++
 
-This tutorial demonstrates NATS Streaming using the example publish/subscribe clients in the [Go NATS Streaming repository](https://github.com/nats-io/go-nats-streaming.git). 
+This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clients](https://github.com/nats-io/go-nats-streaming.git). 
 
-1. Prerequisites: 
+**Prerequisites**
 
-	- [Set up your Git environment](https://help.github.com/articles/set-up-git/).
-	- [Set up your Go environment](https://golang.org/doc/install).
+- [Set up your Git environment](https://help.github.com/articles/set-up-git/).
+- [Set up your Go environment](https://golang.org/doc/install).
 
-2. Download and install the [NATS Streaming Server](https://github.com/nats-io/stan-server-preview/releases).
+**Setup**
 
-3. Run `git clone` for the following repositories:
+Download and install the [NATS Streaming Server](https://github.com/nats-io/stan-server-preview/releases).
 
-	- NATS Streaming Server: https://github.com/nats-io/nats-streaming-server.git
-	- NATS Streaming Client: https://github.com/nats-io/go-nats-streaming.git
+Clone the following repositories:
 
-3. Start the NATS Streaming Server.
+- NATS Streaming Server: `git clone https://github.com/nats-io/nats-streaming-server.git`
+- NATS Streaming Client: `git clone https://github.com/nats-io/go-nats-streaming.git`
 
-	Two options:
+**Start the NATS Streaming Server**
 
-	a. Run the binary that you downloaded:
+Two options:
 
-	Change directory to where you downloaded the server binary and run it from the command line using the `nats-streaming-server` command.
+Run the binary that you downloaded, for example: `$ ./nats-streaming-server`
 
-	b. Run from source:
 
-	```
-	$ cd $GOPATH/src/github.com/nats-streaming-server
-	$ go run nats-streaming-server.go
-	```
+Or, run from source:
 
-	You should see the following, indicating that the NATS Streaming Server is running:
+```
+$ cd $GOPATH/src/github.com/nats-streaming-server
+$ go run nats-streaming-server.go
+```
 
-	```
-	[64741] 2016/06/14 20:26:06.043324 [INF] Starting nats-streaming-server[test-cluster] version 0.0.1.alpha
-	[64741] 2016/06/14 20:26:06.043669 [INF] Starting nats-server version 0.8.2
-	[64741] 2016/06/14 20:26:06.043689 [INF] Listening for client connections on localhost:4222
-	[64741] 2016/06/14 20:26:06.045406 [INF] Server is ready
-	[64741] 2016/06/14 20:26:06.129946 [INF] STREAM: Message store is MEMORY
-	[64741] 2016/06/14 20:26:06.129966 [INF] STREAM: Maximum of 1000000 will be stored
-	```
+You should see the following, indicating that the NATS Streaming Server is running:
 
-	4. Run the publisher client and publish a few messages.
+```
+[64741] 2016/06/14 20:26:06.043324 [INF] Starting nats-streaming-server[test-cluster] version 0.0.1.alpha
+[64741] 2016/06/14 20:26:06.043669 [INF] Starting nats-server version 0.8.2
+[64741] 2016/06/14 20:26:06.043689 [INF] Listening for client connections on localhost:4222
+[64741] 2016/06/14 20:26:06.045406 [INF] Server is ready
+[64741] 2016/06/14 20:26:06.129946 [INF] STREAM: Message store is MEMORY
+[64741] 2016/06/14 20:26:06.129966 [INF] STREAM: Maximum of 1000000 will be stored
+```
 
-	For each publication you should get a result.
+**Run the publisher client**
 
-	```
-	$ cd $GOPATH/src/github.com/go-nats-streaming/examples
-	go run stan-pub.go foo "msg one"
-	Published [foo] : 'msg one'
-	$ go run stan-pub.go foo "msg two"
-	Published [foo] : 'msg two'
-	$ go run stan-pub.go foo "msg three"
-	Published [foo] : 'msg three'
-	$ 
-	```
+Publish several messages. For each publication you should get a result.
 
-	5. Run the subscriber client.
+```
+$ cd $GOPATH/src/github.com/go-nats-streaming/examples
+go run stan-pub.go foo "msg one"
+Published [foo] : 'msg one'
+$ go run stan-pub.go foo "msg two"
+Published [foo] : 'msg two'
+$ go run stan-pub.go foo "msg three"
+Published [foo] : 'msg three'
+$ 
+```
 
-	Use the `--all` flag to receive all published messages.
+**Run the subscriber client**
 
-	```
-	$ go run stan-sub.go --all -c test-cluster -id myID foo
-	Connected to nats://localhost:4222 clusterID: [test-cluster] clientID: [myID]
-	subscribing with DeliverAllAvailable
-	Listening on [foo], clientID=[myID], qgroup=[] durable=[]
-	[#1] Received on [foo]: 'sequence:1 subject:"foo" data:"msg one" timestamp:1465962202884478817 '
-	[#2] Received on [foo]: 'sequence:2 subject:"foo" data:"msg two" timestamp:1465962208545003897 '
-	[#3] Received on [foo]: 'sequence:3 subject:"foo" data:"msg three" timestamp:1465962215567601196
-	```
+Use the `--all` flag to receive all published messages.
 
-	6. Explore NATS streaming using different options.
+```
+$ go run stan-sub.go --all -c test-cluster -id myID foo
+Connected to nats://localhost:4222 clusterID: [test-cluster] clientID: [myID]
+subscribing with DeliverAllAvailable
+Listening on [foo], clientID=[myID], qgroup=[] durable=[]
+[#1] Received on [foo]: 'sequence:1 subject:"foo" data:"msg one" timestamp:1465962202884478817 '
+[#2] Received on [foo]: 'sequence:2 subject:"foo" data:"msg two" timestamp:1465962208545003897 '
+[#3] Received on [foo]: 'sequence:3 subject:"foo" data:"msg three" timestamp:1465962215567601196
+```
 
-	Common options are shwon below. See the README for all options.
+**Explore subscription options**
 
-	```
-	--last          Start receiving with last published message.
-	--seq <seqno> 	Start at the sequence number.
-	```
+```
+	--seq <seqno>                   Start at seqno
+	--all                           Deliver all available messages
+	--last                          Deliver starting with last published message
+	--since <duration>              Deliver messages in last interval (e.g. 1s, 1hr, https://golang.org/pkg/time/#ParseDuration)
+	--durable <name>                Durable subscriber name
+	--unsubscribe                   Unsubscribe the durable on exit
+```
