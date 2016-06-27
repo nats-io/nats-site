@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Install NATS Server"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Install NATS Server"
   weight = 2
   identifier = "tutorial-gnatsd-install"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Install and Run NATS Server

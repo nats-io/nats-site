@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Performance Tuning"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Performance Tuning"
   weight = 11
   identifier = "server-gnatsd-perf"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Performance Benchmarking and Tuning

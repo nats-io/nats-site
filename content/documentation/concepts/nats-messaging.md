@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "NATS Messaging"
 category = "concepts"
-[menu.documentation]
+[menu.main]
   name = "Messaging"
   weight = 1
   identifier = "concepts-nats-messaging"
-  parent = "concepts"
+  parent = "Concepts"
 +++
 
 # NATS Messaging

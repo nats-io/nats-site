@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Explore NATS Pub Sub"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Explore NATS Pub Sub"
   weight = 5
   identifier = "tutorial-nats-pub-sub"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Explore NATS Pub Sub

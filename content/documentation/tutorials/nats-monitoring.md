@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Monitor and Debug NATS"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Monitor and Debug NATS"
   weight = 8
   identifier = "tutorial-nats-monitoring"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Monitor and Debug NATS

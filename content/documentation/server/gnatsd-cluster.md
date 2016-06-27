@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Server Clustering"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Clustering"
   weight = 7
   identifier = "server-gnatsd-cluster"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Clustering

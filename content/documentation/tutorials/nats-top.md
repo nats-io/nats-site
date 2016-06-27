@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Use NATS Top to Monitor NATS"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Use NATS Top to Monitor NATS"
   weight = 9
   identifier = "tutorial-nats-top"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Use NATS Top to Monitor NATS

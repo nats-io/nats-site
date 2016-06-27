@@ -2,11 +2,11 @@
 date = "2015-09-27"
 title = "Client Development"
 category = "internals"
-[menu.documentation]
+[menu.main]
   name = "Client Development"
   weight = 3
   identifier = "internals-nats-guide"
-  parent = "internals"
+  parent = "Internals"
 +++
 
 # NATS Client Development Guide

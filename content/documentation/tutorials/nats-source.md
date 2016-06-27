@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Build NATS Server from Source"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Build NATS Server from Source"
   weight = 3
   identifier = "tutorial-nats-source"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Build NATS Server from Source

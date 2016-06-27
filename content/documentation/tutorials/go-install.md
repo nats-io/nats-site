@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Install Go"
 description = ""
 category = "tutorials"
-[menu.documentation]
+[menu.main]
   name = "Install Go"
   weight = 1
   identifier = "tutorial-go-install"
-  parent = "tutorials"
+  parent = "Tutorials"
 +++
 
 # Install Go for NATS

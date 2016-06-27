@@ -1,8 +1,5 @@
 // General Javascript
 
-// Initialize Highlight.js
-hljs.initHighlightingOnLoad();
-
 // On Page Load
 $(function() {
 
