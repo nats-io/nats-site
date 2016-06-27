@@ -24,7 +24,9 @@ You use a server configuration file to configure the NATS server, including:
 - Max payload
 - Slow consumer threshold
 
-## Config file syntax
+In addition, the server configuration language supports [block-scoped variables](#variables) for automation.
+
+## Configuration file format
 
 The server configuration file format is a flexible format that combines the best of traditional configuration formats and newer styles such as JSON and YAML.
 
@@ -40,9 +42,15 @@ The config file format supports the following syntax:
 - Maps can be assigned with no key separator
 - Semicolons as value terminators in key/value assignments are optional
 
+In general the configuration parameters are the same as the [command line arguments](http://nats.io/documentation/server/gnatsd-usage/). Note, however, the following differences:
+
+- The listen option is host:port for connections, on the server cli its -a and -p no hostport is supported.
+- http/https is only port on the cli, on the config it is host:port (there’s no config flag for the interface for the monitoring)
+- The -cluster flag is used for defining the host:port where routes can be solicited, on the config file this is called ‘listen’ as part property of a ‘cluster’ object.
+
 ## Sample server config file
 
-The following demonstrates an examples NATS server config file:
+The following demonstrates an example NATS server config file. See also the [NATS Server README]
 
 ```
 port: 4242      # port to listen for client connections
@@ -101,4 +109,23 @@ max_payload: 65536
 
 # slow consumer threshold
 max_pending_size: 10000000
+```
+
+## Variables
+
+The NATS server configuration file format supports the use of block-scoped variables which can be used for templating in the configuration file, and specifically to ease setting of group values for permission fields. 
+
+Variables can be referenced by the prefix `$`, e.g. `$PASSWORD`. Variables can be defined in the configuration file itself or reference environment variables.
+
+For example:
+
+```
+authorization {
+  PASS: abcdefghijklmnopqrstuvwxyz0123456789
+  users = [
+    {user: alice, password: foo}
+    {user: bob,   password: bar}
+    {user: joe,   password: $PASS}
+  ]
+}
 ```

@@ -24,7 +24,127 @@ The following cluster options are supported:
 
 Note that NATS server clustering is configured using the server config file.
 
-## Cluster examples
+## Example
+
+The following example demonstrates how to run a cluster of 3 servers on the same host. We will start with the seed server and use the `-D` command line parameter to produce debug information.
+
+```
+gnatsd -p 4222 -cluster nats://localhost:4248 -D
+```
+
+Alternatively, you could use a configuration file, let's call it `seed.conf`, with a content similar to this:
+
+```
+# Cluster Seed Node
+
+listen: 127.0.0.1:4222
+http: 8222
+
+cluster {
+  listen: 127.0.0.1:4248
+}
+```
+
+And start the server like this:
+
+```
+gnatsd -config ./seed.conf -D
+```
+
+This will produce an output similar to:
+
+```
+[75653] 2016/04/26 15:14:47.339321 [INF] Listening for route connections on 127.0.0.1:4248
+[75653] 2016/04/26 15:14:47.340787 [INF] Listening for client connections on 127.0.0.1:4222
+[75653] 2016/04/26 15:14:47.340822 [DBG] server id is xZfu3u7usAPWkuThomoGzM
+[75653] 2016/04/26 15:14:47.340825 [INF] server is ready
+```
+
+It is also possible to specify the hostname and port independently. At least the port is required. If you leave the hostname off it will bind to all the interfaces ('0.0.0.0').
+
+```
+cluster {
+  host: 127.0.0.1
+  port: 4248
+}
+```
+
+Now let's start two more servers, each one connecting to the seed server.
+
+```
+gnatsd -p 5222 -cluster nats://localhost:5248 -routes nats://localhost:4248 -D
+```
+
+When running on the same host, we need to pick different ports for the client connections `-p`, and for the port used to accept other routes `-cluster`. Note that `-routes` points to the `-cluster` address of the seed server (`localhost:4248`).
+
+Here is the log produced. See how it connects and registers a route to the seed server (`...GzM`).
+
+```
+[75665] 2016/04/26 15:14:59.970014 [INF] Listening for route connections on localhost:5248
+[75665] 2016/04/26 15:14:59.971150 [INF] Listening for client connections on 0.0.0.0:5222
+[75665] 2016/04/26 15:14:59.971176 [DBG] server id is 53Yi78q96t52QdyyWLKIyE
+[75665] 2016/04/26 15:14:59.971179 [INF] server is ready
+[75665] 2016/04/26 15:14:59.971199 [DBG] Trying to connect to route on localhost:4248
+[75665] 2016/04/26 15:14:59.971551 [DBG] 127.0.0.1:4248 - rid:1 - Route connection created
+[75665] 2016/04/26 15:14:59.971559 [DBG] 127.0.0.1:4248 - rid:1 - Route connect msg sent
+[75665] 2016/04/26 15:14:59.971720 [DBG] 127.0.0.1:4248 - rid:1 - Registering remote route "xZfu3u7usAPWkuThomoGzM"
+[75665] 2016/04/26 15:14:59.971731 [DBG] 127.0.0.1:4248 - rid:1 - Route sent local subscriptions
+```
+
+From the seed's server log, we see that the route is indeed accepted:
+
+```
+[75653] 2016/04/26 15:14:59.971602 [DBG] 127.0.0.1:52679 - rid:1 - Route connection created
+[75653] 2016/04/26 15:14:59.971733 [DBG] 127.0.0.1:52679 - rid:1 - Registering remote route "53Yi78q96t52QdyyWLKIyE"
+[75653] 2016/04/26 15:14:59.971739 [DBG] 127.0.0.1:52679 - rid:1 - Route sent local subscriptions
+```
+
+Finally, let's start the third server:
+
+```
+gnatsd -p 6222 -cluster nats://localhost:6248 -routes nats://localhost:4248 -D
+```
+
+Again, notice that we use a different client port and cluster address, but still point to the same seed server at the address `nats://localhost:4248`:
+
+```
+[75764] 2016/04/26 15:19:11.528185 [INF] Listening for route connections on localhost:6248
+[75764] 2016/04/26 15:19:11.529787 [INF] Listening for client connections on 0.0.0.0:6222
+[75764] 2016/04/26 15:19:11.529829 [DBG] server id is IRepas80TBwJByULX1ulAp
+[75764] 2016/04/26 15:19:11.529842 [INF] server is ready
+[75764] 2016/04/26 15:19:11.529872 [DBG] Trying to connect to route on localhost:4248
+[75764] 2016/04/26 15:19:11.530272 [DBG] 127.0.0.1:4248 - rid:1 - Route connection created
+[75764] 2016/04/26 15:19:11.530281 [DBG] 127.0.0.1:4248 - rid:1 - Route connect msg sent
+[75764] 2016/04/26 15:19:11.530408 [DBG] 127.0.0.1:4248 - rid:1 - Registering remote route "xZfu3u7usAPWkuThomoGzM"
+[75764] 2016/04/26 15:19:11.530414 [DBG] 127.0.0.1:4248 - rid:1 - Route sent local subscriptions
+[75764] 2016/04/26 15:19:11.530595 [DBG] 127.0.0.1:52727 - rid:2 - Route connection created
+[75764] 2016/04/26 15:19:11.530659 [DBG] 127.0.0.1:52727 - rid:2 - Registering remote route "53Yi78q96t52QdyyWLKIyE"
+[75764] 2016/04/26 15:19:11.530664 [DBG] 127.0.0.1:52727 - rid:2 - Route sent local subscriptions
+```
+
+First a route is created to the seed server (`...GzM`) and after that, a route from `...IyE` - which is the ID of the second server - is accepted.
+
+The log from the seed server shows that it accepted the route from the third server:
+
+```
+[75653] 2016/04/26 15:19:11.530308 [DBG] 127.0.0.1:52726 - rid:2 - Route connection created
+[75653] 2016/04/26 15:19:11.530384 [DBG] 127.0.0.1:52726 - rid:2 - Registering remote route "IRepas80TBwJByULX1ulAp"
+[75653] 2016/04/26 15:19:11.530389 [DBG] 127.0.0.1:52726 - rid:2 - Route sent local subscriptions
+```
+
+And the log from the second server shows that it connected to the third.
+
+```
+[75665] 2016/04/26 15:19:11.530469 [DBG] Trying to connect to route on 127.0.0.1:6248
+[75665] 2016/04/26 15:19:11.530565 [DBG] 127.0.0.1:6248 - rid:2 - Route connection created
+[75665] 2016/04/26 15:19:11.530570 [DBG] 127.0.0.1:6248 - rid:2 - Route connect msg sent
+[75665] 2016/04/26 15:19:11.530644 [DBG] 127.0.0.1:6248 - rid:2 - Registering remote route "IRepas80TBwJByULX1ulAp"
+[75665] 2016/04/26 15:19:11.530650 [DBG] 127.0.0.1:6248 - rid:2 - Route sent local subscriptions
+```
+
+At this point, there is a full mesh cluster of NATS servers.
+
+## Clustering examples using the NATS Server Docker image
 
 Below is an example of how to setup gnatsd cluster using Docker.
 
@@ -112,7 +232,7 @@ docker run -it -p 0.0.0.0:8222:8222 -p 0.0.0.0:7246:7246 --rm -v $(pwd)/conf/gna
 docker run -it -p 0.0.0.0:9222:9222 -p 0.0.0.0:7248:7248 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
-### Example: Setting a gnatsd cluster one by one
+### Example 2: Setting a gnatsd cluster one by one
 
 In this scenario:
 
