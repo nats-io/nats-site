@@ -331,6 +331,21 @@ Releases:
       repo: java-nats
       link: https://github.com/cloudfoundry-community/java-nats/tree/master/client-spring
 
+- name: .NET
+  type: nats-client
+  supported: false
+  language: .NET
+  author:
+    - name: Daniel Wertheim
+      link: https://github.com/danielwertheim
+  version_num: 0.2.1
+  release_notes: |
+    Release v0.2.1 on June 12th, 2016.
+  github:
+    - user: danielwertheim
+      repo: mynatsclient
+      link: https://github.com/danielwertheim/mynatsclient
+
 - name: Go
   type: streaming-client
   supported: true
