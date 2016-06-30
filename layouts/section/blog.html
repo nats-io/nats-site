@@ -19,6 +19,7 @@
       </div>
       <hr>
     	{{ end }}
+      {{ template "_internal/pagination.html" . }}
     </div>
     <div class="col-md-3">
 
@@ -39,6 +40,5 @@
 
     </div>
   </div>
-  {{ template "_internal/pagination.html" . }}
 </div>
 {{ partial "footer.html" . }}
