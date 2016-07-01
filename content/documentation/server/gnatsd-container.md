@@ -52,6 +52,12 @@ $ docker run -d --name nats-main nats
 [INF] gnatsd is ready
 ```
 
+To run with the ports exposed on the host:
+
+```
+$ docker run -d -p 4222:4222 -p 6222:6222 -p 8222:8222 --name nats-main nats
+```
+
 To run a second server and cluster them together:
 
 ```
