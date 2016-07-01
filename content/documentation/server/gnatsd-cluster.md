@@ -1,5 +1,5 @@
 +++
-date = "2015-09-27"
+date = "2016-07-01"
 title = "Server Clustering"
 description = ""
 category = "server"
@@ -20,9 +20,12 @@ Note that NATS clustered servers have a forwarding limit of one hop. This means 
 
 The following cluster options are supported:
 
-		--routes [rurl-1, rurl-2]		Routes to solicit and connect
+		--routes [rurl-1, rurl-2]	    Routes to solicit and connect
+    --cluster nats://host:port    Cluster URL for solicited routes
 
-Note that NATS server clustering is configured using the server config file.
+When a NATS server routes to a specified URL, it will advertise its own cluster URL to all other servers in the route route effectively creating a routing mesh to all other servers. **Note:** when using the `-routes` option, you must also specify a `-cluster` option.
+
+Note that NATS server clustering can also be configured using the server config file.
 
 ## Example
 
