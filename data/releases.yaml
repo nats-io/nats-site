@@ -398,23 +398,23 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.0
+  version_num: 0.2.0
   release_notes: |
-    Release v0.1.0 on June 23rd, 2016.
+    Release v0.2.0 on July 8th, 2016.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
   - name: nats-streaming-server-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-darwin-amd64.zip
   - name: nats-streaming-server-linux-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-386.zip
   - name: nats-streaming-server-linux-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-amd64.zip
   - name: nats-streaming-server-linux-arm.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-linux-arm.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-arm.zip
   - name: nats-streaming-server-windows-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-386.zip
   - name: nats-streaming-server-windows-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.1.0/nats-streaming-server-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-amd64.zip
