@@ -31,7 +31,7 @@ gnatsd
 
 ```
 cd $GOPATH/src/github.com/nats-io/nats/examples
-go run nats-sub.go foo my-queue
+go run nats-qsub.go foo my-queue
 ```
 
 **3. Run the Node client subscriber with queue group name.**
