@@ -1,11 +1,9 @@
 
 <div id="recent-posts" class="row">
-{{ range first 4 .Site.Pages }}
-  {{if eq .Type "blog" }}
+{{ range first 4 (where .Site.Pages "Section" "blog") }}
   <div class="col-md-3">
     <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
     <p><small>Posted on: {{ .Date.Format "02 Jan, 2006" }}</small></p>
   </div>
-  {{ end }}
 {{ end }}
 </div>
