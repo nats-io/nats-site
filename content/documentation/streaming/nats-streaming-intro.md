@@ -38,11 +38,11 @@ In addition to the features of the core NATS platform, NATS Streaming provides t
     - A specific date/time in nanoseconds
     - An historical offset from the current server date/time, e.g. the last 30 seconds.
     - A specific message sequence number
-- **Durable subscriptions** - Subscriptions may also specify a "durable name" which will survive client restarts. Durable subscriptions cause the server to track the last acknowledged message sequence number for a client and durable name. When the client restarts/resubscribes, and uses the same client ID and durable name, the server will resume delivery beginning with the earliest unacknowledged message for this durable subscription.  
+- **Durable subscriptions** - Subscriptions may also specify a "durable name" which will survive client restarts. Durable subscriptions cause the server to track the last acknowledged message sequence number for a client and durable name. When the client restarts/resubscribes, and uses the same client ID and durable name, the server will resume delivery beginning with the earliest unacknowledged message for this durable subscription.
 
 ## Installation
 
-NATS provides a [server binary](/documentation/tutorials/nats-streaming-install/) for Linux, Mac, and Windows. You can install the server from source on any platform you choose.
+NATS provides a [server binary](/documentation/streaming/nats-streaming-install/) for Linux, Mac, and Windows. You can install the server from source on any platform you choose.
 
 ## Usage, Configuration and Administration
 
