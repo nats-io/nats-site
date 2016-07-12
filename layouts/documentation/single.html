@@ -5,7 +5,7 @@
       {{ partial "side-menu.html" . }}
     </div>
     <div id="documentation-content" class="col-md-9">
-      <a class="pull-right" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><small><i class="icon-mark-github"></i></small> Edit on GitHub</a>
+      <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
       {{ .Content }}
     </div>
   </div>
