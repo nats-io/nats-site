@@ -24,8 +24,6 @@ In this tutorial you install and run the NATS server (`nats-streaming-server`). 
 
 To install the latest released version of the NATS Streaming server, download one of the pre-built release binaries which are available for OSX, Linux (x86-64/ARM), and Windows. Instructions for using these binaries are on the [GitHub releases page](https://github.com/nats-io/nats-streaming-server/releases). 
 
-You can also install the latest version of the NATS server using the [official Docker image](https://hub.docker.com/_/nats-streaming/).
-
 Another way to install NATS is using Go:
 
 ```
