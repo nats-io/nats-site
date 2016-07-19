@@ -19,7 +19,7 @@ This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clien
 
 **Setup**
 
-Download and install the [NATS Streaming Server](https://github.com/nats-io/stan-server-preview/releases).
+Download and install the [NATS Streaming Server](https://github.com/nats-io/nats-streaming-server/releases).
 
 Clone the following repositories:
 
