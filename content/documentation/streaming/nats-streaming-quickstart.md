@@ -35,7 +35,7 @@ Run the binary that you downloaded, for example: `$ ./nats-streaming-server`
 Or, run from source:
 
 ```
-$ cd $GOPATH/src/github.com/nats-streaming-server
+$ cd $GOPATH/src/github.com/nats-io/nats-streaming-server
 $ go run nats-streaming-server.go
 ```
 
@@ -56,7 +56,7 @@ go run nats-streaming-server.go
 Publish several messages. For each publication you should get a result.
 
 ```
-$ cd $GOPATH/src/github.com/go-nats-streaming/examples
+$ cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples
 go run stan-pub.go foo "msg one"
 Published [foo] : 'msg one'
 $ go run stan-pub.go foo "msg two"
