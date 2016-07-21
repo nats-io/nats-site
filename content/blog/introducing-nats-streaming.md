@@ -14,7 +14,7 @@ Since we formed our dedicated NATS team at Apcera in July of last year, the #1 c
 
 It's a fair observation. NATS was never designed to do those things. Its creator, our founder and Apcera CEO, Derek Collison, conceived NATS as a central nervous system for the cloud control plane, with no requirement for higher QoS guarantees than TCP/IP provides for free. NATS provides distributed queueing and request-reply convenience APIs that enable the end user to easily build their own enhanced QoS and redelivery at the application layer.
 
-Thanks to significant effort from our community manager, Brian Flannery, and the faith and enthusiasm of our user community, NATS usage has expanded well beyond the cloud control plane, into scores of other application types that can benefit from NATS simplicity and performance plus enhanced quality of service. 
+Thanks to significant effort from our community manager, Brian Flannery, and the faith and enthusiasm of our user community, NATS usage has expanded well beyond the cloud control plane, into scores of other application types that can benefit from NATS simplicity and performance plus enhanced quality of service.
 
 ## What *is* NATS Streaming?
 
@@ -32,16 +32,16 @@ We gathered the team in Denver 6 months or so ago to figure out how we can intro
 	- All messages since a specific date/time
 - Durable subscribers
 
-These form the core feature set of NATS Streaming. We have approached it as a layered service (a client) of NATS, for streaming data/events and any application requiring persistence and delivery guarantees. The NATS Streaming server is a client of NATS that can load an embedded NATS Server at runtime, or connect to an existing NATS server, via configuration or command line options. 
+These form the core feature set of NATS Streaming. We have approached it as a layered service (a client) of NATS, for streaming data/events and any application requiring persistence and delivery guarantees. The NATS Streaming server is a client of NATS that can load an embedded NATS Server at runtime, or connect to an existing NATS server, via configuration or command line options.
 
 ![Blog Image](/img/blog/nats-streaming-architecture.png "Blog Image")
 
 ## Try it out!
 
-We value your feedback and stories. Please download the server and client(s), and let us know what you think. 
+We value your feedback and stories. Please download the server and client(s), and let us know what you think.
 
-The NATS Streaming server and clients are available on our [download page](https://nats.io/download/) and via [GitHub](https://github.com/nats-io/nats-streaming-server). 
+The NATS Streaming server and clients are available on our [download page](https://nats.io/download/) and via [GitHub](https://github.com/nats-io/nats-streaming-server).
 
-Want to get involved in the NATS Community and learn more? We would be happy to hear from you, and answer any questions you may have!
+Want to get involved in the [NATS Community](/community) and learn more? We would be happy to hear from you, and answer any questions you may have!
 
 Follow us on Twitter: [@nats_io](https://twitter.com/nats_io)
