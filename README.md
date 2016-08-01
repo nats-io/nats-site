@@ -303,7 +303,7 @@ Run docker nats-site container:
 docker run -d --name "nats-site" -v $(pwd):/nats-site -p 1313:1313 nats-site
 ```
 
-The container is starting Hugo, Pygments, NodeJS, NPM and GraphicsMagic.
+The container is starting with Hugo, Pygments, NodeJS, NPM and GraphicsMagic installed.
 
 Build web resources with Node and Gulp : 
 
