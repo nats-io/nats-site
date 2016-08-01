@@ -305,10 +305,20 @@ docker run -d --name "nats-site" -v $(pwd):/nats-site -p 1313:1313 nats-site
 
 The container is starting with Hugo, Pygments, NodeJS, NPM and GraphicsMagic installed.
 
-Build web resources with Node and Gulp : 
-
+Build install Node dependencies and Gulp : 
 ```
 docker exec -t nats-site npm install
+docker exec -t nats-site npm install --global gulp-cli
+```
+
+Create a new blog post : 
+```
+docker exec -t nats-site hugo new blog/my-blog-post.md
+```
+
+Build web resources with Gulp:
+```
+docker exec -i nats-site gulp
 ```
 
 As Hugo is started with live preview mode you can directly edit your forked repository and then go to http://127.0.0.1:1313 in order to check your changes.
