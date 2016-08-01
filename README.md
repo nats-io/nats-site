@@ -279,14 +279,51 @@ For adding content to the blog entry, please follow the [style guidelines and co
 
 ## <a name="development"></a>Local Development
 
-### Requirements
+You can either user docker image for your local development or install requirements following this documentation.
+
+### Docker image for nats-site:
+
+Clone your forked copy of the repository:
+```
+git clone git@github.com:<YOUR GIT USERNAME>/nats-site.git
+```
+
+Change to the directory:
+```
+cd nats-site/
+```
+
+Build docker nats-site image:
+```
+docker build -t="nats-site" .
+```
+
+Run docker nats-site container:
+``` 
+docker run -d --name "nats-site" -v $(pwd):/nats-site -p 1313:1313 nats-site
+```
+
+The container is starting Hugo, Pygments, NodeJS, NPM and GraphicsMagic.
+
+Build web resources with Node and Gulp : 
+
+```
+docker exec -t nats-site npm install
+```
+
+As Hugo is started with live preview mode you can directly edit your forked repository and then go to http://127.0.0.1:1313 in order to check your changes.
+
+
+### Local Install
+
+#### Requirements
 
 * A forked [nats-site](https://github.com/nats-io/nats-site) repository cloned locally.
 * [HUGO](https://gohugo.io) installed.
 * [Pygments](http://pygments.org/) installed for syntax highlighting. (**Used for code blocks in documentation and blog posts**)
 * [npm + Node.js](https://docs.npmjs.com/getting-started/installing-node) installed.
 
-### Install HUGO:
+#### Install HUGO:
 
 **Note 1:** On OS X, if you have [Homebrew](http://brew.sh), installation is even easier: just run `brew install hugo`.
 
@@ -312,10 +349,10 @@ Build the site and start the server:
 hugo server -w
 ```
 
-### Install Pygments
+#### Install Pygments
 We use [Pygments](http://pygments.org/) for syntax highlighting in the documentation and blog posts. For directions on installing it, please follow the guide on [HUGO's site](https://gohugo.io/extras/highlighting/#pygments).
 
-### Install npm + Node.js
+#### Install npm + Node.js
 Follow the instructions on [https://docs.npmjs.com/getting-started/installing-node](https://docs.npmjs.com/getting-started/installing-node) on installing Node.js and NPM
 
 We use gulp to build the following items:
