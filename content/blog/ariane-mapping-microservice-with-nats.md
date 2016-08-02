@@ -3,7 +3,7 @@ date = "2016-08-01T10:08:07Z"
 draft = false
 title = "How Ariane is moving from monolith to microservices with NATS"
 categories = ["Engineering"]
-tags = ["nats","ariane","community","microservice","nanoservice","transactions","JMS","0MQ","RabbitMQ"]
+tags = ["nats","ariane","community","microservice","nanoservice","transactions","RabbitMQ"]
 author = "Mathilde Ffrench"
 +++
 
@@ -28,9 +28,9 @@ Then the user will request the Ariane web server to get the map - or the technic
 
 Currently three open source plugins has been written as proof of concept : 
 
-* the RabbitMQ plugin which allow you to map RabbitMQ clusters, resources and connected applications
-* the ProcOS plugin which allow you to map the process running inside your operating system and their connections
-* the Docker plugin which allow you to map the Docker containers running inside your operating system and their connections
+* the [RabbitMQ plugin](https://github.com/echinopsii/net.echinopsii.ariane.community.plugin.rabbitmq) which allow you to map RabbitMQ clusters, resources and connected applications
+* the [ProcOS plugin](https://github.com/echinopsii/net.echinopsii.ariane.community.plugin.procos) which allow you to map the process running inside your operating system and their connections
+* the [Docker plugin](https://github.com/echinopsii/net.echinopsii.ariane.community.plugin.docker) which allow you to map the Docker containers running inside your operating system and their connections
 
 Bellow the result map of the Ariane application mapping ([full picture](https://t.co/LlP9zJOKNy)) :
 
