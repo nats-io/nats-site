@@ -361,6 +361,21 @@ Releases:
       repo: go-nats-streaming
       link: https://github.com/nats-io/go-nats-streaming
 
+- name: Java
+  type: streaming-client
+  supported: true
+  language: Java
+  author:
+    - name:
+      link:
+  version_num: 0.0.0
+  release_notes: |
+    Last updated on July 18th, 2016.
+  github:
+    - user: nats-io
+      repo: java-nats-streaming
+      link: https://github.com/nats-io/java-nats-streaming
+
 - name: NATS Server
   type: nats-server
   supported: true
