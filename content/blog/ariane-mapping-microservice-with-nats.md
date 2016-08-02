@@ -9,7 +9,7 @@ author = "Mathilde Ffrench"
 
 ## Some words about the Ariane project
 
-While DevOps trend is reducing application delivery time with automation on any step of the deployment, we still need to reduce the time to understand complex distributed application : 
+While the DevOps trend is reducing application delivery time with automation on any step of the deployment, we still need to reduce the time to understand complex distributed applications : 
 
 * we still rely on hand written technical documentations and diagrams
 * these documentations and diagrams are dispatched accross teams (silo effect)
