@@ -346,6 +346,21 @@ Releases:
       repo: mynatsclient
       link: https://github.com/danielwertheim/mynatsclient
 
+- name: Swift
+  type: nats-client
+  supported: false
+  language: Swift
+  author:
+    - name: Firman Maulana
+      link: https://github.com/kakilangit
+  version_num: 0.1
+  release_notes: |
+    Release v0.1 on January 28th, 2016.
+  github:
+    - user: travelish
+      repo: SwiftNats
+      link: https://github.com/travelish/SwiftNats
+
 - name: Go
   type: streaming-client
   supported: true
