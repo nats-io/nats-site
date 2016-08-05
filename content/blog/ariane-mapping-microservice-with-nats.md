@@ -93,7 +93,7 @@ If you look closely the Ariane maps provided, you'll notice that :
 
 Finally and to resume the reasons why we are using NATS now: 
 
-* as we're migrating memory data flows to the messaging bus, we have deep concern on the messaging bus latency and throughput : the NATS benchmark score are [*impressive*](http://bravenewgeek.com/dissecting-message-queues/);
+* as we're migrating data flows from memory to the messaging bus, we have deep concern on the messaging bus latency and throughput : the NATS benchmark score are [*impressive*](http://bravenewgeek.com/dissecting-message-queues/);
 * we don't need messaging persistence/transaction in the MoM server: persistence and transactions are managed in the Ariane stack;
 * we like simplicity: NATS is simple.
 
