@@ -61,7 +61,7 @@ But while HTTP and REST APIs are great for human interface, we believe machine t
 
 Since Ariane 0.8.0 we're providing a messaging implementation for the Ariane mapping service and since then ProcOS and Docker plugins are able to push the data to the mapping service through messaging bus.
 
-Bellow a quick diagram describing Ariane 0.8.0 monolith architecture: 
+Below a quick diagram describing Ariane 0.8.0 monolith architecture: 
 
 <img src="/img/blog/ariane-mapping-microservice-with-nats/ariane_monolith.png">
 
@@ -99,7 +99,7 @@ Finally and to resume the reasons why we are using NATS now:
 
 ## Conclusion
 
-Carefull readers have noticed some hand made diagrams in this blog post. This is tipically the kind of work we love to automate (and regarding the provided software diagrams I guess the best way would be to provide some annotations Java API to push in the application code). 
+Carefull readers have noticed some hand made diagrams in this blog post. This is tipically the kind of work we love to automate. 
 
 As you may understand, the Ariane project is a big trip which makes fun and profit from new graph database technology and which needs an efficient messaging bus to push, as much as possible and as quickly as possible, the data coming from your runtime to a big and unified mapping database. 
 
