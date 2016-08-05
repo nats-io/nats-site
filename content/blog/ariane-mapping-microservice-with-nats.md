@@ -22,7 +22,7 @@ Knowledge management is a key factor in reducing silo effect and improving the i
 
 The [Ariane project](http://ariane.echinopsii.net) is focused on reducing the knowledge production time through real-time diagram automation. 
 
-Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformion of this mined data into a bi-graph stored in a graph database ([Neo4J](http://neo4j.com)). 
+Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformion of this mined data into a [bi-graph](https://en.wikipedia.org/wiki/Bigraph) stored in a graph database ([Neo4J](http://neo4j.com)). 
 
 Then the user will request the Ariane web server to get the map - or the technical diagram - between some technical points or around a technical point (a technical point could be a server or a process inside a server, for example).
 
@@ -103,7 +103,7 @@ Carefull readers have noticed some hand made diagrams in this blog post. This is
 
 As you may understand, the Ariane project is a big trip which makes fun and profit from new graph database technology and which needs an efficient messaging bus to push, as much as possible and as quickly as possible, the data coming from your runtime to a big and unified mapping database. 
 
-Ariane is also an open source and inclusive project because there are lots of plugins to write : every day, we're developing new applications which will become our problems tomorrow and which will need a fast and deep understanding from OPS and DEVS.
+Ariane is also an open source and inclusive project because there are lots of plugins to write : every day, we're developing new applications which will raise new problems tomorrow and which will need a fast and deep understanding from OPS and DEVS.
 
 From our point of view, this human understanding of tech is a key point in providing the next step of our evolution : efficient and trusted IA.
 
