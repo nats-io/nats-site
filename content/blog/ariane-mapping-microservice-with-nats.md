@@ -3,7 +3,7 @@ date = "2016-08-01T10:08:07Z"
 draft = false
 title = "How Ariane is moving from monolith to microservices with NATS"
 categories = ["Engineering"]
-tags = ["nats","ariane","community","microservice","nanoservice","transactions","RabbitMQ"]
+tags = ["NATS","Ariane Project","community","microservices","nanoservices","transactions", "Neo4", "OSGI", "Docker", "RabbitMQ"]
 author = "Mathilde Ffrench"
 +++
 
