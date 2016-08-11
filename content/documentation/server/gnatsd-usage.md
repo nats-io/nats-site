@@ -62,7 +62,7 @@ See [Logging](/documentation/server/gnatsd-logging).
         --user user                  User required for connections
         --pass password              Password required for connections
 
-See [Authorization](/documentation/server/gnatsd-auth).
+See [Authorization](/documentation/server/gnatsd-authorization).
 
 ## TLS Options
 
