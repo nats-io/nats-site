@@ -14,10 +14,10 @@ That blog post was done a few days prior to DockerCon, and as expected Docker ma
 
 In this blog post, we share a basic example of how showing some of these new features available in Docker 1.12 to bring up a NATS cluster that our clients running can then connect against.
 
-- Requirements
-  + Docker Engine 1.12
-  + Docker Swarm cluster prepared with a manager and at least a couple of workers https://docs.docker.com/engine/swarm/
-  + Latest release of the NATS Server, which supports cluster auto-discovery for clients. This way, if we add more nodes to the cluster the clients become aware of the full topology dynamically. Awesome stuff!
+## Requirements
++ Docker Engine 1.12
++ Docker Swarm cluster prepared with a manager and at least a couple of workers https://docs.docker.com/engine/swarm/
++ Latest release of the NATS Server, which supports cluster auto-discovery for clients. This way, if we add more nodes to the cluster the clients become aware of the full topology dynamically. Awesome stuff!
 
 ### Step 1
 
@@ -80,7 +80,7 @@ In this blog post, we share a basic example of how showing some of these new fea
 
   On node-2 of the Docker Swarm, notice that the NATS server is now running:
 
-  ```
+```
   docker logs e0b4d7b2f7f3
   [1] 2016/08/15 11:31:41.680139 [INF] Starting nats-server version 0.9.4
   [1] 2016/08/15 11:31:41.680217 [DBG] Go build version go1.6.3
@@ -91,35 +91,35 @@ In this blog post, we share a basic example of how showing some of these new fea
   [1] 2016/08/15 11:31:41.680731 [INF] Listening for route connections on 0.0.0.0:6222
 ```
 
-  ### Step 3
+### Step 3
 
-  Next, we will create another service which connects to this server within the overlay network; note that we have an initial IP for connecting to the server:
+Next, we will create another service which connects to this server within the overlay network; note that we have an initial IP for connecting to the server:
 
-  ```ruby
-  docker service create --name ruby-nats --network nats-cluster-example wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0 -e '
-    NATS.on_error do |e|
-      puts "ERROR: #{e}"
+```ruby
+docker service create --name ruby-nats --network nats-cluster-example wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0 -e '
+  NATS.on_error do |e|
+    puts "ERROR: #{e}"
+  end
+  NATS.start(:servers => ["nats://10.0.1.3:4222"]) do |nc|
+    inbox = NATS.create_inbox
+    puts "[#{Time.now}] Connected to NATS at #{nc.connected_server}, inbox: #{inbox}"
+
+    nc.subscribe(inbox) do |msg, reply|
+      puts "[#{Time.now}] Received reply - #{msg}"
     end
-    NATS.start(:servers => ["nats://10.0.1.3:4222"]) do |nc|
-      inbox = NATS.create_inbox
-      puts "[#{Time.now}] Connected to NATS at #{nc.connected_server}, inbox: #{inbox}"
 
-      nc.subscribe(inbox) do |msg, reply|
-        puts "[#{Time.now}] Received reply - #{msg}"
-      end
-
-      nc.subscribe("hello") do |msg, reply|
-        next if reply == inbox
-        puts "[#{Time.now}] Received greeting - #{msg} - #{reply}"
-        nc.publish(reply, "world")
-      end
-
-      EM.add_periodic_timer(1) do
-        puts "[#{Time.now}] Saying hi (servers in pool: #{nc.server_pool}"
-        nc.publish("hello", "hi", inbox)
-      end
+    nc.subscribe("hello") do |msg, reply|
+      next if reply == inbox
+      puts "[#{Time.now}] Received greeting - #{msg} - #{reply}"
+      nc.publish(reply, "world")
     end
-  '
+
+    EM.add_periodic_timer(1) do
+      puts "[#{Time.now}] Saying hi (servers in pool: #{nc.server_pool}"
+      nc.publish("hello", "hi", inbox)
+    end
+  end
+'
 ```
 ### Step 4
 
@@ -165,7 +165,6 @@ Sample output after adding more workers which can reply back (since ignoring own
 ```
 
 ## Conclusion
-
 
 Built-in Docker Swarm mode in Docker Engine can be very handy for deploying a distributed system where NATS is being used for handling the internal communication among components via an overlay network, and external communication is being exposed through a load balancer. This in combination with the cluster discovery features from latest NATS releases make microservices operations a breeze, and incredibly flexible and scalable.
 
