@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.3.6
+  version_num: 1.4.4
   release_notes: |
-    Release 1.3.6 on May 14th, 2016.
+    Release 1.4.4 on August 19th, 2016.
   github:
     - user: nats-io
       repo: cnats
