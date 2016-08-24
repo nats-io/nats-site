@@ -361,6 +361,21 @@ Releases:
       repo: SwiftNats
       link: https://github.com/travelish/SwiftNats
 
+- name: Elixir
+  type: nats-client
+  supported: false
+  language: Elixir
+  author:
+    - name: Sarat Chandra
+      link: https://github.com/iamd3vil
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on July 26th, 2016.
+  github:
+    - user: iamd3vil
+      repo: nats_ex
+      link: https://github.com/iamd3vil/nats_ex
+
 - name: Go
   type: streaming-client
   supported: true
