@@ -255,7 +255,7 @@ Protocol error messages which close the connection:
 - `-ERR 'Authorization Timeout'`: Server took too long to authenticate to another server after establishing a connection (default 1 second)
 - `-ERR 'Parser Error'`: Cannot parse the protocol message sent by another server
 - `-ERR 'Stale Connection'`: PING/PONG interval expired.
-- `-ERR 'Slow Consumer'`: The server pending data size for the connection has reached the maximum size (default 10MB).
+- `-ERR 'Slow Consumer'`: The other server's pending data size for the route connection has been exceeded.  The default limit is time based, where data cannot be flushed within a two second write deadline.
 - `-ERR 'Maximum Payload Exceeded'`: Server attempted to publish a message with a payload size that exceeds the `max_payload` size configured on another server.
 
 Protocol error messages which do not close the connection:
