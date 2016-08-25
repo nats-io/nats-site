@@ -61,8 +61,8 @@ The valid options are as follows:
 * `server_id`: The unique identifier of the NATS server
 * `version`: The version of the NATS server
 * `go`: The version of golang the NATS server was built with
-* `host`: The IP address of the NATS server host
-* `port`: The port number the NATS server is configured to listen on
+* `host`: The host specified in the cluster parameter/options
+* `port`: The port number specified in the cluster parameter/options
 * `auth_required`: If this is set, then the server should try to authenticate upon connect.
 * `ssl_required`: If this is set, then the server must authenticate using SSL.
 * `max_payload`: Maximum payload size that the server will accept.
