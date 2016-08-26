@@ -11,7 +11,10 @@ var gulp         = require('gulp'),
     imageResize  = require('gulp-image-resize'),
     gulpif       = require('gulp-if'),
     autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps   = require('gulp-sourcemaps');
+    sourcemaps   = require('gulp-sourcemaps'),
+    clean        = require('gulp-clean'),
+    shell        = require('gulp-shell'),
+    runSequence  = require('run-sequence');
 
 // LESS
 gulp.task('less', function() {
@@ -22,30 +25,30 @@ gulp.task('less', function() {
     //.pipe(minifyCSS())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('static/css'))
-    .pipe(notify({ message: 'Finished compiling LESS'}));
+    .pipe(notify({ message: 'Compiling LESS'}));
 });
 
 // Javascript
 gulp.task('js', function() {
   return gulp.src(['src/js/moment.js', 'src/js/**/*.js'])
     .pipe(concat('index.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('static/js'))
-    .pipe(notify({ message: 'Finished JavaScript'}));
+    .pipe(notify({ message: 'Compiling JavaScript'}));
 });
 
 // Images
 gulp.task('img', function() {
   return gulp.src('src/img/**/*')
     .pipe(gulp.dest('static/img'))
-    .pipe(notify({ message: 'Finished copying image'}));
+    .pipe(notify({ message: 'Copying image'}));
 });
 
 // Fonts
 gulp.task('font', function() {
   return gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('static/fonts'))
-    .pipe(notify({ message: 'Finished copying font'}));
+    .pipe(notify({ message: 'Copying font'}));
 });
 
 // Resize User Logos
@@ -55,7 +58,7 @@ gulp.task('userLogos', function() {
       return gmfile.resize(150, 100);
     }))
     .pipe(gulp.dest('static/img/user_logos'))
-    .pipe(notify({ message: 'Finished resizing image'}));
+    .pipe(notify({ message: 'Resizing user logo image'}));
 });
 
 // Resize Partner Logos
@@ -65,14 +68,14 @@ gulp.task('partnerLogos', function() {
       return gmfile.resize(250, 150);
     }))
     .pipe(gulp.dest('static/img/partner_logos'))
-    .pipe(notify({ message: 'Finished resizing partner logo'}));
+    .pipe(notify({ message: 'Resizing partner logo'}));
 });
 
 // Resize Documentaiton Images
 gulp.task('docsImages', function() {
   return gulp.src('src/documentation/**/*.{png,jpg,jpeg}')
     .pipe(gulp.dest('static/img/documentation'))
-    .pipe(notify({ message: 'Finished copying documentation image'}));
+    .pipe(notify({ message: 'Copying documentation image'}));
 });
 
 // Resize Blog Images
@@ -82,15 +85,25 @@ gulp.task('blogImages', function() {
       width : 900
     }))
     .pipe(gulp.dest('static/img/blog'))
-    .pipe(notify({ message: 'Finished resizing blog image'}));
+    .pipe(notify({ message: 'Resizing blog image'}));
 });
 
 // Will have to improve this later on
 gulp.task('blogImagesGifs', function() {
   return gulp.src('src/blog/**/*.gif')
     .pipe(gulp.dest('static/img/blog'))
-    .pipe(notify({ message: 'Finished copying gif blog image'}));
+    .pipe(notify({ message: 'Copying gif blog image'}));
 });
+
+// Clean
+gulp.task('clean', function() {
+  return gulp.src('public')
+    .pipe(clean())
+    .pipe(notify({ message: 'Removing old build'}));
+});
+
+// HUGO
+gulp.task('hugo', shell.task('hugo'))
 
 // Watch
 gulp.task('watch', function() {
@@ -106,4 +119,9 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', [ 'less','js','img','font','watch', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
+gulp.task('default', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
+
+// Build for Production
+gulp.task('build', function (callback) {
+  runSequence( 'clean', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs' ], 'hugo', callback);
+});

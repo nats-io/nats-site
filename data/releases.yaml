@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.3.6
+  version_num: 1.4.4
   release_notes: |
-    Release 1.3.6 on May 14th, 2016.
+    Release 1.4.4 on August 19th, 2016.
   github:
     - user: nats-io
       repo: cnats
@@ -38,9 +38,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.5.0
+  version_num: 0.6.0
   release_notes: |
-    Release 0.5.0 on May 25th, 2016.
+    Release 0.6.0 on August 19th, 2016.
   github:
     - user: nats-io
       repo: csnats
@@ -128,9 +128,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.3.1
   release_notes: |
-    Release v0.2.0 on March 21st, 2016.
+    Release v0.3.1 on June 1st, 2016.
   github:
     - user: nats-io
       repo: asyncio-nats
@@ -143,9 +143,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.2
+  version_num: 0.3.0
   release_notes: |
-    Release v.0.2.2, December 22nd, 2015
+    Release v.0.3.0, May 22nd, 2016
   github:
     - user: nats-io
       repo: python-nats
@@ -158,9 +158,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.0
+  version_num: 0.7.1
   release_notes: |
-    Release v0.7.0 on July 8th, 2016.
+    Release v0.7.1 on July 8th, 2016.
   github:
     - user: nats-io
       repo: ruby-nats
@@ -248,9 +248,9 @@ Releases:
   author:
     - name: Raül Pérez
       link: https://github.com/repejota
-  version_num: 0.4.0
+  version_num: 0.8.0
   release_notes: |
-    Last updated to v0.4.0 on October 11th, 2015.
+    Last updated to v0.8.0 on July 27th, 2016.
   github:
     - user: repejota
       repo: phpnats
@@ -346,6 +346,36 @@ Releases:
       repo: mynatsclient
       link: https://github.com/danielwertheim/mynatsclient
 
+- name: Swift
+  type: nats-client
+  supported: false
+  language: Swift
+  author:
+    - name: Firman Maulana
+      link: https://github.com/kakilangit
+  version_num: 0.1
+  release_notes: |
+    Release v0.1 on January 28th, 2016.
+  github:
+    - user: travelish
+      repo: SwiftNats
+      link: https://github.com/travelish/SwiftNats
+
+- name: Elixir
+  type: nats-client
+  supported: false
+  language: Elixir
+  author:
+    - name: Sarat Chandra
+      link: https://github.com/iamd3vil
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on July 26th, 2016.
+  github:
+    - user: iamd3vil
+      repo: nats_ex
+      link: https://github.com/iamd3vil/nats_ex
+
 - name: Go
   type: streaming-client
   supported: true
@@ -353,9 +383,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.0
+  version_num: 0.2.0
   release_notes: |
-    Release v0.1.0 on June 23rd, 2016.
+    Release v0.2.0 on July 19th, 2016.
   github:
     - user: nats-io
       repo: go-nats-streaming
@@ -383,26 +413,26 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.1
+  version_num: 0.9.4
   release_notes: |
-    Release v0.8.1 on June 10th, 2016.<br> Docker Image last updated June 10th, 2016.
+    Release v0.9.4 on August 18th, 2016.<br> Docker Image last updated August 18th, 2016.
   github:
     - user: nats-io
       repo: gnatsd
       link: https://github.com/nats-io/gnatsd
   links:
-  - name: gnatsd-v0.8.1-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-darwin-amd64.zip
-  - name: gnatsd-v0.8.1-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-amd64.zip
-  - name: gnatsd-v0.8.1-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-386.zip
-  - name: gnatsd-v0.8.1-linux-arm.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-arm.zip
-  - name: gnatsd-v0.8.1-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-windows-386.zip
-  - name: gnatsd-v0.8.1-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-windows-amd64.zip
+  - name: gnatsd-v0.9.4-darwin-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-darwin-amd64.zip
+  - name: gnatsd-v0.9.4-linux-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-amd64.zip
+  - name: gnatsd-v0.9.4-linux-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-386.zip
+  - name: gnatsd-v0.9.4-linux-arm.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-arm.zip
+  - name: gnatsd-v0.9.4-windows-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-386.zip
+  - name: gnatsd-v0.9.4-windows-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
