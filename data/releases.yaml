@@ -83,9 +83,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.4.1
+  version_num: 0.5.1
   release_notes: |
-    Release 0.4.1 on April 3rd, 2016
+    Release 0.5.1 on August 20th, 2016
   github:
     - user: nats-io
       repo: jnats
@@ -398,9 +398,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.0.0
+  version_num: 0.1.0
   release_notes: |
-    Last updated on July 18th, 2016.
+    Release 0.1.0 on August 26th, 2016
   github:
     - user: nats-io
       repo: java-nats-streaming
