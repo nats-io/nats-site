@@ -81,7 +81,7 @@ Any servers in a cluster receiving an `INFO` message with an `ip` field will att
 
 Below is an example of an `INFO` string received by a NATS server, with the `ip` field.
 
-`INFO {"server_id":"KP19vTlB417XElnv8kKaC5","version":"0.9.4","go":"","host":"localhost","port":5222,"auth_required":false,"ssl_required":false,"tls_required":false,"tls_verify":false,"max_payload":1048576,"ip":"nats-route://127.0.0.1:5222/","connect_urls":["localhost:4222"]`
+`INFO {"server_id":"KP19vTlB417XElnv8kKaC5","version":"0.9.4","go":"","host":"localhost","port":5222,"auth_required":false,"ssl_required":false,"tls_required":false,"tls_verify":false,"max_payload":1048576,"ip":"nats-route://127.0.0.1:5222/","connect_urls":["localhost:4222"]}`
 
 ## <a name="CONNECT"></a>CONNECT
 
@@ -102,18 +102,21 @@ The valid options are as follows:
 * `version`: The version of the server.
 
 ### Description
+
 The `CONNECT` message is analogous to the `INFO` message. Once the NATS server has established a TCP/IP socket connection with another server, and an `INFO` message has been received, the server will send a `CONNECT` message to provide more information about the current connection as well as security information.
 
 ### Example
+
 Here is an example from the default string from a server.
 
-`CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"wt0vffeQyoDGMVBC2aKX0b"\r\n`
+`CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"wt0vffeQyoDGMVBC2aKX0b"}\r\n`
 
 Servers should set `verbose` to `false` by default. This means that other routed servers will not be sending an `+OK` payload back after the remote server ingested the message.
 
 ## <a name="PUB"></a>PUB
 
 ### Syntax
+
 `PUB <subject> [reply-to] <#bytes>\r\n[payload]\r\n`
 
 where:
