@@ -24,12 +24,13 @@ There are several open source client libraries for NATS from which you can choos
 - [Ruby client](https://github.com/nats-io/ruby-nats)
 - [Java client](https://github.com/nats-io/jnats) ([API doc](http://nats-io.github.io/jnats/))
 - [C client](https://github.com/nats-io/cnats) ([API doc](http://nats-io.github.io/cnats/))
-- [C# client](https://github.com/nats-io/csnats) ([API doc](http://nats-io.github.io/csnats/))
+- [C# client](https://github.com/nats-io/csnats) ([API doc](http://nats-io.github.io/csnats/)) ([NuGet](https://www.nuget.org/packages/NATS.Client))
 - [NGINX C client](https://github.com/nats-io/nginx-nats)
 
 ### NATS Streaming
-- [Go client](https://github.com/nats-io/go-nats-streaming) 
-- [Java client](https://github.com/nats-io/java-nats-streaming) ([API documentation](http://nats-io.github.io/jnats/))
+- [Go client](https://github.com/nats-io/go-nats-streaming)
+- [C# client](http://github.com/nats-io/csharp-nats-streaming) ([API doc](http://nats-io.github.io/csharp-nats-streaming)) ([NuGet](https://www.nuget.org/packages/STAN.Client))
+- [Java client](https://github.com/nats-io/java-nats-streaming) ([API doc](http://nats-io.github.io/jnats/))
 
 ## API documentation for Go
 
