@@ -29,7 +29,7 @@ There are several open source client libraries for NATS from which you can choos
 
 ### NATS Streaming
 - [Go client](https://github.com/nats-io/go-nats-streaming) 
-- [Java client](https://github.com/nats-io/java-nats-streaming) ([API documentation](http://nats-io.github.io/jnats/))
+- [Java client](https://github.com/nats-io/java-nats-streaming) ([API documentation](http://javadoc.io/doc/io.nats/java-nats-streaming/))
 
 ## API documentation for Go
 
