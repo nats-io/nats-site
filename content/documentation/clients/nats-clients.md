@@ -28,9 +28,9 @@ There are several open source client libraries for NATS from which you can choos
 - [NGINX C client](https://github.com/nats-io/nginx-nats)
 
 ### NATS Streaming
-- [Go client](https://github.com/nats-io/go-nats-streaming)
+- [Go client](https://github.com/nats-io/go-nats-streaming) 
+- [Java client](https://github.com/nats-io/java-nats-streaming) ([API documentation](http://javadoc.io/doc/io.nats/java-nats-streaming/))
 - [C# client](http://github.com/nats-io/csharp-nats-streaming) ([API doc](http://nats-io.github.io/csharp-nats-streaming)) ([NuGet](https://www.nuget.org/packages/STAN.Client))
-- [Java client](https://github.com/nats-io/java-nats-streaming) ([API doc](http://nats-io.github.io/jnats/))
 
 ## API documentation for Go
 
