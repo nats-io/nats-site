@@ -45,6 +45,9 @@ Releases:
     - user: nats-io
       repo: csnats
       link: https://github.com/nats-io/csnats
+  links:
+    - name: NuGet
+      url:  https://www.nuget.org/packages/NATS.Client
 
 - name: Elixir
   type: nats-client
@@ -390,6 +393,24 @@ Releases:
     - user: nats-io
       repo: go-nats-streaming
       link: https://github.com/nats-io/go-nats-streaming
+
+- name: C#
+  type: streaming-client
+  supported: true
+  language: C#
+  author:
+    - name:
+      link:
+  version_num: 0.1.1
+  release_notes: |
+    Release v0.1.1 on September 6th, 2016.
+  github:
+    - user: nats-io
+      repo: csharp-nats-streaming
+      link: https://github.com/nats-io/csharp-nats-streaming
+  links:
+  - name: NuGet
+    url:  https://www.nuget.org/packages/STAN.Client
 
 - name: Java
   type: streaming-client
