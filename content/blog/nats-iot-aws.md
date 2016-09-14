@@ -16,7 +16,7 @@ There was a need to create another stream of data where the services that gather
 
 It was clear that the solution for this requirement was to create a pub-sub queue that could distribute the messages through all the nodes to display this information to the end user.
 
->> Insert Diagram here <<
+![Blog Image](/img/blog/nats-iot-aws.png "Blog Image")
 
 ## What we tried
 
@@ -24,7 +24,7 @@ As our project mostly runs on AWS, the first option was to use the different too
 
 - Cost at scale.
 - Processing times that did not meet our requirements.  
- 
+
 SQS was not the tool for us because, among other things, in order to publish the message to all the servers at once there was the need to implement a way to keep track of the messages (the distribution and the order). SNS was not designed for this task, it is great to distribute other kind of messages and other amounts of data.
 
 Kinesis is very robust in terms of reliability and because it is a turnkey solution, but the latency requirements we have for this project are too much for Kinesis.
