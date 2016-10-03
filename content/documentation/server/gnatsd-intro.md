@@ -20,7 +20,7 @@ NATS provides a [server binary](/documentation/tutorials/gnatsd-install/) for Li
 
 ## Usage
 
-The NATS server is easy to [use](/documentation/server/gnatsd-usage/), supports [authorization](/documentation/server/gnatsd-authorization/), and provides [logging](/documentation/server/gnatsd-logging/) facilities.
+The NATS server is easy to [use](/documentation/server/gnatsd-usage/), supports [authorization](/documentation/server/gnatsd-auth/), and provides [logging](/documentation/server/gnatsd-logging/) facilities.
 
 ## Configuration
 
