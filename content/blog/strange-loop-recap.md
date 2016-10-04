@@ -6,7 +6,7 @@ title = "The Zen of High Performance Messaging With NATS - My StrangeLoop 2016 R
 author = "Wally Quevedo"
 +++
 
-StrangeLoop is began in 2009 as an event focused on distributed systems, security, emerging programming languages, etc. This year nearly 1300 attendees came to StrangeLoop, and tickets were gone in less than 30 minutes after going on sale.
+StrangeLoop began in 2009, as an event focused on distributed systems, security, emerging programming languages, and the like. This year nearly 1300 attendees came to StrangeLoop, and tickets were gone in less than 30 minutes after going on sale.
 
 Needless to say, StrangeLoop is one of the highlights of the calendar for anyone writing modern software systems. The focus is on interesting, original, and technical presentations, as the organizers explain:
 
