@@ -15,11 +15,9 @@ I enjoyed the conference a lot when I first attended in 2013 so I've been wantin
 
 The talk I gave covers a wide variety of aspects of NATS, but some of the more nuanced ones which are interesting include:
 
-NATS has no deployment dependencies being just a 7MB binary with an equally lightweight Docker image .
-
-NATS has an increasingly broad list of client libraries, connectors, and utilities.
-
-NATS payloads are opaque to the server; they are just bytes which could be JSON, Msgpack, Protocol buffers etc...
+  - NATS has no deployment dependencies being just a 7MB binary with an equally lightweight Docker image .
+  - NATS has an increasingly broad list of client libraries, connectors, and utilities.
+  - NATS payloads are opaque to the server; they are just bytes which could be JSON, Msgpack, Protocol buffers etc...
 
 Mentioned also about usage of the NATS NGINX client library used in the Apcera Platform; to almost instantly reconfigure where to send traffic to apps within the platform.
 
@@ -27,23 +25,30 @@ NATS Server is resilient and tries to be always available, doing things like pru
 
 You can view the recording of my talk via StrangeLoop’s YouTube Channel:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dYrYCt2dTkw" frameborder="0" allowfullscreen></iframe>
-The Zen of High Performance Messaging with NATS
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="center-block" width="560" height="315" src="https://www.youtube.com/embed/dYrYCt2dTkw" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### The Zen of High Performance Messaging with NATS
 
 The talk includes the following segments:
-
-0:00 - 2:30 :: General overview of NATS
-2:30 - 3:58 :: NATS Performance
-3:58 - 8:46 :: NATS Protocol
-8:47 - 11:50 :: NATS Request-Reply
-11:50 - 15:57 :: NATS Client Libraries Overview (including nats-top demo starting at 14:52)
-15:57 - 20:18 :: Additional NATS Features (Subject Routing, Distributing Queues, Clustering for HA, Auto-Discover, TLS, Monitoring)
-21:00 - 30:00 :: NATS Integration Scenario and near-zero Latency
-30:00 - end :: Recap and QnA.
+<ul class="list-unstyled">
+  <li>0:00 - 2:30 :: General overview of NATS</li>
+  <li>2:30 - 3:58 :: NATS Performance</li>
+  <li>3:58 - 8:46 :: NATS Protocol</li>
+  <li>8:47 - 11:50 :: NATS Request-Reply</li>
+  <li>11:50 - 15:57 :: NATS Client Libraries Overview (including nats-top demo starting at 14:52)</li>
+  <li>15:57 - 20:18 :: Additional NATS Features (Subject Routing, Distributing Queues, Clustering for HA, Auto-Discover, TLS, Monitoring)</li>
+  <li>21:00 - 30:00 :: NATS Integration Scenario and near-zero Latency</li>
+  <li>30:00 - end :: Recap and QnA.</li>
+</ul>
 
 Slides are available on Slideshare:
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/KAE6b6Tjx5OYek" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/wallyqs/the-zen-of-high-performance-messaging-with-nats-strange-loop-2016" title="The Zen of High Performance Messaging with NATS (Strange Loop 2016)" target="_blank">The Zen of High Performance Messaging with NATS (Strange Loop 2016)</a> </strong> from <strong><a href="//www.slideshare.net/wallyqs" target="_blank">wallyqs</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/KAE6b6Tjx5OYek" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
+
+[The Zen of High Performance Messaging with NATS (Strange Loop 2016)](http://www.slideshare.net/wallyqs/the-zen-of-high-performance-messaging-with-nats-strange-loop-2016)
 
 You can also view my talk as a Reveal.js presentation GitHub pages (you’ll need the latter to watch any animated gifs with performance monitoring).
 
