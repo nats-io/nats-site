@@ -64,6 +64,6 @@ Also many thanks to the Workiva team for taking me out to have BBQ which I enjoy
 
 If you have any questions or feedback on my talk, feel free to reach out directly:
 
-Twitter / Github
+[Twitter](https://twitter.com/wallyqs) / [Github](https://github.com/wallyqs)
 
 I look forward to hearing from you!
