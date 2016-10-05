@@ -7062,7 +7062,6 @@ body {
 body #main-con {
   min-height: 600px;
   margin-bottom: 30px;
-  background: url(/img/about-neuron.png) right -30px no-repeat;
 }
 @media (max-width: 992px) {
   body #main-con {
@@ -7307,20 +7306,16 @@ html#home-html {
 #home-page #homepage-content .bottom-logo-container {
   text-align: center;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #home-page #homepage-content .bottom-logo-container .ge svg {
   width: 40%;
@@ -7332,9 +7327,8 @@ html#home-html {
   width: 90%;
 }
 #home-page #homepage-content .bottom-logo-container .col-xs-6 {
-  -webkit-align-self: flex-end;
-      -ms-flex-item-align: end;
-          align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
@@ -7447,20 +7441,16 @@ html#home-html {
 #community-page .partners-logos {
   text-align: center;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #community-page .partners-logos a {
   display: block;
@@ -7472,32 +7462,25 @@ html#home-html {
 #community-page .company-logos {
   text-align: center;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #community-page .partners-con {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -7518,20 +7501,16 @@ html#home-html {
 #community-page #quote-carousel-con #quote-carousel ul.carousel-inner li .quote-con {
   height: 275px;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -7564,90 +7543,92 @@ html#home-html {
 #download-page #main-con {
   padding-top: 20px;
 }
-#download-page #left-nav-con {
-  padding-top: 30px;
-}
-#download-page #left-nav-con ul.sub-menu li.main-menu-item {
-  margin-bottom: 15px;
-}
-#download-page #left-nav-con ul.sub-menu li .main-menu-item-title {
-  font-size: 18px;
-  color: #2e3957;
-}
-#download-page #left-nav-con ul.sub-menu li.active a.main-menu-item-title {
-  font-weight: bold;
-  color: #2e3957;
-}
-#download-page #left-nav-con ul.sub-menu li .main-menu-item-title.header {
-  display: inline-block;
-  font-size: 22px;
-  color: #375c93;
-}
-#download-page #left-nav-con ul.sub-menu li ul {
-  padding: 2px 0px 20px 0px;
-}
-#download-page #left-nav-con ul.sub-menu li ul li {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#download-page #left-nav-con ul.sub-menu li ul li.active {
-  font-weight: bold;
-}
-#download-page .panel-default {
-  min-height: 200px;
-}
-#download-page .download-server h3,
-#download-page .download-client h3,
-#download-page .download-server h4,
-#download-page .download-client h4,
-#download-page .download-server h5,
-#download-page .download-client h5 {
-  margin-top: 0px;
-}
-#download-page .download-server .title-con h3,
-#download-page .download-client .title-con h3 {
-  margin-bottom: 5px;
-}
-#download-page .download-server .release-con h4,
-#download-page .download-client .release-con h4 {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-#download-page .download-server .download-con,
-#download-page .download-client .download-con {
-  margin-bottom: 15px;
-}
-#download-page .download-server .download-con h4,
-#download-page .download-client .download-con h4 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-#download-page .download-server .download-con dl dt,
-#download-page .download-client .download-con dl dt {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-#download-page .download-server .supported,
-#download-page .download-client .supported {
-  font-size: 17px;
-  font-weight: 100;
-}
-#download-page .download-server .supported img,
-#download-page .download-client .supported img {
-  margin-top: -2px;
-  margin-left: 5px;
-}
-#download-page .download-clients-con {
+#download-page #main-con #download-intro-con {
   margin-bottom: 30px;
 }
-#download-page .external-clients-con {
+#download-page #main-con .external-clients-con {
+  padding-top: 20px;
   text-align: center;
-  font-size: 22px;
-  margin-bottom: 25px;
-  margin-top: 25px;
+}
+#download-page #download-detail-con {
+  padding-bottom: 22px;
+}
+@media (min-width: 768px) {
+  #download-page #download-detail-con {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+#download-page #download-detail-con .left.detail-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#download-page #download-detail-con .left.detail-block .well {
+  padding-bottom: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#download-page #download-detail-con .detail-block .well {
+  border: none;
+  margin-bottom: 0px;
+}
+#download-page #download-detail-con .detail-block .well .supported {
+  margin-bottom: 22px;
+}
+#download-page #download-detail-con .detail-block .github-buttons {
+  margin-bottom: 11px;
+}
+@media (min-width: 768px) {
+  #download-page #download-menu-con {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+#download-page #download-menu-con .nav-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#download-page #download-menu-con .nav-block .well {
+  width: 100%;
+  border: none;
+}
+#download-page #download-menu-con .nav-block .well h3,
+#download-page #download-menu-con .nav-block .well h4 {
+  color: #666;
+}
+#download-page #download-menu-con .nav-block .well h3 {
+  margin-top: 0px;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+#download-page #download-menu-con .nav-block .well h4 {
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+#download-page #download-menu-con .nav-block .list-inline {
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+#download-page #download-menu-con .nav-block .list-inline li {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+#download-page #download-menu-con .nav-block .list-inline li .separator {
+  display: inline-block;
+  padding-left: 5px;
+}
+#download-page #download-menu-con .nav-block .list-inline li .current {
+  font-weight: bold;
 }
 #support-page table#support-table thead {
   background: #2e3957;
@@ -7665,7 +7646,6 @@ html#home-html {
   text-align: center;
 }
 #nats-documentation-detail-page #main-con {
-  background: url(/img/about-neuron-docs.png) right top no-repeat;
   padding-top: 20px;
 }
 @media (max-width: 992px) {

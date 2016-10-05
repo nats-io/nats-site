@@ -1,0 +1,42 @@
+<div id="download-menu-con" class="row">
+  {{ $currentNode := . }}
+  {{ $currentPage := .RelPermalink }}
+  {{ range .Site.Menus.main }}
+  {{ if eq .Identifier "download" }}
+  {{ if .HasChildren }}
+  {{ range .Children }}
+    {{ if eq .Name "NATS Streaming" }}
+    <div class="col-lg-3 col-sm-4 nav-block">
+    {{ else }}
+    <div class="col-lg-9 col-sm-8 nav-block">
+    {{ end }}
+      <div class="well">
+      <h3>{{ title .Name }}</h3>
+      {{ if .HasChildren }}
+      {{ range .Children }}
+
+      {{ if ne .Name "Server" }}
+      <h4>{{ title .Name }}</h4>
+      {{ end }}
+
+      {{ if .HasChildren }}
+      <ul class="list-inline">
+      {{ $length := len .Children}}
+      {{ range $index, $client := .Children }}
+        <li><a {{ if eq $currentPage .URL }}class="current"{{ end }} href="{{ .URL }}">{{ .Name }}</a>{{if ne (add $index 1) $length}}<span class="separator">/</span>{{ end }}</li>
+      {{ end }}
+      </ul>
+      {{ else }}
+      <ul class="list-inline">
+        <li><a href="mailto:info@nats.io?subject=NATS External Client">Contact us</a> to add your client!</a></li>
+      </ul>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+      </div>
+    </div>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+</div>

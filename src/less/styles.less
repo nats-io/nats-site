@@ -146,7 +146,7 @@ body {
   #main-con {
     min-height: 600px;
     margin-bottom: 30px;
-    background: url(/img/about-neuron.png) right -30px no-repeat;
+    //background: url(/img/about-neuron.png) right -30px no-repeat;
     @media (max-width: @screen-md-min) {
       background: transparent;
     }
@@ -656,155 +656,88 @@ html#home-html {
 #download-page {
   #main-con {
     padding-top: 20px;
+    #download-intro-con {
+      margin-bottom: 30px;
+    }
+    .external-clients-con {
+      padding-top: 20px;
+      text-align: center;
+    }
   }
-  // Left Nav
-  #left-nav-con {
-    padding-top: 30px;
-    ul.sub-menu {
-      li {
-        &.main-menu-item {
-          margin-bottom: 15px;
+  // Download Page
+  #download-detail-con {
+    padding-bottom: 22px;
+    @media (min-width: @screen-sm) {
+      display: flex;
+    }
+    .left.detail-block {
+      display: flex;
+      .well {
+        padding-bottom: 0px;
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
+    .detail-block {
+      .well {
+        border: none;
+        margin-bottom: 0px;
+        .supported {
+          margin-bottom: 22px;
         }
-        .main-menu-item-title {
-          font-size: 18px;
-          color: @nats-brand-blue-dark;
+        .download-info {
+
         }
-        &.active {
-          a.main-menu-item-title {
+      }
+      .github-buttons {
+        margin-bottom: 11px;
+      }
+    }
+  }
+  // Download Main Navigation
+  #download-menu-con {
+    @media (min-width: @screen-sm) {
+      display: flex;
+    }
+    h3 {
+
+    }
+    .nav-block {
+      display: flex;
+      .well {
+        width: 100%;
+        border: none;
+        h3, h4 {
+          color: @nats-brand-gray-dark;
+        }
+        h3 {
+          margin-top: 0px;
+          margin-bottom: 6px;
+          font-size: 20px;
+        }
+        h4 {
+          font-weight: normal;
+          font-size: 16px;
+          margin-bottom: 0px;
+        }
+      }
+      .list-inline {
+        padding-left: 5px;
+        margin-bottom: 20px;
+        li {
+          padding-right: 0px;
+          padding-left: 0px;
+          .separator {
+            display: inline-block;
+            padding-left: 5px;
+          }
+          .current {
             font-weight: bold;
-            color: @nats-brand-blue-dark;
-          }
-        }
-        .main-menu-item-title.header {
-          display: inline-block;
-          font-size: 22px;
-          color: @nats-colour-blue-dark;
-        }
-        ul {
-          padding: 2px 0px 20px 0px;
-          li {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            &.active {
-              font-weight: bold;
-
-              a {
-
-              }
-            }
-            a {
-
-            }
           }
         }
       }
     }
-  }
-
-  // .nats--downloads{
-  //   margin-bottom: 20px;
-  // }
-  // .download-item--links{
-  //   margin: 20px 0;
-  // }
-  // .download--item{
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-  //   flex-wrap: wrap;
-  //   padding: 0 10px;
-  //   h3{
-  //     margin: 20px 0;
-  //   }
-  //   &:nth-child(even){
-  //     background: @download-row-background;
-  //     border-top: 1px solid @download-row-border;
-  //     border-bottom: 1px solid @download-row-border;
-  //   }
-  //   span + span{
-  //     margin-left: 15px;
-  //   }
-  // }
-  //
-  // .download--header {
-  //     height: 200px;
-  //     display: flex;
-  //     align-items: center;
-  // }
-  // @media (max-width: @screen-md-max){
-  //   .download--header {
-  //       height: 100px;
-  //   }
-  // }
-  //
-  //
-  // .download-details--headline{
-  //   margin-top: 0;
-  // }
-  //
-  // .download-details--wrapper{
-  //   display: flex;
-  //   flex-wrap: wrap;
-  // }
-  // .download--details {
-  //     margin-right: 50px;
-  // }
-
-  .panel-default {
-    min-height: 200px
-  }
-  .download-server,
-  .download-client {
-    h3,h4,h5 {
-      margin-top: 0px;
-    }
-    .title-con {
-      h3 {
-        margin-bottom: 5px;
-      }
-    }
-    .release-con {
-      h4 {
-        font-weight: bold;;
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-    }
-    .download-con {
-      margin-bottom: 15px;
-      h4 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-      dl {
-        dt {
-          font-weight: bold;
-          margin-bottom: 5px;
-        }
-      }
-    }
-    .supported {
-      font-size: 17px;
-      font-weight: 100;
-      img {
-        margin-top: -2px;
-        margin-left: 5px;
-      }
-    }
-  }
-  .download-server-con {
-
-  }
-  .download-clients-con {
-    margin-bottom: 30px;
-  }
-  .external-clients-con {
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 25px;
-    margin-top: 25px;
   }
 }
 
@@ -839,7 +772,7 @@ html#home-html {
 // Documentation
 #nats-documentation-detail-page {
   #main-con {
-    background: url(/img/about-neuron-docs.png) right top no-repeat;
+    //background: url(/img/about-neuron-docs.png) right top no-repeat;
     padding-top: 20px;
     @media (max-width: @screen-md-min) {
       background: transparent;
