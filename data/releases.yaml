@@ -391,6 +391,21 @@ Releases:
       repo: java-nats-streaming
       link: https://github.com/nats-io/java-nats-streaming
 
+- name: Node.js
+  type: streaming-client
+  supported: true
+  language: Javascript
+  author:
+    - name:
+      link:
+  version_num: 0.0.5
+  release_notes: |
+    Last updated on September 25th, 2016.
+  github:
+    - user: nats-io
+      repo: node-nats-streaming
+      link: https://github.com/nats-io/node-nats-streaming
+
 - name: NATS Server
   type: nats-server
   supported: true

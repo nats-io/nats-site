@@ -3,15 +3,85 @@
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
   <div class="row">
-    <div id="left-nav-con" class="col-md-3">
-      {{ partial "side-menu-downloads.html" . }}
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
+      {{ if ne .RelPermalink "/download/" }}
+      {{ .Content }}
+      {{ range $.Site.Data }}
+      {{ range .Releases }}
+
+        {{ range first 1 .github }}
+          {{ $.Scratch.Set "githubUser" .user }}
+          {{ $.Scratch.Set "githubRepo" .repo }}
+        {{ end }}
+        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
+          <div class="page-header">
+            <h1>{{ .name }}{{ if not (in .name "Server") }} Client{{ end }}</h1>
+          </div>
+          <div id="download-detail-con" class="row">
+            <div class="col-lg-3 col-sm-4 detail-block left">
+              <div class="well">
+                {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
+
+                <div class="download-info">
+                  <p>Language: {{ .language }}</p>
+                  {{ if .release_notes }}
+                  <p>Release Notes: {{ .release_notes | safeHTML }}</p>
+                  {{ else }}
+                  <p>No release notes.</p>
+                  {{ end }}
+                  {{ range first 1 .author }}
+                  {{ if .name }}
+                  <p>Author: <a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
+                  {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 col-sm-8 detail-block">
+              <div class="github-buttons">
+              {{ range first 1 .github }}
+              <!-- Watch -->
+              <a class="github-button" href="{{ .link }}" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
+              <!-- Star -->
+              <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/stargazers" data-count-api="/repos/{{.user}}/{{.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{.user}}/{{.repo}} on GitHub">Star</a>
+              <!-- Fork -->
+              <a class="github-button" href="{{ .link }}" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/network" data-count-api="/repos/{{.user}}/{{.repo}}#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork {{.user}}/{{.repo}} on GitHub">Fork</a>
+              {{ end }}
+            </div>
+              <ul class="list-unstyled">
+                {{ range first 1 .github }}
+                <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+                <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+                {{ end }}
+                {{ range .links }}
+                <li><a href="{{ .url }}">{{ .name }}</a></li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+          <hr>
+          {{ partial "menu-downloads.html" . }}
+        {{ end }}
+
+      {{ end }}
+      {{ end }}
+
+      {{ else }}
+      <div id="download-intro-con" class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Download</h1>
+          </div>
+          <p>Here you will find the NATS Server (for simple, fast publish-subscribe) , NATS Streaming Server (for data streaming and persistence), and officially supported clients. Our documentation provides detailed instructions on how to get started.</p>
+          <p>Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at info@nats.io to share what you have built with us!</p>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ partial "menu-downloads.html" . }}
+
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
-      <h1>Download</h1>
-      <p>Here you will find the NATS Server (for simple, fast publish-subscribe) , NATS Streaming Server (for data streaming and persistence), and officially supported clients. Our documentation provides detailed instructions on how to get started.</p>
-      <p>Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at info@nats.io to share what you have built with us!</p>
       <hr>
       <h2>Connectors</h2>
       <div class="table-responsive">
@@ -38,12 +108,11 @@
               <td>Apcera</td>
             </tr>
             <tr>
-              <tr>
-                <td><a href="http://fluentbit.io/documentation/0.8/output/nats.html" target="_blank">Fluent Bit</a></td>
-                <td>The NATS output connector allows to flush your Fluent Bit records into a NATS Server endpoint</td>
-                <td><a target="_blank" href="http://fluentbit.io/">Fluent Bit</a></td>
-                <td>Community</td>
-              </tr>
+              <td><a href="http://fluentbit.io/documentation/0.8/output/nats.html" target="_blank">Fluent Bit</a></td>
+              <td>The NATS output connector allows to flush your Fluent Bit records into a NATS Server endpoint</td>
+              <td><a target="_blank" href="http://fluentbit.io/">Fluent Bit</a></td>
+              <td>Community</td>
+            </tr>
             <tr>
               <td><a href="https://github.com/cloudfoundry-community/fluent-plugin-nats" target="_blank">Fluentd Event Collector</a></td>
               <td>NATS plugin for fluentd Event Collector</td>
@@ -130,62 +199,6 @@
           </tbody>
         </table>
       </div>
-      {{ end }}
-
-      {{ else }}
-      {{ .Content }}
-      {{ range $.Site.Data }}
-      {{ range .Releases }}
-
-        {{ range first 1 .github }}
-          {{ $.Scratch.Set "githubUser" .user }}
-          {{ $.Scratch.Set "githubRepo" .repo }}
-        {{ end }}
-        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
-          <h1 class="download-details--headline">{{ .name }}</h1>
-          <hr>
-          <div class="row">
-            <div class="col-sm-4">
-              {{ if .supported }}<p class="supported">Supported by <img src="/img/logo-sm.png" alt="Apcera" /></p>{{ end }}
-              <ul class="list-unstyled">
-                {{ range first 1 .github }}
-                <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
-                <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
-                {{ end }}
-                {{ range .links }}
-                <li><a href="{{ .url }}">{{ .name }}</a></li>
-                {{ end }}
-              </ul>
-            </div>
-            <div class="col-sm-8">
-              <p>Language: {{ .language }}</p>
-              {{ range first 1 .github }}
-              <!-- Watch -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
-              <!-- Star -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/stargazers" data-count-api="/repos/{{.user}}/{{.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{.user}}/{{.repo}} on GitHub">Star</a>
-              <!-- Fork -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/network" data-count-api="/repos/{{.user}}/{{.repo}}#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork {{.user}}/{{.repo}} on GitHub">Fork</a>
-              {{ end }}
-
-              {{ if .release_notes }}
-              <h4>Release Notes:</h4>
-              {{ .release_notes | safeHTML }}
-              {{ else }}
-              <p>No release notes.</p>
-              {{ end }}
-
-              {{ range first 1 .author }}
-              {{ if .name }}
-              <h4>Author:</h4>
-              <p><a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
-              {{ end }}
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-
-      {{ end }}
       {{ end }}
 
       {{ end }}
