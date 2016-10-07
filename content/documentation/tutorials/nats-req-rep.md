@@ -34,13 +34,13 @@ You will use these sessions to run the NATS request and reply clients.
 **3. Change to the examples directory.**
 
 ```
-cd /nats-docs/tutorials/examples/
+cd $GOPATH/src/github.com/nats-io/nats/examples
 ```
 
 **4. In one terminal, run the reply client listener.**
 
 ```
-go run nats-rep.go
+go run nats-rply.go foo "this is my response"
 ```
 
 You should see the message `Receiver is listening`, and that the NATS receiver client is listening on the "help.please" subject. The reply client acts as a receiver, listening for message requests. In NATS, the receiver is a subscriber.
@@ -48,7 +48,7 @@ You should see the message `Receiver is listening`, and that the NATS receiver c
 **5. In the other terminal, run the request client.**
 
 ```
-go run nats-req.go
+go run nats-req.go foo "request payload"
 ```
 
 The NATS requestor client makes a request by sending the message "some message" on the “help.please” subject.
