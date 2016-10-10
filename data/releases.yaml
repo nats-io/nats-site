@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.3.6
+  version_num: 1.4.4
   release_notes: |
-    Release 1.3.6 on May 14th, 2016.
+    Release 1.4.4 on August 19th, 2016.
   github:
     - user: nats-io
       repo: cnats
@@ -38,13 +38,16 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.5.0
+  version_num: 0.6.0
   release_notes: |
-    Release 0.5.0 on May 25th, 2016.
+    Release 0.6.0 on August 19th, 2016.
   github:
     - user: nats-io
       repo: csnats
       link: https://github.com/nats-io/csnats
+  links:
+    - name: NuGet
+      url:  https://www.nuget.org/packages/NATS.Client
 
 - name: Elixir
   type: nats-client
@@ -83,9 +86,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.4.1
+  version_num: 0.5.3
   release_notes: |
-    Release 0.4.1 on April 3rd, 2016
+    Release 0.5.3 on August 29th, 2016
   github:
     - user: nats-io
       repo: jnats
@@ -361,6 +364,21 @@ Releases:
       repo: SwiftNats
       link: https://github.com/travelish/SwiftNats
 
+- name: Elixir
+  type: nats-client
+  supported: false
+  language: Elixir
+  author:
+    - name: Sarat Chandra
+      link: https://github.com/iamd3vil
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on July 26th, 2016.
+  github:
+    - user: iamd3vil
+      repo: nats_ex
+      link: https://github.com/iamd3vil/nats_ex
+
 - name: Go
   type: streaming-client
   supported: true
@@ -376,6 +394,24 @@ Releases:
       repo: go-nats-streaming
       link: https://github.com/nats-io/go-nats-streaming
 
+- name: C#
+  type: streaming-client
+  supported: true
+  language: C#
+  author:
+    - name:
+      link:
+  version_num: 0.1.1
+  release_notes: |
+    Release v0.1.1 on September 6th, 2016.
+  github:
+    - user: nats-io
+      repo: csharp-nats-streaming
+      link: https://github.com/nats-io/csharp-nats-streaming
+  links:
+  - name: NuGet
+    url:  https://www.nuget.org/packages/STAN.Client
+
 - name: Java
   type: streaming-client
   supported: true
@@ -383,9 +419,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.0.0
+  version_num: 0.2.1
   release_notes: |
-    Last updated on July 18th, 2016.
+    Release 0.2.1 on September 12th, 2016
   github:
     - user: nats-io
       repo: java-nats-streaming
@@ -413,26 +449,26 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.1
+  version_num: 0.9.4
   release_notes: |
-    Release v0.8.1 on June 10th, 2016.<br> Docker Image last updated June 10th, 2016.
+    Release v0.9.4 on August 18th, 2016.<br> Docker Image last updated August 18th, 2016.
   github:
     - user: nats-io
       repo: gnatsd
       link: https://github.com/nats-io/gnatsd
   links:
-  - name: gnatsd-v0.8.1-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-darwin-amd64.zip
-  - name: gnatsd-v0.8.1-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-amd64.zip
-  - name: gnatsd-v0.8.1-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-386.zip
-  - name: gnatsd-v0.8.1-linux-arm.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-linux-arm.zip
-  - name: gnatsd-v0.8.1-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-windows-386.zip
-  - name: gnatsd-v0.8.1-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.8.1/gnatsd-v0.8.1-windows-amd64.zip
+  - name: gnatsd-v0.9.4-darwin-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-darwin-amd64.zip
+  - name: gnatsd-v0.9.4-linux-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-amd64.zip
+  - name: gnatsd-v0.9.4-linux-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-386.zip
+  - name: gnatsd-v0.9.4-linux-arm.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-arm.zip
+  - name: gnatsd-v0.9.4-windows-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-386.zip
+  - name: gnatsd-v0.9.4-windows-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 

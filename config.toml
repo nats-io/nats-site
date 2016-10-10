@@ -46,7 +46,7 @@ pygmentsstyle = "native"
     [[menu.main]]
       name = "Community Clients"
       weight = 2
-      identifier = "nats-comunity"
+      identifier = "nats-community"
       parent = "nats"
   [[menu.main]]
     name = "NATS Streaming"
@@ -66,7 +66,7 @@ pygmentsstyle = "native"
     [[menu.main]]
       name = "Community Clients"
       weight = 2
-      identifier = "streaming-comunity"
+      identifier = "streaming-community"
       parent = "nats-streaming"
 
 [[menu.main]]
