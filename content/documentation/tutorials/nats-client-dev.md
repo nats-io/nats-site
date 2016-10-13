@@ -191,7 +191,7 @@ func main() {
 
 ## Synchronous subscriber
 
-A synchronous subscriber does not implement a message handler with the subscriber. Instead the client is responsible for implmenting code to process the message. The client is blocked from receiving more messages until it process the received message.
+A synchronous subscriber does not implement a message handler with the subscriber. Instead the client is responsible for implementing code to process the message. The client is blocked from receiving more messages until it process the received message.
 
 For example:
 
