@@ -7690,6 +7690,11 @@ html#home-html {
 #blog-post-page .embed-responsive {
   margin-bottom: 30px;
 }
+#blog-post-page #main-con img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .icon-back {
   font-size: 12px;
 }
