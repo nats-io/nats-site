@@ -21,7 +21,7 @@ To configure the NATS server, you can include one or more command line arguments
 To install the NATS server:
 
 ```
-go get github.com/apcera/gnatsd
+go get github.com/nats-io/gnatsd
 ```
 
 Refer to the [NATS installation tutorial](/documentation/tutorials/nats-gnatsd) for more detailed instructions.
