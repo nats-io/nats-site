@@ -12,16 +12,16 @@ category = "tutorials"
 
 # Benchmark and Tune NATS
 
-NATS is fast and lightweight and places a premium on performance. NATS provides hooks for measuring and tuning performance. In this tutorial you learn how to benchmark and tune NATS.
+NATS is fast and lightweight and places a priority on performance. NATS provides tools for measuring and tuning performance. In this tutorial you learn how to benchmark and tune NATS.
 
 ## Prerequisites
 
 - [Set up your Go environment](/documentation/tutorials/go-install/)
-- [Installed the NATS server](/documentation/tutorials/gnatsd-install/)
+- [Install the NATS server](/documentation/tutorials/gnatsd-install/)
 
 ## Instructions
 
-**1. Start the NATS server with monitoring enabled.**
+### Start the NATS server with monitoring enabled
 
 ```
 gnatsd -m 8222
@@ -30,80 +30,133 @@ gnatsd -m 8222
 Verify that the NATS server starts successfully, as well as the HTTP monitor:
 
 ```
-[4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.6.4
-[4528] 2015/08/19 20:09:58.573007 [INF] Starting http monitor on port 8222
-[4528] 2015/08/19 20:09:58.573071 [INF] Listening for client connections on 0.0.0.0:4222
-[4528] 2015/08/19 20:09:58.573090 [INF] gnatsd is ready
+[18541] 2016/10/31 13:26:32.037819 [INF] Starting nats-server version 0.9.4
+[18541] 2016/10/31 13:26:32.037912 [INF] Starting http monitor on 0.0.0.0:8222
+[18541] 2016/10/31 13:26:32.037997 [INF] Listening for client connections on 0.0.0.0:4222
+[18541] 2016/10/31 13:26:32.038020 [INF] Server is ready
 ```
 
-**2. Set up the NATS Java client.**
+### Installing and running the benchmark utility 
 
-If necessary, download and install [JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
-
-Clone the [Java client for NATS](https://github.com/tyagihas/java_nats) from the GitHub repository:
-
+Thanks to the power of Go, you can either install the `nats-bench` utility in `$GOBIN`:
 ```
-git clone https://github.com/tyagihas/java_nats.git
+go install $GOPATH/src/github.com/nats-io/nats/examples/nats-bench.go
 ```
 
-Set up your NATS Java client environment by running these commands:
+... or you can simply run it via `go run`:
 
 ```
-cd java_nats
-javac -d ./bin ./src/main/java/org/nats/*.java
-export CLASSPATH=./bin
-javac -d ./bin ./src/test/java/org/nats/benchmark/*.java
-javac -d ./bin ./src/test/java/org/nats/examples/*.java
+go run $GOPATH/src/github.com/nats-io/nats/examples/nats-bench.go
 ```
 
-**3. Run the publisher performance test.**
+For the purpose of this tutorial, we'll assume that you chose the first option, and that you've added `$GOBIN` to your `PATH`. 
+
+### Usage
+
+The `nats-bench` utility is straightfoward to use. The optons are as follows:
 
 ```
-cd ./bin
-
-bash ./PubPerf.sh 100000 16
+nats-bench -h
+Usage: nats-bench [-s server (nats://localhost:4222)] [--tls] [-np NUM_PUBLISHERS] [-ns NUM_SUBSCRIBERS] [-n NUM_MSGS] [-ms MESSAGE_SIZE] [-csv csvfile] <subject>
 ```
 
-The publisher performance test publishes the specified number of messages. The output tells you how long NATS took to publish the messages, and the message rate per second.
+The options are self-explanatory. Each publisher or subscriber runs in its own goroutine with its own NATS connection.
 
-Increase the number of messages published:
+### Run a publisher throughput test
 
-```
-bash ./PubPerf.sh 10000000 16
-```
-
-You’ll see that it takes NATS approximately 2 seconds to publish the messages.
+Let's run a test to see how fast a single publisher can publish one million 16 byte messages to the NATS server.
 
 ```
-Performing Publish performance test
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-…
-
-++++++++++++++++++++++++++++++++++++++++
-
-elapsed : 2.048766 seconds
-
-msg/sec : 4880986.896502578
+nats-bench -np 1 -n 100000 -ms 16 foo
 ```
 
-**4. Run the pub-sub performance test.**
+The output tells you the number of messages and the number of payload bytes that the client was able to publish per second:
 
 ```
-bash ./PubSubPerf.sh 10000 16
+Starting benchmark [msgs=100000, msgsize=16, pubs=1, subs=0]
+Pub stats: 7,055,644 msgs/sec ~ 107.66 MB/sec
 ```
 
-The publisher sends all the messages and the subscriber consumes each. The output tells you how long NATS took to produce and consume all the messages, and the rate per second.
+Now increase the number of messages published:
 
 ```
-Performing Publish/Subscribe performance test
-
-++++
-
-elapsed : 0.040427 seconds
-
-msg/sec : 247359.4379993569
-
-Exiting...
+nats-bench -np 1 -n 10000000 -ms 16 foo
+Starting benchmark [msgs=10000000, msgsize=16, pubs=1, subs=0]
+Pub stats: 7,671,570 msgs/sec ~ 117.06 MB/sec
 ```
+
+### Run a publish/subscribe throughput test
+
+When using both publishers and subscribers, `nats-bench` reports aggregate, as well as individual publish and subscribe throughput performance.
+
+Let's look at throughput for a single publisher with a single subscriber:
+
+```
+nats-bench -np 1 -ns 1 -n 100000 -ms 16 foo
+```
+
+Note that the output shows the aggregate throughput as well as the individual publisher and subscriber performance:
+
+```
+Starting benchmark [msgs=100000, msgsize=16, pubs=1, subs=1]
+NATS Pub/Sub stats: 2,009,230 msgs/sec ~ 30.66 MB/sec
+ Pub stats: 1,076,537 msgs/sec ~ 16.43 MB/sec
+ Sub stats: 1,004,615 msgs/sec ~ 15.33 MB/sec
+ ```
+
+### Run a 1:N throughput test
+
+When specifying multiple publishers, or multiple subscribers, `nats-bench` will also report statistics for each publisher and subscriber individually, along with min/max/avg and standard deviation.
+
+Let's increase both the number of messages, and the number of subscribers.:
+
+```
+nats-bench -np 1 -ns 5 -n 10000000 -ms 16 foo
+```
+
+Output:
+
+```
+Starting benchmark [msgs=10000000, msgsize=16, pubs=1, subs=5]
+NATS Pub/Sub stats: 5,730,851 msgs/sec ~ 87.45 MB/sec
+ Pub stats: 955,279 msgs/sec ~ 14.58 MB/sec
+ Sub stats: 4,775,709 msgs/sec ~ 72.87 MB/sec
+  [1] 955,157 msgs/sec ~ 14.57 MB/sec (10000000 msgs)
+  [2] 955,150 msgs/sec ~ 14.57 MB/sec (10000000 msgs)
+  [3] 955,157 msgs/sec ~ 14.57 MB/sec (10000000 msgs)
+  [4] 955,156 msgs/sec ~ 14.57 MB/sec (10000000 msgs)
+  [5] 955,153 msgs/sec ~ 14.57 MB/sec (10000000 msgs)
+  min 955,150 | avg 955,154 | max 955,157 | stddev 2 msgs
+```
+
+### Run a N:M throughput test
+
+When more than 1 publisher is specified, `nats-bench` evenly distributes the total number of  messages (`-n`) across the number of publishers (`-np`). 
+
+Now let's increase the number of publishers and examine the output:
+
+```
+nats-bench -np 5 -ns 5 -n 10000000 -ms 16 foo
+```
+
+The output:
+
+```
+Starting benchmark [msgs=10000000, msgsize=16, pubs=5, subs=5]
+NATS Pub/Sub stats: 6,716,465 msgs/sec ~ 102.49 MB/sec
+ Pub stats: 1,119,653 msgs/sec ~ 17.08 MB/sec
+  [1] 226,395 msgs/sec ~ 3.45 MB/sec (2000000 msgs)
+  [2] 225,955 msgs/sec ~ 3.45 MB/sec (2000000 msgs)
+  [3] 225,889 msgs/sec ~ 3.45 MB/sec (2000000 msgs)
+  [4] 224,552 msgs/sec ~ 3.43 MB/sec (2000000 msgs)
+  [5] 223,933 msgs/sec ~ 3.42 MB/sec (2000000 msgs)
+  min 223,933 | avg 225,344 | max 226,395 | stddev 937 msgs
+ Sub stats: 5,597,054 msgs/sec ~ 85.40 MB/sec
+  [1] 1,119,461 msgs/sec ~ 17.08 MB/sec (10000000 msgs)
+  [2] 1,119,466 msgs/sec ~ 17.08 MB/sec (10000000 msgs)
+  [3] 1,119,444 msgs/sec ~ 17.08 MB/sec (10000000 msgs)
+  [4] 1,119,444 msgs/sec ~ 17.08 MB/sec (10000000 msgs)
+  [5] 1,119,430 msgs/sec ~ 17.08 MB/sec (10000000 msgs)
+  min 1,119,430 | avg 1,119,449 | max 1,119,466 | stddev 12 msgs
+  ```
+
