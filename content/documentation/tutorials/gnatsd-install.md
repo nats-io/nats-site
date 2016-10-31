@@ -7,34 +7,59 @@ category = "tutorials"
   name = "Install NATS Server"
   weight = 2
   identifier = "tutorial-gnatsd-install"
-  parent = "Tutorials"
+  parent = "Server"
 +++
 
 # Install and Run NATS Server
 
 In this tutorial you install and run the NATS server (`gnatsd`). You can follow this same procedure anytime you want to run the NATS server.
 
-## Prerequisite
+### Install the NATS server
 
-- [Set up your Go environment](/documentation/tutorials/go-install/)
+There are numerous ways to install the NATS server.
 
-## Instructions
+#### Go
 
-**1. Install the NATS server.**
-
-To install the latest released version of the NATS server, download one of the pre-built release binaries which are available for OSX, Linux (x86-64/ARM), and Windows. Instructions for using these binaries are on the [GitHub releases page](https://github.com/nats-io/gnatsd/releases). 
-
-You can also install the latest version of the NATS server using the [official Docker image](https://hub.docker.com/_/nats/).
-
-Another way to install NATS is using Go:
+Make sure [your Go environment is set up](/documentation/tutorials/go-install/)
 
 ```
 go get github.com/nats-io/gnatsd
 ```
 
+#### GitHub releases
+
+Pre-built release binaries are always available on the [GitHub releases page](https://github.com/nats-io/gnatsd/releases). 
+The following platforms are available:
+
+ * Linux (x86, x86_64, ARM)
+ * Windows (x86, x86_64)
+ * macOS
+
+
+#### Docker Hub
+
+The latest [official Docker image](https://hub.docker.com/_/nats/) is always available on Docker Hub.
+
+
+#### Windows
+
+On Windows, the NATS server can also be installed via [Chocolatey](https://chocolatey.org/packages/gnatsd):
+
+```
+choco install gnatsd
+```
+
+#### macOS
+
+On macOS, the NATS server can alo be installed via [Homebrew](http://brewformulas.org/Gnatsd):
+
+```
+brew install gnatsd
+```
+
 Note that this method may not install the latest released version.
 
-**2. Start the NATS server.**
+### Start the NATS server
 
 You can invoke the NATS server binary, with no options and no configuration file, to start a server with acceptable standalone defaults (no authentication, no clustering).
 
@@ -50,7 +75,7 @@ When the server starts successfully, you will see that the NATS server listens f
 [35483] 2016/05/09 22:00:56.968883 [INF] Server is ready
 ```
 
-**3. Start the NATS server with monitoring enabled.**
+### Starting the NATS server with monitoring enabled (optional)
 
 The NATS server exposes a monitoring interface on port 8222.
 
@@ -67,7 +92,7 @@ If you run the NATS server with monitoring enabled, you see the following messag
 [35490] 2016/05/09 22:13:35.523849 [INF] Server is ready
 ```
 
-**4. Start the NATS server with routes enabled.**
+### Starting the NATS server with routes enabled (optional)
 
 If routing is enabled, route (server) connections listen on port 6222.
 
