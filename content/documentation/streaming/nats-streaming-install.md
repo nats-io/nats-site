@@ -87,9 +87,9 @@ When the server starts successfully, you will see that the NATS Streaming server
 [18085] 2016/10/31 13:11:44.396859 [INF] STAN: --------------------------------
 ```
 
-### Start the NATS Streaming Server with monitoring enabled (optional)
+### Start the NATS Streaming Server with NATS monitoring enabled (optional)
 
-The NATS Streaming server exposes a monitoring interface on port 8222.
+The NATS Streaming server exposes the monitoring interface of its embedded NATS Server (`gnatsd`) on port 8222.
 
 ```
 nats-streaming-server -m 8222
