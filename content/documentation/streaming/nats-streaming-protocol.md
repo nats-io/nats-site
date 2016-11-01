@@ -4,7 +4,7 @@ title = "NATS Streaming Protocol"
 category = "internals"
 [menu.main]
   name = "NATS Streaming Protocol"
-  weight = 1
+  weight = 2
   identifier = "internals-nats-streaming-protocol"
   parent = "Streaming"
 +++
