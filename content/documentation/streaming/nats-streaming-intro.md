@@ -26,7 +26,7 @@ In addition to the features of the core NATS platform, NATS Streaming provides t
     - Reply - The optional "reply-to" subject
     - Data - The message payload
     - Timestamp - the received timestamp, in nanoseconds.
-    - Redelivered - A flag signifiying wither this message has been redelivered by the server
+    - Redelivered - A flag signifiying whether this message has been redelivered by the server
     - CRC32 - An optional IEEE CRC32
 - **Message/event persistence** - NATS Streaming offers configurable message persistence either in-memory or via flat files. The storage subsystem uses a public interface that allows contributors to develop their own custom implementations.
 - **At-least-once-delivery** - NATS Streaming offers message acknowledgements between publisher and server (for publish operations) and between subscriber and server (to confirm message delivery). Messages are persisted by the server in memory or secondary storage (or other external storage) and will be redelivered to eligible subscribing clients as needed.
