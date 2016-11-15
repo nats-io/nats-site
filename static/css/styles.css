@@ -7451,6 +7451,7 @@ html#home-html {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 #community-page .partners-logos a {
   display: block;
