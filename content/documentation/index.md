@@ -51,7 +51,7 @@ Some of the types of use cases that are ideal for NATS include:
 With [NATS Streaming](/documentation/streaming/nats-streaming-intro/), a data streaming service for NATS, additional use cases include:
 
 - Event streaming with replay from specific time or sequence (or relevant offset)
-- Durable susbcriptions for transient clients  
+- Durable subcriptions for transient clients  
 - Persistent/guaranteed message delivery
 
 ## NATS messaging models
