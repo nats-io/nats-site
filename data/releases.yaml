@@ -38,9 +38,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.6.0
+  version_num: 0.7.0
   release_notes: |
-    Release 0.6.0 on August 19th, 2016.
+    Release 0.7.0 on November 16th, 2016.
   github:
     - user: nats-io
       repo: csnats
@@ -401,9 +401,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.1
+  version_num: 0.1.2
   release_notes: |
-    Release v0.1.1 on September 6th, 2016.
+    Release v0.1.2 on November 10th, 2016.
   github:
     - user: nats-io
       repo: csharp-nats-streaming
