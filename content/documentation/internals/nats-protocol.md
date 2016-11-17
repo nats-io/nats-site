@@ -128,7 +128,7 @@ Here is an example from the default string of the Go client:
 CONNECT {"verbose":false,"pedantic":false,"ssl_required":false,"name":"","lang":"go","version":"1.1.0"}\r\n
 ```
 
-Most clients set `verbose` to `false` by default. This means that  that the server will not be sending an `+OK` payload back to the client after the server ingested the message.
+Most clients set `verbose` to `false` by default. This means that the server will not be sending an `+OK` payload back to the client after the server ingested the message.
 
 ## <a name="PUB"></a>PUB
 
