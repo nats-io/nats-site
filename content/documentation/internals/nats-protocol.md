@@ -176,7 +176,7 @@ where:
 
 ### Example
 
-To subscribe to the subject `FOO` with the connection-unique subject identifier (sid) `1`:
+To subscribe to the subject `FOO` with the connection-unique subscription identifier (sid) `1`:
 
 `SUB FOO 1\r\n`
 
