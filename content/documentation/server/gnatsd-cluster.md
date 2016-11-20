@@ -36,12 +36,10 @@ Simplest cluster:
 gnatsd -p 4222 -cluster nats://10.10.0.1:5222
 
 # Server B on 10.10.0.2
-gnatsd -p 4222 -routes nats://10.10.0.1:5222
+gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
 ```
 
 ----
-
-Server B may also serve a "cluster" URL, and Server A may add that to its routes. However it is not required to do this; once a server connects to the cluster it becomes aware of all other servers in that cluster.
 
 ```bash
 # Server A on 10.10.0.1
