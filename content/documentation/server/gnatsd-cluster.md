@@ -16,6 +16,41 @@ NATS supports running each server in clustered mode. You can cluster servers tog
 
 Note that NATS clustered servers have a forwarding limit of one hop. This means that each `gnatsd` instance will **only** forward messages that it has received **from a client** to the immediately adjacent `gnatsd` instances to which it has routes. Messages received **from** a route will only be distributed to local clients. Therefore a full mesh cluster, or complete graph, is recommended for NATS to function as intended and as described throughout the documentation. 
 
+## Overview
+
+In addition to a port for listening for clients, `gnatsd` can listen on a "cluster" URL (the `-cluster` option). Additional `gnatsd` servers can then add that URL to their `-routes` argument to join the cluster. These options can also be specified in a config file, but only the command-line version is shown in this overview for simplicity.
+
+Examples:
+
+No cluster:
+
+```bash
+gnatsd -p 4222
+```
+----
+
+Simplest cluster:
+
+```bash
+# Server A on 10.10.0.1
+gnatsd -p 4222 -cluster nats://10.10.0.1:5222
+
+# Server B on 10.10.0.2
+gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
+```
+
+----
+
+```bash
+# Server A on 10.10.0.1
+gnatsd -p 4222 -cluster nats://10.10.0.1:5222 -routes nats://10.10.0.2:5222
+
+# Server B on 10.10.0.2
+gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222 
+```
+
+Clients connecting to any server in the cluster will remain connected to the cluster even if the server it originally connected to is taken down, as long as at least a single server remains.
+
 ## Usage
 
 The following cluster options are supported:
