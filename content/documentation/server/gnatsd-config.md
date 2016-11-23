@@ -22,7 +22,6 @@ You use a server configuration file to configure the NATS server, including:
 - Logging
 - Max client connections
 - Max payload
-- Slow consumer threshold
 
 In addition, the server configuration language supports [block-scoped variables](#variables) for automation.
 
@@ -106,9 +105,6 @@ max_control_line: 512
 
 # maximum payload
 max_payload: 65536
-
-# slow consumer threshold
-max_pending_size: 10000000
 ```
 
 ## Variables
