@@ -55,7 +55,7 @@ cd $GOPATH/src/github.com/nats-io/nats/examples
 go run nats-sub.go <subject>
 ```
 
-Where <subject> is a subject to listen on. A valid subject is a string that is unique in the system.
+Where `<subject>` is a subject to listen on. A valid subject is a string that is unique in the system.
 
 For example:
 
@@ -81,7 +81,7 @@ cd $GOPATH/src/github.com/nats-io/nats/examples
 go run nats-pub.go <subject> <"message”>
 ```
 
-Where <subject> is the subject name and <"message”> is a message to publish.
+Where `<subject>` is the subject name and `<"message”>` is a message to publish.
 
 For example:
 
