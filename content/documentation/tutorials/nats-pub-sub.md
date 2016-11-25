@@ -86,6 +86,11 @@ Where `<subject>` is the subject name and `<message>` is the text to publish.
 For example:
 
 ```
+go run nats-pub.go msg.test hello
+```
+or
+
+```
 go run nats-pub.go msg.test "NATS MESSAGE"
 ```
 
