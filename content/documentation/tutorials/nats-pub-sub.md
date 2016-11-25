@@ -43,7 +43,7 @@ The NATS server listens for client connections on TCP Port 4222.
 
 You will use this session to run an example NATS client subscriber program.
 
-**3. CD to the example Go client directory.**
+**3. CD to the Go client examples directory.**
 
 ```
 cd $GOPATH/src/github.com/nats-io/nats/examples
@@ -55,7 +55,7 @@ cd $GOPATH/src/github.com/nats-io/nats/examples
 go run nats-sub.go <subject>
 ```
 
-Where <subject> is a subject to listen on. A valid subject is a string that is unique in the system.
+Where `<subject>` is a subject to listen on. A valid subject is a string that is unique in the system.
 
 For example:
 
@@ -78,12 +78,17 @@ cd $GOPATH/src/github.com/nats-io/nats/examples
 **7. Publish a NATS message.**
 
 ```
-go run nats-pub.go <subject> <"message”>
+go run nats-pub.go <subject> <message>
 ```
 
-Where <subject> is the subject name and <"message”> is a message to publish.
+Where `<subject>` is the subject name and `<message>` is the text to publish.
 
 For example:
+
+```
+go run nats-pub.go msg.test hello
+```
+or
 
 ```
 go run nats-pub.go msg.test "NATS MESSAGE"
