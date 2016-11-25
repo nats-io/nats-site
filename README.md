@@ -95,7 +95,7 @@ The Markdown documents contained in these directories are assembled by Hugo and 
 - Use single spaces to separate sentences
 - Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
 	- Links: `[NATS](http://nats.io/)`
-	- Cross references: `[client libraries](/documentation/clients/nats-clients/)`
+	- Cross references: `[NATS protocol](/documentation/internals/nats-protocol.md)`
 	- Images: `![drawing](/img/documentation/nats-msg.png)`
 - Triple ticks for code, commands to run, user operations, input/output
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
