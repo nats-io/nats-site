@@ -24,7 +24,7 @@ To install the NATS server:
 go get github.com/nats-io/gnatsd
 ```
 
-Refer to the [NATS installation tutorial](/documentation/tutorials/nats-gnatsd) for more detailed instructions.
+Refer to the [NATS installation tutorial](/documentation/tutorials/gnatsd-install/) for more detailed instructions.
 
 ## Start up
 
