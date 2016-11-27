@@ -79,10 +79,6 @@ pygmentsstyle = "native"
     weight = 0
     parent = "documentation"
   [[menu.main]]
-    name = "Clients"
-    weight = 1
-    parent = "documentation"
-  [[menu.main]]
     name = "Concepts"
     weight = 2
     parent = "documentation"

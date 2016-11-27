@@ -13,3 +13,7 @@ npm-debug.log
 
 #Eclipse
 .project
+
+#IntelliJ IDEA
+.idea/
+*.iml
