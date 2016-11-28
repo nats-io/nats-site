@@ -48,7 +48,7 @@ The NATS server (`gnatsd`) is written in Go. There is client support for a wide 
 
 ### <a name="maintainer"></a>Who maintains NATS?
 
-NATS is sponsored and supported by Apcera, the trusted application platform company founded by Derek Collison. The Apcera team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/documentation/download/) page for the complete list, and links to the relevant source repositories and documentation.
+NATS is sponsored and supported by Apcera, the trusted application platform company founded by Derek Collison. The Apcera team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/download/) page for the complete list, and links to the relevant source repositories and documentation.
 
 ### <a name="clients"></a>What client support exists for NATS?
 

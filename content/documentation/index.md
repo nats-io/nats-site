@@ -24,7 +24,7 @@ There are several [client libraries](/download/) for NATS. Apcera actively maint
 
 You can write your own client in any language you choose. NATS provides a simple, [text-based protocol](/documentation/internals/nats-protocol/) that makes [writing clients](/documentation/internals/nats-guide) a breeze.
 
-## NATS design goals
+## <a name="design-goals"></a>NATS design goals
 
 The core principles underlying NATS are performance, scalability, and ease-of-use. Based on these principles, NATS is designed around the following core features:
 
