@@ -169,6 +169,21 @@ Releases:
       repo: ruby-nats
       link: https://github.com/nats-io/ruby-nats
 
+- name: Pure Ruby
+  type: nats-client
+  supported: true
+  language: Ruby
+  author:
+    - name:
+      link:
+  version_num: 0.1.2
+  release_notes: |
+    Release v0.1.2 on December 14th, 2016.
+  github:
+    - user: nats-io
+      repo: pure-ruby-nats
+      link: https://github.com/nats-io/pure-ruby-nats
+
 - name: Arduino
   type: nats-client
   supported: false
