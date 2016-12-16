@@ -449,26 +449,26 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.9.4
+  version_num: 0.9.6
   release_notes: |
-    Release v0.9.4 on August 18th, 2016.<br> Docker Image last updated August 18th, 2016.
+    Release v0.9.6 on December 15th, 2016.<br> Docker Image last updated December 16th, 2016.
   github:
     - user: nats-io
       repo: gnatsd
       link: https://github.com/nats-io/gnatsd
   links:
-  - name: gnatsd-v0.9.4-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-darwin-amd64.zip
-  - name: gnatsd-v0.9.4-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-amd64.zip
-  - name: gnatsd-v0.9.4-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-386.zip
-  - name: gnatsd-v0.9.4-linux-arm.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-arm.zip
-  - name: gnatsd-v0.9.4-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-386.zip
-  - name: gnatsd-v0.9.4-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-amd64.zip
+  - name: gnatsd-v0.9.6-darwin-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-darwin-amd64.zip
+  - name: gnatsd-v0.9.6-linux-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-amd64.zip
+  - name: gnatsd-v0.9.6-linux-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-386.zip
+  - name: gnatsd-v0.9.6-linux-arm.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-arm.zip
+  - name: gnatsd-v0.9.6-windows-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-windows-386.zip
+  - name: gnatsd-v0.9.6-windows-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
