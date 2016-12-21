@@ -386,9 +386,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.3.4
   release_notes: |
-    Release v0.2.0 on July 19th, 2016.
+    Release v0.3.4 on December 12th, 2016.
   github:
     - user: nats-io
       repo: go-nats-streaming
@@ -479,23 +479,25 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.3.6
   release_notes: |
-    Release v0.2.0 on July 8th, 2016.
+    Release v0.3.6 on December 21th, 2016.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
-  - name: nats-streaming-server-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-darwin-amd64.zip
-  - name: nats-streaming-server-linux-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-386.zip
-  - name: nats-streaming-server-linux-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-amd64.zip
-  - name: nats-streaming-server-linux-arm.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-arm.zip
-  - name: nats-streaming-server-windows-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-386.zip
-  - name: nats-streaming-server-windows-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-amd64.zip
+  - name: nats-streaming-server-v0.3.6-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-darwin-amd64.zip
+  - name: nats-streaming-server-v0.3.6-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-386.zip
+  - name: nats-streaming-server-v0.3.6-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-amd64.zip
+  - name: nats-streaming-server-v0.3.6-linux-arm.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-arm.zip
+  - name: nats-streaming-server-v0.3.6-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-windows-386.zip
+  - name: nats-streaming-server-v0.3.6-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-windows-amd64.zip
+  - name: Official Docker Image
+    url: https://hub.docker.com/_/nats-streaming/
