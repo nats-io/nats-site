@@ -117,6 +117,7 @@ The valid options are as follows:
 * `name`: Optional client name
 * `lang`: The implementation language of the client.
 * `version`: The version of the client.
+* `protocol`: optional, passing `1` indicates that the client supports dynamic reconfiguration of cluster topology changes
 
 ### Description
 The `CONNECT` message is analogous to the `INFO` message. Once the client has established a TCP/IP socket connection with the NATS server, and an `INFO` message has been received from the server, the client may send a `CONNECT` message to the NATS server to provide more information about the current connection as well as security information.
