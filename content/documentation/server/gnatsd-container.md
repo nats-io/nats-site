@@ -61,13 +61,13 @@ $ docker run -d -p 4222:4222 -p 6222:6222 -p 8222:8222 --name nats-main nats
 To run a second server and cluster them together:
 
 ```
-$ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222
+$ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://nats-main:6222
 ```
 
 To verify the routes are connected:
 
 ```
-$ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222 -DV
+$ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://nats-main:6222 -DV
 [INF] Starting gnatsd version 0.6.6
 [INF] Starting http monitor on port 8222
 [INF] Listening for route connections on :6222
