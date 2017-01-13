@@ -457,6 +457,24 @@ Releases:
       repo: node-nats-streaming
       link: https://github.com/nats-io/node-nats-streaming
 
+- name: Asyncio
+  type: streaming-client
+  supported: false
+  language: Python
+  author:
+    - name: Jared Mackey
+      link: https://github.com/mackeyja92
+  version_num: 0.2.0
+  release_notes: |
+    No release notes.
+  github:
+    - user: mackeyja92
+      repo: asyncio-nats-streaming
+      link: https://github.com/mackeyja92/asyncio-nats-streaming
+  links:
+    - name: PyPI
+      url: https://pypi.org/project/asyncio-nats-streaming-client/#description
+
 - name: NATS Server
   type: nats-server
   supported: true
