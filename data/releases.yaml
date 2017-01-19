@@ -512,25 +512,25 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.3.6
+  version_num: 0.3.8
   release_notes: |
-    Release v0.3.6 on December 21th, 2016.
+    Release v0.3.8 on January 19th, 2017.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
-  - name: nats-streaming-server-v0.3.6-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-darwin-amd64.zip
-  - name: nats-streaming-server-v0.3.6-linux-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-386.zip
-  - name: nats-streaming-server-v0.3.6-linux-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-amd64.zip
-  - name: nats-streaming-server-v0.3.6-linux-arm.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-linux-arm.zip
-  - name: nats-streaming-server-v0.3.6-windows-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-windows-386.zip
-  - name: nats-streaming-server-v0.3.6-windows-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.6/nats-streaming-server-v0.3.6-windows-amd64.zip
+  - name: nats-streaming-server-v0.3.8-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-darwin-amd64.zip
+  - name: nats-streaming-server-v0.3.8-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-386.zip
+  - name: nats-streaming-server-v0.3.8-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-amd64.zip
+  - name: nats-streaming-server-v0.3.8-linux-arm.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-arm.zip
+  - name: nats-streaming-server-v0.3.8-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-windows-386.zip
+  - name: nats-streaming-server-v0.3.8-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats-streaming/
