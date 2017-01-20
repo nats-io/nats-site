@@ -87,13 +87,13 @@ The [runtime.Goexit](http://golang.org/src/runtime/panic.go?s=8250:8263#L289) fu
 When you have coded the subscriber, run it as follows:
 
 ```
-go run async-sub.go foo
+go run async-sub.go
 ```
 
 Expected result:
 
 ```
-go run async-sub.go foo
+go run async-sub.go
 2015/09/26 17:40:54 Connected to nats://localhost:4222
 2015/09/26 17:40:54 Subscribing to subject 'foo'
 ```
