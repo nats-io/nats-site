@@ -144,7 +144,7 @@ After you have written this client, you can explore pub-sub messaging using the 
 
 ### Test
 
-When you have coded the subscriber, run it as follows:
+When you have coded the publisher, run it as follows:
 
 ```
 go run pub-simple.go
