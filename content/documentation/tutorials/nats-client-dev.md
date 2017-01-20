@@ -147,13 +147,13 @@ After you have written this client, you can explore pub-sub messaging using the 
 When you have coded the subscriber, run it as follows:
 
 ```
-go run async-sub.go foo
+go run pub-simple.go
 ```
 
 Expected result:
 
 ```
-go run pub-simple.go foo hello nats
+go run pub-simple.go
 2015/09/26 17:48:16 Connected to nats://localhost:4222
 2015/09/26 17:48:16 Published message on subject foo
 ```
