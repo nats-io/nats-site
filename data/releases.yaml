@@ -274,6 +274,21 @@ Releases:
       repo: phpnats
       link: https://github.com/repejota/phpnats
 
+- name: MicroPython
+  type: nats-client
+  supported: false
+  language: MicroPython
+  author:
+    - name: M K Hari Balaji
+      link: https://github.com/mkharibalaji
+  version_num: 0.0.0
+  release_notes: |
+    Last updated January 20th, 2017.
+  github:
+    - user: mkharibalaji
+      repo: mpynats
+      link: https://github.com/mkharibalaji/mpynats
+
 - name: Python
   type: nats-client
   supported: false
