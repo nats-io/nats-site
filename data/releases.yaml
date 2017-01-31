@@ -472,8 +472,10 @@ Releases:
       repo: asyncio-nats-streaming
       link: https://github.com/mackeyja92/asyncio-nats-streaming
   links:
-    - name: PyPI
+    - name: PyPI - pypi.org
       url: https://pypi.org/project/asyncio-nats-streaming-client/#description
+    - name: PyPI - python.org
+      url: https://pypi.python.org/pypi/asyncio-nats-streaming-client
 
 - name: NATS Server
   type: nats-server
