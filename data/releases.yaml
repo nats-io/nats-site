@@ -274,6 +274,21 @@ Releases:
       repo: phpnats
       link: https://github.com/repejota/phpnats
 
+- name: MicroPython
+  type: nats-client
+  supported: false
+  language: MicroPython
+  author:
+    - name: M K Hari Balaji
+      link: https://github.com/mkharibalaji
+  version_num: 0.0.0
+  release_notes: |
+    Last updated January 20th, 2017.
+  github:
+    - user: mkharibalaji
+      repo: mpynats
+      link: https://github.com/mkharibalaji/mpynats
+
 - name: Python
   type: nats-client
   supported: false
@@ -472,8 +487,10 @@ Releases:
       repo: asyncio-nats-streaming
       link: https://github.com/mackeyja92/asyncio-nats-streaming
   links:
-    - name: PyPI
+    - name: PyPI - pypi.org
       url: https://pypi.org/project/asyncio-nats-streaming-client/#description
+    - name: PyPI - python.org
+      url: https://pypi.python.org/pypi/asyncio-nats-streaming-client
 
 - name: NATS Server
   type: nats-server
