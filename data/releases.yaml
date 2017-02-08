@@ -116,9 +116,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.6.4
+  version_num: 0.7.2
   release_notes: |
-    Release v.0.6.4, June 10th, 2016
+    Release v.0.7.2, January 10th, 2017
   github:
     - user: nats-io
       repo: node-nats
