@@ -14,6 +14,7 @@ import (
 func main() {
 
 	// Create server connection: auth and no auth
+	// natsConnection, _ := nats.Connect("nats://foo:bar@localhost:4222")
 	natsConnection, err := nats.Connect(nats.DefaultURL)
 
 	if err != nil {
