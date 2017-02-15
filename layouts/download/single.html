@@ -82,13 +82,15 @@
 
       {{ if eq .RelPermalink "/download/" }}
       {{ range $.Site.Data }}
+
       <hr>
-      <h2>Connectors</h2>
+
+      <h2>Connectors and Utilities</h2>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th class="col-md-2"></th>
+              <th class="col-md-2">Name</th>
               <th class="col-md-7">Description</th>
               <th class="col-md-2">Developer</th>
               <th class="col-md-1">Support</th>
@@ -108,6 +110,42 @@
               <td>Apcera</td>
             </tr>
             <tr>
+              <td><a href="https://github.com/Logimethods/nats-connector-spark" target="_blank">Apache Spark</a></td>
+              <td>Provides an Apache Spark (a fast and general engine for large-scale data processing) integration with NATS.</td>
+              <td><a target="_blank" href="https://github.com/laugimethods">Laurent Magnin</a> at Logimethods</td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/dankomiocevic/aws-nats" target="_blank">AWS NATS</a></td>
+              <td>This repository contains tools and templates to help using NATS in the Amazon Web Services platform.</td>
+              <td><a target="_blank" href="https://github.com/dankomiocevic">Danko Miocevic</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/cmfatih/natsboard" target="_blank">NATSBoard</a></td>
+              <td>Dashboard for monitoring NATS. It provides real-time information from NATS server.</td>
+              <td><a target="_blank" href="https://github.com/fatihcode">Fatih Cetinkaya</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/pires/nats-coreos-cluster" target="_blank">CoreOS Clustering</a></td>
+              <td>NATS clustering made easy with CoreOS, etcd2 and Docker.</td>
+              <td><a target="_blank" href="https://github.com/pires">Paulo Pires</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/dokku/dokku-nats" target="_blank">Dokku-NATS</a></td>
+              <td>NATS plugin for Dokku, a PaaS Platform</td>
+              <td><a target="_blank" href="https://github.com/josegonzalez">Jose Diaz-Gonzalez</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/netlify/elastinats" target="_blank">Elasticsearch</a></td>
+              <td>Allows you to take data from nats subjects/groups and pump these into Elasticsearch.</td>
+              <td><a target="_blank" href="http://www.netlify.com/">Netlify</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
               <td><a href="http://fluentbit.io/documentation/0.8/output/nats.html" target="_blank">Fluent Bit</a></td>
               <td>The NATS output connector allows to flush your Fluent Bit records into a NATS Server endpoint</td>
               <td><a target="_blank" href="http://fluentbit.io/">Fluent Bit</a></td>
@@ -120,9 +158,57 @@
               <td>Community</td>
             </tr>
             <tr>
+              <td><a href="https://github.com/Logimethods/nats-connector-gatling" target="_blank">A Gatling to NATS Connector</a></td>
+              <td>The NATS Gatling library provides a Gatling (an open-source load testing framework based on Scala, Akka and Netty) to NATS messaging system (a highly performant cloud native messaging system) Connector.</td>
+              <td><a target="_blank" href="https://github.com/laugimethods">Laurent Magnin</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/pires/kubernetes-nats-cluster" target="_blank">Kubernetes</a></td>
+              <td>NATS cluster on top of Kubernetes made easy.</td>
+              <td><a target="_blank" href="https://github.com/pires">Paulo Pires</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/trillium-labs/logrus-nats" target="_blank">Logrus-NATS</a></td>
+              <td>A Logrus hook for sending data to NATS.</td>
+              <td><a target="_blank" href="https://github.com/erikhoward">Erik Howard</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/rybit/nats_logrus_hook" target="_blank">Logrus</a></td>
+              <td>NATS hook for Logrus -  helpers assume you are using a TLS connection.</td>
+              <td><a target="_blank" href="https://github.com/rybit">Ryan Neal</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
               <td><a href="https://github.com/r3labs/nats_to_logstash" target="_blank">Logstash</a></td>
               <td>Resends configured NATS messages directly to Logstash through a TCP connection.</td>
               <td><a target="_blank" href="https://github.com/r3labs">R3 Labs</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/repejota/nats-mon" target="_blank">NATS-Mon</a></td>
+              <td>A realtime web based NATS monitor</td>
+              <td><a target="_blank" href="https://github.com/repejota">Raül Pérez</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/nvisibleinc/go-ari-proxy" target="_blank">Nvisible Inc Go ARI Proxy</a></td>
+              <td>An implementation of the [go-ari-library] used to connect to the Asterisk REST Interface for delivery of Events and Commands across a message bus.</td>
+              <td><a target="_blank" href="https://github.com/leifmadsen">Leif Madsen</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/lovoo/nats_exporter" target="_blank">Prometheus</a></td>
+              <td>NATS exporter for Prometheus, written in Go. It extracts several metrics and provides them via the standard HTTP interface for Prometheus to collect them.</td>
+              <td><a target="_blank" href="http://lovoo.com/">Lovoo</a></td>
+              <td>Community</td>
+            </tr>
+            <tr>
+              <td><a href="http://bit.ly/1X36qKZ" target="_blank">Rancher NATS</a></td>
+              <td>This is an extended version of the official Docker image for nats. It adds support to set up a cluster easily onrancher.</td>
+              <td><!--<a target="_blank" href="#"></a>--></td>
               <td>Community</td>
             </tr>
             <tr>
@@ -132,9 +218,9 @@
               <td>Community</td>
             </tr>
             <tr>
-              <td><a href="https://github.com/Logimethods/nats-connector-spark" target="_blank">Apache Spark</a></td>
-              <td>Provides an Apache Spark (a fast and general engine for large-scale data processing) integration with NATS.</td>
-              <td><a target="_blank" href="https://github.com/laugimethods">Laurent Magnin</a> at Logimethods</td>
+              <td><a href="https://github.com/pires/nats-sniffer" target="_blank">NATS Sniffer</a></td>
+              <td>A simple sniffer for NATS, the cloud native messaging system.</td>
+              <td><a target="_blank" href="https://github.com/pires">Paulo Pires</a></td>
               <td>Community</td>
             </tr>
             <tr>
@@ -144,57 +230,16 @@
               <td>Community</td>
             </tr>
             <tr>
-              <td><a href="https://github.com/Logimethods/nats-connector-gatling" target="_blank">A Gatling to NATS Connector</a></td>
-              <td>The NATS Gatling library provides a Gatling (an open-source load testing framework based on Scala, Akka and Netty) to NATS messaging system (a highly performant cloud native messaging system) Connector.</td>
-              <td><a target="_blank" href="https://github.com/laugimethods">Laurent Magnin</a></td>
-              <td>Community</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Utilities</h2>
-
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="col-md-2"></th>
-              <th class="col-md-10">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="https://github.com/dokku/dokku-nats" target="_blank">Dokku-NATS</a></td>
-              <td>NATS plugin for Dokku, a PaaS Platform</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/dankomiocevic/aws-nats" target="_blank">AWS NATS</a></td>
-              <td>This repository contains tools and templates to help using NATS in the Amazon Web Services platform.</td>
-            </tr>
-            <tr>
               <td><a href="https://github.com/influxdata/telegraf/tree/8d0f50a6fd10cea1af84ccfdc2beeb1a61dd19bd/plugins/inputs/nats_consumer" target="_blank">Telegraf</a></td>
               <td>The NATS consumer plugin reads from specified NATS subjects and adds messages to InfluxDB. The plugin expects messages in the Telegraf Input Data Formats. A Queue Group is used when subscribing to subjects so multiple instances of telegraf can read from a NATS cluster in parallel.</td>
+              <td><a target="_blank" href="https://github.com/sparrc">Cameron Sparr</a></td>
+              <td>Community</td>
             </tr>
             <tr>
-              <td><a href="https://github.com/trillium-labs/logrus-nats" target="_blank">Logrus-NATS</a></td>
-              <td>A Logrus hook for sending data to NATS.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/repejota/nats-mon" target="_blank">NATS-Mon</a></td>
-              <td>A realtime web based NATS monitor</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/cmfatih/natsboard" target="_blank">NATSBoard</a></td>
-              <td>Dashboard for monitoring NATS. It provides real-time information from NATS server.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/nvisibleinc/go-ari-proxy" target="_blank">Nvisible Inc Go ARI Proxy</a></td>
-              <td>An implementation of the [go-ari-library] used to connect to the Asterisk REST Interface for delivery of Events and Commands across a message bus.</td>
-            </tr>
-            <tr>
-              <td><a href="http://bit.ly/1X36qKZ" target="_blank">Rancher NATS</a></td>
-              <td>This is an extended version of the official Docker image for nats. It adds support to set up a cluster easily onrancher.</td>
+              <td><a href="https://github.com/joshglendenning/websocket-nats" target="_blank">websocket-nats</a></td>
+              <td>An in-browser websocket client for NATS, a lightweight, high-performance cloud native messaging system.</td>
+              <td><a target="_blank" href="https://github.com/joshglendenning">Josh Glendenning</a></td>
+              <td>Community</td>
             </tr>
           </tbody>
         </table>

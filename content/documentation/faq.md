@@ -16,7 +16,7 @@ showChildren=true
 * [What is NATS?] (#NATS)
 * [What language is NATS written in?] (#gnatsdlang)
 * [Who maintains NATS?] (#maintainer)
-* [What client support exists for NATS?] (#clients)
+* [What clients does NATS support?] (#clients)
 
 ### Technical Questions
 * [What is the difference between Request() and Publish()?] (#reqvspub)
@@ -44,15 +44,15 @@ NATS was created by Derek Collison, who has over 20 years designing, building, a
 
 ### <a name="gnatsdlang"></a>What language is NATS written in?
 
-The NATS server (`gnatsd`) is written in Go. There is client support for a wide variety of languages. Please see [the list of NATS clients](/documentation/clients/nats-clients/) for more info.
+The NATS server (`gnatsd`) is written in Go. There is client support for a wide variety of languages. Please see the [Download](/download/) page for more info.
 
 ### <a name="maintainer"></a>Who maintains NATS?
 
-NATS is sponsored and supported by Apcera, the trusted application platform company founded by Derek Collison. The Apcera team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/documentation/download/) page for the complete list, and links to the relevant source repositories and documentation.
+NATS is sponsored and supported by Apcera, the trusted application platform company founded by Derek Collison. The Apcera team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/download/) page for the complete list, and links to the relevant source repositories and documentation.
 
 ### <a name="clients"></a>What client support exists for NATS?
 
-Please see [the list of NATS clients](/documentation/clients/nats-clients/) for the latest list of Apcera- and community-sponsored NATS clients.
+Please see the [Download](/download/) page for the latest list of Apcera- and community-sponsored NATS clients.
 
 ## Technical Questions
 

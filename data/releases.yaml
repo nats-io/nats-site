@@ -116,9 +116,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.6.4
+  version_num: 0.7.2
   release_notes: |
-    Release v.0.6.4, June 10th, 2016
+    Release v.0.7.2, January 10th, 2017
   github:
     - user: nats-io
       repo: node-nats
@@ -168,6 +168,21 @@ Releases:
     - user: nats-io
       repo: ruby-nats
       link: https://github.com/nats-io/ruby-nats
+
+- name: Pure Ruby
+  type: nats-client
+  supported: true
+  language: Ruby
+  author:
+    - name:
+      link:
+  version_num: 0.1.2
+  release_notes: |
+    Release v0.1.2 on December 14th, 2016.
+  github:
+    - user: nats-io
+      repo: pure-ruby-nats
+      link: https://github.com/nats-io/pure-ruby-nats
 
 - name: Arduino
   type: nats-client
@@ -258,6 +273,21 @@ Releases:
     - user: repejota
       repo: phpnats
       link: https://github.com/repejota/phpnats
+
+- name: MicroPython
+  type: nats-client
+  supported: false
+  language: MicroPython
+  author:
+    - name: M K Hari Balaji
+      link: https://github.com/mkharibalaji
+  version_num: 0.0.0
+  release_notes: |
+    Last updated January 20th, 2017.
+  github:
+    - user: mkharibalaji
+      repo: mpynats
+      link: https://github.com/mkharibalaji/mpynats
 
 - name: Python
   type: nats-client
@@ -386,9 +416,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.3.4
   release_notes: |
-    Release v0.2.0 on July 19th, 2016.
+    Release v0.3.4 on December 12th, 2016.
   github:
     - user: nats-io
       repo: go-nats-streaming
@@ -442,6 +472,26 @@ Releases:
       repo: node-nats-streaming
       link: https://github.com/nats-io/node-nats-streaming
 
+- name: Asyncio
+  type: streaming-client
+  supported: false
+  language: Python
+  author:
+    - name: Jared Mackey
+      link: https://github.com/mackeyja92
+  version_num: 0.2.0
+  release_notes: |
+    No release notes.
+  github:
+    - user: mackeyja92
+      repo: asyncio-nats-streaming
+      link: https://github.com/mackeyja92/asyncio-nats-streaming
+  links:
+    - name: PyPI - pypi.org
+      url: https://pypi.org/project/asyncio-nats-streaming-client/#description
+    - name: PyPI - python.org
+      url: https://pypi.python.org/pypi/asyncio-nats-streaming-client
+
 - name: NATS Server
   type: nats-server
   supported: true
@@ -449,26 +499,26 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.9.4
+  version_num: 0.9.6
   release_notes: |
-    Release v0.9.4 on August 18th, 2016.<br> Docker Image last updated August 18th, 2016.
+    Release v0.9.6 on December 15th, 2016.<br> Docker Image last updated December 16th, 2016.
   github:
     - user: nats-io
       repo: gnatsd
       link: https://github.com/nats-io/gnatsd
   links:
-  - name: gnatsd-v0.9.4-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-darwin-amd64.zip
-  - name: gnatsd-v0.9.4-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-amd64.zip
-  - name: gnatsd-v0.9.4-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-386.zip
-  - name: gnatsd-v0.9.4-linux-arm.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-linux-arm.zip
-  - name: gnatsd-v0.9.4-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-386.zip
-  - name: gnatsd-v0.9.4-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.4/gnatsd-v0.9.4-windows-amd64.zip
+  - name: gnatsd-v0.9.6-darwin-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-darwin-amd64.zip
+  - name: gnatsd-v0.9.6-linux-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-amd64.zip
+  - name: gnatsd-v0.9.6-linux-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-386.zip
+  - name: gnatsd-v0.9.6-linux-arm.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-linux-arm.zip
+  - name: gnatsd-v0.9.6-windows-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-windows-386.zip
+  - name: gnatsd-v0.9.6-windows-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v0.9.6/gnatsd-v0.9.6-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
@@ -479,23 +529,25 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.3.8
   release_notes: |
-    Release v0.2.0 on July 8th, 2016.
+    Release v0.3.8 on January 19th, 2017.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
-  - name: nats-streaming-server-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-darwin-amd64.zip
-  - name: nats-streaming-server-linux-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-386.zip
-  - name: nats-streaming-server-linux-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-amd64.zip
-  - name: nats-streaming-server-linux-arm.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-linux-arm.zip
-  - name: nats-streaming-server-windows-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-386.zip
-  - name: nats-streaming-server-windows-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.2.0/nats-streaming-server-windows-amd64.zip
+  - name: nats-streaming-server-v0.3.8-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-darwin-amd64.zip
+  - name: nats-streaming-server-v0.3.8-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-386.zip
+  - name: nats-streaming-server-v0.3.8-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-amd64.zip
+  - name: nats-streaming-server-v0.3.8-linux-arm.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-linux-arm.zip
+  - name: nats-streaming-server-v0.3.8-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-windows-386.zip
+  - name: nats-streaming-server-v0.3.8-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.3.8/nats-streaming-server-v0.3.8-windows-amd64.zip
+  - name: Official Docker Image
+    url: https://hub.docker.com/_/nats-streaming/

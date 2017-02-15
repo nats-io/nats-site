@@ -2,12 +2,13 @@
 
 package main
 
-// Import packages
+// Import Go and NATS packages
 import (
-  "runtime"
-  "log"
-  "github.com/nats-io/nats"
+	"log"
 	"os"
+	"runtime"
+
+	"github.com/nats-io/nats"
 ) 
 
 func main() {

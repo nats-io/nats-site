@@ -32,7 +32,7 @@ A fully configured NATS server is provided as a [Docker image](/documentation/se
 
 ## Clustering
 
-One of the [design goals](/documentation/index/) of NATS is that it be always on and available like a dial tone. To implement this design goal, NATS provides mechanisms for [clustering servers](/documentation/server/gnatsd-cluster/) to achieve resiliency and high availability.
+One of the [design goals](/documentation/#design-goals) of NATS is that it be always on and available like a dial tone. To implement this design goal, NATS provides mechanisms for [clustering servers](/documentation/server/gnatsd-cluster/) to achieve resiliency and high availability.
 
 ## Auto-Pruning
 

@@ -64,7 +64,7 @@ The proxy side implements the `http.Handler` interface, so it can be used with b
 import(
         "gopkg.in/sohlich/nats-proxy.v1"
         "net/http"
-        "github.com/nats-io/nats"
+        "github.com/nats-io/go-nats"
     )
 
 func main() {
@@ -96,7 +96,7 @@ The client code uses the nats connection as the constructor argument, so all ava
 import(
     "gopkg.in/sohlich/nats-proxy.v1"
     "net/http"
-    "github.com/nats-io/nats"
+    "github.com/nats-io/go-nats"
 )
 
 func main(){
