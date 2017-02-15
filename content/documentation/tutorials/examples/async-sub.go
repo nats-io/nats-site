@@ -5,9 +5,10 @@ package main
 // Import packages
 import (
 	"log"
+	"os"
 	"runtime"
 
-	"github.com/nats-io/go-nats"
+	"github.com/nats-io/nats"
 )
 
 func main() {
@@ -17,9 +18,15 @@ func main() {
 	natsConnection, _ := nats.Connect(nats.DefaultURL)
 	log.Println("Connected to " + nats.DefaultURL)
 
+	var subject string
+	if len(os.Args) > 1 {
+		subject = os.Args[1]
+	} else {
+		subject = "foo"
+	}
 	// Subscribe to subject
-	log.Printf("Subscribing to subject 'foo'\n")
-	natsConnection.Subscribe("foo", func(msg *nats.Msg) {
+	log.Printf("Subscribing to subject %s\n", subject)
+	natsConnection.Subscribe(subject, func(msg *nats.Msg) {
 
 		// Handle the message
 		log.Printf("Received message '%s\n", string(msg.Data)+"'")
