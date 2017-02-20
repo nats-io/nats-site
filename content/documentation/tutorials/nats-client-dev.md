@@ -257,9 +257,10 @@ import (
 func main() {
 
     // Connect to server with auth credentials
-    natsConnection, _ := nats.Connect("nats://foo:bar@localhost:4222")
+    natsConnectionString := "nats://foo:bar@localhost:4222"
+    natsConnection, _ := nats.Connect(natsConnectionString)
     defer natsConnection.Close()
-    log.Println("Connected to " + nats.DefaultURL)
+    log.Println("Connected to " + natsConnectionString)
 
     // Publish message on subject
     subject := "foo"
