@@ -118,10 +118,7 @@ NATS does have a message size limitation that is enforced by the server and comm
 
 ### <a name="numsubj"></a>Does NATS impose any limits on the # of subjects?
 
-The maximum number of subjects is currently 2^32 (i.e. the max value of Go's uint32 type).
-This may change in the future.
-The current implementation (which predates some native Go data structures) is a custom Hashmap.
-We will eventually move to native Go data structures as we test and verify relative performance.
+No. As of `gnatsd` v0.8.0, there is no hard limit on the maximum number of subjects.
 
 ### <a name="gmd"></a>Does NATS guarantee message delivery?
 
