@@ -1408,10 +1408,6 @@ ul ol,
 ol ol {
   margin-bottom: 0;
 }
-.list-bullet-indent {
-  padding-left: 40px;
-  list-style: disc;
-}
 .list-unstyled {
   padding-left: 0;
   list-style: none;
