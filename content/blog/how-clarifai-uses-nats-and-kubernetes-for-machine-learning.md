@@ -1,6 +1,6 @@
 +++
 categories = ["Community", "Engineering"]
-date = "2017-01-24"
+date = "2017-03-08"
 tags = ["nats", "microservices", "scalable", "guest post", "go", "kubernetes", "machine learning"]
 title = "Guest Post: How Clarifai uses NATS and Kubernetes for their Machine Learning Platform"
 author = "Jack Li"
