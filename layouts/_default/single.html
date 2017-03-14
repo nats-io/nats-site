@@ -1,12 +1,12 @@
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
-  <div class="row">
+  <div id="main-con-row" class="row">
     {{ if .Site.Params.leftNav }}
     <div id="left-nav-con" class="col-md-3 hidden-xs hidden-sm">
       {{ partial "side-menu.html" . }}
     </div>
     {{ end }}
-    <div class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
+    <div id="main-body-con" class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
       {{ .Content }}
     </div>
   </div>

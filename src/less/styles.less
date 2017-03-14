@@ -266,52 +266,8 @@ nav.navbar-default {
       a.main-item:hover, a.main-item:active, a.main-item:focus, &.active a.main-item {
         outline: 0;
         color: @nats-colour-green-lite;
-
       }
-      // @media (min-width: @screen-md-min) {
-      //   a {
-      //     padding: 28px 0px 12px 0px;
-      //     margin: 0px 15px 17px;
-      //
-      //   }
-
-      // }
-      // @media (max-width: @screen-md-min) {
-      //   a:hover, a:active, a:focus, &.active a, &.active a:hover {
-      //     outline: 0;
-      //     background-color: lighten(@nats-brand-blue-dark, 10%);
-      //   }
-      //   &.active, &.open {
-      //     a.main-item,
-      //     a.main-item:hover {
-      //       background-color: lighten(@nats-brand-blue-dark, 10%);
-      //     }
-      //   }
-      //   &.active, &.open {
-      //     ul {
-      //       li.active {
-      //         a.sub-item {
-      //           background-color: lighten(@nats-brand-blue-dark, 10%);
-      //           &:hover, &:active, &:focus {
-      //             background-color: lighten(@nats-brand-blue-dark, 10%);
-      //           }
-      //         }
-      //       }
-      //     }
-      //     a.sub-item {
-      //       background-color: transparent;
-      //       &:hover, &:active, &:focus {
-      //         background-color: lighten(@nats-brand-blue-dark, 10%);
-      //       }
-      //     }
-      //   }
-      //   a.sub-item:hover {
-      //     background-color: lighten(@nats-brand-blue-dark, 10%);
-      //   }
-      // }
-
     }
-
   }
 }
 
@@ -512,13 +468,20 @@ html#home-html {
 
 // About Page
 #about-page {
-  #canvas-con {
-    canvas#throughputChart {
-
-    }
-  }
   .embed-responsive {
     margin-bottom: 30px;
+  }
+  // Products
+  #about-products {
+    h2 {
+
+    }
+    img {
+
+    }
+    .read-more-link {
+      white-space: nowrap;
+    }
   }
   // Recent Posts
   #recent-posts {
@@ -529,8 +492,132 @@ html#home-html {
       margin-bottom: 15px;
     }
   }
-}
-// End About
+} // End About
+
+// NATS Cloud
+#nats-cloud-page {
+  #main-con.container {
+    // Need to manage the column of the page within the template for the full width blue background for features.
+    width: auto;
+    padding: 0;
+    #main-con-row.row {
+      margin: 0;
+      padding: 0;
+    }
+    #main-body-con {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  #cloud-header {
+    padding: 80px 0;
+    @media (min-width: @screen-md-min) {
+      display: flex;
+    }
+    .col-left {
+      h1 {
+        color: @nats-colour-blue-lite;
+        font-size: 28px;
+        font-weight: 600;
+      }
+      p.lead {
+        color: @nats-colour-blue-lite;
+        margin-bottom: 0;
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+    }
+    .col-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 250px;
+        margin-top: 30px;
+      }
+    }
+  }
+  #cloud-blue-bar {
+    padding: 50px 0;
+    background-color: @nats-colour-blue-lite;
+    margin-bottom: 30px;
+    h2 {
+      color: white;
+      font-size: 21px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    ul.feature-list {
+      margin: 0;
+      padding: 0;
+      @media (min-width: @screen-md-min) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      li {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        @media (max-width: @screen-xs-min) {
+            flex-direction: column;
+        }
+        img {
+          height: auto;
+        }
+        .feature-details {
+          @media (min-width: @screen-lg-min) {
+            padding-right: 125px;
+          }
+          h3 {
+            color: white;
+            font-size: 21px;
+            @media (max-width: @screen-xs-min) {
+              margin-top: 0;
+            }
+          }
+          p {
+            color: white;
+          }
+        }
+        .feature-icon {
+          flex: 0 0 90px;
+          margin-right: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @media (max-width: @screen-xs-min) {
+              margin-right: 0;
+          }
+        }
+      }
+      #feature-scale-up img { width: 50px; }
+      #feature-administration img { width: 75px; }
+      #feature-auto-update img { width: 50px; }
+      #feature-secure img { width: 50px; }
+      #feature-monitoring-support img { width: 50px; }
+    } // END Feature List
+  }
+  #nats-cloud-faq {
+    h3 {
+      margin-bottom: 20px;
+    }
+    dl {
+      dt {
+        margin-bottom: 7px;
+        font-weight: 600;
+      }
+      dd {
+        margin-bottom: 25px;
+        font-weight: 300;
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+} // END NATS Cloud
 
 // Community
 #community-page {
@@ -609,14 +696,11 @@ html#home-html {
   #quote-carousel-con {
     padding: 60px 20px;
     position: relative;
-
     #quote-carousel {
       position: static;
-
       ul.carousel-inner {
         margin: 0px;
         padding: 0px;
-
         li {
           .quote-con{
             height: 275px;
@@ -624,7 +708,6 @@ html#home-html {
             align-items: center;
             justify-content: center;
             flex-direction: column;
-
             .quote-inner {
               text-align: center;
               p {
@@ -677,7 +760,6 @@ html#home-html {
         padding-bottom: 0px;
         display: flex;
         flex-direction: column;
-
       }
     }
     .detail-block {
@@ -686,9 +768,6 @@ html#home-html {
         margin-bottom: 0px;
         .supported {
           margin-bottom: 22px;
-        }
-        .download-info {
-
         }
       }
       .github-buttons {
@@ -700,9 +779,6 @@ html#home-html {
   #download-menu-con {
     @media (min-width: @screen-sm) {
       display: flex;
-    }
-    h3 {
-
     }
     .nav-block {
       display: flex;
@@ -797,7 +873,6 @@ html#home-html {
             color: @nats-brand-blue-dark;
           }
         }
-
         ul {
           padding: 2px 0px 20px 0px;
           li {
@@ -806,13 +881,6 @@ html#home-html {
             text-overflow: ellipsis;
             &.active {
               font-weight: bold;
-
-              a {
-
-              }
-            }
-            a {
-
             }
           }
         }
@@ -830,9 +898,6 @@ html#home-html {
     }
   }
   dl.blog-entry-meta {
-    dt {
-
-    }
     dd {
       margin-bottom: 10px;
     }

@@ -7400,11 +7400,178 @@ html#home-html {
 #about-page .embed-responsive {
   margin-bottom: 30px;
 }
+#about-page #about-products .read-more-link {
+  white-space: nowrap;
+}
 #about-page #recent-posts h5 {
   margin-bottom: 0px;
 }
 #about-page #recent-posts p {
   margin-bottom: 15px;
+}
+#nats-cloud-page #main-con.container {
+  width: auto;
+  padding: 0;
+}
+#nats-cloud-page #main-con.container #main-con-row.row {
+  margin: 0;
+  padding: 0;
+}
+#nats-cloud-page #main-con.container #main-body-con {
+  padding: 0;
+  margin: 0;
+}
+#nats-cloud-page #cloud-header {
+  padding: 80px 0;
+}
+@media (min-width: 992px) {
+  #nats-cloud-page #cloud-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+#nats-cloud-page #cloud-header .col-left h1 {
+  color: #27aae1;
+  font-size: 28px;
+  font-weight: 600;
+}
+#nats-cloud-page #cloud-header .col-left p.lead {
+  color: #27aae1;
+  margin-bottom: 0;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+#nats-cloud-page #cloud-header .col-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#nats-cloud-page #cloud-header .col-right img {
+  width: 250px;
+  margin-top: 30px;
+}
+#nats-cloud-page #cloud-blue-bar {
+  padding: 50px 0;
+  background-color: #27aae1;
+  margin-bottom: 30px;
+}
+#nats-cloud-page #cloud-blue-bar h2 {
+  color: white;
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list {
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 992px) {
+  #nats-cloud-page #cloud-blue-bar ul.feature-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 15px;
+}
+@media (max-width: 480px) {
+  #nats-cloud-page #cloud-blue-bar ul.feature-list li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list li img {
+  height: auto;
+}
+@media (min-width: 1200px) {
+  #nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-details {
+    padding-right: 125px;
+  }
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-details h3 {
+  color: white;
+  font-size: 21px;
+}
+@media (max-width: 480px) {
+  #nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-details h3 {
+    margin-top: 0;
+  }
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-details p {
+  color: white;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+          flex: 0 0 90px;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (max-width: 480px) {
+  #nats-cloud-page #cloud-blue-bar ul.feature-list li .feature-icon {
+    margin-right: 0;
+  }
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list #feature-scale-up img {
+  width: 50px;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list #feature-administration img {
+  width: 75px;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list #feature-auto-update img {
+  width: 50px;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list #feature-secure img {
+  width: 50px;
+}
+#nats-cloud-page #cloud-blue-bar ul.feature-list #feature-monitoring-support img {
+  width: 50px;
+}
+#nats-cloud-page #nats-cloud-faq h3 {
+  margin-bottom: 20px;
+}
+#nats-cloud-page #nats-cloud-faq dl dt {
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+#nats-cloud-page #nats-cloud-faq dl dd {
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+#nats-cloud-page #nats-cloud-faq dl dd strong {
+  font-weight: 600;
 }
 #community-page #social-con .social-list img {
   width: 32px;
