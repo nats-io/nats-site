@@ -7798,6 +7798,27 @@ html#home-html {
 #download-page #download-menu-con .nav-block .list-inline li .current {
   font-weight: bold;
 }
+#support-page .social-list img {
+  width: 32px;
+}
+#support-page .social-list a:hover {
+  text-decoration: none;
+}
+#support-page .social-list .icon-twitter,
+#support-page .social-list .icon-google-plus,
+#support-page .social-list .icon-github {
+  vertical-align: middle;
+  font-size: 30px;
+}
+#support-page .social-list .icon-twitter {
+  color: #55acee;
+}
+#support-page .social-list .icon-google-plus {
+  color: #dd4b39;
+}
+#support-page .social-list .icon-github {
+  color: #000;
+}
 #support-page table#support-table thead {
   background: #2e3957;
   color: #fff;
