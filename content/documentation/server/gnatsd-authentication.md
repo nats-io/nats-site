@@ -78,6 +78,7 @@ Usage:
 users []  // array of 2 or more users
 user      // User name, constant or variable
 password  // User password, constant or variable
+```
 
 You enable multi-user authentication using a NATS Server configuration file that defines the user credentials.
 
