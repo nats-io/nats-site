@@ -1,12 +1,12 @@
 +++
 categories = ["Community", "Engineering"]
 date = "2017-03-23"
-tags = ["nats", "microservices", "scalable", "guest post", "go", "kubernetes", "machine learning"]
+tags = ["nats", "guest post", "ruby", "puppet", "scalable", "orchestration"]
 title = "Guest Post: NATS for The Marionette Collective"
 author = "R.I. Pienaar"
 +++
 
-My name is R.I. Pienaar, I'm a freelance DevOps architect. I designed and wrote a tool called The Marionette Collective, now owned by Puppet Inc. I maintain a blog at [devco.net](https://www.devco.net/) and you can follow me on twitter at <a href="https://twitter.com/ripienaar">@ripienaar<a/>.
+My name is R.I. Pienaar, I'm a freelance DevOps architect. I designed and wrote a tool called The Marionette Collective, now owned by Puppet Inc. I maintain a blog at [devco.net](https://www.devco.net/) and you can follow me on twitter at <a href="https://twitter.com/ripienaar">@ripienaar</a>.
 
 I'd like to thank NATS team for reaching out and giving me the opportunity to talk about our use of [NATS](http://www.nats.io/) in a new project called [Choria](http://choria.io/) that upgrades The Marionette Collective for a more modern environment.
 
@@ -96,24 +96,10 @@ MCollective does have another mode, one suitable to REST servers where you'd lik
 
 The NATS team built a new product called NATS Streaming that adds a persistence layer atop NATS. This tool is perfect for the needs of MCollective in this REST compatible mode. The team gave me early access to the GitHub repository to evaluate it, and having this early access really helped me cement my choice in NATS.
 
-NATS Streaming is quite young. Once it supports clustering Choria will for sure adopt it as an option.
+[NATS Streaming](/documentation/streaming/nats-streaming-intro/) is quite young. Once it supports clustering Choria will for sure adopt it as an option.
 
 ## Conclusion
 
 So far I've been very happy with the choice to move to NATS and it has met all my requirements. More important for the Choria community, every user I've spoken with has been happy with this choice and it has really helped me drive adoption.
 
 NATS is light, fast, well documented and easy to use. You should consider it for your projects too.
-
-
-
-
-
-
-
-
-
-
-
-
-
-sdfgsdf
