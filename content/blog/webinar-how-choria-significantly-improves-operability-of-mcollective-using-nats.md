@@ -2,7 +2,7 @@
 categories = ["Engineering", "Community"]
 date = "2017-03-28"
 tags = ["nats", "microservices", "webinar"]
-title = "How Choria significantly improves the operability of Mcollective by using NATS"
+title = "Webinar: How Choria significantly improves the operability of Mcollective by using NATS"
 author = "Brian Flannery"
 +++
 
