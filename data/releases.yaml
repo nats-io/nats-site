@@ -146,9 +146,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.3.0
+  version_num: 0.5.0
   release_notes: |
-    Release v.0.3.0, May 22nd, 2016
+    Release v.0.5.0, March 25th, 2017
   github:
     - user: nats-io
       repo: python-nats
@@ -161,9 +161,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.1
+  version_num: 0.8.2
   release_notes: |
-    Release v0.7.1 on July 8th, 2016.
+    Release v0.8.2 on March 14th, 2017.
   github:
     - user: nats-io
       repo: ruby-nats
@@ -176,9 +176,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.2
+  version_num: 0.2.2
   release_notes: |
-    Release v0.1.2 on December 14th, 2016.
+    Release v0.2.2 on March 14th, 2017.
   github:
     - user: nats-io
       repo: pure-ruby-nats
@@ -471,6 +471,21 @@ Releases:
     - user: nats-io
       repo: node-nats-streaming
       link: https://github.com/nats-io/node-nats-streaming
+
+- name: Ruby
+  type: streaming-client
+  supported: true
+  language: Ruby
+  author:
+    - name:
+      link:
+  version_num: 0.2.0
+  release_notes: |
+    Last updated on March 21st, 2017.
+  github:
+    - user: nats-io
+      repo: ruby-nats-streaming
+      link: https://github.com/nats-io/ruby-nats-streaming
 
 - name: Asyncio
   type: streaming-client
