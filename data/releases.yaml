@@ -161,9 +161,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.1
+  version_num: 0.8.2
   release_notes: |
-    Release v0.7.1 on July 8th, 2016.
+    Release v0.8.2 on March 14th, 2017.
   github:
     - user: nats-io
       repo: ruby-nats
