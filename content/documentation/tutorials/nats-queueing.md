@@ -12,7 +12,7 @@ category = "tutorials"
 
 # Explore NATS Queueing
 
-NATS supports [message queueing](/documentation/concepts/nats-queueing/) using gueue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
+NATS supports [message queueing](/documentation/concepts/nats-queueing/) using queue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
 
 ## Prerequisites
 
