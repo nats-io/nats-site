@@ -371,9 +371,9 @@ Releases:
   author:
     - name: Daniel Wertheim
       link: https://github.com/danielwertheim
-  version_num: 0.2.1
+  version_num: 0.10.1
   release_notes: |
-    Release v0.2.1 on June 12th, 2016.
+    Release v0.10.1 on January 10th, 2017.
   github:
     - user: danielwertheim
       repo: mynatsclient
@@ -506,6 +506,21 @@ Releases:
       url: https://pypi.org/project/asyncio-nats-streaming-client/#description
     - name: PyPI - python.org
       url: https://pypi.python.org/pypi/asyncio-nats-streaming-client
+
+- name: Arduino
+  type: streaming-client
+  supported: false
+  language: C++
+  author:
+    - name: David
+      link: https://github.com/davidsai
+  version_num: 0.0.0
+  release_notes: |
+    No release notes.
+  github:
+    - user: davidsai
+      repo: Arduino-nats-streaming-client
+      link: https://github.com/davidsai/Arduino-nats-streaming-client
 
 - name: NATS Server
   type: nats-server
