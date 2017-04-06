@@ -76,7 +76,7 @@ pygmentsstyle = "native"
   url = "/documentation"
   [[menu.main]]
     name = "Getting Started"
-    weight = 0
+    weight = 1
     parent = "documentation"
   [[menu.main]]
     name = "Concepts"

@@ -11,7 +11,7 @@
           {{ $.Scratch.Set "githubUser" .user }}
           {{ $.Scratch.Set "githubRepo" .repo }}
         {{ end }}
-        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" ($.Scratch.Get "githubRepo") "/" ) }}
+        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" (lower ($.Scratch.Get "githubRepo")) "/" ) }}
           <div class="page-header">
             <h1>{{ .name }}{{ if not (in .name "Server") }} Client{{ end }}</h1>
           </div>
