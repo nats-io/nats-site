@@ -24,4 +24,4 @@ We look forward to seeing you there! Please RSVP below:
 
 <br>
 
-<a target="_blank" href="https://attendee.gotowebinar.com/register/5589424916003895555" class="btn btn-primary btn-lg btn-block">Register for Webinar</a>
+<a target="_blank" href="https://attendee.gotowebinar.com/register/6966664385264879875" class="btn btn-primary btn-lg btn-block">Register for Webinar</a>
