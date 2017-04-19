@@ -40,7 +40,7 @@ Releases:
       link:
   version_num: 0.7.1
   release_notes: |
-    Release 0.7.1 on April 18th, 2017.
+    Release 0.7.1 on April 19th, 2017.
   github:
     - user: nats-io
       repo: csnats
