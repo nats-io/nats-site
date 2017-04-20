@@ -93,6 +93,6 @@ The first line specifies the location that the subsequent lines will apply to.
 
 The rest of the file specifies that the logs will rotate daily ("daily" option) and that 30 older copies will be preserved ("rotate" option). Other options are described in [logrorate documentation](http://www.linuxcommand.org/man_pages/logrotate8.html).
 
-The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command "kill -SIGUSR1 `cat /var/run/gnatsd.pid`" does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
+The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command ```kill -SIGUSR1 `cat /var/run/gnatsd.pid` ``` does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
 
 The `/var/run/gnatsd.pid` file is where NATS server stores the master process's pid.
