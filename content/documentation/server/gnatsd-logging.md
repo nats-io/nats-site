@@ -69,3 +69,30 @@ trace:   true
 logtime: false
 log_file: "/tmp/gnatsd.log"
 ```
+
+## Log rotation with logrotate
+
+NATS server does not provide tools to manage log files, but it does include mechanisms that make log rotation simple. We can use this mechanism with [logrotate](https://github.com/logrotate/logrotate); a simple standard Linux utility to rotate logs available on most distributions like Debian, Ubuntu, RedHat (CentOS), etc.
+
+Simple custom logrotate script is below:
+
+```
+/path/to/gnatsd.log {
+    daily
+    rotate 30
+    compress
+    missingok
+    notifempty
+    postrotate
+        kill -SIGUSR1 `cat /var/run/gnatsd.pid`   
+    endscript
+}
+```
+
+The first line specifies the location that the subsequent lines will apply to.
+
+The rest of the file specifies that the logs will rotate daily ("daily" option) and that 30 older copies will be preserved ("rotate" option). Other options are described in [logrorate documentation](http://www.linuxcommand.org/man_pages/logrotate8.html).
+
+The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command ```kill -SIGUSR1 `cat /var/run/gnatsd.pid` ``` does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
+
+The `/var/run/gnatsd.pid` file is where NATS server stores the master process's pid.
