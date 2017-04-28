@@ -431,9 +431,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.2
+  version_num: 0.1.4
   release_notes: |
-    Release v0.1.2 on November 10th, 2016.
+    Release v0.1.4 on April 26th, 2017.
   github:
     - user: nats-io
       repo: csharp-nats-streaming
