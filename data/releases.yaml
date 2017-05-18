@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.5.0
+  version_num: 1.6.0
   release_notes: |
-    Release 1.5.0 on March 23rd, 2017.
+    Release 1.6.0 on May 18th, 2017.
   github:
     - user: nats-io
       repo: cnats
