@@ -35,17 +35,17 @@ pygmentsstyle = "native"
     parent = "download"
     [[menu.main]]
       name = "Server"
-      weight = 0
+      weight = 1
       identifier = "nats-server"
       parent = "nats"
     [[menu.main]]
       name = "Apcera Supported Clients"
-      weight = 1
+      weight = 2
       identifier = "nats-clients"
       parent = "nats"
     [[menu.main]]
       name = "Community Clients"
-      weight = 2
+      weight = 3
       identifier = "nats-community"
       parent = "nats"
   [[menu.main]]
@@ -55,17 +55,17 @@ pygmentsstyle = "native"
     parent = "download"
     [[menu.main]]
       name = "Server"
-      weight = 0
+      weight = 1
       identifier = "streaming-server"
       parent = "nats-streaming"
     [[menu.main]]
       name = "Apcera Supported Clients"
-      weight = 1
+      weight = 2
       identifier = "streaming-clients"
       parent = "nats-streaming"
     [[menu.main]]
       name = "Community Clients"
-      weight = 2
+      weight = 3
       identifier = "streaming-community"
       parent = "nats-streaming"
 

@@ -199,6 +199,21 @@ Releases:
       repo: arduino-nats
       link: https://github.com/joshglendenning/arduino-nats
 
+- name: Elm
+  type: nats-client
+  supported: false
+  language: Elm
+  author:
+    - name: Christophe de Vienne
+      link: https://github.com/cdevienne
+  version_num: 0.4.0
+  release_notes: |
+    Release 0.4.0 on April 17th, 2016.
+  github:
+    - user: orus-io
+      repo: elm-nats
+      link: https://github.com/orus-io/elm-nats
+
 - name: Erlang
   type: nats-client
   supported: false

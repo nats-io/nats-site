@@ -5,6 +5,7 @@
   {{ if eq .Identifier "download" }}
   {{ if .HasChildren }}
   {{ range .Children }}
+    {{ $serverName := .Name }}
     {{ if eq .Name "NATS Streaming" }}
     <div class="col-lg-3 col-sm-4 nav-block">
     {{ else }}
@@ -15,7 +16,9 @@
       {{ if .HasChildren }}
       {{ range .Children }}
 
-      {{ if ne .Name "Server" }}
+      {{ if eq .Name "Server" }}
+
+      {{ else }}
       <h4>{{ title .Name }}</h4>
       {{ end }}
 
