@@ -110,7 +110,7 @@ The slides from the talk are available on SlideShare:
 
 Thanks again, and thanks to the organizers of GopherFest for arranging the event and letting me speak, it was a lot of fun!
 
-If anyone has any questions or comments, feel free to contact me on [Twitter]( or in the NATS Slack Community (request an invite from the NATS Community Page if you need one).
+If anyone has any questions or comments, feel free to contact me on [Twitter](https://twitter.com/wallyqs), or in the NATS Slack Community [(request an invite if you need one)](https://docs.google.com/a/apcera.com/forms/d/104yA7oqq7SPoMDG_J9MnVE74gVwBnTmVHKP5ABHoM5k/viewform?embedded=true).
 
 See you at GopherCon in a few months!
 
