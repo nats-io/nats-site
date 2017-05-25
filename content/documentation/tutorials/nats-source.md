@@ -81,4 +81,4 @@ go test ./...
 
 **A successful build run produces no messages and creates an executable called `gnatsd` in this directory.**
 
-**You can invoke this binary, with no options and no configuration file for local testing. To start a server with acceptable production defaults please read our (README.md)[https://github.com/nats-io/gnatsd#command-line-arguments].**
+**You can invoke this binary, with no options and no configuration file for local testing. To start a server with acceptable production defaults please read our [README.md](https://github.com/nats-io/gnatsd#command-line-arguments).**
