@@ -22,7 +22,7 @@ The NATS server code is available as open source software under the MIT license.
 
 **1. Verify your Go environment.**
 
-Run the following command to verify that you are using at least Go 1.4.
+Run the following command to verify that you are using at least Go 1.5.
 
 ```
 go version
