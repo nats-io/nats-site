@@ -41,7 +41,7 @@ mkdir -p github\.com/nats-io && cd github.com/nats-io
 git clone git@github.com:nats-io/gnatsd.git
 ```
 
-**4. CD to the `gnatsd` directory you cloned.**
+**4. Change to the `gnatsd` directory you cloned.**
 
 ```
 cd $GOPATH/src/github.com/nats-io/gnatsd
