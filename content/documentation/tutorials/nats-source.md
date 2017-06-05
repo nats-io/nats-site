@@ -14,9 +14,10 @@ category = "tutorials"
 
 The NATS server code is available as open source software under the MIT license. You can build the source to run the NATS server on any platform supported by Go. The NATS server code requires at least version 1.4 of Go. You are encouraged to run the latest stable release of Go.
 
-## Prerequisite
+## Prerequisites
 
 - [Set up your Go environment](/documentation/tutorials/go-install/)
+- These commands assume you're using Bash.
 
 ## Instructions
 
@@ -53,8 +54,6 @@ Use command `cat gnatsd.go` to view the code.
 Run `go build` from inside the `gnatsd` directory.
 
 ```
-cd gnatsd
-
 go build
 ```
 
