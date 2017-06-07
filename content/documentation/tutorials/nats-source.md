@@ -20,35 +20,42 @@ The NATS server code is available as open source software under the MIT license.
 
 ## Instructions
 
-**1. Verify your Go environement.**
+**1. Verify your Go environment.**
 
-Run the following command to verify that you are using at least Go 1.4.
+Run the following command to verify that you are using at least Go 1.5.
 
 ```
 go version
 ```
 
-**2. Clone the NATS server repository.**
+**2. Create and change into $GOPATH/src/github.com/nats-io directory.**
+```
+cd $GOPATH/src
+
+mkdir -p github\.com/nats-io && cd github.com/nats-io
+```
+
+**3. Clone the NATS server repository.**
 
 ```
 git clone git@github.com:nats-io/gnatsd.git
 ```
 
-**3. CD to the `gnatsd` directory you cloned.**
+**4. Change to the `gnatsd` directory you cloned.**
 
 ```
 cd $GOPATH/src/github.com/nats-io/gnatsd
 ```
 
-**4. View the NATS server source code.**
+**5. View the NATS server source code.**
 
-NATS is open source software.
+View the **main.go** file.
 
-Use command `ls` to list the **gnatsd.go** file.
+```
+cat main.go
+```
 
-Use command `cat gnatsd.go` to view the code.
-
-**5. Build the server from source.**
+**6. Build the server from source.**
 
 Run `go build` from inside the `gnatsd` directory.
 
@@ -58,12 +65,20 @@ cd gnatsd
 go build
 ```
 
-**6. Run the unit regression tests.**
+**7. Start nats-server.**
+
+```
+./gnatsd
+```
+
+<!-- **6. Run the unit regression tests.**
 
 Optionally you can run the unit regression tests:
 
 ```
 go test ./...
-```
+``` -->
 
-A successful build run produces no messages and creates an executable called `gnatsd` in this directory. You can invoke this binary, with no options and no configuration file, to start a server with acceptable standalone defaults (no authentication, no clustering).
+**A successful build run produces no messages and creates an executable called `gnatsd` in this directory.**
+
+**You can invoke this binary, with no options and no configuration file for local testing. To start a server with acceptable production defaults please read our [README.md](https://github.com/nats-io/gnatsd#command-line-arguments).**
