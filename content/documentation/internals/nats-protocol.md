@@ -82,10 +82,20 @@ The valid options are as follows:
 * `auth_required`: If this is set, then the client should try to authenticate upon connect.
 * `ssl_required`: If this is set, then the client must authenticate using SSL.
 * `max_payload`: Maximum payload size that the server will accept from the client.
+* `connect_urls` : An optional list of server urls that a client can connect to.  
 
 ### Description
 
 As soon as the server accepts a connection from the client, it will send information about itself and the configuration and security requirements that are necessary for the client to successfully authenticate with the server and exchange messages.
+
+When using the updated client protocol (see `CONNECT` below), `INFO` messages can be sent anytime by the server.  This means clients with that protocol level need to be able to asynchronously handle `INFO` messages.
+
+#### connect_urls
+The `connect_urls` field is a list of urls the server may send when a client first connects, and when there are changes to server cluster topology.  This field is considered optional, and may be omitted based on server configuration and client protocol level.
+
+When a NATS server cluster expands, an `INFO` message is sent to the client with an updated `connect_urls` list.  This cloud-friendly feature asynchronously notifies a client of known servers, allowing it to connect to servers not originally configured.
+
+The `connect_urls` will contain a list of strings with an IP and port, looking like this: ```"connect_urls":["10.0.0.184:4333","192.168.129.1:4333","192.168.192.1:4333"]```
 
 ### Example
 
@@ -126,7 +136,7 @@ The `CONNECT` message is analogous to the `INFO` message. Once the client has es
 Here is an example from the default string of the Go client:
 
 ```
-CONNECT {"verbose":false,"pedantic":false,"ssl_required":false,"name":"","lang":"go","version":"1.1.0"}\r\n
+[CONNECT {"verbose":false,"pedantic":false,"tls_required":false,"name":"","lang":"go","version":"1.2.2","protocol":1}]\r\n
 ```
 
 Most clients set `verbose` to `false` by default. This means that the server should not confirm each message it receives on this connection with a `+OK` back to the client.
