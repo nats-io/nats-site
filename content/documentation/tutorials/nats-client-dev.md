@@ -37,28 +37,27 @@ package main
 
 // Import Go and NATS packages
 import (
-  "runtime"
-  "log"
+	"log"
+	"runtime"
 
-  "github.com/nats-io/go-nats"
+	"github.com/nats-io/go-nats"
 )
 
 func main() {
+	// Create server connection
+	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	log.Println("Connected to " + nats.DefaultURL)
 
-    // Create server connection
-    natsConnection, _ := nats.Connect(nats.DefaultURL)
-    log.Println("Connected to " + nats.DefaultURL)
+	// Subscribe to subject
+	log.Printf("Subscribing to subject 'foo'\n")
+	natsConnection.Subscribe("foo", func(msg *nats.Msg) {
 
-    // Subscribe to subject
-    log.Printf("Subscribing to subject 'foo'\n")
-    natsConnection.Subscribe("foo", func(msg *nats.Msg) {
+		// Handle the message
+		log.Printf("Received message '%s\n", string(msg.Data)+"'")
+	})
 
-      // Handle the message
-      log.Printf("Received message '%s\n", string(msg.Data) + "'")
-  })
-
-  // Keep the connection alive
-  runtime.Goexit()
+	// Keep the connection alive
+	runtime.Goexit()
 }
 ```
 
@@ -109,22 +108,22 @@ package main
 
 // Import packages
 import (
-  "log"
+	"log"
 
-  "github.com/nats-io/go-nats"
+	"github.com/nats-io/go-nats"
 )
 
 func main() {
 
-  // Connect to server; defer close
-  natsConnection, _ := nats.Connect(nats.DefaultURL)
-  defer natsConnection.Close()
-  log.Println("Connected to " + nats.DefaultURL)
+	// Connect to server; defer close
+	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	defer natsConnection.Close()
+	log.Println("Connected to " + nats.DefaultURL)
 
-  // Publish message on subject
-  subject := "foo"
-  natsConnection.Publish(subject, []byte("Hello NATS"))
-  log.Println("Published message on subject " + subject)
+	// Publish message on subject
+	subject := "foo"
+	natsConnection.Publish(subject, []byte("Hello NATS"))
+	log.Println("Published message on subject " + subject)
 }
 ```
 
@@ -168,24 +167,28 @@ In addition to a simple message payload (string), you can also use the message s
 package main
 
 import (
-  "fmt"
-  "log"
+	"fmt"
+	"log"
 
-  "github.com/nats-io/go-nats"
+	"github.com/nats-io/go-nats"
 )
 
 func main() {
-    fmt.Println("Publishing Hello World")
+	fmt.Println("Publishing Hello World")
 
-    natsConnection, _ := nats.Connect(nats.DefaultURL)
-    defer natsConnection.Close()
-    fmt.Println("Connected to NATS server: " + nats.DefaultURL)
+	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	defer natsConnection.Close()
+	fmt.Println("Connected to NATS server: " + nats.DefaultURL)
 
-    // Msg structure
-    msg := &nats.Msg{Subject: "foo", Reply: "bar", Data: []byte("Hello World")}
-    natsConnection.PublishMsg(msg)
+	// Msg structure
+	msg := &nats.Msg{
+		Subject: "foo",
+		Reply:   "bar",
+		Data:    []byte("Hello World"),
+	}
+	natsConnection.PublishMsg(msg)
 
-    log.Println("Published msg.Subject = " + msg.Subject, "| msg.Data = " + string(msg.Data))
+	log.Println("Published msg.Subject = "+msg.Subject, "| msg.Data = "+string(msg.Data))
 }
 ```
 
@@ -218,28 +221,28 @@ Then, update your `async-sub.go` client as follows:
 package main
 
 import (
-  "runtime"
-  "log"
+	"log"
+	"runtime"
 
-  "github.com/nats-io/go-nats"
+	"github.com/nats-io/go-nats"
 )
 
 func main() {
 
-    // Create authentication server connection
-    natsConnection, _ := nats.Connect("nats://foo:bar@localhost:4222")
-    log.Println("Connected to " + nats.DefaultURL)
+	// Create authentication server connection
+	natsConnection, _ := nats.Connect("nats://foo:bar@localhost:4222")
+	log.Println("Connected to " + nats.DefaultURL)
 
-    // Subscribe to subject
-    log.Printf("Subscribing to subject 'foo'\n")
-    natsConnection.Subscribe("foo", func(msg *nats.Msg) {
+	// Subscribe to subject
+	log.Printf("Subscribing to subject 'foo'\n")
+	natsConnection.Subscribe("foo", func(msg *nats.Msg) {
 
-      // Handle the message
-      log.Printf("Received message '%s\n", string(msg.Data) + "'")
-  })
+		// Handle the message
+		log.Printf("Received message '%s\n", string(msg.Data)+"'")
+	})
 
-  // Keep the connection alive
-  runtime.Goexit()
+	// Keep the connection alive
+	runtime.Goexit()
 }
 ```
 
@@ -249,23 +252,23 @@ And, do the same for the `pub-simple.go` client as well:
 package main
 
 import (
-  "log"
+	"log"
 
-  "github.com/nats-io/go-nats"
+	"github.com/nats-io/go-nats"
 )
 
 func main() {
 
-    // Connect to server with auth credentials
-    natsConnectionString := "nats://foo:bar@localhost:4222"
-    natsConnection, _ := nats.Connect(natsConnectionString)
-    defer natsConnection.Close()
-    log.Println("Connected to " + natsConnectionString)
+	// Connect to server with auth credentials
+	natsConnectionString := "nats://foo:bar@localhost:4222"
+	natsConnection, _ := nats.Connect(natsConnectionString)
+	defer natsConnection.Close()
+	log.Println("Connected to " + natsConnectionString)
 
-    // Publish message on subject
-    subject := "foo"
-    natsConnection.Publish(subject, []byte("Hello NATS"))
-    log.Println("Published message on subject " + subject)
+	// Publish message on subject
+	subject := "foo"
+	natsConnection.Publish(subject, []byte("Hello NATS"))
+	log.Println("Published message on subject " + subject)
 }
 ```
 
