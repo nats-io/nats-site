@@ -60,7 +60,7 @@ Click the name to see more detailed information, including syntax:
 | [`PING`](#PINGPONG)  | Both           | PING keep-alive message
 | [`PONG`](#PINGPONG)  | Both           | PONG keep-alive response
 | [`+OK`](#OKERR)      | Server         | Acknowledges well-formed protocol message in `verbose` mode
-| [`-ERR`](#OKERR)     | Server         | Indicates a protocol error. Will cause client disconnect.
+| [`-ERR`](#OKERR)     | Server         | Indicates a protocol error. May cause client disconnect.
 
 
 
@@ -283,19 +283,26 @@ The `-ERR` message is used by the server indicate a protocol, authorization, or 
 
 Handling of these errors usually has to be done asynchronously.
 
-Protocol error messages which close the connection:
+Some protocol errors result in the server closing the connection.  Upon recieving these errors, the connection is no longer valid and the client should clean up relevant resources.  These errors include:
 
 - `-ERR 'Unknown Protocol Operation'`: Unknown protocol error
-- `-ERR 'Authorization Violation'`: Client failed to authenticate to the server with credentials specified in the [CONNECT](#CONNECT) message.
+- `-ERR 'Attempted To Connect To Route Port'`: Client attempted to connect to a route port instead of the client port
+- `-ERR 'Authorization Violation'`: Client failed to authenticate to the server with credentials specified in the [CONNECT](#CONNECT) message
 - `-ERR 'Authorization Timeout'`: Client took too long to authenticate to the server after establishing a connection (default 1 second)
+- `-ERR 'Invalid Client Protocol'`: Client specified an invalid protocol version in the [CONNECT](#CONNECT) message
+- `-ERR 'Maximum Control Line Exceeded'`: Message destination subject and reply subject length exceeded the maximum control line value specified by the `max_control_line` server option.  The default is 1024 bytes.
 - `-ERR 'Parser Error'`: Cannot parse the protocol message sent by the client
+- `-ERR 'Secure Connection - TLS Required'`:  The server requires TLS and the client does not have TLS enabled.
 - `-ERR 'Stale Connection'`: PING/PONG interval expired.
+- `-ERR 'Maximum Connections Exceeded`': This error is sent by the server when creating a new connection and the server has exceeded the maximum number of connections specified by the `max_connections` server option.  The default is 64k.
 - `-ERR 'Slow Consumer'`: The server pending data size for the connection has reached the maximum size (default 10MB).
-- `-ERR 'Maximum Payload Exceeded'`: Client attempted to publish a message with a payload size that exceeds the `max_payload` size configured on the server. This value is supplied to the client upon connection in the initial [`INFO`](#INFO) message. The client is expected to do proper accounting of byte size to be sent to the server in order to handle this error synchronously.
+- `-ERR 'Maximum Payload Violation'`: Client attempted to publish a message with a payload size that exceeds the `max_payload` size configured on the server. This value is supplied to the client upon connection in the initial [`INFO`](#INFO) message. The client is expected to do proper accounting of byte size to be sent to the server in order to handle this error synchronously.
 
-Protocol error messages which do not close the connection:
+Protocol error messages where the connection remains open are listed below.  The client should not close the connection in these cases.
 
 - `-ERR 'Invalid Subject'`: Client sent a malformed subject (e.g. `sub foo. 90`)
+- `-ERR 'Permissions Violation for Subscription to <subject>'`: The user specified in the [CONNECT](#CONNECT) message does not have permission to subscribe to the subject.
+- `-ERR 'Permissions Violation for Publish to <subject>'`: The user specified in the [CONNECT](#CONNECT) message does not have permissions to publish to the subject.
 
 
 ## Protocol demo
