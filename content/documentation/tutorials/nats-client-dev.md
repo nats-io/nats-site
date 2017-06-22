@@ -32,7 +32,7 @@ The `async-sub.go` client is a basic asynchronous subscriber with logging includ
 
 ### Example code
 
-```
+```go
 package main
 
 // Import Go and NATS packages
@@ -103,7 +103,7 @@ The `pub-simple.go` client publishes a simple NATS message ("Hello NATS") on sub
 
 ### Example code
 
-```
+```go
 package main
 
 // Import packages
@@ -163,7 +163,7 @@ In addition to a simple message payload (string), you can also use the message s
 
 ### Example code
 
-```
+```go
 package main
 
 import (
@@ -198,7 +198,7 @@ A synchronous subscriber does not implement a message handler with the subscribe
 
 For example:
 
-```
+```go
 sub, err := nc.SubscribeSync("foo")
 m, err := sub.NextMsg(timeout)
 ```
@@ -217,7 +217,7 @@ gnatsd -DV -m 8222 -user foo -pass bar
 
 Then, update your `async-sub.go` client as follows:
 
-```
+```go
 package main
 
 import (
@@ -248,7 +248,7 @@ func main() {
 
 And, do the same for the `pub-simple.go` client as well:
 
-```
+```go
 package main
 
 import (
