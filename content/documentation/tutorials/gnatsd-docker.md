@@ -12,11 +12,8 @@ category = "tutorials"
 
 # Run NATS Server Docker Image
 
-In this tutorial you run the [NATS server Docker image](https://hub.docker.com/_/nats/). The Docker image provides an instance of the [NATS Server](/documentation/server/gnatsd-intro/). Apcera actively maintains and supports the gnatsd Docker image. The NATS image is only 3 MB in size.
+In this tutorial you run the [NATS server Docker image](https://hub.docker.com/_/nats/). The Docker image provides an instance of the [NATS Server](/documentation/server/gnatsd-intro/). Apcera actively maintains and supports the gnatsd Docker image. The NATS image is only 6 MB in size.
 
-## Prerequisite
-
-- [Set up your Go environment](/documentation/tutorials/go-install/)
 
 ## Instructions
 
