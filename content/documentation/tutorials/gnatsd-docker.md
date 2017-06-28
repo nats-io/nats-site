@@ -59,7 +59,7 @@ Notice how quickly the NATS server Docker image downloads. It is a mere 6 MB in 
 
 **4. Test the NATS server to verify it is running.**
 
-An easy way to test the client connection port is by using telnet.
+An easy way to test the client connection port is through using telnet.
 
 ```
 telnet localhost 4222
