@@ -12,11 +12,8 @@ category = "tutorials"
 
 # Run NATS Server Docker Image
 
-In this tutorial you run the [NATS server Docker image](https://hub.docker.com/_/nats/). The Docker image provides an instance of the [NATS Server](/documentation/server/gnatsd-intro/). Apcera actively maintains and supports the gnatsd Docker image. The NATS image is only 3 MB in size.
+In this tutorial you run the [NATS server Docker image](https://hub.docker.com/_/nats/). The Docker image provides an instance of the [NATS Server](/documentation/server/gnatsd-intro/). Apcera actively maintains and supports the gnatsd Docker image. The NATS image is only 6 MB in size.
 
-## Prerequisite
-
-- [Set up your Go environment](/documentation/tutorials/go-install/)
 
 ## Instructions
 
@@ -29,7 +26,7 @@ The easiest way to run Docker is to use the [Docker Toolbox](http://docs.docker.
 **2. Run the gnatsd Docker image.**
 
 ```
-docker run nats
+docker run -p 4222:4222 -p 8222:8222 nats
 ```
 
 **3. Verify that the NATS server is running.**
@@ -37,36 +34,41 @@ docker run nats
 You should see the following:
 
 ```
-Unable to find image 'apcera/gnatsd:latest' locally
-latest: Pulling from apcera/gnatsd
-4a5a854cef4c: Pull complete
-f875c489604e: Pull complete
-0c6ff92460a8: Pull complete
-1778a851720d: Pull complete
-77d6ce67d574: Pull complete
-02ca8857c86d: Pull complete
-Digest: sha256:a984331654d262616ca4df0c0414097898c487abaa8a3fdb22a78da3c74c7801
-Status: Downloaded newer image for apcera/gnatsd:latest
+Unable to find image 'nats:latest' locally
+latest: Pulling from library/nats
+2d3d00b0941f: Pull complete 
+24bc6bd33ea7: Pull complete 
+Digest: sha256:47b825feb34e545317c4ad122bd1a752a3172bbbc72104fc7fb5e57cf90f79e4
+Status: Downloaded newer image for nats:latest
 ```
 
 Followed by this, indicating that the NATS server is running:
 
 ```
-[1] 2015/09/04 20:26:46.344254 [INF] Starting gnatsd version 0.6.6
-[1] 2015/09/04 20:26:46.344297 [INF] Starting http monitor on port 8222
-[1] 2015/09/04 20:26:46.344378 [INF] Listening for route connections on :6222
-[1] 2015/09/04 20:26:46.344402 [INF] Listening for client connections on 0.0.0.0:4222
-[1] 2015/09/04 20:26:46.344414 [INF] gnatsd is ready
+[1] 2017/06/28 18:34:19.605144 [INF] Starting nats-server version 0.9.6
+[1] 2017/06/28 18:34:19.605191 [INF] Starting http monitor on 0.0.0.0:8222
+[1] 2017/06/28 18:34:19.605286 [INF] Listening for client connections on 0.0.0.0:4222
+[1] 2017/06/28 18:34:19.605312 [INF] Server is ready
+[1] 2017/06/28 18:34:19.608756 [INF] Listening for route connections on 0.0.0.0:6222
 ```
 
-Notice how quickly the NATS server Docker image downloads. It is a mere 3 MB in size.
+Notice how quickly the NATS server Docker image downloads. It is a mere 6 MB in size.
 
-**4. Run the NATS ping client app.**
+**4. Test the NATS server to verify it is running.**
 
-```
-cd /nats-docs/tutorials/examples/
-```
+An easy way to test the client connection port is through using telnet.
 
 ```
-go run nats-ping.go
+telnet localhost 4222
 ```
+
+Expected result:
+
+```
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+INFO {"server_id":"YMeTi2z178lM5SG302YgH2","version":"0.9.6","go":"go1.7.4","host":"0.0.0.0","port":4222,"auth_required":false,"ssl_required":false,"tls_required":false,"tls_verify":false,"max_payload":1048576} 
+```
+
+You can also test the monitoring endpoint, viewing `http://localhost:8222` with a browser.
