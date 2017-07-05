@@ -26,7 +26,7 @@ The easiest way to run Docker is to use the [Docker Toolbox](http://docs.docker.
 **2. Run the gnatsd Docker image.**
 
 ```
-docker run -p 4222:4222 -p 8222:8222 nats
+$ docker run -p 4222:4222 -p 8222:8222 -p 6222:6222 --name gnatsd -ti nats:latest
 ```
 
 **3. Verify that the NATS server is running.**
@@ -59,7 +59,7 @@ Notice how quickly the NATS server Docker image downloads. It is a mere 6 MB in 
 An easy way to test the client connection port is through using telnet.
 
 ```
-telnet localhost 4222
+$ telnet localhost 4222
 ```
 
 Expected result:
