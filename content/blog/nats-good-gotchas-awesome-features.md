@@ -2,7 +2,7 @@
 categories = ["Community", "Engineering"]
 date = "2017-07-01"
 tags = ["nats", "guest post", "storageos"]
-title = "Guest Post: NATS: the good, gotchas and some awesome features"
+title = "Guest Post: StorageOS on how and why they use NATS in their storage platform"
 author = "Karolis Rusenas"
 +++
 
