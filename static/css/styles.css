@@ -7688,6 +7688,12 @@ html#home-html {
 #blogs-page dl.blog-entry-meta dd {
   margin-bottom: 10px;
 }
+#blog-post-page .tweet-embed-con {
+  padding: 10px 0px;
+}
+#blog-post-page .tweet-embed-con iframe {
+  margin: 0px auto;
+}
 #blog-post-page .embed-responsive {
   margin-bottom: 30px;
 }
