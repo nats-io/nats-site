@@ -6,8 +6,6 @@ title = "GopherCon 2017 Recap - How does GopherCon keep getting even better each
 author = "Brian Flannery"
 +++
 
-GopherCon 2017 Recap - How does GopherCon keep getting even better each year?
-
 Now that everyone has had time to catch their breath a bit, we wanted to recap what our team was up to at GopherCon! It remains one of our favorite events, and Apcera has sponsored every year, with NATS having a room on Community Day last year and again this year, too.
 
 Just as our team were getting into Denver to prepare to kick off GopherCon, we also released 1.0 of NATS Server. You can find the latest version [here](http://nats.io/download/nats-io/gnatsd/). The 1.0 release has a bunch of goodness in there, with the main item being hot configuration reload. You’ll note if you parse the release notes this release had a nice community dimension behind to it - so, we’d like to again thank everyone who took part!
