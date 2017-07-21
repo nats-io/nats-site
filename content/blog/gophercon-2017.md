@@ -2,7 +2,7 @@
 categories = ["Community"]
 date = "2017-07-21"
 tags = ["events", "golang", "gophercon"]
-title = "GopherCon 2017 Recap"
+title = "GopherCon 2017 Recap - How does GopherCon keep getting even better each year?"
 author = "Brian Flannery"
 +++
 
