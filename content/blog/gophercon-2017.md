@@ -10,7 +10,7 @@ Now that everyone has had time to catch their breath a bit, we wanted to recap w
 
 Just as our team were getting into Denver to prepare to kick off GopherCon, we also released 1.0 of NATS Server. You can find the latest version [here](http://nats.io/download/nats-io/gnatsd/). The 1.0 release has a bunch of goodness in there, with the main item being hot configuration reload. You’ll note if you parse the release notes this release had a nice community dimension behind to it - so, we’d like to again thank everyone who took part!
 
-At GopherCon the team enjoyed networking with everyone at Wynkoopf Brewery, and at the CoreOS party at Pizza Republic. Thank you to the CoreOS crew for sponsoring that and making it such a convenient trek (over a few dozen paces) over.
+At GopherCon the team enjoyed networking with everyone at Wynkoop Brewery, and at the CoreOS party at Pizza Republic. Thank you to the CoreOS crew for sponsoring that and making it such a convenient trek (over a few dozen paces) over.
 
 There were a few NATS items at GopherCon this year: On Friday, Wally Quevedo on our team gave a talk on Writing Networking Clients in Go, using his experience with the NATS Go Client as an example. The recording of the talk will be out at a later date, but in the meantime the slides are available [here](https://www.slideshare.net/nats_io/writing-networking-clients-in-go-gophercon-2017-talk). If you have any questions or feedback, just let Wally know - he is easy to find on twitter ([@wallyqs](https://twitter.com/wallyqs)).
 
