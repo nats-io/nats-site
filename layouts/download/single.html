@@ -39,11 +39,11 @@
               <div class="github-buttons">
               {{ range first 1 .github }}
               <!-- Watch -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-eye" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/watchers" data-count-api="/repos/{{.user}}/{{.repo}}#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch {{.user}}/{{.repo}} on GitHub">Watch</a>
+              <a class="github-button" href="{{ .link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
               <!-- Star -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/stargazers" data-count-api="/repos/{{.user}}/{{.repo}}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{.user}}/{{.repo}} on GitHub">Star</a>
+              <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="# stargazers on GitHub">Star</a>
               <!-- Fork -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/{{.user}}/{{.repo}}/network" data-count-api="/repos/{{.user}}/{{.repo}}#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork {{.user}}/{{.repo}} on GitHub">Fork</a>
+              <a class="github-button" href="{{ .link }}/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="# forks on GitHub">Fork</a>
               {{ end }}
             </div>
               <ul class="list-unstyled">
