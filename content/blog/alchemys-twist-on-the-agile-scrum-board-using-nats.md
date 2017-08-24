@@ -143,3 +143,15 @@ The Trac board project was our introduction into using NATS.io but certainly wil
 <img class="img-responsive center-block" alt="Alchemy and NATS" src="/img/blog/alchemys-twist-on-the-agile-scrum-board-using-nats/01.jpg">
 
 <img class="img-responsive center-block" alt="Alchemy and NATS" src="/img/blog/alchemys-twist-on-the-agile-scrum-board-using-nats/04.jpg">
+
+## Additional Resources
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="center-block">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/GRmaij2Wzyc" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
