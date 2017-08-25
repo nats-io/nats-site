@@ -22,4 +22,24 @@ This webinar will feature an overview of the technology stack StorageOS and quic
 
 <br>
 
-<a target="_blank" href="https://attendee.gotowebinar.com/register/6813019732208491010" class="btn btn-primary btn-lg btn-block">Register for Webinar</a>
+<!-- <a target="_blank" href="https://attendee.gotowebinar.com/register/6813019732208491010" class="btn btn-primary btn-lg btn-block">Register for Webinar</a> -->
+
+<h2>Additional Resources</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="center-block">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZFrqnyzWcro" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="center-block text-center">
+      <iframe src="//www.slideshare.net/slideshow/embed_code/key/hXkGV9aoqG4Dfm" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+    </div>
+  </div>
+</div>
