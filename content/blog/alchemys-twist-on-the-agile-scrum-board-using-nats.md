@@ -1,6 +1,6 @@
 +++
 categories = ["Community", "Engineering"]
-date = "2017-08-16"
+date = "2017-08-28"
 tags = ["nats", "guest post", "rapidloop", "opsdash", "resiliency"]
 title = "Guest Post: Alchemy's twist on the agile scrum board, using NATS."
 author = "Jose Manuel Pita"
