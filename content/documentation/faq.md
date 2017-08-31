@@ -44,7 +44,7 @@ NATS was created by Derek Collison, who has over 20 years designing, building, a
 
 __What does the NATS acronym stand for?__
 
-NATS stands for *Neural Autonomic Transport System*.  Derek Collison conceived NATS as a messaging platform that functions like a central nervous system.
+Ask a NATS maintainer at one of the many meetups and conferences we attend to discover the mystery and lore behind the NATS acronym.
 
 ### <a name="gnatsdlang"></a>What language is NATS written in?
 
