@@ -42,6 +42,10 @@ NATS is offered in two interoperable modules: the core NATS platform (referred t
 
 NATS was created by Derek Collison, who has over 20 years designing, building, and using publish-subscribe messaging systems. NATS is sponsored and maintained by [Apcera](https://www.apcera.com/).
 
+__What does the NATS acronym stand for?__
+
+Ask a NATS maintainer at one of the many meetups and conferences we attend to discover the mystery and lore behind the NATS acronym.
+
 ### <a name="gnatsdlang"></a>What language is NATS written in?
 
 The NATS server (`gnatsd`) is written in Go. There is client support for a wide variety of languages. Please see the [Download](/download/) page for more info.
