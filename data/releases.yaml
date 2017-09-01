@@ -199,10 +199,10 @@ Releases:
       repo: arduino-nats
       link: https://github.com/joshglendenning/arduino-nats
 
-- name: Qt5 C++11
+- name: Qt5 C++
   type: nats-client
   supported: false
-  language: C++11
+  language: C++
   author:
     - name: Petar Koretić
       link: https://github.com/pkoretic/
