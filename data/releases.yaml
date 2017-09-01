@@ -199,6 +199,21 @@ Releases:
       repo: arduino-nats
       link: https://github.com/joshglendenning/arduino-nats
 
+- name: Qt5 C++
+  type: nats-client
+  supported: false
+  language: C++
+  author:
+    - name: Petar Koretić
+      link: https://github.com/pkoretic/
+  version_num: 0.0.0
+  release_notes: |
+    Last udpated on August 12th, 2017.
+  github:
+    - user: pkoretic
+      repo: qt-nats
+      link: https://github.com/pkoretic/qt-nats
+
 - name: Elm
   type: nats-client
   supported: false
