@@ -26,15 +26,20 @@ This demonstration will show you how to run a Minio object store on a local mach
 ## Step 3: Configure Minio to use NATS for event subscription
 edit `~/.minio/config.json`
 
-set `"nats"."1"."enable": true`
+Enable NATS in the configuration by setting: `"nats"."1"."enable": true`
 
-`...
-"nats": {
+For example:
+```json
+{
+  "nats": {
     "1": {
-        "enable": true,
-        "address": "0.0.0.0:4222",
-        "subject": "bucketevents",
-...`
+      "enable": true,
+      "address": "0.0.0.0:4222",
+      "subject": "bucketevents"
+    }
+  }
+}
+```
 
 ## Step 4: Run Minio
 `minio server ~/minio-tmp/`
@@ -47,7 +52,8 @@ set `"nats"."1"."enable": true`
 * Now when you upload or delete a file in Minio, these changes will be replicated on your S3 Bucket!
 
 ## Usage flags
-`Usage of demo-minio-nats:
+```
+Usage of demo-minio-nats:
   -bucket string
     	bucket to test with (default "minio-nats-example")
   -local string
@@ -59,4 +65,5 @@ set `"nats"."1"."enable": true`
   -remote string
     	remote S3 URL in format s3://accessKeyId:accessSecretKey@host:port
   -tmpDir string
-    	temporary directory for copying files (default "/tmp/")`
+    	temporary directory for copying files (default "/tmp/")
+```

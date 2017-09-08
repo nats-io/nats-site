@@ -13,15 +13,20 @@ category = "tutorials"
 # Using NATS with Docker Swarm
 
 # Step 1:
-Create:
-- An overlay network for the cluster (in this example, `nats-cluster-example`)
-- Instaniate initial NATS server, running Docker
-### What it looks like:
-`docker network create --driver overlay nats-cluster-example`
-`docker service create --network nats-cluster-example \ --name nats-cluster-node-1 nats:1.0 -DV`
+Create and overlay network for the cluster (in this example, `nats-cluster-example`), and instantiate an initial NATS server.
+
+First create an overlay network:
+```
+docker network create --driver overlay nats-cluster-example
+```
+
+Next instantiate an initial "seed" server for a NATS cluster:
+```
+docker service create --network nats-cluster-example --name nats-cluster-node-1 nats:1.0 -DV
+```
 
 # Step 2:
-Next, create another service which connects to the existing server running from step 2 within the overlay network; note that we have an initial IP for connecting to the server:
+The 2nd step is to create another service which connects to the NATS server within the overlay network.  Note that we have an initial IP for connecting to the server:
 
 ```
 docker service create --name ruby-nats --network nats-cluster-example wallyqs/ruby-nats:ruby-2.3.1-nats-v1.0 -e '
@@ -53,7 +58,7 @@ docker service create --name ruby-nats --network nats-cluster-example wallyqs/ru
 Now you can add more nodes to the Swarm cluster via more docker services:
 
 ```
-docker service create --network nats-cluster-example \ --name nats-cluster-node-2 nats:1.0 -DV -cluster nats://0.0.0.0:6222 -routes nats-A
+docker service create --network nats-cluster-example --name nats-cluster-node-2 nats:1.0 -DV -cluster nats://0.0.0.0:6222 -routes nats-A
 ```
 
 In this case, `nats-A` is seeding the rest of the cluster so that it has autodiscovery.
