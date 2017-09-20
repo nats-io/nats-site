@@ -199,6 +199,21 @@ Releases:
       repo: arduino-nats
       link: https://github.com/joshglendenning/arduino-nats
 
+- name: Async Clojure
+  type: nats-client
+  supported: false
+  language: Clojure
+  author:
+    - name: Employee Republic
+      link: https://github.com/employeerepublic/
+  version_num: 0.0.0
+  release_notes: |
+    Last udpated on May 11th, 2017.
+  github:
+    - user: employeerepublic
+      repo: clj-nats-async
+      link: https://github.com/employeerepublic/clj-nats-async
+
 - name: Qt5 C++
   type: nats-client
   supported: false
