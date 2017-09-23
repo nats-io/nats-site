@@ -205,7 +205,7 @@ m, err := sub.NextMsg(timeout)
 
 ## Client authentication
 
-You can enable authentication on the NATS server so that a client must authentication when connecting.
+You can enable authentication on the NATS server so that a client must authenticate when connecting.
 
 As shown below, you can start the server with authentication required by passing in the required credentials with the server start command. Alternatively, you can enable authentication and set the credentials in the server configuration file.
 
