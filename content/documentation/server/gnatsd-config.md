@@ -105,6 +105,10 @@ max_control_line: 512
 
 # maximum payload
 max_payload: 65536
+
+# Duration the server can block on a socket write to a client.  Exceeding the 
+# deadline will designate a client as a slow consumer.
+ write_deadline: "2s"
 ```
 
 ## Variables
