@@ -1,5 +1,5 @@
 +++
-date = "2017-09-18"
+date = "2017-09-28"
 title = "Slow Consumers"
 description = ""
 category = "server"
@@ -104,7 +104,7 @@ write_deadline: 2s
 
 ### Client Configuration
 
-Most officially supported clients have an internal buffer of pending messages and will notify your application through the connection asynchronous error callback if a local subscription is not catching up.  Receiving an error locally does not necessarily mean that the server will have identified a client as a slow consumer.
+Most officially supported clients have an internal buffer of pending messages and will notify your application through an asynchronous error callback if a local subscription is not catching up.  Receiving an error locally does not necessarily mean that the server will have identified a subscription as a slow consumer.
 
 This buffer can be configured through setting the pending limits after a subscription has been created:
 
@@ -114,6 +114,6 @@ if err := sub.SetPendingLimits(1024*500, 1024*5000); err != nil {
 }
 ```
 
-The default subscriber pending message limit if `65536`, and the default subscriber pending byte limit is `65536*1024`
+The default subscriber pending message limit is `65536`, and the default subscriber pending byte limit is `65536*1024`
 
 If the client reaches this internal limit, it will drop messages and continue to process new messages.  This is aligned with NATS at least once delivery.  It is up to your application to detect the missing messages and recover from this condition.
