@@ -12,7 +12,7 @@ category = "server"
 
 # Slow Consumers
 
-In core NATS, consumers that cannot keep up are handled differently from many other messaging systems in that NATS favors the approach of protecting the system as a whole over accomodating a particular consumer to ensure message delivery.
+In core NATS, consumers that cannot keep up are handled differently from many other messaging systems:  NATS favors the approach of protecting the system as a whole over accommodating a particular consumer to ensure message delivery.
 
 __What is a slow consumer?__
 
