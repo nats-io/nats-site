@@ -6,7 +6,7 @@ title = "Webinar: Serverless for the Cloud Native Era: How Fission uses NATS and
 author = "Brian Flannery"
 +++
 
-**Speaker:** NEED NAME PLEASE!!!!
+**Speaker:** Soam Vasani
 
 **When:** Wed, Oct 25, 2017 10:00 AM - 11:00 AM San Francisco / 1:00PM - 2:00PM New York
 
