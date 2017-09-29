@@ -37,7 +37,7 @@ func natsErrHandler(nc *nats.Conn, sub *nats.Subscription, natsErr error) {
 			fmt.Printf("couldn't get pending messages: %v", err)
 			return
 		}
-		fmt.Printf("Falling behind with %d pending messages on on subject %q.\n",
+		fmt.Printf("Falling behind with %d pending messages on subject %q.\n",
 			pendingMsgs, sub.Subject)
 		// Log error, notify operations...
 	}
@@ -45,14 +45,14 @@ func natsErrHandler(nc *nats.Conn, sub *nats.Subscription, natsErr error) {
 }
 
 // Set the error handler when creating a connection.
-nc, err := nc, err := nats.Connect("nats://localhost:4222",
+nc, err := nats.Connect("nats://localhost:4222",
   nats.ErrorHandler(natsErrHandler))
 ```
 
 With this example code and default settings, a slow consumer error would generate output something like this:
 ```
 error: nats: slow consumer, messages dropped
-Falling behind with 65536 pending messages on on subject "foo".
+Falling behind with 65536 pending messages on subject "foo".
 ```
 
 Note that if you are using a synchronous subscriber, `Subscription.NextMsg(timeout time.Duration)` will also return an error indicating there was a slow consumer and messages have been dropped.
@@ -89,7 +89,7 @@ A less favorable option may be to meter the publisher.  There are several ways t
 
 __Tune NATS through configuration__  
 
-The NATS server can be tuned to determine how much data can buffer before a consumer is considered slow, and some officially supported clients allow buffer sizes to be adjusted.  Decreasing buffer sizes will let you identify slow consumers more quickly.  Increasing buffer sizes is not typically recommended unless you are handling temporary bursts of data.  Often, increasing buffer capacity will only *postpone* slow consumer problems.
+The NATS server can be tuned to determine how much data can be buffered before a consumer is considered slow, and some officially supported clients allow buffer sizes to be adjusted.  Decreasing buffer sizes will let you identify slow consumers more quickly.  Increasing buffer sizes is not typically recommended unless you are handling temporary bursts of data.  Often, increasing buffer capacity will only *postpone* slow consumer problems.
 
 ### Server Configuration
 
