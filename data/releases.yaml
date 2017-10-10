@@ -454,6 +454,21 @@ Releases:
       repo: nats_ex
       link: https://github.com/iamd3vil/nats_ex
 
+- name: Python Asyncio
+  type: streaming-client
+  supported: true
+  language: Python
+  author:
+    - name:
+      link:
+  version_num: 0.1.0
+  release_notes: |
+    Release v0.1.0 on October 8th, 2017.
+  github:
+    - user: nats-io
+      repo: asyncio-nats-streaming
+      link: https://github.com/nats-io/asyncio-nats-streaming
+
 - name: Go
   type: streaming-client
   supported: true
