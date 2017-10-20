@@ -79,4 +79,4 @@ Fission Workflows improves on that by allowing you to specify a set of functions
 
 ### Join us on Wednesday at 10AM Pacific for a webinar about Fission, Workflows and NATS!
 
-<a href="http://nats.io/blog/serverless-for-the-cloud-native-era/" target="_blank"><img class="img-responsive center-block" alt="Project Overview" src="/img/blog/serverless-functions-and-workflows-with-kubernetes-and-nats/fission-webinar.png"></a>
+<a href="https://attendee.gotowebinar.com/register/7818307612903132675" target="_blank"><img class="img-responsive center-block" alt="Project Overview" src="/img/blog/serverless-functions-and-workflows-with-kubernetes-and-nats/fission-webinar.png"></a>
