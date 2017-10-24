@@ -14,9 +14,9 @@ This makes it easy to wire up functions in a reliable and asynchronous manner to
 
 <img class="img-responsive center-block" alt="Project Overview" src="/img/blog/serverless-functions-and-workflows-with-kubernetes-and-nats/01.png">
 
-Fission uses the durable version of NATS (NATS Streaming), which supports at-least once delivery. The Fission NATS function trigger does not acknowledge the event to the queue until the function completes successfully — this means if a function fails for any reason during processing of an event, the delivery of that event will be retried.Event-driven
+Fission uses the durable version of NATS (NATS Streaming), which supports at-least once delivery. The Fission NATS function trigger does not acknowledge the event to the queue until the function completes successfully — this means if a function fails for any reason during processing of an event, the delivery of that event will be retried.
 
-## Function Systems
+## Event-driven Function Systems
 
 Using the idea of binding functions to message queue topics, you can create very complex event-driven asynchronous application architectures. With Fission and Kubernetes handling the execution of functions, and NATS Streaming providing reliable at-least once messaging, such an architecture can be reliable and run at high performance.
 
