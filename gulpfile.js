@@ -1,4 +1,5 @@
 var gulp         = require('gulp'),
+    plumber      = require('gulp-plumber'),
     debug        = require('gulp-debug'),
     notify       = require('gulp-notify'),
     concat       = require('gulp-concat'),
@@ -116,6 +117,10 @@ gulp.task('watch', function() {
   gulp.watch('src/company_logos/**/*', [ 'companyLogos' ]);
   gulp.watch('src/blog/**/*', [ 'blogImages' ]);
   gulp.watch('src/blog/**/*', [ 'blogImagesGifs' ]);
+});
+
+gulp.task('help', function(){
+  console.log('if gulp build fails, simply add ".pipe(plumber())" to the task to see the error');
 });
 
 // Default Task
