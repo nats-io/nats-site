@@ -38,18 +38,22 @@ Verify that the NATS server starts successfully, as well as the HTTP monitor:
 
 ### Installing and running the benchmark utility 
 
-Thanks to the power of Go, you can either install the `nats-bench` utility in `$GOBIN`:
+The NATS benchmark can be installed and run via Go.  Ensure your golang environment is setup.
+
+There are two approaches; you can either install the `nats-bench` utility in the directory specified in your `GOBIN` environment variable:
 ```
-go install $GOPATH/src/github.com/nats-io/nats/examples/nats-bench.go
+go install $GOPATH/src/github.com/nats-io/go-nats/examples/nats-bench.go
 ```
 
 ... or you can simply run it via `go run`:
 
 ```
-go run $GOPATH/src/github.com/nats-io/nats/examples/nats-bench.go
+go run $GOPATH/src/github.com/nats-io/go-nats/examples/nats-bench.go
 ```
 
-For the purpose of this tutorial, we'll assume that you chose the first option, and that you've added `$GOBIN` to your `PATH`. 
+*On windows use the % environment variable syntax, replacing `$GOPATH` with `%GOPATH%`.*
+
+For the purpose of this tutorial, we'll assume that you chose the first option, and that you've added the `GOBIN` environment variable to your `PATH`. 
 
 ### Usage
 
