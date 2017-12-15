@@ -407,7 +407,7 @@ Releases:
   github:
     - user: cloudfoundry-community
       repo: java-nats
-      link: https://github.com/cloudfoundry-community/java-nats/tree/master/client-spring
+      link: https://github.com/cloudfoundry-community/java-nats
 
 - name: .NET
   type: nats-client
