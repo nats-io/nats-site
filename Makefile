@@ -12,7 +12,10 @@ setup:
 build:
 	gulp build
 
-upload:
-	aws s3 rm --recursive s3://nats.io/
-	aws s3 sync public s3://nats.io/
+clean:
+	gulp clean
+
+deploy:
+	aws s3 rm --recursive s3://www.nats.io/
+	aws s3 sync public s3://www.nats.io/
 

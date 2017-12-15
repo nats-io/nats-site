@@ -13,7 +13,7 @@ category = "tutorials"
 # Using NATS with Minio
 
 ## NATS and Minio
-[Minio](www.minio.io) is a Golang-based object store, increasingly popular for cloud native deployments. Minio is S3 compatible, and runs across a wide variety of platforms.
+[Minio](https://www.minio.io) is a Golang-based object store, increasingly popular for cloud native deployments. Minio is S3 compatible, and runs across a wide variety of platforms.
 
 This demonstration will show you how to run a Minio object store on a local machine, configure a local NATS instance, and finally replicate objects to other clouds.
 

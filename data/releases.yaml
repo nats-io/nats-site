@@ -190,14 +190,14 @@ Releases:
   language: C++
   author:
     - name: Josh Glendenning
-      link: https://github.com/joshglendenning
+      link: https://github.com/isobit
   version_num: 0.0.0
   release_notes: |
     Last udpated on March 15th, 2015.
   github:
-    - user: joshglendenning
+    - user: isobit
       repo: arduino-nats
-      link: https://github.com/joshglendenning/arduino-nats
+      link: https://github.com/isobit/arduino-nats
 
 - name: Async Clojure
   type: nats-client
