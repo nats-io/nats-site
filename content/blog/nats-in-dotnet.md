@@ -8,7 +8,7 @@ author = "Colin Sullivan"
 
 Performance at scale is critically important for building distributed systems today.  Microservices and IoT require applications to be distributed across a physical or virtual infrastructure, comprised of thousands, possibly millions of endpoints, many of which can be .NET services or applications.  The end user needs these services to operate seamlessly, requiring extremely fast, lightweight, scalable, resilient, and always-on communication - NATS.
 
-In developing the [NATS C# .NET Client](https://github.com/nats-io/csnats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client, currently as a beta release, can publish over 3 million messages per second within a Windows VM on a MacBook pro.**
+In developing the [NATS C# .NET Client](https://github.com/nats-io/csharp-nats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client, currently as a beta release, can publish over 3 million messages per second within a Windows VM on a MacBook pro.**
 
 While mirroring functionality and internals of other Apcera supported clients, the NATS .NET client public API will make the .NET developer feel at home with object serialization, IDisposable interfaces, and delegates for handling NATS events.  The NATS .NET client is fully managed and strong named.
 
@@ -101,4 +101,4 @@ public void demonstrateRuntimeDelegates()
 
 Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance.  Please don't hesistate to contact us with comments, feature requests, or contributions!
 
-Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csnats), and browse the [API documentation](http://nats-io.github.io/csnats/).  Let us know what you think, and visit our [Community](http://nats.io/community/) Page!  Contributors are welcome!
+Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](http://github.com/nats-io/csharp-nats/).  Let us know what you think, and visit our [Community](http://nats.io/community/) Page!  Contributors are welcome!

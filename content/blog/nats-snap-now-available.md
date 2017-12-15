@@ -10,7 +10,7 @@ The [Snap](http://snapcraft.io/) initiative spearheaded by Canonical, Dell, Sams
 
 NATS is a messaging system all about simplicity, security, and performance. It’s a single binary with no external dependencies, and just a few MB in size. It’s lightweight footprint, security, and scalability made it a great fit for the Snap initiative, and we’re happy to share that a Snap for NATS Server is now available via the command line (```
 sudo snap install nats-server
-```), or via [UAppExplorer](https://uappexplorer.com/app/nats-server.nats-io).
+```), or via [UAppExplorer](https://uappexplorer.com/snap/ubuntu/nats-server).
 
 What is interesting about snaps as a technology offering, is how they have decided to make policy a first class citizen from the start.
 

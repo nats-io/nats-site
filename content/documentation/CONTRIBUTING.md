@@ -17,7 +17,7 @@ Do you want to contribute to NATS? Awesome! We’d love your help. To make it ea
 
 ### A Word On Governance
 
-NATS is sponsored by [Apcera, Inc.] (http://www.apcera.com/) and governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#designgoals) while welcoming and facilitating broad contribution from the growing NATS user community.
+NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#designgoals) while welcoming and facilitating broad contribution from the growing NATS user community.
 
 When discussing GitHub procedures, we’ll use the term “committers” to refer to this group.
 
@@ -85,7 +85,7 @@ Logical architecture diagrams or similar visuals are really helpful! People are 
 Sharing how you did this process before NATS, and how it works with NATS (and what the results have been) is useful to the reader.
 If possible, give a bit of context on where you hope to go next with your NATS deployment(s).
 
-The NATS website is open source, so GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against http://github.com/nats-io/nats-site/content/blog and potentially accelerate the review cycle! 
+The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/master/content/blog to accelerate the review cycle! 
 
 ## Contributing Documentation Changes
 
