@@ -34,7 +34,7 @@ Follow the instructions for your platform to install the Go tools: [https://gola
 
 Your Go working directory (GOPATH) is where you store your Go code. It can be any path you choose but must be separate from your Go installation directory (GOROOT).
 
-The following instructions describe how to set your GOPATH. Refer to the official Go documentation for more details: [https://golang.org/doc/code.html](https://golang.org/doc/code.html).
+The following instructions describe one way you can set your GOPATH. Refer to the official Go documentation for more details: [https://golang.org/doc/code.html](https://golang.org/doc/code.html).
 
 **Mac OS X and Linux**
 
@@ -52,18 +52,18 @@ The following instructions describe how to set your GOPATH. Refer to the officia
 
 **Windows**
 
-- Create a working directory that is not the same as your Go installation, such as `C:\Users\HOME\go`, where HOME is your default directory.
+- Create a working directory that is not the same as your Go installation, for example, `C:\Users\%USERNAME%\go`, where is your default directory.
 
 - Create the GOPATH environment variable:
 
 	```
-	GOPATH = C:\Users\HOME\
+	set GOPATH=c:\Users\%USERNAME%\go
 	```
 
 - Add the GOPATH\bin environment variable to your PATH:
 
 	```
-	PATH = %GOPATH%bin
+	set PATH=%PATH%;%GOPATH%\bin
 	```
 
 - Create the required Go directory structure for your source code:
