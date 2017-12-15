@@ -8,7 +8,7 @@ author = "Jason Rotella"
 
 In the context of a submittal to the Samsung Maker’s Against Drought Challenge (more on that [here](http://artik.devpost.com/)) extended hackathon, my team has developed a partial solution to the very serious California drought crisis. I say partial since this problem is so vast that many solutions are required to operate collaboratively to fully solve it.
 
-The solution utilizes physical water system monitoring and control with Samsung ARTIK 10 IoT modules, and a [Particle Photon](https://store.particle.io/) module running the [arduino-nats](https://github.com/joshglendenning/arduino-nats)  NATS client. One ARTIK 10 is running a custom server written in Go and the second is running a NATS server and local database.
+The solution utilizes physical water system monitoring and control with Samsung ARTIK 10 IoT modules, and a [Particle Photon](https://store.particle.io/) module running the [arduino-nats](https://github.com/isobit/arduino-nats)  NATS client. One ARTIK 10 is running a custom server written in Go and the second is running a NATS server and local database.
 
 [Ripple](http://devpost.com/software/ripples) incorporates concepts of pairing of users, via mobile applications, with: water devices they wish to use, as well as other people with similar conservation goals, and/or interest in receiving similar rewards for conserving water. Conserving water can span from simply reducing usage to, for example, using water supplied by reclamation or desalinization systems.
 

@@ -64,7 +64,7 @@ To run a second server and cluster them together:
 $ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222
 ```
 
-**NOTE** Since the Docker image protects routes using credentials we need to provide them above. Extracted [from Docker image configuration](https://github.com/nats-io/nats-docker/blob/master/gnatsd.conf#L16-L20)
+**NOTE** Since the Docker image protects routes using credentials we need to provide them above. Extracted [from Docker image configuration](https://github.com/nats-io/nats-docker/blob/master/amd64/gnatsd.conf#L16-L20)
 ```
 # Routes are protected, so need to use them with --routes flag
 # e.g. --routes=nats-route://ruser:T0pS3cr3t@otherdockerhost:6222
