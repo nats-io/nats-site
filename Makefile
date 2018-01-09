@@ -1,4 +1,5 @@
 CURRENT_DIR=$(pwd)
+.DEFAULT_GOAL=build
 
 setup:
 	npm install
@@ -16,6 +17,4 @@ clean:
 	gulp clean
 
 deploy:
-	aws s3 rm --recursive s3://www.nats.io/
-	aws s3 sync public s3://www.nats.io/
-
+	cd public; s3cmd sync . s3://www.nats.io/
