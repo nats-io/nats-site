@@ -582,6 +582,21 @@ Releases:
       repo: Arduino-nats-streaming-client
       link: https://github.com/davidsai/Arduino-nats-streaming-client
 
+- name: PHP
+  type: streaming-client
+  supported: false
+  language: PHP
+  author:
+    - name: Donal Byrne
+      link: https://github.com/byrnedo
+  version_num: 0.2.1
+  release_notes: |
+    Last updated to 0.2.1 on December 1st, 2017.
+  github:
+    - user: byrnedo
+      repo: php-nats-streaming
+      link: https://github.com/byrnedo/php-nats-streaming
+
 - name: NATS Server
   type: nats-server
   supported: true
