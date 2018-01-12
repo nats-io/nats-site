@@ -12,7 +12,7 @@ category = "server"
 
 # NATS Server
 
-NATS provides a server that is written in the Go programming language. The executable name for the NATS server is `gnatsd`, which stands for Go NATS Deamon. The [NATS server](https://github.com/nats-io/gnatsd) is provided as open source software under the MIT license. [Apcera](http://www.apcera.com/) actively maintains and supports the NATS server.
+NATS provides a server that is written in the Go programming language. The executable name for the NATS server is `gnatsd`, which stands for Go NATS Deamon. The [NATS server](https://github.com/nats-io/gnatsd) is provided as open source software under the MIT license. Synadia actively maintains and supports the NATS server.
 
 ## Installation
 

@@ -61,7 +61,7 @@ authorization {
 }
 ```
 
-Note that `_INBOX.*` subscribe permissions must be granted in order to use the request APIs in the Apcera supported clients. If an unauthorized client publishes or attempts to subscribe to a subject, the action fails and is logged at the server, and an error message is returned to the client.
+Note that `_INBOX.*` subscribe permissions must be granted in order to use the request APIs in the Synadia supported clients. If an unauthorized client publishes or attempts to subscribe to a subject, the action fails and is logged at the server, and an error message is returned to the client.
 
 ## Complete example
 

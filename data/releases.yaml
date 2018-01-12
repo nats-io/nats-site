@@ -6,7 +6,7 @@
 
 # - name: Name of the Client
 #   type: nats-client - Make sure to give it type client, this is used for display purposes
-#   supported: true/false - This is to indicated if Apcera will be supporting this client or not
+#   supported: true/false - This is to indicated if Synadia will be supporting this client or not
 #   version_num: 1.2.8 - Numeric version number of the client
 #   release_notes: |
 #     A short description of the release notes can go here. Example: "Release 1.2.8 on January 18th, 2016."

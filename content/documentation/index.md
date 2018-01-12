@@ -12,15 +12,15 @@ showChildren=true
 
 # NATS Introduction
 
-[NATS](http://nats.io/) is an open-source, cloud-native messaging system. In addition to functioning as the "nervous system" for the Apcera platform, companies like Baidu, Siemens, VMware, HTC, and Ericsson rely on NATS for its highly performant and resilient messaging capabilities.
+[NATS](http://nats.io/) is an open-source, cloud-native messaging system. Companies like Apcera, Baidu, Siemens, VMware, HTC, and Ericsson rely on NATS for its highly performant and resilient messaging capabilities.
 
 ## NATS server
 
-NATS provides a lightweight [server](/documentation/server/gnatsd-intro/) that is written in the Go programming language. [Apcera](http://www.apcera.com/) actively maintains and supports the NATS server source code, binary distributions, and [Docker image](https://hub.docker.com/_/nats/).
+NATS provides a lightweight [server](/documentation/server/gnatsd-intro/) that is written in the Go programming language. NATS is maintained by Synadia and an amazing OpenSource Ecosystem, find more at [GitHub](http://www.github.com/nats-io).
 
 ## NATS clients
 
-There are several [client libraries](/download/) for NATS. Apcera actively maintains and supports the Go, Node, Ruby, Java, C, C# and NGINX C clients, and there are several community-provided clients.
+There are several [client libraries](/download/) for NATS. Synadia actively maintains and supports the Go, Node, Ruby, Java, C, C# and NGINX C clients, and there are several community-provided clients.
 
 You can write your own client in any language you choose. NATS provides a simple, [text-based protocol](/documentation/internals/nats-protocol/) that makes [writing clients](/documentation/internals/nats-guide) a breeze.
 

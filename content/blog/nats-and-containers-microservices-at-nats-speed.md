@@ -8,7 +8,7 @@ author = "Brian Flannery"
 
 NATS is all about simplicity and speed. In that regard, NATS is extremely well suited for microservices architectures, acting as a transport between services. Many NATS users I speak to in my role as community manager are using NATS for this purpose due to it’s lightweight PubSub characteristics. As services become increasingly distributed and modularized, an always-on, fast, PubSub communication layer becomes very important. NATS allows many distributed services and applications to function in real-time as a single entity. A large portion of these same NATS users are also using Docker for their containerized services.
 
-NATS has integrated with Docker for some time—the original gnatsd Docker image was downloaded nearly a quarter-of-a-million times. Earlier this year, when Docker launched their Official Image program, and re-launched Docker Hub, the NATS team at Apcera updated the [NATS Docker Image](https://hub.docker.com/_/nats/), and were approved for Docker Official Image Status.
+NATS has integrated with Docker for some time—the original gnatsd Docker image was downloaded nearly a quarter-of-a-million times. Earlier this year, when Docker launched their Official Image program, and re-launched Docker Hub, the NATS team at Synadia updated the [NATS Docker Image](https://hub.docker.com/_/nats/), and were approved for Docker Official Image Status.
 
 In staying true to the NATS design philosophy, the NATS Docker image is very lightweight and simple. This was well illustrated in a tweet recently from David Williams:
 <div class="tweet-embed-con">

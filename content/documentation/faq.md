@@ -40,7 +40,7 @@ NATS is an open source, lightweight, high-performance cloud native infrastructur
 
 NATS is offered in two interoperable modules: the core NATS platform (referred to simply as "NATS" throughout this site), and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service that can be employed to add event streaming, delivery guarantees, and historical data replay to NATS.
 
-NATS was created by Derek Collison, who has over 20 years designing, building, and using publish-subscribe messaging systems. NATS is sponsored and maintained by [Apcera](https://www.apcera.com/).
+NATS was created by Derek Collison, who has over 20 years designing, building, and using publish-subscribe messaging systems. NATS is maintained by an amazing OpenSource Ecosystem, find more at  [GitHub](https://www.github.com/nats-io).
 
 __What does the NATS acronym stand for?__
 
@@ -52,11 +52,11 @@ The NATS server (`gnatsd`) is written in Go. There is client support for a wide 
 
 ### <a name="maintainer"></a>Who maintains NATS?
 
-NATS is sponsored and supported by Apcera, the trusted application platform company founded by Derek Collison. The Apcera team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/download/) page for the complete list, and links to the relevant source repositories and documentation.
+NATS is sponsored and supported by Synadia, a company founded by Derek Collison. The Synadia team maintain the NATS server, as well as the Go, Ruby, Node.js, C, C#, Java and several other client libraries. Our very active user community also contributes client libraries for several other implementation languages. Please see the [download](/download/) page for the complete list, and links to the relevant source repositories and documentation.
 
 ### <a name="clients"></a>What client support exists for NATS?
 
-Please see the [Download](/download/) page for the latest list of Apcera- and community-sponsored NATS clients.
+Please see the [Download](/download/) page for the latest list of Synadia- and community-sponsored NATS clients.
 
 ## Technical Questions
 
@@ -74,7 +74,7 @@ Yes. NATS is a publish and subscribe system that also has distributed queueing f
 
 There are several options available, thanks to the active NATS community:
 
-* [nats-top](https://github.com/nats-io/nats-top) is a top-like monitoring tool developed by Wally Quevedo of Apcera.
+* [nats-top](https://github.com/nats-io/nats-top) is a top-like monitoring tool developed by Wally Quevedo of Synadia.
 
 * [natsboard](https://github.com/cmfatih/natsboard) is a monitoring tool developed by Fatih Cetinkaya.
 

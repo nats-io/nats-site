@@ -18,8 +18,8 @@ One feature of the NATS .NET client that faciliates development is object serial
 [Serializable]
 public class Company
 {
-    public string Name = "Apcera";
-    public string Address = "140 New Montgomery St.";
+    public string Name = "Widgets";
+    public string Address = "123 Some St., City, State 12345";
 }
            
 // Create a connection then send an object to subject "foo".

@@ -14,7 +14,7 @@ category = "server"
 
 The NATS server is provided as a Docker image that you can run using the Docker daemon. The NATS server Docker image is extremely lightweight, coming in at a mere 3 MB is size.
 
-[Apcera](http://www.apcera.com/) actively maintains and supports the NATS server Docker image.
+Synadia actively maintains and supports the NATS server Docker image.
 
 ## Docker image
 

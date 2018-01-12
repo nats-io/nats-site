@@ -53,7 +53,7 @@ The following demonstrates an example NATS server config file. See also the [NAT
 
 ```
 port: 4242      # port to listen for client connections
-net: apcera.me  # net interface to listen
+net: myhost.lan # net interface to listen
 
 http_port: 8222 # HTTP monitoring port
 

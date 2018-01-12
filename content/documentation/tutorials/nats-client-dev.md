@@ -20,7 +20,7 @@ It is assumed that you have set up your Go environment and have the NATS server 
 
 A NATS client is a producer or consumer of a NATS message. Producers are message publishers and consumers are message subscribers. Subscribers can be asynchronous or synchronous. NATS clients communicate in a peer-to-peer fashion via the NATS server. Clients do not need to know of each other's location to communicate.
 
-There are several client libraries for NATS, and Apcera actively maintains and supports several of these. In addition, you can write your own.
+There are several client libraries for NATS, and Synadia actively maintains and supports several of these. In addition, you can write your own.
 
 ## Solution files
 

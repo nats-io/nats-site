@@ -1,118 +1,132 @@
-baseurl = "http://nats.io/"
+baseURL = "http://nats.io/"
 languageCode = "en-us"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"
 
 pygmentsCodeFences = "true"
-pygmentsuseclasses = "true"
-pygmentsstyle = "native"
+pygmentsUseClasses = "true"
+pygmentsStyle = "native"
 
 [params]
-  leftNav = false
-  description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
-  author = "The NATS team"
-  baseurl = "http://nats.io/"
-  languageCode = "en-us"
-  title = "NATS by Apcera - Documentation"
-  SectionPagesMenu = "main"
-  noCategoryLink = true
-  githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
+leftNav = false
+description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
+author = "The NATS team"
+baseurl = "http://nats.io/"
+languageCode = "en-us"
+title = "NATS - Documentation"
+SectionPagesMenu = "main"
+noCategoryLink = true
+githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
 
 [[menu.main]]
-  name = "About"
-  weight = 1
-  identifier = "about"
-  url = "/about"
+name = "About"
+weight = 1
+identifier = "about"
+url = "/about"
 
 [[menu.main]]
-  name = "Download"
-  weight = 2
-  identifier = "download"
-  url = "/download"
-  [[menu.main]]
-    name = "NATS"
-    weight = 1
-    identifier = "nats"
-    parent = "download"
-    [[menu.main]]
-      name = "Server"
-      weight = 1
-      identifier = "nats-server"
-      parent = "nats"
-    [[menu.main]]
-      name = "Apcera Supported Clients"
-      weight = 2
-      identifier = "nats-clients"
-      parent = "nats"
-    [[menu.main]]
-      name = "Community Clients"
-      weight = 3
-      identifier = "nats-community"
-      parent = "nats"
-  [[menu.main]]
-    name = "NATS Streaming"
-    weight = 0
-    identifier = "nats-streaming"
-    parent = "download"
-    [[menu.main]]
-      name = "Server"
-      weight = 1
-      identifier = "streaming-server"
-      parent = "nats-streaming"
-    [[menu.main]]
-      name = "Apcera Supported Clients"
-      weight = 2
-      identifier = "streaming-clients"
-      parent = "nats-streaming"
-    [[menu.main]]
-      name = "Community Clients"
-      weight = 3
-      identifier = "streaming-community"
-      parent = "nats-streaming"
+name = "Download"
+weight = 2
+identifier = "download"
+url = "/download"
 
 [[menu.main]]
-  name = "Documentation"
-  weight = 3
-  identifier = "documentation"
-  url = "/documentation"
-  [[menu.main]]
-    name = "Getting Started"
-    weight = 1
-    parent = "documentation"
-  [[menu.main]]
-    name = "Concepts"
-    weight = 2
-    parent = "documentation"
-  [[menu.main]]
-    name = "Internals"
-    weight = 3
-    parent = "documentation"
-  [[menu.main]]
-    name = "Server"
-    weight = 4
-    parent = "documentation"
-  [[menu.main]]
-    name = "Streaming"
-    weight = 5
-    parent = "documentation"
-  [[menu.main]]
-    name = "Tutorials"
-    weight = 6
-    parent = "documentation"
+name = "NATS"
+weight = 1
+identifier = "nats"
+parent = "download"
 
 [[menu.main]]
-  name = "Support"
-  weight = 4
-  identifier = "support"
-  url = "/support"
+name = "Server"
+weight = 1
+identifier = "nats-server"
+parent = "nats"
 
 [[menu.main]]
-  name = "Community"
-  weight = 5
-  identifier = "community"
-  url = "/community"
+name = "Synadia Supported Clients"
+weight = 2
+identifier = "nats-clients"
+parent = "nats"
 
 [[menu.main]]
-  name = "Blog"
-  weight = 6
-  identifier = "blog"
-  url = "/blog"
+name = "Community Clients"
+weight = 3
+identifier = "nats-community"
+parent = "nats"
+
+[[menu.main]]
+name = "NATS Streaming"
+weight = 0
+identifier = "nats-streaming"
+parent = "download"
+
+[[menu.main]]
+name = "Server"
+weight = 1
+identifier = "streaming-server"
+parent = "nats-streaming"
+
+[[menu.main]]
+name = "Synadia Supported Clients"
+weight = 2
+identifier = "streaming-clients"
+parent = "nats-streaming"
+
+[[menu.main]]
+name = "Community Clients"
+weight = 3
+identifier = "streaming-community"
+parent = "nats-streaming"
+
+[[menu.main]]
+name = "Documentation"
+weight = 3
+identifier = "documentation"
+url = "/documentation"
+
+[[menu.main]]
+name = "Getting Started"
+weight = 1
+parent = "documentation"
+
+[[menu.main]]
+name = "Concepts"
+weight = 2
+parent = "documentation"
+
+[[menu.main]]
+name = "Internals"
+weight = 3
+parent = "documentation"
+
+[[menu.main]]
+name = "Server"
+weight = 4
+parent = "documentation"
+
+[[menu.main]]
+name = "Streaming"
+weight = 5
+parent = "documentation"
+
+[[menu.main]]
+name = "Tutorials"
+weight = 6
+parent = "documentation"
+
+[[menu.main]]
+name = "Support"
+weight = 4
+identifier = "support"
+url = "/support"
+
+[[menu.main]]
+name = "Community"
+weight = 5
+identifier = "community"
+url = "/community"
+
+[[menu.main]]
+name = "Blog"
+weight = 6
+identifier = "blog"
+url = "/blog"

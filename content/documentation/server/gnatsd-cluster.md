@@ -259,15 +259,15 @@ Starting the containers
 Then on each one of your servers, you should be able to start the gnatsd image as follows:
 
 ```
-docker run -it -p 0.0.0.0:7222:7222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 7222 -D -V
+docker run -it -p 0.0.0.0:7222:7222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 7222 -D -V
 ```
 
 ```
-docker run -it -p 0.0.0.0:8222:8222 -p 0.0.0.0:7246:7246 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 8222 -D -V
+docker run -it -p 0.0.0.0:8222:8222 -p 0.0.0.0:7246:7246 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 8222 -D -V
 ```
 
 ```
-docker run -it -p 0.0.0.0:9222:9222 -p 0.0.0.0:7248:7248 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 9222 -D -V
+docker run -it -p 0.0.0.0:9222:9222 -p 0.0.0.0:7248:7248 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
 ### Example 2: Setting a gnatsd cluster one by one
@@ -293,7 +293,7 @@ cluster {
 ```
 
 ```
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 4222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
 Then we proceed to create the next node. We realize that the first node has ip:port as `192.168.59.103:7244` so we add this to the routes configuration as follows:
@@ -316,7 +316,7 @@ cluster {
 Then start server B:
 
 ```
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 4222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
 Finally, we create another Node C. We now know the routes of A and B so we can add it to its configuration:
@@ -340,7 +340,7 @@ cluster {
 Then start it:
 
 ```
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf apcera/gnatsd -c /tmp/cluster.conf -p 9222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
 Now, the following should work: make a subscription to Node A then publish to Node C. You should be able to to receive the message without problems.
