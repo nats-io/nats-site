@@ -638,14 +638,31 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.0-beta
+  version_num: 0.7.2
   release_notes: |
-    Release v0.8.0-beta January 29th, 2018.
+    Release v0.7.2 January 29th, 2018<p>
+    Release v0.8.0-beta is also available with Clustering support.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
+  - name: nats-streaming-server-v0.7.2-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-darwin-amd64.zip
+  - name: nats-streaming-server-v0.7.2-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-linux-386.zip
+  - name: nats-streaming-server-v0.7.2-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-linux-amd64.zip
+  - name: nats-streaming-server-v0.7.2-linux-arm6.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-linux-arm6.zip
+  - name: nats-streaming-server-v0.7.2-linux-arm7.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-linux-arm7.zip
+  - name: nats-streaming-server-v0.7.2-linux-arm64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-linux-arm64.zip
+  - name: nats-streaming-server-v0.7.2-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-windows-386.zip
+  - name: nats-streaming-server-v0.7.2-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.7.2/nats-streaming-server-v0.7.2-windows-amd64.zip
   - name: nats-streaming-server-v0.8.0-beta-darwin-amd64.zip
     url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.8.0-beta/nats-streaming-server-v0.8.0-beta-darwin-amd64.zip
   - name: nats-streaming-server-v0.8.0-beta-linux-386.zip
