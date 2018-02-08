@@ -116,4 +116,4 @@ if err := sub.SetPendingLimits(1024*500, 1024*5000); err != nil {
 
 The default subscriber pending message limit is `65536`, and the default subscriber pending byte limit is `65536*1024`
 
-If the client reaches this internal limit, it will drop messages and continue to process new messages.  This is aligned with NATS at least once delivery.  It is up to your application to detect the missing messages and recover from this condition.
+If the client reaches this internal limit, it will drop messages and continue to process new messages.  This is aligned with NATS at most once delivery.  It is up to your application to detect the missing messages and recover from this condition.
