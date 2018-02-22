@@ -23,12 +23,13 @@ install:
 script:
   - gulp build
 
-after_success:
+after_script:
   - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r public/; fi
 
 deploy:
   - provider: releases
     api_key: $GITHUB_TOKEN
+    skip_cleanup: true
     file: ./site_$TRAVIS_TAG.zip
     on:
       tags: true
