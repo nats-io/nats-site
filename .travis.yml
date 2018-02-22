@@ -22,13 +22,14 @@ install:
 
 script:
   - gulp build
+  - if [[ "$TRAVIS_TAG" != "" ]]; then echo 'Building tag artifact'; fi
   - if [[ "$TRAVIS_TAG" != "" ]]; then mv ./public site_$TRAVIS_TAG; fi
-  - if [[ "$TRAVIS_TAG" != "" ]]; then tar -zcvf site_$TRAVIS_TAG.tgz site_$TRAVIS_TAG; fi
+  - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG; fi
 
 deploy:
   - provider: releases
     api_key: $GITHUB_TOKEN
     skip_cleanup: true
-    file: ./site_$TRAVIS_TAG.tgz
+    file: ./site_$TRAVIS_TAG.zip
     on:
       tags: true
