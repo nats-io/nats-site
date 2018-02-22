@@ -24,8 +24,6 @@ script:
   - gulp build
 
 after_success:
-  - zip -q site.zip -r public/
-  - ls -l site.zip
-
+  - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r public/; fi
 
 
