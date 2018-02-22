@@ -26,4 +26,9 @@ script:
 after_success:
   - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r public/; fi
 
-
+deploy:
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file: ./site_$TRAVIS_TAG.zip
+    on:
+      tags: true
