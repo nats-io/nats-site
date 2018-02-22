@@ -1,0 +1,35 @@
+---
+sudo: required
+dist: trusty
+language: node_js
+
+node_js:
+  - 9
+python:
+  - 3.6.x
+
+addons:
+  apt:
+    packages:
+      - imagemagick
+      - graphicsmagick
+
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.31.1/hugo_0.31.1_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+  - npm install
+  - npm install --global gulp-cli
+
+script:
+  - gulp build
+  - if [[ "$TRAVIS_TAG" != "" ]]; then echo 'Building tag artifact'; fi
+  - if [[ "$TRAVIS_TAG" != "" ]]; then mv ./public site_$TRAVIS_TAG; fi
+  - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG; fi
+
+deploy:
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    skip_cleanup: true
+    file: ./site_$TRAVIS_TAG.zip
+    on:
+      tags: true
