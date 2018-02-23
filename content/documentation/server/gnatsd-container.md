@@ -12,7 +12,7 @@ category = "server"
 
 # NATS Server Containerization
 
-The NATS server is provided as a Docker image that you can run using the Docker daemon. The NATS server Docker image is extremely lightweight, coming in at a mere 3 MB is size.
+The NATS server is provided as a Docker image that you can run using the Docker daemon. The NATS server Docker image is extremely lightweight, coming in at a mere 3 MB in size.
 
 Synadia actively maintains and supports the NATS server Docker image.
 
