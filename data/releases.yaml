@@ -597,6 +597,21 @@ Releases:
       repo: php-nats-streaming
       link: https://github.com/byrnedo/php-nats-streaming
 
+- name: Perl
+  type: streaming-client
+  supported: false
+  language: Perl
+  author:
+    - name: Sergey Kolychev
+      link: https://github.com/sergeykolychev
+  version_num: 0.0.3
+  release_notes: |
+    Last updated to 0.0.3 on November 13th, 2017.
+  github:
+    - user: sergeykolychev
+      repo: perl-nats-streaming
+      link: https://github.com/sergeykolychev/perl-nats-streaming
+
 - name: NATS Server
   type: nats-server
   supported: true
