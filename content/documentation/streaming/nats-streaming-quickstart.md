@@ -56,8 +56,8 @@ go run nats-streaming-server.go
 Publish several messages. For each publication you should get a result.
 
 ```
-$ cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples
-go run stan-pub.go foo "msg one"
+$ cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples/stan-pub
+$ go run main.go foo "msg one"
 Published [foo] : 'msg one'
 $ go run stan-pub.go foo "msg two"
 Published [foo] : 'msg two'
@@ -71,7 +71,8 @@ $
 Use the `--all` flag to receive all published messages.
 
 ```
-$ go run stan-sub.go --all -c test-cluster -id myID foo
+$ cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples/stan-sub
+$ go run main.go --all -c test-cluster -id myID foo
 Connected to nats://localhost:4222 clusterID: [test-cluster] clientID: [myID]
 subscribing with DeliverAllAvailable
 Listening on [foo], clientID=[myID], qgroup=[] durable=[]
