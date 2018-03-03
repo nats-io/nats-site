@@ -59,9 +59,9 @@ Publish several messages. For each publication you should get a result.
 $ cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples/stan-pub
 $ go run main.go foo "msg one"
 Published [foo] : 'msg one'
-$ go run stan-pub.go foo "msg two"
+$ go run main.go foo "msg two"
 Published [foo] : 'msg two'
-$ go run stan-pub.go foo "msg three"
+$ go run main.go foo "msg three"
 Published [foo] : 'msg three'
 $ 
 ```
