@@ -6,6 +6,7 @@ ehthumbs.db
 # HUGO
 /public
 /themes/*
+/static
 
 # Node
 node_modules
@@ -17,3 +18,4 @@ npm-debug.log
 #IntelliJ IDEA
 .idea/
 *.iml
+

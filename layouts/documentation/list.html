@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+  <div class="row">
+    <div id="left-nav-con" class="col-md-3">
+      {{ partial "side-menu.html" . }}
+    </div>
+    <div id="documentation-content" class="col-md-9">
+      <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
