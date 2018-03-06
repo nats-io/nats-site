@@ -15,5 +15,3 @@ build:
 clean:
 	gulp clean
 
-deploy:
-	cd public; s3cmd sync . s3://www.nats.io/
