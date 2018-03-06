@@ -1,16 +1,15 @@
 var gulp         = require('gulp'),
-    plumber      = require('gulp-plumber'),
-    debug        = require('gulp-debug'),
-    notify       = require('gulp-notify'),
+    // plumber      = require('gulp-plumber'),
+    // debug        = require('gulp-debug'),
     concat       = require('gulp-concat'),
-    rename       = require('gulp-rename'),
+    // rename       = require('gulp-rename'),
     watch        = require('gulp-watch'),
     less         = require('gulp-less'),
     uglify       = require('gulp-uglify'),
-    minifyCSS    = require('gulp-minify-css'),
+    // minifyCSS    = require('gulp-minify-css'),
     gm           = require('gulp-gm'),
     imageResize  = require('gulp-image-resize'),
-    gulpif       = require('gulp-if'),
+    // gulpif       = require('gulp-if'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps   = require('gulp-sourcemaps'),
     clean        = require('gulp-clean'),
@@ -23,10 +22,9 @@ gulp.task('less', function() {
     .pipe(less())
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
-    //.pipe(minifyCSS())
+    // .pipe(minifyCSS())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('static/css'))
-    .pipe(notify({ message: 'Compiling LESS'}));
+    .pipe(gulp.dest('static/css'));
 });
 
 // Javascript
@@ -34,22 +32,19 @@ gulp.task('js', function() {
   return gulp.src(['src/js/moment.js', 'src/js/**/*.js'])
     .pipe(concat('index.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('static/js'))
-    .pipe(notify({ message: 'Compiling JavaScript'}));
+    .pipe(gulp.dest('static/js'));
 });
 
 // Images
 gulp.task('img', function() {
   return gulp.src('src/img/**/*')
-    .pipe(gulp.dest('static/img'))
-    .pipe(notify({ message: 'Copying image'}));
+    .pipe(gulp.dest('static/img'));
 });
 
 // Fonts
 gulp.task('font', function() {
   return gulp.src('src/fonts/**/*')
-    .pipe(gulp.dest('static/fonts'))
-    .pipe(notify({ message: 'Copying font'}));
+    .pipe(gulp.dest('static/fonts'));
 });
 
 // Resize User Logos
@@ -58,8 +53,7 @@ gulp.task('userLogos', function() {
     .pipe(gm(function (gmfile) {
       return gmfile.resize(150, 100);
     }))
-    .pipe(gulp.dest('static/img/user_logos'))
-    .pipe(notify({ message: 'Resizing user logo image'}));
+    .pipe(gulp.dest('static/img/user_logos'));
 });
 
 // Resize Partner Logos
@@ -68,15 +62,13 @@ gulp.task('partnerLogos', function() {
     .pipe(gm(function (gmfile) {
       return gmfile.resize(250, 150);
     }))
-    .pipe(gulp.dest('static/img/partner_logos'))
-    .pipe(notify({ message: 'Resizing partner logo'}));
+    .pipe(gulp.dest('static/img/partner_logos'));
 });
 
 // Resize Documentaiton Images
 gulp.task('docsImages', function() {
   return gulp.src('src/documentation/**/*.{png,jpg,jpeg}')
-    .pipe(gulp.dest('static/img/documentation'))
-    .pipe(notify({ message: 'Copying documentation image'}));
+    .pipe(gulp.dest('static/img/documentation'));
 });
 
 // Resize Blog Images
@@ -85,26 +77,23 @@ gulp.task('blogImages', function() {
     .pipe(imageResize({
       width : 900
     }))
-    .pipe(gulp.dest('static/img/blog'))
-    .pipe(notify({ message: 'Resizing blog image'}));
+    .pipe(gulp.dest('static/img/blog'));
 });
 
 // Will have to improve this later on
 gulp.task('blogImagesGifs', function() {
   return gulp.src('src/blog/**/*.gif')
-    .pipe(gulp.dest('static/img/blog'))
-    .pipe(notify({ message: 'Copying gif blog image'}));
+    .pipe(gulp.dest('static/img/blog'));
 });
 
 // Clean
 gulp.task('clean', function() {
   return gulp.src('public')
-    .pipe(clean())
-    .pipe(notify({ message: 'Removing old build'}));
+    .pipe(clean());
 });
 
 // HUGO
-gulp.task('hugo', shell.task('hugo'))
+gulp.task('hugo', shell.task('hugo'));
 
 // Watch
 gulp.task('watch', function() {
