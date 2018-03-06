@@ -1,5 +1,6 @@
 baseURL = "http://nats.io/"
 languageCode = "en-us"
+defaultLanguage = "en"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"
 
 pygmentsCodeFences = "true"
@@ -10,8 +11,6 @@ pygmentsStyle = "native"
 leftNav = false
 description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
 author = "The NATS team"
-baseurl = "http://nats.io/"
-languageCode = "en-us"
 title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true

@@ -11,7 +11,7 @@
       {{ range .Data.Pages }}
         <li>
     			<h3 class="doc-entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} #Draft{{ end }}</a></h3>
-    			<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 02, 2006" }}</time></p>
+    			<p><time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 02, 2006" }}</time></p>
         </li>
     	{{ end }}
       </ul>
