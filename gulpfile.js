@@ -6,7 +6,7 @@ var gulp         = require('gulp'),
     watch        = require('gulp-watch'),
     less         = require('gulp-less'),
     uglify       = require('gulp-uglify'),
-    // minifyCSS    = require('gulp-minify-css'),
+    minifyCSS    = require('gulp-minify-css'),
     gm           = require('gulp-gm'),
     imageResize  = require('gulp-image-resize'),
     // gulpif       = require('gulp-if'),
@@ -22,7 +22,7 @@ gulp.task('less', function() {
     .pipe(less())
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
-    // .pipe(minifyCSS())
+    .pipe(minifyCSS())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('static/css'));
 });
