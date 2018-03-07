@@ -88,7 +88,7 @@ gulp.task('blogImagesGifs', function() {
 
 // Clean
 gulp.task('clean', function() {
-  return gulp.src('public')
+  return gulp.src(['public', 'static'], {read: false})
     .pipe(clean());
 });
 
