@@ -1,0 +1,45 @@
+[partners]
+[partners.docker]
+name="Docker"
+home ="https://www.docker.com/"
+logo = "/img/partners/docker.jpg"
+
+[partners.influxdata]
+name = "Influx Data"
+home = "https://www.influxdata.com/"
+logo = "/img/partners/influxdata.jpg"
+
+[partners.redhat]
+name = "Redhat Technology Partner"
+home = "http://connect.redhat.com/"
+logo = "/img/partners/redhat.jpg"
+
+[partners.treasuredata]
+name = "Treasure Data"
+home = "https://www.treasuredata.com/"
+logo = "/img/partners/treasure-data.jpg"
+
+[partners.spindox]
+name = "spindox digital soul"
+home = "https://www.spindox.it/en/"
+logo = "/img/partners/spindox.jpg"
+
+[partners.williamsgarcia]
+name = "Williams Garcia"
+home = "http://www.williamsgarcia.com/"
+logo = "/img/partners/wg.jpg"
+
+[partners.minio]
+name = "Minio"
+home = "https://www.minio.io/"
+logo = "/img/partners/minio.jpg"
+
+[partners.freebsd]
+name = "FreeBSD"
+home = "https://www.freebsd.org/cgi/ports.cgi?query=NATS&stype=all"
+logo = "/img/partners/freebsd.jpg"
+
+[partners.storageos]
+name = "StorageOS"
+home = "https://storageos.com/"
+logo = "/img/partners/storageos.jpg"

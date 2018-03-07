@@ -1,0 +1,45 @@
+[companies]
+[companies.ericsson]
+name = "Ericsson"
+home = "https://www.ericsson.com/"
+logo = "/img/companies/ericsson.jpg"
+
+[companies.htc]
+name = "HTC"
+home = "http://www.htc.com/"
+logo = "/img/companies/htc.jpg"
+
+[companies.siemens]
+name = "Siemens"
+home = "https://www.siemens.com"
+logo = "/img/companies/siemens.jpg"
+
+[companies.vmware]
+name = "VMware"
+home = "http://www.vmware.com/"
+logo = "/img/companies/vmware.jpg"
+
+[companies.pivotal]
+name = "Pivotal"
+home = "http://pivotal.io/"
+logo = "/img/companies/pivotal.jpg"
+
+[companies.ge]
+name = "GE"
+home = "http://www.ge.com/"
+logo = "/img/companies/ge.jpg"
+
+[companies.baidu]
+name = "Baidu"
+home = "http://www.baidu.com/"
+logo = "/img/companies/baidu.jpg"
+
+[companies.clarify]
+name = "Clarifai"
+home = "https://www.clarifai.com/"
+logo = "/img/companies/clarifai.jpg"
+
+[companies.netlify]
+name = "Netlify"
+home = "https://www.netlify.com/"
+logo = "/img/companies/netlify.jpg"

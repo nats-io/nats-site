@@ -1,14 +1,43 @@
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
-  <div class="row">
-    <div class="col-md-12">
-      {{.Content}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="page-header">
+                        <h1>Community</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 lead">
+                    {{.Content}}
+                </div>
+            </div>
+            <hr/>
 
-      <hr>
-
-      {{ partial "quotes.html" . }}
-
+            <div class="alert alert-info" role="alert">
+                <strong>NATS Streaming is now available!</strong> - Check out the <a
+                    href="/documentation/streaming/nats-streaming-intro/">documentation</a> to get started.
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3" id="contribute-con">
+                    {{ partial "ways-to-contribute.html" . }}
+                </div>
+                <div class="col-md-6 col-lg-3" id="meetup-con">
+                    {{ partial "stay-in-touch.html" . }}
+                </div>
+                <div class="col-md-6 col-lg-6" id="newsletter-con">
+                    {{ partial "newsletter.html" . }}
+                </div>
+            </div>
+            <hr/>
+            {{ partial "partners.html" . }}
+            <hr/>
+            {{ partial "companies.html" . }}
+            <hr>
+            {{ partial "quotes.html" . }}
+        </div>
     </div>
-  </div>
 </div>
 {{ partial "footer.html" . }}
