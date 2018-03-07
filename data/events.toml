@@ -1,0 +1,15 @@
+[[events]]
+venue = "Strange Loop - Talk"
+when = "September 28-30, 2017"
+who = "Tyler Treat"
+what = "So You Wanna Go Fast?"
+where = "Peabody Opera House / St. Louis, MO"
+ref = "https://www.thestrangeloop.com/2017/so-you-wanna-go-fast.html"
+
+[[events]]
+venue = "AllThingsOpen - Talk"
+when = "October 23-24, 2017"
+who = "Waldemar Quevedo"
+what = "NATS: Simple, Secure, and Scalable Messaging for the Cloud Native Era"
+where = "Raleigh Convention Center / Raleigh, NC"
+ref = "https://allthingsopen.org/talk/nats-simple-secure-and-scalable-messaging-for-the-cloud-native-era/"
