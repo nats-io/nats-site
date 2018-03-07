@@ -29,6 +29,7 @@
 @nats-brand-google:                         #dd4b39;
 @nats-brand-github-light:                   #fff;
 @nats-brand-github-dark:                    #000;
+@nats-brand-reddit-dark:                    #000;
 
 // Variable Overrides
 @brand-info:                                @nats-colour-blue-lite;
@@ -545,6 +546,7 @@ html#home-html {
       }
       .icon-twitter,
       .icon-google-plus,
+      .icon-reddit,
       .icon-github{
         vertical-align: middle;
         font-size: 30px;
@@ -557,6 +559,9 @@ html#home-html {
       }
       .icon-github{
         color: @nats-brand-github-dark;
+      }
+      .icon-reddit{
+        color: @nats-brand-reddit-dark;
       }
     }
   }
@@ -878,18 +883,13 @@ footer {
       .icon-twitter,
       .icon-google-plus,
       .icon-slack,
+      .icon-reddit,
       .icon-github{
         vertical-align: sub;
         font-size: 30px;
       }
-      .icon-twitter{
-        //color: @nats-brand-twitter;
-      }
-      .icon-google-plus{
-        //color: @nats-brand-google;
-      }
-      .icon-mark-github{
-        //color: @nats-brand-github-dark;
+      .icon-redit{
+        font-weight: bold;
       }
       a {
         display: inline-block;
