@@ -7,6 +7,8 @@ pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
 pygmentsStyle = "native"
 
+googleAnalytics = "UA-111730698-1"
+
 [params]
 leftNav = false
 description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."

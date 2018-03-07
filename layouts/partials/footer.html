@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer{{ if .IsHome }} id="home-page-footer"{{ end }}>
+    <footer {{ if .IsHome }}id="home-page-footer"{{ end }}>
       <div class="container">
         <div class="row">
           <div class="col-xs-12 copyright">
@@ -8,6 +8,7 @@
               <a target="_blank" href="https://groups.google.com/forum/#!forum/natsio"><i class="icon icon-google-plus"></i></a>
               <a target="_blank" href="https://github.com/nats-io"><i class="icon icon-github"></i></a>
               <a target="_blank" href="https://join.slack.com/t/natsio/shared_invite/enQtMzE2NDkxNDI2NTE1LTc5ZDEzYTkwYWZkYWQ5YjY1MzBjMWZmYzA5OGQxMzlkMGQzMjYxNGM3MWYxMjNiYmNjNzIwMTVjMWE2ZDgxZGM"><i class="icon icon-slack"></i></a>
+            <a target="_blank" href=""><i class="icon icon-reddit"></i></a>
             </p>
             <p class="text-center">NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.</p>
           </div>
@@ -16,22 +17,7 @@
     </footer>
     <!-- End Footer -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="/js/index.js"></script>
-
-    <!-- Github Buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-111730698-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+    {{ partial "js.html" . }}
   </body>
 </html>
+
