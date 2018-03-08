@@ -4,7 +4,7 @@ Please keep these principles in mind as you modify existing content or design ne
 
 For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](http://getbootstrap.com).
 
-===
+---
 
 ## Contents
 
@@ -16,8 +16,7 @@ For more information on Bootstrap's themes, conventions, and content support (HT
 - [Adding a Blog Entry](#adding-blog-entry)
 - [Local Development](#development)
 
-===
-
+---
 
 ## <a name="contribute"></a>Contributing content
 
@@ -32,7 +31,7 @@ If you're not familiar with this process, please refer to either of the followin
 We encourage and welcome your contributions to any part or element of this site.
 We will review and discuss with you any contributions or corrections submitted via GitHub Pull Request.
 
-===
+---
 
 ## <a name="styleguide"></a>General Style Guidelines and Conventions
 
@@ -49,8 +48,7 @@ We will review and discuss with you any contributions or corrections submitted v
 - Single ticks for executable names, file paths, inline commands, parameters, etc.
 - Graphics: save as `*.png`; source in `/src/img/nats-brokered-throughput-comparison.png`
 
-===
-
+---
 ## <a name="organziation"></a>Content Organization
 
 The basic organization of the site is very simple, with each top navigation link corresponding to a single HTML or Markdown file in the `nats-site/content` directory.
