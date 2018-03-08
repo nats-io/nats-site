@@ -5,11 +5,12 @@ language: node_js
 
 node_js:
   - 9
+
 python:
   - 3.6.x
 
-env:
-  - MINIFY_VERSION=2.3.4
+git:
+  depth: false
 
 addons:
   apt:
@@ -22,20 +23,15 @@ install:
   - sudo dpkg -i hugo*.deb
   - npm install
   - npm install --global gulp-cli
-  - wget "https://github.com/tdewolff/minify/releases/download/v$MINIFY_VERSION/minify_$MINIFY_VERSION_linux_amd64.tar.gz"
-  - tar -xf "minify_$MINIFY_VERSION_linux_amd64.tar.gz" -C /usr/local/bin
+  - wget https://github.com/tdewolff/minify/releases/download/v2.3.4/minify_2.3.4_linux_amd64.tar.gz
+  - mkdir ./tools
+  - tar -xf minify_2.3.4_linux_amd64.tar.gz -C ./tools
 
 script:
   - gulp build
-  - if [[ -z "$TRAVIS_TAG" ]]; then
-    env: TRAVIS_TAG=dev
-    fi
-
-  - echo 'Building tag artifact'
-  - /usr/local/bin/minify -r -o public/ -a public/
-  - mv ./public site_$TRAVIS_TAG
-  - zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG
-
+  - ./tools/minify -r -o public/ -a public/
+  - if [[ "$TRAVIS_TAG" != "" ]]; then mv ./public site_$TRAVIS_TAG; fi
+  - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG; fi
 
 deploy:
   - provider: releases
