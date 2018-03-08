@@ -29,7 +29,7 @@ install:
 
 script:
   - gulp build
-  - ./tools/minify -r -o public/ -a public/
+  - ./tools/minify --html-keep-conditional-comments --html-keep-document-tags --html-keep-end-tags -r -o public/ -a public/
   - if [[ "$TRAVIS_TAG" != "" ]]; then mv ./public site_$TRAVIS_TAG; fi
   - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG; fi
 

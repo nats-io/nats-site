@@ -12,6 +12,9 @@ setup:
 build:
 	gulp build
 
+minify:
+	minify --html-keep-conditional-comments --html-keep-document-tags --html-keep-end-tags -r -o public/ -a public/
+
 clean:
 	gulp clean
 
