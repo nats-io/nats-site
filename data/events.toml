@@ -1,15 +1,24 @@
 [[events]]
-venue = "Strange Loop - Talk"
-when = "September 28-30, 2017"
-who = "Tyler Treat"
-what = "So You Wanna Go Fast?"
-where = "Peabody Opera House / St. Louis, MO"
-ref = "https://www.thestrangeloop.com/2017/so-you-wanna-go-fast.html"
+venue = "KubeCon + CloudNativeCon Europe 2018"
+when = "May 2-4, 2018"
+who = "Wally Quevedo, Colin Sullivan"
+what = "NATS Intro & NATS Deep Dive"
+where = "Bella Center / Copenhagen, Denmark"
+ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2018/program/schedule/"
 
 [[events]]
-venue = "AllThingsOpen - Talk"
-when = "October 23-24, 2017"
-who = "Waldemar Quevedo"
-what = "NATS: Simple, Secure, and Scalable Messaging for the Cloud Native Era"
-where = "Raleigh Convention Center / Raleigh, NC"
-ref = "https://allthingsopen.org/talk/nats-simple-secure-and-scalable-messaging-for-the-cloud-native-era/"
+venue = "Gothenburg Tech Radar - Meetup"
+when = "May 7, 2018"
+who = "Wally Quevedo"
+what = "TBD"
+where = "TBD"
+ref = "https://www.meetup.com/Gothenburg-Tech-Radar/"
+
+[[events]]
+venue = "Sweden Go West - Meetup"
+when = "May 8, 2018"
+who = "Wally Quevedo"
+what = "TBD"
+where = "TBD"
+ref = "https://www.meetup.com/sweden-go-west/"
+

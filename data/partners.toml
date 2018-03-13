@@ -24,11 +24,6 @@ name = "spindox digital soul"
 home = "https://www.spindox.it/en/"
 logo = "/img/partners/spindox.jpg"
 
-[partners.williamsgarcia]
-name = "Williams Garcia"
-home = "http://www.williamsgarcia.com/"
-logo = "/img/partners/wg.jpg"
-
 [partners.minio]
 name = "Minio"
 home = "https://www.minio.io/"
