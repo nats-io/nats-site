@@ -20,7 +20,11 @@
               <div class="col-xs-6 copyright">
                   <p class="social svg">
                       <a target="_blank" href="http://www.cncf.io/" class="pull-right">
-                      {{ readFile "static/img/cncf-white.svg" | safeHTML }}
+                          {{ if .IsHome }}
+                            {{ readFile "static/img/cncf-white.svg" | safeHTML }}
+                          {{ else }}
+                            {{ readFile "static/img/cncf-blue.svg" | safeHTML }}
+                          {{ end }}
                       </a>
                   </p>
               </div>
