@@ -1,18 +1,30 @@
     <!-- Footer -->
     <footer {{ if .IsHome }}id="home-page-footer"{{ end }}>
       <div class="container">
-        <div class="row">
-          <div class="col-xs-12 copyright">
-            <p class="social text-center">
-                <a target="_blank" href="https://twitter.com/nats_io"><i class="icon icon-twitter"></i></a>
-                <a target="_blank" href="https://groups.google.com/forum/#!forum/natsio"><i class="icon icon-google-plus"></i></a>
-                <a target="_blank" href="https://github.com/nats-io"><i class="icon icon-github"></i></a>
-                <a target="_blank" href="https://join.slack.com/t/natsio/shared_invite/enQtMzE2NDkxNDI2NTE1LTc5ZDEzYTkwYWZkYWQ5YjY1MzBjMWZmYzA5OGQxMzlkMGQzMjYxNGM3MWYxMjNiYmNjNzIwMTVjMWE2ZDgxZGM"><i class="icon icon-slack"></i></a>
-                <a target="_blank" href="https://www.reddit.com/r/NATS_io/"><i class="icon icon-reddit"></i></a>
-            </p>
-            <p class="text-center">NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.</p>
+          <div class="row">
+              <div class="col-xs-6 copyright">
+                  <p class="social">
+                      <a target="_blank" href="https://twitter.com/nats_io"><i class="icon icon-twitter"></i></a>
+                      <a target="_blank" href="https://groups.google.com/forum/#!forum/natsio"><i
+                              class="icon icon-google-plus"></i></a>
+                      <a target="_blank" href="https://github.com/nats-io"><i class="icon icon-github"></i></a>
+                      <a target="_blank"
+                         href="https://join.slack.com/t/natsio/shared_invite/enQtMzE2NDkxNDI2NTE1LTc5ZDEzYTkwYWZkYWQ5YjY1MzBjMWZmYzA5OGQxMzlkMGQzMjYxNGM3MWYxMjNiYmNjNzIwMTVjMWE2ZDgxZGM"><i
+                              class="icon icon-slack"></i></a>
+                      <a target="_blank" href="https://www.reddit.com/r/NATS_io/"><i class="icon icon-reddit"></i></a>
+                  </p>
+                  <p>NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source
+                      software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.
+                  </p>
+              </div>
+              <div class="col-xs-6 copyright">
+                  <p class="social svg">
+                      <a target="_blank" href="http://www.cncf.io/" class="pull-right">
+                      {{ readFile "static/img/cncf-white.svg" | safeHTML }}
+                      </a>
+                  </p>
+              </div>
           </div>
-        </div>
       </div>
     </footer>
     <!-- End Footer -->
