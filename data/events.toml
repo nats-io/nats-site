@@ -10,15 +10,14 @@ ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2
 venue = "Gothenburg Tech Radar - Meetup"
 when = "May 7, 2018"
 who = "Wally Quevedo"
-what = "TBD"
-where = "TBD"
-ref = "https://www.meetup.com/Gothenburg-Tech-Radar/"
+what = "Cloud Native Messaging with the NATS project"
+where = "Pagero - Gothenburg, Sweden"
+ref = "https://www.meetup.com/Gothenburg-Tech-Radar/events/248293960/"
 
 [[events]]
 venue = "Sweden Go West - Meetup"
 when = "May 8, 2018"
 who = "Wally Quevedo"
-what = "TBD"
-where = "TBD"
-ref = "https://www.meetup.com/sweden-go-west/"
-
+what = "Reliable Microservices in Go using NATS"
+where = "Pagero - Gothenburg, Sweden"
+ref = "https://www.meetup.com/sweden-go-west/events/248294110/"
