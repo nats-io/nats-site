@@ -51,7 +51,7 @@ We will review and discuss with you any contributions or corrections submitted v
 ---
 ## <a name="organziation"></a>Content Organization
 
-The basic organization of the site is very simple, with each top navigation link corresponding to a single HTML or Markdown file in the `nats-site/content` directory.
+The basic organization of the site is very simple, with each top navigation link corresponding to a Markdown file in the `nats-site/content` directory.
 The HTML documents and any Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
 
 The structure of the content directory is as follows:
@@ -279,7 +279,6 @@ For adding content to the blog entry, please follow the [style guidelines and co
 
 You can either user docker image for your local development or install requirements following this documentation.
 
-### Docker image for nats-site:
 
 Clone your forked copy of the repository:
 ```
@@ -291,95 +290,40 @@ Change to the directory:
 cd nats-site/
 ```
 
-Build docker nats-site image:
-```
-docker build -t="nats-site" .
+#### Install Prerequisites
+
+Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [graphicsMagick](http://www.graphicsmagick.org/). 
+
+If you are running on MacOS, you can try issuing the command `make setup`, this command will brew install requirements. Please refer to the `Makefile` for more information.
+
+
+Enter the following commands to install additional software dependencies (if you used `make setup` you can skip this next step.)
+
+```bash
+npm install
+npm install --global gulp-cli
+npm install gm
 ```
 
-Run docker nats-site container:
-``` 
-docker run -d --name "nats-site" -v $(pwd):/nats-site -p 1313:1313 nats-site
+#### Building the Site
+
+Images and other source assets live in the `src` directory. The build workflow will resize images, and compile assets and create appropiate assets directory for hugo.
+
+```bash
+gulp
 ```
 
-The container is starting with Hugo, Pygments, NodeJS, NPM and GraphicsMagic installed.
+The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. It then starts `hugo` with live preview. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes.
 
-Build install Node dependencies and Gulp : 
-```
-docker exec -t nats-site npm install
-docker exec -t nats-site npm install --global gulp-cli
-```
+
+When adding images, css or javascript, it is necessary for the these source assets to be copied to the correct section in the `src` directory.
+
+Whenever `src` is modified, remember to run `gulp` to update the `static` directory, and allow hugo to see the changes.
+
+
 
 Create a new blog post : 
+```bash
+hugo new blog/my-blog-post.md
 ```
-docker exec -t nats-site hugo new blog/my-blog-post.md
-```
-
-Build web resources with Gulp:
-```
-docker exec -i nats-site gulp
-```
-
-As Hugo is started with live preview mode you can directly edit your forked repository and then go to http://127.0.0.1:1313 in order to check your changes.
-
-
-### Local Install
-
-#### Requirements
-
-* A forked [nats-site](https://github.com/nats-io/nats-site) repository cloned locally.
-* [HUGO](https://gohugo.io) installed.
-* [Pygments](http://pygments.org/) installed for syntax highlighting. (**Used for code blocks in documentation and blog posts**)
-* [npm + Node.js](https://docs.npmjs.com/getting-started/installing-node) installed.
-
-#### Install HUGO:
-
-**Note 1:** On OS X, if you have [Homebrew](http://brew.sh), installation is even easier: just run `brew install hugo`.
-
-**Note 2:** Hugo requires Go 1.4+. If Go is not already installed on your system, you can [get it here](https://golang.org/dl/).
-
-Now install Hugo:
-```
-go get -u -v github.com/spf13/hugo
-```
-
-Clone your forked copy of the repository:
-```
-git clone git@github.com:<YOUR GIT USERNAME>/nats-site.git
-```
-
-Change to the directory:
-```
-cd nats-site/
-```
-
-Build the site and start the server:
-```
-hugo server -w
-```
-
-#### Install Pygments
-We use [Pygments](http://pygments.org/) for syntax highlighting in the documentation and blog posts. For directions on installing it, please follow the guide on [HUGO's site](https://gohugo.io/extras/highlighting/#pygments).
-
-#### Install npm + Node.js
-Follow the instructions on [https://docs.npmjs.com/getting-started/installing-node](https://docs.npmjs.com/getting-started/installing-node) on installing Node.js and NPM
-
-We use gulp to build the following items:
-
-* All images
-* CSS
-* Javascript
-
-**Note:** *In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet. The `gulp-gm` dependency additionally requires that GraphicsMagick or ImageMagick be [installed on your system](https://github.com/scalableminds/gulp-gm).*
-
-
-
-
-
-## <a name="notes"></a>Notes
-
-### Checking your work
-
-To make sure your changes render correctly, you can build and preview the site on your local system using Hugo.
-One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will render Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
-
 
