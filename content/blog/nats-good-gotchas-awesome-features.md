@@ -60,7 +60,7 @@ Of course NATS is awesome! If it wasn’t, we wouldn’t be using it and you wou
 2. **Asynchronous pub/sub queues** (one message to the first subscriber in the queue). Perfect when you want only one worker to get the message. If you had a hundred workers that constantly dequeue messages, this feature removes some of the need for locking/orchestration code. And any code that you don’t have to write is bug free. 🙂
 3. **Synchronous requests**. My favourite one! Sometimes a function making a request to another node needs to know right away whether that node succeeded or failed to process the message. That’s where PublishRequest comes in. Requests are heavily utilised by the StorageOS internal scheduler, which orchestrates and provisions volumes in the cluster. It needs to know whether the request to a node where the master volume is going to be deployed succeeded, because if it wasn’t there is no point in configuring replicas or virtual volumes.
 
-An especially important point is that the whole stack (server and client) is under the MIT license. When you consider embedding anything inside your product, licensing is crucial.
+An especially important point is that the whole stack (server and client) is under the Apache-2.0 license. When you consider embedding anything inside your product, licensing is crucial.
 
 ## Conclusion
 

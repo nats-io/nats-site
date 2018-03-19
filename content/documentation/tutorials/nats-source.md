@@ -12,7 +12,7 @@ category = "tutorials"
 
 # Build NATS Server from Source
 
-The NATS server code is available as open source software under the MIT license. You can build the source to run the NATS server on any platform supported by Go. The NATS server code requires at least version 1.4 of Go. You are encouraged to run the latest stable release of Go.
+The NATS server code is available as open source software under the Apache-2.0 license. You can build the source to run the NATS server on any platform supported by Go. The NATS server code requires at least version 1.4 of Go. You are encouraged to run the latest stable release of Go.
 
 ## Prerequisite
 
