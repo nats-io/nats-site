@@ -49,7 +49,7 @@ We will review and discuss with you any contributions or corrections submitted v
 - Graphics: save as `*.png`; source in `/src/img/nats-brokered-throughput-comparison.png`
 
 ---
-## <a name="organziation"></a>Content Organization
+## <a name="organization"></a>Content Organization
 
 The basic organization of the site is very simple, with each top navigation link corresponding to a Markdown file in the `nats-site/content` directory.
 The HTML documents and any Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
@@ -128,7 +128,7 @@ For the menu portion, follow this:
 
 - Name: Name of the menu item in the left nav
 - Weight: When listing pages it signifies its importance and where it should land in the list
-- Identifier: This is used behind the scenes for page generationa nd menu building. Please make sure its unique for each page
+- Identifier: This is used behind the scenes for page generation and menu building. Please make sure its unique for each page
 - Parent: Set this to the exact name of the category this page is is.
 
 ### Adding documentation sub categories
@@ -196,7 +196,7 @@ In the current design, adding a new page to the main menu requires adding that p
 ```
 
 ### Adding Quotes to Community
-To add a new quote and logo to **/communnity** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
+To add a new quote and logo to **/community** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
 
 If you have a logo to go along with the quote, just add a full size `.jpeg` or `.png` logo to `/src/user_logos`. Then run `gulp` in the terminal to generate the proper image size. Then link do the generated image in `static/img/user_logos`. Example: `<img src="/img/user_logos/FILENAME.EXT">`
 
@@ -209,7 +209,7 @@ To add a new blog entry, use the `hugo new` command like the following:
 	hugo new blog/page-url-for-blog-post.md
 ```
 
-Replace `page-url-for-blog-post` with a seo friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
+Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
 
 Once the command is run you can find the new blog entry in `/blog/nats-lands-in-london.md`.
 
@@ -258,8 +258,8 @@ To add images to a blog entry, first place them in `/src/blog`. You may add imag
 
 You may link to these images then. Example: `<img src="/img/blog/IMAGE-NAME.png">`
 
-#### Embded Tweets
-To add an embeded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
+#### Embedded Tweets
+To add an embedded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
 
 ```
 	<div class="tweet-embed-con">
@@ -292,7 +292,7 @@ cd nats-site/
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [graphicsMagick](http://www.graphicsmagick.org/). 
+Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/). 
 
 If you are running on MacOS, you can try issuing the command `make setup`, this command will brew install requirements. Please refer to the `Makefile` for more information.
 
