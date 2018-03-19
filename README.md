@@ -69,7 +69,7 @@ The structure of the content directory is as follows:
 
 The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
 
-===
+---
 
 ## <a name="adding-documentation"></a>Adding Documentation
 
@@ -155,7 +155,7 @@ Modify `config.toml` to add the category and its weight (list position) to menu.
     parent = "documentation"
 ```
 
-===
+---
 
 ## <a name="adding-content-pages"></a>Adding Content Pages
 
@@ -200,7 +200,7 @@ To add a new quote and logo to **/community** you are going to have to modify `/
 
 If you have a logo to go along with the quote, just add a full size `.jpeg` or `.png` logo to `/src/user_logos`. Then run `gulp` in the terminal to generate the proper image size. Then link do the generated image in `static/img/user_logos`. Example: `<img src="/img/user_logos/FILENAME.EXT">`
 
-===
+---
 
 ## <a name="adding-blog-entry"></a>Adding a Blog Entry
 To add a new blog entry, use the `hugo new` command like the following:
@@ -273,7 +273,7 @@ Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed 
 #### Content
 For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
 
-===
+---
 
 ## <a name="development"></a>Local Development
 
