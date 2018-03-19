@@ -302,23 +302,27 @@ Enter the following commands to install additional software dependencies (if you
 ```bash
 npm install
 npm install --global gulp-cli
-npm install gm
 ```
 
 #### Building the Site
 
-Images and other source assets live in the `src` directory. The build workflow will resize images, and compile assets and create appropiate assets directory for hugo.
+Images and other source assets live in the `src` directory. The build workflow will resize images, and compile files in `src` and create the assets directory for hugo.
 
 ```bash
-gulp
+gulp build
 ```
 
-The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. It then starts `hugo` with live preview. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes.
+The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. This command will also run hugo and process the `content` directory creating a snapshot of the site in the `public` directory.
+
+To preview your changes, run:
+```bash
+hugo server
+```
+
+`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes on a browser.
 
 
-When adding images, css or javascript, it is necessary for the these source assets to be copied to the correct section in the `src` directory.
-
-Whenever `src` is modified, remember to run `gulp` to update the `static` directory, and allow hugo to see the changes.
+Whenever `src` is modified, remember to run `gulp build` to update the `static` directory, and allow hugo to see the changes.
 
 
 
