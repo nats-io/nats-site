@@ -49,9 +49,9 @@ We will review and discuss with you any contributions or corrections submitted v
 - Graphics: save as `*.png`; source in `/src/img/nats-brokered-throughput-comparison.png`
 
 ---
-## <a name="organziation"></a>Content Organization
+## <a name="organization"></a>Content Organization
 
-The basic organization of the site is very simple, with each top navigation link corresponding to a single HTML or Markdown file in the `nats-site/content` directory.
+The basic organization of the site is very simple, with each top navigation link corresponding to a Markdown file in the `nats-site/content` directory.
 The HTML documents and any Markdown documents contained in this directory are assembled by Hugo and rendered to static HTML during the build process.
 
 The structure of the content directory is as follows:
@@ -69,7 +69,7 @@ The structure of the content directory is as follows:
 
 The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
 
-===
+---
 
 ## <a name="adding-documentation"></a>Adding Documentation
 
@@ -128,7 +128,7 @@ For the menu portion, follow this:
 
 - Name: Name of the menu item in the left nav
 - Weight: When listing pages it signifies its importance and where it should land in the list
-- Identifier: This is used behind the scenes for page generationa nd menu building. Please make sure its unique for each page
+- Identifier: This is used behind the scenes for page generation and menu building. Please make sure its unique for each page
 - Parent: Set this to the exact name of the category this page is is.
 
 ### Adding documentation sub categories
@@ -155,7 +155,7 @@ Modify `config.toml` to add the category and its weight (list position) to menu.
     parent = "documentation"
 ```
 
-===
+---
 
 ## <a name="adding-content-pages"></a>Adding Content Pages
 
@@ -196,11 +196,11 @@ In the current design, adding a new page to the main menu requires adding that p
 ```
 
 ### Adding Quotes to Community
-To add a new quote and logo to **/communnity** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
+To add a new quote and logo to **/community** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
 
 If you have a logo to go along with the quote, just add a full size `.jpeg` or `.png` logo to `/src/user_logos`. Then run `gulp` in the terminal to generate the proper image size. Then link do the generated image in `static/img/user_logos`. Example: `<img src="/img/user_logos/FILENAME.EXT">`
 
-===
+---
 
 ## <a name="adding-blog-entry"></a>Adding a Blog Entry
 To add a new blog entry, use the `hugo new` command like the following:
@@ -209,7 +209,7 @@ To add a new blog entry, use the `hugo new` command like the following:
 	hugo new blog/page-url-for-blog-post.md
 ```
 
-Replace `page-url-for-blog-post` with a seo friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
+Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
 
 Once the command is run you can find the new blog entry in `/blog/nats-lands-in-london.md`.
 
@@ -258,8 +258,8 @@ To add images to a blog entry, first place them in `/src/blog`. You may add imag
 
 You may link to these images then. Example: `<img src="/img/blog/IMAGE-NAME.png">`
 
-#### Embded Tweets
-To add an embeded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
+#### Embedded Tweets
+To add an embedded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
 
 ```
 	<div class="tweet-embed-con">
@@ -273,13 +273,12 @@ Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed 
 #### Content
 For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
 
-===
+---
 
 ## <a name="development"></a>Local Development
 
 You can either user docker image for your local development or install requirements following this documentation.
 
-### Docker image for nats-site:
 
 Clone your forked copy of the repository:
 ```
@@ -291,95 +290,44 @@ Change to the directory:
 cd nats-site/
 ```
 
-Build docker nats-site image:
-```
-docker build -t="nats-site" .
+#### Install Prerequisites
+
+Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/). 
+
+If you are running on MacOS, you can try issuing the command `make setup`, this command will brew install requirements. Please refer to the `Makefile` for more information.
+
+
+Enter the following commands to install additional software dependencies (if you used `make setup` you can skip this next step.)
+
+```bash
+npm install
+npm install --global gulp-cli
 ```
 
-Run docker nats-site container:
-``` 
-docker run -d --name "nats-site" -v $(pwd):/nats-site -p 1313:1313 nats-site
+#### Building the Site
+
+Images and other source assets live in the `src` directory. The build workflow will resize images, and compile files in `src` and create the assets directory for hugo.
+
+```bash
+gulp build
 ```
 
-The container is starting with Hugo, Pygments, NodeJS, NPM and GraphicsMagic installed.
+The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. This command will also run hugo and process the `content` directory creating a snapshot of the site in the `public` directory.
 
-Build install Node dependencies and Gulp : 
+To preview your changes, run:
+```bash
+hugo server
 ```
-docker exec -t nats-site npm install
-docker exec -t nats-site npm install --global gulp-cli
-```
+
+`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes on a browser.
+
+
+Whenever `src` is modified, remember to run `gulp build` to update the `static` directory, and allow hugo to see the changes.
+
+
 
 Create a new blog post : 
+```bash
+hugo new blog/my-blog-post.md
 ```
-docker exec -t nats-site hugo new blog/my-blog-post.md
-```
-
-Build web resources with Gulp:
-```
-docker exec -i nats-site gulp
-```
-
-As Hugo is started with live preview mode you can directly edit your forked repository and then go to http://127.0.0.1:1313 in order to check your changes.
-
-
-### Local Install
-
-#### Requirements
-
-* A forked [nats-site](https://github.com/nats-io/nats-site) repository cloned locally.
-* [HUGO](https://gohugo.io) installed.
-* [Pygments](http://pygments.org/) installed for syntax highlighting. (**Used for code blocks in documentation and blog posts**)
-* [npm + Node.js](https://docs.npmjs.com/getting-started/installing-node) installed.
-
-#### Install HUGO:
-
-**Note 1:** On OS X, if you have [Homebrew](http://brew.sh), installation is even easier: just run `brew install hugo`.
-
-**Note 2:** Hugo requires Go 1.4+. If Go is not already installed on your system, you can [get it here](https://golang.org/dl/).
-
-Now install Hugo:
-```
-go get -u -v github.com/spf13/hugo
-```
-
-Clone your forked copy of the repository:
-```
-git clone git@github.com:<YOUR GIT USERNAME>/nats-site.git
-```
-
-Change to the directory:
-```
-cd nats-site/
-```
-
-Build the site and start the server:
-```
-hugo server -w
-```
-
-#### Install Pygments
-We use [Pygments](http://pygments.org/) for syntax highlighting in the documentation and blog posts. For directions on installing it, please follow the guide on [HUGO's site](https://gohugo.io/extras/highlighting/#pygments).
-
-#### Install npm + Node.js
-Follow the instructions on [https://docs.npmjs.com/getting-started/installing-node](https://docs.npmjs.com/getting-started/installing-node) on installing Node.js and NPM
-
-We use gulp to build the following items:
-
-* All images
-* CSS
-* Javascript
-
-**Note:** *In order to run `gulp` you will have to run `npm install` in the root of the project to install all dependencies if you have not done so yet. The `gulp-gm` dependency additionally requires that GraphicsMagick or ImageMagick be [installed on your system](https://github.com/scalableminds/gulp-gm).*
-
-
-
-
-
-## <a name="notes"></a>Notes
-
-### Checking your work
-
-To make sure your changes render correctly, you can build and preview the site on your local system using Hugo.
-One great thing about Hugo is that it has a live preview mode. In live preview mode, Hugo spawns a web server that detects content updates in the tree and will render Markdown to HTML in real time. This means you can see the updated content and layout in real time as you edit!
-
 
