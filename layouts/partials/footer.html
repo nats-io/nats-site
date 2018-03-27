@@ -18,12 +18,12 @@
                   </p>
               </div>
               <div class="col-xs-6 copyright">
-                  <p class="social svg">
+                  <p class="social">
                       <a target="_blank" href="http://www.cncf.io/" class="pull-right">
                           {{ if .IsHome }}
-                            {{ readFile "static/img/cncf-white.svg" | safeHTML }}
+                          <img src="/img/cncf-white.png" alt="cncf" class="cncf pull-right img-responsive"/>
                           {{ else }}
-                            {{ readFile "static/img/cncf-blue.svg" | safeHTML }}
+                          <img src="/img/cncf-blue.png" alt="cncf" class="cncf pull-right img-responsive"/>
                           {{ end }}
                       </a>
                   </p>
