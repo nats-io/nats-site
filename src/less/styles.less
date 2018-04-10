@@ -439,7 +439,7 @@ html#home-html {
           width: 90%;
         }
       }
-      .col-xs-6 {
+      .col-xs-4, .col-xs-3, .col-xs-2, .col-xs-1  {
         align-self: flex-end;
         margin-bottom: 30px;
       }
@@ -567,6 +567,18 @@ html#home-html {
       .icon-reddit{
         color: @nats-brand-reddit-dark;
       }
+
+      @media (max-width: @screen-xs-max) {
+        .icon-twitter,
+        .icon-google-plus,
+        .icon-slack,
+        .icon-reddit,
+        .icon-github{
+          vertical-align: middle;
+          font-size: 20px;
+        }
+      }
+
     }
   }
   .community-notice-panel {
@@ -908,6 +920,7 @@ footer {
       .cncf {
         padding-top: 10px;
         width: 50%;
+        vertical-align: sub;
       }
       .svg {
         padding-top: 2px;
@@ -915,6 +928,17 @@ footer {
       svg {
         height: 32px;
         vertical-align: sub;
+      }
+
+      @media (max-width: @screen-xs-max) {
+        .icon-twitter,
+        .icon-google-plus,
+        .icon-slack,
+        .icon-reddit,
+        .icon-github{
+          vertical-align: sub;
+          font-size: 20px;
+        }
       }
     }
   }
