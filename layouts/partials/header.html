@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 {{ $baseUrl := .Site.BaseURL }}
-<html lang="en"  id="{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-html">
+<html lang="en"  id='{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-html'>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="{{if eq .Description ""}}{{ .Site.Params.description }}{{else}}{{ .Description }}{{end}}">
+    <meta name="description" content='{{if eq .Description ""}}{{ .Site.Params.description }}{{else}}{{ .Description }}{{end}}'>
     <meta name="author" content="{{ .Site.Params.author }}">
-    <meta name="generator" content="Hugo 0.13">
+    <meta name="generator" content="Hugo 0.37">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>{{if eq .Title ""}}{{.Site.Title}}{{else}}{{ .Title }}{{end}}</title>
@@ -29,8 +29,8 @@
   <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ end }}
   </head>
-  <body id="{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page">
-    <nav class="navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}">
+  <body id='{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page'>
+    <nav class='navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}'>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -73,11 +73,11 @@
               {{ end }}
               </ul>
             <li> -->
-            <li class="dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}">
+            <li class='dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}'>
               <a class="main-item" href="{{.URL}}">{{ .Pre }}<span>{{ .Name }}</span></a>
             </li>
             {{else}}
-            <li class="dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}">
+            <li class='dropdown{{if $currentNode.HasMenuCurrent " main " . }} active{{end}}'>
               <a class="main-item" href="{{.URL}}">{{ .Pre }}<span>{{ .Name }}</span></a>
             </li>
             {{end}}
