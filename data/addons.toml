@@ -297,6 +297,14 @@ author = "Dustin Deus"
 authorHome = "https://github.com/StarpTech"
 support = "Community"
 
+[addons.tcp_websocket_gateway]
+name = "TCP/Websocket Gateway with NATS"
+home = "https://github.com/antmanler/gnatsd-gw"
+description = "An embeddable TCP and Websocket gateway/bridge with NATS, written in golang."
+author = "Bin Zhao"
+authorHome = "https://github.com/antmanler"
+support = "Community"
+
 #[addons.xxx]
 #name = ""
 #home = ""
