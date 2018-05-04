@@ -1,6 +1,29 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        checkTrack();
+    });
+
+    $('#priv').on('click', function(e) {
+        openPrivacy();
+    });
+
+</script>
+
+
 <script src="/js/index.js"></script>
 <!-- Github Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Google Analytics -->
-{{ template "_internal/google_analytics.html" . }}
+
+
+<!-- Google Analytics Configuration - scripts added dynamically after user opts in or out-->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', getGAKey(), {
+        cookieExpires: 0
+    });
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->

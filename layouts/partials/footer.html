@@ -14,7 +14,7 @@
                       <a target="_blank" href="https://www.reddit.com/r/NATS_io/"><i class="icon icon-reddit"></i></a>
                   </p>
                   <p>NATS is <a href="https://github.com/nats-io/gnatsd" target="_blank">open-source
-                      software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>.
+                      software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>. <a id="priv" class="dynamic" target="_blank">Privacy</a>.
                   </p>
               </div>
               <div class="col-xs-6 copyright">
@@ -31,9 +31,10 @@
           </div>
       </div>
     </footer>
-    <!-- End Footer -->
+    {{ partial "gdpr.html" . }}
 
+    <!-- End Footer -->
     {{ partial "js.html" . }}
-  </body>
+    </body>
 </html>
 

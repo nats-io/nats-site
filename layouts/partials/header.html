@@ -30,7 +30,7 @@
 {{ end }}
   </head>
   <body id='{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page'>
-    <nav class='navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}'>
+  <nav class='navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}'>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -86,3 +86,4 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
