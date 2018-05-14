@@ -213,7 +213,7 @@ support = "Community"
 [addons.nats_streaming_server_on_k8s]
 name = "NATS Streaming Server on Kubernetes"
 home = "https://github.com/canhnt/k8s-nats-streaming"
-description = "his project contains a Docker image and a Helm chart to run NATS Streaming Server in the Kubernetes cluster. The NATS Streaming Server can run in fault tolerance mode."
+description = "This project contains a Docker image and a Helm chart to run NATS Streaming Server in the Kubernetes cluster. The NATS Streaming Server can run in fault tolerance mode."
 author = "Canh Ngo"
 authorHome = "https://github.com/canhnt"
 support = "Community"
@@ -303,6 +303,14 @@ home = "https://github.com/antmanler/gnatsd-gw"
 description = "An embeddable TCP and Websocket gateway/bridge with NATS, written in golang."
 author = "Bin Zhao"
 authorHome = "https://github.com/antmanler"
+support = "Community"
+
+[addons.openfaas_nats_connector]
+name = "OpenFaaS NATS Streaming Connector"
+home = "https://github.com/openfaas/nats-queue-worker"
+description = "This is a queue-worker to enable asynchronous processing of function requests."
+author = "Alex Ellis"
+authorHome = "https://github.com/openfaas"
 support = "Community"
 
 #[addons.xxx]
