@@ -1,7 +1,7 @@
 +++
 categories = ["Community"]
 date = "2018-05-11"
-tags = ["events", "kubernetes", "kubecon"]
+tags = ["events","kubernetes","kubecon","CNCF","cloud","presentation"]
 title = "KubeCon + CloudNativeCon EU 2018 Recap - Biggest KubeCon yet, we were thrilled to be there!"
 author = "Ginger Collison"
 +++
@@ -47,16 +47,3 @@ We are thankful to the Cloud Native Computing Foundation and all those who parti
 > [View All Videos](https://www.youtube.com/playlist?list=PLj6h78yzYM2N8GdbjmhVU65KYm_68qBmo)
 
 > [View Flickr Gallery](https://www.flickr.com/photos/143247548@N03/sets/72157696369579365/with/40046937380/)
-
-
-
-
-
-
-
-
-
-
-
-
-
