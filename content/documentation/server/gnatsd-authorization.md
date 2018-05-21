@@ -3,12 +3,14 @@ date = "2016-06-23"
 title = "Server Authorization"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Authorization"
   weight = 3
   identifier = "server-gnatsd-authorization"
-  parent = "server"
+  parent = "Server"
 +++
+
+# NATS Server Authorization
 
 The latest release of the NATS Server (0.9.0) supports user/client authorization using subject-level permissioning.
 
@@ -37,13 +39,13 @@ authorization {
 }
 ```
 
-Bob is REQUESTOR and can publish requests on subjects req.foo or req.bar, and subscribe to anything that is a response (_INBOX.*).
+Bob is REQUESTOR and can publish requests on subjects req.foo or req.bar, and subscribe to anything that is a response (_INBOX.>).
 
 ```
 authorization {
   REQUESTOR = {
     publish = ["req.foo", "req.bar"]
-    subscribe = "_INBOX.*"
+    subscribe = "_INBOX.>"
   }
 }
 ```
@@ -61,7 +63,7 @@ authorization {
 }
 ```
 
-Note that `_INBOX.*` subscribe permissions must be granted in order to use the request APIs in the Synadia supported clients. If an unauthorized client publishes or attempts to subscribe to a subject, the action fails and is logged at the server, and an error message is returned to the client.
+Note that `_INBOX.>` subscribe permissions must be granted in order to use the request APIs in the Synadia supported clients. If an unauthorized client publishes or attempts to subscribe to a subject, the action fails and is logged at the server, and an error message is returned to the client.
 
 ## Complete example
 
@@ -75,7 +77,7 @@ authorization {
   
   REQUESTOR = {
     publish = ["req.foo", "req.bar"]
-    subscribe = "_INBOX.*"
+    subscribe = "_INBOX.>"
   }
   
   DEFAULT_PERMISSIONS = {

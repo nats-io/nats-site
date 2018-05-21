@@ -3,11 +3,11 @@ date = "2015-09-27"
 title = "Server Authentication"
 description = ""
 category = "server"
-[menu.documentation]
+[menu.main]
   name = "Server Authentication"
   weight = 3
   identifier = "server-gnatsd-authentication"
-  parent = "server"
+  parent = "Server"
 +++
 
 # NATS Server Authentication

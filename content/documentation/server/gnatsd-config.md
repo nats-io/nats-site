@@ -49,31 +49,32 @@ In general the configuration parameters are the same as the [command line argume
 
 ## Sample server config file
 
-The following demonstrates an example NATS server config file. See also the [NATS Server README]
+The following demonstrates an example NATS server config file. See also the [NATS Server README](https://github.com/nats-io/gnatsd/blob/master/README.md#configuration-file)
 
 ```
 port: 4242      # port to listen for client connections
-net: myhost.lan # net interface to listen
+net: localhost # optional listen interface, default is 0.0.0.0 (all)
 
 http_port: 8222 # HTTP monitoring port
 
 # Authorization for client connections
 authorization {
   user:     derek
-  password: T0pS3cr3t
+  # ./util/mkpasswd -p T0pS3cr3t
+    password: $2a$11$W2zko751KUvVy59mUTWmpOdWjpEm5qhcCZRd05GjI/sSOT.xtiHyG
   timeout:  1
 }
 
 # Cluster definition
 cluster {
 
-  host: '127.0.0.1'  # host/net interface
-  port: 4244         # port for inbound route connections
+  listen: localhost:4244 # host/port for inbound route connections
 
   # Authorization for route connections
   authorization {
     user: route_user
-    password: T0pS3cr3tT00!
+    # ./util/mkpasswd -p T0pS3cr3tT00!
+        password: $2a$11$xH8dkGrty1cBNtZjhPeWJewu/YPbSU.rXJWmS6SFilOBXzmZoMk9m
     timeout: 0.5
   }
 
@@ -90,10 +91,10 @@ cluster {
 debug:   false
 trace:   true
 logtime: false
-log_file: "/tmp/gnatsd.log"
+log_file: "/tmp/nats-server.log"
 
 # pid file
-pid_file: "/tmp/gnatsd.pid"
+pid_file: "/tmp/nats-server.pid"
 
 # Some system overides
 
