@@ -1,5 +1,5 @@
 +++
-date = "2016-06-23"
+date = "2018-05-22"
 title = "Server Authorization"
 description = ""
 category = "server"
@@ -12,23 +12,24 @@ category = "server"
 
 # NATS Server Authorization
 
-The latest release of the NATS Server (0.9.0) supports user/client authorization using subject-level permissioning.
+The NATS server supports authorization using subject-level permissions on a per-user basis. Permission-based authorization is available with [multi-user authentication](/documentation/server/gnatsd-authentication/).
 
-Subject-level permissioning is available with multi-user authentication configurations and leverages configuation variables. You enable multi-user authentication and permissioning using a NATS Server configuration file that defines the user credentials and permissions.
+Each permission grant is an object with two fields: what subject(s) the authenticated user can publish to, and what subject(s) the authenticated user can subscribe to. The parser is generous at understanding what the intent is, so both arrays and singletons are processed. Subjects themselves can contain wildcards. Permissions make use of [variables](/documentation/server/gnatsd-config/#variables).
 
-## Usage
-
-Each permission grant is an object with two fields: what subject(s) the authenticated user can publish to, and what subject(s) the authenticated user can subscribe to. Authorization filters (subjects) can be a singleton or an array. Subjects can contain wildcards.
+You set permissions by creating an entry inside of the `authorization` configuration block that conforms to the following syntax:
 
 ```
-PERMSSION_NAME      // Variable
-publish             // Singleton or array
-subscribe           // Singleton or array
+authorization {
+  PERMISSION_NAME = {
+    publish = "singleton" or ["array", ...]
+    subscribe = "singleton" or ["array", ...]
+  }
+}
 ```
 
-## Example
+# Example
 
-For example, since Alice is an ADMIN she can publish/subscribe on any subject. We use the wildcard “>” to match any subject.
+Here is an example authorization configuration that defines four users, three of whom are assigned explicit permissions.
 
 ```
 authorization {
@@ -36,63 +37,35 @@ authorization {
     publish = ">"
     subscribe = ">"
   }
-}
-```
-
-Bob is REQUESTOR and can publish requests on subjects req.foo or req.bar, and subscribe to anything that is a response (_INBOX.>).
-
-```
-authorization {
   REQUESTOR = {
     publish = ["req.foo", "req.bar"]
     subscribe = "_INBOX.>"
   }
-}
-```
-
-Note that the publish field is an array with two subjects; the subscribe field is a singleton. The parser is generous at understanding what the intent is, so arrays and singletons are processed.
-
-Joe has no permission grant and therefore inherits the default permission set. You set the inherited default permissions by assigning them to the default_permissions entry inside of the authorization configuration block.
-
-```
-authorization {
-  default_permissions = {
-    publish = "SANDBOX.*"
-    subscribe = ["PUBLIC.>", "_INBOX.>"]
+  RESPONDER = {
+    subscribe = ["req.foo", "req.bar"]
+    publish = "_INBOX.>"
   }
-}
-```
-
-Note that `_INBOX.>` subscribe permissions must be granted in order to use the request APIs in the Synadia supported clients. If an unauthorized client publishes or attempts to subscribe to a subject, the action fails and is logged at the server, and an error message is returned to the client.
-
-## Complete example
-
-```
-authorization {
-  
-  ADMIN = {
-    publish = ">"
-    subscribe = ">"
-  }
-  
-  REQUESTOR = {
-    publish = ["req.foo", "req.bar"]
-    subscribe = "_INBOX.>"
-  }
-  
   DEFAULT_PERMISSIONS = {
     publish = "SANDBOX.*"
     subscribe = ["PUBLIC.>", "_INBOX.>"]
   }
-  
+
   PASS: abcdefghijklmnopqrstuvwxwz0123456789
-  
   users = [
-    {user: alice, password: foo, permissions: $ADMIN}
-    {user: bob,   password: bar, permissions: $REQUESTOR}
-    {user: joe,   password: $PASS}
+    {user: joe,     password: foo,   permissions: $ADMIN}
+    {user: alice,   password: bar,   permissions: $REQUESTOR}
+    {user: bob,     password: $PASS, permissions: $RESPONDER}
+    {user: charlie, password: bar}
   ]
 }
 ```
 
-Note that the variable identifier (name) is not case sensitive, but is capitalized by convention for readability. The variable is referenced using the $ character.
+Since Joe is an ADMIN he can publish/subscribe on any subject. We use the wildcard “>” to match any subject.
+
+Alice is a REQUESTOR and can publish requests on subjects "req.foo" or "req.bar", and subscribe to anything that is a response ("_INBOX.>").
+
+Charlie has no permissions granted and therefore inherits the default permission set. You set the inherited default permissions by assigning them to the default_permissions entry inside of the authorization configuration block.
+
+Bob is a RESPONDER to any of Alice's requests, so Bob needs to be able to subscribe to the request subjects and respond to Alice's reply subject which will be an _INBOX.>.
+
+Important to note, NATS Authorizations are whitelist only, meaning in order to not break request/reply patterns you need to add rules as above with Alice and Bob for the _INBOX.> pattern. If an unauthorized client publishes or attempts to subscribe to a subject that has not been whitelisted, the action fails and is logged at the server, and an error message is returned to the client.
