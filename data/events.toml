@@ -1,23 +1,7 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe 2018"
-when = "May 2-4, 2018"
-who = "Wally Quevedo, Colin Sullivan, Ginger Collison"
-what = "NATS Intro & NATS Deep Dive"
-where = "Bella Center / Copenhagen, Denmark"
-ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2018/program/schedule/"
-
-[[events]]
-venue = "Gothenburg Tech Radar - Meetup"
-when = "May 7, 2018"
-who = "Wally Quevedo"
-what = "Cloud Native Messaging with the NATS project"
-where = "Pagero - Gothenburg, Sweden"
-ref = "https://www.meetup.com/Gothenburg-Tech-Radar/events/248293960/"
-
-[[events]]
-venue = "Sweden Go West - Meetup"
-when = "May 8, 2018"
-who = "Wally Quevedo"
-what = "Reliable Microservices in Go using NATS"
-where = "Pagero - Gothenburg, Sweden"
-ref = "https://www.meetup.com/sweden-go-west/events/248294110/"
+venue = "KubeCon + CloudNativeCon North America 2018"
+when = "December 11-13, 2018"
+who = "The NATS Team"
+what = "TBD"
+where = "Washington Convention Center / Seattle, WA"
+ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/"
