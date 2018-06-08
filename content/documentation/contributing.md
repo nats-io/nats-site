@@ -1,5 +1,5 @@
 +++
-title = "CONTRIBUTING"
+title = "NATS Contributor Guide"
 category = "concepts"
 showChildren=true
 [menu.main]
@@ -177,7 +177,8 @@ If you have a unique issue, please be as descriptive as possible:
  * Whenever possible, **please** include a [Minimal, Complete, and Verifiable example](http://stackoverflow.com/help/mcve)
  * If relevant, include or attach screenshots
  * If relevant, include log output of `gnatsd` (obtained by running `gnatsd <other options> -DV`. Trimming the log output to the relevant time period is always appreciated.
-
+ * If you have a unique issue you deem may include a vulnerability that would affect a broad user base in a highly negative or impactful way, you may log such issues privately to the NATS team via email <info@nats.io>, private direct message on [NATS Slack](https://natsio.slack.com) or private direct message on [NATS Twitter](https://twitter.com/nats_io).
+ 
 #### Change Proposals and Feature Requests
 
 When submitting a new Issue for a change proposal or feature request, tell us *why* the change is necessary. State the use case (e.g. "As a _________, I need to __________") *without* assuming any particular implementation. Stating only that "NATS should... (do some new technical thing)" is about as useful as stating that your car should be a tractor :) Help us understand the real problem you're trying to solve, in terms of the problem itself.

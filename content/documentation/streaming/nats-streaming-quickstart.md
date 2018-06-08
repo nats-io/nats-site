@@ -4,11 +4,13 @@ title = "Getting Started with NATS Streaming"
 description = ""
 category = "tutorials"
 [menu.main]
-  name = "Getting started with NATS Streaming"
+  name = "Getting Started with NATS Streaming"
   weight = 9
   identifier = "tutorial-nats-streaming"
   parent = "Streaming"
 +++
+
+#Getting Started with NATS Streaming
 
 This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clients](https://github.com/nats-io/go-nats-streaming.git). 
 
