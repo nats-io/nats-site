@@ -11,7 +11,7 @@ category = "internals"
 
 # NATS streaming protocol
 
-The NATS streaming protocol sits atop the core [NATS protocol](/documentation/internals/nats-protocol) and uses [Google's protocol buffers](https://developers.google.com/protocol-buffers/).  Protocol buffer messages are marshalled into bytes and published as NATS messages on specific subjects described below.  In communicating with the NATS Streaming Server, the NATS [request/reply](/documentation/concepts/nats-req-rep) pattern is used for all protocol messages that have a corresponding reply.
+The NATS streaming protocol sits atop the core [NATS protocol](/documentation/internals/nats-protocol) and uses [Google's Protocol Buffers](https://developers.google.com/protocol-buffers/).  Protocol buffer messages are marshalled into bytes and published as NATS messages on specific subjects described below.  In communicating with the NATS Streaming Server, the NATS [request/reply](/documentation/concepts/nats-req-rep) pattern is used for all protocol messages that have a corresponding reply.
 
 ## NATS streaming protocol conventions
 
