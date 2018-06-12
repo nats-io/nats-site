@@ -155,7 +155,7 @@ where:
 
 * `subject`: The subject name to subscribe to
 * `queue`: If specified, the subscriber will join this queue group
-* `cid`: A unique alphanumeric subscription ID representing the client's internal subscription
+* `cid`: A 64 bit unsigned integer representing the client connection
 * `sid`: A unique alphanumeric subscription ID representing the server's subscription
 
 ### Description
@@ -184,7 +184,7 @@ where:
 
 * `sid`: The unique alphanumeric subscription ID of the subject to unsubscribe from
 * `max_msgs`: Number of messages to wait for before automatically unsubscribing
-* `cid`: A unique alphanumeric subscription ID representing the client's internal subscription
+* `cid`: A 64 bit unsigned integer representing the client connection
 * `sid`: A unique alphanumeric subscription ID representing the server's subscription
 
 ### Description
