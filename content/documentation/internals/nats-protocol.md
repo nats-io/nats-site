@@ -1,15 +1,15 @@
 +++
-date = "2015-09-27"
-title = "NATS Protocol"
+date = "2018-06-12"
+title = "NATS Client Protocol"
 category = "internals"
 [menu.main]
-  name = "NATS Protocol"
+  name = "NATS Client Protocol"
   weight = 1
   identifier = "internals-nats-protocol"
   parent = "Internals"
 +++
 
-# NATS protocol
+# NATS Client protocol
 
 The NATS wire protocol is a simple, text-based publish/subscribe style protocol. Clients connect to and communicate with `gnatsd` (the NATS server) through a regular TCP/IP socket using a small set of protocol operations that are terminated by newline.
 
@@ -17,7 +17,7 @@ Unlike traditional messaging systems that use a binary message format that requi
 
 The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient.
 
-## NATS protocol conventions
+## NATS Client protocol conventions
 
 **Subject names**: Subject names, including reply subject (INBOX) names, are case-sensitive and must be non-empty alphanumeric strings with no embedded whitespace, and optionally token-delimited using the dot character (`.`), e.g.:
 
@@ -41,7 +41,7 @@ Multiple whitespace characters will be treated as a single field delimiter.
 This newline sequence is also used to mark the beginning of the actual message payload in a `PUB` or `MSG` protocol message. 
 
 
-## NATS protocol messages
+## NATS Client protocol messages
 
 The following table briefly describes the NATS protocol messages. 
 NATS protocol operation names are case insensitive, thus `SUB foo 1\r\n` and `sub foo 1\r\n` are equivalent.
