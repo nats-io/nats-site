@@ -20,7 +20,7 @@ NATS Streaming is a data streaming system powered by NATS, and written in the Go
 
 In addition to the features of the core NATS platform, NATS Streaming provides the following:
 
-- **Enhanced message protocol** - NATS Streaming implements its own enhanced message format using [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/). These messages are transmitted as binary message paylods via core NATS platform, and thus require no changes to the basic NATS protocol. NATS Streaming messages contain the following fields:
+- **Enhanced message protocol** - NATS Streaming implements its own enhanced message format using [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/). These messages are transmitted as binary message payloads via the core NATS platform, and thus require no changes to the basic NATS protocol. NATS Streaming messages contain the following fields:
     - Sequence - a globally ordered sequence number for the subject's channel
     - Subject - The NATS Streaming delivery subject
     - Reply - The optional "reply-to" subject
