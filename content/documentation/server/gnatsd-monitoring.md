@@ -66,7 +66,6 @@ The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localho
   "http_port": 8222,
   "ssl_timeout": 0.5,
   "max_control_line": 1024,
-  "max_payload": 1048576,
   "start": "2015-07-14T13:29:26.426805508-07:00",
   "now": "2015-07-14T13:30:59.349179963-07:00",
   "uptime": "1m33s",
