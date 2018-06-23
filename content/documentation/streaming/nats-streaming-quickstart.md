@@ -10,9 +10,9 @@ category = "tutorials"
   parent = "Streaming"
 +++
 
-#Getting Started with NATS Streaming
+# Getting Started with NATS Streaming
 
-This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clients](https://github.com/nats-io/go-nats-streaming.git). 
+This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clients](https://github.com/nats-io/go-nats-streaming.git).
 
 **Prerequisites**
 
@@ -65,7 +65,7 @@ $ go run main.go foo "msg two"
 Published [foo] : 'msg two'
 $ go run main.go foo "msg three"
 Published [foo] : 'msg three'
-$ 
+$
 ```
 
 **Run the subscriber client**
