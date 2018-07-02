@@ -10,7 +10,7 @@ category = "tutorials"
   parent = "Streaming"
 +++
 
-#Getting Started with NATS Streaming
+# Getting Started with NATS Streaming
 
 This tutorial demonstrates NATS Streaming using example [Go NATS Streaming clients](https://github.com/nats-io/go-nats-streaming.git). 
 
