@@ -6,7 +6,10 @@ title = "Webinar: NATS for Modern Messaging and Microservices"
 author = "Brian Flannery"
 +++
 
-The NATS team will be hosting a webinar on **Tuesday, August 30th at 2PM Eastern Time**.
+**Speaker**: Alberto Ricart, Principal Engineer, NATS
+
+**When**: August 30, 2016
+
 
 Regardless of if you are interested in architecting an IoT network, moving a monolithic application to a microservices approach, or building cloud native applications, the majority of messaging systems were not designed with these paradigms in mind.
 
@@ -20,9 +23,5 @@ The webinar will cover:
 
 With that foundational info out of the way, we will lead into a fun demo inspired by Pokemon Go, showing how NATS could be use to enable real-time microservices at large scale.
 
-Looking forward to you joining, and hearing any questions you may have!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SLb4rdI5lIM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-<br>
-<br>
-
-<a target="_blank" href="https://attendee.gotowebinar.com/register/6003868226769146883" class="btn btn-primary btn-lg btn-block">Register for Webinar</a>
