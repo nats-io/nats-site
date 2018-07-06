@@ -83,6 +83,8 @@ The valid options are as follows:
 * `ssl_required`: If this is set, then the client must authenticate using SSL.
 * `max_payload`: Maximum payload size that the server will accept from the client.
 * `connect_urls` : An optional list of server urls that a client can connect to.  
+* `proto`: An integer indicating the protocol version of the server. The server version 1.2.0 sets this to `1` to indicate that it supports the "Echo" feature.
+* `client_id`: An optional unsigned integer (64 bits) representing the internal client identifier in the server. This can be used to filter client connections in monitoring, correlate with error logs, etc...
 
 ### Description
 
@@ -128,6 +130,7 @@ The valid options are as follows:
 * `lang`: The implementation language of the client.
 * `version`: The version of the client.
 * `protocol`: *optional int*. Sending `0` (or absent) indicates client supports original protocol. Sending `1` indicates that the client supports dynamic reconfiguration of cluster topology changes by asynchronously receiving `INFO` messages with known servers it can reconnect to.
+* `echo`: Optional boolean. If set to `true`, the server (version 1.2.0+) will not send originating messages from this connection to its own subscriptions. Clients should set this to `true` only for server supporting this feature, which is when `proto` in the `INFO` protocol is set to at least `1`.
 
 ### Description
 The `CONNECT` message is analogous to the `INFO` message. Once the client has established a TCP/IP socket connection with the NATS server, and an `INFO` message has been received from the server, the client may send a `CONNECT` message to the NATS server to provide more information about the current connection as well as security information.
