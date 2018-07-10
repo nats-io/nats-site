@@ -38,13 +38,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.0
+  version_num: 0.8.1
   release_notes: |
-    Release 0.8.0 on August 7th, 2017.
+    Release 0.8.1 on June 14th, 2018.
   github:
     - user: nats-io
       repo: csnats
-      link: https://github.com/nats-io/csnats
+      link: https://github.com/nats-io/csharp-nats
   links:
     - name: NuGet
       url:  https://www.nuget.org/packages/NATS.Client
@@ -146,9 +146,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.5.6
+  version_num: 0.7.0
   release_notes: |
-    Release v.0.5.6 on January 24th, 2018.
+    Release v.0.7.0 on June 13th, 2018.
   github:
     - user: nats-io
       repo: python-nats
@@ -161,9 +161,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.4
+  version_num: 0.9.0
   release_notes: |
-    Release v0.8.4 February 23rd, 2018.
+    Release v0.8.4 June 27th, 2018.
   github:
     - user: nats-io
       repo: ruby-nats
