@@ -10,3 +10,11 @@ author = "Test"
 This is how you do hello world:
 
 {{< partial "tutorials/codetabs.html" >}}
+
+Or connect to NATS:
+
+{{< partial "tutorials/default_connect.html" >}}
+
+Or connect to a specific server:
+
+{{< partial "tutorials/connect_url.html" >}}
