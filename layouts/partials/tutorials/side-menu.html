@@ -5,7 +5,7 @@
   {{ if eq .Identifier "tutorial" }}
   {{ if .HasChildren }}
   <ul class="list-unstyled">
-  {{ range .Children }}
+    {{ range .Children }}
     <li>
       <div class="panel panel-default">
         <div class="panel-heading">{{ title .Name }}</div>
@@ -20,7 +20,7 @@
         </div>
       </div>
     </li>
-  {{ end }}
+    {{ end }}
   </ul>
   {{end }}
   {{end }}
