@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+<div id="main-con" class="container">
+    <div class="row">
+        <div id="left-nav-con" class="col-md-3">
+            {{ partial "tutorials/side-menu.html" . }}
+        </div>
+        <div id="documentation-content" class="col-md-9">
+            {{ if eq .File.Path "index.md" }}
+            <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/_{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
+            {{ else }}
+            <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
+            {{ end }}
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ partial "footer.html" . }}
