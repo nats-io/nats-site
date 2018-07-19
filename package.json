@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "Nats.io",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "prismjs": "^1.15.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build && npm run minify",
