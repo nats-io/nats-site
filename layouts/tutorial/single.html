@@ -1,41 +1,19 @@
-
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
   <div class="row">
-    <div class="col-md-8">
-      <div class="blog-nav-con-upper">
-        <a href="/tutorial"><i class="icon-back"></i> Back to Tutorials</a>
-      </div>
-      <div class="page-header">
-        <h1>{{ .Title }}</h1>
-      </div>
+    <div id="left-nav-con" class="col-md-3">
+      {{ partial "tutorials/side-menu.html" . }}
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-9">
+    <div id="documentation-content" class="col-md-9">
+      {{ if eq .File.Path "index.md" }}
+      <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/_{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
+      {{ else }}
+      <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
+      {{ end }}
+
+      <h1>{{ .Title }}</h1>
       {{ .Content }}
-      <hr>
-      <a href="/tutorial"><i class="icon-back"></i> Back to Tutorials</a>
-    </div>
-    <div class="col-md-3">
-      <dl class="blog-entry-meta">
-        <dt>Author</dt>
-        <dd>{{ .Params.author }}</dd>
-        <dt>Date</dt>
-        <dd>{{ .Date.Format "January 2, 2006" }}</dd>
-      </dl>
-      <div class="well well-sm">
-        <!-- Post-specific stats -->
-        <strong>Categories</strong>
-        <ul class="list-unstyled">
-        {{ range .Params.categories }}
-            <li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
-        {{ end }}
-        </ul>
-        <hr>
-        <strong>Tags</strong><br>
-        {{ range .Params.tags }}<a class="label label-default" href="/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
-      </div>
+
 
     </div>
   </div>

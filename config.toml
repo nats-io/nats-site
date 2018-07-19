@@ -131,7 +131,17 @@ identifier = "blog"
 url = "/blog"
 
 [[menu.main]]
-name = "Tutorials"
-weight = 7
+name = "Tutorial"
+weight = 3
 identifier = "tutorial"
-url = "/tutorial"
+url = "/tutorial/"
+
+[[menu.main]]
+name = "Developer Start"
+weight = 1
+parent = "tutorial"
+
+[[menu.main]]
+name = "Server Configuration"
+weight = 1
+parent = "tutorial"
