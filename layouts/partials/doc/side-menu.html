@@ -2,7 +2,7 @@
   {{ $currentNode := . }}
 
   {{ range .Site.Menus.main }}
-  {{ if eq .Identifier "tutorial" }}
+  {{ if eq .Identifier "doc" }}
   {{ if .HasChildren }}
   <ul class="list-unstyled">
     {{ range .Children }}

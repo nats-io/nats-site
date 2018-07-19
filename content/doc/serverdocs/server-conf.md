@@ -12,4 +12,8 @@ title = "Server Start"
 To start a plain server simply:
 
 
-{{< partial "tutorials/codetabs.html" >}}
+{{< partial "doc/codetabs.html" >}}
+
+{{< partial "doc/connect_url.html" >}}
+
+{{< partial "doc/default_connect.html" >}}
