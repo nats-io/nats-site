@@ -17,4 +17,4 @@ For this tutorial you will an programming environment set up with your favorite 
 
 
 
-{{< partial "tutorials/codetabs.html" >}}
+{{< partial "doc/codetabs.html" >}}
