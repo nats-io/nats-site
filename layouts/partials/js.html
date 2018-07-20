@@ -35,18 +35,24 @@
         });
 
         $('.api-lang').click(function() {
+            var curLang = sessionStorage.getItem('nats-api-language');
             var lang = $(this).data('language');
-            $('.api-lang').removeClass('active');
-            $('[data-language='+lang+']').addClass('active');
-            sessionStorage.setItem('nats-api-language', lang);
+
+            // Stop the infinite loop
+            if (curLang == lang) {
+                return;
+            }
+
+            sessionStorage.setItem('nats-api-language', lang); // So we only do this 1x
+            
+            $('.nav-tabs .api-lang[data-language='+lang+'] a').trigger('click');
         });
 
         if (sessionStorage) {
             var curLang = sessionStorage.getItem('nats-api-language');
             
             if (curLang) {
-                $('.api-lang').removeClass('active');
-                $('[data-language='+curLang+']').addClass('active');
+                $('.nav-tabs .api-lang[data-language='+curLang+'] a').trigger('click');
             }
         }
     });
