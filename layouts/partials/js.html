@@ -33,6 +33,22 @@
             var text = $(this).parents('pre').find('code').first().text();
             copyToClipboard(text, el);
         });
+
+        $('.api-lang').click(function() {
+            var lang = $(this).data('language');
+            $('.api-lang').removeClass('active');
+            $('[data-language='+lang+']').addClass('active');
+            sessionStorage.setItem('nats-api-language', lang);
+        });
+
+        if (sessionStorage) {
+            var curLang = sessionStorage.getItem('nats-api-language');
+            
+            if (curLang) {
+                $('.api-lang').removeClass('active');
+                $('[data-language='+curLang+']').addClass('active');
+            }
+        }
     });
 
     $('#priv').on('click', function(e) {
