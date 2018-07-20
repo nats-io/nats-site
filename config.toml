@@ -137,11 +137,26 @@ identifier = "doc"
 url = "/doc"
 
 [[menu.main]]
-name = "Server Configuration"
+name = "Concepts and Architecture"
 weight = 1
 parent = "doc"
 
 [[menu.main]]
-name = "Developer Start"
+name = "Writing Apps"
 weight = 2
+parent = "doc"
+
+[[menu.main]]
+name = "Managing the Server"
+weight = 3
+parent = "doc"
+
+[[menu.main]]
+name = "NATS Internals"
+weight = 4
+parent = "doc"
+
+[[menu.main]]
+name = "Event Streaming"
+weight = 5
 parent = "doc"

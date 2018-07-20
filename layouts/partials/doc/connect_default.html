@@ -1,0 +1,41 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active">
+			<a data-toggle="tab" href="#connect_default-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li>
+		  <a data-toggle="tab" href="#connect_default-java">Java</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_default-go"><a class="pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect-default/main.go#L10-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(nats.DefaultURL)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_default-java"><a class="pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectToDefaultServer.java#L10-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect();
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+</div>

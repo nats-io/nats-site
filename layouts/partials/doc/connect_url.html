@@ -4,7 +4,7 @@
   	
 		
 		<li class="active">
-			<a data-toggle="tab" href="#connect_url-groovy">GroovyJava</a>
+			<a data-toggle="tab" href="#connect_url-go">Go</a>
 	  	</li>
 		
 	
@@ -18,13 +18,22 @@
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="connect_url-groovy"><a class="pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectToServerURL.java#L10-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i>&nbsp;</a><code class="language-java">Connection nc = Nats.connect(&#34;nats://localhost:4222&#34;);
-nc.close();
+		<pre class="tab-pane fade in active" id="connect_url-go"><a class="pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect-url/main.go#L10-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
 </code></pre>
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_url-java"><a class="pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectToServerURL.java#L10-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i>&nbsp;</a><code class="language-java">Connection nc = Nats.connect(&#34;nats://localhost:4222&#34;);
+		<pre class="tab-pane fade" id="connect_url-java"><a class="pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectToServerURL.java#L10-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="pull-right"><i class="glyphicon glyphicon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// Do something with the connection
+
 nc.close();
 </code></pre>
 		
