@@ -1,6 +1,6 @@
 +++
 title = "NATS Examples"
-parent = "Developer Start"
+parent = "Concepts and Architecture"
 date = "2018-07-19"
 +++
 
