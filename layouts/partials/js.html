@@ -27,7 +27,7 @@
 
     $(document).ready(function() {
         checkTrack();
-        $('.js-tooltip').tooltip();
+        $('.js-tooltip').tooltip({container: "body"});
         $('.js-copy').click(function() {
             var el = $(this);
             var text = $(this).parents('pre').find('code').first().text();
