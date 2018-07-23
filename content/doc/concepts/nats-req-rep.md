@@ -17,4 +17,33 @@ In a request-response exchange, publish request operation publishes a message wi
 
 The request creates an inbox and performs a request call with the inbox reply and returns the first reply received. This is optimized in the case of multiple responses.
 
-![drawing](/img/documentation/nats-req-rep.png)
+```viz-dot
+digraph g {
+  rankdir=LR
+
+  subgraph {
+    publisher [shape=box, style="rounded", label="Publisher"];
+  }
+
+  subgraph {
+    subject [shape=circle, label="Subject"];
+    reply [shape=circle, label="Reply"];
+    {rank = same subject reply}
+  }
+
+  subgraph {
+    sub1 [shape=box, style="rounded", label="Subscriber"];
+    sub2 [shape=box, style="rounded", label="Subscriber"];
+    sub3 [shape=box, style="rounded", label="Subscriber"];
+  }
+
+  publisher -> subject [label="msg1"];
+  publisher -> reply [style="invis", weight=2];
+  reply -> sub3 [style="invis", weight=2];
+  subject -> sub1 [label="msg1", style="dotted"];
+  subject -> sub2 [label="msg1", style="dotted"];
+  subject -> sub3 [label="msg1"];
+  sub3 -> reply;
+  reply -> publisher;
+}
+```
