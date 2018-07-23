@@ -15,7 +15,20 @@ NATS messaging involves the electronic exchange of data among computer applicati
 
 NATS provides a layer between the application and the underlying physical network. Application data is encoded as a message and sent by the publisher. The message is received, decoded, and processed by one or more subscribers. A subscriber can process a NATS message [asynchronously](#async) or [synchronously](#sync).
 
-![drawing](/img/documentation/nats-msg.png)
+```viz-dot
+graph g {
+  graph [splines=ortho, nodesep=1];
+
+  publisher [shape="record", label="{Application 1 | <nats> NATS Publisher}"];
+  application [shape="record", label="{Application 3 | <nats>  }"];
+  gnatsd [shape="box", label="", width=4, height=0, penwidth=1];
+  subscriber [shape="record", label="{<nats> NATS Subscriber | Appliation 2}"];
+
+  publisher:nats -- gnatsd [penwidth=2];
+  application:nats -- gnatsd;
+  gnatsd -- subscriber:nats [penwidth=2, dir="forward"];
+}
+```
 
 NATS makes it easy for programs to communicate across different environments, languages, and systems because all a client has to do is parse the message. NATS lets programs share common message-handling code, isolate resources and interdependencies, and scale by easily handling an increase in message volume.
 

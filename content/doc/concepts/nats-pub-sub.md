@@ -21,6 +21,18 @@ In an asynchronous exchange, messages are delivered to the subscriber's message 
 
 - **At Least Once Delivery ([NATS Streaming](/documentation/streaming/nats-streaming-intro/))** - Some applications require higher levels of service and more stringent delivery guarantees, at the potential cost of lower message throughput and higher end-to-end delivery latency. These applications rely on the underlying messaging transport to ensure that messages are delivered to subscribers irrespective of network outages or whether or not a subscriber is offline at a particular instant in time.
 
+```viz-dot
+digraph g {
+  rankdir=LR
+  publisher [shape=box, style="rounded", label="Publisher"];
+  subject [shape=circle, label="Subject"];
+  sub1 [shape=box, style="rounded", label="Subscriber"];
+  sub2 [shape=box, style="rounded", label="Subscriber"];
+  sub3 [shape=box, style="rounded", label="Subscriber"];
 
-
-![drawing](/img/documentation/nats-pub-sub.png)
+  publisher -> subject [label="msg1"];
+  subject -> sub1 [label="msg1"];
+  subject -> sub2 [label="msg1"];
+  subject -> sub3 [label="msg1"];
+}
+```
