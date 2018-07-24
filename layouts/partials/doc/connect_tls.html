@@ -1,0 +1,80 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#connect_tls-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_tls-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectTLS.java#L18-81"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class SSLUtils {
+    public static String KEYSTORE_PATH = &#34;src/main/resources/keystore.jks&#34;;
+    public static String TRUSTSTORE_PATH = &#34;src/main/resources/cacerts&#34;;
+    public static String STORE_PASSWORD = &#34;password&#34;;
+    public static String KEY_PASSWORD = &#34;password&#34;;
+    public static String ALGORITHM = &#34;SunX509&#34;;
+
+    public static KeyStore loadKeystore(String path) throws Exception {
+        KeyStore store = KeyStore.getInstance(&#34;JKS&#34;);
+        BufferedInputStream in = new BufferedInputStream(new FileInputStream(path));
+
+        try {
+            store.load(in, STORE_PASSWORD.toCharArray());
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+        }
+
+        return store;
+    }
+
+    public static KeyManager[] createTestKeyManagers() throws Exception {
+        KeyStore store = loadKeystore(KEYSTORE_PATH);
+        KeyManagerFactory factory = KeyManagerFactory.getInstance(ALGORITHM);
+        factory.init(store, KEY_PASSWORD.toCharArray());
+        return factory.getKeyManagers();
+    }
+
+    public static TrustManager[] createTestTrustManagers() throws Exception {
+        KeyStore store = loadKeystore(TRUSTSTORE_PATH);
+        TrustManagerFactory factory = TrustManagerFactory.getInstance(ALGORITHM);
+        factory.init(store);
+        return factory.getTrustManagers();
+    }
+
+    public static SSLContext createSSLContext() throws Exception {
+        SSLContext ctx = SSLContext.getInstance(Options.DEFAULT_SSL_PROTOCOL);
+        ctx.init(createTestKeyManagers(), createTestTrustManagers(), new SecureRandom());
+        return ctx;
+    }
+}
+
+public class ConnectTLS {
+    public static void main(String[] args) {
+
+        try {
+            SSLContext ctx = SSLUtils.createSSLContext();
+            Options options = new Options.Builder().
+                                server(&#34;nats://localhost:4222&#34;).
+                                sslContext(ctx). // Set the SSL context
+                                build();
+            Connection nc = Nats.connect(options);
+            
+            // Do something with the connection
+
+            nc.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+		
+	
+</div>
