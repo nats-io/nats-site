@@ -3,14 +3,14 @@ category = "api"
 title = "Connection Options"
 [menu.main]
     name = "Connection Options"
-    weight = 2
-    identifier = "connection-options"
+    weight = 4
+    identifier = "doc-connection-options"
     parent = "Writing Apps"
 +++
 
 The NATS client libraries offer a range of options for controlling how connections operate. Some of these are language dependent, some of them are library/version dependent. Please see the documentation for the client library your application uses for a full list of options. This page presents some commonly used options, and ones that relate to NATS internals that are important to understand.
 
-## Setting the Connection Name
+#### Setting the Connection Name
 
 Connections can be assigned a name which will appear in some of the server monitoring data. This name is not required, but can help in debugging and testing.
 

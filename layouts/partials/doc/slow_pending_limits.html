@@ -1,0 +1,37 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#slow_pending_limits-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="slow_pending_limits-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SetPendingLimits.java#L12-32"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+Dispatcher d = nc.createDispatcher((msg) -&gt; {
+    // do something
+});
+
+d.subscribe(&#34;updates&#34;);
+
+d.setPendingLimits(1_000, 5 * 1024 * 1024); // Set limits on a dispatcher
+
+// Subscribe
+Subscription sub = nc.subscribe(&#34;updates&#34;);
+
+sub.setPendingLimits(1_000, 5 * 1024 * 1024); // Set limits on a subscription
+
+// Do something
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+</div>

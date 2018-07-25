@@ -1,0 +1,34 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#wildcard_tester-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="wildcard_tester-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/PublishForWildcards.java#L17-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+ZoneId zoneId = ZoneId.of(&#34;America/New_York&#34;);
+ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), zoneId);
+String formatted = zonedDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+
+nc.publish(&#34;time.us.east&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+nc.publish(&#34;time.us.east.atlanta&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+
+zoneId = ZoneId.of(&#34;Europe/Warsaw&#34;);
+zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), zoneId);
+formatted = zonedDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+nc.publish(&#34;time.eu.east&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+nc.publish(&#34;time.eu.east.warsaw&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+
+nc.flush(Duration.ZERO);
+nc.close();
+</code></pre>
+		
+	
+</div>

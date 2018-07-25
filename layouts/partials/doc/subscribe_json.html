@@ -1,0 +1,62 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#subscribe_json-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="subscribe_json-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SubscribeJSON.java#L12-57"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class StockForJsonSub {
+    public String symbol;
+    public float price;
+
+    public String toString() {
+        return symbol &#43; &#34; is at &#34; &#43; price;
+    }
+}
+
+public class SubscribeJSON {
+    public static void main(String[] args) {
+
+        try {
+            Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+            // Use a latch to wait for 10 messages to arrive
+            CountDownLatch latch = new CountDownLatch(10);
+
+            // Create a dispatcher and inline message handler
+            Dispatcher d = nc.createDispatcher((msg) -&gt; {
+                Gson gson = new Gson();
+
+                String json = new String(msg.getData(), StandardCharsets.UTF_8);
+                StockForJsonSub stk = gson.fromJson(json, StockForJsonSub.class);
+                
+                // Use the object
+                System.out.println(stk);
+
+                latch.countDown();
+            });
+
+            // Subscribe
+            d.subscribe(&#34;updates&#34;);
+
+            // Wait for a message to come in
+            latch.await(); 
+
+            // Close the connection
+            nc.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+		
+	
+</div>

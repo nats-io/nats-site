@@ -1,0 +1,34 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#unsubscribe_auto-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="unsubscribe_auto-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/AutoUnsubscribe.java#L14-31"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+Dispatcher d = nc.createDispatcher((msg) -&gt; {
+    String str = new String(msg.getData(), StandardCharsets.UTF_8);
+    System.out.println(str);
+});
+
+// Sync Subscription
+Subscription sub = nc.subscribe(&#34;updates&#34;);
+sub.unsubscribe(1);
+
+// Async Subscription
+d.subscribe(&#34;updates&#34;);
+d.unsubscribe(&#34;updates&#34;, 1);
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+</div>

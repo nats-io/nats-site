@@ -1,0 +1,46 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="java">
+			<a data-toggle="tab" href="#servers_added-java">Java</a>
+	  	</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="servers_added-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ListenForNewServers.java#L8-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class ServersAddedListener implements ConnectionListener {
+    public void connectionEvent(Connection nc, Events event) {
+        if (event == Events.DISCOVERED_SERVERS) {
+            for (String server : nc.getServers()) {
+                System.out.println(&#34;Known server: &#34;&#43;server);
+            }
+        }
+    }
+}
+
+public class ListenForNewServers {
+    public static void main(String[] args) {
+
+        try {
+            Options options = new Options.Builder().
+                                        server(&#34;nats://demo.nats.io:4222&#34;).
+                                        connectionListener(new ServersAddedListener()). // Set the listener
+                                        build();
+            Connection nc = Nats.connect(options);
+
+            // Do something with the connection
+
+            nc.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+		
+	
+</div>
