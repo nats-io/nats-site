@@ -3,8 +3,8 @@ category = "api"
 title = "Securing Connections"
 [menu.main]
     name = "Securing Connections"
-    weight = 3
-    identifier = "connection-security"
+    weight = 5
+    identifier = "doc-connection-security"
     parent = "Writing Apps"
 +++
 
