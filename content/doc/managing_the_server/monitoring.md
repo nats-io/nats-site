@@ -1,46 +1,36 @@
 +++
-date = "2015-09-27"
-title = "Server Monitoring"
+title = "Monitoring the NATS Server"
 description = ""
 category = "server"
 [menu.main]
-  name = "Server Monitoring"
-  weight = 9
-  identifier = "server-gnatsd-monitoring-1"
+  name = "Monitoring"
+  weight = 10
+  identifier = "doc-monitoring"
   parent = "Managing the Server"
 +++
 
-# NATS Server Monitoring
-
-To monitor the NATS messaging system, NATS provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subz). All endpoints return a JSON object.
+To monitor the NATS messaging system, `gnatsd` provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subz). All endpoints return a JSON object.
 
 The NATS monitoring endpoints support JSONP and CORS, making it easy to create single page monitoring web applications.
 
 ## Enabling monitoring
 
-To enable the monitoring server, start the NATS server with the monitoring flag `-m` and the monitoring port.
-
-Monitoring options
+To enable the monitoring server, start the NATS server with the monitoring flag `-m` and the monitoring port, or turn it on in the [configuration file](/doc/managing_the_server/configuration).
 
     -m, --http_port PORT             HTTP PORT for monitoring
     -ms,--https_port PORT            Use HTTPS PORT for monitoring
 
 Example:
 
-```
-gnatsd -m 8222
-```
-
-You should see that the NATS server starts with the HTTP monitoring port enabled:
-
-```
+```bash
+$ gnatsd -m 8222
 [4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.8.0
 [4528] 2015/08/19 20:09:58.573007 [INF] Starting http monitor on port 8222
 [4528] 2015/08/19 20:09:58.573071 [INF] Listening for client connections on 0.0.0.0:4222
 [4528] 2015/08/19 20:09:58.573090 [INF] gnatsd is ready</td>
 ```
 
-To test, run '``gnatsd -m 8222``', then go to <a href="http://localhost:8222/" target="_blank">http://localhost:8222/</a>
+To test, run `gnatsd -m 8222`, then go to <a href="http://localhost:8222/" target="_blank">http://localhost:8222/</a>
 
 ## Monitoring endpoints
 
@@ -50,7 +40,7 @@ The following sections describe each supported monitoring endpoint: `varz`, `con
 
 The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localhost:8222/varz</a> reports various general statistics.
 
-```
+```json
 {
   "server_id": "ec933edcd2bd86bcf71d555fc8b4fb2c",
   "version": "0.6.6",
@@ -91,7 +81,7 @@ You can control these via URL arguments (limit and offset). For example: <a href
 
 You can also report detailed subscription information on a per connection basis using subs=1. For example: <a href="http://localhost:8222/connz?limit=1&offset=1&subs=1" target="_blank">http://localhost:8222/connz?limit=1&offset=1&subs=1</a>.
 
-```
+```json
 {
   "now": "2015-07-14T13:30:59.349179963-07:00",
   "num_connections": 2,
@@ -140,7 +130,7 @@ The endpoint <a href="http://localhost:8222/routez" target="_blank">http://local
 
 The `routez` endpoint does support the `subs` argument from the `/connz` endpoint. For example: <a href="http://localhost:8222/routez?subs=1" target="_blank">http://localhost:8222/routez?subs=1</a>
 
-```
+```json
 {
   "now": "2015-07-14T13:30:59.349179963-07:00",
   "num_routes": 1,
@@ -164,9 +154,9 @@ The `routez` endpoint does support the `subs` argument from the `/connz` endpoin
 
 ### /subsz
 
-The endpoint <a href="http://localhost:8222/subscriptionsz" target="_blank">http://localhost:8222/subscriptionsz</a> reports detailed information about the current subscriptions and the routing data structure.
+The endpoint <a href="http://localhost:8222/subz" target="_blank">http://localhost:8222/subz</a> reports detailed information about the current subscriptions and the routing data structure.
 
-```
+```json
 {
   "num_subscriptions": 3,
   "num_cache": 0,
@@ -186,13 +176,13 @@ NATS monitoring endpoints support [JSONP](https://en.wikipedia.org/wiki/JSONP) a
 
 For example:
 
-```
+```bash
 http://localhost:8222/connz?callback=cb
 ```
 
 Here is a JQuery example implementation:
 
-```
+```javascript
 $.getJSON('http://localhost:8222/connz?callback=?', function(data) {
   console.log(data);
 });

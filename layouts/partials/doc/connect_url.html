@@ -14,6 +14,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_url-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -35,6 +41,35 @@ defer nc.Close()
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_url-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connect_url.ts#L6-32"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+try {
+    let nc = await connect(&#34;nats://demo.nats.io:4222&#34;);
+    // Do something with the connection
+    console.log(&#39;connected&#39;);
+    nc.close();
+} catch(ex) {
+    console.log(&#39;connection failed&#39;, ex);
+    return;
+}
+
+
+// alternatively, you can use the promise api
+let nc1: Client;
+connect(&#34;nats://demo.nats.io:4222&#34;)
+    .then((c) =&gt; {
+        nc1 = c;
+        // Do something with the connection
+        console.log(&#39;connected&#39;);
+        nc1.close();
+    })
+    .catch((ex) =&gt; {
+        console.log(&#39;connection failed&#39;, ex);
+        return;
+    });
 </code></pre>
 		
 	

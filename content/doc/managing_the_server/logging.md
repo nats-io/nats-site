@@ -1,20 +1,18 @@
 +++
 date = "2015-09-27"
-title = "Server Logging"
+title = "NATS Server Logging"
 description = ""
 category = "server"
 [menu.main]
-  name = "Server Logging"
-  weight = 4
-  identifier = "server-gnatsd-logging-1"
+  name = "Logging"
+  weight = 9
+  identifier = "doc-logging"
   parent = "Managing the Server"
 +++
 
-# NATS Server Logging
+The NATS server provides various logging options that you can set via the command line or the configuration file.
 
-The NATS server provides various logging options.
-
-## Logging options
+## Command Line Options
 
 The following logging operations are supported:
 
@@ -26,57 +24,62 @@ The following logging operations are supported:
     -V, --trace                      Trace the raw protocol.
     -DV                              Debug and Trace.
 
-## Debug and trace
+### Debug and trace
 
 The `-DV` flag enables trace and debug for the server.
 
-```
+```bash
 gnatsd -DV -m 8222 -user foo -pass bar
 ```
 
-## Log file redirect
+### Log file redirect
 
-```
+```bash
 gnatsd -DV -m 8222 -l nats.log
 ```
 
-## Timestamp
+### Timestamp
 
 If `-T false` then log entries are not timestamped. Default is true.
 
-## Syslog
+### Syslog
 
-```
+You can configure syslog with `UDP`:
+
+```bash
 gnatsd -s udp://localhost:514
 ```
 
-```
+or `syslog:`
+
+```bash
 gnatsd -r syslog://<hostname>:<port>
 ```
 
 For example:
 
-```
+```bash
 syslog://logs.papertrailapp.com:26900
 ```
 
-## Config file example
+## Configuring Logging with the Configuration File
 
-```
-# logging options
+All of these settings are available in the configuration file as well.
+
+```ascii
 debug:   false
 trace:   true
 logtime: false
 log_file: "/tmp/gnatsd.log"
 ```
 
-## Log rotation with logrotate
+## Log Rotation with logrotate
 
 NATS server does not provide tools to manage log files, but it does include mechanisms that make log rotation simple. We can use this mechanism with [logrotate](https://github.com/logrotate/logrotate); a simple standard Linux utility to rotate logs available on most distributions like Debian, Ubuntu, RedHat (CentOS), etc.
 
-Simple custom logrotate script is below:
+For example, you could configure `logrotate` with:
 
-```
+```ascii
 /path/to/gnatsd.log {
     daily
     rotate 30
@@ -84,7 +87,7 @@ Simple custom logrotate script is below:
     missingok
     notifempty
     postrotate
-        kill -SIGUSR1 `cat /var/run/gnatsd.pid`   
+        kill -SIGUSR1 `cat /var/run/gnatsd.pid`
     endscript
 }
 ```

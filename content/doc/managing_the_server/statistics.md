@@ -1,22 +1,19 @@
 +++
-date = "2015-09-27"
-title = "Message Statistics"
+title = "Tracking NATS Statistics"
 description = ""
 category = "server"
 [menu.main]
-  name = "Message Statistics"
-  weight = 10
-  identifier = "server-gnatsd-top-1"
+  name = "Statistics"
+  weight = 11
+  identifier = "doc-statistics"
   parent = "Managing the Server"
 +++
-
-# NATS Top for Message Statistics
 
 [nats-top](https://github.com/nats-io/nats-top) is a [top](http://man7.org/linux/man-pages/man1/top.1.html)-like tool for monitoring gnatsd servers.
 
 The nats-top tool provides a dynamic real-time view of a NATS server. nats-top can display a variety of system summary information about the NATS server, such as subscription, pending bytes, number of messages, and more, in real time. For example:
 
-```
+```bash
 nats-top
 
 gnatsd version 0.6.4 (uptime: 31m42s)
@@ -37,7 +34,7 @@ Connections: 4
 
 nats-top can be installed using `go get`. For example:
 
-```
+```bash
 go get github.com/nats-io/nats-top
 ```
 
@@ -47,7 +44,7 @@ NOTE: You may have to run the above command as user `sudo` depending on your set
 
 Once installed, nats-top can be run with the command `nats-top` and optional arguments.
 
-```
+```bash
 nats-top [-s server] [-m monitor] [-n num_connections] [-d delay_in_secs] [-sort by]
 ```
 
@@ -80,7 +77,7 @@ You can also set this on the command line using the `-n num_connections` flag. F
 
 Note that if `n<limit>` is used in conjunction with `-sort`, the server will respect both options allowing queries such as the following: Query for the connection with largest number of subscriptions: `nats-top -n 1 -sort subs`.
 
-### Other
+### s, ? and q Commands
 
 Use the `s` command to toggle displaying connection subscriptions.
 
