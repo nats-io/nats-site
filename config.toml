@@ -155,3 +155,8 @@ parent = "doc"
 name = "Event Streaming"
 weight = 4
 parent = "doc"
+
+[[menu.main]]
+name = "Additional Documentation"
+weight = 5
+parent = "doc"

@@ -5,10 +5,12 @@ description = ""
 category = "server"
 [menu.main]
   name = "Slow Consumers"
-  weight = 11
-  identifier = "server-slow-consumers-1"
+  weight = 12
+  identifier = "doc-slow-consumers"
   parent = "Managing the Server"
 +++
+
+To support resiliency and high availability, NATS provides built-in mechanisms to automatically prune the registered listener interest graph that is used to keep track of subscribers, including slow consumers and lazy listeners. NATS automatically handles a slow consumer. If a client is not processing messages quick enough, the NATS server cuts it off. To support scaling, NATS provides for auto-pruning of client connections. If a subscriber does not respond to ping requests from the server within the [ping-pong interval](/documentation/internals/nats-protocol/), the client is cut off (disconnected). The client will need to have reconnect logic to reconnect with the server.
 
 # Slow Consumers
 
@@ -16,7 +18,7 @@ In core NATS, consumers that cannot keep up are handled differently from many ot
 
 __What is a slow consumer?__
 
-A slow consumer is a subscriber that cannot keep up with the message flow delivered from the NATS server.  This is a common case in distributed systems because it is often easier to generate data than it is to process it.  When consumers cannot process data fast enough, back pressure is applied to the rest of the system.  NATS has mechanisms to reduce this backpressure.
+A slow consumer is a subscriber that cannot keep up with the message flow delivered from the NATS server.  This is a common case in distributed systems because it is often easier to generate data than it is to process it.  When consumers cannot process data fast enough, back pressure is applied to the rest of the system.  NATS has mechanisms to reduce this back pressure.
 
 NATS identifies slow consumers in the client or the server, providing notification through registered callbacks, log messages, and statistics in the server's monitoring endpoints.
 
@@ -26,7 +28,7 @@ When detected at the client, the application is notified and messages are droppe
 
 ## Slow consumers identified in the client
 
-A client can detect it is a slow consumer on a local connection and notify the application through use of the asynchronous error callback.  It is better to catch a slow consumer locally in the client rather than to allow the server to detect this condition.  This example demonstrates how to define and register an asynchronous error handler that will handle slow consumer errors.
+A [client can detect it is a slow consumer](/doc/writing_apps/advanced#slow-consumers) on a local connection and notify the application through use of the asynchronous error callback.  It is better to catch a slow consumer locally in the client rather than to allow the server to detect this condition.  This example demonstrates how to define and register an asynchronous error handler that will handle slow consumer errors.
 
 ```go
 func natsErrHandler(nc *nats.Conn, sub *nats.Subscription, natsErr error) {
@@ -50,7 +52,8 @@ nc, err := nats.Connect("nats://localhost:4222",
 ```
 
 With this example code and default settings, a slow consumer error would generate output something like this:
-```
+
+```bash
 error: nats: slow consumer, messages dropped
 Falling behind with 65536 pending messages on subject "foo".
 ```
@@ -63,7 +66,7 @@ When a client does not process messages fast enough, the server will buffer mess
 
 When the server initiates a slow consumer error, you'll see the following in the server output:
 
-```
+```bash
 [54083] 2017/09/28 14:45:18.001357 [INF] ::1:63283 - cid:7 - Slow Consumer Detected
 ```
 
@@ -71,7 +74,7 @@ The server will also keep count of the number of slow consumer errors encountere
 
 ## Handling slow consumers
 
-Apart from using [NATS streaming](http://nats.io/documentation/streaming/nats-streaming-intro/) or optimizing your consuming application, there are a few options available:  scale, meter, or tune NATS to your environment.
+Apart from using [NATS streaming](http://nats.io/doc/streaming/nats-streaming-intro/) or optimizing your consuming application, there are a few options available:  scale, meter, or tune NATS to your environment.
 
 __Scaling with queue subscribers__
 
@@ -96,11 +99,12 @@ The NATS server can be tuned to determine how much data can be buffered before a
 The NATS server has a write deadline it uses to write to a connection.  When this write deadline is exceeded, a client is considered to have a slow consumer.  If you are encountering slow consumer errors in the server, you can increase the write deadline to buffer more data.
 
 The `write_deadline` configuration option in the NATS server configuration file will tune this:
-```
+
+```ascii
 write_deadline: 2s
 ```
 
-  Tuning this parameter is ideal when you have bursts of data to accomodate.  **_Be sure you are not just postponing a slow consumer error._**
+  Tuning this parameter is ideal when you have bursts of data to accommodate.  **_Be sure you are not just postponing a slow consumer error._**
 
 ### Client Configuration
 
@@ -110,7 +114,7 @@ This buffer can be configured through setting the pending limits after a subscri
 
 ```go
 if err := sub.SetPendingLimits(1024*500, 1024*5000); err != nil {
-	log.Fatalf("Unable to set pending limits: %v", err)
+  log.Fatalf("Unable to set pending limits: %v", err)
 }
 ```
 

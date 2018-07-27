@@ -1,30 +1,27 @@
 +++
-date = "2015-09-27"
-title = "NATS Server TLS and bcrypt"
+title = "NATS Server Security"
 description = ""
 category = "server"
-[menu.documentation]
-  name = "NATS Server TLS and bcrypt"
-  weight = 1
-  identifier = "server-gnatsd-tls-1"
+[menu.main]
+  name = "Security/Encryption"
+  weight = 4
+  identifier = "doc-security"
   parent = "Managing the Server"
 +++
 
-### Using TLS
-
 As of Release 0.7.0, the server can use modern TLS semantics for client connections, route connections, and the HTTPS monitoring port.
-The server requires TLS version 1.2, and sets preferences for modern cipher suites that avoid those known with vunerabilities. The
+The server requires TLS version 1.2, and sets preferences for modern cipher suites that avoid those known with vulnerabilities. The
 server's preferences when building with Go1.5 are as follows.
 
 ```go
 func defaultCipherSuites() []uint16 {
-	return []uint16{
-		// The SHA384 versions are only in Go1.5+
-		tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
-		tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
-		tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
-		tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
-	}
+    return []uint16{
+        // The SHA384 versions are only in Go1.5+
+        tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+        tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+        tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+        tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+    }
 }
 ```
 
@@ -33,7 +30,7 @@ Generating self signed certs and intermediary certificate authorities is beyond 
 
 The server **requires** a certificate and private key. Optionally the server can require that clients need to present certificates, and the server can be configured with a CA authority to verify the client certificates.
 
-```
+```ascii
 # Simple TLS config file
 
 listen: 127.0.0.1:4443
@@ -53,7 +50,7 @@ authorization {
 
 If requiring client certificates as well, simply change the TLS section as follows.
 
-```
+```ascii
 tls {
   cert_file: "./configs/certs/server-cert.pem"
   key_file:  "./configs/certs/server-key.pem"
@@ -64,7 +61,7 @@ tls {
 
 When setting up clusters, all servers in the cluster, if using TLS, will both verify the connecting endpoints and the server responses. So certificates are checked in both directions. Certificates can be configured only for the server's cluster identity, keeping client and server certificates separate from cluster formation.
 
-```
+```ascii
 cluster {
   listen: 127.0.0.1:4244
 
@@ -109,7 +106,7 @@ Examples using the test certicates which are self signed for localhost and 127.0
 
 Notice that the log  indicates that the client connections will be required to use TLS. If you run the server in Debug mode with -D or -DV, the logs will show the cipher suite selection for each connected client.
 
-```
+```bash
 [15146] 2015/12/03 12:38:37.733139 [DBG] ::1:63330 - cid:1 - Starting TLS client connection handshake
 [15146] 2015/12/03 12:38:37.751948 [DBG] ::1:63330 - cid:1 - TLS handshake complete
 [15146] 2015/12/03 12:38:37.751959 [DBG] ::1:63330 - cid:1 - TLS version 1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -117,11 +114,11 @@ Notice that the log  indicates that the client connections will be required to u
 
 If you want the server to enforce and require client certificates as well via the command line, utilize this example.
 
-```
+```bash
 > ./gnatsd --tlsverify --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem --tlscacert=./test/configs/certs/ca.pem
 ```
 
-### Using bcrypt
+### Using bcrypt to Protect Passwords
 
 In addition to TLS functionality, the server now also supports hashing of passwords and authentication tokens using `bcrypt`. To take advantage of this, simply replace the plaintext password in the configuration with its `bcrypt` hash, and the server will automatically utilize `bcrypt` as needed.
 
