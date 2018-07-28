@@ -18,11 +18,7 @@
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="connect_options-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect-options/main.go#L11-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">opts := nats.Options{
-	Timeout: 10 * time.Second,
-}
-
-nc, err := opts.Connect()
+		<pre class="tab-pane fade in active" id="connect_options-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_options/main.go#L11-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(nats.DefaultURL, nats.Timeout(10*time.Second))
 if err != nil {
 	log.Fatal(err)
 }
