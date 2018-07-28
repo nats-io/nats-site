@@ -3,16 +3,43 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#reconnect_event-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#reconnect_event-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#reconnect_event-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="reconnect_event-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ReconnectEvents.java#L12-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
+		<pre class="tab-pane fade in active" id="reconnect_event-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/reconnect_event/main.go#L10-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Connection event handlers are invoked asynchronously
+// and the state of the connection may have changed when
+// the callback is invoked.
+nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+	nats.DisconnectHandler(func(nc *nats.Conn) {
+		// handle disconnect event
+	}),
+	nats.ReconnectHandler(func(nc *nats.Conn) {
+		// handle reconnect event
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ReconnectEvents.java#L12-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
                             server(&#34;nats://demo.nats.io:4222&#34;).
                             connectionListener((conn, type) -&gt; {
                                 if (type == Events.RECONNECTED) {
