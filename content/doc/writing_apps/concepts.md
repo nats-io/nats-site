@@ -16,7 +16,7 @@ Asynchronous processing uses a callback message handler to process messages. Whe
 
 Synchronous processing requires that application code explicitly call a method to process an incoming message. Typically an explicit call is a blocking call that suspends processing until a message becomes available. If no message is available, the period for which the message processing call blocks is set by the client. Synchronous processing is typically used by a server whose purpose is to wait for and process incoming request messages, and to send replies to the requesting application.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 graph nats {
   graph [splines=ortho, nodesep=1];
 
@@ -29,7 +29,7 @@ graph nats {
   application:nats -- gnatsd;
   gnatsd -- subscriber:nats [penwidth=2, dir="forward"];
 }
-```
+</code></div>
 
 NATS makes it easy for programs to communicate across different environments, languages, and systems because all a client has to do is parse the message. NATS lets programs share common message-handling code, isolate resources and interdependencies, and scale by easily handling an increase in message volume.
 
@@ -41,7 +41,7 @@ NATS implements a publish subscribe message distribution model. NATS publish sub
 
 - **At Least Once Delivery ([NATS Streaming](/documentation/streaming/nats-streaming-intro/))** - Some applications require higher levels of service and more stringent delivery guarantees, at the potential cost of lower message throughput and higher end-to-end delivery latency. These applications rely on the underlying messaging transport to ensure that messages are delivered to subscribers irrespective of network outages or whether or not a subscriber is offline at a particular instant in time.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph nats_pub_sub {
   rankdir=LR
   publisher [shape=box, style="rounded", label="Publisher"];
@@ -55,7 +55,7 @@ digraph nats_pub_sub {
   subject -> sub2 [label="msg1"];
   subject -> sub3 [label="msg1"];
 }
-```
+</code></div>
 
 You can try out publish/subscribe a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
 
@@ -67,7 +67,7 @@ In a request-response exchange, publish request operation publishes a message wi
 
 The request creates an inbox and performs a request call with the inbox reply and returns the first reply received. This is optimized in the case of multiple responses.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph nats_request_reply {
   rankdir=LR
 
@@ -96,7 +96,7 @@ digraph nats_request_reply {
   sub3 -> reply;
   reply -> publisher;
 }
-```
+</code></div>
 
 You can try out request/reply a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
 
@@ -108,7 +108,7 @@ To create a queue subscription, subscribers register a queue name. All subscribe
 
 Queue subscribers can be asynchronous, in which case the message handler callback function processes the delivered message. Synchronous queue subscribers must build in logic to process the message. Queue subscribers are ideal for auto scaling as you can add or remove them anytime, without any configuration changes or restarting the server or clients.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph nats_queues {
   rankdir=LR
   publisher [shape=box, style="rounded", label="Publisher"];
@@ -122,6 +122,6 @@ digraph nats_queues {
   subject -> sub2 [label="msg 1"];
   subject -> sub3 [label="msg 3"];
 }
-```
+</code></div>
 
 You can try out queues a live server by walking through the [queueing tutorial](/doc/additional_documentation/nats-queueing).
