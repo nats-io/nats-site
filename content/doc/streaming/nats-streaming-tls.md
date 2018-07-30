@@ -4,13 +4,11 @@ title = "Securing NATS Streaming Server"
 description = ""
 category = "server"
 [menu.main]
-  name = "Securing NATS Streaming Server"
+  name = "Security"
   weight = 4
-  identifier = "streaming-nats-streaming-security-1"
+  identifier = "doc-streaming-security"
   parent = "Event Streaming"
 +++
-
-This section describes how to secure the NATS Streaming Server, including user authentication and TLS certificates.
 
 ## Authenticating users
 
@@ -28,7 +26,7 @@ That means two sets of TLS configuration parameters must be used: TLS server par
 
 The streaming server specifies it's TLS client certificates with the following three parameters:
 
-```
+```bash
     -tls_client_key              Client key for the streaming server
 
     -tls_client_cert             Client certificate for the streaming server
@@ -40,7 +38,7 @@ These could be the same certificates used with your NATS streaming clients.
 
 The embedded NATS server specifies TLS server certificates with these:
 
-```
+```bash
         --tlscert <file>             Server certificate file
 
         --tlskey <file>              Private key for server certificate
@@ -54,8 +52,8 @@ Proper usage of the NATS Streaming Server requires the use of both client and se
 
 For example:
 
-```
-nats-streaming-server -tls_client_cert client-cert.pem -tls_client_key client-key.pem -tls_client_cacert ca.pem -tlscert server-cert.pem -tlskey server-key.pem -tlscacert ca.pem
+```bash
+% nats-streaming-server -tls_client_cert client-cert.pem -tls_client_key client-key.pem -tls_client_cacert ca.pem -tlscert server-cert.pem -tlskey server-key.pem -tlscacert ca.pem
 ```
 
 Further TLS related functionality can be found in [Securing NATS > TLS](https://github.com/nats-io/gnatsd#securing-nats). Note that if specifying cipher suites is required, a configuration file for the embedded NATS server can be passed through the `-config` command line parameter.

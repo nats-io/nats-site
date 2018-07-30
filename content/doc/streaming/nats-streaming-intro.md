@@ -4,13 +4,11 @@ title = "NATS Streaming"
 description = ""
 category = "server"
 [menu.main]
-  name = "NATS Streaming"
+  name = "Introduction"
   weight = 1
-  identifier = "streaming-nats-streaming-intro-1"
+  identifier = "doc-streaming-intro"
   parent = "Event Streaming"
 +++
-
-# NATS Streaming
 
 NATS Streaming is a data streaming system powered by NATS, and written in the Go programming language. The executable name for the NATS Streaming server is `nats-streaming-server`. NATS Streaming embeds, extends, and interoperates seamlessly with the core NATS platform. The [NATS Streaming server](https://github.com/nats-io/nats-streaming-server) is provided as open source software under the Apache-2.0 license. Synadia actively maintains and supports the NATS Streaming server.
 
@@ -20,13 +18,13 @@ NATS Streaming is a data streaming system powered by NATS, and written in the Go
 
 In addition to the features of the core NATS platform, NATS Streaming provides the following:
 
-- **Enhanced message protocol** - NATS Streaming implements its own enhanced message format using [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/). These messages are transmitted as binary message paylods via core NATS platform, and thus require no changes to the basic NATS protocol. NATS Streaming messages contain the following fields:
+- **Enhanced message protocol** - NATS Streaming implements its own enhanced message format using [Google Protocol Buffers] (https://developers.google.com/protocol-buffers/). These messages are transmitted as binary message payloads via core NATS platform, and thus require no changes to the basic NATS protocol. NATS Streaming messages contain the following fields:
     - Sequence - a globally ordered sequence number for the subject's channel
     - Subject - The NATS Streaming delivery subject
     - Reply - The optional "reply-to" subject
     - Data - The message payload
     - Timestamp - the received timestamp, in nanoseconds.
-    - Redelivered - A flag signifiying whether this message has been redelivered by the server
+    - Redelivered - A flag signifying whether this message has been redelivered by the server
     - CRC32 - An optional IEEE CRC32
 - **Message/event persistence** - NATS Streaming offers configurable message persistence either in-memory or via flat files. The storage subsystem uses a public interface that allows contributors to develop their own custom implementations.
 - **At-least-once-delivery** - NATS Streaming offers message acknowledgements between publisher and server (for publish operations) and between subscriber and server (to confirm message delivery). Messages are persisted by the server in memory or secondary storage (or other external storage) and will be redelivered to eligible subscribing clients as needed.
