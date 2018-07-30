@@ -118,4 +118,4 @@ Using token 'S3Cr3T0k3n!'
 nats://S3Cr3T0k3n!@localhost:4222
 ```
 
-or use other methods discussed in the [developer doc](/doc/writing_apps/secure_connection).
+or use other methods discussed in the [developer doc](/doc/writing_applications/secure_connection).

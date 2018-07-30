@@ -5,7 +5,7 @@ title = "Securing Connections"
     name = "Securing Connections"
     weight = 5
     identifier = "doc-connection-security"
-    parent = "Writing Apps"
+    parent = "Writing Applications"
 +++
 
 NATS provides several forms of security for your messages. First, you can turn on authorization which limits access to the gnatsd server. Second, access to specific subjects can be controlled. Third, you can use TLS to encrypt traffic between clients and the server. Finally, TLS can be used to verify client identities using certificates. By combining all of these methods you can protect access to data and data in motion.

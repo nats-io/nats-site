@@ -10,9 +10,41 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-NATS is a [publish subscribe messaging system](/doc/writing_apps/concepts). Subscribers listening on a subject name receive messages on that subject. If the subscriber is not actively listening on the subject, the message is not received. Subscribers can use the wildcard subjects `*` to match a single token to match the tail of a subject.
+NATS is a [publish subscribe messaging system](/doc/writing_applications/concepts). Subscribers listening on a subject name receive messages on that subject. If the subscriber is not actively listening on the subject, the message is not received. Subscribers can use the wildcard subjects `*` to match a single token to match the tail of a subject.
 
-![drawing](/img/documentation/nats-pub-sub-eg.png)
+```viz-dot
+digraph nats_pub_sub {
+  graph [splines=ortho, nodesep=1];
+
+  sub1 [shape="box", label="SUB\ncom.msg.one"];
+  pub1 [shape="box", label="PUB\ncom.msg.one"];
+  non_active [shape="box", label="Non-Active\nSubscriber"];
+  
+  {
+    rank=same
+    pub1 sub1 non_active
+  }
+
+  gnatsd [shape="box", label="NATS", width=8];
+
+  sub2 [shape="box", label="SUB\ncom.msg.one"];
+  sub3 [shape="box", label="SUB\ncom.msg.two"];
+  sub4 [shape="box", label="SUB\ncom.msg.*"];
+
+  {
+    rank=same
+    sub2 sub3 sub4
+  }
+
+  pub1 -> gnatsd [penwidth=2];
+  gnatsd -> sub1 [penwidth=2];
+  gnatsd -> non_active [style=dashed color=red arrowhead="none"];
+
+  gnatsd -> sub2 [penwidth=2];
+  gnatsd -> sub3 [style=dashed color=red arrowhead="none"];
+  gnatsd -> sub4 [penwidth=2];
+}
+```
 
 #### Prerequisites
 

@@ -10,7 +10,7 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-NATS supports [message queueing](/doc/writing_apps/concepts) using queue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
+NATS supports [message queueing](/doc/writing_applications/concepts) using queue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
 
 #### Prerequisites
 
