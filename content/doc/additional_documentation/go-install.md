@@ -1,9 +1,9 @@
 +++
-title = "Install Go"
+title = "Installing Go"
 description = ""
 category = "tutorials"
 [menu.main]
-  name = "Install Go"
+  name = "Installing Go"
   weight = 1
   identifier = "doc-install-golang"
   parent = "Additional Documentation"

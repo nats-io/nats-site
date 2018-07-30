@@ -5,7 +5,7 @@ title = "Advanced Topics"
     name = "Advanced Topics"
     weight = 8
     identifier = "doc-advanced-topics"
-    parent = "Writing Apps"
+    parent = "Writing Applications"
 +++
 
 Managing the interaction with the server is primarily the job of the client library, but most of the libraries also provide some insight into what is happening under the covers.

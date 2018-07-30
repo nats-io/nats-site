@@ -5,7 +5,7 @@ title = "Connection Options"
     name = "Connection Options"
     weight = 4
     identifier = "doc-connection-options"
-    parent = "Writing Apps"
+    parent = "Writing Applications"
 +++
 
 The NATS client libraries offer a range of options for controlling how connections operate. Some of these are language dependent, some of them are library/version dependent. Please see the documentation for the client library your application uses for a full list of options. This page presents some commonly used options, and ones that relate to NATS internals that are important to understand.

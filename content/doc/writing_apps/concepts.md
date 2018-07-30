@@ -5,7 +5,7 @@ category = "concepts"
   name = "Concepts"
   weight = 1
   identifier = "doc-concepts"
-  parent = "Writing Apps"
+  parent = "Writing Applications"
 +++
 
 NATS messaging involves the electronic exchange of data among computer applications.
@@ -17,7 +17,7 @@ Asynchronous processing uses a callback message handler to process messages. Whe
 Synchronous processing requires that application code explicitly call a method to process an incoming message. Typically an explicit call is a blocking call that suspends processing until a message becomes available. If no message is available, the period for which the message processing call blocks is set by the client. Synchronous processing is typically used by a server whose purpose is to wait for and process incoming request messages, and to send replies to the requesting application.
 
 ```viz-dot
-graph g {
+graph nats {
   graph [splines=ortho, nodesep=1];
 
   publisher [shape="record", label="{Application 1 | <nats> NATS Publisher}"];
@@ -33,7 +33,7 @@ graph g {
 
 NATS makes it easy for programs to communicate across different environments, languages, and systems because all a client has to do is parse the message. NATS lets programs share common message-handling code, isolate resources and interdependencies, and scale by easily handling an increase in message volume.
 
-## Publish Subscribe
+## <a name="pubsub"></a>Publish Subscribe
 
 NATS implements a publish subscribe message distribution model. NATS publish subscribe is a one-to-many communication. A publisher sends a message on a subject. Any active subscriber listening on that subject receives the message. Subscribers can register interest in wildcard subjects. NATS and NATS Streaming combine to offer two qualities of service:
 
@@ -42,7 +42,7 @@ NATS implements a publish subscribe message distribution model. NATS publish sub
 - **At Least Once Delivery ([NATS Streaming](/documentation/streaming/nats-streaming-intro/))** - Some applications require higher levels of service and more stringent delivery guarantees, at the potential cost of lower message throughput and higher end-to-end delivery latency. These applications rely on the underlying messaging transport to ensure that messages are delivered to subscribers irrespective of network outages or whether or not a subscriber is offline at a particular instant in time.
 
 ```viz-dot
-digraph g {
+digraph nats_pub_sub {
   rankdir=LR
   publisher [shape=box, style="rounded", label="Publisher"];
   subject [shape=circle, label="Subject"];
@@ -59,7 +59,7 @@ digraph g {
 
 You can try out publish/subscribe a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
 
-## Request Reply
+## <a name="reqrep"></a>Request Reply
 
 NATS supports two flavors of request reply messaging: point-to-point or one-to-many. Point-to-point involves the fastest or first to respond. In a one-to-many exchange, you set a limit on the number of responses the requestor may receive.
 
@@ -68,7 +68,7 @@ In a request-response exchange, publish request operation publishes a message wi
 The request creates an inbox and performs a request call with the inbox reply and returns the first reply received. This is optimized in the case of multiple responses.
 
 ```viz-dot
-digraph g {
+digraph nats_request_reply {
   rankdir=LR
 
   subgraph {
@@ -100,7 +100,7 @@ digraph g {
 
 You can try out request/reply a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
 
-## Queue Subscribers & Sharing Work
+## <a name="queue"></a>Queue Subscribers & Sharing Work
 
 NATS provides a load balancing feature called queue subscriptions. Using queue subscribers will load balance message delivery across a group of subscribers which can be used to provide application fault tolerance and scale workload processing.
 
@@ -109,7 +109,7 @@ To create a queue subscription, subscribers register a queue name. All subscribe
 Queue subscribers can be asynchronous, in which case the message handler callback function processes the delivered message. Synchronous queue subscribers must build in logic to process the message. Queue subscribers are ideal for auto scaling as you can add or remove them anytime, without any configuration changes or restarting the server or clients.
 
 ```viz-dot
-digraph g {
+digraph nats_queues {
   rankdir=LR
   publisher [shape=box, style="rounded", label="Publisher"];
   subject [shape=circle, label="Queue"];
