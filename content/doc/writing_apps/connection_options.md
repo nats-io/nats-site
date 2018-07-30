@@ -20,7 +20,7 @@ Connections can be assigned a name which will appear in some of the server monit
 
 The client and server use a simple PING/PONG protocol to check that they are both still connected. The server will send a PING to a client it hasn't heard from in a while. The client will ping the server on a regular, configured interval. Since the client is pinging, the server usually doesn't have to initiate the PING/PONG interaction.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph g {
   rankdir=LR
   client [shape=box, style="rounded", label="NATS Client"];
@@ -29,7 +29,7 @@ digraph g {
   client -> gnatsd [label="PING"];
   gnatsd -> client [label="PONG"];
 }
-```
+</code></div>
 
 ### Set the Ping Interval
 
@@ -67,7 +67,7 @@ While the client can't control the maximum payload size, clients may provide a w
 
 By default the server will echo messages. This means that if a publisher on a connection sends a message to a subject any subscribers on that same connection may receive the message. Turning off echo is a fairly new feature in gnatsd, but some of the clients already support it.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph {
   rankdir=LR;
   subgraph cluster_1 {
@@ -92,7 +92,7 @@ digraph {
     subject -> subscriber_1 [label="echo'd msg", style="dashed"];
     subject -> subscriber_2 [label="msg"];
 }
-```
+</code></div>
 
 Keep in mind that each connection will have to turn off echo, and that it is per connection, not per application. Also, turning echo on and off can result in a major change to your applications communications protocol, since messages will flow or stop flowing based on this setting, and the subscribing code won't have any indication of why.
 

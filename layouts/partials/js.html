@@ -2,24 +2,8 @@
 
 <!-- Viz Support -->
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/viz.js/1.7.1/viz.js"> </script>
-<script type="text/javascript">
-function parseVizSections(){
-    var vizPrefix = "language-viz-";
-    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function(x){
-        var engine;
-        x.getAttribute("class").split(" ").forEach(function(cls){
-            if (cls.startsWith(vizPrefix)) {
-                engine = cls.substr(vizPrefix.length);
-            }
-        });
-        var image = new DOMParser().parseFromString(Viz(x.innerText, {format:"svg", engine:engine}), "image/svg+xml");
-        x.parentNode.insertBefore(image.documentElement, x);
-        x.style.display = 'none';
-        x.parentNode.style.backgroundColor = "white";
-        x.parentNode.style.border=0;
-    });
-};
-</script>
+
+<!-- Site code -->
 <script>
     function copyToClipboard(text, el) {
         var copyTest = document.queryCommandSupported('copy');
@@ -44,6 +28,19 @@ function parseVizSections(){
             window.prompt("Copy to clipboard: Ctrl+C or Command+C, Enter", text);
         }
     }
+
+    function processGraphVizSections(elements) {
+        var elements = document.querySelectorAll("[data-viz]");
+        Array.prototype.forEach.call(elements, function(x){
+            var engine = x.getAttribute("data-viz");
+            //var image = new DOMParser().parseFromString(Viz(x.innerText, {format:"svg", engine:engine}), "image/svg+xml");
+            //x.parentNode.insertBefore(image.documentElement, x);
+            var image = Viz(x.innerText, { format: "png-image-element", engine:engine });
+            x.parentNode.insertBefore(image, x);
+        });
+
+
+    };
 
     $(document).ready(function() {
         checkTrack();
@@ -76,7 +73,9 @@ function parseVizSections(){
             }
         }
 
-        parseVizSections();
+        setTimeout(function() {
+            processGraphVizSections();
+        }, 1);
     });
 
     $('#priv').on('click', function(e) {

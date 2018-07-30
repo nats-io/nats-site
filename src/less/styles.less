@@ -820,8 +820,23 @@ html#home-html {
   }
 }
 
+// Catch graph viz sections before prism, and after we remove language-viz
+div.graphviz {
+  background: transparent;
+  border: 0;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+code[data-viz] {
+  display: none;
+}
+
 // Documentation
 #nats-documentation-detail-page, #nats-docs-detail-page {
+
   #main-con {
     //background: url(/img/about-neuron-docs.png) right top no-repeat;
     padding-top: 20px;

@@ -68,7 +68,7 @@ The following example can be used to test these two subscribers. The `*` subscri
 
 Using queues, from a subscription standpoint, is super easy. The application simply includes a queue name with the subscription.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph g {
   rankdir=LR
   publisher [shape=box, style="rounded", label="PUB updates"];
@@ -82,7 +82,7 @@ digraph g {
   subject -> sub2 [label="msg 1"];
   subject -> sub3 [label="msg 3"];
 }
-```
+</code></div>
 
 For example, to subscribe to the queue `workers` with the subject `updates`:
 

@@ -12,7 +12,7 @@ category = "tutorials"
 
 NATS is a [publish subscribe messaging system](/doc/writing_applications/concepts). Subscribers listening on a subject name receive messages on that subject. If the subscriber is not actively listening on the subject, the message is not received. Subscribers can use the wildcard subjects `*` to match a single token to match the tail of a subject.
 
-```viz-dot
+<div class="graphviz"><code data-viz="dot">
 digraph nats_pub_sub {
   graph [splines=ortho, nodesep=1];
 
@@ -44,7 +44,7 @@ digraph nats_pub_sub {
   gnatsd -> sub3 [style=dashed color=red arrowhead="none"];
   gnatsd -> sub4 [penwidth=2];
 }
-```
+</code></div>
 
 #### Prerequisites
 
