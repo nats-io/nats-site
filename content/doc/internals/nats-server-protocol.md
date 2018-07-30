@@ -3,15 +3,13 @@ date = "2018-06-12"
 title = "NATS Cluster Protocol"
 category = "internals"
 [menu.main]
-  name = "NATS Cluster Protocol"
-  weight = 1
-  identifier = "internals-nats-server-protocol-1"
+  name = "Cluster Protocol"
+  weight = 4
+  identifier = "doc-server-protocol"
   parent = "NATS Internals"
 +++
 
-# NATS Cluster protocol
-
-The NATS server clustering protocol describes the messages passed between NATS servers within a [cluster](/documentation/server/gnatsd-cluster/) to share subscription state, forward messages, and share cluster topology.  It is a simple, text-based publish/subscribe style protocol. Servers communicate with each other through a regular TCP/IP socket using a small set of protocol operations that are terminated by newline.
+The NATS server clustering protocol describes the messages passed between NATS servers within a [cluster](/doc/managing_the_server/clustering/) to share subscription state, forward messages, and share cluster topology.  It is a simple, text-based publish/subscribe style protocol. Servers communicate with each other through a regular TCP/IP socket using a small set of protocol operations that are terminated by newline.
 
 The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient.
 
@@ -25,7 +23,6 @@ The NATS cluster protocol is very similar to that of the NATS client protocol.  
 Multiple whitespace characters will be treated as a single field delimiter.
 
 **Newlines**: Like other text-based protocols, NATS uses `CR` followed by `LF` (`CR+LF`, `\r\n`, `0x0D0A`) to terminate protocol messages.  This newline sequence is also used to mark the beginning of the actual message payload in a `PUB` or `MSG` protocol message.
-
 
 ## NATS Cluster protocol messages
 
@@ -52,7 +49,15 @@ The following sections explain each protocol message.
 
 ## <a name="INFO"></a>INFO
 
-### Syntax
+#### Description
+
+As soon as the server accepts a connection from another server, it will send information about itself and the configuration and security requirements that are necessary for the other server to successfully authenticate with the server and exchange messages.
+
+The connecting server also sends an `INFO` message.  The accepting server will add an `ip` field containing the address and port of the connecting server, and forward the new server's `INFO` message to all servers it is routed to.
+
+Any servers in a cluster receiving an `INFO` message with an `ip` field will attempt to connect to the server at that address, unless already connected.  This propagation of `INFO` messages on behalf of a connecting server provides automatic discovery of new servers joining a cluster.
+
+#### Syntax
 
 `INFO {["option_name":option_value],...}`
 
@@ -64,28 +69,24 @@ The valid options are as follows:
 * `host`: The host specified in the cluster parameter/options
 * `port`: The port number specified in the cluster parameter/options
 * `auth_required`: If this is set, then the server should try to authenticate upon connect.
-* `ssl_required`: If this is set, then the server must authenticate using SSL.
+* `tls_required`: If this is set, then the server must authenticate using TLS.
 * `max_payload`: Maximum payload size that the server will accept.
 * `connect_urls` : A list of server urls that a client can connect to.
 * `ip`:  Optional route connection address of a server, `nats-route://<hostname>:<port>`
 
-### Description
-
-As soon as the server accepts a connection from another server, it will send information about itself and the configuration and security requirements that are necessary for the other server to successfully authenticate with the server and exchange messages.
-
-The connecting server also sends an `INFO` message.  The accepting server will add an `ip` field containing the address and port of the connecting server, and forward the new server's `INFO` message to all servers it is routed to.
-
-Any servers in a cluster receiving an `INFO` message with an `ip` field will attempt to connect to the server at that address, unless already connected.  This propagation of `INFO` messages on behalf of a connecting server provides automatic discovery of new servers joining a cluster.
-
-### Example
+#### Example
 
 Below is an example of an `INFO` string received by a NATS server, with the `ip` field.
 
-`INFO {"server_id":"KP19vTlB417XElnv8kKaC5","version":"0.9.4","go":"","host":"localhost","port":5222,"auth_required":false,"ssl_required":false,"tls_required":false,"tls_verify":false,"max_payload":1048576,"ip":"nats-route://127.0.0.1:5222/","connect_urls":["localhost:4222"]}`
+`INFO {"server_id":"KP19vTlB417XElnv8kKaC5","version":"0.9.4","go":"","host":"localhost","port":5222,"auth_required":false,"tls_required":false,"tls_verify":false,"max_payload":1048576,"ip":"nats-route://127.0.0.1:5222/","connect_urls":["localhost:4222"]}`
 
 ## <a name="CONNECT"></a>CONNECT
 
-### Syntax
+#### Description
+
+The `CONNECT` message is analogous to the `INFO` message. Once the NATS server has established a TCP/IP socket connection with another server, and an `INFO` message has been received, the server will send a `CONNECT` message to provide more information about the current connection as well as security information.
+
+#### Syntax
 
 `CONNECT {["option_name":option_value],...}`
 
@@ -101,11 +102,7 @@ The valid options are as follows:
 * `lang`: The implementation language of the server (go).
 * `version`: The version of the server.
 
-### Description
-
-The `CONNECT` message is analogous to the `INFO` message. Once the NATS server has established a TCP/IP socket connection with another server, and an `INFO` message has been received, the server will send a `CONNECT` message to provide more information about the current connection as well as security information.
-
-### Example
+#### Example
 
 Here is an example from the default string from a server.
 
@@ -115,7 +112,10 @@ Servers should set `verbose` to `false` by default. This means that other routed
 
 ## <a name="PUB"></a>PUB
 
-### Syntax
+#### Description
+The `PUB` message publishes the message payload to the given subject name, optionally supplying a reply subject, to another server. If a reply subject is supplied, it will be delivered to eligible subscribers along with the supplied payload. Note that the payload itself is optional. To omit the payload, set the payload size to 0.
+
+#### Syntax
 
 `PUB <subject> [reply-to] <#bytes>\r\n[payload]\r\n`
 
@@ -126,10 +126,7 @@ where:
 * `#bytes`: The payload size in bytes
 * `payload`: The message payload data
 
-### Description
-The `PUB` message publishes the message payload to the given subject name, optionally supplying a reply subject, to another server. If a reply subject is supplied, it will be delivered to eligible subscribers along with the supplied payload. Note that the payload itself is optional. To omit the payload, set the payload size to 0.
-
-### Example
+#### Example
 
 To publish the string message payload "Hello NATS!" to subject FOO:
 
@@ -145,7 +142,11 @@ To publish an empty message to subject NOTIFY:
 
 ## <a name="SUB"></a>SUB
 
-### Syntax
+#### Description
+
+`SUB` initiates a subscription to a subject, optionally joining a distributed queue group.
+
+#### Syntax
 
 **Basic Subscription**: `SUB <subject> RSID:<cid>:<sid>\r\n`
 
@@ -158,11 +159,7 @@ where:
 * `cid`: A 64bit unsigned integer representing the client connection
 * `sid`: A unique alphanumeric subscription ID representing the server's subscription
 
-### Description
-
-`SUB` initiates a subscription to a subject, optionally joining a distributed queue group.
-
-### Example
+#### Example
 
 To subscribe to the subject `FOO` with the local unique subject identifier of `1`, and the connection-unique subject identifier (sid) `1`:
 
@@ -174,7 +171,11 @@ To subscribe the current connection to the subject `BAR` as part of distribution
 
 ## <a name="UNSUB"></a>UNSUB
 
-### Syntax
+#### Description
+
+`UNSUB` unsubcribes the connection from the specified subject, or auto-unsubscribes after the specified number of messages has been received.  It is sent by a server when one of it's clients unsubscribes.
+
+#### Syntax
 
 **Basic Subscription**: `UNSUB <sid> RSID:<cid>:<sid> [max_msgs]\r\n`
 
@@ -187,11 +188,7 @@ where:
 * `cid`: A 64bit unsigned integer representing the client connection
 * `sid`: A unique alphanumeric subscription ID representing the server's subscription
 
-### Description
-
-`UNSUB` unsubcribes the connection from the specified subject, or auto-unsubscribes after the specified number of messages has been received.  It is sent by a server when one of it's clients unsubscribes.
-
-### Example
+#### Example
 
 The following examples concern subject `FOO` which has been assigned an internal subscriber id of `5`, and a client sid of `1`. To unsubscribe from `FOO`:
 
@@ -203,7 +200,11 @@ To auto-unsubscribe from `FOO` after 5 messages have been received:
 
 ## <a name="MSG"></a>MSG
 
-### Syntax
+#### Description
+
+The `MSG` protocol message delivers a message from another server.
+
+#### Syntax
 
 `MSG <subject> <sid> [reply-to] <#bytes>\r\n[payload]\r\n`
 
@@ -215,11 +216,7 @@ where:
 * `#bytes`: Size of the payload in bytes
 * `payload`: The message payload data
 
-### Description
-
-The `MSG` protocol message delivers a message from another server.
-
-### Example
+#### Example
 
 The following message delivers a message from subject `FOO.BAR`:
 
@@ -231,25 +228,32 @@ Deliver the same message along with a reply inbox:
 
 ## <a name="PINGPONG"></a>PING/PONG
 
-### Description
+#### Description
 
 `PING` and `PONG` implement a simple keep-alive mechanism between servers. Once two servers establish a connection with each other, the NATS server will continuously send `PING` messages to other servers at a configurable interval. If another server fails to respond with a `PONG` message within the configured response interval, the server will terminate its connection. If your connection stays idle for too long, it is cut off.
 
 If the another server sends a ping request, a server will reply with a pong message to notify the other server that it is still present.
 
+#### Syntax
+
+`PING\r\n`
+`PONG\r\n`
+
 ## <a name="OKERR"></a>+OK/ERR
 
-### Syntax
-
-`+OK`
-
-`-ERR <error message>`
+#### Description
 
 When the `verbose` connection option is set to `true` (the default value), the server acknowledges each well-formed protocol message with a `+OK` message. NATS servers set the `verbose` option to `false` using the [CONNECT](#CONNECT) message
 
 The `-ERR` message is used by the server indicate a protocol, authorization, or other runtime connection error to another server. Most of these errors result in the server closing the connection.
 
 Handling of these errors usually has to be done asynchronously.
+
+#### Syntax
+
+`+OK`
+
+`-ERR <error message>`
 
 Protocol error messages which close the connection:
 

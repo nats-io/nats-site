@@ -5,7 +5,7 @@ category = "internals"
 [menu.main]
   name = "Client Development"
   weight = 3
-  identifier = "internals-nats-guide-1"
+  identifier = "doc-client-dev"
   parent = "NATS Internals"
 +++
 
@@ -25,11 +25,21 @@ This guide provides you with considerations for developing NATS clients, includi
 - Error handling, disconnecting and reconnecting
 - Cluster support
 
-Check out the tutorial [Develop Go Clients for NATS](/documentation/tutorials/nats-client-dev/) for a step-by-step implementation of a simple Go client for NATS.
+Probably the best way to learn about implementing a client is to look at one of the client's maintained by the Synadia team. These clients are generally full featured, so if you can use them, that is even better, but if you have to write a client these may go beyond your needs while still capturing many of the design considerations discussed here.
+
+- [go](https://github.com/nats-io/go-nats)
+- [node](https://github.com/nats-io/node-nats)
+- [typescript](https://github.com/nats-io/ts-nats)
+- [python2](https://github.com/nats-io/python-nats)
+- [python asyncio](https://github.com/nats-io/asyncio-nats)
+- [java](https://github.com/nats-io/java-nats)
+- [c#](https://github.com/nats-io/csharp-nats)
+- [ruby](https://github.com/nats-io/ruby-nats)
+- [c](https://github.com/nats-io/cnats)
 
 ## Client connection options
 
-Clients can connect in authenticated or unauthenticated mode, as well as verbose mode which enables acknowledgements. See the [protocol documentation](/documentation/internals/nats-protocol/#CONNECT) for details.
+Clients can connect in authenticated or unauthenticated mode, as well as verbose mode which enables acknowledgements. See the [protocol documentation](/doc/internals/nats-protocol/#CONNECT) for details.
 
 ## Client authorization
 
@@ -49,9 +59,7 @@ nats.Connect("nats://foo:bar@localhost:4222")
 
 ## Verbose mode
 
-When 'verbose' is enabled (via the `CONNECT` message), the NATS server will return `+OK` to acknowledge receipt of a valid protocol message. 
-The NATS server automatically runs in verbose mode. 
-Most client implementations disable verbose mode (set it to `false` in the `CONNECT` message) for performance reasons.
+When 'verbose' is enabled (via the `CONNECT` message), the NATS server will return `+OK` to acknowledge receipt of a valid protocol message. The NATS server automatically runs in verbose mode. Most client implementations disable verbose mode (set it to `false` in the `CONNECT` message) for performance reasons.
 
 ## Pedantic mode
 
@@ -63,9 +71,9 @@ NATS implements auto-pruning. When a client connects to the server, the server e
 
 ## Parsing the protocol
 
-NATS provides a text-based message format. The text-based [protocol](/documentation/internals/nats-protocol/) makes it easy to implement NATS clients. The key consideration is deciding on a parsing stategy.
+NATS provides a text-based message format. The text-based [protocol](/doc/internals/nats-protocol/) makes it easy to implement NATS clients. The key consideration is deciding on a parsing strategy.
 
-The NATS server parser is a zero allocation byte parser. Off the wire, a NATS message is simply a slice of bytes. Across the wire the message is transported as an immutable string over a TCP connection. It is up to the client to implement logic to parse the message.
+The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient. Off the wire, a NATS message is simply a slice of bytes. Across the wire the message is transported as an immutable string over a TCP connection. It is up to the client to implement logic to parse the message.
 
 The NATS message structure includes the Subject string, an optional Reply string, and an optional Data field that is a byte array. The type `Msg` is a structure used by Subscribers and PublishMsg().
 
@@ -92,7 +100,7 @@ When you make a subscription to the server, you need to store and dispatch callb
 
 On the client side, you need a hash map for this data structure. The hash map will be storing the callback that maps the subscription ID to the subscription.
 
-The key of the hash map is the subscription ID. The key is used to look up the callback in the hashmap. When you process the NATS message off the wire, you pass the parameters subject, reply subject, and the payload to the callback handler, which does its work.
+The key of the hash map is the subscription ID. The key is used to look up the callback in the hash map. When you process the NATS message off the wire, you pass the parameters subject, reply subject, and the payload to the callback handler, which does its work.
 
 Thus, you must store the mapping of subscription ID to the callback. Inside the subscription you have the callback.
 

@@ -12,7 +12,9 @@ category = "server"
 
 The NATS server provides various logging options that you can set via the command line or the configuration file.
 
-## Command Line Options
+## Configuring Logging
+
+### Command Line Options
 
 The following logging operations are supported:
 
@@ -24,7 +26,7 @@ The following logging operations are supported:
     -V, --trace                      Trace the raw protocol.
     -DV                              Debug and Trace.
 
-### Debug and trace
+#### Debug and trace
 
 The `-DV` flag enables trace and debug for the server.
 
@@ -32,17 +34,17 @@ The `-DV` flag enables trace and debug for the server.
 gnatsd -DV -m 8222 -user foo -pass bar
 ```
 
-### Log file redirect
+#### Log file redirect
 
 ```bash
 gnatsd -DV -m 8222 -l nats.log
 ```
 
-### Timestamp
+#### Timestamp
 
 If `-T false` then log entries are not timestamped. Default is true.
 
-### Syslog
+#### Syslog
 
 You can configure syslog with `UDP`:
 
@@ -62,7 +64,7 @@ For example:
 syslog://logs.papertrailapp.com:26900
 ```
 
-## Configuring Logging with the Configuration File
+### Using the Configuration File
 
 All of these settings are available in the configuration file as well.
 
@@ -99,3 +101,7 @@ The rest of the file specifies that the logs will rotate daily ("daily" option) 
 The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command ```kill -SIGUSR1 `cat /var/run/gnatsd.pid` ``` does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
 
 The `/var/run/gnatsd.pid` file is where NATS server stores the master process's pid.
+
+## Some Logging Notes
+
+- The NATS Server, in verbose mode, will log the receipt of `UNSUB` messages, but this does not indicate the subscription is gone, only that the message was received. The `DELSUB` message in the log can be used to determine when the actual subscription removal has taken place.
