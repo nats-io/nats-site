@@ -3,16 +3,40 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#servers_added-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#servers_added-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#servers_added-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="servers_added-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ListenForNewServers.java#L8-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class ServersAddedListener implements ConnectionListener {
+		<pre class="tab-pane fade in active" id="servers_added-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/servers_added/main.go#L10-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Be notified if a new server joins the cluster.
+// Print all the known servers and the only the ones that were discovered.
+nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+	nats.DiscoveredServersHandler(func(nc *nats.Conn) {
+		log.Printf(&#34;Known servers: %v\n&#34;, nc.Servers())
+		log.Printf(&#34;Discovered servers: %v\n&#34;, nc.DiscoveredServers())
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ListenForNewServers.java#L8-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class ServersAddedListener implements ConnectionListener {
     public void connectionEvent(Connection nc, Events event) {
         if (event == Events.DISCOVERED_SERVERS) {
             for (String server : nc.getServers()) {
