@@ -49,6 +49,7 @@ There are two ways to configure the server. You can include one or more command 
     -m, --http_port PORT             HTTP PORT for monitoring (use `-m 8222` to enable).
     -ms,--https_port PORT            Use HTTPS PORT for monitoring
     -c, --config FILE                File path to server configuration.
+    -client_advertise HOST:PORT      Configure the HOST and PORT returned in the INFO message
 
 See [Configuration](/doc/managing_the_server/configuration).
 

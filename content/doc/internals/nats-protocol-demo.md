@@ -1,19 +1,17 @@
 +++
 date = "2015-09-27"
-title = "Protocol Demo"
+title = "NATS Protocol Demo"
 category = "internals"
 [menu.main]
   name = "Protocol Demo"
   weight = 2
-  identifier = "internals-nats-protocol-demo-1"
+  identifier = "doc-protocol-demo"
   parent = "NATS Internals"
 +++
 
-# NATS Protocol Demo
+The virtues of the NATS protocol manifest quickly when you experience how easy it is to use NATS. Because the NATS protocol is text-based, you can use NATS across virtually any platform or language. In the following demo we use [Telnet](https://en.wikipedia.org/wiki/Telnet).
 
-The virtues of the NATS protocol manifest when you experience how easy it is to use NATS. Because the NATS protocol is text-based, you can use NATS across virtually any platform or language. In the following demo we use [Telnet](https://en.wikipedia.org/wiki/Telnet).
-
-On the wire you can publish and subscribe using a simple [set of protocol commands](/documentation/internals/nats-protocol/).
+On the wire you can publish and subscribe using a simple [set of protocol commands](/doc/internals/nats-protocol/).
 
 ## Instructions
 
