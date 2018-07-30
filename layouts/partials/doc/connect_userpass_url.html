@@ -3,16 +3,35 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#connect_userpass_url-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_userpass_url-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_userpass_url-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="connect_userpass_url-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectUserPasswordURL.java#L10-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://myname:password@localhost:4222&#34;);
+		<pre class="tab-pane fade in active" id="connect_userpass_url-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_userpass_url/main.go#L10-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Set a user and plain text password
+nc, err := nats.Connect(&#34;nats://myname:password@localhost:4222&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectUserPasswordURL.java#L10-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://myname:password@localhost:4222&#34;);
 
 // Do something with the connection
 

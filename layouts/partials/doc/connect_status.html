@@ -3,16 +3,48 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#connect_status-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_status-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_status-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="connect_status-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/GetConnectionStatus.java#L10-18"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+		<pre class="tab-pane fade in active" id="connect_status-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_status/main.go#L10-33"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+getStatusTxt := func(nc *nats.Conn) string {
+	switch nc.Status() {
+	case nats.CONNECTED:
+		return &#34;Connected&#34;
+	case nats.CLOSED:
+		return &#34;Closed&#34;
+	default:
+		return &#34;Other&#34;
+	}
+}
+log.Printf(&#34;The connection is %v\n&#34;, getStatusTxt(nc))
+
+nc.Close()
+
+log.Printf(&#34;The connection is %v\n&#34;, getStatusTxt(nc))
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/GetConnectionStatus.java#L10-18"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
 
 System.out.println(&#34;The Connection is: &#34; &#43; nc.getStatus());
 

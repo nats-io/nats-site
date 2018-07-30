@@ -3,16 +3,42 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#slow_listener-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#slow_listener-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#slow_listener-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="slow_listener-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SlowConsumerListener.java#L9-43"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class SlowConsumerReporter implements ErrorListener {
+		<pre class="tab-pane fade in active" id="slow_listener-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/slow_listener/main.go#L10-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Set the callback that will be invoked when an asynchronous error occurs.
+nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+	nats.ErrorHandler(func(nc *nats.Conn, sub *nats.Subscription, err error) {
+		if err == nats.ErrSlowConsumer {
+			dropped, _ := sub.Dropped()
+			log.Printf(&#34;Slow consumer on subject %s dropped %d messages\n&#34;,
+				sub.Subject, dropped)
+		}
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="slow_listener-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SlowConsumerListener.java#L9-43"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class SlowConsumerReporter implements ErrorListener {
     public void errorOccurred(Connection conn, String error)
     {
     }

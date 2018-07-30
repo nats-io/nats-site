@@ -3,16 +3,52 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#unsubscribe-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#unsubscribe-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#unsubscribe-java">Java</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="unsubscribe-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/Unsubscribe.java#L14-31"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+		<pre class="tab-pane fade in active" id="unsubscribe-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/unsubscribe/main.go#L10-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Sync Subscription
+sub, err := nc.SubscribeSync(&#34;updates&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+if err := sub.Unsubscribe(); err != nil {
+	log.Fatal(err)
+}
+
+// Async Subscription
+sub, err = nc.Subscribe(&#34;updates&#34;, func(_ *nats.Msg) {})
+if err != nil {
+	log.Fatal(err)
+}
+if err := sub.Unsubscribe(); err != nil {
+	log.Fatal(err)
+}
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/Unsubscribe.java#L14-31"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
 Dispatcher d = nc.createDispatcher((msg) -&gt; {
     String str = new String(msg.getData(), StandardCharsets.UTF_8);
     System.out.println(str);
