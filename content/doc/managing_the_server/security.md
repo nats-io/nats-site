@@ -95,7 +95,7 @@ The server can be run using command line arguments to enable TLS functionality.
 
 Examples using the test certicates which are self signed for localhost and 127.0.0.1.
 
-```bash
+```sh
 > ./gnatsd --tls --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem
 
 [2935] 2016/04/26 13:34:30.685413 [INF] Starting nats-server version 0.8.0.beta
@@ -106,7 +106,7 @@ Examples using the test certicates which are self signed for localhost and 127.0
 
 Notice that the log  indicates that the client connections will be required to use TLS. If you run the server in Debug mode with -D or -DV, the logs will show the cipher suite selection for each connected client.
 
-```bash
+```sh
 [15146] 2015/12/03 12:38:37.733139 [DBG] ::1:63330 - cid:1 - Starting TLS client connection handshake
 [15146] 2015/12/03 12:38:37.751948 [DBG] ::1:63330 - cid:1 - TLS handshake complete
 [15146] 2015/12/03 12:38:37.751959 [DBG] ::1:63330 - cid:1 - TLS version 1.2, cipher suite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -114,7 +114,7 @@ Notice that the log  indicates that the client connections will be required to u
 
 If you want the server to enforce and require client certificates as well via the command line, utilize this example.
 
-```bash
+```sh
 > ./gnatsd --tlsverify --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem --tlscacert=./test/configs/certs/ca.pem
 ```
 

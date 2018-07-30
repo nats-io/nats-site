@@ -100,7 +100,7 @@ The `connect_urls` will contain a list of strings with an IP and port, looking l
 
 Below you can see a sample connection string from a telnet connection to the `demo.nats.io` site.
 
-```bash
+```sh
 % telnet demo.nats.io 4222
 
 Trying 107.170.221.32...

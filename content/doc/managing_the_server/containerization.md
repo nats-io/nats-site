@@ -18,13 +18,13 @@ Synadia actively maintains and supports the NATS server Docker image.
 
 To use the Docker container image, install Docker and pull the public image:
 
-```bash
+```sh
 > docker pull nats
 ```
 
 Run the NATS server image:
 
-```bash
+```sh
 > docker run -d --name nats-main nats
 ```
 
@@ -37,7 +37,7 @@ By default the NATS server exposes multiple ports:
 
 For example:
 
-```bash
+```sh
 $ docker run -d --name nats-main nats
 [INF] Starting gnatsd version 0.6.6
 [INF] Starting http monitor on port 8222
@@ -48,13 +48,13 @@ $ docker run -d --name nats-main nats
 
 To run with the ports exposed on the host:
 
-```bash
+```sh
 > docker run -d -p 4222:4222 -p 6222:6222 -p 8222:8222 --name nats-main nats
 ```
 
 To run a second server and cluster them together:
 
-```bash
+```sh
 > docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222
 ```
 
@@ -72,7 +72,7 @@ authorization {
 
 To verify the routes are connected:
 
-```bash
+```sh
 $ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222 -DV
 [INF] Starting gnatsd version 0.6.6
 [INF] Starting http monitor on port 8222
@@ -159,7 +159,7 @@ cluster {
 
 To start the containers, on each one of your servers, you should be able to start the gnatsd image as follows:
 
-```bash
+```sh
 docker run -it -p 0.0.0.0:7222:7222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 7222 -D -V
 ```
 
@@ -193,7 +193,7 @@ cluster {
 }
 ```
 
-```bash
+```sh
 docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
@@ -216,7 +216,7 @@ cluster {
 
 Then start server B:
 
-```bash
+```sh
 docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
@@ -240,7 +240,7 @@ cluster {
 
 Then start it:
 
-```bash
+```sh
 docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
@@ -248,7 +248,7 @@ docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gna
 
 Now, the following should work: make a subscription to Node A then publish to Node C. You should be able to to receive the message without problems.
 
-```bash
+```sh
 nats-sub -s "nats://192.168.59.103:7222" hello &
 
 nats-pub -s "nats://192.168.59.105:7222" hello world

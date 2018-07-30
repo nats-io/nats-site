@@ -34,14 +34,14 @@ Run the binary that you downloaded, for example: `$ ./nats-streaming-server`
 
 Or, run from source:
 
-```bash
+```sh
 % cd $GOPATH/src/github.com/nats-io/nats-streaming-server
 % go run nats-streaming-server.go
 ```
 
 You should see the following, indicating that the NATS Streaming Server is running:
 
-```bash
+```sh
 % go run nats-streaming-server.go
 [89999] 2016/06/25 08:54:35.399071 [INF] Starting nats-streaming-server[test-cluster] version 0.1.0
 [89999] 2016/06/25 08:54:35.399315 [INF] Starting nats-server version 0.9.0.beta
@@ -55,7 +55,7 @@ You should see the following, indicating that the NATS Streaming Server is runni
 
 Publish several messages. For each publication you should get a result.
 
-```bash
+```sh
 % cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples/stan-pub
 % go run main.go foo "msg one"
 Published [foo] : 'msg one'
@@ -69,7 +69,7 @@ Published [foo] : 'msg three'
 
 Use the `--all` flag to receive all published messages.
 
-```bash
+```sh
 % cd $GOPATH/src/github.com/nats-io/go-nats-streaming/examples/stan-sub
 % go run main.go --all -c test-cluster -id myID foo
 Connected to nats://localhost:4222 clusterID: [test-cluster] clientID: [myID]
@@ -82,7 +82,7 @@ Listening on [foo], clientID=[myID], qgroup=[] durable=[]
 
 ## Explore other subscription options
 
-```bash
+```sh
 	--seq <seqno>                   Start at seqno
 	--all                           Deliver all available messages
 	--last                          Deliver starting with last published message

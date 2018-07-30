@@ -24,14 +24,14 @@ Examples:
 
 No cluster:
 
-```bash
+```sh
 gnatsd -p 4222
 ```
 ----
 
 Simplest cluster:
 
-```bash
+```sh
 # Server A on 10.10.0.1
 gnatsd -p 4222 -cluster nats://10.10.0.1:5222
 
@@ -41,7 +41,7 @@ gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
 
 ----
 
-```bash
+```sh
 # Server A on 10.10.0.1
 gnatsd -p 4222 -cluster nats://10.10.0.1:5222 -routes nats://10.10.0.2:5222
 

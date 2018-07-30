@@ -98,7 +98,7 @@ The server can be run using command line arguments to enable TLS functionality.
 
 Examples using the test certicates which are self signed for localhost and 127.0.0.1.
 
-```bash
+```sh
 > ./gnatsd --tls --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem
 
 [2935] 2016/04/26 13:34:30.685413 [INF] Starting nats-server version 0.8.0.beta

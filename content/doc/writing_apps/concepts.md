@@ -57,6 +57,8 @@ digraph g {
 }
 ```
 
+You can try out publish/subscribe a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
+
 ## Request Reply
 
 NATS supports two flavors of request reply messaging: point-to-point or one-to-many. Point-to-point involves the fastest or first to respond. In a one-to-many exchange, you set a limit on the number of responses the requestor may receive.
@@ -96,6 +98,8 @@ digraph g {
 }
 ```
 
+You can try out request/reply a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
+
 ## Queue Subscribers & Sharing Work
 
 NATS provides a load balancing feature called queue subscriptions. Using queue subscribers will load balance message delivery across a group of subscribers which can be used to provide application fault tolerance and scale workload processing.
@@ -119,3 +123,5 @@ digraph g {
   subject -> sub3 [label="msg 3"];
 }
 ```
+
+You can try out queues a live server by walking through the [queueing tutorial](/doc/additional_documentation/nats-queueing).

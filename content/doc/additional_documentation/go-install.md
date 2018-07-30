@@ -35,13 +35,13 @@ The following instructions describe one way you can set your GOPATH. Refer to th
 
 - Set the GOPATH environment variable for your workspace:
 
-	```bash
+	```sh
 	export GOPATH=$HOME/go
 	```
 
 - Also set the GOPATH/bin variable, which is used to run compiled Go programs.
 
-	```bash
+	```sh
 	export PATH=$PATH:$GOPATH/bin
 	```
 
@@ -51,13 +51,13 @@ The following instructions describe one way you can set your GOPATH. Refer to th
 
 - Create the GOPATH environment variable:
 
-	```bash
+	```sh
 	set GOPATH=c:\Users\%USERNAME%\go
 	```
 
 - Add the GOPATH\bin environment variable to your PATH:
 
-	```bash
+	```sh
 	set PATH=%PATH%;%GOPATH%\bin
 	```
 

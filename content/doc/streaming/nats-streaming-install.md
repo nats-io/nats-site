@@ -34,7 +34,7 @@ The following methods may also be used. _Please note that these methods may not 
 
 Make sure [your Go environment is set up](/documentation/tutorials/go-install/)
 
-```bash
+```sh
 % go get github.com/nats-io/nats-streaming-server
 ```
 
@@ -48,7 +48,7 @@ The latest [official Docker image](https://hub.docker.com/_/nats-streaming/) is 
 
 On Windows, the NATS Streaming server can also be installed via [Chocolatey](https://chocolatey.org/packages/nats-streaming-server):
 
-```bash
+```sh
 % choco install nats-streaming-server
 ```
 
@@ -56,7 +56,7 @@ On Windows, the NATS Streaming server can also be installed via [Chocolatey](htt
 
 On macOS, the NATS Streaming server can be installed via [Homebrew](http://brewformulas.org/NatsStreamingServer):
 
-```bash
+```sh
 % brew install nats-streaming-server
 ```
 
@@ -64,13 +64,13 @@ On macOS, the NATS Streaming server can be installed via [Homebrew](http://brewf
 
 You can invoke the NATS Streaming server binary, with no options and no configuration file, to start a server with acceptable standalone defaults (no authentication, no clustering).
 
-```bash
+```sh
 % nats-streaming-server
 ```
 
 When the server starts successfully, you will see that the NATS Streaming server listens for client connections on TCP Port 4222:
 
-```bash
+```sh
 [18085] 2016/10/31 13:11:44.059012 [INF] Starting nats-streaming-server[test-cluster] version 0.3.1
 [18085] 2016/10/31 13:11:44.059830 [INF] Starting nats-server version 0.9.4
 [18085] 2016/10/31 13:11:44.061544 [INF] Listening for client connections on 0.0.0.0:4222
@@ -90,13 +90,13 @@ When the server starts successfully, you will see that the NATS Streaming server
 
 The NATS Streaming server exposes the monitoring interface of its embedded NATS Server (`gnatsd`) on port 8222.
 
-```bash
+```sh
 % nats-streaming-server -m 8222
 ```
 
 If you run the NATS Streaming server with monitoring enabled, you see the following messages:
 
-```bash
+```sh
 [18122] 2016/10/31 13:13:10.048663 [INF] Starting nats-streaming-server[test-cluster] version 0.3.1
 [18122] 2016/10/31 13:13:10.048843 [INF] Starting nats-server version 0.9.4
 [18122] 2016/10/31 13:13:10.048890 [INF] Starting http monitor on 0.0.0.0:8222

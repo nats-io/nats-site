@@ -24,7 +24,7 @@ Token is mutually exclusive from user and password, so only use one of those.
 
 For example:
 
-```bash
+```sh
 gnatsd -DV --user foo --pass bar
 ```
 
@@ -32,7 +32,7 @@ will allow the user `foo` to log in with the password `bar`, but no other users 
 
 Using the command line with an authorization token:
 
-```bash
+```sh
 gnatsd -DV -auth 'S3Cr3T0k3n!'
 ```
 
@@ -94,7 +94,7 @@ authorization {
 
 The gnatsd source code includes a tool that can be used to bcrypt passwords for the config file:
 
-```bash
+```sh
 > go run mkpasswd.go -p
 > password: password
 > bcrypt hash: $2a$11$1oJy/wZYNTxr9jNwMNwS3eUGhBpHT3On8CL9o7ey89mpgo88VG6ba
@@ -108,13 +108,13 @@ To connect to the server as an authenticated client, you can pass in the credent
 
 For example, user 'foo' with password 'bar':
 
-```bash
+```sh
 nats://foo:bar@localhost:4222
 ```
 
 Using token 'S3Cr3T0k3n!'
 
-```bash
+```sh
 nats://S3Cr3T0k3n!@localhost:4222
 ```
 

@@ -13,7 +13,7 @@ category = "server"
 
 The nats-top tool provides a dynamic real-time view of a NATS server. nats-top can display a variety of system summary information about the NATS server, such as subscription, pending bytes, number of messages, and more, in real time. For example:
 
-```bash
+```sh
 nats-top
 
 gnatsd version 0.6.4 (uptime: 31m42s)
@@ -34,7 +34,7 @@ Connections: 4
 
 nats-top can be installed using `go get`. For example:
 
-```bash
+```sh
 go get github.com/nats-io/nats-top
 ```
 
@@ -44,7 +44,7 @@ NOTE: You may have to run the above command as user `sudo` depending on your set
 
 Once installed, nats-top can be run with the command `nats-top` and optional arguments.
 
-```bash
+```sh
 nats-top [-s server] [-m monitor] [-n num_connections] [-d delay_in_secs] [-sort by]
 ```
 
@@ -84,3 +84,7 @@ Use the `s` command to toggle displaying connection subscriptions.
 Use the `?` command to show help message with options.
 
 Use the `q` command to quit nats-top.
+
+### Tutorial
+
+For a walkthrough with `nats-top` check out the [tutorial](/doc/additional_documentation/nats-top).

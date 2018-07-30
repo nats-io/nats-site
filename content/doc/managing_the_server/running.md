@@ -11,7 +11,7 @@ category = "server"
 
 Out-of-the-box you can run the NATS server without any custom settings.
 
-```bash
+```sh
 gnatsd
 ```
 
