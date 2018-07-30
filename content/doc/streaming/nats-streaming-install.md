@@ -1,12 +1,12 @@
 +++
 date = "2015-09-27"
-title = "Install NATS Streaming Server"
+title = "Installing NATS Streaming Server"
 description = ""
 category = "tutorials"
 [menu.main]
-  name = "Install NATS Streaming Server"
+  name = "Installation"
   weight = 2
-  identifier = "tutorial-nats-streaming-install-1"
+  identifier = "doc-streaming-installation"
   parent = "Event Streaming"
 +++
 
@@ -14,7 +14,6 @@ category = "tutorials"
 
 In this tutorial you install and run the NATS Streaming server (`nats-streaming-server`). 
 You can follow this same procedure anytime you want to run the NATS Streaming server.
-
 
 ### Install the NATS Streaming server
 
@@ -25,9 +24,9 @@ There are numerous ways to install the NATS Streaming server.
 The latest official release binaries are always available on the [GitHub releases page](https://github.com/nats-io/nats-streaming-server/releases). 
 The following platforms are available:
 
- * Linux (x86, x86_64, ARM)
- * Windows (x86, x86_64)
- * macOS
+- Linux (x86, x86_64, ARM)
+- Windows (x86, x86_64)
+- macOS
 
 The following methods may also be used. _Please note that these methods may not install the latest released version_:
 
@@ -35,8 +34,8 @@ The following methods may also be used. _Please note that these methods may not 
 
 Make sure [your Go environment is set up](/documentation/tutorials/go-install/)
 
-```
-go get github.com/nats-io/nats-streaming-server
+```bash
+% go get github.com/nats-io/nats-streaming-server
 ```
 
 Note that this method may not install the latest released version.
@@ -49,29 +48,29 @@ The latest [official Docker image](https://hub.docker.com/_/nats-streaming/) is 
 
 On Windows, the NATS Streaming server can also be installed via [Chocolatey](https://chocolatey.org/packages/nats-streaming-server):
 
-```
-choco install nats-streaming-server
+```bash
+% choco install nats-streaming-server
 ```
 
 #### macOS
 
-On macOS, the NATS Streaming server can alo be installed via [Homebrew](http://brewformulas.org/NatsStreamingServer):
+On macOS, the NATS Streaming server can be installed via [Homebrew](http://brewformulas.org/NatsStreamingServer):
 
-```
-brew install nats-streaming-server
+```bash
+% brew install nats-streaming-server
 ```
 
 ### Start the NATS Streaming server
 
 You can invoke the NATS Streaming server binary, with no options and no configuration file, to start a server with acceptable standalone defaults (no authentication, no clustering).
 
-```
-nats-streaming-server
+```bash
+% nats-streaming-server
 ```
 
 When the server starts successfully, you will see that the NATS Streaming server listens for client connections on TCP Port 4222:
 
-```
+```bash
 [18085] 2016/10/31 13:11:44.059012 [INF] Starting nats-streaming-server[test-cluster] version 0.3.1
 [18085] 2016/10/31 13:11:44.059830 [INF] Starting nats-server version 0.9.4
 [18085] 2016/10/31 13:11:44.061544 [INF] Listening for client connections on 0.0.0.0:4222
@@ -91,13 +90,13 @@ When the server starts successfully, you will see that the NATS Streaming server
 
 The NATS Streaming server exposes the monitoring interface of its embedded NATS Server (`gnatsd`) on port 8222.
 
-```
-nats-streaming-server -m 8222
+```bash
+% nats-streaming-server -m 8222
 ```
 
 If you run the NATS Streaming server with monitoring enabled, you see the following messages:
 
-```
+```bash
 [18122] 2016/10/31 13:13:10.048663 [INF] Starting nats-streaming-server[test-cluster] version 0.3.1
 [18122] 2016/10/31 13:13:10.048843 [INF] Starting nats-server version 0.9.4
 [18122] 2016/10/31 13:13:10.048890 [INF] Starting http monitor on 0.0.0.0:8222
