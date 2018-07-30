@@ -299,7 +299,7 @@ If you are running on MacOS, you can try issuing the command `make setup`, this 
 
 Enter the following commands to install additional software dependencies (if you used `make setup` you can skip this next step.)
 
-```bash
+```sh
 npm install
 npm install --global gulp-cli
 ```
@@ -308,14 +308,14 @@ npm install --global gulp-cli
 
 Images and other source assets live in the `src` directory. The build workflow will resize images, and compile files in `src` and create the assets directory for hugo.
 
-```bash
+```sh
 gulp build
 ```
 
 The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. This command will also run hugo and process the `content` directory creating a snapshot of the site in the `public` directory.
 
 To preview your changes, run:
-```bash
+```sh
 hugo server
 ```
 
@@ -327,7 +327,7 @@ Whenever `src` is modified, remember to run `gulp build` to update the `static` 
 
 
 Create a new blog post : 
-```bash
+```sh
 hugo new blog/my-blog-post.md
 ```
 

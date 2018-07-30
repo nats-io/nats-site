@@ -22,7 +22,7 @@ To enable the monitoring server, start the NATS server with the monitoring flag 
 
 Example:
 
-```bash
+```sh
 $ gnatsd -m 8222
 [4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.8.0
 [4528] 2015/08/19 20:09:58.573007 [INF] Starting http monitor on port 8222
@@ -176,7 +176,7 @@ NATS monitoring endpoints support [JSONP](https://en.wikipedia.org/wiki/JSONP) a
 
 For example:
 
-```bash
+```sh
 http://localhost:8222/connz?callback=cb
 ```
 

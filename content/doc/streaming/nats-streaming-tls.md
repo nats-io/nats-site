@@ -26,24 +26,20 @@ That means two sets of TLS configuration parameters must be used: TLS server par
 
 The streaming server specifies it's TLS client certificates with the following three parameters:
 
-```bash
-    -tls_client_key              Client key for the streaming server
-
-    -tls_client_cert             Client certificate for the streaming server
-
-    -tls_client_cacert           Client certificate CA for the streaming server
+```sh
+-tls_client_key              Client key for the streaming server
+-tls_client_cert             Client certificate for the streaming server
+-tls_client_cacert           Client certificate CA for the streaming server
 ```
 
 These could be the same certificates used with your NATS streaming clients.
 
 The embedded NATS server specifies TLS server certificates with these:
 
-```bash
-        --tlscert <file>             Server certificate file
-
-        --tlskey <file>              Private key for server certificate
-
-        --tlscacert <file>           Client certificate CA for verification
+```sh
+--tlscert <file>             Server certificate file
+--tlskey <file>              Private key for server certificate
+--tlscacert <file>           Client certificate CA for verification
 ```
 
 The server parameters are used the same way you'd [secure a typical NATS server]((https://github.com/nats-io/gnatsd#securing-nats).
@@ -52,7 +48,7 @@ Proper usage of the NATS Streaming Server requires the use of both client and se
 
 For example:
 
-```bash
+```sh
 % nats-streaming-server -tls_client_cert client-cert.pem -tls_client_key client-key.pem -tls_client_cacert ca.pem -tlscert server-cert.pem -tlskey server-key.pem -tlscacert ca.pem
 ```
 

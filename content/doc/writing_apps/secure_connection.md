@@ -23,13 +23,13 @@ While the server can be configured to take either of these, we will use the comm
 
 For the user/password examples, start the server using:
 
-```bash
+```sh
 > gnatsd --user myname --pass password
 ```
 
 You can encrypt passwords to pass to `gnatsd` using a simple tool provided by the server:
 
-```bash
+```sh
 > go run mkpasswd.go -p
 > password: password
 > bcrypt hash: $2a$11$1oJy/wZYNTxr9jNwMNwS3eUGhBpHT3On8CL9o7ey89mpgo88VG6ba
@@ -39,7 +39,7 @@ and use the hashed password in the server config. The client still uses the plai
 
 For the token examples, start the server using:
 
-```bash
+```sh
 > gnatsd --auth mytoken
 ```
 
@@ -83,7 +83,7 @@ While authentication limits which clients can connect, TLS can be used to check 
 
 The [Java examples repository](https://github.com/nats-io/java-nats-examples/tree/master/src/main/resources) contains certificates for starting the server in TLS mode.
 
-```bash
+```sh
 > gnatsd -c /src/main/resources/tls.conf
  or
 > gnatsd -c /src/main/resources/tls_verify.conf

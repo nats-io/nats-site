@@ -1,10 +1,10 @@
 +++
 date = "2015-06-17"
-title = "NATS Streaming"
+title = "NATS Streaming Concepts"
 description = ""
 category = "server"
 [menu.main]
-  name = "Introduction"
+  name = "Concepts"
   weight = 1
   identifier = "doc-streaming-intro"
   parent = "Event Streaming"

@@ -3,8 +3,8 @@ title = "Run the NATS Docker Image"
 description = ""
 category = "tutorials"
 [menu.main]
-  name = "Run the NATS Docker Image"
-  weight = 2
+  name = "Docker"
+  weight = 8
   identifier = "doc-gnatsd-docker"
   parent = "Additional Documentation"
 +++
@@ -19,7 +19,7 @@ The easiest way to run Docker is to use the [Docker Toolbox](http://docs.docker.
 
 **2. Run the gnatsd Docker image.**
 
-```bash
+```sh
 > docker run -p 4222:4222 -p 8222:8222 -p 6222:6222 --name gnatsd -ti nats:latest
 ```
 
@@ -27,7 +27,7 @@ The easiest way to run Docker is to use the [Docker Toolbox](http://docs.docker.
 
 You should see the following:
 
-```bash
+```sh
 Unable to find image 'nats:latest' locally
 latest: Pulling from library/nats
 2d3d00b0941f: Pull complete 
@@ -38,7 +38,7 @@ Status: Downloaded newer image for nats:latest
 
 Followed by this, indicating that the NATS server is running:
 
-```bash
+```sh
 [1] 2017/06/28 18:34:19.605144 [INF] Starting nats-server version 0.9.6
 [1] 2017/06/28 18:34:19.605191 [INF] Starting http monitor on 0.0.0.0:8222
 [1] 2017/06/28 18:34:19.605286 [INF] Listening for client connections on 0.0.0.0:4222
@@ -52,13 +52,13 @@ Notice how quickly the NATS server Docker image downloads. It is a mere 6 MB in 
 
 An easy way to test the client connection port is through using telnet.
 
-```bash
+```sh
 > telnet localhost 4222
 ```
 
 Expected result:
 
-```bash
+```sh
 Trying ::1...
 Connected to localhost.
 Escape character is '^]'.

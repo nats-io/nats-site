@@ -20,14 +20,14 @@ In addition to a port for listening for clients, `gnatsd` can listen on a "clust
 
 ### Running with No Cluster
 
-```bash
+```sh
 gnatsd -p 4222
 ```
 ----
 
 ### Running a Simple Cluster
 
-```bash
+```sh
 # Server A on 10.10.0.1
 gnatsd -p 4222 -cluster nats://10.10.0.1:5222
 
@@ -37,7 +37,7 @@ gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
 
 ----
 
-```bash
+```sh
 # Server A on 10.10.0.1
 gnatsd -p 4222 -cluster nats://10.10.0.1:5222 -routes nats://10.10.0.2:5222
 
@@ -64,7 +64,7 @@ Clustering can also be configured using the server [config file](/doc/managing_t
 
 The following example demonstrates how to run a cluster of 3 servers on the same host. We will start with the seed server and use the `-D` command line parameter to produce debug information.
 
-```bash
+```sh
 gnatsd -p 4222 -cluster nats://localhost:4248 -D
 ```
 
@@ -83,13 +83,13 @@ cluster {
 
 And start the server like this:
 
-```bash
+```sh
 gnatsd -config ./seed.conf -D
 ```
 
 This will produce an output similar to:
 
-```bash
+```sh
 [75653] 2016/04/26 15:14:47.339321 [INF] Listening for route connections on 127.0.0.1:4248
 [75653] 2016/04/26 15:14:47.340787 [INF] Listening for client connections on 127.0.0.1:4222
 [75653] 2016/04/26 15:14:47.340822 [DBG] server id is xZfu3u7usAPWkuThomoGzM
@@ -107,7 +107,7 @@ cluster {
 
 Now let's start two more servers, each one connecting to the seed server.
 
-```bash
+```sh
 gnatsd -p 5222 -cluster nats://localhost:5248 -routes nats://localhost:4248 -D
 ```
 
@@ -115,7 +115,7 @@ When running on the same host, we need to pick different ports for the client co
 
 Here is the log produced. See how it connects and registers a route to the seed server (`...GzM`).
 
-```bash
+```sh
 [75665] 2016/04/26 15:14:59.970014 [INF] Listening for route connections on localhost:5248
 [75665] 2016/04/26 15:14:59.971150 [INF] Listening for client connections on 0.0.0.0:5222
 [75665] 2016/04/26 15:14:59.971176 [DBG] server id is 53Yi78q96t52QdyyWLKIyE
@@ -129,7 +129,7 @@ Here is the log produced. See how it connects and registers a route to the seed 
 
 From the seed's server log, we see that the route is indeed accepted:
 
-```bash
+```sh
 [75653] 2016/04/26 15:14:59.971602 [DBG] 127.0.0.1:52679 - rid:1 - Route connection created
 [75653] 2016/04/26 15:14:59.971733 [DBG] 127.0.0.1:52679 - rid:1 - Registering remote route "53Yi78q96t52QdyyWLKIyE"
 [75653] 2016/04/26 15:14:59.971739 [DBG] 127.0.0.1:52679 - rid:1 - Route sent local subscriptions
@@ -137,13 +137,13 @@ From the seed's server log, we see that the route is indeed accepted:
 
 Finally, let's start the third server:
 
-```bash
+```sh
 gnatsd -p 6222 -cluster nats://localhost:6248 -routes nats://localhost:4248 -D
 ```
 
 Again, notice that we use a different client port and cluster address, but still point to the same seed server at the address `nats://localhost:4248`:
 
-```bash
+```sh
 [75764] 2016/04/26 15:19:11.528185 [INF] Listening for route connections on localhost:6248
 [75764] 2016/04/26 15:19:11.529787 [INF] Listening for client connections on 0.0.0.0:6222
 [75764] 2016/04/26 15:19:11.529829 [DBG] server id is IRepas80TBwJByULX1ulAp
@@ -162,7 +162,7 @@ First a route is created to the seed server (`...GzM`) and after that, a route f
 
 The log from the seed server shows that it accepted the route from the third server:
 
-```bash
+```sh
 [75653] 2016/04/26 15:19:11.530308 [DBG] 127.0.0.1:52726 - rid:2 - Route connection created
 [75653] 2016/04/26 15:19:11.530384 [DBG] 127.0.0.1:52726 - rid:2 - Registering remote route "IRepas80TBwJByULX1ulAp"
 [75653] 2016/04/26 15:19:11.530389 [DBG] 127.0.0.1:52726 - rid:2 - Route sent local subscriptions
@@ -170,7 +170,7 @@ The log from the seed server shows that it accepted the route from the third ser
 
 And the log from the second server shows that it connected to the third.
 
-```bash
+```sh
 [75665] 2016/04/26 15:19:11.530469 [DBG] Trying to connect to route on 127.0.0.1:6248
 [75665] 2016/04/26 15:19:11.530565 [DBG] 127.0.0.1:6248 - rid:2 - Route connection created
 [75665] 2016/04/26 15:19:11.530570 [DBG] 127.0.0.1:6248 - rid:2 - Route connect msg sent
@@ -184,7 +184,7 @@ At this point, there is a full mesh cluster of NATS servers.
 
 Now, the following should work: make a subscription to Node A then publish to Node C. You should be able to to receive the message without problems.
 
-```bash
+```sh
 nats-sub -s "nats://192.168.59.103:7222" hello &
 
 nats-pub -s "nats://192.168.59.105:7222" hello world

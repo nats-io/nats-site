@@ -30,13 +30,13 @@ The following logging operations are supported:
 
 The `-DV` flag enables trace and debug for the server.
 
-```bash
+```sh
 gnatsd -DV -m 8222 -user foo -pass bar
 ```
 
 #### Log file redirect
 
-```bash
+```sh
 gnatsd -DV -m 8222 -l nats.log
 ```
 
@@ -48,19 +48,19 @@ If `-T false` then log entries are not timestamped. Default is true.
 
 You can configure syslog with `UDP`:
 
-```bash
+```sh
 gnatsd -s udp://localhost:514
 ```
 
 or `syslog:`
 
-```bash
+```sh
 gnatsd -r syslog://<hostname>:<port>
 ```
 
 For example:
 
-```bash
+```sh
 syslog://logs.papertrailapp.com:26900
 ```
 
