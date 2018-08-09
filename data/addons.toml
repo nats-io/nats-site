@@ -191,6 +191,13 @@ author = ""
 authorHome = ""
 support = "Community"
 
+[addons.resgate]
+name = "Resgate"
+home = "https://github.com/jirenius/resgate"
+description = "A Realtime + REST API Gateway for NATS to create web APIs with live data. It supports access control, caching, scaling, queries, and more."
+author = "Samuel Jirénius"
+authorHome = "https://github.com/jirenius"
+support = "Community"
 
 [addons.rest_to_nats_proxy]
 name = "REST to NATS Proxy"
