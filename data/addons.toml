@@ -191,6 +191,13 @@ author = ""
 authorHome = ""
 support = "Community"
 
+[addons.resgate]
+name = "A RES gateway"
+home = "https://github.com/jirenius/resgate"
+description = "Web APIs with real-time resources in a simple way.  A real-time API gateway for the RES protocol with NATS server as messaging system."
+author = "Samuel Jirénius"
+authorHome = "https://github.com/jirenius"
+support = "Community"
 
 [addons.rest_to_nats_proxy]
 name = "REST to NATS Proxy"
