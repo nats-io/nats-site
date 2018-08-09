@@ -116,10 +116,10 @@ Naturally, it is a node API, and ts-node offers event notifications:
 
 On an iMac default tests are not too shabby:
 
-A publisher efficiently does 1.6 million msgs/sec.
-A subscriber does 1.4 million msgs/sec.
-Request/Reply on the same node process does 87 thousand request round trips per second
-PubSub on the same node process makes 690 thousand round trips per second.
+- A publisher efficiently does 1.6 million msgs/sec.
+- A subscriber does 1.4 million msgs/sec.
+- Request/Reply on the same node process does 87 thousand request round trips per second.
+- PubSub on the same node process makes 690 thousand round trips per second.
 
 And this is only the first release. Expect performance to improve as we and the community 
 identify enhancements.
@@ -135,17 +135,22 @@ The npm supplied bundle is built for ES5 which means that Promises, async/await 
 on all currently supported node environments. If you are running on an `ES2017` (node 7.10 and beyond),
 you may want to build the library yourself. It is as easy as:
 
-`git clone git@github.com:/nats.io/ts-nats`
-`npm install`
+```bash
+git clone git@github.com:/nats.io/ts-nats
+npm install
+```
 
 Edit `tsconfig.json`:
+
 - Comment `"target": "ES5"`
 - Uncomment `"target": "ES2017"`
 - Comment: `"lib": ["es2016"]`
 
-`npm run clean`
-`npm run build`
-`npm test`
+```bash
+npm run clean
+npm run build
+npm test
+```
 
 If all goes as expected, you should have a version of the library that removes the ES5 compatibility
 layer. Performance numbers between ES5 compatibility and to the metal is entirely analogous.
@@ -155,7 +160,7 @@ fine.
 ## What about Node-Nats?
 
 The long-term intention is to create an API wrapper that honors the node-nats API with a ts-nats
-Backend. This would allow us to have less to maintain while leveraging the ts-nats effort.
+dependency. This would allow us to have less to maintain while leveraging the ts-nats effort.
 Of course, there are millions of NATS clients developed with node-nats, and we want developers
 to not be forced to change their code just because we are doing things a little differently.
  
@@ -163,6 +168,6 @@ to not be forced to change their code just because we are doing things a little 
 ## We Want Your Feedback
 
 I believe that the node-nats community will enjoy ts-nats version. But as always, if you have
-question, comment or suggestion on how we can improve ts-nats give us a holler in the usual
+questions, comments or suggestions on how we can improve ts-nats give us a holler in the usual
 places [Github](https://github.com/nats-io/ts-nats/issues), or 
 [Slack](https://join.slack.com/t/natsio/shared_invite/enQtMzE2NDkxNDI2NTE1LTc5ZDEzYTkwYWZkYWQ5YjY1MzBjMWZmYzA5OGQxMzlkMGQzMjYxNGM3MWYxMjNiYmNjNzIwMTVjMWE2ZDgxZGM).
