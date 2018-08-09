@@ -38,3 +38,8 @@ logo = "/img/partners/freebsd.jpg"
 name = "StorageOS"
 home = "https://storageos.com/"
 logo = "/img/partners/storageos.jpg"
+
+[partners.bitnami]
+name = "Bitnami"
+home = "https://bitnami.com/"
+logo = "/img/partners/Bitnami-Logo-Full-Color.png"
