@@ -44,7 +44,7 @@ node node-sub.js foo my-queue
 **4. Run the Ruby client subscriber with queue group name.**
 
 ```
-ruby queue_sub.rb foo my-queue &
+nats-queue foo my-queue &
 ```
 
 **5. Run another Go client subscriber **without** the queue group.**
