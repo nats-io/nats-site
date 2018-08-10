@@ -45,7 +45,7 @@ When a client connects to the server, the server may provide a list of URLs for 
 
 ## Reconnecting
 
-Most, if not all, of the client libraries will reconnect to the server if they are disconnected due to a network problem. The reconnect logic can differ by library, so check your client libraries documentation for specifics. In general, the client will try to connect to all of the servers it knows about, either through the URLs provided in `connect` or the URLs provided by its most recent server. The library may have several options to help control reconnect behavior.
+Most, if not all, of the client libraries will reconnect to the server if they are disconnected due to a network problem. The reconnect logic can differ by library, so check your client libraries. In general, the client will try to connect to all of the servers it knows about, either through the URLs provided in `connect` or the URLs provided by its most recent server. The library may have several options to help control reconnect behavior.
 
 ### Disable Reconnect
 
@@ -61,19 +61,19 @@ Applications can set the maximum reconnect attempts. Generally, this will limit 
 
 ### Pausing Between Reconnect Attempts
 
-It doesn't make much sense to try to connect to the same server over and over. To prevent this sort of thrashing, and wasted reconnect attempts, libraries provide a wait setting. This setting will pause the reconnect logic if the same server is being tried multiple times. In the previous example, if you have 3 servers and 6 attempts, the Java library would loop over the three servers. If none were connectable, it try all three again. However, the Java client, doesn't wait between each attempt, only when trying the same server again, so in that example, the library may never wait. If, on the other hand, you only provide a single server URL and 6 attempts, the library will wait between each attempt.
+It doesn’t make much sense to try to connect to the same server over and over. To prevent this sort of thrashing, and wasted reconnect attempts, libraries provide a wait setting. This setting will pause the reconnect logic if the same server is being tried multiple times. In the previous example, if you have 3 servers and 6 attempts, the Java library would loop over the three servers. If none were connectable, it will then try all three again. However, the Java client, doesn’t wait between each attempt, only when trying the same server again, so in that example, the library may never wait. If, on the other hand, you only provide a single server URL and 6 attempts, the library will wait between each attempt.
 
 {{< partial "doc/reconnect_10s.html" >}}
 
 ### Avoiding the Thundering Herd
 
-When a server goes down, there is a possible anti-pattern called the *Thundering Herd* where all the clients try to reconnect immediately creating a denial of service attack. In order to prevent this, most NATS client libraries randomize the servers they attempt to connect to. This setting has no effect if only a single server is used, but in the case of a cluster, randomization, or shuffling, will insure that no one server bears the brunt of the client reconnect attempts.
+When a server goes down, there is a possible anti-pattern called the *Thundering Herd* where all of the clients try to reconnect immediately creating a denial of service attack. In order to prevent this, most NATS client libraries randomize the servers they attempt to connect to. This setting has no effect if only a single server is used, but in the case of a cluster, randomization, or shuffling, will ensure that no one server bears the brunt of the client reconnect attempts.
 
 {{< partial "doc/reconnect_no_random.html" >}}
 
 ### Listening for Reconnect Events
 
-Because reconnect is primarily under the covers many libraries provide some sort of event listener you can use to be notified of reconnect events:
+Because reconnect is primarily under the covers many libraries provide an event listener you can use to be notified of reconnect events:
 
 {{< partial "doc/reconnect_event.html" >}}
 
@@ -81,7 +81,7 @@ This event can be especially important for applications sending a lot of message
 
 ### Buffering Messages During Reconnect Attempts
 
-There is another setting that comes in to play during reconnection. This setting controls how much memory the client library will hold in the form of outgoing messages while it is disconnected. During a short reconnect, the client will generally allow applications to publish messages. But those messages, because the server is offline, will be cached in the client. The library will then send those messages on reconnect. When the maximum reconnect buffer is reached, messages will no longer be publishable by the client.
+There is another setting that comes in to play during reconnection. This setting controls how much memory the client library will hold in the form of outgoing messages while it is disconnected. During a short reconnect, the client will generally allow applications to publish messages but because the server is offline, will be cached in the client. The library will then send those messages on reconnect. When the maximum reconnect buffer is reached, messages will no longer be publishable by the client.
 
 {{< partial "doc/reconnect_5mb.html" >}}
 
