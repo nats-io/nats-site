@@ -8,7 +8,7 @@ title = "Sending Messages"
     parent = "Writing Applications"
 +++
 
-NATS sends and receives messages composed of a target subject, an optional reply subject and an array of bytes. Some libraries may provide helpers to convert other data formats to and from bytes, but the gnatsd will treat all messages as opaque byte arrays. All of the NATS clients are designed to make sending a message simple. For example, to send the string "All is Well" to the "updates" subject as a UTF-8 string of bytes you would do:
+NATS sends and receives messages composed of a target subject, an optional reply subject and an array of bytes. Some libraries may provide helpers to convert other data formats to and from bytes, but the `gnatsd` will treat all messages as opaque byte arrays. All of the NATS clients are designed to make sending a message simple. For example, to send the string “All is Well” to the “updates” subject as a UTF-8 string of bytes you would do:
 
 {{< partial "doc/publish_bytes.html" >}}
 

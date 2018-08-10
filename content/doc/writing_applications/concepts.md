@@ -8,13 +8,15 @@ category = "concepts"
   parent = "Writing Applications"
 +++
 
-NATS messaging involves the electronic exchange of data among computer applications.
+NATS messaging involves the electronic exchange of data among computer applications and provides a layer between the application and the underlying physical network. Application data is encoded as a message and sent by A publisher. The message is received, decoded, and processed by one or more subscribers. A subscriber can process a NATS message synchronously or asynchronously, depending on the client library used. 
 
-NATS provides a layer between the application and the underlying physical network. Application data is encoded as a message and sent by the publisher. The message is received, decoded, and processed by one or more subscribers. A subscriber can process a NATS message synchronously or asynchronously, depending on the client library used.
+## Asynchronous
 
-Asynchronous processing uses a callback message handler to process messages. When a message arrives, the registered callback handler receives control to process the message. The client or consuming application is not blocked from performing other work while it is waiting for a message. Asynchronous processing lets you create multi-threaded dispatching designs.
+Asynchronous processing uses a callback message handler to process messages. When a message arrives, the registered callback handler receives control to process the message. The client or the consuming application is not blocked from performing other work while it is waiting for a message. Asynchronous processing lets you create multi-threaded dispatching designs.
 
-Synchronous processing requires that application code explicitly call a method to process an incoming message. Typically an explicit call is a blocking call that suspends processing until a message becomes available. If no message is available, the period for which the message processing call blocks is set by the client. Synchronous processing is typically used by a server whose purpose is to wait for and process incoming request messages, and to send replies to the requesting application.
+## Synchronous
+
+Synchronous processing requires that application code explicitly call a method to process an incoming message. Typically the message request is a blocking call that suspends processing until a message becomes available and if no message is available, the period for which the message processing call blocks, would be set by the client. Synchronous processing is typically used by a server whose purpose is to wait for and process incoming request messages and to send replies to the requesting application.
 
 <div class="graphviz"><code data-viz="dot">
 graph nats {
@@ -35,11 +37,11 @@ NATS makes it easy for programs to communicate across different environments, la
 
 ## <a name="pubsub"></a>Publish Subscribe
 
-NATS implements a publish subscribe message distribution model. NATS publish subscribe is a one-to-many communication. A publisher sends a message on a subject. Any active subscriber listening on that subject receives the message. Subscribers can register interest in wildcard subjects. NATS and NATS Streaming combine to offer two qualities of service:
+NATS implements a publish subscribe message distribution model as a one-to-many communication. A publisher sends a message on a subject and any active subscriber listening on that subject receives the message. Subscribers can also register interest in wildcard subjects. NATS and NATS Streaming combine to offer two qualities of service:
 
 - **At Most Once Delivery (NATS w/TCP reliability)** - In the basic NATS platform, if a subscriber is not listening on the subject (no subject match), or is not active when the message is sent, the message is not received. NATS is a fire-and-forget messaging system. If you need higher levels of service, you can either use [NATS Streaming](/documentation/streaming/nats-streaming-intro/), or build the additional reliability into your client(s) yourself.
 
-- **At Least Once Delivery ([NATS Streaming](/documentation/streaming/nats-streaming-intro/))** - Some applications require higher levels of service and more stringent delivery guarantees, at the potential cost of lower message throughput and higher end-to-end delivery latency. These applications rely on the underlying messaging transport to ensure that messages are delivered to subscribers irrespective of network outages or whether or not a subscriber is offline at a particular instant in time.
+- **At Least Once Delivery ([NATS Streaming](/documentation/streaming/nats-streaming-intro/))** -  Some applications require higher levels of service and more stringent delivery guarantees but at the potential cost of lower message throughput and higher end-to-end delivery latency. These applications rely on the underlying messaging transport to ensure that messages are delivered to subscribers irrespective of network outages or whether or not a subscriber is offline at a particular point in time.
 
 <div class="graphviz"><code data-viz="dot">
 digraph nats_pub_sub {
@@ -57,7 +59,7 @@ digraph nats_pub_sub {
 }
 </code></div>
 
-You can try out publish/subscribe a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
+Try NATS publish subscribe on your own, using a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
 
 ## <a name="reqrep"></a>Request Reply
 
@@ -98,7 +100,7 @@ digraph nats_request_reply {
 }
 </code></div>
 
-You can try out request/reply a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
+Try NATS request reply on your own, using a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
 
 ## <a name="queue"></a>Queue Subscribers & Sharing Work
 
@@ -124,4 +126,4 @@ digraph nats_queues {
 }
 </code></div>
 
-You can try out queues a live server by walking through the [queueing tutorial](/doc/additional_documentation/nats-queueing).
+Try NATS queue subscriptions on your own, using a live server by walking through the [queueing tutorial](/doc/additional_documentation/nats-queueing).

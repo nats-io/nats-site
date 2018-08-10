@@ -10,7 +10,7 @@ title = "Securing Connections"
 
 NATS provides several forms of security for your messages. First, you can turn on authorization which limits access to the gnatsd server. Second, access to specific subjects can be controlled. Third, you can use TLS to encrypt traffic between clients and the server. Finally, TLS can be used to verify client identities using certificates. By combining all of these methods you can protect access to data and data in motion.
 
-The client doesn't have control over access controls, but clients do provide the configurations required to authenticate with the server, and to turn on TLS.
+The client doesn't have control over access controls, but clients do provide the configurations required to authenticate with the server and to turn on TLS.
 
 ## Server Authentication
 
@@ -19,7 +19,7 @@ There are two kinds of authentication in NATS, plus a third if you count certifi
 * User/Password
 * Token
 
-While the server can be configured to take either of these, we will use the command line in these examples to make things easy. See the server doc for more details on setting up that side.
+While the server can be configured to take either of these via the configuration file, we will use the command line in these examples to make things easy. See the server doc for more details on the configuration file format.
 
 For the user/password examples, start the server using:
 
@@ -79,7 +79,7 @@ Again, once you construct this URL you can connect as if this was a normal URL.
 
 ## Encrypting Connections With TLS
 
-While authentication limits which clients can connect, TLS can be used to check the server's identity, the client's identity and will encrypt the traffic between the two. The most secure version of TLS with NATS is to use verified client certificates. In this mode, the client can check that it trusts the certificate sent by the `gnatsd` but the server will also check that it trusts the certificate sent by the client. From an applications perspective connecting to a server that does not verify client certificates may appear identical. Under the covers, disabling TLS verification removes the server side check on the client's certificate. When started in TLS mode, `gnatsd` will require all clients to connect with TLS. Moreover, if configured to connect with TLS, client libraries will fail to connect to a server without TLS.
+While authentication limits which clients can connect, TLS can be used to check the server’s identity and the client’s identity and will encrypt the traffic between the two. The most secure version of TLS with NATS is to use verified client certificates. In this mode, the client can check that it trusts the certificate sent by the `gnatsd` but the server will also check that it trusts the certificate sent by the client. From an applications perspective connecting to a server that does not verify client certificates may appear identical. Under the covers, disabling TLS verification removes the server side check on the client’s certificate. When started in TLS mode, `gnatsd` will require all clients to connect with TLS. Moreover, if configured to connect with TLS, client libraries will fail to connect to a server without TLS.
 
 The [Java examples repository](https://github.com/nats-io/java-nats-examples/tree/master/src/main/resources) contains certificates for starting the server in TLS mode.
 

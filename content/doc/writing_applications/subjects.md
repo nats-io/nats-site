@@ -28,7 +28,7 @@ digraph g {
 
 ### Subject Hierarchies
 
-The `.` character is used to create a subject hierarchy. For example, a world clock application might define:
+The `.` character is used to create a subject hierarchy. For example, a world clock application might define the following to logically group related subjects:
 
 ```ascii
 time.us
@@ -42,7 +42,7 @@ to logically group related subjects.
 
 ## Wildcards
 
-The reason this grouping is useful is that NATS provides two _wildcards_ that can take the place of one or more elements in a dot-separated subject. Subscribers can use these wildcards to listen to multiple subjects with a single subscription. Publishers will always use a fully specified subject, without the wildcard.
+TNATS provides two _wildcards_ that can take the place of one or more elements in a dot-separated subject. Subscribers can use these wildcards to listen to multiple subjects with a single subscription but Publishers will always use a fully specified subject, without the wildcard.
 
 ### Matching A Single Token
 
@@ -62,9 +62,9 @@ digraph g {
 }
 </code></div>
 
-### Matching A Multiple Tokens
+### Matching Multiple Tokens
 
-The second wildcard is `>` which will match one more more tokens, and can only appear at the end of the subject. For example, `time.us.>` will match `time.us.east` and `time.us.east.atlanta`, while `time.us.*` would only match `time.us.east` since it can't match more than one token.
+The second wildcard is `>` which will match one or more tokens, and can only appear at the end of the subject. For example, `time.us.>` will match `time.us.east` and `time.us.east.atlanta`, while `time.us.*` would only match `time.us.east` since it can't match more than one token.
 
 <div class="graphviz"><code data-viz="dot">
 digraph g {
