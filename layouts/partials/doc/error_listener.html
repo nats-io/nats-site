@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#error_listener-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#error_listener-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -67,6 +79,32 @@ public class SetErrorListener {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="error_listener-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/error_listener.py#L6-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+async def error_cb(e):
+   print(&#34;Error: &#34;, e)
+
+await nc.connect(
+   servers=[&#34;nats://demo.nats.io:4222&#34;],
+   reconnect_time_wait=10,
+   error_cb=error_cb,
+   )
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="error_listener-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L73-79"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// on node you *must* register an error listener. If not registered
+// the library emits an &#39;error&#39; event, the node process will exit.
+nc.on(&#39;error&#39;, (err) =&gt; {
+    t.log(&#39;client got an out of band error:&#39;, err);
+});
 </code></pre>
 		
 	

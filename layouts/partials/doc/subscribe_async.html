@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#subscribe_async-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#subscribe_async-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -64,6 +76,43 @@ latch.await();
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_async-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/subscribe_async.py#L6-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+future = asyncio.Future()
+
+async def cb(msg):
+  nonlocal future
+  future.set_result(msg)
+
+await nc.subscribe(&#34;updates&#34;, cb=cb)
+await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
+await nc.flush()
+
+# Wait for message to come in
+msg = await asyncio.wait_for(future, 1)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_async-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L9-22"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#34;updates&#34;, (err, msg) =&gt; {
+    if(err) {
+        console.log(&#39;error&#39;, err);
+    } else {
+        // msg has several fields:
+        t.log(&#34;subject: &#34;, msg.subject);
+        t.log(&#34;data: &#34;, msg.data);
+        t.log(&#34;reply subject: &#34;, msg.reply);
+        t.log(&#34;subscription id: &#34;, msg.sid);
+        t.log(&#34;size in bytes: &#34;, msg.size);
+    }
+});
 </code></pre>
 		
 	

@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_multiple-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_multiple-ts">TypeScript</a>
 		</li>
@@ -55,16 +61,27 @@ nc.close();
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_multiple-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connect_multiple_servers.ts#L6-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
-try {
-    let nc = await connect({servers: [&#34;nats://demo.nats.io:4222&#34;, &#34;nats://localhost:4222&#34;]});
-    // Do something with the connection
-    console.log(&#39;connected&#39;);
-    nc.close();
-} catch(ex) {
-    console.log(&#39;connection failed&#39;, ex);
-    return;
-}
+		<pre class="tab-pane fade" id="connect_multiple-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_multiple.py#L5-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+await nc.connect(servers=[
+   &#34;nats://127.0.0.1:1222&#34;,
+   &#34;nats://127.0.0.1:1223&#34;,
+   &#34;nats://127.0.0.1:1224&#34;
+   ])
+
+# Do something with the connection
+
+await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L54-61"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({servers: [&#34;nats://demo.nats.io:4222&#34;, &#34;nats://localhost:4222&#34;]});
+// Do something with the connection
+
+// When done close it
+nc.close();
 </code></pre>
 		
 	

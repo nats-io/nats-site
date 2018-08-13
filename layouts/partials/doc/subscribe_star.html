@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#subscribe_star-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#subscribe_star-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -66,6 +78,57 @@ latch.await();
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_star-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/subscribe_star.py#L6-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+# Use queue to wait for 2 messages to arrive
+queue = asyncio.Queue()
+async def cb(msg):
+  await queue.put_nowait(msg)
+
+await nc.subscribe(&#34;time.*.east&#34;, cb=cb)
+
+# Send 2 messages and wait for them to come in
+await nc.publish(&#34;time.A.east&#34;, b&#39;A&#39;)
+await nc.publish(&#34;time.B.east&#34;, b&#39;B&#39;)
+
+msg_A = await queue.get()
+msg_B = await queue.get()
+
+print(&#34;Msg A:&#34;, msg_A)
+print(&#34;Msg B:&#34;, msg_B)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_star-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L131-154"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">await nc.subscribe(&#39;time.us.*&#39;, (err, msg) =&gt; {
+    // converting timezones correctly in node requires a library
+    // this doesn&#39;t take into account *many* things.
+    let time = &#34;&#34;;
+    switch (msg.subject) {
+        case &#39;time.us.east&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/New_York&#34;});
+            break;
+        case &#39;time.us.central&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Chicago&#34;});
+            break;
+        case &#39;time.us.mountain&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Denver&#34;});
+            break;
+        case &#39;time.us.west&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Los_Angeles&#34;});
+            break;
+        default:
+            time = &#34;I don&#39;t know what you are talking about Willis&#34;;
+    }
+    console.log(msg.subject, time);
+});
 </code></pre>
 		
 	

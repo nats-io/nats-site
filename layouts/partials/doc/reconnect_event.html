@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#reconnect_event-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#reconnect_event-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -53,6 +65,46 @@ Connection nc = Nats.connect(options);
 
 // Do something with the connection
 
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/reconnect_event.py#L6-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+async def disconnected_cb():
+   print(&#34;Got disconnected!&#34;)
+
+async def reconnected_cb():
+   # See who we are connected to on reconnect.
+   print(&#34;Got reconnected to {url}&#34;.format(url=nc.connected_url.netloc))
+
+await nc.connect(
+   servers=[&#34;nats://demo.nats.io:4222&#34;],
+   reconnect_time_wait=10,
+   reconnected_cb=reconnected_cb,
+   disconnected_cb=disconnected_cb,
+   )
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/reconnect_samples.ts#L63-78"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+    maxReconnectAttempts: 10,
+    servers: [&#34;tls://demo.nats.io:4443&#34;,
+        &#34;nats://demo.nats.io:4222&#34;
+    ]
+});
+// first argument is the connection (same as nc in this case)
+// second argument is the url of the server where the client
+// connected
+nc.on(&#39;reconnect&#39;, (conn, server) =&gt; {
+    console.log(&#39;reconnected to&#39;, server);
+});
 nc.close();
 </code></pre>
 		

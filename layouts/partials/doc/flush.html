@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#flush-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#flush-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -40,6 +52,49 @@ if err := nc.FlushTimeout(time.Second); err != nil {
 
 nc.publish(&#34;updates&#34;, &#34;All is Well&#34;.getBytes(StandardCharsets.UTF_8));
 nc.flush(Duration.ofSeconds(1)); // Flush the message queue
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="flush-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/flush.py#L6-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
+
+# Sends a PING and wait for a PONG from the server, up to the given timeout.
+# This gives guarantee that the server has processed above message.
+await nc.flush(timeout=1)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="flush-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L91-117"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = await connect({
+    url: &#34;nats://demo.nats.io:4222&#34;
+});
+
+// you can use flush to trigger a function in your
+// application once the round-trip to the server finishes
+let start = Date.now();
+nc.flush(() =&gt; {
+    t.log(&#39;round trip completed in&#39;, Date.now() - start, &#39;ms&#39;);
+});
+
+nc.publish(&#39;foo&#39;);
+
+// Another use is to &#39;know&#39; when the server received
+// commands that you sent to it. Typically this is not a
+// great idea unless you are doing tests, etc. The
+// NATS client is very good at minimizing kernel calls
+// achieving great throughput. If you need to know if
+// someone got your message, the only way to know is
+// by publishing a request and having someone answer!
+// In this case, when flush returns, the server did
+// receive the message sent to &#39;foo&#39;.
+await nc.flush();
 
 nc.close();
 </code></pre>
