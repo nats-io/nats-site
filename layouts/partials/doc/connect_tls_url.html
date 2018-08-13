@@ -14,6 +14,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_tls_url-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -93,6 +99,16 @@ public class ConnectTLSURL {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls_url-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/tls_samples.ts#L5-12"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+    url: &#34;tls://demo.nats.io:4443&#34;
+});
+
+nc.close();
 </code></pre>
 		
 	

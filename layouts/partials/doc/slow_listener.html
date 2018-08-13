@@ -14,6 +14,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#slow_listener-py">Python</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -71,6 +77,52 @@ public class SlowConsumerListener {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="slow_listener-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/slow_listener.py#L7-50"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">
+   nc = NATS()
+
+   async def error_cb(e):
+     if type(e) is nats.aio.errors.ErrSlowConsumer:
+       print(&#34;Slow consumer error, unsubscribing from handling further messages...&#34;)
+       await nc.unsubscribe(e.sid)
+
+   await nc.connect(
+      servers=[&#34;nats://demo.nats.io:4222&#34;],
+      error_cb=error_cb,
+      )
+
+   msgs = []
+   future = asyncio.Future()
+   async def cb(msg):
+       nonlocal msgs
+       nonlocal future
+       print(msg)
+       msgs.append(msg)
+
+       if len(msgs) == 3:
+         # Head of line blocking on other messages caused
+	 # by single message proccesing taking long...
+         await asyncio.sleep(1)
+
+   await nc.subscribe(&#34;updates&#34;, cb=cb, pending_msgs_limit=5)
+
+   for i in range(0, 10):
+     await nc.publish(&#34;updates&#34;, &#34;msg #{}&#34;.format(i).encode())
+     await asyncio.sleep(0)
+
+   try:
+     await asyncio.wait_for(future, 1)
+   except asyncio.TimeoutError:
+     pass
+
+   for msg in msgs:
+     print(&#34;[Received]&#34;, msg)
+
+   await nc.close()
+
 </code></pre>
 		
 	

@@ -14,6 +14,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#servers_added-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -64,6 +70,13 @@ public class ListenForNewServers {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L61-65"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.on(&#39;serversChanged&#39;, (ce) =&gt; {
+    t.log(&#39;servers changed\n&#39;, &#39;added: &#39;,ce.added, &#39;removed:&#39;, ce.removed);
+});
 </code></pre>
 		
 	

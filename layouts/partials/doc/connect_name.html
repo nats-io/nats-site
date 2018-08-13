@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_name-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_name-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -38,6 +50,27 @@ defer nc.Close()
 Connection nc = Nats.connect(options);
 
 // Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_name-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_name.py#L6-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;], name=&#34;my-connection&#34;)
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_name-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/options_samples.ts#L76-84"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+    url: &#34;nats://demo.nats.io:4222&#34;,
+    name: &#34;memyselfandi&#34;
+});
 
 nc.close();
 </code></pre>

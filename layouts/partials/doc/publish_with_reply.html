@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#publish_with_reply-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#publish_with_reply-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -73,6 +85,42 @@ System.out.println(new String(msg.getData(), StandardCharsets.UTF_8));
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="publish_with_reply-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/publish_with_reply.py#L8-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+future = asyncio.Future()
+
+async def sub(msg):
+  nonlocal future
+  future.set_result(msg)
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+await nc.subscribe(&#34;time&#34;, cb=sub)
+
+unique_reply_to = new_inbox()
+await nc.publish_request(&#34;time&#34;, unique_reply_to, b&#39;&#39;)
+
+# Use the response
+msg = await asyncio.wait_for(future, 1)
+print(&#34;Reply:&#34;, msg)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="publish_with_reply-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L54-65"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// create a subscription subject that the responding send replies to
+let inbox = createInbox();
+await nc.subscribe(inbox, (err, msg) =&gt; {
+    t.log(&#39;the time is&#39;, msg.data);
+    // this example is running inside of a promise
+    nc.close();
+    resolve();
+});
+
+nc.publish(&#39;time&#39;, &#34;&#34;, inbox);
 </code></pre>
 		
 	
