@@ -92,12 +92,10 @@ await nc.connect(
 		
 	
 		
-		<pre class="tab-pane fade" id="reconnect_event-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/reconnect_samples.ts#L63-78"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+		<pre class="tab-pane fade" id="reconnect_event-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/reconnect_samples.ts#L57-70"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
 let nc = await connect({
     maxReconnectAttempts: 10,
-    servers: [&#34;tls://demo.nats.io:4443&#34;,
-        &#34;nats://demo.nats.io:4222&#34;
-    ]
+    servers: [&#34;nats://demo.nats.io:4222&#34;]
 });
 // first argument is the connection (same as nc in this case)
 // second argument is the url of the server where the client

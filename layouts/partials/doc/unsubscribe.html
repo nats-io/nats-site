@@ -103,7 +103,7 @@ await nc.publish(&#34;updates&#34;, b&#39;...&#39;)
 		
 	
 		
-		<pre class="tab-pane fade" id="unsubscribe-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L56-68"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set up a subscription to process a request
+		<pre class="tab-pane fade" id="unsubscribe-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L51-64"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set up a subscription to process a request
 let sub = await nc.subscribe(createInbox(), (err, msg) =&gt; {
     if (msg.reply) {
         nc.publish(msg.reply, new Date().toLocaleTimeString());
@@ -113,6 +113,7 @@ let sub = await nc.subscribe(createInbox(), (err, msg) =&gt; {
 });
 
 // without arguments the subscription will cancel when the server receives it
+// you can also specify how many messages are expected by the subscription
 sub.unsubscribe();
 </code></pre>
 		

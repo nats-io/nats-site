@@ -110,7 +110,7 @@ await nc.publish(msg.reply, time_as_bytes)
 		
 	
 		
-		<pre class="tab-pane fade" id="subscribe_w_reply-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L34-43"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set up a subscription to process a request
+		<pre class="tab-pane fade" id="subscribe_w_reply-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L29-38"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set up a subscription to process a request
 await nc.subscribe(&#39;time&#39;, (err, msg) =&gt; {
     if (msg.reply) {
         nc.publish(msg.reply, new Date().toLocaleTimeString());

@@ -100,7 +100,7 @@ await nc.connect(
 		
 	
 		
-		<pre class="tab-pane fade" id="error_listener-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L73-79"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// on node you *must* register an error listener. If not registered
+		<pre class="tab-pane fade" id="error_listener-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L48-54"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// on node you *must* register an error listener. If not registered
 // the library emits an &#39;error&#39; event, the node process will exit.
 nc.on(&#39;error&#39;, (err) =&gt; {
     t.log(&#39;client got an out of band error:&#39;, err);

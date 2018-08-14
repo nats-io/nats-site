@@ -72,7 +72,7 @@ await nc.flush(timeout=1)
 		
 	
 		
-		<pre class="tab-pane fade" id="flush-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L91-117"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = await connect({
+		<pre class="tab-pane fade" id="flush-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L90-108"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = await connect({
     url: &#34;nats://demo.nats.io:4222&#34;
 });
 
@@ -85,15 +85,7 @@ nc.flush(() =&gt; {
 
 nc.publish(&#39;foo&#39;);
 
-// Another use is to &#39;know&#39; when the server received
-// commands that you sent to it. Typically this is not a
-// great idea unless you are doing tests, etc. The
-// NATS client is very good at minimizing kernel calls
-// achieving great throughput. If you need to know if
-// someone got your message, the only way to know is
-// by publishing a request and having someone answer!
-// In this case, when flush returns, the server did
-// receive the message sent to &#39;foo&#39;.
+// another way, simply wait for the promise to resolve
 await nc.flush();
 
 nc.close();

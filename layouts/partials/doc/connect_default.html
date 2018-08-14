@@ -62,7 +62,7 @@ await nc.close()
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_default-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L16-35"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+		<pre class="tab-pane fade" id="connect_default-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L16-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
 let nc = await connect();
 // Do something with the connection
 
@@ -76,7 +76,6 @@ connect()
     .then((c) =&gt; {
         nc1 = c;
         // Do something with the connection
-        t.log(&#39;connected&#39;);
         nc1.close();
     });
     // add a .catch/.finally

@@ -98,24 +98,16 @@ await nc.publish(&#34;updates&#34;, b&#39;...&#39;)
 		
 	
 		
-		<pre class="tab-pane fade" id="unsubscribe_auto-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L98-121"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// `max` specifies the number of messages that the server will forward.
+		<pre class="tab-pane fade" id="unsubscribe_auto-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L94-109"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// `max` specifies the number of messages that the server will forward.
 // The server will auto-cancel.
 let opts = {max: 10};
 let sub = await nc.subscribe(createInbox(), (err, msg) =&gt; {
-    if (msg.reply) {
-        nc.publish(msg.reply, new Date().toLocaleTimeString());
-    } else {
-        t.log(&#39;got a request for the time, but no reply subject was set.&#39;);
-    }
+    t.log(msg.data);
 }, opts);
 
-// another way is to unsubscribe from the subscription
+// another way after 10 messages
 let sub2 = await nc.subscribe(createInbox(), (err, msg) =&gt; {
-    if (msg.reply) {
-        nc.publish(msg.reply, new Date().toLocaleTimeString());
-    } else {
-        t.log(&#39;got a request for the time, but no reply subject was set.&#39;);
-    }
+    t.log(msg.data);
 });
 // if the subscription already received 10 messages, the handler
 // won&#39;t get any more messages
