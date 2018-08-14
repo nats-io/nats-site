@@ -81,7 +81,7 @@ await nc.close()
 		<pre class="tab-pane fade" id="reconnect_no_random-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/reconnect_samples.ts#L6-15"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
 let nc = await connect({
     noRandomize: false,
-    servers: [&#34;tls://demo.nats.io:4443&#34;,
+    servers: [&#34;nats://127.0.0.1:4443&#34;,
         &#34;nats://demo.nats.io:4222&#34;
     ]
 });

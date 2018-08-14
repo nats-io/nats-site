@@ -46,11 +46,7 @@ public class SetConnectionListener {
 		
 	
 		
-		<pre class="tab-pane fade" id="connection_listener-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L7-52"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.on(&#39;error&#39;, (err) =&gt; {
-    t.log(&#39;client got an out of band error:&#39;, err);
-});
-
-// connect will happen once - the first connect
+		<pre class="tab-pane fade" id="connection_listener-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L7-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connect will happen once - the first connect
 nc.on(&#39;connect&#39;, (nc) =&gt; {
     // nc is the connection that connected
     t.log(&#39;client connected&#39;);
@@ -61,10 +57,6 @@ nc.on(&#39;disconnect&#39;, (url) =&gt; {
     t.log(&#39;disconnected from&#39;, url);
 });
 
-nc.on(&#39;permissionError&#39;, (err) =&gt; {
-    t.log(&#39;error&#39;, err);
-});
-
 nc.on(&#39;reconnecting&#39;, (url) =&gt; {
     t.log(&#39;reconnecting to&#39;, url);
 });
@@ -72,23 +64,6 @@ nc.on(&#39;reconnecting&#39;, (url) =&gt; {
 nc.on(&#39;reconnect&#39;, (nc, url) =&gt; {
     // nc is the connection that reconnected
     t.log(&#39;reconnected to&#39;, url);
-});
-
-nc.on(&#39;serversChanged&#39;, (ce) =&gt; {
-    t.log(&#39;servers changed\n&#39;, &#39;added: &#39;,ce.added, &#39;removed:&#39;, ce.removed);
-});
-
-nc.on(&#39;subscribe&#39;, (se) =&gt; {
-    t.log(&#39;client subscribed to&#39;, se.subject, &#39;sub_id&#39;, se.id, &#34;queue?&#34;, se.queue !== &#34;&#34;);
-});
-
-nc.on(&#39;unsubscribe&#39;, (se) =&gt; {
-    t.log(&#39;client unsubscribed from&#39;, se.subject, &#39;sub_id&#39;, se.id, &#34;queue?&#34;, se.queue !== &#34;&#34;);
-});
-
-nc.on(&#39;yield&#39;, () =&gt; {
-    // yield option is required
-    t.log(&#34;client yielded&#34;);
 });
 </code></pre>
 		

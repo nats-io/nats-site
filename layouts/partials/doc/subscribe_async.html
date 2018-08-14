@@ -101,16 +101,11 @@ msg = await asyncio.wait_for(future, 1)
 		
 	
 		
-		<pre class="tab-pane fade" id="subscribe_async-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L9-22"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#34;updates&#34;, (err, msg) =&gt; {
+		<pre class="tab-pane fade" id="subscribe_async-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L9-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#34;updates&#34;, (err, msg) =&gt; {
     if(err) {
         console.log(&#39;error&#39;, err);
     } else {
-        // msg has several fields:
-        t.log(&#34;subject: &#34;, msg.subject);
-        t.log(&#34;data: &#34;, msg.data);
-        t.log(&#34;reply subject: &#34;, msg.reply);
-        t.log(&#34;subscription id: &#34;, msg.sid);
-        t.log(&#34;size in bytes: &#34;, msg.size);
+        t.log(msg.data);
     }
 });
 </code></pre>
