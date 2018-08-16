@@ -90,6 +90,35 @@ For example, to subscribe to the queue `workers` with the subject `updates`:
 
 If you run this example with the publish examples that send to updates you will see that one of the instances gets a message, while the others you run won't. But the instance that receives the message will change.
 
+## Draining Connections and Subscriptions
+
+A new feature in the NATS client libraries is the ability to drain connections or subscriptions. Closing a connection, or unsubscribing from a subscription are generally considered immediate requests.
+Which means that the library will halt messages in any pending queue or cache for subscribers. When you drain a subscription, it will process any cached/pending messages before closing.
+The mechanics of drain for a subscription are essentially:
+
+ 1. Unsubscribe at the server
+ 2. Process known messages
+ 3. Clean up
+
+The API for drain can generally be used instead of unsubscribe:
+
+{{< partial "doc/drain_sub.html" >}}
+
+For a connection the process is a bit more complex:
+
+  1. Drain subscriptions
+  2. Stop new messages from being published
+  3. Flush any remaining messages
+  4. Close
+
+In some libraries drain can replace close, in others, close should be performed when drain completes.
+
+{{< partial "doc/drain_conn.html" >}}
+
+Drain provides clients that use queue subscriptions with a way to bring down applications without losing any messages. A client can bring up a new queue member, drain the old one, shut down the old one, without losing messages sent to the old client. Without drain, there is the possibility of lost messages due to queue timing.
+
+Because draining can involve messages flowing to the server, for a flush, and asynchronous message processing, the timeout for drain should generally be higher than the timeout for a simple message request/reply or similar.
+
 ## Receiving Structured Data
 
 In the publishing examples we showed how to send JSON through NATs. Of course you can receive encoded data as well. Each client library may provide more or fewer tools to help with this encoding. The core traffic to gnatsd will always be byte arrays.
