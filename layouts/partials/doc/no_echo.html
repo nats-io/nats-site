@@ -14,6 +14,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#no_echo-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -40,6 +46,12 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="no_echo-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L222-225"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = await connect({
+    url: &#34;nats://demo.nats.io:4222&#34;, noEcho: true});
 </code></pre>
 		
 	
