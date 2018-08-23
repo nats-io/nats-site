@@ -46,7 +46,7 @@ Some of the use cases and requirements that are ideal for NATS include:
 - **Location transparency** - your applications need to scale to a very high number of instances spread out geographically, and you can't afford the fragility of tightly coupling your applications with detailed, specific endpoint-configuration information about where other applications are, and what type of data they are producing or consuming. 
 - **Fault tolerance** - your application needs to be highly resilient to network or other outages that may be beyond your control, and you need the underlying application data communication to seamlessly recover from connectivity outages 
 
-With [NATS Streaming](/doc/streaming/nats-streaming-intro/)), a data streaming service for NATS, additional use cases include:
+With [NATS Streaming](/doc/streaming/nats-streaming-intro/), a data streaming service for NATS, additional use cases include:
 
 - Event streaming with replay from specific time or sequence (or relevant offset)
 - Durable subscriptions for transient clients  

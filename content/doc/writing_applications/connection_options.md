@@ -8,9 +8,9 @@ title = "Connection Options"
     parent = "Writing Applications"
 +++
 
-The NATS client libraries offer a range of options for controlling how connections operate. Some of these are language dependent, some of them are library/version dependent. Please see the documentation for the client library your application uses for a full list of options. This page presents some commonly used options, and ones options that relate to NATS internals that are important to understand.
+The NATS client libraries offer a range of options for controlling how connections operate. Some of these are language dependent while some are library/version dependent. Please see the documentation for the client library your application uses for a full list of options. This page presents some options commonly used and options related to NATS internals that are important to understand.
 
-#### Setting the Connection Name
+### Setting the Connection Name
 
 Connections can be assigned a name which will appear in some of the server monitoring data. This name is not required but can help in debugging and testing.
 
@@ -33,7 +33,7 @@ digraph g {
 
 ### Set the Ping Interval
 
-If you have a connection that is going to be open a long time with few messages traveling on it, setting this PING interval can control how quickly the client will be notified of a problem. However, on connections with a lot of traffic, the client will often figure out there is a problem between PINGS, as a result the default PING interval is often on the order of minutes. To set the interval to 20s:
+If you have a connection that is going to be open a long time with few messages traveling on it, setting this PING interval can control how quickly the client will be notified of a problem. However on connections with a lot of traffic, the client will often figure out there is a problem between PINGS, and as a result the default PING interval is often on the order of minutes. To set the interval to 20s:
 
 {{< partial "doc/ping_20s.html" >}}
 
@@ -47,7 +47,7 @@ For example, to set the maximum number of outgoing pings to 5:
 
 ## Controlling the Client/Server Protocol
 
-The protocol between the client and gnatsd is fairly simple and relies on a control line and sometimes a body. The control line contains the operations being sent, like PING or PONG, followed by a carriage return and line feed, CRLF or "\r\n". The server has a setting that can limit the maximum size of a control line. For PING and PONG this doesn't come into play, but for messages that contain subject names the control line length can be important. The server is also configured with a maximum payload size, which limits the size of a message body. The server sends the maximum payload size to the client at connect time but doesn't currently tell the client the maximum control line size.
+The protocol between the client and the server is fairly simple and relies on a control line and sometimes a body. The control line contains the operations being sent, like PING or PONG, followed by a carriage return and line feed, CRLF or "\r\n". The server has a setting that can limit the maximum size of a control line. For PING and PONG this doesn't come into play, but for messages that contain subject names, the control line length can be important. The server is also configured with a maximum payload size, which limits the size of a message body. The server sends the maximum payload size to the client at connect time but doesn't currently tell the client the maximum control line size.
 
 ### Set the Maximum Control Line Size
 
@@ -59,13 +59,13 @@ For example, to set the maximum control line size to 2k:
 
 ### Get the Maximum Payload Size
 
-While the client can't control the maximum payload size, clients may provide a way for applications to get the size after the connection is made. This will allow the application to chunk or limit data as needed to pass through the gnatsd.
+While the client can't control the maximum payload size, clients may provide a way for applications to get the size after the connection is made. This will allow the application to chunk or limit data as needed to pass through the server.
 
 {{< partial "doc/max_payload.html" >}}
 
 ### Turning Off Echo'd Messages
 
-By default the server will echo messages. This means that if a publisher on a connection sends a message to a subject any subscribers on that same connection may receive the message. Turning off echo is a fairly new feature in gnatsd, but some of the clients already support it.
+By default the server will echo messages. This means that if a publisher on a connection sends a message to a subject any subscribers on that same connection may receive the message. Turning off echo is a fairly new feature for the NATS server, but some of the clients already support it.
 
 <div class="graphviz"><code data-viz="dot">
 digraph {
@@ -94,18 +94,18 @@ digraph {
 }
 </code></div>
 
-Keep in mind that each connection will have to turn off echo, and that it is per connection, not per application. Also, turning echo on and off can result in a major change to your applications communications protocol since messages will flow or stop flowing based on this setting, and the subscribing code won't have any indication as to why.
+Keep in mind that each connection will have to turn off echo, and that it is per connection, not per application. Also, turning echo on and off can result in a major change to your applications communications protocol since messages will flow or stop flowing based on this setting and the subscribing code won't have any indication as to why.
 
 {{< partial "doc/no_echo.html" >}}
 
 ### Turn On Pedantic Mode
 
-The gnatsd server provides a _pedantic_ mode that does extra checks on the protocol. By default, this setting is off but you can turn it on:
+The NATS server provides a _pedantic_ mode that does extra checks on the protocol. By default, this setting is off but you can turn it on:
 
 {{< partial "doc/connect_pedantic.html" >}}
 
 ### Turn On/Off Verbose Mode
 
-The server also provide a _verbose_ mode. By default, verbose mode is enabled and the server will reply to every message from the client with either a +OK or a -ERR. Most clients turn off verbose mode, which disables all of the +OK traffic. Errors are rarely subject to verbose mode and client libraries handle them as documented. To turn on verbose mode, likely for testing:
+The NATS server also provide a _verbose_ mode. By default, verbose mode is enabled and the server will reply to every message from the client with either a +OK or a -ERR. Most clients turn off verbose mode, which disables all of the +OK traffic. Errors are rarely subject to verbose mode and client libraries handle them as documented. To turn on verbose mode, likely for testing:
 
 {{< partial "doc/connect_verbose.html" >}}
