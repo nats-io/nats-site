@@ -20,6 +20,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#max_payload-ts">TypeScript</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -57,6 +63,16 @@ print(&#34;Maximum payload is %d bytes&#34; % nc.max_payload)
 
 # Do something with the max payload.
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="max_payload-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L76-83"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connect will happen once - the first connect
+nc.on(&#39;connect&#39;, (nc: Client, url: string, options: ServerInfo) =&gt; {
+    // nc is the connection that connected
+    t.log(&#39;client connected to&#39;, url);
+    t.log(&#39;max_payload&#39;, options.max_payload);
+});
 </code></pre>
 		
 	

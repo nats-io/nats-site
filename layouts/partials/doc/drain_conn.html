@@ -3,16 +3,67 @@
 <ul class="nav nav-tabs">
   	
 		
-		<li class="active api-lang" data-language="java">
-			<a data-toggle="tab" href="#drain_conn-java">Java</a>
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#drain_conn-go">Go</a>
 	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#drain_conn-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#drain_conn-ts">TypeScript</a>
+		</li>
 		
 	
 </ul>
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="drain_conn-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/DrainConn.java#L16-40"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+		<pre class="tab-pane fade in active" id="drain_conn-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/drain_conn/main.go#L12-48"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">wg := sync.WaitGroup{}
+wg.Add(1)
+
+errCh := make(chan error, 1)
+
+nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+	nats.DrainTimeout(10*time.Second),
+	nats.ErrorHandler(func(_ *nats.Conn, _ *nats.Subscription, err error) {
+		errCh &lt;- err
+	}),
+	nats.ClosedHandler(func(_ *nats.Conn) {
+		wg.Done()
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+// Drain the connection, which will close it when done.
+if err := nc.Drain(); err != nil {
+	log.Fatal(err)
+}
+
+// Wait for the connection to be closed.
+wg.Wait()
+
+// Check if there was an error
+select {
+case e := &lt;-errCh:
+	log.Fatal(e)
+default:
+}
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_conn-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/DrainConn.java#L16-40"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
 
 // Use a latch to wait for a message to arrive
 CountDownLatch latch = new CountDownLatch(1);
@@ -35,6 +86,19 @@ CompletableFuture&lt;Boolean&gt; drained = nc.drain(Duration.ofSeconds(10));
 
 // Wait for the drain to complete
 drained.get();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_conn-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L68-78"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let sub = await nc.subscribe(&#39;updates&#39;, (err, msg) =&gt; {
+    t.log(&#39;worker got message&#39;, msg.data);
+}, {queue: &#34;workers&#34;});
+// [end drain_sub]
+nc.flush();
+
+await nc.drain();
+// client must close when the connection drain resolves
+nc.close();
 </code></pre>
 		
 	
