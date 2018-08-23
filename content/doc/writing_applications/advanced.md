@@ -8,11 +8,11 @@ title = "Advanced Topics"
     parent = "Writing Applications"
 +++
 
-Managing the interaction with the server is primarily the job of the client library, but most of the libraries also provide some insight into what is happening under the covers.
+Managing the interaction with the server is primarily the job of the client library but most of the libraries also provide some insight into what is happening under the covers.
 
 ### Get the Current Server Status
 
-The client library may provide a mechanism to get the connections current status:
+The client library may provide a mechanism to get the connections current status.
 
 {{< partial "doc/connect_status.html" >}}
 
@@ -24,19 +24,19 @@ While the status is interesting, it is perhaps more interesting to know when the
 
 ### Listen for New Servers
 
-When working with a cluster there is an interesting event, servers added to the cluster, or servers changed. Some of the clients allow you to listen for this notification:
+When working with a cluster, servers may be added or changed. Some of the clients allow you to listen for this notification:
 
 {{< partial "doc/servers_added.html" >}}
 
 ### Listen for Errors
 
-The client library may separate server-to-client errors from events. Many server events are not handled by application code, and result in the connection being closed. But, they can be very useful for debugging problems.
+The client library may separate server-to-client errors from events. Many server events are not handled by application code and result in the connection being closed. Listening for the errors can be very useful for debugging problems.
 
 {{< partial "doc/error_listener.html" >}}
 
 ## Slow Consumers
 
-NATS is designed to move messages through the server quickly. As a result, it depends on the applications to consider and respond to changing message rates. The server will do a bit of impedance matching, but if a client is too slow the server will eventually cut them off. One way some of the libraries deal with bursty message traffic is to cache incoming messages for a subscription. So if an application can handle 10 messages per second and sometimes receives 20 messages in a second the library may hold the extra ten to give the application time to catch up. To the server, the application appears to be handling the messages, and considers the connection healthy. It is up to the client library to decide what to do when the cache is too big, but most will drop incoming messages.
+NATS is designed to move messages through the server quickly. As a result, NATS depends on the applications to consider and respond to changing message rates. The server will do a bit of impedance matching, but if a client is too slow the server will eventually cut them off. One way some of the libraries deal with bursty message traffic is to cache incoming messages for a subscription. So if an application can handle 10 messages per second and sometimes receives 20 messages per second, the library may hold the extra 10 to give the application time to catch up. To the server, the application will appear to be handling the messages and consider the connection healthy. It is up to the client library to decide what to do when the cache is too big, but most client libraries will drop incoming messages.
 
 Receiving and dropping messages from the server keeps the connection to the server healthy, but creates an application requirement. There are several common patterns:
 
@@ -44,7 +44,7 @@ Receiving and dropping messages from the server keeps the connection to the serv
 * Use a queue with multiple subscribers splitting the work
 * Persist/cache messages with something like NATS streaming
 
-Libraries that cache incoming messages may provide two controls on the incoming queue, or pending messages. These are useful if the problem is bursty publishers and not a continuous performance mismatch. Setting these limits to 0 will help find problems, but may be dangerous in production. Disabling these limits is intriguing but can be very dangerous in production.
+Libraries that cache incoming messages may provide two controls on the incoming queue, or pending messages. These are useful if the problem is bursty publishers and not a continuous performance mismatch. Disabling these limits can be dangerous in production and although setting these limits to 0 may help find problems, it is also a dangerous proposition in production.
 
 > Check your libraries documentation for the default settings, and support for disabling these limits.
 
@@ -58,6 +58,6 @@ The first way that the incoming queue can be limited is by message count. The se
 
 ### Detect a Slow Consumer and Check for Dropped Messages
 
-When a slow consumer is detected and messages are about to be dropped, the library may notify the application. This process may be similar to other errors, or may involve a custom callback. Some libraries, like Java, will not send this notification on every dropped message because that could be noisy. Rather the notification may be sent once per time the subscriber gets behind. Libraries may also provide a way to get a count of dropped messages so that applications can at least detect a problem is occurring.
+When a slow consumer is detected and messages are about to be dropped, the library may notify the application. This process may be similar to other errors or may involve a custom callback. Some libraries, like Java, will not send this notification on every dropped message because that could be noisy. Rather the notification may be sent once per time the subscriber gets behind. Libraries may also provide a way to get a count of dropped messages so that applications can at least detect a problem is occurring.
 
 {{< partial "doc/slow_listener.html" >}}
