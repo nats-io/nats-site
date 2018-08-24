@@ -27,10 +27,18 @@ NATS supports [message queueing](/documentation/concepts/nats-queueing/) using q
 gnatsd
 ```
 
-**2. Run the Go client subscriber with queue group name.**
+**2. Clone the repositories for each client examples**
 
 ```
-cd $GOPATH/src/github.com/nats-io/nats/examples
+go get github.com/nats-io/go-nats
+git clone https://github.com/nats-io/node-nats.git
+git clone https://github.com/nats-io/ruby-nats.git
+```
+
+**3. Run the Go client subscriber with queue group name.**
+
+```
+cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-qsub.go foo my-queue
 ```
 
