@@ -57,10 +57,10 @@ gem install nats
 nats-queue foo my-queue &
 ```
 
-**5. Run another Go client subscriber **without** the queue group.**
+**6. Run another Go client subscriber *without* the queue group.**
 
 ```
-cd $GOPATH/src/github.com/nats-io/nats/examples
+cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-sub.go foo
 ```
 
