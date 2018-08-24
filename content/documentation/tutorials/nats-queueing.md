@@ -50,9 +50,10 @@ cd node-nats/examples
 node node-sub foo my-queue
 ```
 
-**4. Run the Ruby client subscriber with queue group name.**
+**5. Install and run the Ruby client subscriber with queue group name.**
 
 ```
+gem install nats
 nats-queue foo my-queue &
 ```
 
