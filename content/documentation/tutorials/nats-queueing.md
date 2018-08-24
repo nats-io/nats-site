@@ -42,11 +42,12 @@ cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-qsub.go foo my-queue
 ```
 
-**3. Run the Node client subscriber with queue group name.**
+**4. Install and run the Node client subscriber with queue group name.**
 
 ```
-cd node_modules/nats/examples
-node node-sub.js foo my-queue
+npm install nats
+cd node-nats/examples
+node node-sub foo my-queue
 ```
 
 **4. Run the Ruby client subscriber with queue group name.**
