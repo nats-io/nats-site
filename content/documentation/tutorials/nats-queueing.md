@@ -71,13 +71,13 @@ cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-pub.go foo "Hello NATS!"
 ```
 
-**7. Verify message publication and receipt.**
+**8. Verify message publication and receipt.**
 
 You should see that the publisher sends the message: *Published [foo] : 'Hello NATS!'*
 
 You should see that only one of the my-queue group subscribers receives the message. In addition, the Go client subscriber not in the my-queue group should also receive the message.
 
-**8. Publish another message.**
+**9. Publish another message.**
 
 ```
 go run nats-pub.go foo "Hello NATS Again!"
