@@ -64,10 +64,10 @@ cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-sub.go foo
 ```
 
-**6. Publish a NATS message using the Go client.**
+**7. Publish a NATS message using the Go client.**
 
 ```
-cd $GOPATH/src/github.com/nats-io/nats/examples
+cd $GOPATH/src/github.com/nats-io/go-nats/examples
 go run nats-pub.go foo "Hello NATS!"
 ```
 
