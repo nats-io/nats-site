@@ -71,9 +71,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.5.0
+  version_num: 1.6.0
   release_notes: |
-    Release v1.5.0 on March 23rd, 2018.
+    Release v1.6.0 on August 29th, 2018.
   github:
     - user: nats-io
       repo: go-nats
