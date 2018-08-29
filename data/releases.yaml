@@ -86,9 +86,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.0
+  version_num: 2.0.2
   release_notes: |
-    Release 1.0 on February 2nd, 2017.
+    Release 1.0 on August 12th, 2018.
   github:
     - user: nats-io
       repo: jnats
@@ -116,9 +116,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.2
+  version_num: 1.0.1
   release_notes: |
-    Release v.0.8.2 on March 1st, 2018.
+    Release v1.0.1 on July 16th, 2018.
   github:
     - user: nats-io
       repo: node-nats
@@ -131,9 +131,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.0
+  version_num: 0.8.0
   release_notes: |
-    Release v0.7.0 on April 4th, 2018.
+    Release v0.8.0 on August 24th, 2018.
   github:
     - user: nats-io
       repo: asyncio-nats
@@ -524,9 +524,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.0.28
+  version_num: 0.0.40
   release_notes: |
-    Last updated on March 2nd, 2018.
+    Last updated on May 1st, 2018.
   github:
     - user: nats-io
       repo: node-nats-streaming
