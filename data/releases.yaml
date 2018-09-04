@@ -124,6 +124,21 @@ Releases:
       repo: node-nats
       link: https://github.com/nats-io/node-nats
 
+- name: TypeScript Node NATS
+  type: nats-client
+  supported: true
+  language: TypeScript
+  author:
+    - name:
+      link:
+  version_num: 1.0.2
+  release_notes: |
+    Release v.1.0.2 on August 10th, 2018.
+  github:
+    - user: nats-io
+      repo: ts-nats
+      link: https://github.com/nats-io/ts-nats
+
 - name: Python Asyncio
   type: nats-client
   supported: true
@@ -526,7 +541,7 @@ Releases:
       link:
   version_num: 0.0.40
   release_notes: |
-    Last updated on May 1st, 2018.
+    Release 0.0.40 on May 1st, 2018.
   github:
     - user: nats-io
       repo: node-nats-streaming
