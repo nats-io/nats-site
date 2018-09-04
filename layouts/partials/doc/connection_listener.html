@@ -24,13 +24,14 @@
 <div class="tab-content">
 	
 		
-		<pre class="tab-pane fade in active" id="connection_listener-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/notapplicable.txt#L5-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">There is not a single listener for connection events in the NATS GO Client.
-Instead, you can set individual event handlers using
-- DisconnectHandler(cb ConnHandler)
-- ReconnectHandler(cb ConnHandler)
-- ClosedHandler(cb ConnHandler)
-- DiscoveredServersHandler(cb ConnHandler)
-- ErrorHandler(cb ErrHandler)
+		<pre class="tab-pane fade in active" id="connection_listener-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/notapplicable.txt#L5-14"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// There is not a single listener for connection events in the NATS Go Client.
+// Instead, you can set individual event handlers using:
+
+DisconnectHandler(cb ConnHandler)
+ReconnectHandler(cb ConnHandler)
+ClosedHandler(cb ConnHandler)
+DiscoveredServersHandler(cb ConnHandler)
+ErrorHandler(cb ErrHandler)
 </code></pre>
 		
 	
