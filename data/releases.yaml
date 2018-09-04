@@ -354,15 +354,15 @@ Releases:
   supported: false
   language: Python
   author:
-    - name: Máximo Cuadros
-      link: https://github.com/mcuadros
-  version_num: 0.1.0
+    - name: Nikita Grishko
+      link: https://github.com/Gr1N
+  version_num: 0.2.0
   release_notes: |
-    Last updated February 4, 2016.
+    Last updated September 1, 2018.
   github:
-    - user: mcuadros
-      repo: pynats
-      link: https://github.com/mcuadros/pynats
+    - user: Gr1N
+      repo: nats-python
+      link: https://github.com/Gr1N/nats-python
 
 - name: Python Twisted
   type: nats-client
