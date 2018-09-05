@@ -122,7 +122,17 @@ public class ConnectTLS {
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_tls-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/tls_samples.js#L22-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// TLS connections should have a &#39;tls&#39; url in node-nats.
+		<pre class="tab-pane fade" id="connect_tls-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/tls_samples.js#L44-56"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let caCert = fs.readFileSync(caCertPath);
+let clientCert = fs.readFileSync(clientCertPath);
+let clientKey = fs.readFileSync(clientKeyPath);
+let nc = NATS.connect({
+    url: url,
+    tls: {
+        ca: [caCert],
+        key: [clientKey],
+        cert: [clientCert]
+    }
+});
 </code></pre>
 		
 	
@@ -194,7 +204,17 @@ end
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_tls-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/tls_samples.ts#L17-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// TLS connections should have a &#39;tls&#39; url in ts-nats.
+		<pre class="tab-pane fade" id="connect_tls-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/tls_samples.ts#L40-52"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let caCert = readFileSync(caCertPath);
+let clientCert = readFileSync(clientCertPath);
+let clientKey = readFileSync(clientKeyPath);
+let nc = await connect({
+    url: url,
+    tls: {
+        ca: [caCert],
+        key: [clientKey],
+        cert: [clientCert]
+    }
+});
 </code></pre>
 		
 	

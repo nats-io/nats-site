@@ -164,7 +164,7 @@ end
 		
 	
 		
-		<pre class="tab-pane fade" id="drain_conn-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L68-78"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let sub = await nc.subscribe(&#39;updates&#39;, (err, msg) =&gt; {
+		<pre class="tab-pane fade" id="drain_conn-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L73-83"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let sub = await nc.subscribe(&#39;updates&#39;, (err, msg) =&gt; {
     t.log(&#39;worker got message&#39;, msg.data);
 }, {queue: &#34;workers&#34;});
 // [end drain_sub]
