@@ -41,6 +41,24 @@
 
 
     };
+    
+    function updateLanguageParameter(value) {
+        const param = "lang";
+
+        if (window.location.href.indexOf("?") >= 0) {
+            const regExp = new RegExp(param + "(.+?)(&|$)", "g");
+            const newUrl = window.location.href.replace(regExp, param + "=" + encodeURIComponent(value) + "$2");
+            window.history.pushState("", "", newUrl);
+        } else {
+            const newUrl = window.location.href + "?" + param + "=" + encodeURIComponent(value);
+            window.history.pushState("", "", newUrl);
+        }
+    }
+    
+    function getLanguageParameter() {
+        var match = RegExp('[?&]lang=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
 
     $(document).ready(function() {
         checkTrack();
@@ -61,14 +79,20 @@
             }
 
             sessionStorage.setItem('nats-api-language', lang); // So we only do this 1x
+
+            updateLanguageParameter(lang)
             
             $('.nav-tabs .api-lang[data-language='+lang+'] a').trigger('click');
         });
 
         if (sessionStorage) {
             var curLang = sessionStorage.getItem('nats-api-language');
-            
-            if (curLang) {
+            var queryLang = getLanguageParameter();
+
+            if(queryLang) { // query takes precedent
+                sessionStorage.setItem('nats-api-language', queryLang); // So we only do this 1x
+                $('.nav-tabs .api-lang[data-language='+queryLang+'] a').trigger('click');
+            } else if (curLang) {
                 $('.nav-tabs .api-lang[data-language='+curLang+'] a').trigger('click');
             }
         }

@@ -54,7 +54,7 @@ There is no special code to subscribe with a wildcard subject. The main techniqu
 
 For example, you can subscribe using `*` and then act based on the actual subject.
 
-{{< partial "doc/subscribe_star.html" >}} 
+{{< partial "doc/subscribe_star.html" >}}
 
 or do something similar with `>`:
 
@@ -92,9 +92,20 @@ If you run this example with the publish examples that send to `updates`, you wi
 
 ## Draining Connections and Subscriptions
 
-A new feature in the NATS client libraries is the ability to drain connections or subscriptions. Closing a connection, or unsubscribing from a subscription are generally considered immediate requests.
-Which means the library will halt messages in any pending queue or cache for subscribers. When you drain a subscription, it will process any cached/pending messages before closing.
-The mechanics of drain for a subscription are essentially:
+A new feature in the NATS client libraries is the ability to drain connections or subscriptions. Closing a connection, or unsubscribing from a subscription are generally considered immediate requests. Which means the library will halt messages in any pending queue or cache for subscribers. When you drain a subscription or connection, it will process any cached/pending messages before closing.
+
+For a connection the process is essentially:
+
+  1. Drain subscriptions
+  2. Stop new messages from being published
+  3. Flush any remaining messages
+  4. Close
+
+{{< partial "doc/drain_conn.html" >}}
+
+Drain provides clients that use queue subscriptions with a way to bring down applications without losing any messages. A client can bring up a new queue member, drain and shut down the old queue member, all without losing messages sent to the old client. Without drain, there is the possibility of lost messages due to queue timing.
+
+The mechanics of drain for a subscription are simpler:
 
  1. Unsubscribe at the server
  2. Process known messages
@@ -103,19 +114,6 @@ The mechanics of drain for a subscription are essentially:
 The API for drain can generally be used instead of unsubscribe:
 
 {{< partial "doc/drain_sub.html" >}}
-
-For a connection the process is a bit more complex:
-
-  1. Drain subscriptions
-  2. Stop new messages from being published
-  3. Flush any remaining messages
-  4. Close
-
-In some libraries drain can replace close, in others, close should be performed when drain completes.
-
-{{< partial "doc/drain_conn.html" >}}
-
-Drain provides clients that use queue subscriptions with a way to bring down applications without losing any messages. A client can bring up a new queue member, drain and shut down the old queue member, all without losing messages sent to the old client. Without drain, there is the possibility of lost messages due to queue timing.
 
 Because draining can involve messages flowing to the server, for a flush and asynchronous message processing, the timeout for drain should generally be higher than the timeout for a simple message request/reply or similar.
 
