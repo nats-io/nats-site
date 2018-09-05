@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_options-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#connect_options-py">Python</a>
 		</li>
@@ -27,8 +33,8 @@
 		
 	
 		
-		<li class="api-lang" data-language="ruby">
-		  <a data-toggle="tab" href="#connect_options-ruby">Ruby</a>
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_options-ts">TypeScript</a>
 		</li>
 		
 	
@@ -61,6 +67,11 @@ nc.close();
 		
 	
 		
+		<pre class="tab-pane fade" id="connect_options-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/options_samples.js#L121-123"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connection timeout is not supported on node-nats
+</code></pre>
+		
+	
+		
 		<pre class="tab-pane fade" id="connect_options-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_options.py#L5-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
 await nc.connect(connect_timeout=2)
 
@@ -72,7 +83,8 @@ await nc.close()
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_options.rb#L1-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_options.rb#L1-14"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is currently no connect timeout as part of the Ruby NATS client API, but you can use a timer to mimic it.
+require &#39;nats/client&#39;
 
 timer = EM.add_timer(5) do
   NATS.connect do |nc|
@@ -87,7 +99,7 @@ EM.cancel_timer(timer)
 		
 	
 		
-		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L1-3"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is currently no connect timeout as part of the Ruby NATS client API.
+		<pre class="tab-pane fade" id="connect_options-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/options_samples.ts#L89-91"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connection timeout is not supported on ts-nats
 </code></pre>
 		
 	

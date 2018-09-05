@@ -27,6 +27,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connection_listener-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connection_listener-ts">TypeScript</a>
 		</li>
@@ -133,6 +139,24 @@ options[&#34;error_cb&#34;] = error_cb
 options[&#34;closed_cb&#34;] = closed_cb
 
 await nc.connect(**options)
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connection_listener-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L29-44"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is not a single listener for connection events in the Ruby NATS Client.
+# Instead, you can set individual event handlers using:
+
+NATS.on_disconnect do
+end
+
+NATS.on_reconnect do
+end
+
+NATS.on_close do
+end
+
+NATS.on_error do
+end
 </code></pre>
 		
 	
