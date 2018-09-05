@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_tls-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#connect_tls-py">Python</a>
 		</li>
@@ -23,6 +29,12 @@
 		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#connect_tls-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_tls-ts">TypeScript</a>
 		</li>
 		
 	
@@ -110,6 +122,11 @@ public class ConnectTLS {
 		
 	
 		
+		<pre class="tab-pane fade" id="connect_tls-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/tls_samples.js#L22-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// TLS connections should have a &#39;tls&#39; url in node-nats.
+</code></pre>
+		
+	
+		
 		<pre class="tab-pane fade" id="connect_tls-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_tls.py#L7-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
 
 ssl_ctx = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH)
@@ -173,6 +190,11 @@ await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;], tls=ssl_ctx)
     end
   end
 end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/tls_samples.ts#L17-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// TLS connections should have a &#39;tls&#39; url in ts-nats.
 </code></pre>
 		
 	

@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#control_2k-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#control_2k-py">Python</a>
 		</li>
@@ -23,6 +29,12 @@
 		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#control_2k-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#control_2k-ts">TypeScript</a>
 		</li>
 		
 	
@@ -48,12 +60,27 @@ nc.close();
 		
 	
 		
+		<pre class="tab-pane fade" id="control_2k-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/options_samples.js#L90-97"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set this option before creating a connection
+NATS.MAX_CONTROL_LINE_SIZE = 1024*2;
+let nc = NATS.connect({
+    url: &#34;nats://demo.nats.io:4222&#34;
+});
+
+</code></pre>
+		
+	
+		
 		<pre class="tab-pane fade" id="control_2k-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/notapplicable.txt#L5-7"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python"># Asyncio NATS client does not allow custom control lines
 </code></pre>
 		
 	
 		
-		<pre class="tab-pane fade" id="control_2k-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L9-11"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is no need to customize this in the Ruby NATS client.
+		<pre class="tab-pane fade" id="control_2k-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L5-7"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is no need to customize this in the Ruby NATS client.
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="control_2k-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/options_samples.ts#L68-70"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// control line size is not configurable on ts-nats
 </code></pre>
 		
 	
