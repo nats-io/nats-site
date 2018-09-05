@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_multiple-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_multiple-ts">TypeScript</a>
 		</li>
@@ -72,6 +78,18 @@ await nc.connect(servers=[
 
 await nc.close()
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_multiple.rb#L1-10"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(servers: [&#34;nats://127.0.0.1:1222&#34;, &#34;nats://127.0.0.1:1223&#34;, &#34;nats://127.0.0.1:1224&#34;]) do |nc|
+   # Do something with the connection
+
+   # Close the connection
+   nc.close
+end
 </code></pre>
 		
 	

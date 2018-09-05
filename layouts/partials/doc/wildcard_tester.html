@@ -20,6 +20,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#wildcard_tester-ruby">Ruby</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -89,6 +95,19 @@ await nc.publish(&#34;time.eu.east.warsaw&#34;, b&#39;...&#39;)
 
 await nc.close()
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/wildcard_tester.rb#L2-12"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start do |nc|
+   nc.publish(&#34;time.us.east&#34;, &#39;...&#39;)
+   nc.publish(&#34;time.us.east.atlanta&#34;, &#39;...&#39;)
+
+   nc.publish(&#34;time.eu.east&#34;, &#39;...&#39;)
+   nc.publish(&#34;time.eu.east.warsaw&#34;, &#39;...&#39;)
+
+   nc.drain
+end
 </code></pre>
 		
 	

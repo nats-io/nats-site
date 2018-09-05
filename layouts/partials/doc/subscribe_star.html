@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_star-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#subscribe_star-ts">TypeScript</a>
 		</li>
@@ -102,6 +108,34 @@ msg_B = await queue.get()
 
 print(&#34;Msg A:&#34;, msg_A)
 print(&#34;Msg B:&#34;, msg_B)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_star-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_star.rb#L1-26"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;time.*.east&#34;) do |msg, reply|
+      f.resume Time.now
+    end
+
+    nc.publish(&#34;time.A.east&#34;, &#34;A&#34;)
+    nc.publish(&#34;time.B.east&#34;, &#34;B&#34;)
+
+    # Use the response
+    msg_A = Fiber.yield
+    puts &#34;Msg A: #{msg_A}&#34;
+
+    msg_B = Fiber.yield
+    puts &#34;Msg B: #{msg_B}&#34;
+
+  end.resume
+end
 
 </code></pre>
 		

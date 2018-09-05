@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#max_payload-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#max_payload-ts">TypeScript</a>
 		</li>
@@ -63,6 +69,24 @@ print(&#34;Maximum payload is %d bytes&#34; % nc.max_payload)
 
 # Do something with the max payload.
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="max_payload-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/max_payload.rb#L1-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(max_outstanding_pings: 5) do |nc|
+   nc.on_reconnect do
+    puts &#34;Got reconnected to #{nc.connected_server}&#34;
+  end
+
+  nc.on_disconnect do |reason|
+    puts &#34;Got disconnected! #{reason}&#34;
+  end
+
+  # Do something with the max_payload
+  puts &#34;Maximum Payload is #{nc.server_info[:max_payload]} bytes&#34;
+end
 </code></pre>
 		
 	

@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_queue-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#subscribe_queue-ts">TypeScript</a>
 		</li>
@@ -95,6 +101,29 @@ await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
 
 msg = await asyncio.wait_for(future, 1)
 print(&#34;Msg&#34;, msg)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_queue.rb#L1-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;updates&#34;, queue: &#34;worker&#34;) do |msg, reply|
+      f.resume Time.now
+    end
+
+    nc.publish(&#34;updates&#34;, &#34;A&#34;)
+
+    # Use the response
+    msg = Fiber.yield
+    puts &#34;Msg: #{msg}&#34;
+  end.resume
+end
 
 </code></pre>
 		

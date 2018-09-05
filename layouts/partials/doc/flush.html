@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#flush-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#flush-ts">TypeScript</a>
 		</li>
@@ -67,6 +73,26 @@ await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
 # Sends a PING and wait for a PONG from the server, up to the given timeout.
 # This gives guarantee that the server has processed above message.
 await nc.flush(timeout=1)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="flush-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/flush.rb#L1-18"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  nc.subscribe(&#34;updates&#34;) do |msg|
+    puts msg
+  end
+
+  nc.publish(&#34;updates&#34;, &#34;All is Well&#34;)
+
+  nc.flush do
+    # Sends a PING and wait for a PONG from the server, up to the given timeout.
+    # This gives guarantee that the server has processed above message at this point.
+  end
+end
 
 </code></pre>
 		

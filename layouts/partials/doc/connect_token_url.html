@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_token_url-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_token_url-ts">TypeScript</a>
 		</li>
@@ -58,6 +64,13 @@ await nc.connect(servers=[&#34;nats://mytoken@demo.nats.io:4222&#34;])
 
 # Do something with the connection.
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_token_url-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_token_url.rb#L3-7"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start(&#34;deadbeef@127.0.0.1:4222&#34;) do |nc|
+  puts &#34;Connected using token!&#34;
+end
 </code></pre>
 		
 	

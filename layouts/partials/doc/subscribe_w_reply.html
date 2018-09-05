@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_w_reply-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#subscribe_w_reply-ts">TypeScript</a>
 		</li>
@@ -105,6 +111,30 @@ msg = await asyncio.wait_for(future, 1)
 # Send the time
 time_as_bytes = &#34;{}&#34;.format(datetime.now()).encode()
 await nc.publish(msg.reply, time_as_bytes)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_w_reply-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_w_reply.rb#L1-22"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;time&#34;) do |msg, reply|
+      f.resume Time.now
+    end
+
+    nc.publish(&#34;time&#34;, &#39;What is the time?&#39;, NATS.create_inbox)
+
+    # Use the response
+    msg = Fiber.yield
+    puts &#34;Reply: #{msg}&#34;
+
+  end.resume
+end
 
 </code></pre>
 		

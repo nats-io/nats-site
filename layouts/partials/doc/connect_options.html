@@ -14,6 +14,18 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_options-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_options-ruby">Ruby</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -39,6 +51,26 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_options.rb#L1-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+timer = EM.add_timer(5) do
+  NATS.connect do |nc|
+    # Do something with the connection
+
+    # Close the connection
+    nc.close
+  end
+end
+EM.cancel_timer(timer)
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L1-3"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is currently no connect timeout as part of the Ruby NATS client API.
 </code></pre>
 		
 	

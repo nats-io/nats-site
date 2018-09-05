@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_arrow-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#subscribe_arrow-ts">TypeScript</a>
 		</li>
@@ -104,6 +110,34 @@ for i in range(0, 4):
   print(&#34;Msg:&#34;, msg)
 
 await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_arrow.rb#L1-26"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;time.&gt;&#34;) do |msg, reply|
+      f.resume Time.now.to_f
+    end
+
+    nc.publish(&#34;time.A.east&#34;, &#34;A&#34;)
+    nc.publish(&#34;time.B.east&#34;, &#34;B&#34;)
+    nc.publish(&#34;time.C.west&#34;, &#34;C&#34;)
+    nc.publish(&#34;time.D.west&#34;, &#34;D&#34;)
+
+    # Use the response
+    4.times do 
+      msg = Fiber.yield
+      puts &#34;Msg: #{msg}&#34;
+    end
+  end.resume
+end
 
 </code></pre>
 		
