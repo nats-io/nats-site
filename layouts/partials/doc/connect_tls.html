@@ -20,6 +20,12 @@
 		</li>
 		
 	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_tls-ruby">Ruby</a>
+		</li>
+		
+	
 </ul>
 <div class="tab-content">
 	
@@ -116,6 +122,57 @@ await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;], tls=ssl_ctx)
 
 # Do something with the connection.
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_tls.rb#L3-51"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">EM.run do
+
+  options = {
+    :servers =&gt; [
+      &#39;nats://localhost:4222&#39;,
+    ],
+    :tls =&gt; {
+      :private_key_file =&gt; &#39;./spec/configs/certs/key.pem&#39;,
+      :cert_chain_file  =&gt; &#39;./spec/configs/certs/server.pem&#39;
+    }
+  }
+
+  NATS.connect(options) do |nc|
+    puts &#34;#{Time.now.to_f} - Connected to NATS at #{nc.connected_server}&#34;
+
+    nc.subscribe(&#34;hello&#34;) do |msg|
+      puts &#34;#{Time.now.to_f} - Received: #{msg}&#34;
+    end
+
+    nc.flush do
+      nc.publish(&#34;hello&#34;, &#34;world&#34;)
+    end
+
+    EM.add_periodic_timer(0.1) do
+      next unless nc.connected?
+      nc.publish(&#34;hello&#34;, &#34;hello&#34;)
+    end
+
+    # Set default callbacks
+    nc.on_error do |e|
+      puts &#34;#{Time.now.to_f } - Error: #{e}&#34;
+    end
+
+    nc.on_disconnect do |reason|
+      puts &#34;#{Time.now.to_f} - Disconnected: #{reason}&#34;
+    end
+
+    nc.on_reconnect do |nc|
+      puts &#34;#{Time.now.to_f} - Reconnected to NATS server at #{nc.connected_server}&#34;
+    end
+
+    nc.on_close do
+      puts &#34;#{Time.now.to_f} - Connection to NATS closed&#34;
+      EM.stop
+    end
+  end
+end
 </code></pre>
 		
 	

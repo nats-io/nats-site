@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#publish_json-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#publish_json-ts">TypeScript</a>
 		</li>
@@ -98,6 +104,16 @@ await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
 
 await nc.publish(&#34;updates&#34;, json.dumps({&#34;symbol&#34;: &#34;GOOG&#34;, &#34;price&#34;: 1200 }).encode())
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="publish_json-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/publish_json.rb#L1-8"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;json&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  nc.publish(&#34;updates&#34;, {&#34;symbol&#34;: &#34;GOOG&#34;, &#34;price&#34;: 1200}.to_json)
+end
 </code></pre>
 		
 	

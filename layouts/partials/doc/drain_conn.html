@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#drain_conn-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#drain_conn-ts">TypeScript</a>
 		</li>
@@ -86,6 +92,32 @@ CompletableFuture&lt;Boolean&gt; drained = nc.drain(Duration.ofSeconds(10));
 
 // Wait for the drain to complete
 drained.get();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_conn-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/drain_conn.rb#L3-26"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start(drain_timeout: 1) do |nc|
+  NATS.subscribe(&#39;foo&#39;, queue: &#34;workers&#34;) do |msg, reply, sub|
+    nc.publish(reply, &#34;ACK:#{msg}&#34;)
+  end
+
+  NATS.subscribe(&#39;bar&#39;, queue: &#34;workers&#34;) do |msg, reply, sub|
+    nc.publish(reply, &#34;ACK:#{msg}&#34;)
+  end
+
+  NATS.subscribe(&#39;quux&#39;, queue: &#34;workers&#34;) do |msg, reply, sub|
+    nc.publish(reply, &#34;ACK:#{msg}&#34;)
+  end
+
+  EM.add_timer(2) do
+    next if NATS.draining?
+
+    # Drain gracefully closes the connection.
+    NATS.drain do
+      puts &#34;Done draining. Connection is closed.&#34;
+    end
+  end
+end
 </code></pre>
 		
 	

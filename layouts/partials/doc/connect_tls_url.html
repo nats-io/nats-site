@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_tls_url-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_tls_url-ts">TypeScript</a>
 		</li>
@@ -99,6 +105,25 @@ public class ConnectTLSURL {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls_url-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_tls_url.rb#L3-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">EM.run do
+
+  # In order to use TLS with the Ruby NATS client, use the :tls option
+  # when customizing the connection with an empty block.
+  options = {
+    :servers =&gt; [
+      &#39;nats://demo.nats.io:4443&#39;,
+    ],
+    :tls =&gt; {}
+  }
+
+  NATS.connect(options) do |nc|
+    puts :connected
+  end
+end
 </code></pre>
 		
 	

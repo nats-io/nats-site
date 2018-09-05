@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_status-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_status-ts">TypeScript</a>
 		</li>
@@ -86,6 +92,27 @@ while True:
 await nc.close()
 
 print(&#34;The connection is closed?&#34;, nc.is_closed)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_status.rb#L3-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start(max_reconnect_attempts: 2) do |nc|
+  puts &#34;Connect is connected?: #{nc.connected?}&#34;
+
+  timer = EM.add_periodic_timer(1) do
+    if nc.closing?
+      puts &#34;Connection closed...&#34;
+      EM.cancel_timer(timer)
+      NATS.stop
+    end
+
+    if nc.reconnecting?
+      puts &#34;Reconnecting to NATS...&#34;
+      next
+    end
+  end
+end
 
 </code></pre>
 		

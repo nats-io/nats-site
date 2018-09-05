@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#request_reply-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#request_reply-ts">TypeScript</a>
 		</li>
@@ -80,6 +86,25 @@ try:
   print(&#34;Reply:&#34;, msg)
 except asyncio.TimeoutError:
   print(&#34;Timed out waiting for response&#34;)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/request_reply.rb#L1-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  nc.subscribe(&#34;time&#34;) do |msg, reply|
+    nc.publish(reply, &#34;response&#34;)
+  end
+
+  Fiber.new do
+    # Use the response
+    msg = nc.request(&#34;time&#34;, &#34;&#34;)
+    puts &#34;Reply: #{msg}&#34;
+  end.resume
+end
 
 </code></pre>
 		

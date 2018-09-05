@@ -21,6 +21,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_userpass_url-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connect_userpass_url-ts">TypeScript</a>
 		</li>
@@ -58,6 +64,27 @@ await nc.connect(servers=[&#34;nats://myname:password@demo.nats.io:4222&#34;])
 
 # Do something with the connection.
 
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_userpass_url.rb#L1-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(servers:[&#34;nats://myname:password@127.0.0.1:4222&#34;], name: &#34;my-connection&#34;) do |nc|
+   nc.on_error do |e|
+    puts &#34;Error: #{e}&#34;
+  end
+
+   nc.on_reconnect do
+    puts &#34;Got reconnected to #{nc.connected_server}&#34;
+  end
+
+  nc.on_disconnect do |reason|
+    puts &#34;Got disconnected! #{reason}&#34;
+  end
+
+  nc.close
+end
 </code></pre>
 		
 	

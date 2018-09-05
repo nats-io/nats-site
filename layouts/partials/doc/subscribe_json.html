@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_json-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#subscribe_json-ts">TypeScript</a>
 		</li>
@@ -105,6 +111,21 @@ public class SubscribeJSON {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_json-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_json.rb#L1-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;json&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  nc.subscribe(&#34;updates&#34;) do |msg|
+    m = JSON.parse(msg)
+
+    # {&#34;symbol&#34;=&gt;&#34;GOOG&#34;, &#34;price&#34;=&gt;12}
+    p m
+  end
+end
 </code></pre>
 		
 	

@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#no_echo-ruby">Ruby</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#no_echo-ts">TypeScript</a>
 		</li>
@@ -46,6 +52,13 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="no_echo-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/no_echo.rb#L3-7"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start(&#34;nats://demo.nats.io:4222&#34;, no_echo: true) do |nc|
+  # ...
+end
 </code></pre>
 		
 	
