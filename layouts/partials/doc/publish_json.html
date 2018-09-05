@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#publish_json-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#publish_json-py">Python</a>
 		</li>
@@ -94,6 +100,12 @@ public class PublishJSON {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="publish_json-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L25-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({url: &#34;nats://demo.nats.io:4222&#34;, json: true});
+nc.publish(&#39;updates&#39;, {ticker: &#39;GOOG&#39;, price: 1200});
 </code></pre>
 		
 	

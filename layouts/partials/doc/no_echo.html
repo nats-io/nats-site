@@ -15,6 +15,18 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#no_echo-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#no_echo-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#no_echo-ruby">Ruby</a>
 		</li>
@@ -52,6 +64,36 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="no_echo-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L239-241"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// no_echo is not supported.
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="no_echo-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/no_echo.py#L5-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">ncA = NATS()
+ncB = NATS()
+
+await ncA.connect(no_echo=True)
+await ncB.connect()
+
+async def handler(msg):
+   # Messages sent by `ncA&#39; will not be received.
+   print(&#34;[Received] &#34;, msg)
+
+await ncA.subscribe(&#34;greetings&#34;, cb=handler)
+await ncA.flush()
+await ncA.publish(&#34;greetings&#34;, b&#39;Hello World!&#39;)
+await ncB.publish(&#34;greetings&#34;, b&#39;Hello World!&#39;)
+
+# Do something with the connection
+
+await asyncio.sleep(1)
+await ncA.drain()
+await ncB.drain()
+
 </code></pre>
 		
 	

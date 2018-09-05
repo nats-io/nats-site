@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#ping_20s-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#ping_20s-py">Python</a>
 		</li>
@@ -58,6 +64,14 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_20s-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/options_samples.js#L7-12"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    pingInterval: 20*2000, //20s
+    url: &#34;nats://demo.nats.io:4222&#34;
+});
 </code></pre>
 		
 	

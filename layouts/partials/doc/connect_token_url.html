@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_token_url-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#connect_token_url-py">Python</a>
 		</li>
@@ -54,6 +60,12 @@ defer nc.Close()
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_token_url-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/auth_examples.js#L63-66"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let url = `nats://mytoken!@127.0.0.1:${port}`;
+let nc = NATS.connect({url: url});
 </code></pre>
 		
 	

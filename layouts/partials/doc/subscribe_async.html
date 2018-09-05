@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#subscribe_async-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#subscribe_async-py">Python</a>
 		</li>
@@ -82,6 +88,13 @@ latch.await();
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_async-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L9-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#34;updates&#34;, (msg) =&gt; {
+    t.log(msg);
+});
 </code></pre>
 		
 	

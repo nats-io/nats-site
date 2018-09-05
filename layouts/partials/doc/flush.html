@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#flush-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#flush-py">Python</a>
 		</li>
@@ -60,6 +66,19 @@ nc.publish(&#34;updates&#34;, &#34;All is Well&#34;.getBytes(StandardCharsets.UT
 nc.flush(Duration.ofSeconds(1)); // Flush the message queue
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="flush-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L93-103"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({url: &#34;nats://demo.nats.io:4222&#34;});
+let start = Date.now();
+nc.flush(() =&gt; {
+    t.log(&#39;round trip completed in&#39;, Date.now() - start, &#39;ms&#39;);
+});
+
+nc.publish(&#39;foo&#39;);
+// function in flush is optional
+nc.flush();
 </code></pre>
 		
 	

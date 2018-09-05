@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#publish_bytes-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#publish_bytes-py">Python</a>
 		</li>
@@ -58,6 +64,14 @@ nc.publish(&#34;updates&#34;, &#34;All is Well&#34;.getBytes(StandardCharsets.UT
 // Make sure the message goes through before we close
 nc.flush(Duration.ZERO);
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="publish_bytes-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L8-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({url: &#34;nats://demo.nats.io:4222&#34;, preserveBuffers: true});
+let buf = Buffer.allocUnsafe(12);
+buf.fill(&#34;All is well&#34;);
+nc.publish(&#39;updates&#39;, buf);
 </code></pre>
 		
 	

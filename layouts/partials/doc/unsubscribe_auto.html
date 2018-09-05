@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#unsubscribe_auto-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#unsubscribe_auto-py">Python</a>
 		</li>
@@ -82,6 +88,24 @@ d.unsubscribe(&#34;updates&#34;, 1);
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L105-120"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// `max` specifies the number of messages that the server will forward.
+// The server will auto-cancel.
+let opts = {max: 10};
+let sub = nc.subscribe(NATS.createInbox(), opts, (msg) =&gt; {
+    t.log(msg);
+});
+
+// another way after 10 messages
+let sub2 = nc.subscribe(NATS.createInbox(), (err, msg) =&gt; {
+    t.log(msg.data);
+});
+// if the subscription already received 10 messages, the handler
+// won&#39;t get any more messages
+nc.unsubscribe(sub2, 10);
 </code></pre>
 		
 	

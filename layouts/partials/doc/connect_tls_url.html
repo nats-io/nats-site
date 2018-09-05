@@ -15,6 +15,18 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_tls_url-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_tls_url-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#connect_tls_url-ruby">Ruby</a>
 		</li>
@@ -105,6 +117,50 @@ public class ConnectTLSURL {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls_url-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/tls_samples.js#L6-11"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    url: &#34;tls://demo.nats.io:4443&#34;,
+    tls: true
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_tls_url-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_tls_url.py#L1-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">import asyncio
+import ssl
+import certifi
+from nats.aio.client import Client as NATS
+from nats.aio.errors import ErrTimeout
+
+async def run(loop):
+    nc = NATS()
+
+    # Not usage of certifi library to load certs
+    ssl_ctx = ssl.create_default_context()
+    ssl_ctx.load_verify_locations(certifi.where())
+    await nc.connect(servers=[&#34;tls://demo.nats.io:4443&#34;], loop=loop, tls=ssl_ctx)
+
+    async def message_handler(msg):
+        subject = msg.subject
+        reply = msg.reply
+        data = msg.data.decode()
+        print(&#34;Received a message on &#39;{subject} {reply}&#39;: {data}&#34;.format(
+            subject=subject, reply=reply, data=data))
+
+    # Simple publisher and async subscriber via coroutine.
+    sid = await nc.subscribe(&#34;foo&#34;, cb=message_handler)
+    await nc.flush()
+
+    # Stop receiving after 2 messages.
+    await nc.auto_unsubscribe(sid, 2)
+    await nc.publish(&#34;foo&#34;, b&#39;Hello&#39;)
+    await nc.publish(&#34;foo&#34;, b&#39;World&#39;)
+    await nc.publish(&#34;foo&#34;, b&#39;!!!!!&#39;)
+    await asyncio.sleep(1, loop=loop)
+    await nc.close()
 </code></pre>
 		
 	

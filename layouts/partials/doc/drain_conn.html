@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#drain_conn-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#drain_conn-ruby">Ruby</a>
 		</li>
@@ -92,6 +98,42 @@ CompletableFuture&lt;Boolean&gt; drained = nc.drain(Duration.ofSeconds(10));
 
 // Wait for the drain to complete
 drained.get();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_conn-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/drain_conn.py#L1-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">import asyncio
+from nats.aio.client import Client as NATS
+
+async def example(loop):
+    nc = NATS()
+
+    await nc.connect(&#34;nats://127.0.0.1:4222&#34;, loop=loop)
+
+    async def handler(msg):
+        print(&#34;[Received] &#34;, msg)
+        await nc.publish(msg.reply, b&#39;I can help&#39;)
+
+        # Can check whether client is in draining state
+        if nc.is_draining:
+            print(&#34;Connection is draining&#34;)
+
+    await nc.subscribe(&#34;help&#34;, &#34;workers&#34;, cb=handler)
+    await nc.flush()
+
+    requests = []
+    for i in range(0, 10):
+        request = nc.request(&#34;help&#34;, b&#39;help!&#39;, timeout=1)
+        requests.append(request)
+
+    # Wait for all the responses
+    responses = []
+    responses = await asyncio.gather(*requests)
+
+    # Gracefully close the connection.
+    await nc.drain()
+
+    print(&#34;Received {} responses&#34;.format(len(responses)))
 </code></pre>
 		
 	

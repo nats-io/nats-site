@@ -15,6 +15,18 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#drain_sub-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#drain_sub-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#drain_sub-ruby">Ruby</a>
 		</li>
@@ -113,6 +125,37 @@ drained.get();
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_sub-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L232-234"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// Drain subscription is not supported.
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="drain_sub-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/drain_sub.py#L1-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">import asyncio
+from nats.aio.client import Client as NATS
+
+async def example(loop):
+    nc = NATS()
+
+    await nc.connect(&#34;nats://127.0.0.1:4222&#34;, loop=loop)
+
+    async def handler(msg):
+        print(&#34;[Received] &#34;, msg)
+        await nc.publish(msg.reply, b&#39;I can help&#39;)
+
+        # Can check whether client is in draining state
+        if nc.is_draining:
+            print(&#34;Connection is draining&#34;)
+
+    sid = await nc.subscribe(&#34;help&#34;, &#34;workers&#34;, cb=handler)
+    await nc.flush()
+
+    # Gracefully unsubscribe the subscription
+    await nc.drain(sid)
+
 </code></pre>
 		
 	

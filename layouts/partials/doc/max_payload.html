@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#max_payload-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#max_payload-py">Python</a>
 		</li>
@@ -57,6 +63,20 @@ long max = nc.getMaxPayload();
 // Do something with the max payload
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="max_payload-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/event_samples.js#L128-139"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// on node you *must* register an error listener. If not registered
+// the library emits an &#39;error&#39; event, the node process will exit.
+nc.on(&#39;error&#39;, (err) =&gt; {
+    t.log(&#39;client got an error:&#39;, err);
+});
+nc.on(&#39;connect&#39;, () =&gt; {
+   t.log(nc.info.max_payload);
+});
 </code></pre>
 		
 	
