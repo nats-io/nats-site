@@ -131,9 +131,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.0.2
+  version_num: 1.0.4
   release_notes: |
-    Release v.1.0.2 on August 10th, 2018.
+    Release v.1.0.4 on August 27th, 2018.
   github:
     - user: nats-io
       repo: ts-nats
@@ -176,9 +176,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.9.0
+  version_num: 0.10.0
   release_notes: |
-    Release v0.8.4 June 27th, 2018.
+    Release v0.10.0 August 31st, 2018.
   github:
     - user: nats-io
       repo: ruby-nats
@@ -358,9 +358,9 @@ Releases:
       link: https://github.com/Gr1N
   version_num: 0.2.0
   release_notes: |
-    Last updated September 1, 2018.
+    Last updated September 1st, 2018.
   github:
-    - user: Gr1N
+    - user: gr1n
       repo: nats-python
       link: https://github.com/Gr1N/nats-python
 
