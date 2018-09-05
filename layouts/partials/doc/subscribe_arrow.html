@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#subscribe_arrow-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#subscribe_arrow-py">Python</a>
 		</li>
@@ -84,6 +90,32 @@ latch.await();
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L176-199"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#39;time.&gt;&#39;, (msg, reply, subject) =&gt; {
+    // converting timezones correctly in node requires a library
+    // this doesn&#39;t take into account *many* things.
+    let time = &#34;&#34;;
+    switch (subject) {
+        case &#39;time.us.east&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/New_York&#34;});
+            break;
+        case &#39;time.us.central&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Chicago&#34;});
+            break;
+        case &#39;time.us.mountain&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Denver&#34;});
+            break;
+        case &#39;time.us.west&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Los_Angeles&#34;});
+            break;
+        default:
+            time = &#34;I don&#39;t know what you are talking about Willis&#34;;
+    }
+    t.log(subject, time);
+});
 </code></pre>
 		
 	

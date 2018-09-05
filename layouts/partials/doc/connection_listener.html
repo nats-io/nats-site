@@ -15,6 +15,18 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connection_listener-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connection_listener-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ts">
 		  <a data-toggle="tab" href="#connection_listener-ts">TypeScript</a>
 		</li>
@@ -60,6 +72,67 @@ public class SetConnectionListener {
         }
     }
 }
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connection_listener-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/event_samples.js#L11-41"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+nc.on(&#39;error&#39;, (err) =&gt; {
+    t.log(&#39;error&#39;, err);
+});
+
+nc.on(&#39;connect&#39;, () =&gt; {
+    t.log(&#39;client connected&#39;);
+});
+
+nc.on(&#39;disconnect&#39;, () =&gt; {
+    t.log(&#39;client disconnected&#39;);
+});
+
+nc.on(&#39;reconnecting&#39;, () =&gt; {
+    t.log(&#39;client reconnecting&#39;);
+});
+
+nc.on(&#39;reconnect&#39;, () =&gt; {
+    t.log(&#39;client reconnected&#39;);
+});
+
+nc.on(&#39;close&#39;, () =&gt; {
+    t.log(&#39;client closed&#39;);
+});
+
+nc.on(&#39;permission_error&#39;, (err) =&gt; {
+    t.log(&#39;permission_error&#39;, err);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connection_listener-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/notapplicable.txt#L17-42"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python"># Asyncio NATS client can be defined a number of event callbacks
+async def disconnected_cb():
+    print(&#34;Got disconnected!&#34;)
+
+async def reconnected_cb():
+    # See who we are connected to on reconnect.
+    print(&#34;Got reconnected to {url}&#34;.format(url=nc.connected_url.netloc))
+
+async def error_cb(e):
+    print(&#34;There was an error: {}&#34;.format(e))
+
+async def closed_cb():
+    print(&#34;Connection is closed&#34;)
+
+# Setup callbacks to be notified on disconnects and reconnects
+options[&#34;disconnected_cb&#34;] = disconnected_cb
+options[&#34;reconnected_cb&#34;] = reconnected_cb
+
+# Setup callbacks to be notified when there is an error
+# or connection is closed.
+options[&#34;error_cb&#34;] = error_cb
+options[&#34;closed_cb&#34;] = closed_cb
+
+await nc.connect(**options)
 </code></pre>
 		
 	

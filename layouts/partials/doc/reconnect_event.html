@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#reconnect_event-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#reconnect_event-py">Python</a>
 		</li>
@@ -72,6 +78,18 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/reconnect_samples.js#L74-83"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    maxReconnectAttempts: 10,
+    servers: [&#34;nats://demo.nats.io:4222&#34;]
+});
+
+nc.on(&#39;reconnect&#39;, (c) =&gt; {
+    console.log(&#39;reconnected&#39;);
+});
 </code></pre>
 		
 	

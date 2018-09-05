@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_options-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#connect_options-ruby">Ruby</a>
 		</li>
@@ -51,6 +57,17 @@ Connection nc = Nats.connect(options);
 // Do something with the connection
 
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_options.py#L5-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+await nc.connect(connect_timeout=2)
+
+# Do something with the connection
+
+await nc.close()
+
 </code></pre>
 		
 	

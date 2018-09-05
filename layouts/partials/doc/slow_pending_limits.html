@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#slow_pending_limits-py">Python</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#slow_pending_limits-ruby">Ruby</a>
 		</li>
@@ -73,6 +79,23 @@ sub.setPendingLimits(1_000, 5 * 1024 * 1024); // Set limits on a subscription
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="slow_pending_limits-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/sub_pending_limits.py#L6-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+future = asyncio.Future()
+
+async def cb(msg):
+  nonlocal future
+  future.set_result(msg)
+
+# Set limits of 1000 messages or 5MB
+await nc.subscribe(&#34;updates&#34;, cb=cb, pending_bytes_limit=5*1024*1024, pending_msgs_limit=1000)
+
 </code></pre>
 		
 	

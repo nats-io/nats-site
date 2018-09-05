@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#subscribe_w_reply-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#subscribe_w_reply-py">Python</a>
 		</li>
@@ -86,6 +92,16 @@ nc.publish(msg.getReplyTo(), timeAsBytes);
 // Flush and close the connection
 nc.flush(Duration.ZERO);
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_w_reply-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L28-35"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// set up a subscription to process a request
+nc.subscribe(&#39;time&#39;, (msg, reply) =&gt; {
+    if (msg.reply) {
+        nc.publish(msg.reply, new Date().toLocaleTimeString());
+    }
+});
 </code></pre>
 		
 	

@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#request_reply-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#request_reply-py">Python</a>
 		</li>
@@ -67,6 +73,14 @@ System.out.println(new String(msg.getData(), StandardCharsets.UTF_8));
 
 // Close the connection
 nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L77-82"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.requestOne(&#39;time&#39;, (msg) =&gt; {
+    t.log(&#39;the time is&#39;, msg);
+    nc.close();
+});
 </code></pre>
 		
 	

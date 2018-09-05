@@ -15,6 +15,12 @@
 		
 	
 		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#wildcard_tester-js">JavaScript</a>
+		</li>
+		
+	
+		
 		<li class="api-lang" data-language="py">
 		  <a data-toggle="tab" href="#wildcard_tester-py">Python</a>
 		</li>
@@ -23,6 +29,12 @@
 		
 		<li class="api-lang" data-language="ruby">
 		  <a data-toggle="tab" href="#wildcard_tester-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#wildcard_tester-ts">TypeScript</a>
 		</li>
 		
 	
@@ -83,6 +95,14 @@ nc.close();
 		
 	
 		
+		<pre class="tab-pane fade" id="wildcard_tester-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L138-143"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.publish(&#39;time.us.east&#39;);
+nc.publish(&#39;time.us.central&#39;);
+nc.publish(&#39;time.us.mountain&#39;);
+nc.publish(&#39;time.us.west&#39;);
+</code></pre>
+		
+	
+		
 		<pre class="tab-pane fade" id="wildcard_tester-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/wildcard_tester.py#L6-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
 
 await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
@@ -108,6 +128,14 @@ await nc.close()
 
    nc.drain
 end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L139-144"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.publish(&#39;time.us.east&#39;);
+nc.publish(&#39;time.us.central&#39;);
+nc.publish(&#39;time.us.mountain&#39;);
+nc.publish(&#39;time.us.west&#39;);
 </code></pre>
 		
 	
