@@ -45,7 +45,7 @@
 		<pre class="tab-pane fade in active" id="reconnect_event-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/reconnect_event/main.go#L10-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Connection event handlers are invoked asynchronously
 // and the state of the connection may have changed when
 // the callback is invoked.
-nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+nc, err := nats.Connect(&#34;demo.nats.io&#34;,
 	nats.DisconnectHandler(func(nc *nats.Conn) {
 		// handle disconnect event
 	}),
