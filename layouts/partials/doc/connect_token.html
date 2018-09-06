@@ -43,7 +43,7 @@
 	
 		
 		<pre class="tab-pane fade in active" id="connect_token-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_token/main.go#L10-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Set a token
-nc, err := nats.Connect(&#34;nats://localhost:4222&#34;, nats.Token(&#34;mytoken&#34;))
+nc, err := nats.Connect(&#34;localhost&#34;, nats.Token(&#34;mytoken&#34;))
 if err != nil {
 	log.Fatal(err)
 }

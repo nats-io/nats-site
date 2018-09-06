@@ -44,7 +44,7 @@
 		
 		<pre class="tab-pane fade in active" id="servers_added-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/servers_added/main.go#L10-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Be notified if a new server joins the cluster.
 // Print all the known servers and the only the ones that were discovered.
-nc, err := nats.Connect(&#34;nats://demo.nats.io:4222&#34;,
+nc, err := nats.Connect(&#34;demo.nats.io&#34;,
 	nats.DiscoveredServersHandler(func(nc *nats.Conn) {
 		log.Printf(&#34;Known servers: %v\n&#34;, nc.Servers())
 		log.Printf(&#34;Discovered servers: %v\n&#34;, nc.DiscoveredServers())
