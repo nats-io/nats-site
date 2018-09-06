@@ -1,0 +1,109 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_userpass_url-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_userpass_url-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_userpass_url-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_userpass_url-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_userpass_url-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_userpass_url-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_userpass_url-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_userpass_url/main.go#L10-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Set a user and plain text password
+nc, err := nats.Connect(&#34;myname:password@localhost&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectUserPasswordURL.java#L10-16"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://myname:password@localhost:4222&#34;);
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/auth_examples.js#L40-43"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let url = `nats://myname:password@127.0.0.1:${port}`;
+let nc = NATS.connect(url);
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_userpass_url.py#L6-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://myname:password@demo.nats.io:4222&#34;])
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_userpass_url.rb#L1-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(servers:[&#34;nats://myname:password@127.0.0.1:4222&#34;], name: &#34;my-connection&#34;) do |nc|
+   nc.on_error do |e|
+    puts &#34;Error: #{e}&#34;
+  end
+
+   nc.on_reconnect do
+    puts &#34;Got reconnected to #{nc.connected_server}&#34;
+  end
+
+  nc.on_disconnect do |reason|
+    puts &#34;Got disconnected! #{reason}&#34;
+  end
+
+  nc.close
+end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_userpass_url-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/auth_examples.ts#L34-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let url = `nats://myname:password@127.0.0.1:${port}`;
+let nc = await connect({url: url});
+</code></pre>
+		
+	
+</div>

@@ -1,0 +1,106 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_options-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_options-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_options-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_options-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_options-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_options-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_options-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_options/main.go#L11-20"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(nats.DefaultURL, nats.Timeout(10*time.Second))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectWithOptions.java#L13-23"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
+                            server(&#34;nats://demo.nats.io:4222&#34;).
+                            connectionTimeout(Duration.ofSeconds(10)). // Set timeout
+                            build();
+Connection nc = Nats.connect(options);
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/options_samples.js#L121-123"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connection timeout is not supported on node-nats
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_options.py#L5-13"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+await nc.connect(connect_timeout=2)
+
+# Do something with the connection
+
+await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_options.rb#L1-14"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># There is currently no connect timeout as part of the Ruby NATS client API, but you can use a timer to mimic it.
+require &#39;nats/client&#39;
+
+timer = EM.add_timer(5) do
+  NATS.connect do |nc|
+    # Do something with the connection
+
+    # Close the connection
+    nc.close
+  end
+end
+EM.cancel_timer(timer)
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_options-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/options_samples.ts#L89-91"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// connection timeout is not supported on ts-nats
+</code></pre>
+		
+	
+</div>

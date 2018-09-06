@@ -1,0 +1,133 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#request_reply-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#request_reply-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#request_reply-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#request_reply-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#request_reply-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#request_reply-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="request_reply-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/request_reply/main.go#L11-29"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Send the request
+msg, err := nc.Request(&#34;time&#34;, nil, time.Second)
+if err != nil {
+	log.Fatal(err)
+}
+
+// Use the response
+log.Printf(&#34;Reply: %s&#34;, msg.Data)
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/RequestReply.java#L14-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// Send the request
+Message msg = nc.request(&#34;time&#34;, null, Duration.ofSeconds(1));
+
+// Use the response
+System.out.println(new String(msg.getData(), StandardCharsets.UTF_8));
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L77-82"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.requestOne(&#39;time&#39;, (msg) =&gt; {
+    t.log(&#39;the time is&#39;, msg);
+    nc.close();
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/request_reply.py#L8-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+async def sub(msg):
+  await nc.publish(msg.reply, b&#39;response&#39;)
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+await nc.subscribe(&#34;time&#34;, cb=sub)
+
+# Send the request
+try:
+  msg = await nc.request(&#34;time&#34;, b&#39;&#39;, timeout=1)
+  # Use the response
+  print(&#34;Reply:&#34;, msg)
+except asyncio.TimeoutError:
+  print(&#34;Timed out waiting for response&#34;)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/request_reply.rb#L1-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  nc.subscribe(&#34;time&#34;) do |msg, reply|
+    nc.publish(reply, &#34;response&#34;)
+  end
+
+  Fiber.new do
+    # Use the response
+    msg = nc.request(&#34;time&#34;, &#34;&#34;)
+    puts &#34;Reply: #{msg}&#34;
+  end.resume
+end
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="request_reply-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L81-85"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let msg = await nc.request(&#39;time&#39;, 1000);
+t.log(&#39;the time is&#39;, msg.data);
+nc.close();
+</code></pre>
+		
+	
+</div>

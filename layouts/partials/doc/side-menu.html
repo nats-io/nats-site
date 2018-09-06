@@ -1,0 +1,28 @@
+<ul class="sub-menu list-unstyled">
+  {{ $currentNode := . }}
+
+  {{ range .Site.Menus.main }}
+  {{ if eq .Identifier "doc" }}
+  {{ if .HasChildren }}
+  <ul class="list-unstyled">
+    {{ range .Children }}
+    <li>
+      <div class="panel panel-default">
+        <div class="panel-heading">{{ title .Name }}</div>
+        <div class="panel-body">
+          {{ if .HasChildren }}
+          <ul class="list-unstyled">
+            {{ range .Children }}
+            <li{{if $currentNode.IsMenuCurrent "main" . }} class="active"{{end}}><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{end }}
+  {{end }}
+  {{end }}
+</ul>

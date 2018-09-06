@@ -1,0 +1,152 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_status-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_status-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_status-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_status-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_status-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_status-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_status-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_status/main.go#L10-33"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+getStatusTxt := func(nc *nats.Conn) string {
+	switch nc.Status() {
+	case nats.CONNECTED:
+		return &#34;Connected&#34;
+	case nats.CLOSED:
+		return &#34;Closed&#34;
+	default:
+		return &#34;Other&#34;
+	}
+}
+log.Printf(&#34;The connection is %v\n&#34;, getStatusTxt(nc))
+
+nc.Close()
+
+log.Printf(&#34;The connection is %v\n&#34;, getStatusTxt(nc))
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/GetConnectionStatus.java#L10-18"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+System.out.println(&#34;The Connection is: &#34; &#43; nc.getStatus());
+
+nc.close();
+
+System.out.println(&#34;The Connection is: &#34; &#43; nc.getStatus());
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/event_samples.js#L99-113"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// on node you *must* register an error listener. If not registered
+// the library emits an &#39;error&#39; event, the node process will exit.
+nc.on(&#39;error&#39;, (err) =&gt; {
+    t.log(&#39;client got an error:&#39;, err);
+});
+
+if(nc.closed) {
+    t.log(&#39;client is closed&#39;);
+} else {
+    t.log(&#39;client is not closed&#39;);
+}
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_status.py#L6-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(
+   servers=[&#34;nats://demo.nats.io:4222&#34;],
+   )
+
+# Do something with the connection.
+
+print(&#34;The connection is connected?&#34;, nc.is_connected)
+
+while True:
+  if nc.is_reconnecting:
+    print(&#34;Reconnecting to NATS...&#34;)
+    break
+  await asyncio.sleep(1)
+
+await nc.close()
+
+print(&#34;The connection is closed?&#34;, nc.is_closed)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_status.rb#L3-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start(max_reconnect_attempts: 2) do |nc|
+  puts &#34;Connect is connected?: #{nc.connected?}&#34;
+
+  timer = EM.add_periodic_timer(1) do
+    if nc.closing?
+      puts &#34;Connection closed...&#34;
+      EM.cancel_timer(timer)
+      NATS.stop
+    end
+
+    if nc.reconnecting?
+      puts &#34;Reconnecting to NATS...&#34;
+      next
+    end
+  end
+end
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_status-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L62-68"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">if(nc.isClosed()) {
+    t.log(&#39;the client is closed&#39;);
+} else {
+    t.log(&#39;the client is running&#39;);
+}
+</code></pre>
+		
+	
+</div>

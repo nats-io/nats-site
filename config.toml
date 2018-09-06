@@ -79,38 +79,38 @@ parent = "nats-streaming"
 [[menu.main]]
 name = "Documentation"
 weight = 3
-identifier = "documentation"
-url = "/documentation"
+identifier = "doc"
+url = "/doc"
 
 [[menu.main]]
-name = "Getting Started"
+name = "Getting Started With NATS"
 weight = 1
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
-name = "Concepts"
+name = "Writing Applications"
 weight = 2
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
-name = "Internals"
+name = "Managing the Server"
 weight = 3
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
-name = "Server"
+name = "NATS Internals"
 weight = 4
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
-name = "Streaming"
+name = "Event Streaming"
 weight = 5
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
-name = "Tutorials"
+name = "Additional Documentation"
 weight = 6
-parent = "documentation"
+parent = "doc"
 
 [[menu.main]]
 name = "Support"

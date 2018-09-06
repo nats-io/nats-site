@@ -23,6 +23,11 @@ gulp.task('less', function() {
     .pipe(gulp.dest('static/css'));
 });
 
+gulp.task('css', function() {
+  return gulp.src('src/css/**/*.css')
+      .pipe(gulp.dest('static/css'));
+});
+
 // Javascript
 gulp.task('js', function() {
   return gulp.src(['src/js/moment.js', 'src/js/**/*.js'])

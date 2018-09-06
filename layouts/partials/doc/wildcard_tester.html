@@ -1,0 +1,142 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#wildcard_tester-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#wildcard_tester-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#wildcard_tester-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#wildcard_tester-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#wildcard_tester-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#wildcard_tester-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="wildcard_tester-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/wildcard_tester/main.go#L11-41"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+zoneID, err := time.LoadLocation(&#34;America/New_York&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+now := time.Now()
+zoneDateTime := now.In(zoneID)
+formatted := zoneDateTime.String()
+
+nc.Publish(&#34;time.us.east&#34;, []byte(formatted))
+nc.Publish(&#34;time.us.east.atlanta&#34;, []byte(formatted))
+
+zoneID, err = time.LoadLocation(&#34;Europe/Warsaw&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+zoneDateTime = now.In(zoneID)
+formatted = zoneDateTime.String()
+
+nc.Publish(&#34;time.eu.east&#34;, []byte(formatted))
+nc.Publish(&#34;time.eu.east.warsaw&#34;, []byte(formatted))
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/PublishForWildcards.java#L17-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+ZoneId zoneId = ZoneId.of(&#34;America/New_York&#34;);
+ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), zoneId);
+String formatted = zonedDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+
+nc.publish(&#34;time.us.east&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+nc.publish(&#34;time.us.east.atlanta&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+
+zoneId = ZoneId.of(&#34;Europe/Warsaw&#34;);
+zonedDateTime = ZonedDateTime.ofInstant(Instant.now(), zoneId);
+formatted = zonedDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+nc.publish(&#34;time.eu.east&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+nc.publish(&#34;time.eu.east.warsaw&#34;, formatted.getBytes(StandardCharsets.UTF_8));
+
+nc.flush(Duration.ZERO);
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/publisher_samples.js#L138-143"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.publish(&#39;time.us.east&#39;);
+nc.publish(&#39;time.us.central&#39;);
+nc.publish(&#39;time.us.mountain&#39;);
+nc.publish(&#39;time.us.west&#39;);
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/wildcard_tester.py#L6-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+await nc.publish(&#34;time.us.east&#34;, b&#39;...&#39;)
+await nc.publish(&#34;time.us.east.atlanta&#34;, b&#39;...&#39;)
+
+await nc.publish(&#34;time.eu.east&#34;, b&#39;...&#39;)
+await nc.publish(&#34;time.eu.east.warsaw&#34;, b&#39;...&#39;)
+
+await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/wildcard_tester.rb#L2-12"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">NATS.start do |nc|
+   nc.publish(&#34;time.us.east&#34;, &#39;...&#39;)
+   nc.publish(&#34;time.us.east.atlanta&#34;, &#39;...&#39;)
+
+   nc.publish(&#34;time.eu.east&#34;, &#39;...&#39;)
+   nc.publish(&#34;time.eu.east.warsaw&#34;, &#39;...&#39;)
+
+   nc.drain
+end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="wildcard_tester-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/publisher_samples.ts#L139-144"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.publish(&#39;time.us.east&#39;);
+nc.publish(&#39;time.us.central&#39;);
+nc.publish(&#39;time.us.mountain&#39;);
+nc.publish(&#39;time.us.west&#39;);
+</code></pre>
+		
+	
+</div>

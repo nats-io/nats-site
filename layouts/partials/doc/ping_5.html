@@ -1,0 +1,126 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#ping_5-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#ping_5-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#ping_5-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#ping_5-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#ping_5-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#ping_5-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="ping_5-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/ping_5/main.go#L10-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">opts := nats.GetDefaultOptions()
+opts.Url = &#34;demo.nats.io&#34;
+// Set maximum number of PINGs out without getting a PONG back
+// before the connection will be disconnected as a stale connection.
+opts.MaxPingsOut = 5
+
+nc, err := opts.Connect()
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_5-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectMaxPingFive.java#L11-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
+                            server(&#34;nats://demo.nats.io:4222&#34;).
+                            maxPingsOut(5). // Set max pings in flight
+                            build();
+Connection nc = Nats.connect(options);
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_5-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/options_samples.js#L23-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    maxPingOut: 5,
+    url: &#34;nats://demo.nats.io:4222&#34;
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_5-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/ping_5.py#L6-19"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(
+   servers=[&#34;nats://demo.nats.io:4222&#34;],
+   # Set maximum number of PINGs out without getting a PONG back
+   # before the connection will be disconnected as a stale connection.
+   max_outstanding_pings=5,
+   ping_interval=1,
+   )
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_5-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/ping_5s.rb#L1-15"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(max_outstanding_pings: 5) do |nc|
+   nc.on_reconnect do
+    puts &#34;Got reconnected to #{nc.connected_server}&#34;
+  end
+
+  nc.on_disconnect do |reason|
+    puts &#34;Got disconnected! #{reason}&#34;
+  end
+
+  # Do something with the connection
+end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="ping_5-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/options_samples.ts#L17-24"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+    maxPingOut: 5,
+    url: &#34;nats://demo.nats.io:4222&#34;
+});
+nc.close();
+</code></pre>
+		
+	
+</div>

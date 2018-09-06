@@ -1,0 +1,203 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#subscribe_arrow-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#subscribe_arrow-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#subscribe_arrow-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#subscribe_arrow-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_arrow-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#subscribe_arrow-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="subscribe_arrow-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/subscribe_arrow/main.go#L11-35"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Use a WaitGroup to wait for 4 messages to arrive
+wg := sync.WaitGroup{}
+wg.Add(4)
+
+// Subscribe
+if _, err := nc.Subscribe(&#34;time.&gt;&#34;, func(m *nats.Msg) {
+	log.Printf(&#34;%s: %s&#34;, m.Subject, m.Data)
+	wg.Done()
+}); err != nil {
+	log.Fatal(err)
+}
+
+// Wait for the 4 messages to come in
+wg.Wait()
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SubscribeArrow.java#L14-36"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// Use a latch to wait for 4 messages to arrive
+CountDownLatch latch = new CountDownLatch(4);
+
+// Create a dispatcher and inline message handler
+Dispatcher d = nc.createDispatcher((msg) -&gt; {
+    String subject = msg.getSubject();
+    String str = new String(msg.getData(), StandardCharsets.UTF_8);
+    System.out.println(subject &#43; &#34;: &#34; &#43; str);
+    latch.countDown();
+});
+
+// Subscribe
+d.subscribe(&#34;time.&gt;&#34;);
+
+// Wait for messages to come in
+latch.await();
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L176-199"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#39;time.&gt;&#39;, (msg, reply, subject) =&gt; {
+    // converting timezones correctly in node requires a library
+    // this doesn&#39;t take into account *many* things.
+    let time = &#34;&#34;;
+    switch (subject) {
+        case &#39;time.us.east&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/New_York&#34;});
+            break;
+        case &#39;time.us.central&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Chicago&#34;});
+            break;
+        case &#39;time.us.mountain&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Denver&#34;});
+            break;
+        case &#39;time.us.west&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Los_Angeles&#34;});
+            break;
+        default:
+            time = &#34;I don&#39;t know what you are talking about Willis&#34;;
+    }
+    t.log(subject, time);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/subscribe_arrow.py#L6-30"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+# Use queue to wait for 4 messages to arrive
+queue = asyncio.Queue()
+async def cb(msg):
+  await queue.put(msg)
+
+await nc.subscribe(&#34;time.&gt;&#34;, cb=cb)
+
+# Send 2 messages and wait for them to come in
+await nc.publish(&#34;time.A.east&#34;, b&#39;A&#39;)
+await nc.publish(&#34;time.B.east&#34;, b&#39;B&#39;)
+await nc.publish(&#34;time.C.west&#34;, b&#39;C&#39;)
+await nc.publish(&#34;time.D.west&#34;, b&#39;D&#39;)
+
+for i in range(0, 4):
+  msg = await queue.get()
+  print(&#34;Msg:&#34;, msg)
+
+await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_arrow.rb#L1-26"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;time.&gt;&#34;) do |msg, reply|
+      f.resume Time.now.to_f
+    end
+
+    nc.publish(&#34;time.A.east&#34;, &#34;A&#34;)
+    nc.publish(&#34;time.B.east&#34;, &#34;B&#34;)
+    nc.publish(&#34;time.C.west&#34;, &#34;C&#34;)
+    nc.publish(&#34;time.D.west&#34;, &#34;D&#34;)
+
+    # Use the response
+    4.times do 
+      msg = Fiber.yield
+      puts &#34;Msg: #{msg}&#34;
+    end
+  end.resume
+end
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_arrow-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L156-179"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">await nc.subscribe(&#39;time.&gt;&#39;, (err, msg) =&gt; {
+    // converting timezones correctly in node requires a library
+    // this doesn&#39;t take into account *many* things.
+    let time = &#34;&#34;;
+    switch (msg.subject) {
+        case &#39;time.us.east&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/New_York&#34;});
+            break;
+        case &#39;time.us.central&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Chicago&#34;});
+            break;
+        case &#39;time.us.mountain&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Denver&#34;});
+            break;
+        case &#39;time.us.west&#39;:
+            time = new Date().toLocaleTimeString(&#34;en-us&#34;, {timeZone: &#34;America/Los_Angeles&#34;});
+            break;
+        default:
+            time = &#34;I don&#39;t know what you are talking about Willis&#34;;
+    }
+    t.log(msg.subject, time);
+});
+</code></pre>
+		
+	
+</div>

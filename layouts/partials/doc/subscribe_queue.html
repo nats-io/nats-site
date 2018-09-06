@@ -1,0 +1,151 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#subscribe_queue-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#subscribe_queue-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#subscribe_queue-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#subscribe_queue-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#subscribe_queue-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#subscribe_queue-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="subscribe_queue-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/subscribe_queue/main.go#L11-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Use a WaitGroup to wait for 10 messages to arrive
+wg := sync.WaitGroup{}
+wg.Add(10)
+
+// Create a queue subscription on &#34;updates&#34; with queue name &#34;workers&#34;
+if _, err := nc.QueueSubscribe(&#34;updates&#34;, &#34;worker&#34;, func(m *nats.Msg) {
+	wg.Done()
+}); err != nil {
+	log.Fatal(err)
+}
+
+// Wait for messages to come in
+wg.Wait()
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/SubscribeQueue.java#L14-35"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+
+// Use a latch to wait for 10 messages to arrive
+CountDownLatch latch = new CountDownLatch(10);
+
+// Create a dispatcher and inline message handler
+Dispatcher d = nc.createDispatcher((msg) -&gt; {
+    String str = new String(msg.getData(), StandardCharsets.UTF_8);
+    System.out.println(str);
+    latch.countDown();
+});
+
+// Subscribe
+d.subscribe(&#34;updates&#34;, &#34;workers&#34;);
+
+// Wait for a message to come in
+latch.await(); 
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L217-221"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.subscribe(&#39;updates&#39;, {queue: &#34;workers&#34;}, (msg) =&gt; {
+    t.log(&#39;worker got message&#39;, msg);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/subscribe_queue.py#L6-23"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+future = asyncio.Future()
+
+async def cb(msg):
+  nonlocal future
+  future.set_result(msg)
+
+await nc.subscribe(&#34;updates&#34;, queue=&#34;workers&#34;, cb=cb)
+await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
+
+msg = await asyncio.wait_for(future, 1)
+print(&#34;Msg&#34;, msg)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/subscribe_queue.rb#L1-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;updates&#34;, queue: &#34;worker&#34;) do |msg, reply|
+      f.resume Time.now
+    end
+
+    nc.publish(&#34;updates&#34;, &#34;A&#34;)
+
+    # Use the response
+    msg = Fiber.yield
+    puts &#34;Msg: #{msg}&#34;
+  end.resume
+end
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="subscribe_queue-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L193-197"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">await nc.subscribe(&#39;updates&#39;, (err, msg) =&gt; {
+    t.log(&#39;worker got message&#39;, msg.data);
+}, {queue: &#34;workers&#34;});
+</code></pre>
+		
+	
+</div>

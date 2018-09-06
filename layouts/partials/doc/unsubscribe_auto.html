@@ -1,0 +1,175 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#unsubscribe_auto-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#unsubscribe_auto-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#unsubscribe_auto-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#unsubscribe_auto-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#unsubscribe_auto-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#unsubscribe_auto-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="unsubscribe_auto-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/unsubscribe_auto/main.go#L10-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">nc, err := nats.Connect(&#34;demo.nats.io&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Sync Subscription
+sub, err := nc.SubscribeSync(&#34;updates&#34;)
+if err != nil {
+	log.Fatal(err)
+}
+if err := sub.AutoUnsubscribe(1); err != nil {
+	log.Fatal(err)
+}
+
+// Async Subscription
+sub, err = nc.Subscribe(&#34;updates&#34;, func(_ *nats.Msg) {})
+if err != nil {
+	log.Fatal(err)
+}
+if err := sub.AutoUnsubscribe(1); err != nil {
+	log.Fatal(err)
+}
+
+// Close the connection
+nc.Close()
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/AutoUnsubscribe.java#L14-31"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Connection nc = Nats.connect(&#34;nats://demo.nats.io:4222&#34;);
+Dispatcher d = nc.createDispatcher((msg) -&gt; {
+    String str = new String(msg.getData(), StandardCharsets.UTF_8);
+    System.out.println(str);
+});
+
+// Sync Subscription
+Subscription sub = nc.subscribe(&#34;updates&#34;);
+sub.unsubscribe(1);
+
+// Async Subscription
+d.subscribe(&#34;updates&#34;);
+d.unsubscribe(&#34;updates&#34;, 1);
+
+// Close the connection
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/subscriber_samples.js#L105-120"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// `max` specifies the number of messages that the server will forward.
+// The server will auto-cancel.
+let opts = {max: 10};
+let sub = nc.subscribe(NATS.createInbox(), opts, (msg) =&gt; {
+    t.log(msg);
+});
+
+// another way after 10 messages
+let sub2 = nc.subscribe(NATS.createInbox(), (err, msg) =&gt; {
+    t.log(msg.data);
+});
+// if the subscription already received 10 messages, the handler
+// won&#39;t get any more messages
+nc.unsubscribe(sub2, 10);
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/unsubscribe_auto.py#L6-21"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+await nc.connect(servers=[&#34;nats://demo.nats.io:4222&#34;])
+
+async def cb(msg):
+  print(msg)
+
+sid = await nc.subscribe(&#34;updates&#34;, cb=cb)
+await nc.auto_unsubscribe(sid, 1)
+await nc.publish(&#34;updates&#34;, b&#39;All is Well&#39;)
+
+# Won&#39;t be received...
+await nc.publish(&#34;updates&#34;, b&#39;...&#39;)
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/unsubscribe_auto.rb#L1-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+require &#39;fiber&#39;
+
+NATS.start(servers:[&#34;nats://127.0.0.1:4222&#34;]) do |nc|
+  Fiber.new do
+    f = Fiber.current
+
+    nc.subscribe(&#34;time&#34;, max: 1) do |msg, reply|
+      f.resume Time.now
+    end
+
+    nc.publish(&#34;time&#34;, &#39;What is the time?&#39;, NATS.create_inbox)
+
+    # Use the response
+    msg = Fiber.yield
+    puts &#34;Reply: #{msg}&#34;
+
+    # Won&#39;t be received
+    nc.publish(&#34;time&#34;, &#39;What is the time?&#39;, NATS.create_inbox)
+
+  end.resume
+end
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="unsubscribe_auto-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/subscriber_samples.ts#L94-109"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// `max` specifies the number of messages that the server will forward.
+// The server will auto-cancel.
+let opts = {max: 10};
+let sub = await nc.subscribe(createInbox(), (err, msg) =&gt; {
+    t.log(msg.data);
+}, opts);
+
+// another way after 10 messages
+let sub2 = await nc.subscribe(createInbox(), (err, msg) =&gt; {
+    t.log(msg.data);
+});
+// if the subscription already received 10 messages, the handler
+// won&#39;t get any more messages
+sub2.unsubscribe(10);
+</code></pre>
+		
+	
+</div>

@@ -1,0 +1,150 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#reconnect_event-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#reconnect_event-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#reconnect_event-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#reconnect_event-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#reconnect_event-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#reconnect_event-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="reconnect_event-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/reconnect_event/main.go#L10-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Connection event handlers are invoked asynchronously
+// and the state of the connection may have changed when
+// the callback is invoked.
+nc, err := nats.Connect(&#34;demo.nats.io&#34;,
+	nats.DisconnectHandler(func(nc *nats.Conn) {
+		// handle disconnect event
+	}),
+	nats.ReconnectHandler(func(nc *nats.Conn) {
+		// handle reconnect event
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ReconnectEvents.java#L12-28"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
+                            server(&#34;nats://demo.nats.io:4222&#34;).
+                            connectionListener((conn, type) -&gt; {
+                                if (type == Events.RECONNECTED) {
+                                    // handle reconnected
+                                } else if (type == Events.DISCONNECTED) {
+                                    // handle disconnected, wait for reconnect
+                                }
+                            }).
+                            build();
+Connection nc = Nats.connect(options);
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/reconnect_samples.js#L74-83"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    maxReconnectAttempts: 10,
+    servers: [&#34;nats://demo.nats.io:4222&#34;]
+});
+
+nc.on(&#39;reconnect&#39;, (c) =&gt; {
+    console.log(&#39;reconnected&#39;);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/reconnect_event.py#L6-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+
+async def disconnected_cb():
+   print(&#34;Got disconnected!&#34;)
+
+async def reconnected_cb():
+   # See who we are connected to on reconnect.
+   print(&#34;Got reconnected to {url}&#34;.format(url=nc.connected_url.netloc))
+
+await nc.connect(
+   servers=[&#34;nats://demo.nats.io:4222&#34;],
+   reconnect_time_wait=10,
+   reconnected_cb=reconnected_cb,
+   disconnected_cb=disconnected_cb,
+   )
+
+# Do something with the connection.
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/reconnect_event.rb#L1-14"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(servers: [&#34;nats://127.0.0.1:1222&#34;, &#34;nats://127.0.0.1:1223&#34;, &#34;nats://127.0.0.1:1224&#34;]) do |nc|
+   # Do something with the connection
+   nc.on_reconnect do
+    puts &#34;Got reconnected to #{nc.connected_server}&#34;
+  end
+
+  nc.on_disconnect do |reason|
+    puts &#34;Got disconnected! #{reason}&#34;
+  end
+end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="reconnect_event-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/reconnect_samples.ts#L57-70"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+    maxReconnectAttempts: 10,
+    servers: [&#34;nats://demo.nats.io:4222&#34;]
+});
+// first argument is the connection (same as nc in this case)
+// second argument is the url of the server where the client
+// connected
+nc.on(&#39;reconnect&#39;, (conn, server) =&gt; {
+    console.log(&#39;reconnected to&#39;, server);
+});
+nc.close();
+</code></pre>
+		
+	
+</div>

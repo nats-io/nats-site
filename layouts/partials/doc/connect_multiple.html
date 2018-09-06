@@ -1,0 +1,137 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#connect_multiple-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#connect_multiple-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#connect_multiple-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#connect_multiple-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#connect_multiple-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#connect_multiple-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="connect_multiple-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/connect_multiple/main.go#L11-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">servers := []string{&#34;nats://localhost:1222&#34;,
+	&#34;nats://localhost:1223&#34;,
+	&#34;nats://localhost:1224&#34;,
+}
+
+nc, err := nats.Connect(strings.Join(servers, &#34;,&#34;))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ConnectToMultipleServers.java#L11-22"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">Options options = new Options.Builder().
+                            server(&#34;nats://localhost:1222&#34;).
+                            server(&#34;nats://localhost:1223&#34;).
+                            server(&#34;nats://localhost:1224&#34;).
+                            build();
+Connection nc = Nats.connect(options);
+
+// Do something with the connection
+
+nc.close();
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/connection_samples.js#L67-84"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect({
+    servers: [
+        &#34;nats://demo.nats.io:4222&#34;,
+        &#34;nats://localhost:4222&#34;
+    ]}
+);
+
+nc.on(&#39;connect&#39;, (c) =&gt; {
+    // Do something with the connection
+    doSomething();
+    // When done close it
+    nc.close();
+});
+nc.on(&#39;error&#39;, (err) =&gt; {
+    failed(err);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_multiple.py#L5-17"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">nc = NATS()
+await nc.connect(servers=[
+   &#34;nats://127.0.0.1:1222&#34;,
+   &#34;nats://127.0.0.1:1223&#34;,
+   &#34;nats://127.0.0.1:1224&#34;
+   ])
+
+# Do something with the connection
+
+await nc.close()
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/connect_multiple.rb#L1-10"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby">require &#39;nats/client&#39;
+
+NATS.start(servers: [&#34;nats://127.0.0.1:1222&#34;, &#34;nats://127.0.0.1:1223&#34;, &#34;nats://127.0.0.1:1224&#34;]) do |nc|
+   # Do something with the connection
+
+   # Close the connection
+   nc.close
+end
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="connect_multiple-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/connection_samples.ts#L53-65"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">// will throw an exception if connection fails
+let nc = await connect({
+        servers: [
+            &#34;nats://demo.nats.io:4222&#34;,
+            &#34;nats://localhost:4222&#34;
+        ]
+});
+// Do something with the connection
+
+// When done close it
+nc.close();
+</code></pre>
+		
+	
+</div>

@@ -166,17 +166,17 @@ a[name]:before {
 
 // Headers
 h1 {
-  font-weight: 400;
+  font-weight: 600;
 }
 h2 {
-  font-weight: 400;
+  font-weight: 600;
 }
 h3 {
-  font-weight: 600;
+  font-weight: 400;
   color: @nats-colour-blue-dark;
 }
 h4 {
-  font-weight: 600;
+  font-weight: 400;
   color: @nats-colour-blue-dark;
 }
 h5 {
@@ -218,6 +218,16 @@ h6 {
   width: 50px;
   height: 50px;
   margin: 0px -5px -16px -5px;
+}
+
+.toolbar-icons {
+  display: inline-block;
+  position: relative;
+  padding-left: 4px;
+}
+
+a.toolbar-icons {
+  text-decoration: none;
 }
 
 // Labels
@@ -810,8 +820,23 @@ html#home-html {
   }
 }
 
+// Catch graph viz sections before prism, and after we remove language-viz
+div.graphviz {
+  background: transparent;
+  border: 0;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+code[data-viz] {
+  display: none;
+}
+
 // Documentation
-#nats-documentation-detail-page {
+#nats-documentation-detail-page, #nats-docs-detail-page {
+
   #main-con {
     //background: url(/img/about-neuron-docs.png) right top no-repeat;
     padding-top: 20px;

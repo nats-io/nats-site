@@ -1,0 +1,119 @@
+
+
+<ul class="nav nav-tabs">
+  	
+		
+		<li class="active api-lang" data-language="go">
+			<a data-toggle="tab" href="#servers_added-go">Go</a>
+	  	</li>
+		
+	
+		
+		<li class="api-lang" data-language="java">
+		  <a data-toggle="tab" href="#servers_added-java">Java</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="js">
+		  <a data-toggle="tab" href="#servers_added-js">JavaScript</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="py">
+		  <a data-toggle="tab" href="#servers_added-py">Python</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ruby">
+		  <a data-toggle="tab" href="#servers_added-ruby">Ruby</a>
+		</li>
+		
+	
+		
+		<li class="api-lang" data-language="ts">
+		  <a data-toggle="tab" href="#servers_added-ts">TypeScript</a>
+		</li>
+		
+	
+</ul>
+<div class="tab-content">
+	
+		
+		<pre class="tab-pane fade in active" id="servers_added-go"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/go-nats-examples/blob/master/api-examples/servers_added/main.go#L10-25"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-go">// Be notified if a new server joins the cluster.
+// Print all the known servers and the only the ones that were discovered.
+nc, err := nats.Connect(&#34;demo.nats.io&#34;,
+	nats.DiscoveredServersHandler(func(nc *nats.Conn) {
+		log.Printf(&#34;Known servers: %v\n&#34;, nc.Servers())
+		log.Printf(&#34;Discovered servers: %v\n&#34;, nc.DiscoveredServers())
+	}))
+if err != nil {
+	log.Fatal(err)
+}
+defer nc.Close()
+
+// Do something with the connection
+
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-java"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/java-nats-examples/blob/master/src/main/java/io/nats/examples/ListenForNewServers.java#L8-37"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-java">class ServersAddedListener implements ConnectionListener {
+    public void connectionEvent(Connection nc, Events event) {
+        if (event == Events.DISCOVERED_SERVERS) {
+            for (String server : nc.getServers()) {
+                System.out.println(&#34;Known server: &#34;&#43;server);
+            }
+        }
+    }
+}
+
+public class ListenForNewServers {
+    public static void main(String[] args) {
+
+        try {
+            Options options = new Options.Builder().
+                                        server(&#34;nats://demo.nats.io:4222&#34;).
+                                        connectionListener(new ServersAddedListener()). // Set the listener
+                                        build();
+            Connection nc = Nats.connect(options);
+
+            // Do something with the connection
+
+            nc.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-js"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/node-nats-examples/blob/master/src/event_samples.js#L56-61"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">let nc = NATS.connect(&#34;nats://demo.nats.io:4222&#34;);
+nc.on(&#39;serversDiscovered&#39;, (urls) =&gt; {
+    t.log(&#39;serversDiscovered&#39;, urls);
+});
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/notapplicable.txt#L13-15"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python"># Asyncio NATS client does not support discovered servers handler right now
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-ruby"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ruby-nats-examples/blob/master/notapplicable.txt#L25-27"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-ruby"># The Ruby NATS client does not support discovered servers handler right now
+</code></pre>
+		
+	
+		
+		<pre class="tab-pane fade" id="servers_added-ts"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/ts-nats-examples/blob/master/src/event_samples.ts#L36-40"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-javascript">nc.on(&#39;serversChanged&#39;, (ce) =&gt; {
+    t.log(&#39;servers changed\n&#39;, &#39;added: &#39;,ce.added, &#39;removed:&#39;, ce.removed);
+});
+</code></pre>
+		
+	
+</div>
