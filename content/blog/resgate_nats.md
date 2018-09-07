@@ -2,8 +2,8 @@
 categories = ["Community"]
 date = "2018-09-07"
 tags = ["community", "engineering"]
-title = "Resgate - a Realtime API Gateway"
-author = "Samuel Jirenius"
+title = "Guest Post | Resgate - a Realtime API Gateway"
+author = "Samuel Jirénius"
 +++
 
 
@@ -38,8 +38,9 @@ The fact that NATS, just like Resgate, is written in Go, made the choice even ea
 A simple NATS+Resgate setup would look like this:
 
 <p align="center">
-<img class="img-responsive center-block" alt="Architecture Diagram" src="/img/blog/resgate-nats/simple-res-network-icon.svg">
+<img class="img-responsive center-block" alt="Architecture Diagram" src="/img/blog/resgate-nats/simple-res-network-icon.png">
 </p>
+
 
 Resgate becomes the single entry point for all clients. While there might be one macro-service, or a hundred micro-services, connected to NATS, the client that accesses the API will perceive it as a single unified API.
 
