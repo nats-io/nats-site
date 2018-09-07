@@ -11,7 +11,7 @@ author = "Samuel Jirenius"
 
 REST APIs are nice. Simple. Stateless. Scalable. But to keep client data updated in real time, things get more complicated. Streaming events is easy, but you start having to deal with questions like:
 
-<img align="right" alt="Wolf Questioning" src="img/blog/resgate-nats/wolf_questioning_150x240.png">
+<img align="right" alt="Wolf Questioning" src="/img/blog/resgate-nats/wolf_questioning_150x240.png">
 
 *Which resources do I need events for?*  
 *How do I manage sending each client only the events they need?*  
@@ -38,7 +38,7 @@ The fact that NATS, just like Resgate, is written in Go, made the choice even ea
 A simple NATS+Resgate setup would look like this:
 
 <p align="center">
-<img class="img-responsive center-block" alt="Architecture Diagram" src="simple-res-network-icon.svg">
+<img class="img-responsive center-block" alt="Architecture Diagram" src="/img/blog/resgate-nats/simple-res-network-icon.svg">
 </p>
 
 Resgate becomes the single entry point for all clients. While there might be one macro-service, or a hundred micro-services, connected to NATS, the client that accesses the API will perceive it as a single unified API.
@@ -87,7 +87,7 @@ mymodel.message = "Hello NATS+Resgate";
 nats.publish('event.models.mymodel.change', JSON.stringify({ message: mymodel.message }));
 ```
 
-<img align="right" alt="Wolf match maker" src="wolf_now_kiss_135x240.png">
+<img align="right" alt="Wolf match maker" src="/img/blog/resgate-nats/wolf_now_kiss_135x240.png">
 
 That's it!
 
@@ -151,7 +151,7 @@ Access control is done on the level of resources and resource methods. Access ca
 
 ## Conclusion and evolution
 
-<img align="right" style="margin: 8px 8px" alt="Wolf relaxing" src="wolf_relaxing_210x156.png">
+<img align="right" style="margin: 8px 8px" alt="Wolf relaxing" src="/img/blog/resgate-nats/wolf_relaxing_210x156.png">
 
  With NATS+Resgate and the REsource Subscription (RES) protocol, you can get real time updates to your web clients while gaining functionality such as **end-user authentication**, **resource caching**, and **data-loss recovery**. And it is **fast** and **simple**!
 
