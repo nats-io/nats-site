@@ -159,7 +159,7 @@ Access control is done on the level of resources and resource methods. Access ca
 If you are interested in knowing more, visit the project page on [Github](https://github.com/jirenius/resgate).  
 Or if you have any question or feedback, don't hesitate to contact me directly via email:
 
-[&#115;&#097;&#109;&#117;&#101;&#108;&#064;&#106;&#105;&#114;&#101;&#110;&#105;&#117;&#115;&#046;&#099;&#111;&#109;](mailto:&#115;&#097;&#109;&#117;&#101;&#108;&#064;&#106;&#105;&#114;&#101;&#110;&#105;&#117;&#115;&#046;&#099;&#111;&#109;)
+[samuel@jirenius.com](mailto:samuel@jirenius.com)
 
 Or find me in the [NATS Community](https://natsio.slack.com/messages/DBET737GV).
 
