@@ -2,7 +2,7 @@
 categories = ["Community"]
 date = "2018-09-07"
 tags = ["community", "engineering", "guest-post", "rest", "architecture", "microservices", "websocket", "real-time" ]
-title = "Guest Post: Synchronize web apps in real time with NATS"
+title = "Guest Post: Synchronize web apps in real time with NATS+Resgate"
 author = "Samuel Jirénius"
 +++
 
