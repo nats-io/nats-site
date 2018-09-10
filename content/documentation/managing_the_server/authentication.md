@@ -79,7 +79,7 @@ authorization {
 }
 ```
 
-You can also use [variables](/doc/managing_the_server/configuration) to set user and password values. For example, here a password is declared as a variable named PASS and assigned to Joe.
+You can also use [variables](/documentation/managing_the_server/configuration) to set user and password values. For example, here a password is declared as a variable named PASS and assigned to Joe.
 
 ```ascii
 authorization {
@@ -118,4 +118,4 @@ Using token 'S3Cr3T0k3n!'
 nats://S3Cr3T0k3n!@localhost:4222
 ```
 
-or use other methods discussed in the [developer doc](/doc/writing_applications/secure_connection).
+or use other methods discussed in the [developer doc](/documentation/writing_applications/secure_connection).

@@ -19,7 +19,7 @@ There are two kinds of authentication in NATS as well as [certificate verificati
 * User/Password
 * Token
 
-While the server can be configured to take either of these via the configuration file, we will use the command line in these examples to make things easy. See the [server doc](/doc/managing_the_server/authentication/) for more details on the configuration file format.
+While the server can be configured to take either of these via the configuration file, we will use the command line in these examples to make things easy. See the [server doc](/documentation/managing_the_server/authentication/) for more details on the configuration file format.
 
 For the user/password examples, start the server using:
 

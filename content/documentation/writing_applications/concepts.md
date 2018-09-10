@@ -59,7 +59,7 @@ digraph nats_pub_sub {
 }
 </code></div>
 
-Try NATS publish subscribe on your own, using a live server by walking through the [pub-sub tutorial](/doc/additional_documentation/nats-pub-sub).
+Try NATS publish subscribe on your own, using a live server by walking through the [pub-sub tutorial](/documentation/additional_documentation/nats-pub-sub).
 
 ## <a name="reqrep"></a>Request Reply
 
@@ -100,7 +100,7 @@ digraph nats_request_reply {
 }
 </code></div>
 
-Try NATS request reply on your own, using a live server by walking through the [request/reply tutorial](/doc/additional_documentation/nats-req-rep).
+Try NATS request reply on your own, using a live server by walking through the [request/reply tutorial](/documentation/additional_documentation/nats-req-rep).
 
 ## <a name="queue"></a>Queue Subscribers & Sharing Work
 
@@ -126,4 +126,4 @@ digraph nats_queues {
 }
 </code></div>
 
-Try NATS queue subscriptions on your own, using a live server by walking through the [queueing tutorial](/doc/additional_documentation/nats-queueing).
+Try NATS queue subscriptions on your own, using a live server by walking through the [queueing tutorial](/documentation/additional_documentation/nats-queueing).

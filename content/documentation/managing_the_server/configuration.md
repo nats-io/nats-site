@@ -38,7 +38,7 @@ The config file format supports the following syntax:
 - Maps can be assigned with no key separator
 - Semicolons as value terminators in key/value assignments are optional
 
-In general the configuration parameters are the same as the [command line arguments](/doc/managing_the_server/running). Note, however, the following differences:
+In general the configuration parameters are the same as the [command line arguments](/documentation/managing_the_server/running). Note, however, the following differences:
 
 - The listen option is host:port for connections, on the server command line it is -a and -p, no hostport is supported.
 - http/https is only a port on the command line, on the config it is host:port (there’s no config flag for the interface for the monitoring)

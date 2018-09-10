@@ -10,12 +10,12 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-NATS supports [message queueing](/doc/writing_applications/concepts) using queue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
+NATS supports [message queueing](/documentation/writing_applications/concepts) using queue groups. Subscribers register a queue group name. A single subscriber in the group is randomly selected to receive the message.
 
 #### Prerequisites
 
-- [Set up your Go environment](/doc/additional_documentation/go-install)
-- [Installed the NATS server](/doc/managing_the_server/installing)
+- [Set up your Go environment](/documentation/additional_documentation/go-install)
+- [Installed the NATS server](/documentation/managing_the_server/installing)
 
 ## Instructions
 

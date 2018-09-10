@@ -39,7 +39,7 @@ Probably the best way to learn about implementing a client is to look at one of 
 
 ## Client connection options
 
-Clients can connect in authenticated or unauthenticated mode, as well as verbose mode which enables acknowledgements. See the [protocol documentation](/doc/internals/nats-protocol/#CONNECT) for details.
+Clients can connect in authenticated or unauthenticated mode, as well as verbose mode which enables acknowledgements. See the [protocol documentation](/documentation/internals/nats-protocol/#CONNECT) for details.
 
 ## Client authorization
 
@@ -71,7 +71,7 @@ NATS implements auto-pruning. When a client connects to the server, the server e
 
 ## Parsing the protocol
 
-NATS provides a text-based message format. The text-based [protocol](/doc/internals/nats-protocol/) makes it easy to implement NATS clients. The key consideration is deciding on a parsing strategy.
+NATS provides a text-based message format. The text-based [protocol](/documentation/internals/nats-protocol/) makes it easy to implement NATS clients. The key consideration is deciding on a parsing strategy.
 
 The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient. Off the wire, a NATS message is simply a slice of bytes. Across the wire the message is transported as an immutable string over a TCP connection. It is up to the client to implement logic to parse the message.
 

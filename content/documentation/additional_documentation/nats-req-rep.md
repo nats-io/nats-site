@@ -10,7 +10,7 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-NATS supports [request reply messaging](/doc/writing_applications/concepts). In this tutorial you explore how to exchange point-to-point messages using NATS.
+NATS supports [request reply messaging](/documentation/writing_applications/concepts). In this tutorial you explore how to exchange point-to-point messages using NATS.
 
 #### Prerequisites
 

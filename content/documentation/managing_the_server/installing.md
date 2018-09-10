@@ -25,7 +25,7 @@ The latest official release binaries are always available on the [GitHub release
 
 #### Go
 
-Make sure [your Go environment is set up](/doc/additional_documentation/go-install/), then install using `go get`.
+Make sure [your Go environment is set up](/documentation/additional_documentation/go-install/), then install using `go get`.
 
 ```sh
 go get github.com/nats-io/gnatsd
