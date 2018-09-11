@@ -1,13 +1,11 @@
 +++
 categories = ["Community"]
 date = "2018-09-07"
-tags = ["community", "engineering"]
-title = "Guest Post | Resgate - a Realtime API Gateway"
+tags = ["community", "engineering", "guest-post", "rest", "architecture", "microservices", "websocket", "real-time" ]
+title = "Guest Post: Synchronize web apps in real time with NATS+Resgate"
 author = "Samuel Jirénius"
 +++
 
-
-# Synchronize web client data in real time with NATS
 
 REST APIs are nice. Simple. Stateless. Scalable. But to keep client data updated in real time, things get more complicated. Streaming events is easy, but you start having to deal with questions like:
 
@@ -161,7 +159,7 @@ Access control is done on the level of resources and resource methods. Access ca
 If you are interested in knowing more, visit the project page on [Github](https://github.com/jirenius/resgate).  
 Or if you have any question or feedback, don't hesitate to contact me directly via email:
 
-[&#115;&#097;&#109;&#117;&#101;&#108;&#064;&#106;&#105;&#114;&#101;&#110;&#105;&#117;&#115;&#046;&#099;&#111;&#109;](mailto:&#115;&#097;&#109;&#117;&#101;&#108;&#064;&#106;&#105;&#114;&#101;&#110;&#105;&#117;&#115;&#046;&#099;&#111;&#109;)
+[samuel@jirenius.com](mailto:samuel@jirenius.com)
 
 Or find me in the [NATS Community](https://natsio.slack.com/messages/DBET737GV).
 
@@ -171,7 +169,7 @@ Samuel Jirénius is a long time developer with his roots in C64 Basic and Amiga'
 
 He has been working as the system architect and lead developer of Altitude Xperience, a cloud based call center solution developed by [Altitude](https://www.altitude.com/). The call center market's requirement of scalability, high availablity, and real time client synchronization, seeded the ideas that would eventually, after leaving Altitude, lead to the development of Resgate.
 
-Samuel is currently working at [PRO NON X](https://www.prononx.se/)
+Samuel is currently working at [PRO NON X](https://www.prononx.se/).
 
 ## Links
 * **[Resgate](https://github.com/jirenius/resgate)** - project page for the realtime API gateway
