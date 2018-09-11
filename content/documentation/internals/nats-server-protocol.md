@@ -9,7 +9,7 @@ category = "internals"
   parent = "NATS Internals"
 +++
 
-The NATS server clustering protocol describes the messages passed between NATS servers within a [cluster](/doc/managing_the_server/clustering/) to share subscription state, forward messages, and share cluster topology.  It is a simple, text-based publish/subscribe style protocol. Servers communicate with each other through a regular TCP/IP socket using a small set of protocol operations that are terminated by newline.
+The NATS server clustering protocol describes the messages passed between NATS servers within a [cluster](/documentation/managing_the_server/clustering/) to share subscription state, forward messages, and share cluster topology.  It is a simple, text-based publish/subscribe style protocol. Servers communicate with each other through a regular TCP/IP socket using a small set of protocol operations that are terminated by newline.
 
 The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient.
 

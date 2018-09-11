@@ -10,7 +10,7 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-You can use [nats-top](/doc/managing_the_server/statistics) to monitor in realtime NATS server connections and message statistics.
+You can use [nats-top](/documentation/managing_the_server/statistics) to monitor in realtime NATS server connections and message statistics.
 
 #### Prerequisites
 
@@ -58,7 +58,7 @@ Connections: 0
 
 Run some NATS client programs and exchange messages.
 
-For the best experience, you will want to run multiple subscribers, at least 2 or 3. Refer to the [example pub-sub clients](/doc/additional_documentation/nats-pub-sub).
+For the best experience, you will want to run multiple subscribers, at least 2 or 3. Refer to the [example pub-sub clients](/documentation/additional_documentation/nats-pub-sub).
 
 #### 5. Check nats-top for statistics
 

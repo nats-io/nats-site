@@ -10,7 +10,7 @@ category = "tutorials"
   parent = "Additional Documentation"
 +++
 
-NATS is a [publish subscribe messaging system](/doc/writing_applications/concepts). Subscribers listening on a subject name receive messages on that subject. If the subscriber is not actively listening on the subject, the message is not received. Subscribers can use the wildcard subjects `*` to match a single token to match the tail of a subject.
+NATS is a [publish subscribe messaging system](/documentation/writing_applications/concepts). Subscribers listening on a subject name receive messages on that subject. If the subscriber is not actively listening on the subject, the message is not received. Subscribers can use the wildcard subjects `*` to match a single token to match the tail of a subject.
 
 <div class="graphviz"><code data-viz="dot">
 digraph nats_pub_sub {

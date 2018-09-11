@@ -9,9 +9,9 @@ category = "server"
   parent = "Managing the Server"
 +++
 
-The NATS server supports authorization using subject-level permissions on a per-user basis. Permission-based authorization is available with [multi-user authentication](/doc/managing_the_server/authentication/).
+The NATS server supports authorization using subject-level permissions on a per-user basis. Permission-based authorization is available with [multi-user authentication](/documentation/managing_the_server/authentication/).
 
-Each permission grant is an object with two fields: what subject(s) the authenticated user can publish to, and what subject(s) the authenticated user can subscribe to. The parser is generous at understanding what the intent is, so both arrays and singletons are processed. Subjects themselves can contain wildcards. Permissions can make use of [variables](/doc/managing_the_server/configuration).
+Each permission grant is an object with two fields: what subject(s) the authenticated user can publish to, and what subject(s) the authenticated user can subscribe to. The parser is generous at understanding what the intent is, so both arrays and singletons are processed. Subjects themselves can contain wildcards. Permissions can make use of [variables](/documentation/managing_the_server/configuration).
 
 You set permissions by creating an entry inside of the `authorization` configuration block that conforms to the following syntax:
 

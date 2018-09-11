@@ -11,7 +11,7 @@ category = "internals"
 
 The wire protocol used to communicate between the NATS server and clients is a simple, text-based publish/subscribe style protocol. Clients connect to and communicate with `gnatsd` (the NATS server) through a regular TCP/IP socket using a small set of protocol operations that are terminated by a new line.
 
-Unlike traditional messaging systems that use a binary message format that require an API to consume, the text-based NATS protocol makes it easy to implement clients in a wide variety of programming and scripting languages. In fact, refer to the topic [NATS Protocol Demo](/doc/internals/nats-protocol-demo/) to play with the NATS protocol for yourself using telnet.
+Unlike traditional messaging systems that use a binary message format that require an API to consume, the text-based NATS protocol makes it easy to implement clients in a wide variety of programming and scripting languages. In fact, refer to the topic [NATS Protocol Demo](/documentation/internals/nats-protocol-demo/) to play with the NATS protocol for yourself using telnet.
 
 The NATS server implements a [zero allocation byte parser](https://youtu.be/ylRKac5kSOk?t=10m46s) that is fast and efficient.
 

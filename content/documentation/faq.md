@@ -37,7 +37,7 @@ category = "concepts"
 ### <a name="NATS"></a>What is NATS?
 NATS is an open source, lightweight, high-performance cloud native infrastructure messaging system. It implements a highly scalable and elegant publish-subscribe (pub/sub) distribution model. The performant nature of NATS make it an ideal base for building modern, reliable, scalable cloud native distributed systems.
 
-NATS is offered in two interoperable modules: the core NATS platform (referred to simply as "NATS" throughout this site), and [NATS Streaming](/doc/streaming/nats-streaming-intro/), an event streaming service that can be employed to add event streaming, delivery guarantees, and historical data replay to NATS.
+NATS is offered in two interoperable modules: the core NATS platform (referred to simply as "NATS" throughout this site), and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service that can be employed to add event streaming, delivery guarantees, and historical data replay to NATS.
 
 NATS was created by Derek Collison, who has over 20 years designing, building, and using publish-subscribe messaging systems. NATS is maintained by an amazing OpenSource Ecosystem, find more at  [GitHub](https://www.github.com/nats-io).
 
@@ -79,7 +79,7 @@ There are several options available, thanks to the active NATS community:
 
 * [nats-mon](https://github.com/repejota/nats-mon) is a monitoring tool developed by Raül Pérez and Adrià Cidre.
 
-A more detailed overview of monitoring is available under [Server Monitoring](/doc/managing_the_server/monitoring/).
+A more detailed overview of monitoring is available under [Server Monitoring](/documentation/managing_the_server/monitoring/).
 
 ### <a name="queuegroups"></a>Does NATS do queuing? Does NATS do load balancing?
 
@@ -91,7 +91,7 @@ This form of distributed queueing is done in real time, and messages are not per
 
 NATS maintains and constantly updates the interest graph (subjects and their subscribers) in real time. Do not think of it as a "directory" that is aggregated over time. The interest graph dynamic, and will change constantly as publishers and subscribers come and go.
 
-If you are determined to gather this information, it can be indirectly derived at any instant in time by polling the monitoring endpoint for /connz and /routez. See [Server Monitoring](/doc/managing_the_server/monitoring/) for more information.
+If you are determined to gather this information, it can be indirectly derived at any instant in time by polling the monitoring endpoint for /connz and /routez. See [Server Monitoring](/documentation/managing_the_server/monitoring/) for more information.
 
 ### <a name="wildcards"></a>Does NATS support subject wildcards?
 
@@ -125,15 +125,15 @@ No. As of `gnatsd` v0.8.0, there is no hard limit on the maximum number of subje
 
 ### <a name="gmd"></a>Does NATS guarantee message delivery?
 
-NATS is offered as two components: the basic platform (referred to simply as "NATS") and [NATS Streaming](/doc/streaming/nats-streaming-intro/), which is a data streaming service based on NATS.
+NATS is offered as two components: the basic platform (referred to simply as "NATS") and [NATS Streaming](/documentation/streaming/nats-streaming-intro/), which is a data streaming service based on NATS.
 
 - **NATS** implements what is commonly referred to as "at-most-once" delivery. This means that messages are guaranteed to arrive intact, in order from a given publisher, but not across different publishers. NATS does everything required to remain on and provide a dial-tone. However, if a subscriber is problematic or goes offline it will not receive messages, as the basic NATS platform is a simple pub-sub transport system that offers only TCP reliability.
 
-- **[NATS Streaming](/doc/streaming/nats-streaming-intro/)** offers _at-least-once_ delivery guarantees by implementing publish and delivery acknowledgements, and persisting messages to memory or a secondary store until messages have been successfully delivered, or until resource limits or other administrator-defined limits have been reached.
+- **[NATS Streaming](/documentation/streaming/nats-streaming-intro/)** offers _at-least-once_ delivery guarantees by implementing publish and delivery acknowledgements, and persisting messages to memory or a secondary store until messages have been successfully delivered, or until resource limits or other administrator-defined limits have been reached.
 
 ### <a name="historical"></a>Does NATS support replay/redelivery of historical data?
 
-Yes, historical data may be persisted to memory or secondary storage and replayed using [NATS Streaming](/doc/streaming/nats-streaming-intro/), an event streaming service based on (and compatible with) NATS.
+Yes, historical data may be persisted to memory or secondary storage and replayed using [NATS Streaming](/documentation/streaming/nats-streaming-intro/), an event streaming service based on (and compatible with) NATS.
 
 ### <a name="unsubscribe"></a>How do I gracefully shut down an asynchronous subscriber?
 

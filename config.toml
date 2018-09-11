@@ -80,7 +80,7 @@ parent = "nats-streaming"
 name = "Documentation"
 weight = 3
 identifier = "doc"
-url = "/doc"
+url = "/documentation"
 
 [[menu.main]]
 name = "Getting Started With NATS"

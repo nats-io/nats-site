@@ -34,7 +34,7 @@ If you run the NATS server with monitoring enabled, you see the following messag
 
 ## Command Line Options
 
-There are two ways to configure the server. You can include one or more command line arguments as described below, or you can use a [configuration file](/doc/managing_the_server/configuration).
+There are two ways to configure the server. You can include one or more command line arguments as described below, or you can use a [configuration file](/documentation/managing_the_server/configuration).
 
 ### Common Options
 
@@ -51,7 +51,7 @@ There are two ways to configure the server. You can include one or more command 
     -c, --config FILE                File path to server configuration.
     -client_advertise HOST:PORT      Configure the HOST and PORT returned in the INFO message
 
-See [Configuration](/doc/managing_the_server/configuration).
+See [Configuration](/documentation/managing_the_server/configuration).
 
 ### Logging options
 
@@ -63,7 +63,7 @@ See [Configuration](/doc/managing_the_server/configuration).
     -V, --trace                      Trace the raw protocol
     -DV                              Debug and Trace
 
-See [Logging](/doc/managing_the_server/logging).
+See [Logging](/documentation/managing_the_server/logging).
 
 ### Single User Authentication options
 
@@ -71,7 +71,7 @@ See [Logging](/doc/managing_the_server/logging).
     --pass password              Password required for connections
     --auth token                 Token required for connections
 
-See [Authentication](/doc/managing_the_server/authentication).
+See [Authentication](/documentation/managing_the_server/authentication).
 
 ### TLS Options
 
@@ -87,7 +87,7 @@ See [Authentication](/doc/managing_the_server/authentication).
     --routes [rurl-1, rurl-2]    Routes to solicit and connect
     --cluster [cluster url]      Cluster URL for solicited routes
 
-See [Clustering](/doc/managing_the_server/clustering).
+See [Clustering](/documentation/managing_the_server/clustering).
 
 If routing is enabled, route (server) connections listen on port 6222.
 
