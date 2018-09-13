@@ -10,11 +10,11 @@ category = "server"
   parent = "Managing the Server"
 +++
 
-The basic strategy for upgrading a cluster revolves around the server's ability to gossip cluster configuration to clients. When cluster configuration changes, clients become aware of new servers automatically. In case of a disconnect, a client has a list of servers that joined the cluster in addition to the ones it knew about from its connection settings. 
+The basic strategy for upgrading a cluster revolves around the server's ability to gossip cluster configuration to clients and other servers. When cluster configuration changes, clients become aware of new servers automatically. In case of a disconnect, a client has a list of servers that joined the cluster in addition to the ones it knew about from its connection settings. 
 
 Note that since each server stores it's own permission and authentication configuration, new servers added to a cluster should provide the same users and authorization to prevent clients from getting rejected or gaining unexpected privileges.
 
-For purposes of describing the scenario, let's get some fingers on keyboards, and go through the motions. Let's consider a tiny cluster of two servers: 'A' and 'B.', and yes - clusters should be *three* to *five* servers, but for purposes of describing the behavior and cluster upgrade process, a cluster of two servers will suffice. 
+For purposes of describing the scenario, let's get some fingers on keyboards, and go through the motions. Let's consider a cluster of two servers: 'A' and 'B.', and yes - clusters should be *three* to *five* servers, but for purposes of describing the behavior and cluster upgrade process, a cluster of two servers will suffice. 
 
 Let's build this cluster:
 
@@ -22,12 +22,12 @@ Let's build this cluster:
 gnatsd -D -p 4222 -cluster nats://localhost:6222 -routes nats://localhost:6222,nats://localhost:6333
 ```
 
-The command above is starting gnatsd with debug output enabled on port 4222, and accepting cluster connections on port 6222. The `-routes` option specifies a list of nats URLs where the server will attempt to connect
+The command above is starting gnatsd with debug output enabled, listening for clients on port 4222, and accepting cluster connections on port 6222. The `-routes` option specifies a list of nats URLs where the server will attempt to connect
 to other servers. These URLs define the cluster ports enabled on the cluster peers.
 
-Keen readers will notice a self-route. Gnatsd will ignore the self-route, but it makes for very efficient copy/paste.
+Keen readers will notice a self-route. Gnatsd will ignore the self-route, but it makes for a single consistent configuration for all servers.
 
-You will see the server started, we notice it emits some errors because it cannot connect to 'localhost:6333'. The message more accurately reads:
+You will see the server started, we notice it emits some warnings because it cannot connect to 'localhost:6333'. The message more accurately reads:
 
 ```ascii
  Error trying to connect to route: dial tcp localhost:6333: connect: connection refused
@@ -57,7 +57,7 @@ gnatsd -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222,n
 
 After an instant or so, clients on 'A' learn of the new cluster member that joined. On our hands-on  tutorial, `nats-sub` is now aware of 3 possible servers, 'A' (specified when we started the tool) and 'B' and 'T' learned from the cluster gossip.
 
-We invoke our admin powers and turn off 'A' by issuing a `ctrl+Z` to the terminal on 'A,' and observe that either 'B' or 'T' reports that a new client connected. That is our `nats-sub` client.
+We invoke our admin powers and turn off 'A' by issuing a `CTRL+C` to the terminal on 'A,' and observe that either 'B' or 'T' reports that a new client connected. That is our `nats-sub` client.
 
 We perform the upgrade process, update the binary for 'A', and restart 'A':
 
@@ -72,3 +72,25 @@ gnatsd -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222,n
 ```
 
 If we had more servers, we would continue the stop, update, restart rotation as we did for 'A' and 'B.'  After restarting the last server, we can go ahead and turn off 'T.' Any clients on 'T' will redistribute to our permanent cluster members.
+
+
+### Seed Servers
+
+In the examples above we started gnatsd specifying two clustering routes. It is possible to allow the server gossip protocol drive it and reduce the amount of configuration. You could for example start A, B and C as follows:
+
+#### A - Seed Server
+```bash
+gnatsd -D -p 4222 -cluster nats://localhost:6222
+```
+
+#### B
+```bash
+gnatsd -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222
+```
+
+#### C
+```bash
+gnatsd -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222
+```
+
+Once they connect to the 'seed server', the will learn about all the other servers and connect to each other forming the full mesh.
