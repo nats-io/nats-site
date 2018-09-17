@@ -146,9 +146,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.0
+  version_num: 0.8.2
   release_notes: |
-    Release v0.8.0 on August 24th, 2018.
+    Release v0.8.2 on September 17th, 2018.
   github:
     - user: nats-io
       repo: asyncio-nats
