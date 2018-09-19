@@ -99,7 +99,7 @@ Finally and to resume the reasons why we are using NATS now:
 
 ## Conclusion
 
-Carefull readers have noticed some hand made diagrams in this blog post. This is typically the kind of work we love to automate.
+Careful readers have noticed some hand made diagrams in this blog post. This is typically the kind of work we love to automate.
 
 As you may understand, the Ariane project is a big trip which makes fun and profit from new graph database technology and which needs an efficient messaging bus to push, as much as possible and as quickly as possible, the data coming from your runtime to a big and unified mapping database.
 
