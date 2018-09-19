@@ -131,17 +131,19 @@ public class ConnectTLSURL {
 		
 		<pre class="tab-pane fade" id="connect_tls_url-py"><a class="toolbar-icons pull-right" target="_blank" href="https://github.com/nats-io/asyncio-nats-examples/blob/master/connect_tls_url.py#L1-34"><i class="icon icon-github js-tooltip" title="View on GitHub"></i></a><a class="toolbar-icons pull-right"><i class="icon icon-copy js-copy js-tooltip" title="Copy to Clipboard"></i></a><code class="language-python">import asyncio
 import ssl
-import certifi
 from nats.aio.client import Client as NATS
 from nats.aio.errors import ErrTimeout
 
 async def run(loop):
     nc = NATS()
 
-    # Not usage of certifi library to load certs
-    ssl_ctx = ssl.create_default_context()
-    ssl_ctx.load_verify_locations(certifi.where())
-    await nc.connect(servers=[&#34;tls://demo.nats.io:4443&#34;], loop=loop, tls=ssl_ctx)
+    # If using Python 3.7 in OS X and getting SSL errors, run first:
+    #
+    # /Applications/Python\ 3.7/Install\ Certificates.command
+    #
+    # Setting the tls as the scheme will use same defaults as `ssl.create_default_context()`
+    #
+    await nc.connect(&#34;tls://demo.nats.io:4443&#34;, loop=loop, tls=ssl_ctx)
 
     async def message_handler(msg):
         subject = msg.subject
