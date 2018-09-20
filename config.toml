@@ -129,3 +129,9 @@ name = "Blog"
 weight = 6
 identifier = "blog"
 url = "/blog"
+
+[[menu.main]]
+name = "Privacy"
+weight = 7
+identifier = "privacy"
+url = "/privacy"

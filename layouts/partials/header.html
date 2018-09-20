@@ -26,12 +26,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     {{ if .RSSLink }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-{{ end }}
+      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+      <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ end }}
   </head>
   <body id='{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "doc" }}nats-docs-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page'>
-  <nav class='navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}'>
+  <div id="main_gdpr">
+    {{ partial "gdpr.html" . }}
+  </div>
+  <nav id="nav" class='navbar navbar-default navbar-fixed-top{{if eq (relURL .URL) ("/" | safeHTML)}} home-page{{end}}'>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -87,4 +90,5 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
 
