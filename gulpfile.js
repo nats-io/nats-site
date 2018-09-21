@@ -87,6 +87,12 @@ gulp.task('blogImagesGifs', function() {
     .pipe(gulp.dest('static/img/blog'));
 });
 
+// Will have to improve this later on
+gulp.task('collateral', function() {
+  return gulp.src('src/collateral/*')
+    .pipe(gulp.dest('static/collateral'));
+});
+
 // Clean
 gulp.task('clean', function() {
   return gulp.src(['public', 'static'], {read: false})
@@ -118,5 +124,5 @@ gulp.task('help', function(){
 
 // Build for Production
 gulp.task('build', function (callback) {
-  runSequence( 'clean', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs' ], 'hugo', callback);
+  runSequence( 'clean', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs' , 'collateral' ], 'hugo', callback);
 });
