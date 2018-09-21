@@ -48,3 +48,8 @@ logo = "/img/companies/netlify.jpg"
 name = "Pex"
 home = "http://www.pex.com"
 logo = "/img/companies/pex.png"
+
+[companies.zephyr]
+name = "Zephyr"
+home = "https://www.zephyrproject.org/"
+logo = "/img/companies/zephyr_project.png"
