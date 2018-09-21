@@ -141,9 +141,10 @@
         // set the state of the html to match in case the preview it
         var checked = false;
         if (tc) {
-            checked = tc.trim().split('=')[1] === "true";
+            checked = tc.trim().split('=')[1] == "true";
         }
         $('#disable_analytics').prop('checked', checked);
+        return checked;
     }
 
     function addGA() {
@@ -158,19 +159,15 @@
 
     function checkTrack() {
         var tc = getCookie();
-        updateCheckbox(tc);
-
-        // set it up early
-        var disable = $('#disable_analytics').is(':checked');
+        var disable = updateCheckbox(tc);
+        // set a property on the window to disable ga
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out
         window[getGAKeyDisableKey()] = disable;
 
         if (!tc) {
+            // while this is opened, we don't track or download scripts
             openPrivacy(tc);
         } else {
-            var disable = tc.trim().split('=')[1] === "true";
-            // set a property on the window to disable ga
-            // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out
-            window[getGAKeyDisableKey()] = disable;
             addGA();
         }
     }
@@ -198,6 +195,38 @@
     }
 
     $(window).resize(handleSizes);
+    $(window).load(function() {
+        var sel = $('#disable_analytics');
+        if(sel.length) {
+            sel.change(function() {
+                deleteCookie("ga-disable");
+                if ($(this).is(':checked')) {
+                    disableAnalytics();
+                } else {
+                    enableAnalytics();
+                }
+                return false;
+            });
+        };
+    });
+
+    function disableAnalytics() {
+        window[getGAKeyDisableKey()] = true;
+        closeRibbon();
+        var d = new Date();
+        d.setFullYear(d.getFullYear() + 1);
+        document.cookie = "ga-disable=true; expires=" + oneYearFromNow().toUTCString() + "; path=/";
+        addGA();
+    }
+
+    function enableAnalytics() {
+        window[getGAKeyDisableKey()] = false;
+        closeRibbon();
+        var d = new Date();
+        d.setFullYear(d.getFullYear() + 1);
+        document.cookie = "ga-disable=false; expires=" + oneYearFromNow().toUTCString() + "; path=/";
+        addGA();
+    }
 
 
     function oneYearFromNow() {
@@ -206,18 +235,23 @@
         return d;
     }
 
-    function gdprOK() {
-        var disable = $('#disable_analytics').is(':checked');
-        window[getGAKeyDisableKey()] = disable;
-        $('#nav').css({top: "0px"});
-        $('#gdpr').addClass('hide');
-        if(paddingTop) {
-            $('body').css("padding-top", paddingTop + "px");
+    function closeRibbon() {
+        var gdprSel = $('#gdpr');
+        if(!gdprSel.hasClass('hide')) {
+            $('#nav').css({top: "0px"});
+            gdprSel.addClass('hide');
+            if (paddingTop) {
+                $('body').css("padding-top", paddingTop + "px");
+            }
+            // they closed the notice, so they accepted
+            if(getCookie() === undefined) {
+                enableAnalytics();
+            }
         }
-        var d = new Date();
-        d.setFullYear(d.getFullYear() + 1);
-        document.cookie = "ga-disable=" + disable + "; expires=" + oneYearFromNow().toUTCString() + "; path=/";
-        addGA();
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 </script>
 
