@@ -87,6 +87,12 @@ gulp.task('blogImagesGifs', function() {
     .pipe(gulp.dest('static/img/blog'));
 });
 
+// Will have to improve this later on
+gulp.task('collateral', function() {
+  return gulp.src('src/collateral/*')
+    .pipe(gulp.dest('static/collateral'));
+});
+
 // Clean
 gulp.task('clean', function() {
   return gulp.src(['public', 'static'], {read: false})
