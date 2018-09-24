@@ -53,3 +53,8 @@ logo = "/img/companies/pex.png"
 name = "Zephyr"
 home = "https://www.zephyrproject.org/"
 logo = "/img/companies/zephyr_project.png"
+
+[companies.opentable]
+name = "Open Table"
+home = "https://www.opentable.com/"
+logo = "/img/companies/open_table.png"
