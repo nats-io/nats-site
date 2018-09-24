@@ -161,9 +161,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.0
+  version_num: 0.8.0
   release_notes: |
-    Release v.0.7.0 on June 13th, 2018.
+    Release v0.8.0 on September 22th, 2018.
   github:
     - user: nats-io
       repo: python-nats
