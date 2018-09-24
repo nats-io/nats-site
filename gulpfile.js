@@ -118,5 +118,5 @@ gulp.task('help', function(){
 
 // Build for Production
 gulp.task('build', function (callback) {
-  runSequence( 'clean', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs' ], 'hugo', callback);
+  runSequence( 'clean', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs' ], 'hugo', callback);
 });
