@@ -255,10 +255,10 @@ support = "Community"
 
 [addons.nrpc]
 name = "nRPC is like gRPC, but over NATS"
-home = "https://github.com/rapidloop/nrpc"
-description = "nRPC is an RPC framework like gRPC, but for NATS. It can generate a Go client and server from the same .proto file that you'd use to generate gRPC clients and servers. The server is generated as a NATS MsgHandler."
-author = "Cameron Sparr"
-authorHome = "https://github.com/sparrc"
+home = "https://github.com/nats-rpc/nrpc"
+description = "nRPC is an RPC framework like gRPC, but for NATS. It can generate a Go or Python client and server from the same .proto file that you'd use to generate gRPC clients and servers. The server is generated as a NATS MsgHandler."
+author = "nats-rpc team"
+authorHome = "https://github.com/nats-rpc/"
 support = "Community"
 
 
