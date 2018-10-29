@@ -58,3 +58,8 @@ logo = "/img/companies/zephyr_project.png"
 name = "Open Table"
 home = "https://www.opentable.com/"
 logo = "/img/companies/open_table.png"
+
+[companies.telia]
+name = "Telia Company"
+home = "https://www.teliacompany.com/"
+logo = "/img/companies/telia_company.png"
