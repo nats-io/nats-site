@@ -30,7 +30,7 @@ You will use these sessions to run the NATS request and reply clients.
 #### 3. Change to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples
 ```
 
 #### 4. In one terminal, run the reply client listener
