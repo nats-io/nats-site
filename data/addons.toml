@@ -1,6 +1,6 @@
 [addons]
-[addons.apache_fink]
-name = "Apache Fink"
+[addons.apache_flink]
+name = "Apache Flink"
 home = "https://github.com/hemerajs/hemera"
 description = "Allows Apache Flink to send/receive a stream of string based messages to/from NATS."
 author = "Matthew Ring"
