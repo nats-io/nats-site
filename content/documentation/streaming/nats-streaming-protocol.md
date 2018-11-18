@@ -77,7 +77,7 @@ After a `ConnectRequest` is published, the NATS Streaming Server responds with t
 
 #### Description
 
-A `SubscriptionRequest` is published on the subject returned in the `subRequests` field of a [`ConnectResponse`](#CONNRESP), and creates a subscription to a subject on the NATS Streaming Server.  The  will return a [SubscriptionResponse](#SUBRESP) message to the reply subject specified in the NATS protocol request message.
+A `SubscriptionRequest` is published on the subject returned in the `subRequests` field of a [`ConnectResponse`](#CONNRESP), and creates a subscription to a subject on the NATS Streaming Server.  This will return a [SubscriptionResponse](#SUBRESP) message to the reply subject specified in the NATS protocol request message.
 
 #### Message Structure
 
