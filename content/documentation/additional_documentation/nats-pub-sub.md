@@ -74,7 +74,7 @@ You will use this session to run an example NATS client subscriber program.
 #### 3. CD to the Go client examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples
 ```
 
 #### 4. Run the client subscriber program
@@ -100,7 +100,7 @@ You will use this session to run a NATS publisher client.
 #### 6. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples
 ```
 
 #### 7. Publish a NATS message
@@ -146,7 +146,7 @@ You will use this session to run a second NATS subscriber.
 #### 10. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples
 ```
 
 #### 11. Subscribe to the message
@@ -170,7 +170,7 @@ You will use this session to run a third NATS subscriber.
 #### 14. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples
 ```
 
 #### 15. Subscribe to a different message
