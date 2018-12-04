@@ -1,7 +1,21 @@
 [[events]]
 venue = "KubeCon + CloudNativeCon North America 2018"
-when = "December 11-13, 2018"
-who = "The NATS Team"
-what = "TBD"
-where = "Washington Convention Center / Seattle, WA"
-ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/"
+when = "December 11, 2018 10:50 am"
+who = "Waldemar Quevedo & Colin Sullivan"
+what = "NATS Tutorial - Developing Production Ready Cloud Native NATS Applications"
+where = "Tahoma 5 @ TCC The Conference Center (TCC)"
+ref = "https://sched.co/GrX3"
+
+[[events]]
+ when = "December 11, 2018 4:30 pm"
+ who = "Waldemar Quevedo & Colin Sullivan"
+ what = "Intro to NATS"
+ where = "Skagit 2 @ TCC The Conference Center (TCC)"
+ ref = "https://sched.co/Grbt"
+
+[[events]]
+ when = "December 13, 2018 4:30 pm"
+ who = "Colin Sullivan & Waldemar Quevedo"
+ what = "NATS Deep Dive"
+ where = "2 A/B"
+ ref = "https://sched.co/Grdm"
