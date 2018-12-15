@@ -86,9 +86,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.6.0
+  version_num: 1.7.0
   release_notes: |
-    Release v1.6.0 on August 29th, 2018.
+    Release v1.7.0 on December 11th, 2018.
   github:
     - user: nats-io
       repo: go-nats
@@ -101,13 +101,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.0
+  version_num: 2.3.0
   release_notes: |
-    Release 2.1.0 on September 7th, 2018.
+    Release 2.3.0 on November 19th, 2018.
   github:
     - user: nats-io
       repo: jnats
-      link: https://github.com/nats-io/jnats
+      link: https://github.com/nats-io/java-nats
 
 - name: NGINX
   type: nats-client
@@ -131,9 +131,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.0.1
+  version_num: 1.2.2
   release_notes: |
-    Release v1.0.1 on July 16th, 2018.
+    Release v1.2.2 on December 14th, 2018.
   github:
     - user: nats-io
       repo: node-nats
