@@ -29,7 +29,7 @@ There was this new foundation I read about - Cloud Native Computing Foundation, 
 ## So why would I write a driver for NATS in Dart, of all languages?
 tl;dr - Necessity is the mother of invention.
 
-Simple; I was wriitng a Flutter app with some serverless triggers and NATS seemed to not have a Dart driver. So I wrote it!!
+Simple; I was writing a Flutter app with some serverless triggers and NATS seemed to not have a Dart driver. So I wrote it!!
 
 **Was it straight forward?** Yup it was. NATS has a freakishly  intuitive text-based protocol. So I all had to do was open a TCP socket and start sending byte streams :)
 
