@@ -1,6 +1,6 @@
 +++
 categories = ["Community","Engineering"]
-date = "2019-01-02"
+date = "2019-01-04"
 tags = ["client","dart","nats","guest post", "performance"]
 title = "Guest Post: Dart Client for NATS"
 author = "Chaitanya Munukutla"
