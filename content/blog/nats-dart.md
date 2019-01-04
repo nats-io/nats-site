@@ -1,7 +1,7 @@
 +++
 categories = ["Community","Engineering"]
 date = "2019-01-02"
-tags = ["client","dart","nats"]
+tags = ["client","dart","nats","guest post", "performance"]
 title = "Guest Post: Dart Client for NATS"
 author = "Chaitanya Munukutla"
 +++
@@ -10,21 +10,21 @@ I think it was during early 2015 when I first heard the term *message broker*. I
 
 RabbitMQ was my first tryst with the messaging systems lot. I was new to relationships and didn't have much to compare with, so RabbitMQ seemed just fine. But hosting it myself was a bit of a pain and I was also growing weary of Java. That was when I found PubNub - and God was it beautiful. I didn't need to handle anything; they had drivers lying around for virtually any environment you work with; and they had a free tier (this is when I disclose I'm from India and we hog free stuff better than anyone).
 
-Disclaimer: I didn't want to find NATS - it was an accident.
+Disclaimer: I didn't try to find NATS - it was an accident.
 
 There was this new foundation I read about - Cloud Native Computing Foundation, that seemed to be the new hip kid on the streets and just headed onto [cncf.io](https://cncf.io) to see if they have the stuff they boasted about. I then came across this new incubation project called NATS. They called it "messaging for microservices". Under the hood, it had the same message broker abstractions similar to the likes of RabbitMQ, ActiveMQ, Pubnub etc. So why should I switch? 
 
 ## Why NATS?
 
-**Idiomatic approach**. So I was looking out for exciting new languages which seemed to like popping out of nowhere. I messed around with Golang, Swift, Kotlin, a bit of Python, C# and Erlang (yeah, I said it). The new languages seemed to bring their own idiomatic way of approaching programming. NATS seemed to bring a native approach with their simple and straightforward drivers. NATS has helped me learn Golang channels, RxJava, and the Erlang supervisor model.
+**Idiomatic approach**. So I was looking out for exciting new languages which seemed to be popping out of nowhere. I messed around with Golang, Swift, Kotlin, a bit of Python, C# and Erlang (yeah, I said it). The new languages seemed to bring their own idiomatic way of approaching programming. NATS seemed to bring a native approach with their simple and straightforward drivers. NATS has helped me learn Golang channels, RxJava, and the Erlang supervisor model.
 
-**Powerhouse featues**. NATS is a workhorse. It elegantly handles pub-sub, request-response, queuing and streaming, even all at once!
+**Powerhouse features**. NATS is a workhorse. It elegantly handles pub-sub, request-response, queuing and streaming, even all at once!
 
 **Piece of cake to deploy**. I can't overstate this - NATS is dead simple to deploy and manage. All it takes is to run `./gnatsd` on my terminal! Now beat that.
 
 **Extremely power efficient**. I have benchmarked the crap out of NATS and it has never hogged more than 150MB of RAM to serve a 1 million payload inflow on a single host. FYI - a single Google Chrome browser hogs more.
 
-**Bad ass performance**. If you haven't used NATS until now - stop reading and download the latest binary and give it a try. Flush the maximum load your PC can afford. NATS has got you covered. For all you NATS users, you know what I'm talking about.
+**Amazing performance**. If you haven't used NATS until now - stop reading and download the latest binary and give it a try. Flush the maximum load your PC can afford. NATS has got you covered. For all you NATS users, you know what I'm talking about.
 
 ## So why would I write a driver for NATS in Dart, of all languages?
 tl;dr - Necessity is the mother of invention.
