@@ -125,6 +125,7 @@ In addition to TLS functionality, the server now also supports hashing of passwo
 A utility for creating `bcrypt` hashes is included with the gnatsd distribution (`util/mkpasswd.go`). Running it with no arguments will generate a new secure password along with the associated hash. This can be used for a password or a token in the configuration. 
 
 ```
+~/go/src/github.com/nats-io/gnatsd/util> go get golang.org/x/crypto/ssh/terminal
 ~/go/src/github.com/nats-io/gnatsd/util> go build mkpasswd.go
 ~/go/src/github.com/nats-io/gnatsd/util> ./mkpasswd
 pass: #IclkRPHUpsTmACWzmIGXr
