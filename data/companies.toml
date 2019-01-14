@@ -63,3 +63,8 @@ logo = "/img/companies/open_table.png"
 name = "Telia Company"
 home = "https://www.teliacompany.com/"
 logo = "/img/companies/telia_company.png"
+
+[companies.mastercard]
+name = "Mastercard"
+home = "https://www.mastercard.us/en-us.html"
+logo = "/img/companies/mastercard.png"
