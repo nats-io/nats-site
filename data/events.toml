@@ -1,21 +1,24 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon North America 2018"
-when = "December 11, 2018 10:50 am"
-who = "Waldemar Quevedo & Colin Sullivan"
-what = "NATS Tutorial - Developing Production Ready Cloud Native NATS Applications"
-where = "Tahoma 5 @ TCC The Conference Center (TCC)"
-ref = "https://sched.co/GrX3"
+venue = "Open Go"
+when = "March 18-19, 2019"
+who = "TBD"
+what = "TBD"
+where = "Seminole Hard Rock Hotel & Casino | Hollywood, FL"
+ref = "https://opengo.io"
 
-[[events]]
- when = "December 11, 2018 4:30 pm"
- who = "Waldemar Quevedo & Colin Sullivan"
- what = "Intro to NATS"
- where = "Skagit 2 @ TCC The Conference Center (TCC)"
- ref = "https://sched.co/Grbt"
-
-[[events]]
- when = "December 13, 2018 4:30 pm"
+[[icymi]]
+ venue = "ICYMI"
+ when = "December 11, 2018"
  who = "Colin Sullivan & Waldemar Quevedo"
- what = "NATS Deep Dive"
- where = "2 A/B"
- ref = "https://sched.co/Grdm"
+ what = "Intro to NATS"
+ link = "https://youtu.be/EI6clwKZ-qs"
+ where = "Kubecon + CloudNativeCon Seattle 2018"
+ ref = "https://kccna18.sched.com/event/Grbt"
+
+ [[icymi]]
+  when = "December 13, 2018"
+  who = "Colin Sullivan & Waldemar Quevedo"
+  what = "NATS Deep Dive"
+  link = "https://youtu.be/wBJj0UbcZuU"
+  where = "Kubecon + CloudNativeCon Seattle 2018"
+  ref = "https://kccna18.sched.com/event/Grdm"
