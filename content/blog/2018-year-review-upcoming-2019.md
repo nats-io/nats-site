@@ -53,9 +53,6 @@ We are honored to have expanded the NATS maintainer team to include Brian Shanna
 We are beyond thrilled for what we have achieved together in 2018, and even more excited about what 2019 has in store for us!
 
 
-
-
 Thanks,
 
 =derek
-
