@@ -649,30 +649,30 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.4.0
+  version_num: 1.4.1
   release_notes: |
-    Release v1.4.0 on January 15th, 2019.
+    Release v1.4.1 on February 7th, 2019.
   github:
     - user: nats-io
       repo: gnatsd
       link: https://github.com/nats-io/gnatsd
   links:
-  - name: gnatsd-v1.4.0-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-darwin-amd64.zip
-  - name: gnatsd-v1.4.0-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-linux-amd64.zip
-  - name: gnatsd-v1.4.0-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-linux-386.zip
-  - name: gnatsd-v1.4.0-linux-arm6.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-linux-arm6.zip
-  - name: gnatsd-v1.4.0-linux-arm7.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-linux-arm7.zip
-  - name: gnatsd-v1.4.0-linux-arm64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-linux-arm64.zip
-  - name: gnatsd-v1.4.0-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-windows-386.zip
-  - name: gnatsd-v1.4.0-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.0/gnatsd-v1.4.0-windows-amd64.zip
+  - name: gnatsd-v1.4.1-darwin-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-darwin-amd64.zip
+  - name: gnatsd-v1.4.1-linux-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-amd64.zip
+  - name: gnatsd-v1.4.1-linux-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-386.zip
+  - name: gnatsd-v1.4.1-linux-arm6.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm6.zip
+  - name: gnatsd-v1.4.1-linux-arm7.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm7.zip
+  - name: gnatsd-v1.4.1-linux-arm64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm64.zip
+  - name: gnatsd-v1.4.1-windows-386.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-windows-386.zip
+  - name: gnatsd-v1.4.1-windows-amd64.zip
+    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
