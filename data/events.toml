@@ -1,7 +1,15 @@
 [[events]]
+venue = "Cloud Expo Europe"
+when = "March 12-13, 2019"
+who = "Waldemar Quevedo"
+what = "Connect Everything with NATS"
+where = "Excel, London"
+ref = "https://www.cloudexpoeurope.com/"
+
+[[events]]
 venue = "Open Go"
-when = "March 18-19, 2019"
-who = "TBD"
+when = "September 23-25, 2019"
+who = "Waldemar Quevedo"
 what = "TBD"
 where = "Seminole Hard Rock Hotel & Casino | Hollywood, FL"
 ref = "https://opengo.io"
