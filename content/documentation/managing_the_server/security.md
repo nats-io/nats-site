@@ -9,11 +9,7 @@ category = "server"
   parent = "Managing the Server"
 +++
 
-
-Generating self signed certs and intermediary certificate authorities is beyond the scope here, but this document can be helpful in addition to Google Search:
-<a href="https://docs.docker.com/engine/articles/https/" target="_blank">https://docs.docker.com/engine/articles/https/</a>
-
-The server **requires** a certificate and private key. Optionally the server can require that clients need to present certificates, and the server can be configured with a CA authority to verify the client certificates.
+As of Release 0.7.0, the server can use modern TLS semantics for client connections, route connections, and the HTTPS monitoring port. To enable TLS on the client port add the TLS configuration section as follows:
 
 ```ascii
 # Simple TLS config file
@@ -33,6 +29,10 @@ authorization {
 }
 ```
 
+Note: This TLS configuration is also used for the monitor port if enabled with the `https_port` option.
+
+The server **requires** a certificate and private key. Generating self signed certs and intermediary certificate authorities is beyond the scope here, but this document can be helpful in addition to Google Search:
+<a href="https://docs.docker.com/engine/articles/https/" target="_blank">https://docs.docker.com/engine/articles/https/</a>
 
 The server can be run using command line arguments to enable TLS functionality.
 
@@ -55,7 +55,7 @@ Examples using the test certificates which are self signed for localhost and 127
 [2935] 2016/04/26 13:34:30.685660 [INF] Server is ready
 ```
 
-Notice that the log  indicates that the client connections will be required to use TLS. If you run the server in Debug mode with -D or -DV, the logs will show the cipher suite selection for each connected client.
+Notice that the log indicates that the client connections will be required to use TLS. If you run the server in Debug mode with -D or -DV, the logs will show the cipher suite selection for each connected client.
 
 ```sh
 [15146] 2015/12/03 12:38:37.733139 [DBG] ::1:63330 - cid:1 - Starting TLS client connection handshake
@@ -65,7 +65,6 @@ Notice that the log  indicates that the client connections will be required to u
 
 ### TLS Ciphers
 
-As of Release 0.7.0, the server can use modern TLS semantics for client connections, route connections, and the HTTPS monitoring port.
 The server requires TLS version 1.2, and sets preferences for modern cipher suites that avoid those known with vulnerabilities. The
 server's default preferences when building with Go1.5 are as follows.
 
@@ -97,11 +96,11 @@ tls {
 }
 ```
 
-A list of supported cipher suites is located here: https://github.com/nats-io/gnatsd/blob/master/server/ciphersuites.go#L21
+A list of supported cipher suites is [located here in the cipherMap variable](https://github.com/nats-io/gnatsd/blob/master/server/ciphersuites.go#L21).
 
 ### Client TLS Mutual Authentication
 
-If requiring client certificates as well, simply add the option `verify` the TLS section as follows:
+Optionally the server can require that clients need to present certificates, and the server can be configured with a CA authority to verify the client certificates. Simply add the option `verify` the TLS configuration section as follows:
 
 ```ascii
 tls {
