@@ -131,7 +131,7 @@ tls {
 }
 ```
 
-There are two options for certificate attributes that can be mapped to user names. The first is the email address in the Subject Alternative Name (SAN) field of the certificate. While generating a certificate with this attribute is outside the scope of this document, we will view this it with OpenSSL:
+There are two options for certificate attributes that can be mapped to user names. The first is the email address in the Subject Alternative Name (SAN) field of the certificate. While generating a certificate with this attribute is outside the scope of this document, we will view this with OpenSSL:
 
 ```ascii
 $ openssl x509 -noout -text -in  test/configs/certs/client-id-auth-cert.pem
