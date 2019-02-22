@@ -118,4 +118,4 @@ Using token 'S3Cr3T0k3n!'
 nats://S3Cr3T0k3n!@localhost:4222
 ```
 
-or use other methods discussed in the [developer doc](/documentation/writing_applications/secure_connection).
+The server also supports TLS mutual authentication documented in the [Security/Encryption section](/documentation/managing_the_server/security). Other methods are also discussed in the [developer doc](/documentation/writing_applications/secure_connection).
