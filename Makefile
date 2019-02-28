@@ -1,5 +1,6 @@
 NODE_BIN = node_modules/.bin
 GULP = $(NODE_BIN)/gulp
+CONCURRENTLY = $(NODE_BIN)/concurrently
 
 CURRENT_DIR=$(pwd)
 .DEFAULT_GOAL=build
@@ -19,6 +20,15 @@ minify:
 
 clean:
 	$(GULP) clean
+
+develop-assets:
+	$(GULP) watch
+
+develop-site:
+	hugo server
+
+develop:
+	$(CONCURRENTLY) "make develop-assets" "make develop-site"
 
 deploy:
 	cd public; s3cmd sync . s3://test.nats.io/
