@@ -119,10 +119,12 @@ gulp.task('help', function(){
   console.log('if gulp build fails, simply add ".pipe(plumber())" to the task to see the error');
 });
 
+gulp.task('assets', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'collateral']);
+
 // Default Task
 // gulp.task('default', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
 
 // Build for Production
 gulp.task('build', function (callback) {
-  runSequence( 'clean', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'collateral'], 'hugo', callback);
+  runSequence( 'clean', 'assets', 'hugo', callback);
 });
