@@ -47,8 +47,8 @@ develop:
 assets:
 	$(GULP) assets
 
-netlify-build-production: assets
+netlify-production-build: assets
 	hugo
 
-netlify-build-preview: assets
+netlify-preview-build: assets
 	hugo --baseURL $(DEPLOY_PRIME_URL)
