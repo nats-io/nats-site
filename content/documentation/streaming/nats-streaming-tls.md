@@ -42,7 +42,7 @@ The embedded NATS server specifies TLS server certificates with these:
 --tlscacert <file>           Client certificate CA for verification
 ```
 
-The server parameters are used the same way you'd [secure a typical NATS server]((https://github.com/nats-io/gnatsd#securing-nats).
+The server parameters are used the same way you'd [secure a typical NATS server](https://github.com/nats-io/gnatsd#securing-nats).
 
 Proper usage of the NATS Streaming Server requires the use of both client and server parameters.
 
