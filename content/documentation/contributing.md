@@ -4,7 +4,7 @@ category = "concepts"
 showChildren=true
 [menu.main]
   name = "How To Contribute"
-  weight = 2
+  weight = 3
   identifier = "doc-contributing"
   parent = "Getting Started With NATS"
 +++

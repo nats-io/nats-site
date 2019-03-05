@@ -3,7 +3,7 @@ title = "NATS Frequently Asked Questions"
 category = "concepts"
 [menu.main]
   name = "FAQ"
-  weight = 3
+  weight = 4
   identifier = "doc-faq"
   parent = "Getting Started With NATS"
 +++
