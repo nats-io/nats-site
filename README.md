@@ -294,6 +294,8 @@ cd nats-site/
 
 Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/). 
 
+> Building the NATS site/documentation currently requires Hugo version 0.53 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
+
 If you are running on MacOS, you can try issuing the command `make setup`, this command will brew install requirements. Please refer to the `Makefile` for more information.
 
 
