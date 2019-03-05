@@ -100,7 +100,7 @@ gulp.task('clean', function() {
 });
 
 // HUGO
-gulp.task('hugo', shell.task('hugo'));
+gulp.task('hugo', shell.task('hugo --minify'));
 
 // // Watch
  gulp.task('watch', function() {
