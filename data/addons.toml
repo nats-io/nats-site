@@ -1,7 +1,7 @@
 [addons]
 [addons.apache_flink]
 name = "Apache Flink"
-home = "https://github.com/hemerajs/hemera"
+home = "https://github.com/mring33621/nats-messaging-for-flink"
 description = "Allows Apache Flink to send/receive a stream of string based messages to/from NATS."
 author = "Matthew Ring"
 authorHome = "https://github.com/mring33621"
