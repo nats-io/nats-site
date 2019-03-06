@@ -304,6 +304,21 @@ Releases:
       repo: nats-queue
       link: https://github.com/ondrap/nats-queue
 
+- name: Java Android
+  type: nats-client
+  supported: false
+  language: Java
+  author:
+  - name: Marek Kedzierski
+    link: https://kedzie.github.com/
+  version_num: 2.4.1
+  release_notes: |
+    Last updated to 2.4.1 on December 19th, 2018
+  github:
+  - user: kedzie
+    repo: nats-android
+    link: https://github.com/SpotOnInc/nats-android
+
 - name: Lua
   type: nats-client
   supported: false
