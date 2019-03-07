@@ -1,0 +1,12 @@
+{{ $latest := (index (where site.Data.releases.Releases "name" "NATS Server") 0).version_num }}
+{{ $platforms := site.Data.platforms }}
+<ul>
+  {{ range $platforms }}
+  {{ $url := printf "https://github.com/nats-io/gnatsd/releases/download/v%s/gnatsd-v%s-%s-%s.zip" $latest $latest .os .proc }}
+  <li>
+    <a href="{{ $url }}" download>
+      {{ .os }}-{{ .proc }}
+    </a>
+  </li>
+  {{ end }}
+</ul>

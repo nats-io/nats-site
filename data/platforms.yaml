@@ -1,0 +1,16 @@
+- os: darwin
+  proc: amd64
+- os: linux
+  proc: amd64
+- os: linux
+  proc: 386
+- os: linux
+  proc: arm6
+- os: linux
+  proc: arm7
+- os: linux
+  proc: arm64
+- os: windows
+  proc: 386
+- os: windows
+  proc: amd64
