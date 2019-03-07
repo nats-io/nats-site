@@ -3,12 +3,10 @@
     our community</p>
 
 <div class="row partners-logos">
-    {{ range $.Site.Data }}
-    {{ range .partners }}
+    {{ range site.Data.partners }}
     <div class="col-xs-6 col-md-4">
         <a target="_blank" href="{{ .home }}"><img src="{{ .logo }}" class="img-responsive" alt="{{ .name }}"></a>
     </div>
-    {{ end }}
     {{ end }}
 </div>
 

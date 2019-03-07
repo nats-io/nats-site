@@ -4,8 +4,7 @@
   <div class="row">
     <div class="col-md-12">
       {{ .Content }}
-      {{ range $.Site.Data }}
-      {{ range .Releases }}
+      {{ range site.Data.releases.Releases }}
 
         {{ range first 1 .github }}
           {{ $.Scratch.Set "githubUser" .user }}
@@ -61,7 +60,6 @@
 
           {{ partial "menu-downloads.html" . }}
         {{ end }}
-      {{ end }}
       {{ end }}
       {{ partial "menu-downloads.html" . }}
 

@@ -4,8 +4,7 @@
 
 
 <ul class="list-unstyled row">
-    {{ range .Site.Data }}
-    {{ range .events }}
+    {{ range site.Data.events.events }}
 
     <li class="col-sm-12">
     <h4>{{ .venue }}</h4>
@@ -18,12 +17,11 @@
     </ul>
 </li>
     {{ end }}
-    {{ end }}
 </ul>
 
+{{ with site.Data.events.icymi }}
     <ul class="list-unstyled row">
-        {{ range .Site.Data }}
-        {{ range .icymi }}
+        {{ range . }}
 
     <li class="col-sm-12">
         <h4>{{ .venue }}</h4>
@@ -36,5 +34,5 @@
         </ul>
     </li>
     {{ end }}
-    {{ end }}
 </ul>
+{{ end }}

@@ -11,15 +11,13 @@
         </thead>
         <tbody>
 
-        {{ range .Site.Data }}
-        {{ range .addons }}
+        {{ range site.Data.addons }}
             <tr>
                 <td><a href="{{ .home }}" target="_blank">{{ .name }}</a></td>
                 <td>{{ .description }}</td>
                 <td>{{ if .authorHome }}<a href="{{ .authorHome }}" target="_blank">{{ end }}{{ .author }}{{ if .authorHome }}</a>{{ end }}</td>
                 <td>{{ .support }}</td>
             </tr>
-        {{ end }}
         {{ end }}
         </tbody>
     </table>

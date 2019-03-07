@@ -2,11 +2,9 @@
 <p class="lead">The ecosystem of companies using NATS varies from rapidly growing startups to some of the largest companies in the world.</p>
 
 <div class="row company-logos">
-    {{ range .Site.Data }}
-    {{ range .companies }}
+    {{ range site.Data.companies }}
     <div class="col-xs-6 col-md-3">
         <a target="_blank" href="{{ .home }}"><img src="{{ .logo }}" class="img-responsive" alt="{{ .name }}"></a>
     </div>
-    {{ end }}
     {{ end }}
 </div>
