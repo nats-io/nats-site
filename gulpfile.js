@@ -23,6 +23,10 @@ gulp.task('less', function() {
     .pipe(gulp.dest('static/css'));
 });
 
+gulp.task('less:watch', function() {
+  gulp.watch('src/less/**/*.less', [ 'less' ]);
+});
+
 gulp.task('css', function() {
   return gulp.src('src/css/**/*.css')
       .pipe(gulp.dest('static/css'));
@@ -103,16 +107,16 @@ gulp.task('clean', function() {
 gulp.task('hugo', shell.task('hugo --minify'));
 
 // // Watch
- gulp.task('watch', function() {
-   gulp.watch('src/less/**/*.less', [ 'less' ]);
-   gulp.watch('src/js/**/*.js', [ 'js' ]);
-   gulp.watch('src/img/**/*', [ 'img' ]);
-   gulp.watch('src/font/**/*', [ 'font' ]);
-   gulp.watch('src/user_logos/**/*', [ 'userLogos' ]);
-   gulp.watch('src/partner_logos/**/*', [ 'partnerLogos' ]);
-   gulp.watch('src/company_logos/**/*', [ 'companyLogos' ]);
-   gulp.watch('src/blog/**/*', [ 'blogImages' ]);
-   gulp.watch('src/blog/**/*', [ 'blogImagesGifs' ]);
+gulp.task('watch', function() {
+  gulp.watch('src/less/**/*.less', [ 'less' ]);
+  gulp.watch('src/js/**/*.js', [ 'js' ]);
+  gulp.watch('src/img/**/*', [ 'img' ]);
+  gulp.watch('src/font/**/*', [ 'font' ]);
+  gulp.watch('src/user_logos/**/*', [ 'userLogos' ]);
+  gulp.watch('src/partner_logos/**/*', [ 'partnerLogos' ]);
+  gulp.watch('src/company_logos/**/*', [ 'companyLogos' ]);
+  gulp.watch('src/blog/**/*', [ 'blogImages' ]);
+  gulp.watch('src/blog/**/*', [ 'blogImagesGifs' ]);
 });
 
 gulp.task('help', function(){

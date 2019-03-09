@@ -29,14 +29,14 @@ prod:
 
 # Commands related to running the site locally
 
-develop-assets:
-	$(GULP) watch
+develop-css:
+	$(GULP) less:watch
 
 develop-site:
 	hugo server
 
 develop:
-	$(CONCURRENTLY) "make develop-assets" "make develop-site"
+	$(CONCURRENTLY) "make develop-css" "make develop-site"
 
 # Commands related to the Netlify build
 
