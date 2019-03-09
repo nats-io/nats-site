@@ -2,7 +2,7 @@
 {{ $platforms := site.Data.platforms }}
 <ul>
   {{ range $platforms }}
-  {{ $url := printf "https://github.com/nats-io/gnatsd/releases/download/v%s/gnatsd-v%s-%s-%s.zip" $latest $latest .os .proc }}
+  {{ $url := printf "https://github.com/nats-io/gnatsd/releases/download/v%s/gnatsd-v%s-%s-%s.zip" $latest $latest .os (string .proc) }}
   <li>
     <a href="{{ $url }}" download>
       {{ .os }}-{{ .proc }}
