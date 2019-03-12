@@ -8,9 +8,14 @@ description = "Run the NATS server locally"
   parent = "Getting Started With NATS"
 +++
 
-This tutorial takes you from zero to running the current version of NATS Server (**{{< latest >}}**) locally in your preferred environment. You can run the NATS server [as a static binary](#binary) or [using Docker](#docker).
+This tutorial takes you from zero to running the current version of NATS Server (**{{< latest >}}**) locally in your preferred environment and connecting to it using one of NATS' client libraries.
 
-## Static binary {#binary}
+
+You can run the NATS server [as a static binary](#binary) or [using Docker](#docker).
+
+## Run the NATS Server locally
+
+### Static binary {#binary}
 
 Click on the relevant OS/processor combo for your environment, which will trigger the download of a ZIP file (or you can copy the URL and download using a tool like [wget](https://www.gnu.org/software/wget/)):
 
@@ -35,15 +40,22 @@ To start up the server:
 
 This will run the NATS Server on port 4222 in debug mode. Debug mode isn't *necessary* but it will come in handy during this tutorial.
 
-## Docker
+### Docker
 
 The [Docker](https://docker.com) image for the NATS Server is available via [Docker Hub](https://hub.docker.com/_/nats/).
 
-To start up the server, make sure that your Docker is running, then:
+To start up the server, make sure that Docker is running, then:
 
 ```bash
-docker run -p 4222:4222 nats --debug
+docker run -p 4222:4222 -p 8222:8222 nats:{{< latest >}}
 ```
 
-This will run the NATS Server on port 4222 in debug mode. Debug mode isn't *necessary* but it will come in handy during this tutorial.
+This will run the NATS Server on port 4222 in debug mode. Debug mode isn't *necessary* but it will come in handy later in this tutorial.
 
+## Fetch information about NATS
+
+## Send a message to NATS using a client
+
+You can find instructions for your language of choice in the box below:
+
+{{< partial "doc/publish_bytes.html" >}}

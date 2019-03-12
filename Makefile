@@ -35,7 +35,7 @@ develop-css:
 develop-site:
 	hugo server
 
-develop:
+develop: assets
 	$(CONCURRENTLY) "make develop-css" "make develop-site"
 
 # Commands related to the Netlify build
