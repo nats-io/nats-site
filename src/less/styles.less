@@ -31,12 +31,6 @@
 @nats-brand-github-dark:                    #000;
 @nats-brand-reddit-dark:                    #000;
 
-// Button overrides
-.btn {
-  border: none;
-  border-radius: 0;
-}
-
 // Variable Overrides
 @brand-info:                                @nats-colour-blue-lite;
 @text-color:                                @nats-brand-gray-dark;
@@ -858,6 +852,18 @@ code[data-viz] {
 // Documentation
 #nats-documentation-detail-page, #nats-docs-detail-page {
   #doc-content {
+    .edit-btn {
+      border: none;
+      border-radius: 0;
+      background-color: black;
+
+      color: white;
+
+      .icon {
+        margin-right: .5rem;
+      }
+    }
+
     ul {
       list-style-type: disc;
       padding-left: 1.75rem;
