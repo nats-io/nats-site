@@ -132,6 +132,10 @@
 @download-row-background:                         #f8f9fb;
 @download-row-border:                             #e7e7e7;
 
+// Sidebar panels
+@panel-body-padding: 15px;
+@panel-border-radius: 0px;
+
 // #############################################################################
 
 // General Styles
@@ -152,6 +156,13 @@ body {
     @media (max-width: @screen-md-min) {
       background: transparent;
     }
+  }
+}
+
+// Panel styling
+.panel {
+  .panel-title {
+    margin: 0 0 15px 0;
   }
 }
 
@@ -838,6 +849,18 @@ code[data-viz] {
 
 // Documentation
 #nats-documentation-detail-page, #nats-docs-detail-page {
+  #doc-content {
+    ul {
+      list-style-type: disc;
+      padding-left: 1.75rem;
+
+      ul {
+        list-style-type: square;
+        padding-left: 1.75rem;
+      }
+    }
+  }
+
   #main-con {
     //background: url(/img/about-neuron-docs.png) right top no-repeat;
     padding-top: 20px;

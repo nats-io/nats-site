@@ -8,8 +8,11 @@
     {{ range .Children }}
     <li>
       <div class="panel panel-default">
-        <div class="panel-heading">{{ title .Name }}</div>
         <div class="panel-body">
+          <h4 class="panel-title">
+            {{ .Name }}
+          </h4>
+
           {{ if .HasChildren }}
           <ul class="list-unstyled">
             {{ range .Children }}
