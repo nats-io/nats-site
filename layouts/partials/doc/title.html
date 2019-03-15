@@ -1,7 +1,9 @@
 {{ $editUrl := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" .File.Path }}
 {{ $title   := cond (isset .Params "alttitle") .Params.alttitle .Title }}
-<a class="pull-right" target="_blank" href="{{ $editUrl }}">
+<h1>{{ $title }}</h1>
+
+<a role="button" class="btn btn-primary btn-sm" target="_blank" href="{{ $editUrl }}">
     <i class="icon icon-github"></i> Edit on GitHub
 </a>
-
-<h1>{{ $title }}</h1>
+    
+<hr />
