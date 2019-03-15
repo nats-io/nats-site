@@ -1,5 +1,6 @@
 +++
 title = "NATS Documentation"
+alttitle = "NATS Introduction"
 category = "documentation"
 [menu.main]
   name = "Introduction"
@@ -7,8 +8,6 @@ category = "documentation"
   identifier = "doc-intro"
   parent = "Getting Started With NATS"
 +++
-
-# NATS Introduction
 
 [NATS](http://nats.io/) is an open-source, cloud-native messaging system. Companies like Apcera, Baidu, Siemens, VMware, HTC, and Ericsson rely on NATS for its highly performant and resilient messaging capabilities.
 

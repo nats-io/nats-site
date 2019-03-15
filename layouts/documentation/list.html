@@ -5,12 +5,11 @@
             {{ partial "doc/side-menu.html" . }}
         </div>
         <div id="doc-content" class="col-md-9">
-            {{ if eq .File.Path "index.md" }}
-            <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/_{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
-            {{ else }}
-            <a class="pull-right" target="_blank" href="{{ .Site.Params.githubBaseUrl }}/{{ .File.Path }}"><i class="icon icon-github"></i> Edit on GitHub</a>
-            {{ end }}
-            {{ .Content }}
+            {{ partial "doc/title.html" . }}
+
+            <article>
+                {{ .Content }}
+            </article>
         </div>
     </div>
 </div>
