@@ -33,7 +33,7 @@ develop-assets:
 	$(GULP) watch
 
 develop-site:
-	hugo server
+	hugo server --buildDrafts --buildFuture
 
 develop:
 	$(CONCURRENTLY) "make develop-assets" "make develop-site"
