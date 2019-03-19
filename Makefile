@@ -47,4 +47,4 @@ netlify-production-build: assets
 	hugo
 
 netlify-preview-build: assets
-	hugo --baseURL $(DEPLOY_PRIME_URL)
+	hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture
