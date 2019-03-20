@@ -33,7 +33,7 @@ develop-assets:
 	$(GULP) watch
 
 develop-site:
-	hugo server
+	hugo server --buildDrafts --buildFuture
 
 develop:
 	$(CONCURRENTLY) "make develop-assets" "make develop-site"
@@ -47,4 +47,4 @@ netlify-production-build: assets
 	hugo
 
 netlify-preview-build: assets
-	hugo --baseURL $(DEPLOY_PRIME_URL)
+	hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture
