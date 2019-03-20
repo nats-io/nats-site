@@ -1,7 +1,7 @@
 +++
-categories = ["General"]
+categories = ["General", "Engineering"]
 date = "2019-03-19"
-tags = ["security", "c", "cncf", "cure53", "gnatsd", "go", "node"]
+tags = ["security", "c", "cncf", "Cure53", "gnatsd", "go", "node"]
 title = "NATS.io Security Update"
 author = "Colin Sullivan"
 +++
@@ -21,9 +21,9 @@ upcoming NATS server 2.0 release, expected in Q2 2019.
 
 ## Security Audit
 
-In November of last year, the CNCF sponsored [cure53](https://cure53.de/)
+In November of last year, the CNCF sponsored [Cure53](https://cure53.de/)
 to perform a security audit of the NATS server and some of the more
-popular NATS clients.  We setup a secure server for cure53 to attack
+popular NATS clients.  We setup a secure server for Cure53 to attack
 and they analyzed our source code.
 
 _“Cure53 chose a two-pronged approach to testing against NATS. In order to
@@ -32,7 +32,7 @@ engaged in classic penetration testing against a NATS-provided cloud
 instance.”_
 
 Emphasis was on the [NATS server](https://github.com/nats-io/gnatsd) and our
-canonical client, the [go client](https://github.com/nats-io/go-nats),
+canonical client, the [Go client](https://github.com/nats-io/go-nats),
 since it is used as a reference for most other maintainer supported
 clients.  The [C client](https://github.com/nats-io/cnats) and [Node.js](https://github.com/nats-io/node-nats) client were also tested.  
 
@@ -41,9 +41,9 @@ clients.  The [C client](https://github.com/nats-io/cnats) and [Node.js](https:/
 Overall, we feel NATS came out with flying colors.  The server had one
 low rated vulnerability which was immediately fixed.
 
-Simplicity pays off.  The report noted that most clients are small in
-comparison to other projects evaluated, thus presenting a small attack
-surface.  Our canonical go client had no issues reported.  In the C client
+Simplicity pays off.  The report noted that most of the NATS clients are small
+in comparison to other projects evaluated, thus presenting a small attack
+surface.  Our canonical Go client had no issues reported.  In the C client
 there was a critical overflow issue which was immediately fixed and all other
 issues have been fixed or addressed by the NATS team.
 
@@ -53,10 +53,11 @@ The full report can be found [here](https://github.com/nats-io/nats-general/blob
 
 ___Private keys?  We don’t need them.___
 
-We also asked cure53 to analyze [NKEYS](https://github.com/nats-io/nkeys)
-(NATS Encoded Ed25519 keys) and our [JWT](https://github.com/nats-io/jwt)
-technology which is used by the upcoming NATS security features in the
-NATS server 2.0 release.  No vulnerabilities were found.
+We also asked Cure53 to analyze [NKEYS](https://github.com/nats-io/nkeys)
+(NATS Encoded [Ed25519](https://ed25519.cr.yp.to/) keys) and our 
+[JWT](https://github.com/nats-io/jwt) technology which is used by the
+upcoming NATS security features in the NATS server 2.0 release.  No
+vulnerabilities were found.
 
 In version 2.0, NKEYS and NATS JWTs are used in a nonce-based client connect
 protocol, where the server holds a public NKEY and the client signs the nonce
