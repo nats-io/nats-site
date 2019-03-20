@@ -211,19 +211,27 @@ To add a new blog entry, use the `hugo new` command like the following:
 
 Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
 
-Once the command is run you can find the new blog entry in `/blog/nats-lands-in-london.md`.
+Once the command is run you can find the new blog entry in `content/blog/nats-lands-in-london.md`.
 
-In the frontmatter of the new entry you will see this:
+In the frontmatter of the new entry you will see metadata like this:
 
 ```
-	+++
-	categories = ["x", "y"]
-	date = "2015-11-05T11:45:03-08:00"
-	tags = ["x", "y"]
-	title = "nats lands in london"
-	
-	+++
++++
+date = "2019-12-01"
+draft = true
+title = "NATS Lands in London"
+author = "Esteemed NATS Thought Leader"
+categories = ["Engineering"]
+tags = ["NATS"]
++++
 ```
+
+Make sure to update that page metadata to reflect the specifics of your post (author, targeted publish date, etc.).
+
+By default, `draft = true` is set on blog posts. When a post has this status, it won't be published to the production site, but it will be viewable via the Netlify deploy preview. The following must be true for a post to go live on the site:
+
+* The post's date must not be in the future
+* The `draft` parameter must be set to `false` or not be present
 
 ### Categories
 For Categories you are going to add on or more of the following:
