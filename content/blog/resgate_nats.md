@@ -23,7 +23,7 @@ REST APIs are nice. Simple. Stateless. Scalable. But to keep client data updated
 Being the lead developer of the cloud offering at a leading provider of contact center solutions, I had to deal with these issues. And with the help of NATS I have a solution.
 
 ## Resgate - a Realtime API Gateway
-The solution became the [*REsource Subscription (RES) Protocol*](https://github.com/jirenius/resgate/blob/master/docs/res-protocol.md), a simple JSON based protocol that revolves around the concept of *resources*, represented by JSON objects (*models*) and arrays (*collections*). And then [Resgate](https://github.com/jirenius/resgate), the gateway implementation that enables it all.
+The solution became the [*REsource Subscription (RES) Protocol*](https://github.com/jirenius/resgate/blob/master/docs/res-protocol.md), a simple JSON based protocol that revolves around the concept of *resources*, represented by JSON objects (*models*) and arrays (*collections*). And then [Resgate](https://resgate.io), the gateway implementation that enables it all.
 
 Resgate is a smart WebSocket-to-NATS (and REST-to-NATS) API gateway, written in Go. It is similar to NATS in its high performance and simple setup. By acting as a bridge between the web clients and the (micro-)services, fetching resources, forwarding method calls, and passing on events, it also handles **access control**, **syncing**, **resource caching**, and more.
 
@@ -40,7 +40,7 @@ A simple NATS+Resgate setup would look like this:
 </p>
 
 
-Resgate becomes the single entry point for all clients. While there might be one macro-service, or a hundred micro-services, connected to NATS, the client that accesses the API will perceive it as a single unified API.
+Resgate, the blue archway, becomes the single entry point for all clients. While there might be one macro-service, or a hundred micro-services, connected to NATS, the client that accesses the API will perceive it as a single unified API.
 
 The service(s), which can be written in any language supported by NATS server, will listen to requests similar to REST. But instead of using HTTP, the service will listen and reply to requests published over NATS.
 
@@ -83,7 +83,9 @@ nats.subscribe('access.models.mymodel', function(req, reply) {
 
 // Updating the model
 mymodel.message = "Hello NATS+Resgate";
-nats.publish('event.models.mymodel.change', JSON.stringify({ message: mymodel.message }));
+nats.publish('event.models.mymodel.change', JSON.stringify({
+  values: { message: mymodel.message }
+}));
 ```
 
 <img align="right" alt="Wolf match maker" src="/img/blog/resgate-nats/wolf_now_kiss_135x240.png">
@@ -107,14 +109,14 @@ There are two ways to get the resources from Resgate:
 ```js
 let client = new ResClient('ws://api.example.com');
 client.get('models.mymodel').then(model => {
-    console.log(model.message); // Hello NATS
+  console.log(model.message); // Hello NATS
 });
 ```
 
 But when using ResClient, that communicates over WebSockets, your resources are updated in real time!
 ```js
 let changeHandler = function() {
-    console.log("Updated: " + model.message); // Updated: Hello NATS+Resgate
+  console.log("Updated: " + model.message); // Updated: Hello NATS+Resgate
 }
 
 // Subscribe to events
@@ -154,9 +156,10 @@ Access control is done on the level of resources and resource methods. Access ca
 
  With NATS+Resgate and the REsource Subscription (RES) protocol, you can get real time updates to your web clients while gaining functionality such as **end-user authentication**, **resource caching**, and **data-loss recovery**. And it is **fast** and **simple**!
 
- While the project is young, the first version of the protocol is settled, where no changes will be added that breaks backwards compatibility. Resgate will continue to get battle tested as the number of projects where the gateway is deployed in increases. Meanwhile, steps are being taken to provide a proper website with guides and examples to ease introduction and development of services for NATS+Resgate.
- 
-If you are interested in knowing more, visit the project page on [Github](https://github.com/jirenius/resgate).  
+ While the project is young, the first version of the protocol is settled, where no changes will be added that breaks backwards compatibility. Resgate will continue to get battle tested as the number of projects where the gateway is deployed in increases.
+
+If you are interested in knowing more, visit the [Resgate.io](https://resgate.io) website, which contains guides, examples, and resources to ease introduction and development of services for NATS+Resgate.
+
 Or if you have any question or feedback, don't hesitate to contact me directly via email:
 
 [samuel@jirenius.com](mailto:samuel@jirenius.com)
@@ -172,10 +175,11 @@ He has been working as the system architect and lead developer of Altitude Xperi
 Samuel is currently working at [PRO NON X](https://www.prononx.se/).
 
 ## Links
-* **[Resgate](https://github.com/jirenius/resgate)** - project page for the realtime API gateway
-* **[ResClient](https://www.npmjs.com/package/resclient)** - RES client library for javascript
-* **[Resgate Test App](https://github.com/jirenius/resgate-test-app)** - test application used to test and develop Resgate
-* **[go-res](https://github.com/jirenius/go-res)** - RES service library for Go
+* **[Resgate.io](https://resgate.io)** - web site with examples, guides, and resources
+* **[GitHub - Resgate](https://github.com/jirenius/resgate)** - repository for the realtime API gateway
+* **[GitHub - ResClient](https://www.npmjs.com/package/resclient)** - RES client library for javascript
+* **[GitHub - Resgate Test App](https://github.com/jirenius/resgate-test-app)** - test application used to test and develop Resgate
+* **[GitHub - go-res](https://github.com/jirenius/go-res)** - RES service library for Go
 
 
 ## Examples
