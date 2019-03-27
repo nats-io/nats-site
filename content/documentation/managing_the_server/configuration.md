@@ -9,7 +9,9 @@ category = "server"
   parent = "Managing the Server"
 +++
 
-You can use a server configuration file to configure the NATS server, including:
+By default, NATS Server runs without a configuration file. You can use a server configuration file to configure the NATS server. The  server configuration file is specified via the `-c <config>` or `--c <config>` command line options.
+
+NATS Server configuration includes:
 
 - Client listening port
 - HTTP monitoring port
@@ -19,6 +21,7 @@ You can use a server configuration file to configure the NATS server, including:
 - Logging
 - Max client connections
 - Max payload
+- Allowed/denied subjects with wildcards (
 
 In addition, the server configuration language supports [block-scoped variables](#variables) for automation.
 
@@ -37,6 +40,7 @@ The config file format supports the following syntax:
   - Whitespace (`foo 2`)
 - Maps can be assigned with no key separator
 - Semicolons as value terminators in key/value assignments are optional
+- Optional configuration through nested include files (`include "auth.conf"`)
 
 In general the configuration parameters are the same as the [command line arguments](/documentation/managing_the_server/running). Note, however, the following differences:
 
@@ -106,7 +110,38 @@ max_payload: 65536
 
 # Duration the server can block on a socket write to a client.  Exceeding the 
 # deadline will designate a client as a slow consumer.
- write_deadline: "2s"
+write_deadline: "2s"
+ 
+ 
+# Restrict user subscription permissions. 
+
+authorization {
+  # Default permissions
+  permissions {
+    publish {
+      allow = ["public.>"]
+    }
+    subscribe {
+      allow = ["public.>"]
+    }
+  }
+
+  # user-specific permissions
+  users [
+    { user = "CN=example.com,OU=NATS.io" }
+    { user = "CN=example.com,OU=CNCF", permissions = {
+	publish {
+	  allow = [">"]
+	}
+	subscribe {
+	  allow = [">"]
+    deny = ["private.>", "internal.>"] 
+	}
+      }
+    }
+  ]
+}
+
 ```
 
 ## Variables
@@ -127,3 +162,7 @@ authorization {
   ]
 }
 ```
+
+## Updating/reloading configuration
+
+A NATS administrator can update server configuration simply by editing the active configuration file and then executing `gnatsd -sl reload`.
