@@ -161,9 +161,38 @@ body {
 
 // Panel styling
 .panel {
+  border: 1px solid @nats-brand-gray;
+
   .panel-title {
     margin: 0 0 15px 0;
   }
+}
+
+// Doc title section
+.doc-title {
+  h1.title {
+    font-weight: 300;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .edit-btn {
+    border: none;
+    border-radius: 0;
+    background-color: black;
+
+    color: white;
+
+    .icon {
+      margin-right: .5rem;
+    }
+  }
+}
+
+// Dark HR
+hr.dark-hr {
+  background-color: @nats-brand-gray;
+  height: 1px;
 }
 
 // Anchor fix for sticky header
@@ -852,18 +881,6 @@ code[data-viz] {
 // Documentation
 #nats-documentation-detail-page, #nats-docs-detail-page {
   #doc-content {
-    .edit-btn {
-      border: none;
-      border-radius: 0;
-      background-color: black;
-
-      color: white;
-
-      .icon {
-        margin-right: .5rem;
-      }
-    }
-
     ul {
       list-style-type: disc;
       padding-left: 1.75rem;

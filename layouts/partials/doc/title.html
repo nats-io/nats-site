@@ -3,17 +3,21 @@
 {{ $editUrl   := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" $path }}
 {{ $title     := cond (isset .Params "alttitle") .Params.alttitle .Title }}
 
-<h1>{{ $title }}</h1>
+<header class="doc-title">
+    <h1 class="title">
+        {{ $title }}
+    </h1>
 
-<div class="row">
-    <div class="container">
-        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
-            <i class="icon icon-github"></i> View source
-        </a>
-        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
-            <i class="icon icon-github"></i> Edit
-        </a>
+    <div class="row">
+        <div class="container">
+            <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
+                <i class="icon icon-github"></i> View source
+            </a>
+            <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
+                <i class="icon icon-github"></i> Edit
+            </a>
+        </div>
     </div>
-</div>
+</header>
 
-<hr />
+<hr class="dark-hr" />
