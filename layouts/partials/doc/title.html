@@ -1,9 +1,19 @@
-{{ $editUrl := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" .File.Path }}
-{{ $title   := cond (isset .Params "alttitle") .Params.alttitle .Title }}
+{{ $path      := .File.Path }}
+{{ $sourceUrl := printf "https://github.com/nats-io/nats-site/tree/master/content/%s" $path }}
+{{ $editUrl   := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" $path }}
+{{ $title     := cond (isset .Params "alttitle") .Params.alttitle .Title }}
+
 <h1>{{ $title }}</h1>
 
-<a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
-    <i class="icon icon-github"></i> Edit on GitHub
-</a>
-    
+<div class="row">
+    <div class="container">
+        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
+            <i class="icon icon-github"></i> View source
+        </a>
+        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
+            <i class="icon icon-github"></i> Edit
+        </a>
+    </div>
+</div>
+
 <hr />
