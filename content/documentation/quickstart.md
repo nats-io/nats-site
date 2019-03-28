@@ -14,6 +14,8 @@ This tutorial takes you from zero to [running](#run) the current version of NATS
 
 You can run the NATS server [as a static binary](#binary) or [using Docker](#docker).
 
+> For more comprehensive instructions, see the [Running the NATS Server](/documentation/managing_the_server/running/) guide.
+
 ### Static binary {#binary}
 
 Click on the relevant OS/processor combo for your environment, which will trigger the download of a ZIP file (or you can copy the URL and download using a tool like [wget](https://www.gnu.org/software/wget/)):
