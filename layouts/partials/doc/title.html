@@ -1,12 +1,21 @@
-{{ $path      := .File.Path }}
-{{ $sourceUrl := printf "https://github.com/nats-io/nats-site/tree/master/content/%s" $path }}
-{{ $editUrl   := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" $path }}
-{{ $title     := cond (isset .Params "alttitle") .Params.alttitle .Title }}
+{{ $path        := .File.Path }}
+{{ $sourceUrl   := printf "https://github.com/nats-io/nats-site/tree/master/content/%s" $path }}
+{{ $editUrl     := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" $path }}
+{{ $title       := cond (isset .Params "alttitle") .Params.alttitle .Title }}
+{{ $description := .Params.description }}
 
 <header class="doc-title">
-    <h1 class="title">
-        {{ $title }}
-    </h1>
+    <section class="doc-title-section">
+        <h1 class="title">
+            {{ $title }}
+        </h1>
+    
+        {{ with $description }}
+        <h2 class="description">
+            {{ . | markdownify }}
+        </h2>
+        {{ end }}
+    </section>
 
     <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
         <i class="icon icon-github"></i> View source

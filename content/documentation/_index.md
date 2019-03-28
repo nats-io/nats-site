@@ -2,6 +2,7 @@
 title = "NATS Documentation"
 alttitle = "NATS Introduction"
 category = "documentation"
+description = ""
 [menu.main]
   name = "Introduction"
   weight = 1
