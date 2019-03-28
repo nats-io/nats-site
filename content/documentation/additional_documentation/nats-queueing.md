@@ -36,8 +36,8 @@ git clone https://github.com/nats-io/ruby-nats.git
 **3. Run the Go client subscriber with queue group name.**
 
 ```
-cd $GOPATH/src/github.com/nats-io/go-nats/examples
-go run nats-qsub.go foo my-queue
+cd $GOPATH/src/github.com/nats-io/go-nats/examples/nats-qsub
+go run main.go foo my-queue
 ```
 
 **4. Install and run the Node client subscriber with queue group name.**
@@ -58,15 +58,15 @@ nats-queue foo my-queue &
 **6. Run another Go client subscriber *without* the queue group.**
 
 ```
-cd $GOPATH/src/github.com/nats-io/go-nats/examples
-go run nats-sub.go foo
+cd $GOPATH/src/github.com/nats-io/go-nats/examples/nats-sub
+go run main.go foo
 ```
 
 **7. Publish a NATS message using the Go client.**
 
 ```
-cd $GOPATH/src/github.com/nats-io/go-nats/examples
-go run nats-pub.go foo "Hello NATS!"
+cd $GOPATH/src/github.com/nats-io/go-nats/examples/nats-pub
+go run main.go foo "Hello NATS!"
 ```
 
 **8. Verify message publication and receipt.**
@@ -78,7 +78,7 @@ You should see that only one of the my-queue group subscribers receives the mess
 **9. Publish another message.**
 
 ```
-go run nats-pub.go foo "Hello NATS Again!"
+go run main.go foo "Hello NATS Again!"
 ```
 
 You should see that a different queue group subscriber receives the message this time, chosen at random among the 3 queue group members.

@@ -23,30 +23,40 @@ NATS supports [request reply messaging](/documentation/writing_applications/conc
 % gnatsd
 ```
 
-#### 2. Start two terminal sessions
+#### 2. Start a shell or command prompt session
 
-You will use these sessions to run the NATS request and reply clients.
+You will use these sessions to run the NATS reply client.
 
 #### 3. Change to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/go-nats/examples
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples/nats-rply
 ```
 
-#### 4. In one terminal, run the reply client listener
+#### 4. Run the reply client listener
 
 ```sh
-% go run nats-rply.go foo "this is my response"
+% go run main.go help.please "OK, I CAN HELP!!!"
 ```
 
-You should see the message `Receiver is listening`, and that the NATS receiver client is listening on the "help.please" subject. The reply client acts as a receiver, listening for message requests. In NATS, the receiver is a subscriber.
+You should see the message `Listening on [help.please]`, and that the NATS receiver client is listening on the "help.please" subject. The reply client acts as a receiver, listening for message requests. In NATS, the receiver is a subscriber.
 
-#### 5. In the other terminal, run the request client
+#### 5. Start another shell or command prompt session
+
+You will use this session to run a NATS request client.
+
+#### 6. CD to the examples directory
 
 ```sh
-% go run nats-req.go foo "request payload"
+% cd $GOPATH/src/github.com/nats-io/go-nats/examples/nats-req
+```
+
+#### 7. Publish a help request message
+
+```sh
+% go run main.go help.please "some message"
 ```
 
 The NATS requestor client makes a request by sending the message "some message" on the “help.please” subject.
 
-The NATS receiver client receives the message, formulates the reply ("OK, I CAN HELP!!!), and sends it to the inbox of the requester.
+The NATS receiver client receives the message, formulates the reply ("OK, I CAN HELP!!!"), and sends it to the inbox of the requester.
