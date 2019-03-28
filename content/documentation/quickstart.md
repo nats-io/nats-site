@@ -53,7 +53,13 @@ This will run the NATS Server on port 4222 in debug mode. Debug mode isn't *nece
 
 ## Send messages to NATS using a client {#send}
 
-You can find instructions for your language of choice in the box below:
+All NATS messages can include the following:
+
+* A target subject
+* A reply subject (optional)
+* A message payload (as an array of bytes)
+
+The language-specific examples below show you how to send a message with a target subject `updates` and a message payload of `All is well`:
 
 {{< partial "doc/publish_bytes.html" >}}
 
@@ -61,18 +67,20 @@ You can find instructions for your language of choice in the box below:
 
 ## Receive messages from NATS using a client {#receive}
 
-Messages from NATS can be received either [synchronously](#synchronous) or [asynchronously](#asynchronous).
+NATS clients receive messages from NATS by establishing *subscriptions*. With subscriptions, the client notifies the NATS server about which subject the client is interested in and then listens for messages with that subject. Messages from NATS can be received either [synchronously](#sync) or [asynchronously](#async).
+
+The language-specific examples below show you how to receive messages with the subject `updates` both [synchronously](#sync) and [asynchronously](#async).
 
 > For more comprehensive instructions, see the [Receiving Messages](/documentation/writing_applications/subscribing/) guide.
 
-### Receive messages synchronously
-
-You can find instructions for your language of choice in the box below:
+### Receive messages synchronously {#sync}
 
 {{< partial "doc/subscribe_sync.html" >}}
 
-### Receive messages ascnchronously
-
-You can find instructions for your language of choice in the box below:
+### Receive messages ascnchronously {#async}
 
 {{< partial "doc/subscribe_async.html" >}}
+
+## Next steps
+
+Congrats! You've now successfully used NATS as a message broker using a client in your preferred language. But there's much more to explore in NATS.
