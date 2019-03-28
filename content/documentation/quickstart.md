@@ -8,12 +8,11 @@ description = "Run the NATS server locally"
   parent = "Getting Started With NATS"
 +++
 
-This tutorial takes you from zero to running the current version of NATS Server (**{{< latest >}}**) locally in your preferred environment and connecting to it using one of NATS' client libraries.
+This tutorial takes you from zero to [running](#run) the current version of NATS Server (version **{{< latest >}}**) locally in your preferred environment and [sending](#send) messages to and [receiving](#receive) messages from the NATS server using a client of your choice.
 
+## Run the NATS Server locally {#run}
 
 You can run the NATS server [as a static binary](#binary) or [using Docker](#docker).
-
-## Run the NATS Server locally
 
 ### Static binary {#binary}
 
@@ -52,10 +51,28 @@ docker run -p 4222:4222 -p 8222:8222 nats:{{< latest >}}
 
 This will run the NATS Server on port 4222 in debug mode. Debug mode isn't *necessary* but it will come in handy later in this tutorial.
 
-## Fetch information about NATS
-
-## Send a message to NATS using a client
+## Send messages to NATS using a client {#send}
 
 You can find instructions for your language of choice in the box below:
 
 {{< partial "doc/publish_bytes.html" >}}
+
+> For more comprehensive instructions, see the [Sending Messages](/documentation/writing_applications/publishing) guide.
+
+## Receive messages from NATS using a client {#receive}
+
+Messages from NATS can be received either [synchronously](#synchronous) or [asynchronously](#asynchronous).
+
+> For more comprehensive instructions, see the [Receiving Messages](/documentation/writing_applications/subscribing/) guide.
+
+### Receive messages synchronously
+
+You can find instructions for your language of choice in the box below:
+
+{{< partial "doc/subscribe_sync.html" >}}
+
+### Receive messages ascnchronously
+
+You can find instructions for your language of choice in the box below:
+
+{{< partial "doc/subscribe_async.html" >}}
