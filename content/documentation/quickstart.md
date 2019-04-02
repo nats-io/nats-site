@@ -85,4 +85,7 @@ The language-specific examples below show you how to receive messages with the s
 
 ## Next steps
 
-Congrats! You've now successfully used NATS as a message broker using a client in your preferred language. But there's much more to explore in NATS.
+Congrats! You've now successfully used NATS as a message broker using a client in your preferred language. But there's much more to explore in NATS. We'd recommend checking out one of the following next:
+
+* [NATS Concepts](/documentation/writing_applications/concepts)
+* [Explore NATS Pub Sub](/documentation/additional_documentation/nats-pub-sub)
