@@ -79,7 +79,7 @@ The language-specific examples below show you how to receive messages with the s
 
 {{< partial "doc/subscribe_sync.html" >}}
 
-### Receive messages ascnchronously {#async}
+### Receive messages asynchronously {#async}
 
 {{< partial "doc/subscribe_async.html" >}}
 
