@@ -131,9 +131,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.2.2
+  version_num: 1.2.6
   release_notes: |
-    Release v1.2.2 on December 14th, 2018.
+    Release v1.2.6 on March 29, 2019.
   github:
     - user: nats-io
       repo: node-nats
@@ -569,9 +569,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.0.40
+  version_num: 0.2.2
   release_notes: |
-    Release 0.0.40 on May 1st, 2018.
+    Release 0.2.2 on March 29, 2019.
   github:
     - user: nats-io
       repo: node-nats-streaming
