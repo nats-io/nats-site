@@ -18,7 +18,7 @@ For example, to connect to the demo server with a URL:
 
 ### Connecting to the Default Server
 
-Some libraries also provide a special way to connect to a *default* url, which is general `nats://localhost:4222`:
+Some libraries also provide a special way to connect to a *default* url, which is generally `nats://localhost:4222`:
 
 {{< partial "doc/connect_default.html" >}}
 
