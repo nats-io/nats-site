@@ -8,7 +8,7 @@ title = "Subject-based Messaging"
     parent = "Writing Applications"
 +++
 
-Fundamentally NATS is about publishing and listening for messages. Both of these depend heavily on _Subjects_ which scope messages into streams or topics. At its simplest, a subject is just a string of characters that form a name the publisher and subscriber can used to find each other.
+Fundamentally NATS is about publishing and listening for messages. Both of these depend heavily on _Subjects_ which scope messages into streams or topics. At its simplest, a subject is just a string of characters that form a name the publisher and subscriber can use to find each other.
 
 <div class="graphviz"><code data-viz="dot">
 digraph g {
