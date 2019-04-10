@@ -101,9 +101,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.4.2
+  version_num: 2.4.3
   release_notes: |
-    Release 2.4.2 on March 22, 2019.
+    Release 2.4.3 on April 9, 2019.
   github:
     - user: nats-io
       repo: jnats
@@ -554,9 +554,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.3
+  version_num: 2.1.4
   release_notes: |
-    Release 2.1.3 on January 4, 2019
+    Release 2.1.4 on April 9, 2019
   github:
     - user: nats-io
       repo: java-nats-streaming
