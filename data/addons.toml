@@ -373,6 +373,14 @@ authorHome = "https://github.com/MichaelKatsoulis"
 author = "Chris Markou"
 authorHome = "https://github.com/ChrsMark"
 
+[addons.nats_operator]
+name = "NATS Kubernetes Operator"
+home = "https://github.com/nats-io/nats-operator"
+description = "This operator manages NATS clusters atop Kubernetes, automating their creation and administration."
+support = "Synadia"
+[[addons.nats_operator.authors]]
+author = "NATS Team"
+
 #[addons.xxx]
 #name = ""
 #home = ""
