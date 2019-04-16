@@ -17,12 +17,14 @@
         {{ end }}
     </section>
 
-    <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
-        <i class="icon icon-github"></i> View source
-    </a>
-    <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
-        <i class="icon icon-github"></i> Edit
-    </a>
+    <div class="d-flex text-right">
+        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
+            <i class="icon icon-github"></i> View source
+        </a>
+        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
+            <i class="icon icon-github"></i> Edit
+        </a>
+    </div>
 </header>
 
 <hr class="dark-hr" />
