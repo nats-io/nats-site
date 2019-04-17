@@ -1,9 +1,7 @@
 {{ $path        := .File.Path }}
-{{ $sourceUrl   := printf "https://github.com/nats-io/nats-site/tree/master/content/%s" $path }}
 {{ $editUrl     := printf "https://github.com/nats-io/nats-site/edit/master/content/%s" $path }}
 {{ $title       := cond (isset .Params "alttitle") .Params.alttitle .Title }}
 {{ $description := .Params.description }}
-
 <header class="doc-title">
     <section class="doc-title-section">
         <h1 class="title">
@@ -15,16 +13,13 @@
             {{ . | markdownify }}
         </h2>
         {{ end }}
-    </section>
 
-    <div class="d-flex text-right">
-        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $sourceUrl }}">
-            <i class="icon icon-github"></i> View source
-        </a>
-        <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
-            <i class="icon icon-github"></i> Edit
-        </a>
-    </div>
+        <div class="d-flex text-right">
+            <a role="button" class="btn btn-sm edit-btn" target="_blank" href="{{ $editUrl }}">
+                <i class="icon icon-github"></i> Edit
+            </a>
+        </div>
+    </section>
 </header>
 
 <hr class="dark-hr" />
