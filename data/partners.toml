@@ -43,3 +43,8 @@ logo = "/img/partners/storageos.jpg"
 name = "Bitnami"
 home = "https://bitnami.com/"
 logo = "/img/partners/Bitnami-Logo-Full-Color.png"
+
+[partners.agilestacks]
+name = "Agile Stacks"
+home = "https://agilestacks.com/"
+logo = "/img/partners/agilestacks_horz.jpg"
