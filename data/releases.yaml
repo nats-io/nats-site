@@ -71,13 +71,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.4-alpha
+  version_num: 0.6.1
   release_notes: |
-    Release v0.1.4-alpha on January 27th, 2016.
+    Release v0.6.1 on March 3, 2019.
   github:
     - user: nats-io
-      repo: elixir-nats
-      link: https://github.com/nats-io/elixir-nats
+      repo: nats.ex
+      link: https://github.com/nats-io/nats.ex
 
 - name: Go
   type: nats-client
@@ -536,9 +536,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.4
+  version_num: 0.1.5
   release_notes: |
-    Release v0.1.4 on April 26th, 2017.
+    Release v0.1.5 on April 19, 2019.
   github:
     - user: nats-io
       repo: csharp-nats-streaming
