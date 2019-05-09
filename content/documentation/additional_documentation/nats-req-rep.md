@@ -14,14 +14,14 @@ NATS supports [request reply messaging](/documentation/writing_applications/conc
 
 #### Prerequisites
 
-- [Set up your Go environment](/documentation/tutorials/go-install/)
-- [Installed the NATS server](/documentation/tutorials/gnatsd-install/)
+- [Set up your Go environment](/documentation/additional_documentation/go-install/)
+- [Installed the NATS server](/documentation/managing_the_server/installing/)
 - [Cloned go-nats project to `$GOPATH/src/github.com/nats-io`](https://github.com/nats-io/go-nats)
 
 #### 1. Start the NATS server
 
 ```sh
-% gnatsd
+% nats-server
 ```
 
 #### 2. Start two terminal sessions

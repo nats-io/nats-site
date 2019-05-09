@@ -16,7 +16,7 @@ This demonstration will show you how to run a Minio object store on a local mach
 
 #### Step 1: Install and run NATS Server
 
-`go get github.com/nats-io/gnatsd`
+`go get github.com/nats-io/nats-server`
 
 #### Step 2: Install Minio
 

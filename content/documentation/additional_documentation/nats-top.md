@@ -14,8 +14,8 @@ You can use [nats-top](/documentation/managing_the_server/statistics) to monitor
 
 #### Prerequisites
 
-- [Set up your Go environment](/documentation/tutorials/go-install/)
-- [Installed the NATS server](/documentation/tutorials/gnatsd-install/)
+- [Set up your Go environment](/documentation/additional_documentation/go-install/)
+- [Installed the NATS server](/documentation/managing_the_server/installing/)
 
 #### 1. Install nats-top
 
@@ -32,7 +32,7 @@ You may need to run the following instead:
 #### 2. Start the NATS server with monitoring enabled
 
 ```sh
-% gnatsd -m 8222
+% nats-server -m 8222
 ```
 
 #### 3. Start nats-top
@@ -44,7 +44,7 @@ You may need to run the following instead:
 Result:
 
 ```sh
-gnatsd version 0.6.6 (uptime: 2m2s)
+nats-server version 0.6.6 (uptime: 2m2s)
 Server:
   Load: CPU:  0.0%  Memory: 6.3M  Slow Consumers: 0
   In:   Msgs: 0  Bytes: 0  Msgs/Sec: 0.0  Bytes/Sec: 0
@@ -63,7 +63,7 @@ For the best experience, you will want to run multiple subscribers, at least 2 o
 #### 5. Check nats-top for statistics
 
 ```sh
-gnatsd version 0.6.6 (uptime: 30m51s)
+nats-server version 0.6.6 (uptime: 30m51s)
 Server:
   Load: CPU:  0.0%  Memory: 10.3M  Slow Consumers: 0
   In:   Msgs: 56  Bytes: 302  Msgs/Sec: 0.0  Bytes/Sec: 0
@@ -81,7 +81,7 @@ Connections: 3
 In nats-top, enter the command `o` followed by the option, such as `bytes_to`. You see that nats-top sorts the BYTES_TO column in ascending order.
 
 ```sh
-gnatsd version 0.6.6 (uptime: 45m40s)
+nats-server version 0.6.6 (uptime: 45m40s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
   In:   Msgs: 81  Bytes: 427  Msgs/Sec: 0.0  Bytes/Sec: 0
@@ -107,7 +107,7 @@ You can also set the sort option on the command line using the `-sort` flag. For
 In nats-top, enter the command `s` to toggle displaying connection subscriptions. When enabled, you see the subscription subject in nats-top table:
 
 ```sh
-gnatsd version 0.6.6 (uptime: 1h2m23s)
+nats-server version 0.6.6 (uptime: 1h2m23s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
   In:   Msgs: 108  Bytes: 643  Msgs/Sec: 0.0  Bytes/Sec: 0
@@ -135,7 +135,7 @@ For example, to query for the connection with largest number of subscriptions:
 Result: nats-top displays only the client connection with the largest number of subscriptions:
 
 ```sh
-gnatsd version 0.6.6 (uptime: 1h7m0s)
+nats-server version 0.6.6 (uptime: 1h7m0s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
   In:   Msgs: 109  Bytes: 651  Msgs/Sec: 0.0  Bytes/Sec: 0

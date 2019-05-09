@@ -5,7 +5,7 @@ category = "tutorials"
 [menu.main]
   name = "Docker"
   weight = 8
-  identifier = "doc-gnatsd-docker"
+  identifier = "doc-nats-server-docker"
   parent = "Additional Documentation"
 +++
 

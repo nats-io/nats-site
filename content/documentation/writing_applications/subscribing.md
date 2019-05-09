@@ -72,7 +72,7 @@ Using queues, from a subscription standpoint, is super easy. The application sim
 digraph g {
   rankdir=LR
   publisher [shape=box, style="rounded", label="PUB updates"];
-  subject [shape=circle, label="gnatsd"];
+  subject [shape=circle, label="nats-server"];
   sub1 [shape=box, style="rounded", label="SUB updates workers"];
   sub2 [shape=box, style="rounded", label="SUB updates workers"];
   sub3 [shape=box, style="rounded", label="SUB updates workers"];

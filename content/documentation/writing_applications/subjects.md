@@ -14,7 +14,7 @@ Fundamentally NATS is about publishing and listening for messages. Both of these
 digraph g {
   rankdir=LR
   publisher [shape=box, style="rounded", label="PUB time.us"];
-  subject [shape=circle, label="gnatsd"];
+  subject [shape=circle, label="nats-server"];
   sub1 [shape=box, style="rounded", label="SUB time.us"];
   sub2 [shape=box, style="rounded", label="SUB time.us"];
 
@@ -52,7 +52,7 @@ The first wildcard is `*` which will match a single token. For example, if an ap
 digraph g {
   rankdir=LR
   publisher [shape=box, style="rounded", label="PUB time.us.east"];
-  subject [shape=circle, label="gnatsd"];
+  subject [shape=circle, label="nats-server"];
   sub1 [shape=box, style="rounded", label="SUB time.*.east"];
   sub2 [shape=box, style="rounded", label="SUB time.us.east"];
 
@@ -70,7 +70,7 @@ The second wildcard is `>` which will match one or more tokens, and can only app
 digraph g {
   rankdir=LR
   publisher [shape=box, style="rounded", label="PUB time.us.east.atlanta"];
-  subject [shape=circle, label="gnatsd"];
+  subject [shape=circle, label="nats-server"];
   sub1 [shape=box, style="rounded", label="SUB time.us.east.atlanta"];
   sub2 [shape=box, style="rounded", label="SUB time.us.*"];
   sub3 [shape=box, style="rounded", label="SUB time.us.>"];

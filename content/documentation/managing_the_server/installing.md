@@ -5,7 +5,7 @@ category = "server"
 [menu.main]
   name = "Installation"
   weight = 1
-  identifier = "doc-installing-gnatsd"
+  identifier = "doc-installing-nats-server"
   parent = "Managing the Server"
 +++
 
@@ -13,7 +13,7 @@ There are numerous ways to install the NATS server.
 
 ### Install From Binary
 
-The latest official release binaries are always available on the [GitHub releases page](https://github.com/nats-io/gnatsd/releases). The following platforms are available:
+The latest official release binaries are always available on the [GitHub releases page](https://github.com/nats-io/nats-server/releases). The following platforms are available:
 
 * Linux (x86, x86_64, ARM)
 * Windows (x86, x86_64)
@@ -28,7 +28,7 @@ The latest official release binaries are always available on the [GitHub release
 Make sure [your Go environment is set up](/documentation/additional_documentation/go-install/), then install using `go get`.
 
 ```sh
-go get github.com/nats-io/gnatsd
+go get github.com/nats-io/nats-server
 ```
 
 #### Docker Hub
@@ -37,18 +37,18 @@ The latest [official Docker image](https://hub.docker.com/_/nats/) is available 
 
 #### Windows
 
-On Windows, the NATS server can be installed via [Chocolatey](https://chocolatey.org/packages/gnatsd):
+On Windows, the NATS server can be installed via [Chocolatey](https://chocolatey.org/packages/nats-server):
 
 ```sh
-choco install gnatsd
+choco install nats-server
 ```
 
 #### macOS
 
-On macOS, the NATS server can be installed via [Homebrew](http://brewformulas.org/Gnatsd):
+On macOS, the NATS server can be installed via [Homebrew](http://brewformulas.org/nats-server):
 
 ```sh
-brew install gnatsd
+brew install nats-server
 ```
 
 ### Test Your Installation
@@ -56,7 +56,7 @@ brew install gnatsd
 To test your installation, you can invoke the NATS server binary, with no options and no configuration file (no authentication, no clustering).
 
 ```sh
-gnatsd
+nats-server
 ```
 
 When the server starts successfully, you will see that the NATS server listens for client connections on TCP Port 4222:
