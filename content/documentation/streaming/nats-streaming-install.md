@@ -88,7 +88,7 @@ When the server starts successfully, you will see that the NATS Streaming server
 
 ### Start the NATS Streaming Server with NATS monitoring enabled (optional)
 
-The NATS Streaming server exposes the monitoring interface of its embedded NATS Server (`gnatsd`) on port 8222.
+The NATS Streaming server exposes the monitoring interface of its embedded NATS Server (`nats-server`) on port 8222.
 
 ```sh
 % nats-streaming-server -m 8222

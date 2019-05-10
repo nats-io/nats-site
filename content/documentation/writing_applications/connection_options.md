@@ -24,10 +24,10 @@ The client and server use a simple PING/PONG protocol to check that they are bot
 digraph g {
   rankdir=LR
   client [shape=box, style="rounded", label="NATS Client"];
-  gnatsd [shape=circle, label="gnatsd"];
+  nats-server [shape=circle, label="nats-server"];
 
-  client -> gnatsd [label="PING"];
-  gnatsd -> client [label="PONG"];
+  client -> nats-server [label="PING"];
+  nats-server -> client [label="PONG"];
 }
 </code></div>
 

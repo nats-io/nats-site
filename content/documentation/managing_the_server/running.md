@@ -5,14 +5,14 @@ category = "server"
 [menu.main]
   name = "Running the Server"
   weight = 2
-  identifier = "doc-running-gnatsd"
+  identifier = "doc-running-nats-server"
   parent = "Managing the Server"
 +++
 
 Out-of-the-box you can run the NATS server without any custom settings.
 
 ```sh
-gnatsd
+nats-server
 ```
 
 ### Starting the NATS server with monitoring enabled (optional)
@@ -20,7 +20,7 @@ gnatsd
 The NATS server exposes a monitoring interface on port 8222.
 
 ```
-gnatsd -m 8222
+nats-server -m 8222
 ```
 
 If you run the NATS server with monitoring enabled, you see the following messages:

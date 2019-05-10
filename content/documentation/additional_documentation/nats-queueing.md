@@ -22,7 +22,7 @@ NATS supports [message queueing](/documentation/writing_applications/concepts) u
 **1. Start the NATS server.**
 
 ```
-gnatsd
+nats-server
 ```
 
 **2. Clone the repositories for each client examples**

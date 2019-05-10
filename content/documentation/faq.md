@@ -47,7 +47,7 @@ Ask a NATS maintainer at one of the many meetups and conferences we attend to di
 
 ### <a name="gnatsdlang"></a>What language is NATS written in?
 
-The NATS server (`gnatsd`) is written in Go. There is client support for a wide variety of languages. Please see the [Download](/download/) page for more info.
+The NATS server (`nats-server`) is written in Go. There is client support for a wide variety of languages. Please see the [Download](/download/) page for more info.
 
 ### <a name="maintainer"></a>Who maintains NATS?
 
@@ -61,7 +61,7 @@ Please see the [Download](/download/) page for the latest list of Synadia- and c
 
 ### <a name="reqvspub"></a>What is the difference between Request() and Publish()?
 
-Publish() sends a message to `gnatsd` with a subject as its address, and `gnatsd` delivers the message to any interested/eligible subscriber of that subject. Optionally, you may also send along a reply subject with your message, which provides a way for subscribers who have received your message(s) to send messages back to you.
+Publish() sends a message to `nats-server` with a subject as its address, and `nats-server` delivers the message to any interested/eligible subscriber of that subject. Optionally, you may also send along a reply subject with your message, which provides a way for subscribers who have received your message(s) to send messages back to you.
 
 Request() is simply a convenience API that does this for you in a pseudo-synchronous fashion, using a timeout supplied by you. It creates an INBOX (a type of subject that is unique to the requestor), subscribes to it, then publishes your request message with the reply address set to the inbox subject. It will then wait for a response, or the timeout period to elapse, whichever comes first.
 
@@ -83,9 +83,9 @@ A more detailed overview of monitoring is available under [Server Monitoring](/d
 
 ### <a name="queuegroups"></a>Does NATS do queuing? Does NATS do load balancing?
 
-The term 'queueing' implies different things in different contexts, so we must be careful with its use. NATS implements non-persistent distributed queuing via subscriber queue groups. Subscriber queue groups offer a form of message-distribution load balancing. Subject subscriptions in NATS may be either 'individual' subscriptions or queue group subscriptions. The choice to join a queue group is made when the subscription is created, by supplying an optional queue group name. For individual subject subscribers, `gnatsd` will attempt to deliver a copy of *every* message published to that subject to *every* eligible subscriber of that subject. For subscribers in a queue group, `gnatsd` will attempt to deliver each successive message to exactly *one* subscriber in the group, chosen at random.
+The term 'queueing' implies different things in different contexts, so we must be careful with its use. NATS implements non-persistent distributed queuing via subscriber queue groups. Subscriber queue groups offer a form of message-distribution load balancing. Subject subscriptions in NATS may be either 'individual' subscriptions or queue group subscriptions. The choice to join a queue group is made when the subscription is created, by supplying an optional queue group name. For individual subject subscribers, `nats-server` will attempt to deliver a copy of *every* message published to that subject to *every* eligible subscriber of that subject. For subscribers in a queue group, `nats-server` will attempt to deliver each successive message to exactly *one* subscriber in the group, chosen at random.
 
-This form of distributed queueing is done in real time, and messages are not persisted to secondary storage. Further, the distribution is based on interest graphs (subscriptions), so it is not a publisher operation, but instead is controlled entirely by `gnatsd`.
+This form of distributed queueing is done in real time, and messages are not persisted to secondary storage. Further, the distribution is based on interest graphs (subscriptions), so it is not a publisher operation, but instead is controlled entirely by `nats-server`.
 
 ### <a name="listsubj"></a>Can I list the subjects that exist in my NATS cluster?
 
@@ -121,7 +121,7 @@ NATS does have a message size limitation that is enforced by the server and comm
 
 ### <a name="numsubj"></a>Does NATS impose any limits on the # of subjects?
 
-No. As of `gnatsd` v0.8.0, there is no hard limit on the maximum number of subjects.
+No. As of `nats-server` v0.8.0, there is no hard limit on the maximum number of subjects.
 
 ### <a name="gmd"></a>Does NATS guarantee message delivery?
 

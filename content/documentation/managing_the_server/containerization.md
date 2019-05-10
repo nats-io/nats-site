@@ -39,11 +39,11 @@ For example:
 
 ```sh
 $ docker run -d --name nats-main nats
-[INF] Starting gnatsd version 0.6.6
+[INF] Starting nats-server version 0.6.6
 [INF] Starting http monitor on port 8222
 [INF] Listening for route connections on 0.0.0.0:6222
 [INF] Listening for client connections on 0.0.0.0:4222
-[INF] gnatsd is ready
+[INF] nats-server is ready
 ```
 
 To run with the ports exposed on the host:
@@ -58,7 +58,7 @@ To run a second server and cluster them together:
 > docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222
 ```
 
-**NOTE** Since the Docker image protects routes using credentials we need to provide them above. Extracted [from Docker image configuration](https://github.com/nats-io/nats-docker/blob/master/amd64/gnatsd.conf#L16-L20)
+**NOTE** Since the Docker image protects routes using credentials we need to provide them above. Extracted [from Docker image configuration](https://github.com/nats-io/nats-docker/blob/master/amd64/nats-server.conf#L16-L20)
 
 ```ascii
 # Routes are protected, so need to use them with --routes flag
@@ -74,11 +74,11 @@ To verify the routes are connected:
 
 ```sh
 $ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:T0pS3cr3t@nats-main:6222 -DV
-[INF] Starting gnatsd version 0.6.6
+[INF] Starting nats-server version 0.6.6
 [INF] Starting http monitor on port 8222
 [INF] Listening for route connections on :6222
 [INF] Listening for client connections on 0.0.0.0:4222
-[INF] gnatsd is ready
+[INF] nats-server is ready
 [DBG] Trying to connect to route on nats-main:6222
 [DBG] 172.17.0.52:6222 - rid:1 - Route connection created
 [DBG] 172.17.0.52:6222 - rid:1 - Route connect msg sent
@@ -88,13 +88,13 @@ $ docker run -d --name=nats-2 --link nats-main nats --routes=nats-route://ruser:
 
 ## Clustering With Docker
 
-Below is are a couple examples of how to setup gnatsd cluster using Docker. We put 3 different configurations (one per gnatsd server) under a folder named conf as follows:
+Below is are a couple examples of how to setup nats-server cluster using Docker. We put 3 different configurations (one per nats-server server) under a folder named conf as follows:
 
 ```ascii
 |-- conf
-    |-- gnatsd-A.conf
-    |-- gnatsd-B.conf
-    |-- gnatsd-C.conf
+    |-- nats-server-A.conf
+    |-- nats-server-B.conf
+    |-- nats-server-C.conf
 ```
 
 Each one of those files have the following content below: (Here I am using ip 192.168.59.103 as an example, so just replace with the proper ip from your server)
@@ -103,7 +103,7 @@ Each one of those files have the following content below: (Here I am using ip 19
 
 In this example, the three servers are started with config files that know about the other servers.
 
-#### gnatsd-A
+#### nats-server-A
 
 ```ascii
 # Cluster Server A
@@ -121,7 +121,7 @@ cluster {
 }
 ```
 
-#### gnatsd-B
+#### nats-server-B
 
 ```ascii
 # Cluster Server B
@@ -139,7 +139,7 @@ cluster {
 }
 ```
 
-#### gnatsd-C
+#### nats-server-C
 
 ```ascii
 # Cluster Server C
@@ -157,21 +157,21 @@ cluster {
 }
 ```
 
-To start the containers, on each one of your servers, you should be able to start the gnatsd image as follows:
+To start the containers, on each one of your servers, you should be able to start the nats-server image as follows:
 
 ```sh
-docker run -it -p 0.0.0.0:7222:7222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 7222 -D -V
+docker run -it -p 0.0.0.0:7222:7222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/nats-server-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 7222 -D -V
 ```
 
 ```
-docker run -it -p 0.0.0.0:8222:8222 -p 0.0.0.0:7246:7246 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 8222 -D -V
+docker run -it -p 0.0.0.0:8222:8222 -p 0.0.0.0:7246:7246 --rm -v $(pwd)/conf/nats-server-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 8222 -D -V
 ```
 
 ```
-docker run -it -p 0.0.0.0:9222:9222 -p 0.0.0.0:7248:7248 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
+docker run -it -p 0.0.0.0:9222:9222 -p 0.0.0.0:7248:7248 --rm -v $(pwd)/conf/nats-server-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
-### Example 2: Setting a gnatsd cluster one by one
+### Example 2: Setting a nats-server cluster one by one
 
 In this scenario:
 
@@ -179,7 +179,7 @@ In this scenario:
 - Then create B and then use address of A in its configuration.
 - Get the address of B nats-route://192.168.59.104:7246 and create C and use the addresses of A and B.
 
-First, we create the Node A and start up a gnatsd server with the following config:
+First, we create the Node A and start up a nats-server server with the following config:
 
 ```ascii
 # Cluster Server A
@@ -194,7 +194,7 @@ cluster {
 ```
 
 ```sh
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/nats-server-A.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
 Then we proceed to create the next node. We realize that the first node has ip:port as `192.168.59.103:7244` so we add this to the routes configuration as follows:
@@ -217,7 +217,7 @@ cluster {
 Then start server B:
 
 ```sh
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/nats-server-B.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 4222 -D -V
 ```
 
 Finally, we create another Node C. We now know the routes of A and B so we can add it to its configuration:
@@ -241,7 +241,7 @@ cluster {
 Then start it:
 
 ```sh
-docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/gnatsd-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
+docker run -it -p 0.0.0.0:4222:4222 -p 0.0.0.0:7244:7244 --rm -v $(pwd)/conf/nats-server-C.conf:/tmp/cluster.conf nats -c /tmp/cluster.conf -p 9222 -D -V
 ```
 
 ### Testing the Clusters
@@ -264,4 +264,4 @@ nats-pub -s "nats://192.168.59.105:7222" hello world
 
 ## Tutorial
 
-See the [NATS Docker tutorial](/documentation/additional_documentation/gnatsd-docker/) for more instructions on using the NATS server Docker image.
+See the [NATS Docker tutorial](/documentation/additional_documentation/nats-server-docker/) for more instructions on using the NATS server Docker image.

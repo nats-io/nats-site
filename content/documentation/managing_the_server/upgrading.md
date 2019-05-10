@@ -19,10 +19,10 @@ For purposes of describing the scenario, let's get some fingers on keyboards, an
 Let's build this cluster:
 
 ```bash
-gnatsd -D -p 4222 -cluster nats://localhost:6222 -routes nats://localhost:6222,nats://localhost:6333
+nats-server -D -p 4222 -cluster nats://localhost:6222 -routes nats://localhost:6222,nats://localhost:6333
 ```
 
-The command above is starting gnatsd with debug output enabled, listening for clients on port 4222, and accepting cluster connections on port 6222. The `-routes` option specifies a list of nats URLs where the server will attempt to connect
+The command above is starting nats-server with debug output enabled, listening for clients on port 4222, and accepting cluster connections on port 6222. The `-routes` option specifies a list of nats URLs where the server will attempt to connect
 to other servers. These URLs define the cluster ports enabled on the cluster peers.
 
 Keen readers will notice a self-route. Gnatsd will ignore the self-route, but it makes for a single consistent configuration for all servers.
@@ -35,7 +35,7 @@ You will see the server started, we notice it emits some warnings because it can
 
 Let's fix that, by starting the second server:
 ```bash
-gnatsd -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222,nats://localhost:6333
+nats-server -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222,nats://localhost:6333
 ```
 The second server was started on port 4333 with its cluster port on 6333. Otherwise the same as 'A.'
 
@@ -52,7 +52,7 @@ Suffice it to say that clients redistribute themselves about evenly between all 
 Let's start our temporary server:
 
 ```bash
-gnatsd -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222,nats://localhost:6333
+nats-server -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222,nats://localhost:6333
 ```
 
 After an instant or so, clients on 'A' learn of the new cluster member that joined. On our hands-on  tutorial, `nats-sub` is now aware of 3 possible servers, 'A' (specified when we started the tool) and 'B' and 'T' learned from the cluster gossip.
@@ -62,13 +62,13 @@ We invoke our admin powers and turn off 'A' by issuing a `CTRL+C` to the termina
 We perform the upgrade process, update the binary for 'A', and restart 'A':
 
 ```bash
-gnatsd -D -p 4222 -cluster nats://localhost:6222 -routes nats://localhost:6222,nats://localhost:6333
+nats-server -D -p 4222 -cluster nats://localhost:6222 -routes nats://localhost:6222,nats://localhost:6333
 ```
 
 We move on to upgrade 'B'. Notice that clients from 'B' reconnect to 'A' and 'T'. We upgrade and restart 'B':
 
 ```bash
-gnatsd -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222,nats://localhost:6333
+nats-server -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222,nats://localhost:6333
 ```
 
 If we had more servers, we would continue the stop, update, restart rotation as we did for 'A' and 'B.'  After restarting the last server, we can go ahead and turn off 'T.' Any clients on 'T' will redistribute to our permanent cluster members.
@@ -76,21 +76,21 @@ If we had more servers, we would continue the stop, update, restart rotation as 
 
 ### Seed Servers
 
-In the examples above we started gnatsd specifying two clustering routes. It is possible to allow the server gossip protocol drive it and reduce the amount of configuration. You could for example start A, B and C as follows:
+In the examples above we started nats-server specifying two clustering routes. It is possible to allow the server gossip protocol drive it and reduce the amount of configuration. You could for example start A, B and C as follows:
 
 #### A - Seed Server
 ```bash
-gnatsd -D -p 4222 -cluster nats://localhost:6222
+nats-server -D -p 4222 -cluster nats://localhost:6222
 ```
 
 #### B
 ```bash
-gnatsd -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222
+nats-server -D -p 4333 -cluster nats://localhost:6333 -routes nats://localhost:6222
 ```
 
 #### C
 ```bash
-gnatsd -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222
+nats-server -D -p 4444 -cluster nats://localhost:6444 -routes nats://localhost:6222
 ```
 
 Once they connect to the 'seed server', the will learn about all the other servers and connect to each other forming the full mesh.

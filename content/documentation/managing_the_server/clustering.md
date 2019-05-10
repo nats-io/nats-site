@@ -12,16 +12,16 @@ category = "server"
 
 NATS supports running each server in clustered mode. You can cluster servers together for high volume messaging systems and resiliency and high availability. Clients are cluster-aware.
 
-Note that NATS clustered servers have a forwarding limit of one hop. This means that each `gnatsd` instance will **only** forward messages that it has received **from a client** to the immediately adjacent `gnatsd` instances to which it has routes. Messages received **from** a route will only be distributed to local clients. Therefore a full mesh cluster, or complete graph, is recommended for NATS to function as intended and as described throughout the documentation.
+Note that NATS clustered servers have a forwarding limit of one hop. This means that each `nats-server` instance will **only** forward messages that it has received **from a client** to the immediately adjacent `nats-server` instances to which it has routes. Messages received **from** a route will only be distributed to local clients. Therefore a full mesh cluster, or complete graph, is recommended for NATS to function as intended and as described throughout the documentation.
 
 ## Cluster URLs
 
-In addition to a port for listening for clients, `gnatsd` can listen on a "cluster" URL (the `-cluster` option). Additional `gnatsd` servers can then add that URL to their `-routes` argument to join the cluster. These options can also be specified in a config file, but only the command-line version is shown in this overview for simplicity.
+In addition to a port for listening for clients, `nats-server` can listen on a "cluster" URL (the `-cluster` option). Additional `nats-server` servers can then add that URL to their `-routes` argument to join the cluster. These options can also be specified in a config file, but only the command-line version is shown in this overview for simplicity.
 
 ### Running with No Cluster
 
 ```sh
-gnatsd -p 4222
+nats-server -p 4222
 ```
 ----
 
@@ -29,20 +29,20 @@ gnatsd -p 4222
 
 ```sh
 # Server A on 10.10.0.1
-gnatsd -p 4222 -cluster nats://10.10.0.1:5222
+nats-server -p 4222 -cluster nats://10.10.0.1:5222
 
 # Server B on 10.10.0.2
-gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
+nats-server -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
 ```
 
 ----
 
 ```sh
 # Server A on 10.10.0.1
-gnatsd -p 4222 -cluster nats://10.10.0.1:5222 -routes nats://10.10.0.2:5222
+nats-server -p 4222 -cluster nats://10.10.0.1:5222 -routes nats://10.10.0.2:5222
 
 # Server B on 10.10.0.2
-gnatsd -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
+nats-server -p 4222 -cluster nats://10.10.0.2:5222 -routes nats://10.10.0.1:5222
 ```
 
 Clients connecting to any server in the cluster will remain connected to the cluster even if the server it originally connected to is taken down, as long as at least a single server remains.
@@ -65,7 +65,7 @@ Clustering can also be configured using the server [config file](/documentation/
 The following example demonstrates how to run a cluster of 3 servers on the same host. We will start with the seed server and use the `-D` command line parameter to produce debug information.
 
 ```sh
-gnatsd -p 4222 -cluster nats://localhost:4248 -D
+nats-server -p 4222 -cluster nats://localhost:4248 -D
 ```
 
 Alternatively, you could use a configuration file, let's call it `seed.conf`, with a content similar to this:
@@ -84,7 +84,7 @@ cluster {
 And start the server like this:
 
 ```sh
-gnatsd -config ./seed.conf -D
+nats-server -config ./seed.conf -D
 ```
 
 This will produce an output similar to:
@@ -108,7 +108,7 @@ cluster {
 Now let's start two more servers, each one connecting to the seed server.
 
 ```sh
-gnatsd -p 5222 -cluster nats://localhost:5248 -routes nats://localhost:4248 -D
+nats-server -p 5222 -cluster nats://localhost:5248 -routes nats://localhost:4248 -D
 ```
 
 When running on the same host, we need to pick different ports for the client connections `-p`, and for the port used to accept other routes `-cluster`. Note that `-routes` points to the `-cluster` address of the seed server (`localhost:4248`).
@@ -138,7 +138,7 @@ From the seed's server log, we see that the route is indeed accepted:
 Finally, let's start the third server:
 
 ```sh
-gnatsd -p 6222 -cluster nats://localhost:6248 -routes nats://localhost:4248 -D
+nats-server -p 6222 -cluster nats://localhost:6248 -routes nats://localhost:4248 -D
 ```
 
 Again, notice that we use a different client port and cluster address, but still point to the same seed server at the address `nats://localhost:4248`:

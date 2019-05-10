@@ -14,12 +14,12 @@ NATS is fast and lightweight and places a priority on performance. NATS provides
 #### Prerequisites
 
 - [Set up your Go environment](/documentation/tutorials/go-install/)
-- [Install the NATS server](/documentation/tutorials/gnatsd-install/)
+- [Install the NATS server](/documentation/tutorials/nats-server-install/)
 
 #### Start the NATS server with monitoring enabled
 
 ```sh
-% gnatsd -m 8222
+% nats-server -m 8222
 ```
 
 Verify that the NATS server starts successfully, as well as the HTTP monitor:

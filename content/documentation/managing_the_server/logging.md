@@ -31,13 +31,13 @@ The following logging operations are supported:
 The `-DV` flag enables trace and debug for the server.
 
 ```sh
-gnatsd -DV -m 8222 -user foo -pass bar
+nats-server -DV -m 8222 -user foo -pass bar
 ```
 
 #### Log file redirect
 
 ```sh
-gnatsd -DV -m 8222 -l nats.log
+nats-server -DV -m 8222 -l nats.log
 ```
 
 #### Timestamp
@@ -49,13 +49,13 @@ If `-T false` then log entries are not timestamped. Default is true.
 You can configure syslog with `UDP`:
 
 ```sh
-gnatsd -s udp://localhost:514
+nats-server -s udp://localhost:514
 ```
 
 or `syslog:`
 
 ```sh
-gnatsd -r syslog://<hostname>:<port>
+nats-server -r syslog://<hostname>:<port>
 ```
 
 For example:
@@ -72,7 +72,7 @@ All of these settings are available in the configuration file as well.
 debug:   false
 trace:   true
 logtime: false
-log_file: "/tmp/gnatsd.log"
+log_file: "/tmp/nats-server.log"
 ```
 
 ## Log Rotation with logrotate
@@ -82,14 +82,14 @@ NATS server does not provide tools to manage log files, but it does include mech
 For example, you could configure `logrotate` with:
 
 ```ascii
-/path/to/gnatsd.log {
+/path/to/nats-server.log {
     daily
     rotate 30
     compress
     missingok
     notifempty
     postrotate
-        kill -SIGUSR1 `cat /var/run/gnatsd.pid`
+        kill -SIGUSR1 `cat /var/run/nats-server.pid`
     endscript
 }
 ```
@@ -98,9 +98,9 @@ The first line specifies the location that the subsequent lines will apply to.
 
 The rest of the file specifies that the logs will rotate daily ("daily" option) and that 30 older copies will be preserved ("rotate" option). Other options are described in [logrorate documentation](https://linux.die.net/man/8/logrotate).
 
-The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command ```kill -SIGUSR1 `cat /var/run/gnatsd.pid` ``` does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
+The "postrotate" section tells NATS server to reload the log files once the rotation is complete. The command ```kill -SIGUSR1 `cat /var/run/nats-server.pid` ``` does not kill the NATS server process, but instead sends it a signal causing it to reload its log files. This will cause new requests to be logged to the refreshed log file.
 
-The `/var/run/gnatsd.pid` file is where NATS server stores the master process's pid.
+The `/var/run/nats-server.pid` file is where NATS server stores the master process's pid.
 
 ## Some Logging Notes
 

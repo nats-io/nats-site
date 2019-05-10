@@ -3,7 +3,7 @@ title = "Build the NATS Server from Source"
 description = ""
 category = "tutorials"
 [menu.main]
-  name = "Build gnatsd From Source"
+  name = "Build NATS Server From Source"
   weight = 2
   identifier = "doc-nats-source"
   parent = "Additional Documentation"
@@ -34,13 +34,13 @@ Run the following command to verify that you are using at least Go 1.5.
 #### 3. Clone the NATS server repository
 
 ```sh
-% git clone git@github.com:nats-io/gnatsd.git
+% git clone git@github.com:nats-io/nats-server.git
 ```
 
-#### 4. Change to the `gnatsd` directory you cloned
+#### 4. Change to the `nats-server` directory you cloned
 
 ```sh
-%cd $GOPATH/src/github.com/nats-io/gnatsd
+%cd $GOPATH/src/github.com/nats-io/nats-server
 ```
 
 #### 5. View the NATS server source code
@@ -53,20 +53,20 @@ View the `main.go`  file.
 
 #### 6. Build the server from source
 
-Run `go build` from inside the `gnatsd` directory.
+Run `go build` from inside the `nats-server` directory.
 
 ```sh
-% cd gnatsd
+% cd nats-server
 
 % go build
 ```
 
-A successful build run produces no messages and creates an executable called `gnatsd` in this directory.
+A successful build run produces no messages and creates an executable called `nats-server` in this directory.
 
-You can invoke this binary, with no options and no configuration file for local testing. To start a server with acceptable production defaults please read our [README.md](https://github.com/nats-io/gnatsd#command-line-arguments)
+You can invoke this binary, with no options and no configuration file for local testing. To start a server with acceptable production defaults please read our [README.md](https://github.com/nats-io/nats-server#command-line-arguments)
 
 #### 7. Start nats-server
 
 ```sh
-% ./gnatsd
+% ./nats-server
 ```
