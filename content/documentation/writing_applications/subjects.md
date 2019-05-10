@@ -35,7 +35,7 @@ time.us
 time.us.east
 time.us.east.atlanta
 time.eu.east
-time.us.east.warsaw
+time.eu.east.warsaw
 ```
 
 to logically group related subjects.
