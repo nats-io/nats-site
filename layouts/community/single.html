@@ -15,12 +15,13 @@
                 </div>
             </div>
             <hr/>
-
-            <div class="alert alert-info" role="alert">
-                <strong>NATS Streaming is now available!</strong> - Check out the <a
-                    href="/documentation/streaming/nats-streaming-intro/">documentation</a> to get started.
-            </div>
-            <div class="row">
+            {{ partial "companies.html" . }}
+            <hr/>
+            {{ partial "quotes.html" . }}
+            <hr>
+            {{ partial "partners.html" . }}
+            <hr/>
+            <div class="row"><a name="contribute"></a>
                 <div class="col-md-6 col-lg-4" id="contribute-con">
                     {{ partial "ways-to-contribute.html" . }}
                 </div>
@@ -31,12 +32,7 @@
                     {{ partial "newsletter.html" . }}
                 </div>
             </div>
-            <hr/>
-            {{ partial "partners.html" . }}
-            <hr/>
-            {{ partial "companies.html" . }}
-            <hr>
-            {{ partial "quotes.html" . }}
+
         </div>
     </div>
 </div>

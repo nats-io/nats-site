@@ -1,10 +1,10 @@
 [[events]]
-venue = "Cloud Expo Europe"
-when = "March 12-13, 2019"
+venue = "KubeCon + CloudNativeCon EU"
+when = "May 20-23, 2019"
 who = "Waldemar Quevedo"
-what = "Connect Everything with NATS"
-where = "Excel, London"
-ref = "https://www.cloudexpoeurope.com/"
+what = "Intro to NATS & NATS Deep Dive"
+where = "Barcelona, Spain"
+ref = "https://kccnceu19.sched.com/?s=nats"
 
 [[events]]
 venue = "OSCON"
