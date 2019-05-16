@@ -68,3 +68,8 @@ logo = "/img/companies/telia_company.png"
 name = "Mastercard"
 home = "https://www.mastercard.us/en-us.html"
 logo = "/img/companies/mastercard.png"
+
+[companies.tinder]
+name = "Tinder"
+home = "https://www.tinder.com"
+logo = "/img/companies/tinder.png"
