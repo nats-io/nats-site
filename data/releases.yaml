@@ -521,13 +521,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.4.4
+  version_num: 0.4.5
   release_notes: |
-    Release v0.4.4 on May 9th, 2019.
+    Release v0.4.5 on May 16th, 2019.
   github:
     - user: nats-io
-      repo: go-nats-streaming
-      link: https://github.com/nats-io/go-nats-streaming
+      repo: stan.go
+      link: https://github.com/nats-io/stan.go/
 
 - name: C#
   type: streaming-client
