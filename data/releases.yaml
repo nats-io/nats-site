@@ -161,13 +161,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.2
+  version_num: 0.9.0
   release_notes: |
-    Release v0.8.2 on September 17th, 2018.
+    Release v0.9.0 on May 14, 2019.
   github:
     - user: nats-io
-      repo: asyncio-nats
-      link: https://github.com/nats-io/asyncio-nats
+      repo: nats.py
+      link: https://github.com/nats-io/nats.py
 
 - name: Python Tornado
   type: nats-client
@@ -506,13 +506,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.2
+  version_num: 0.3.0
   release_notes: |
-    Release v0.1.2 on February 15th, 2018.
+    Release v0.3.0 on May 16, 2019.
   github:
     - user: nats-io
-      repo: asyncio-nats-streaming
-      link: https://github.com/nats-io/asyncio-nats-streaming
+      repo: stan.py
+      link: https://github.com/nats-io/stan.py
 
 - name: Go
   type: streaming-client
