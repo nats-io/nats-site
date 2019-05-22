@@ -1,17 +1,10 @@
-+++
-date = "2015-09-27"
-title = "NATS Protocol Demo"
-category = "internals"
-[menu.main]
-  name = "Protocol Demo"
-  weight = 2
-  identifier = "doc-protocol-demo"
-  parent = "NATS Internals"
-+++
+# nats-protocol-demo
+
++++ date = "2015-09-27" title = "NATS Protocol Demo" category = "internals" \[menu.main\] name = "Protocol Demo" weight = 2 identifier = "doc-protocol-demo" parent = "NATS Internals" +++
 
 The virtues of the NATS protocol manifest quickly when you experience how easy it is to use NATS. Because the NATS protocol is text-based, you can use NATS across virtually any platform or language. In the following demo we use [Telnet](https://en.wikipedia.org/wiki/Telnet).
 
-On the wire you can publish and subscribe using a simple [set of protocol commands](/documentation/internals/nats-protocol/).
+On the wire you can publish and subscribe using a simple [set of protocol commands](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/internals/nats-protocol/README.md).
 
 ## Instructions
 
@@ -21,13 +14,13 @@ You'll use this terminal as the subscriber.
 
 **2. Connect to NATS.**
 
-```
+```text
 telnet demo.nats.io 4222
 ```
 
 Expected result:
 
-```
+```text
 $ telnet demo.nats.io 4222
 Trying 107.170.221.32...
 Connected to demo.nats.io.
@@ -39,13 +32,13 @@ INFO {"server_id":"ad29ea9cbb16f2865c177bbd4db446ca","version":"0.6.8","go":"go1
 
 Subscribe to the wildcard subject `foo.*` with subject ID of `90`.
 
-```
+```text
 sub foo.* 90
 ```
 
 Subscriber result: `+OK` indicating successful interest registration.
 
-```
+```text
 sub foo.* 90
 +OK
 ```
@@ -56,13 +49,13 @@ You'll use this terminal for the publisher.
 
 **5. Connect to NATS.**
 
-```
+```text
 telnet demo.nats.io 4222
 ```
 
 Expected result:
 
-```
+```text
 $ telnet demo.nats.io 4222
 Trying 107.170.221.32...
 Connected to demo.nats.io.
@@ -72,16 +65,16 @@ INFO {"server_id":"ad29ea9cbb16f2865c177bbd4db446ca","version":"0.6.8","go":"go1
 
 **6. Publish a message.**
 
-The message includes the command (`pub`), subject (`foo.bar`), and length of the payload (`5`). Press enter and provide the payload (`hello`), then press enter again.
+The message includes the command \(`pub`\), subject \(`foo.bar`\), and length of the payload \(`5`\). Press enter and provide the payload \(`hello`\), then press enter again.
 
-```
+```text
 pub foo.bar 5
 hello
 ```
 
 Publisher result: `+OK` indicating message publication.
 
-```
+```text
 pub foo.bar 5
 hello
 +OK
@@ -89,7 +82,7 @@ hello
 
 Subscriber result: `MSG` + subject name + subscription ID + message payload size + message payload `hello`.
 
-```
+```text
 sub foo.* 90
 +OK
 MSG foo.bar 90 5
@@ -98,7 +91,7 @@ hello
 
 **7. Publish another message with reply subject.**
 
-```
+```text
 pub foo.bar optional.reply.subject 5
 hello
 +OK
@@ -106,7 +99,7 @@ hello
 
 Subscriber result: `MSG` indicating message receipt.
 
-```
+```text
 MSG foo.bar 90 optional.reply.subject 5
 hello
 ```
@@ -117,24 +110,24 @@ You can use the `UNSUB` command to unsubscribe from a message.
 
 Run the subscriber to unsubscribe:
 
-```
-unsub 90 
+```text
+unsub 90
 ```
 
 Subscriber result: `+OK` indicating successful deregistration of interest.
 
-```
+```text
 unsub 90
 +OK
 ```
 
 **9. Reconnect to server and subscribe.**
 
-```
+```text
 telnet demo.nats.io 4222
 ```
 
-```
+```text
 sub foo.* 90
 ```
 
@@ -144,7 +137,7 @@ If you leave your telnet session open for a few minutes, you may notice that you
 
 You can send a `ping` request to the serve and receive a `PONG` reply. For example:
 
-```
+```text
 $ telnet demo.nats.io 4222
 Trying 107.170.221.32...
 Connected to demo.nats.io.
@@ -154,3 +147,4 @@ INFO {"server_id":"ad29ea9cbb16f2865c177bbd4db446ca","version":"0.6.8","go":"go1
 ping
 PONG
 ```
+

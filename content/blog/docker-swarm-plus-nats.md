@@ -1,10 +1,6 @@
-+++
-categories = ["Engineering"]
-date = "2016-08-22"
-tags = ["docker", "nats", "microservices"]
-title = "Building a Microservices Control Plane using NATS and Docker Engine v1.12"
-author = "Wally Quevedo"
-+++
+# docker-swarm-plus-nats
+
++++ categories = \["Engineering"\] date = "2016-08-22" tags = \["docker", "nats", "microservices"\] title = "Building a Microservices Control Plane using NATS and Docker Engine v1.12" author = "Wally Quevedo" +++
 
 For those of you who might have read the previous post I did on [Docker + NATS for Microservices](http://nats.io/blog/docker-compose-plus-nats/), you’ll recall we took an in-depth look at using Docker Compose with NATS.
 
@@ -15,26 +11,27 @@ That blog post was done a few days prior to DockerCon, and as expected Docker ma
 In this blog post, we share a basic example of how showing some of these new features available in Docker 1.12 to bring up a NATS cluster that our clients running can then connect against.
 
 ## Requirements
-+ Docker Engine 1.12
-+ Docker Swarm cluster prepared with a manager and at least a couple of workers https://docs.docker.com/engine/swarm/
-+ Latest release of the NATS Server, which supports cluster auto-discovery for clients. This way, if we add more nodes to the cluster the clients become aware of the full topology dynamically. Awesome stuff!
+
+* Docker Engine 1.12
+* Docker Swarm cluster prepared with a manager and at least a couple of workers [https://docs.docker.com/engine/swarm/](https://docs.docker.com/engine/swarm/)
+* Latest release of the NATS Server, which supports cluster auto-discovery for clients. This way, if we add more nodes to the cluster the clients become aware of the full topology dynamically. Awesome stuff!
 
 ### Step 1
 
-  We will first need to create an overlay network for the cluster, here named `nats-cluster-example`, along with an initial NATS server using latest Docker:
+We will first need to create an overlay network for the cluster, here named `nats-cluster-example`, along with an initial NATS server using latest Docker:
 
-  ```
+```text
   docker network create --driver overlay nats-cluster-example
 
   docker service create --network nats-cluster-example \
                              --name nats-cluster-node-1 nats:0.9.4 -DV
-  ```
+```
 
 ### Step 2
 
-  Next, we confirm which node of the Docker Swarm NATS Server ended up running on, and confirm its IP:
+Next, we confirm which node of the Docker Swarm NATS Server ended up running on, and confirm its IP:
 
-```
+```text
   docker service ps nats-cluster-node-1
   ID                         NAME                   IMAGE       NODE    DESIRED STATE  CURRENT STATE           ERROR
   b81qv4ljs7g7b52vmnlojktug  nats-cluster-node-1.1  nats:0.9.4  node-2  Running        Running 32 seconds ago
@@ -42,7 +39,7 @@ In this blog post, we share a basic example of how showing some of these new fea
   docker network inspect nats-cluster-example
 ```
 
-```json
+```javascript
   [
       {
           "Name": "nats-cluster-example",
@@ -78,9 +75,9 @@ In this blog post, we share a basic example of how showing some of these new fea
   ]
 ```
 
-  On node-2 of the Docker Swarm, notice that the NATS server is now running:
+On node-2 of the Docker Swarm, notice that the NATS server is now running:
 
-```
+```text
   docker logs e0b4d7b2f7f3
   [1] 2016/08/15 11:31:41.680139 [INF] Starting nats-server version 0.9.4
   [1] 2016/08/15 11:31:41.680217 [DBG] Go build version go1.6.3
@@ -121,43 +118,44 @@ docker service create --name ruby-nats --network nats-cluster-example wallyqs/ru
   end
 '
 ```
+
 ### Step 4
 
 Now we are ready to add more nodes to the cluster via more `docker services`:
 
-```
+```text
 docker service create --network nats-cluster-example \
-			   --name nats-cluster-node-2 nats:0.9.4 -DV -cluster nats://0.0.0.0:6222 -routes nats://10.0.1.3:6222
+               --name nats-cluster-node-2 nats:0.9.4 -DV -cluster nats://0.0.0.0:6222 -routes nats://10.0.1.3:6222
 ```
 
 Add in more replicas of the subscriber:
 
-```
+```text
 docker service scale ruby-nats=3
 ```
 
 Then confirm the distribution on our Docker Swarm cluster:
 
-```
+```text
 docker service ps ruby-nats
 ID                         NAME         IMAGE                                     NODE    DESIRED STATE  CURRENT STATE          ERROR
 25skxso8honyhuznu15e4989m  ruby-nats.1  wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0  node-1  Running        Running 2 minutes ago  
 0017lut0u3wj153yvp0uxr8yo  ruby-nats.2  wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0  node-1  Running        Running 2 minutes ago  
-2sxl8rw6vm99x622efbdmkb96  ruby-nats.3  wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0  node-2  Running        Running 2 minutes ago  
+2sxl8rw6vm99x622efbdmkb96  ruby-nats.3  wallyqs/ruby-nats:ruby-2.3.1-nats-v0.8.0  node-2  Running        Running 2 minutes ago
 ```
 
 The sample output after adding more NATS server nodes to the cluster, is below - and notice that the client is dynamically aware of more nodes being part of the cluster via auto discovery!:
 
-```
+```text
 [2016-08-15 12:51:52 +0000] Saying hi (servers in pool: [{:uri=>#<URI::Generic nats://10.0.1.3:4222>, :was_connected=>true, :reconnect_attempts=>0}]
 [2016-08-15 12:51:53 +0000] Saying hi (servers in pool: [{:uri=>#<URI::Generic nats://10.0.1.3:4222>, :was_connected=>true, :reconnect_attempts=>0}]
 [2016-08-15 12:51:54 +0000] Saying hi (servers in pool: [{:uri=>#<URI::Generic nats://10.0.1.3:4222>, :was_connected=>true, :reconnect_attempts=>0}]
 [2016-08-15 12:51:55 +0000] Saying hi (servers in pool: [{:uri=>#<URI::Generic nats://10.0.1.3:4222>, :was_connected=>true, :reconnect_attempts=>0}, {:uri=>#<URI::Generic nats://10.0.1.7:4222>, :reconnect_attempts=>0}, {:uri=>#<URI::Generic nats://10.0.1.6:4222>, :reconnect_attempts=>0}]
 ```
 
-Sample output after adding more workers which can reply back (since ignoring own responses):
+Sample output after adding more workers which can reply back \(since ignoring own responses\):
 
-```
+```text
 [2016-08-15 16:06:26 +0000] Received reply - world
 [2016-08-15 16:06:26 +0000] Received reply - world
 [2016-08-15 16:06:27 +0000] Received greeting - hi - _INBOX.b8d8c01753d78e562e4dc561f1
@@ -170,4 +168,5 @@ Built-in Docker Swarm mode in Docker Engine can be very handy for deploying a di
 
 Want to get involved in the NATS Community and learn more? We would be happy to hear from you, and answer any questions you may have!
 
-Follow us on Twitter: [@nats_io](https://twitter.com/nats_io)
+Follow us on Twitter: [@nats\_io](https://twitter.com/nats_io)
+

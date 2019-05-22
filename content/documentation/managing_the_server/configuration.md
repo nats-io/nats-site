@@ -1,26 +1,19 @@
-+++
-title = "NATS Server Configuration"
-description = ""
-category = "server"
-[menu.main]
-  name = "Configuration"
-  weight = 6
-  identifier = "doc-configuration"
-  parent = "Managing the Server"
-+++
+# configuration
+
++++ title = "NATS Server Configuration" description = "" category = "server" \[menu.main\] name = "Configuration" weight = 6 identifier = "doc-configuration" parent = "Managing the Server" +++
 
 You can use a server configuration file to configure the NATS server, including:
 
-- Client listening port
-- HTTP monitoring port
-- Client auth
-- Cluster definitions
-- Cluster routes
-- Logging
-- Max client connections
-- Max payload
+* Client listening port
+* HTTP monitoring port
+* Client auth
+* Cluster definitions
+* Cluster routes
+* Logging
+* Max client connections
+* Max payload
 
-In addition, the server configuration language supports [block-scoped variables](#variables) for automation.
+In addition, the server configuration language supports [block-scoped variables](configuration.md#variables) for automation.
 
 ## Configuration file format
 
@@ -28,27 +21,27 @@ The server configuration file format is a flexible format that combines the best
 
 The config file format supports the following syntax:
 
-- Mixed Arrays: `[...]`
-- Nested Maps: `{...}`
-- Multiple comment types: `#` and `//`
-- Key value assignments using:
-  - Equals sign (`foo = 2`)
-  - Colon (`foo: 2`)
-  - Whitespace (`foo 2`)
-- Maps can be assigned with no key separator
-- Semicolons as value terminators in key/value assignments are optional
+* Mixed Arrays: `[...]`
+* Nested Maps: `{...}`
+* Multiple comment types: `#` and `//`
+* Key value assignments using:
+  * Equals sign \(`foo = 2`\)
+  * Colon \(`foo: 2`\)
+  * Whitespace \(`foo 2`\)
+* Maps can be assigned with no key separator
+* Semicolons as value terminators in key/value assignments are optional
 
-In general the configuration parameters are the same as the [command line arguments](/documentation/managing_the_server/running). Note, however, the following differences:
+In general the configuration parameters are the same as the [command line arguments](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/running/README.md). Note, however, the following differences:
 
-- The listen option is host:port for connections, on the server command line it is -a and -p, no hostport is supported.
-- http/https is only a port on the command line, on the config it is host:port (there’s no config flag for the interface for the monitoring)
-- The -cluster flag is used for defining the host:port where routes can be solicited, on the config file this is called ‘listen’ as part property of a ‘cluster’ object.
+* The listen option is host:port for connections, on the server command line it is -a and -p, no hostport is supported.
+* http/https is only a port on the command line, on the config it is host:port \(there’s no config flag for the interface for the monitoring\)
+* The -cluster flag is used for defining the host:port where routes can be solicited, on the config file this is called ‘listen’ as part property of a ‘cluster’ object.
 
 ## Sample server config file
 
 The following demonstrates an example NATS server config file. See also the [NATS Server README](https://github.com/nats-io/nats-server/blob/master/README.md#configuration-file)
 
-```ascii
+```text
 port: 4242      # port to listen for client connections
 net: localhost # optional listen interface, default is 0.0.0.0 (all)
 
@@ -113,11 +106,11 @@ max_payload: 65536
 
 The NATS server configuration file format supports the use of block-scoped variables which can be used for templating in the configuration file, and specifically to ease setting of group values for permission fields.
 
-Variables can be referenced by the prefix `$`, e.g. `$PASSWORD`. Variables can be defined in the configuration file itself or *reference environment variables*.
+Variables can be referenced by the prefix `$`, e.g. `$PASSWORD`. Variables can be defined in the configuration file itself or _reference environment variables_.
 
 For example:
 
-```ascii
+```text
 authorization {
   PASS: abcdefghijklmnopqrstuvwxyz0123456789
   users = [
@@ -127,3 +120,4 @@ authorization {
   ]
 }
 ```
+

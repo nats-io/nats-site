@@ -1,10 +1,6 @@
-+++
-categories = ["Clients"]
-date = "2018-07-17"
-tags = ["java", "community update"]
-title = "Java Client Hits 2.0!"
-author = "Stephen Asbury"
-+++
+# java-nats-2
+
++++ categories = \["Clients"\] date = "2018-07-17" tags = \["java", "community update"\] title = "Java Client Hits 2.0!" author = "Stephen Asbury" +++
 
 ## We Are Listening
 
@@ -23,7 +19,7 @@ as well as comments in face to face meetings, and on Slack, to build a new compa
 * Higher performance
 * Fewer threads
 * Extensive error handling
-* Lots of tests (> 95% coverage)
+* Lots of tests \(&gt; 95% coverage\)
 * Good memory profile
 * No external dependencies
 
@@ -31,7 +27,7 @@ as well as comments in face to face meetings, and on Slack, to build a new compa
 
 Speaking of performance, on an iMac the example benchmark is publishing at a rate of over 9 million messages a second, and round tripping at over 3 million messages a second in multiple threads:
 
-```
+```text
 Starting benchmark(s) [msgs=5000000, msgsize=256, pubs=2, subs=2]
 Current memory usage is 966.14 mb / 981.50 mb / 14.22 gb free/total/max
 Pub Only stats: 9,584,263 msgs/sec ~ 2.29 gb/sec
@@ -58,7 +54,7 @@ This release introduces a number of API changes.
 
 Dispatchers put control of callback threads in the hands of the application. You can group callbacks for multiple subscriptions into a single dispatcher, but can also create multiple dispatchers to adjust thread resources as needed:
 
-```
+```text
 Dispatcher d = nc.createDispatcher((msg) -> {
     String response = new String(msg.getData(), StandardCharsets.UTF_8);
     ...
@@ -70,7 +66,7 @@ d.subscribe("another.subject");
 
 Added new options you can set at connect time:
 
-```
+```text
 Options o = new Options.Builder().
                         server("nats://serverone:4222").
                         server("nats://servertwo:4222").
@@ -85,7 +81,7 @@ including support for setting the reconnect buffer size to "infinite" and settin
 
 An experimental API has been added for connecting in the background:
 
-```
+```text
 Options options = new Options.Builder().
                         server(Options.DEFAULT_URL).
                         connectionListener(handler).
@@ -101,7 +97,7 @@ Everything is packaged in a [tiny jar file](https://search.maven.org/remoteconte
 
 Of course, you can still find jnats at Maven Central:
 
-```
+```text
 <dependency>
     <groupId>io.nats</groupId>
     <artifactId>jnats</artifactId>
@@ -115,6 +111,7 @@ Of course, you can still find jnats at Maven Central:
 
 An [updated version](https://github.com/nats-io/java-nats-streaming/tree/version2) of the Java NATS Streaming library is in progress, available in a branch, and should be released by the end of the month.
 
-This new version uses 1.8 features of Java and is not optimized for mobile (Android). But perhaps we can improve on that with your help. If you are using NATS for Android and have ideas, please open issues on the [repo](https://github.com/nats-io/java-nats).
+This new version uses 1.8 features of Java and is not optimized for mobile \(Android\). But perhaps we can improve on that with your help. If you are using NATS for Android and have ideas, please open issues on the [repo](https://github.com/nats-io/java-nats).
 
 We believe the Java community will enjoy this new version and with your help we can make NATS even more Java friendly.
+

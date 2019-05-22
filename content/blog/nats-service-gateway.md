@@ -1,10 +1,6 @@
-+++
-categories = ["Community", "Engineering", "Apcera"]
-date = "2016-03-16T10:30:00-08:00"
-tags = ["nats", "apcera", "technical"]
-title = "NATS Service Gateway"
-author = "Jaime Piña"
-+++
+# nats-service-gateway
+
++++ categories = \["Community", "Engineering", "Apcera"\] date = "2016-03-16T10:30:00-08:00" tags = \["nats", "apcera", "technical"\] title = "NATS Service Gateway" author = "Jaime Piña" +++
 
 A few weeks ago, the Apcera Platform gained a new service gateway. The new NATS service gateway will allow Apcera Platform users to quickly give their apps a NATS server - without sacrificing security or reliability. In this post, we're going to demonstrate a simple server that broadcasts data to some clients over NATS.
 
@@ -12,27 +8,31 @@ As a distributed messaging system, NATS is lightweight, high performance, and se
 
 The example in this post could be used as a starting place for other kinds of projects, including things like:
 
-- IoT where you read sensor data and ship it off to several clients for processing (NATS has clients for many languages, including Golang, Python, Java, Node, Elixir, C/C#, and more)
-- Cloud Native Applications, where architectures are distributed.
-- Microservices communication, where many application components need to communicate in real-time.
+* IoT where you read sensor data and ship it off to several clients for processing \(NATS has clients for many languages, including Golang, Python, Java, Node, Elixir, C/C\#, and more\)
+* Cloud Native Applications, where architectures are distributed.
+* Microservices communication, where many application components need to communicate in real-time.
 
 ## Service Gateway Review
+
 For readers unfamiliar with the Apcera Platform service gateways, I'll present a quick overview here. Apcera also offers a rather featureful demo experience called Apcera Platform Community Edition that you can download and use to follow along with this post.
 
 A service gateway is just a simple and secure way to connect some sort of service to an app. This is very useful for microservices and cloud native applications, where application components are distributed and optimized depending on the workload. For example, Apcera has a Postgres service gateway that can be used to give an application a Postgres database. In this case, we're going to use the NATS service gateway to give a sample app a NATS Server.
+
 ## NATS Cast Sample Application
+
 This Golang app is available in Apcera's public sample apps repo. If you're following along, then clone that repo and go into the nats-cast folder. With just a few commands, we'll have some apps that send data through NATS. The Apcera Platform will take care of creating a NATS instance, and partitioning the network in such a way that only the desired jobs are able to communicate with that instance.
 
 ## Upload a server app
+
 First, change into the nats-cast/server folder. This server app just serves a simple webpage that contains a textbox. Any input into that textbox will be sent back to the server via a websocket. That data will then be sent over NATS to anyone listening. This could be any type of data, like a heart rate monitor or live traffic information.
 
-```
+```text
 apc app create cast-server --start
 ```
 
 With just that command, the Apcera Platform uploaded, built, and started the Go app. Among some of the network configurations that were, Apcera also created a URL where you can find your app.
 
-```
+```text
 Creating app "cast-server"... done
 Start Command: ./server
 Waiting for the application to start...
@@ -41,26 +41,32 @@ Success!
 ```
 
 Obviously, your URL will be different than mine. If you open that URL in a web browser, you should see a webpage. However, you should also notice that the app says, "nats: no servers available for connection". That's because we didn't connect a NATS service yet.
-## Add a NATS service
-With one command, we created an app. Next, we'll ask Apcera to create and connect a NATS  service to our server app.
 
-```
+## Add a NATS service
+
+With one command, we created an app. Next, we'll ask Apcera to create and connect a NATS service to our server app.
+
+```text
 apc service create mynats --type gnatsd
 ```
 
-
 This asks Apcera to create a gnatsd service called "mynats".
 
-```
+```text
 apc service bind mynats --job cast-server
 ```
 
 This asks Apcera to bind, or connect, the "mynats" service to our cast-server app from the previous section.
 
 That's it. You just gave the cast-server app a NATS server connection. Easy, huh? What about security? Apcera will only allow "mynats" to talk with cast-server. Any other connections—whether inside or outside the cluster—will be blocked. What about reliability? If gnatsd happens to crash for some extraordinary reason, the Apcera Platform will automatically take care of restarting the service. You might experience a small blip in service, but Apcera will have you protected from catastrophic failures.
+
 ## Sending Data
+
 Now that our server app has a gnatsd service connected to it, we can start sending data. If you navigate back to the cast-server URL, you should notice that it no longer says, "nats: no servers available for connection". We're connected!
+
 ## What's Next
+
 The rest is left as an exercise for the reader. The sky's the limit. You could create client apps that take in the "signals" generated by the frontend and process them in some way. If you cloned the repo, you'll notice there is a client folder with a simple NATS app. Try deploying it, and you'll see how easy it is to use NATS with the Apcera Platform to create fast, secure, and reliable applications for the cloud.
 
 We’re looking forward to what you create using the NATS Service Gateway! Share some examples with us and let us know!
+

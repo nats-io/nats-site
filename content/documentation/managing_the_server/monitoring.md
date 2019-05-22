@@ -1,29 +1,23 @@
-+++
-title = "Monitoring the NATS Server"
-aliases = ["documentation/server/gnatsd-monitoring/"]
-description = ""
-category = "server"
-[menu.main]
-  name = "Monitoring"
-  weight = 10
-  identifier = "doc-monitoring"
-  parent = "Managing the Server"
-+++
+# monitoring
 
-To monitor the NATS messaging system, `gnatsd` provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subz). All endpoints return a JSON object.
++++ title = "Monitoring the NATS Server" aliases = \["documentation/server/gnatsd-monitoring/"\] description = "" category = "server" \[menu.main\] name = "Monitoring" weight = 10 identifier = "doc-monitoring" parent = "Managing the Server" +++
+
+To monitor the NATS messaging system, `gnatsd` provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](monitoring.md#/varz), [connz](monitoring.md#/connz), [routez](monitoring.md#/routez), and [subsz](monitoring.md#/subz). All endpoints return a JSON object.
 
 The NATS monitoring endpoints support JSONP and CORS, making it easy to create single page monitoring web applications.
 
 ## Enabling monitoring
 
-To enable the monitoring server, start the NATS server with the monitoring flag `-m` and the monitoring port, or turn it on in the [configuration file](/documentation/managing_the_server/configuration).
+To enable the monitoring server, start the NATS server with the monitoring flag `-m` and the monitoring port, or turn it on in the [configuration file](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/configuration/README.md).
 
-    -m, --http_port PORT             HTTP PORT for monitoring
-    -ms,--https_port PORT            Use HTTPS PORT for monitoring
+```text
+-m, --http_port PORT             HTTP PORT for monitoring
+-ms,--https_port PORT            Use HTTPS PORT for monitoring
+```
 
 Example:
 
-```sh
+```bash
 $ gnatsd -m 8222
 [4528] 2015/08/19 20:09:58.572939 [INF] Starting gnatsd version 0.8.0
 [4528] 2015/08/19 20:09:58.573007 [INF] Starting http monitor on port 8222
@@ -31,7 +25,7 @@ $ gnatsd -m 8222
 [4528] 2015/08/19 20:09:58.573090 [INF] gnatsd is ready</td>
 ```
 
-To test, run `gnatsd -m 8222`, then go to <a href="http://localhost:8222/" target="_blank">http://localhost:8222/</a>
+To test, run `gnatsd -m 8222`, then go to [http://localhost:8222/](http://localhost:8222/)
 
 ## Monitoring endpoints
 
@@ -39,9 +33,9 @@ The following sections describe each supported monitoring endpoint: `varz`, `con
 
 ### /varz
 
-The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localhost:8222/varz</a> reports various general statistics.
+The endpoint [http://localhost:8222/varz](http://localhost:8222/varz) reports various general statistics.
 
-```json
+```javascript
 {
   "server_id": "ec933edcd2bd86bcf71d555fc8b4fb2c",
   "version": "0.6.6",
@@ -76,13 +70,13 @@ The endpoint <a href="http://localhost:8222/varz" target="_blank">http://localho
 
 ### /connz
 
-The endpoint <a href="http://localhost:8222/connz" target="_blank">http://localhost:8222/connz</a> reports more detailed information on current connections. It uses a paging mechanism which defaults to 1024 connections.
+The endpoint [http://localhost:8222/connz](http://localhost:8222/connz) reports more detailed information on current connections. It uses a paging mechanism which defaults to 1024 connections.
 
-You can control these via URL arguments (limit and offset). For example: <a href="http://localhost:8222/connz?limit=1&offset=1" target="_blank">http://localhost:8222/connz?limit=1&offset=1</a>.
+You can control these via URL arguments \(limit and offset\). For example: [http://localhost:8222/connz?limit=1&offset=1](http://localhost:8222/connz?limit=1&offset=1).
 
-You can also report detailed subscription information on a per connection basis using subs=1. For example: <a href="http://localhost:8222/connz?limit=1&offset=1&subs=1" target="_blank">http://localhost:8222/connz?limit=1&offset=1&subs=1</a>.
+You can also report detailed subscription information on a per connection basis using subs=1. For example: [http://localhost:8222/connz?limit=1&offset=1&subs=1](http://localhost:8222/connz?limit=1&offset=1&subs=1).
 
-```json
+```javascript
 {
   "now": "2015-07-14T13:30:59.349179963-07:00",
   "num_connections": 2,
@@ -127,11 +121,11 @@ You can also report detailed subscription information on a per connection basis 
 
 ### /routez
 
-The endpoint <a href="http://localhost:8222/routez" target="_blank">http://localhost:8222/routez</a> reports information on active routes for a cluster. Routes are expected to be low, so there is no paging mechanism with this endpoint.
+The endpoint [http://localhost:8222/routez](http://localhost:8222/routez) reports information on active routes for a cluster. Routes are expected to be low, so there is no paging mechanism with this endpoint.
 
-The `routez` endpoint does support the `subs` argument from the `/connz` endpoint. For example: <a href="http://localhost:8222/routez?subs=1" target="_blank">http://localhost:8222/routez?subs=1</a>
+The `routez` endpoint does support the `subs` argument from the `/connz` endpoint. For example: [http://localhost:8222/routez?subs=1](http://localhost:8222/routez?subs=1)
 
-```json
+```javascript
 {
   "now": "2015-07-14T13:30:59.349179963-07:00",
   "num_routes": 1,
@@ -155,9 +149,9 @@ The `routez` endpoint does support the `subs` argument from the `/connz` endpoin
 
 ### /subsz
 
-The endpoint <a href="http://localhost:8222/subz" target="_blank">http://localhost:8222/subz</a> reports detailed information about the current subscriptions and the routing data structure.
+The endpoint [http://localhost:8222/subz](http://localhost:8222/subz) reports detailed information about the current subscriptions and the routing data structure.
 
-```json
+```javascript
 {
   "num_subscriptions": 3,
   "num_cache": 0,
@@ -177,7 +171,7 @@ NATS monitoring endpoints support [JSONP](https://en.wikipedia.org/wiki/JSONP) a
 
 For example:
 
-```sh
+```bash
 http://localhost:8222/connz?callback=cb
 ```
 
@@ -187,6 +181,5 @@ Here is a JQuery example implementation:
 $.getJSON('http://localhost:8222/connz?callback=?', function(data) {
   console.log(data);
 });
-
 ```
 

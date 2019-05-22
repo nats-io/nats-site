@@ -1,4 +1,4 @@
-+++
-categories = ["general"]
-tags = ["document"]
-+++
+# default
+
++++ categories = \["general"\] tags = \["document"\] +++
+

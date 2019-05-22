@@ -1,10 +1,6 @@
-+++
-categories = ["Community", "Engineering"]
-date = "2017-09-29"
-tags = ["nats", "guest post", "containers"]
-title = "Guest Post: NATS on Autopilot - How the team at Joyent simplify complex applications"
-author = "Wyatt Preul"
-+++
+# nats-on-autopilot
+
++++ categories = \["Community", "Engineering"\] date = "2017-09-29" tags = \["nats", "guest post", "containers"\] title = "Guest Post: NATS on Autopilot - How the team at Joyent simplify complex applications" author = "Wyatt Preul" +++
 
 Here on the product team at [Joyent](https://www.joyent.com/), we enjoy making sophisticated applications easy to deploy and manage. For us, that means containerizing components, automating them with [ContainerPilot](https://www.joyent.com/containerpilot) and the [Autopilot Pattern](http://autopilotpattern.io/). This typically means that we are containerizing the components that comprise our solutions with Docker and are using a service discovery catalog like Consul. Up until this year, we didn't have a working solution to solve the message queuing problem. That is, until we decided to leverage NATS to address our message queuing needs.
 
@@ -12,7 +8,7 @@ In order to demonstrate the usefulness of the [Autopilot Pattern](http://autopil
 
 Prior to integrating NATS into the [Node.js Example](https://github.com/autopilotpattern/nodejs-example), the example application was very basic. There is a detailed [blog post](https://www.joyent.com/blog/microservices-containers-nodejs) explaining how each service worked together and could be scaled up and down easily with help from ContainerPilot. The application relies on a SmartThings hub pushing sensor data to a collector service. From here, the data is split into the type sensor it relates to and is stored in a database accordingly. This works well for a single hub, but once you start pushing loads and loads of sensor data to a single service then the sensor workers that format and serialize the data can have difficulty keeping up. Below is an architectural diagram that illustrates the pre-NATS example application.
 
-<img class="img-responsive center-block" alt="Project Overview" src="/img/blog/nats-on-autopilot/project-overview-pre-nats.png">
+![Project Overview](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/nats-on-autopilot/project-overview-pre-nats.png)
 
 We chose to bring NATS into the architecture for several reasons. First, it's written in Go, which is a language we already enjoy developing in, e.g. ContainerPilot is written in Go. Secondly, it has a Docker image that works well with minimal configuration. Lastly, NATS has a simple, easy to understand, API with a well supported [Node.js client](https://www.npmjs.com/package/nats). This meant that it would be somewhat trivial to integrate it into an existing Node.js application.
 
@@ -20,6 +16,7 @@ However, to use NATS in an Autopilot Pattern application meant that we needed to
 
 After we had a working NATS Docker image that implemented the Autopilot Pattern, we were ready to integrate it with the existing Node.js Example. We decided to insert NATS between the sensor data receiver service and the sensor data workers that formatted the data. Inside of NATS we have a message queue for each of the types of data we care about, and one or more workers that can pull messages off the queue, format them, then send them to a service to save in a database. With the updated architecture the workers are able to scale easily as demand changes without having to increase the number of services receiving data in front of NATS. This also meant that the service receiving the sensor data from the external SmartThings hub only needs to concern itself with sending data to the correct queue, and doesn't need to worry about pushing data to workers. Below is the current architectural diagram for the Node.js example with NATS and the workers introduced.
 
-<img class="img-responsive center-block" alt="Project Overview" src="/img/blog/nats-on-autopilot/project-overview.png">
+![Project Overview](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/nats-on-autopilot/project-overview.png)
 
 Going forward we plan to continue to build solutions on top of NATS and the Autopilot Pattern. NATS really is a wonderful queueing solution that is a pleasure to work with, especially inside of Node.js applications. We also value open-source at Joyent, therefore, keep an eye out on our github orgs at autopilotpattern and [joyent](https://github.com/joyent/) for future solutions.
+

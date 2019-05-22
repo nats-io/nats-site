@@ -1,21 +1,14 @@
-+++
-title = "NATS Server Authorization"
-description = ""
-category = "server"
-[menu.main]
-  name = "Authorization"
-  weight = 5
-  identifier = "doc-server-authorization"
-  parent = "Managing the Server"
-+++
+# authorization
 
-The NATS server supports authorization using subject-level permissions on a per-user basis. Permission-based authorization is available with [multi-user authentication](/documentation/managing_the_server/authentication/).
++++ title = "NATS Server Authorization" description = "" category = "server" \[menu.main\] name = "Authorization" weight = 5 identifier = "doc-server-authorization" parent = "Managing the Server" +++
 
-Each permission grant is an object with two fields: what subject(s) the authenticated user can publish to, and what subject(s) the authenticated user can subscribe to. The parser is generous at understanding what the intent is, so both arrays and singletons are processed. Subjects themselves can contain wildcards. Permissions can make use of [variables](/documentation/managing_the_server/configuration).
+The NATS server supports authorization using subject-level permissions on a per-user basis. Permission-based authorization is available with [multi-user authentication](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/authentication/README.md).
+
+Each permission grant is an object with two fields: what subject\(s\) the authenticated user can publish to, and what subject\(s\) the authenticated user can subscribe to. The parser is generous at understanding what the intent is, so both arrays and singletons are processed. Subjects themselves can contain wildcards. Permissions can make use of [variables](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/configuration/README.md).
 
 You set permissions by creating an entry inside of the `authorization` configuration block that conforms to the following syntax:
 
-```ascii
+```text
 authorization {
   PERMISSION_NAME = {
     publish = "singleton" or ["array", ...]
@@ -26,11 +19,11 @@ authorization {
 
 **Important Note** NATS Authorizations are whitelist only, meaning in order to not break request/reply patterns you need to add rules as above with Alice and Bob for the `_INBOX.>` pattern. If an unauthorized client publishes or attempts to subscribe to a subject that has not been whitelisted, the action fails and is logged at the server, and an error message is returned to the client.
 
-### Example
+## Example
 
 Here is an example authorization configuration that defines four users, three of whom are assigned explicit permissions.
 
-```ascii
+```text
 authorization {
   ADMIN = {
     publish = ">"
@@ -60,8 +53,9 @@ authorization {
 
 Since Joe is an ADMIN he can publish/subscribe on any subject. We use the wildcard `>` to match any subject.
 
-Alice is a REQUESTOR and can publish requests on subjects `req.foo` or `req.bar`, and subscribe to anything that is a response (`_INBOX.>`).
+Alice is a REQUESTOR and can publish requests on subjects `req.foo` or `req.bar`, and subscribe to anything that is a response \(`_INBOX.>`\).
 
-Charlie has no permissions granted and therefore inherits the default permission set. You set the inherited default permissions by assigning them to the default_permissions entry inside of the authorization configuration block.
+Charlie has no permissions granted and therefore inherits the default permission set. You set the inherited default permissions by assigning them to the default\_permissions entry inside of the authorization configuration block.
 
 Bob is a RESPONDER to any of Alice's requests, so Bob needs to be able to subscribe to the request subjects and respond to Alice's reply subject which will be an `_INBOX.>`.
+

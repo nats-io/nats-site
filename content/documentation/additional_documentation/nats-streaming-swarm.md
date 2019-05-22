@@ -1,30 +1,20 @@
-+++
-date = "2018-05-22"
-title = "Using NATS Streaming with Docker Swarm"
-description = ""
-category = "tutorials"
-[menu.main]
-  name = "Streaming with Docker Swarm"
-  weight = 11
-  identifier = "doc-nats-streaming-docker-swarm"
-  parent = "Additional Documentation"
-+++
+# nats-streaming-swarm
 
-#### Step 1:
++++ date = "2018-05-22" title = "Using NATS Streaming with Docker Swarm" description = "" category = "tutorials" \[menu.main\] name = "Streaming with Docker Swarm" weight = 11 identifier = "doc-nats-streaming-docker-swarm" parent = "Additional Documentation" +++
 
-Create an overlay network for the NATS & NATS Streaming cluster (in this example, `nats-streaming-example`).
-Notice we added the `--attachable` option which will allow other containers to join the network which will be
-done at the end to confirm that can connect to the cluster.
+## Step 1:
 
-```sh
+Create an overlay network for the NATS & NATS Streaming cluster \(in this example, `nats-streaming-example`\). Notice we added the `--attachable` option which will allow other containers to join the network which will be done at the end to confirm that can connect to the cluster.
+
+```bash
 % docker network create --driver overlay --attachable nats-streaming-example
 ```
 
-#### Step 2:
+## Step 2:
 
 Next create the NATS cluster which will be used by the NATS Streaming cluster.
 
-```sh
+```bash
 for i in `seq 1 3`; do
   sudo docker service create --network nats-streaming-example \
                              --name nats-cluster-node-$i nats:1.1.0 \
@@ -33,11 +23,11 @@ for i in `seq 1 3`; do
 done
 ```
 
-#### Step 3:
+## Step 3:
 
 Now that there is a NATS cluster available to connect, create the NATS Streaming cluster of three nodes as follows:
 
-```sh
+```bash
 for i in `seq 1 3`; do
   sudo docker service create --network nats-streaming-example \
                              --name nats-streaming-node-$i nats-streaming:0.9.2 \
@@ -47,14 +37,11 @@ for i in `seq 1 3`; do
 done
 ```
 
-#### Step 4:
+## Step 4:
 
-Next, confirm that it is possible to publish and replay messages via NATS Streaming by attaching a container
-to the same network where both NATS and NATS Streaming exist.  Below you can find an example session of doing so,
-note that even though the client is only connecting to `nats://nats-cluster-node-1:4222` the NATS cluster will
-be routing the messages so that they will be processed to the NATS Streaming cluster service.
+Next, confirm that it is possible to publish and replay messages via NATS Streaming by attaching a container to the same network where both NATS and NATS Streaming exist. Below you can find an example session of doing so, note that even though the client is only connecting to `nats://nats-cluster-node-1:4222` the NATS cluster will be routing the messages so that they will be processed to the NATS Streaming cluster service.
 
-```sh
+```bash
 $ sudo docker run --network nats-streaming-example -it golang:latest
 
 root@d12f9f3fcdde:/go# cd src/github.com/nats-io/go-nats-streaming/
@@ -76,3 +63,4 @@ Listening on [hello], clientID=[17010], qgroup=[] durable=[]
 [#2] Received on [hello]: 'sequence:2 subject:"hello" data:"world" timestamp:1526948604613783399 '
 [#3] Received on [hello]: 'sequence:3 subject:"hello" data:"world" timestamp:1526948606124258269 '
 ```
+

@@ -1,30 +1,25 @@
-+++
-date = "2016-08-16"
-draft = false
-title = "Guest Post: How Ariane is moving from monolith to microservices with NATS"
-categories = ["Engineering"]
-tags = ["NATS","Ariane Project","community","microservices","nanoservices","transactions", "Neo4", "OSGI", "Docker", "RabbitMQ"]
-author = "Mathilde Ffrench"
-+++
+# ariane-mapping-microservice-with-nats
+
++++ date = "2016-08-16" draft = false title = "Guest Post: How Ariane is moving from monolith to microservices with NATS" categories = \["Engineering"\] tags = \["NATS","Ariane Project","community","microservices","nanoservices","transactions", "Neo4", "OSGI", "Docker", "RabbitMQ"\] author = "Mathilde Ffrench" +++
 
 ## Some words about the Ariane project:
 
 While the DevOps trend is reducing application delivery time with automation on any step of the deployment, we still need to reduce the time to understand complex distributed applications:
 
 * We still rely on hand-written technical documentations and diagrams;
-* These documentations and diagrams are dispatched across teams (silo effect);
-* The documentations and diagrams are also often not up to date (technical debt effect).
+* These documentations and diagrams are dispatched across teams \(silo effect\);
+* The documentations and diagrams are also often not up to date \(technical debt effect\).
 
-Knowledge management is a key factor in reducing silo effect and improving the integration of new team members. And it finally impacts your production KPIs like TTR (Time To Resolution). But :
+Knowledge management is a key factor in reducing silo effect and improving the integration of new team members. And it finally impacts your production KPIs like TTR \(Time To Resolution\). But :
 
 * When done correctly, it costs a lot of time to produce and maintain the knowledge persistence.
 * When not done or done partially, it costs a lot of time to understand your technical environment through reverse-engineering.
 
 The [Ariane project](http://ariane.echinopsii.net) is focused on reducing the knowledge production time through real-time diagram automation.
 
-Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformation of this mined data into a [bigraph](https://en.wikipedia.org/wiki/Bigraph) stored in a graph database ([Neo4J](http://neo4j.com)).
+Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformation of this mined data into a [bigraph](https://en.wikipedia.org/wiki/Bigraph) stored in a graph database \([Neo4J](http://neo4j.com)\).
 
-Then the user will request the Ariane web server to get the map - or the technical diagram - between some technical points or around a technical point (a technical point could be a server or a process inside a server, for example).
+Then the user will request the Ariane web server to get the map - or the technical diagram - between some technical points or around a technical point \(a technical point could be a server or a process inside a server, for example\).
 
 Currently, three open source plugins are available as proof of concept, and we are in the process of developing a NATS plugin:
 
@@ -32,16 +27,13 @@ Currently, three open source plugins are available as proof of concept, and we a
 * The [ProcOS plugin](https://github.com/echinopsii/net.echinopsii.ariane.community.plugin.procos) which allows you to map the process running inside your operating system and their connections
 * The [Docker plugin](https://github.com/echinopsii/net.echinopsii.ariane.community.plugin.docker) which allows you to map the Docker containers running inside your operating system and their connections
 
-Below the result map of the Ariane application mapping ([full picture](https://t.co/LlP9zJOKNy)) :
+Below the result map of the Ariane application mapping \([full picture](https://t.co/LlP9zJOKNy)\) :
 
-<div class="tweet-embed-con">
-      <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Ariane real time auto <a href="https://twitter.com/hashtag/mapping?src=hash">#mapping</a> :) <a href="https://twitter.com/hashtag/DataViz?src=hash">#DataViz</a> for the <a href="https://twitter.com/hashtag/DevOps?src=hash">#DevOps</a> / <a href="https://twitter.com/hashtag/Automation?src=hash">#Automation</a> / <a href="https://twitter.com/hashtag/transparency?src=hash">#transparency</a> <a href="https://t.co/LlP9zJOKNy">https://t.co/LlP9zJOKNy</a> <a href="https://t.co/P8niFL03Kn">pic.twitter.com/P8niFL03Kn</a></p>&mdash; echinopsii (@echinopsii) <a href="https://twitter.com/echinopsii/status/748516141174300674">30 juin 2016</a></blockquote>
-      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+> Ariane real time auto [\#mapping](https://twitter.com/hashtag/mapping?src=hash) :\) [\#DataViz](https://twitter.com/hashtag/DataViz?src=hash) for the [\#DevOps](https://twitter.com/hashtag/DevOps?src=hash) / [\#Automation](https://twitter.com/hashtag/Automation?src=hash) / [\#transparency](https://twitter.com/hashtag/transparency?src=hash) [https://t.co/LlP9zJOKNy](https://t.co/LlP9zJOKNy) [pic.twitter.com/P8niFL03Kn](https://t.co/P8niFL03Kn)— echinopsii \(@echinopsii\) [30 juin 2016](https://twitter.com/echinopsii/status/748516141174300674)
 
 The system view is a concatenation of the data coming from ProcOS and Docker plugins. The RabbitMQ view has been done with the RabbitMQ plugin.
 
-You can see the Ariane server (process: [29143] java), the ProcOS and Docker plugins (processes: [30432] python3 and [30491] python3) running in the system view. RabbitMQ plugin is running inside the Ariane server.
+You can see the Ariane server \(process: \[29143\] java\), the ProcOS and Docker plugins \(processes: \[30432\] python3 and \[30491\] python3\) running in the system view. RabbitMQ plugin is running inside the Ariane server.
 
 ## Scale the monolith: from nanoservices to microservices
 
@@ -50,7 +42,7 @@ The previous Ariane versions have been done as a big Java monolith which is not 
 * It allowed us to focus on the Ariane APIs and functionalities instead of deployment problems.
 * It allowed us to quickly show demonstrations to some prospects and at some meetup.
 
-Anyway, monolith doesn't mean it's poorly architectured : we followed separation of concern everywhere and Ariane is a combination of many OSGi nanoservices **(NOTE: ten years back, the OSGi alliance has coined µservice, but today, I prefer to call them nanoservices to provide a clear distinction with the current containerized and network oriented microservice definition)**.
+Anyway, monolith doesn't mean it's poorly architectured : we followed separation of concern everywhere and Ariane is a combination of many OSGi nanoservices **\(NOTE: ten years back, the OSGi alliance has coined µservice, but today, I prefer to call them nanoservices to provide a clear distinction with the current containerized and network oriented microservice definition\)**.
 
 So, all these nanoservices are speaking together in the same Java process through memory and clean interfaces. Ariane also provides REST implementation of these services, which allowed us to develop first Ariane Python3 client used by ProcOS and Docker plugins.
 
@@ -63,13 +55,13 @@ Since Ariane 0.8.0 we're providing a messaging implementation for the Ariane map
 
 Below a quick diagram describing Ariane 0.8.0 monolith architecture:
 
-<img src="/img/blog/ariane-mapping-microservice-with-nats/ariane_monolith.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/ariane-mapping-microservice-with-nats/ariane_monolith.png)
 
 As you can see, the Ariane monolith is embedding lot of stuff from a Tomcat server to a Neo4J database server. To improve the Ariane scalability, we are currently splitting the monolith as described below :
 
-<img src="/img/blog/ariane-mapping-microservice-with-nats/ariane_3tier.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/ariane-mapping-microservice-with-nats/ariane_3tier.png)
 
-This architecture migration has been done with minimal cost on the plugins side, as they are using the Ariane APIs the same way as before: we just need some changes in the configuration to define which implementation to use (REST or Messaging // Memory or Messaging).
+This architecture migration has been done with minimal cost on the plugins side, as they are using the Ariane APIs the same way as before: we just need some changes in the configuration to define which implementation to use \(REST or Messaging // Memory or Messaging\).
 
 Based on this new architecture:
 
@@ -78,23 +70,19 @@ Based on this new architecture:
 
 Now, this is how this migration looks like from a system point of view:
 
-**before**
-<img src="/img/blog/ariane-mapping-microservice-with-nats/ariane_mono_rbq.png">
-([full picture](https://slack-files.com/T04JMETB8-F1X4BG6SJ-d091f7ff9f))
+**before** ![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/ariane-mapping-microservice-with-nats/ariane_mono_rbq.png) \([full picture](https://slack-files.com/T04JMETB8-F1X4BG6SJ-d091f7ff9f)\)
 
-**after**
-<img src="/img/blog/ariane-mapping-microservice-with-nats/ariane_mms.png">
-([full picture](https://slack-files.com/T04JMETB8-F1X4LJQJK-423434f150))
+**after** ![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/ariane-mapping-microservice-with-nats/ariane_mms.png) \([full picture](https://slack-files.com/T04JMETB8-F1X4LJQJK-423434f150)\)
 
 If you look closely the Ariane maps provided, you'll notice that :
 
 * A new java process appears: this is the Ariane mapping microservice which embeds the Neo4J community distribution
-* We were already using RabbitMQ and we decided to add a NATS implementation for our messaging libraries (Java and Python)
+* We were already using RabbitMQ and we decided to add a NATS implementation for our messaging libraries \(Java and Python\)
 
 Finally and to resume the reasons why we are using NATS now:
 
-* As we're migrating data flows from memory to the messaging bus, we have deep concern on the messaging bus latency and throughput: the NATS benchmark scores are [*impressive*](http://bravenewgeek.com/dissecting-message-queues/);
-* We don’t need messaging persistence/transaction (although NATS now has this via NATS Streaming) in the MoM server: persistence and transactions are managed in the Ariane endpoints;
+* As we're migrating data flows from memory to the messaging bus, we have deep concern on the messaging bus latency and throughput: the NATS benchmark scores are [_impressive_](http://bravenewgeek.com/dissecting-message-queues/);
+* We don’t need messaging persistence/transaction \(although NATS now has this via NATS Streaming\) in the MoM server: persistence and transactions are managed in the Ariane endpoints;
 * We like simplicity: NATS is simple.
 
 ## Conclusion
@@ -107,9 +95,7 @@ Ariane is also an open source and inclusive project because there are lots of pl
 
 From our point of view, this human understanding of tech is a key point in providing the next step of our evolution : efficient and trusted IA.
 
-<div class="tweet-embed-con">
-<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">&quot;<a href="https://twitter.com/hashtag/Ubiquitous?src=hash">#Ubiquitous</a> <a href="https://twitter.com/hashtag/computing?src=hash">#computing</a> will empower us, if we understand it.&quot; Robin Milner<a href="https://t.co/G1R98yRogF">https://t.co/G1R98yRogF</a> <a href="https://t.co/aDWOy5Fvl2">pic.twitter.com/aDWOy5Fvl2</a></p>&mdash; echinopsii (@echinopsii) <a href="https://twitter.com/echinopsii/status/706270281925582849">6 mars 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+> "[\#Ubiquitous](https://twitter.com/hashtag/Ubiquitous?src=hash) [\#computing](https://twitter.com/hashtag/computing?src=hash) will empower us, if we understand it." Robin Milner[https://t.co/G1R98yRogF](https://t.co/G1R98yRogF) [pic.twitter.com/aDWOy5Fvl2](https://t.co/aDWOy5Fvl2)— echinopsii \(@echinopsii\) [6 mars 2016](https://twitter.com/echinopsii/status/706270281925582849)
 
-The Next Ariane delivery (0.8.1) is scheduled for the end of August 2016. Meanwhile, I’d be happy to read your [feedbacks](mailto:mathilde.ffrench@echinopsii.net)!
+The Next Ariane delivery \(0.8.1\) is scheduled for the end of August 2016. Meanwhile, I’d be happy to read your [feedbacks](mailto:mathilde.ffrench@echinopsii.net)!
+

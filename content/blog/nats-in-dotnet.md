@@ -1,27 +1,23 @@
-+++
-categories = ["Engineering"]
-date = "2016-01-11T11:22:41-08:00"
-tags = ["nats", "C#", ".NET"]
-title = "NATS in Microsoft .NET"
-author = "Colin Sullivan"
-+++
+# nats-in-dotnet
 
-Performance at scale is critically important for building distributed systems today.  Microservices and IoT require applications to be distributed across a physical or virtual infrastructure, comprised of thousands, possibly millions of endpoints, many of which can be .NET services or applications.  The end user needs these services to operate seamlessly, requiring extremely fast, lightweight, scalable, resilient, and always-on communication - NATS.
++++ categories = \["Engineering"\] date = "2016-01-11T11:22:41-08:00" tags = \["nats", "C\#", ".NET"\] title = "NATS in Microsoft .NET" author = "Colin Sullivan" +++
 
-In developing the [NATS C# .NET Client](https://github.com/nats-io/csharp-nats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client, currently as a beta release, can publish over 3 million messages per second within a Windows VM on a MacBook pro.**
+Performance at scale is critically important for building distributed systems today. Microservices and IoT require applications to be distributed across a physical or virtual infrastructure, comprised of thousands, possibly millions of endpoints, many of which can be .NET services or applications. The end user needs these services to operate seamlessly, requiring extremely fast, lightweight, scalable, resilient, and always-on communication - NATS.
 
-While mirroring functionality and internals of other Apcera supported clients, the NATS .NET client public API will make the .NET developer feel at home with object serialization, IDisposable interfaces, and delegates for handling NATS events.  The NATS .NET client is fully managed and strong named.
+In developing the [NATS C\# .NET Client](https://github.com/nats-io/csharp-nats), the .NET Framework SDK's extremely rich API eliminated reliance on third parties, but most importantly, performance is there. **The NATS .NET client, currently as a beta release, can publish over 3 million messages per second within a Windows VM on a MacBook pro.**
 
-One feature of the NATS .NET client that faciliates development is object serialization.  Here is example code that creates a connection and publishes an object into a NATS cluster:
+While mirroring functionality and internals of other Apcera supported clients, the NATS .NET client public API will make the .NET developer feel at home with object serialization, IDisposable interfaces, and delegates for handling NATS events. The NATS .NET client is fully managed and strong named.
 
-```c#
+One feature of the NATS .NET client that faciliates development is object serialization. Here is example code that creates a connection and publishes an object into a NATS cluster:
+
+```text
 [Serializable]
 public class Company
 {
     public string Name = "Widgets";
     public string Address = "123 Some St., City, State 12345";
 }
-           
+
 // Create a connection then send an object to subject "foo".
 using (IEncodedConnection c = new ConnectionFactory().CreateEncodedConnection())
 {
@@ -29,10 +25,9 @@ using (IEncodedConnection c = new ConnectionFactory().CreateEncodedConnection())
 }
 ```
 
-
 And here is corresponding code that asynchronously receives the message and processes the object:
 
-```c#
+```text
 using (IEncodedConnection c = new ConnectionFactory().CreateEncodedConnection())
 {
     // Create an event handler to process a Company object.
@@ -55,11 +50,11 @@ using (IEncodedConnection c = new ConnectionFactory().CreateEncodedConnection())
 
 Functions that serialize and deserialize objects can be set through the API, allowing complete customization.
 
-The NATS .NET client offers full use of delegates, including updating a multicast delegate on an active subscriber.  This allows the developer to componentize, adding and removing functionality based on application state. 
+The NATS .NET client offers full use of delegates, including updating a multicast delegate on an active subscriber. This allows the developer to componentize, adding and removing functionality based on application state.
 
 The code below demonstrates this, printing the 4th and 5th message received on subject "foo" through temporarily multicasting the delegate.
 
-```c#
+```text
 // prints the message to the console.
 void printMessage(object sender, MsgHandlerEventArgs e)
 {
@@ -98,7 +93,7 @@ public void demonstrateRuntimeDelegates()
 }
 ```
 
+Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance. Please don't hesistate to contact us with comments, feature requests, or contributions!
 
-Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance.  Please don't hesistate to contact us with comments, feature requests, or contributions!
+Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](http://github.com/nats-io/csharp-nats/). Let us know what you think, and visit our [Community](http://nats.io/community/) Page! Contributors are welcome!
 
-Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](http://github.com/nats-io/csharp-nats/).  Let us know what you think, and visit our [Community](http://nats.io/community/) Page!  Contributors are welcome!

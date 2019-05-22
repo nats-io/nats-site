@@ -1,10 +1,6 @@
-+++
-categories = ["Engineering"]
-date = "2016-09-14"
-tags = ["AWS", "nats", "IoT"]
-title = "Guest Post: Using NATS For Secure, Fast, Low-latency IoT Sensor Messaging"
-author = "Danko Miocevic"
-+++
+# nats-iot-aws
+
++++ categories = \["Engineering"\] date = "2016-09-14" tags = \["AWS", "nats", "IoT"\] title = "Guest Post: Using NATS For Secure, Fast, Low-latency IoT Sensor Messaging" author = "Danko Miocevic" +++
 
 I am in the process of launching a company I've founded in the IoT sensors space. I hope to be able to share more details very soon, but I wanted to share what I can in the meantime with the developer community about how we are using NATS in our IoT messaging initiatives and would be very interested in any feedback, suggestions or questions!
 
@@ -16,22 +12,22 @@ There was a need to create another stream of data where the services that gather
 
 It was clear that the solution for this requirement was to create a pub-sub queue that could distribute the messages through all the nodes to display this information to the end user.
 
-![Blog Image](/img/blog/nats-iot-aws.png "Blog Image")
+![Blog Image](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/nats-iot-aws.png)
 
 ## What we tried
 
 As our project mostly runs on AWS, the first option was to use the different tools that AWS provided. We started analysing SQS, SNS and Kinesis but there were two major drawbacks:
 
-- Cost at scale.
-- Processing times that did not meet our requirements.  
+* Cost at scale.
+* Processing times that did not meet our requirements.  
 
-SQS was not the tool for us because, among other things, in order to publish the message to all the servers at once there was the need to implement a way to keep track of the messages (the distribution and the order). SNS was not designed for this task, it is great to distribute other kind of messages and other amounts of data.
+SQS was not the tool for us because, among other things, in order to publish the message to all the servers at once there was the need to implement a way to keep track of the messages \(the distribution and the order\). SNS was not designed for this task, it is great to distribute other kind of messages and other amounts of data.
 
 Kinesis is very robust in terms of reliability and because it is a turnkey solution, but the latency requirements we have for this project are too much for Kinesis.
 
 We started checking other queues and there were many solutions on the market like Kafka and RabbitMQ among others. After evaluating these and other options, we found that NATS was the best option for us. There were some extra capabilities on the other queue systems that added extra complexity and delays that were not the objective of our development.
 
-The replication of the information, the persistence of the messages are things that our project did not need (although NATS now provides these via NATS Streaming). The benchmarks of throughput and latency we studied between NATS and other queues were definitive and made NATS the lightweight solution we needed.
+The replication of the information, the persistence of the messages are things that our project did not need \(although NATS now provides these via NATS Streaming\). The benchmarks of throughput and latency we studied between NATS and other queues were definitive and made NATS the lightweight solution we needed.
 
 Now, onto the fun stuff...
 
@@ -39,8 +35,7 @@ Now, onto the fun stuff...
 
 Implementing NATS on AWS was made through a CloudFormation template that can be found on [GitHub](https://github.com/dankomiocevic/aws-nats). It was necessary to create an elastic cloud to add and remove NATS nodes dynamically as we need them.
 
-To inform about the existing nodes and the newly created ones to the rest of the cluster we used a Python script that writes the information to a DynamoDB table and maintains a watchdog to know the state of every node on the system. When the applications want to connect to the nodes, they read the DynamoDB table and get the list of active nodes.
-Here is an example on how to use this tool from a Java application:
+To inform about the existing nodes and the newly created ones to the rest of the cluster we used a Python script that writes the information to a DynamoDB table and maintains a watchdog to know the state of every node on the system. When the applications want to connect to the nodes, they read the DynamoDB table and get the list of active nodes. Here is an example on how to use this tool from a Java application:
 
 ```java
 // Creating a Regions object from the configuration string.
@@ -99,4 +94,5 @@ If you would like to connect with me you can find me on Twitter: [@dankomiocevic
 
 Want to get involved in the NATS Community and learn more? We would be happy to hear from you, and answer any questions you may have!
 
-Follow us on Twitter: [@nats_io](https://twitter.com/nats_io)
+Follow us on Twitter: [@nats\_io](https://twitter.com/nats_io)
+

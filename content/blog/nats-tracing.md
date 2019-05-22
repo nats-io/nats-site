@@ -1,29 +1,18 @@
-+++
-categories = ["Engineering","Community"]
-date = "2016-03-22T11:39:53-08:00"
-tags = ["microservices", "containers", "nats", "docker"]
-title = "NATS and Tracing: Keeping track of requests"
-author = "Donal Byrne"
-+++
+# nats-tracing
 
-At [Sendify](https://www.sendify.se) we've been using nats as a simple and effective means of communicating between our backend services.
-I came across Nats a few years ago when building a relatively small microservice backed system and it worked wonderfully.
-With that experience, I introduced it to Sendify this year as the main nervous system for inter-service communication.
++++ categories = \["Engineering","Community"\] date = "2016-03-22T11:39:53-08:00" tags = \["microservices", "containers", "nats", "docker"\] title = "NATS and Tracing: Keeping track of requests" author = "Donal Byrne" +++
 
-Our system is mainly processing api requests to various freight carriers based on user searches though we're also building integration
-for public api access as well. We have a mix of legacy php and newer golang services. We're running everything as containers
-on docker swarm.
+At [Sendify](https://www.sendify.se) we've been using nats as a simple and effective means of communicating between our backend services. I came across Nats a few years ago when building a relatively small microservice backed system and it worked wonderfully. With that experience, I introduced it to Sendify this year as the main nervous system for inter-service communication.
 
-<img class="img-responsive" alt="Sendify infrastructure" src="/img/blog/nats-tracing.png">
+Our system is mainly processing api requests to various freight carriers based on user searches though we're also building integration for public api access as well. We have a mix of legacy php and newer golang services. We're running everything as containers on docker swarm.
 
-One simple requirement when building a system in this way is the need for tracing requests.
-To implement this, we're simply wrapping the nats (golang) client and implementing our own Publish, PublishRequest and
-Request methods to add a uuid to each new request and simply chaining a tag for each service a request makes it's way through.
-Since we're using the protobuf serializer we also need to define a message type for this tracing payload.
+![Sendify infrastructure](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/nats-tracing.png)
+
+One simple requirement when building a system in this way is the need for tracing requests. To implement this, we're simply wrapping the nats \(golang\) client and implementing our own Publish, PublishRequest and Request methods to add a uuid to each new request and simply chaining a tag for each service a request makes it's way through. Since we're using the protobuf serializer we also need to define a message type for this tracing payload.
 
 An example of our protobuf schema:
 
-```
+```text
 enum RequestType {
     REQ = 0;
     PUB = 1;
@@ -50,7 +39,7 @@ message TestMessage {
 
 And then we use our Publish wrapper:
 
-```
+```text
 ...
 func (n *Nats) Publish(subject string, currentContext *NatsContext, data PayloadWithContext) error {
     data.SetContext(currentContext)
@@ -60,7 +49,7 @@ func (n *Nats) Publish(subject string, currentContext *NatsContext, data Payload
 ...
 ```
 
-The result being that we have a tracing uuid per request chain and a list of the services the request made it's way
-through. An improvement would be to tie the uuid to the incoming http request using a middleware.
+The result being that we have a tracing uuid per request chain and a list of the services the request made it's way through. An improvement would be to tie the uuid to the incoming http request using a middleware.
 
 You can find a full example of the code [here](https://github.com/byrnedo/apibase/blob/master/natsio/)
+

@@ -1,12 +1,6 @@
-+++
-category = "api"
-title = "Receiving Messages"
-[menu.main]
-    name = "Receiving Messages"
-    weight = 7
-    identifier = "doc-receiving-msg"
-    parent = "Writing Applications"
-+++
+# subscribing
+
++++ category = "api" title = "Receiving Messages" \[menu.main\] name = "Receiving Messages" weight = 7 identifier = "doc-receiving-msg" parent = "Writing Applications" +++
 
 Receiving messages with NATS can be very library dependent. Some languages, like Go or Java, can provide synchronous and asynchronous APIs, while others may only support one type of subscription. In all cases, the process of subscribing involves having the client library tell the NATS server that an application is interested in a particular subject. Under the covers, the client library will assign a unique id to each subscription. This id is used when the server sends messages to a specific subscription. Each subscription gets a unique id, so if the same connection is used multiple times for the same subject, the server will send multiple copies of the same message. When an application is done with a subscription it unsubscribes which tells the server to stop sending messages.
 
@@ -14,19 +8,13 @@ Receiving messages with NATS can be very library dependent. Some languages, like
 
 Synchronous subscriptions require the application to poll for messages. This type of subscription is easy to set-up and use, but requires the application to deal with looping if multiple messages are expected. For example, to subscribe to the subject `updates` and receive a single message you could do:
 
-{{< partial "doc/subscribe_sync.html" >}}
-
 ### Asynchronous Subscriptions
 
 Asynchronous subscriptions use callbacks of some form to notify an application when a message arrives. These subscriptions are usually easier to work with, but do represent some form of internal work and resource usage by the library. Check your library's documentation for any resource usage associated with asynchronous subscriptions. The following example is the same as the previous one only with asynchronous code:
 
-{{< partial "doc/subscribe_async.html" >}}
-
 ### Unsubscribing
 
 The client libraries provide a means to unsubscribe a previous subscription request. This process requires an interaction with the server, so for an asynchronous subscription there may be a small window of time where a message comes through as the unsubscribe is processed by the library. Ignoring that slight edge case, the client library will clean up any outstanding messages and tell the server that the subscription is no longer used.
-
-{{< partial "doc/unsubscribe.html" >}}
 
 ### Unsubscribing After a Specified Number of Messages
 
@@ -40,13 +28,9 @@ Finally, most of the client libraries also track the max message count after an 
 
 The following example shows unsubscribe after a single message:
 
-{{< partial "doc/unsubscribe_auto.html" >}}
-
 ## Replying to a Message
 
 Incoming messages have an optional reply-to field. If that field is set, it will contain a subject to which a reply is expected. In the publishing examples we sent a request for the current time. The following code will listen for that request and respond with the time.
-
-{{< partial "doc/subscribe_w_reply.html" >}}
 
 ## Wildcards
 
@@ -54,39 +38,17 @@ There is no special code to subscribe with a wildcard subject. The main techniqu
 
 For example, you can subscribe using `*` and then act based on the actual subject.
 
-{{< partial "doc/subscribe_star.html" >}}
-
 or do something similar with `>`:
 
-{{< partial "doc/subscribe_arrow.html" >}}
-
 The following example can be used to test these two subscribers. The `*` subscriber should receive at most 2 messages, while the `>` subscriber receives 4. More importantly the `time.*.east` subscriber won't receive on `time.us.east.atlanta` because that won't match.
-
-{{< partial "doc/wildcard_tester.html" >}}
 
 ## Queues
 
 Using queues, from a subscription standpoint, is super easy. The application simply includes a queue name with the subscription.
 
-<div class="graphviz"><code data-viz="dot">
-digraph g {
-  rankdir=LR
-  publisher [shape=box, style="rounded", label="PUB updates"];
-  subject [shape=circle, label="nats-server"];
-  sub1 [shape=box, style="rounded", label="SUB updates workers"];
-  sub2 [shape=box, style="rounded", label="SUB updates workers"];
-  sub3 [shape=box, style="rounded", label="SUB updates workers"];
-
-  publisher -> subject [label="msgs 1,2,3"];
-  subject -> sub1 [label="msg 2"];
-  subject -> sub2 [label="msg 1"];
-  subject -> sub3 [label="msg 3"];
-}
-</code></div>
+ `digraph g { rankdir=LR publisher [shape=box, style="rounded", label="PUB updates"]; subject [shape=circle, label="nats-server"]; sub1 [shape=box, style="rounded", label="SUB updates workers"]; sub2 [shape=box, style="rounded", label="SUB updates workers"]; sub3 [shape=box, style="rounded", label="SUB updates workers"]; publisher -> subject [label="msgs 1,2,3"]; subject -> sub1 [label="msg 2"]; subject -> sub2 [label="msg 1"]; subject -> sub3 [label="msg 3"]; }`
 
 For example, to subscribe to the queue `workers` with the subject `updates`:
-
-{{< partial "doc/subscribe_queue.html" >}}
 
 If you run this example with the publish examples that send to `updates`, you will see that one of the instances gets a message while the others you run won't. But the instance that receives the message will change.
 
@@ -96,24 +58,20 @@ A new feature in the NATS client libraries is the ability to drain connections o
 
 For a connection the process is essentially:
 
-  1. Drain subscriptions
-  2. Stop new messages from being published
-  3. Flush any remaining messages
-  4. Close
-
-{{< partial "doc/drain_conn.html" >}}
+1. Drain subscriptions
+2. Stop new messages from being published
+3. Flush any remaining messages
+4. Close
 
 Drain provides clients that use queue subscriptions with a way to bring down applications without losing any messages. A client can bring up a new queue member, drain and shut down the old queue member, all without losing messages sent to the old client. Without drain, there is the possibility of lost messages due to queue timing.
 
 The mechanics of drain for a subscription are simpler:
 
- 1. Unsubscribe at the server
- 2. Process known messages
- 3. Clean up
+1. Unsubscribe at the server
+2. Process known messages
+3. Clean up
 
 The API for drain can generally be used instead of unsubscribe:
-
-{{< partial "doc/drain_sub.html" >}}
 
 Because draining can involve messages flowing to the server, for a flush and asynchronous message processing, the timeout for drain should generally be higher than the timeout for a simple message request/reply or similar.
 
@@ -121,4 +79,3 @@ Because draining can involve messages flowing to the server, for a flush and asy
 
 In the publishing examples, we showed how to send JSON through NATS but you can receive encoded data as well. Each client library may provide tools to help with this encoding. The core traffic to the NATS server will always be byte arrays.
 
-{{< partial "doc/subscribe_json.html" >}}

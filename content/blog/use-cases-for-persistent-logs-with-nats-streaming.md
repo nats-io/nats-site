@@ -1,48 +1,49 @@
-+++
-categories = ["Engineering"]
-date = "2017-09-20"
-tags = ["nats", "guest post", "Golang", "technical"]
-title = "Guest Post: Use cases for persistent logs with NATS Streaming"
-author = "Byron Ruth"
+# use-cases-for-persistent-logs-with-nats-streaming
+
++++ categories = \["Engineering"\] date = "2017-09-20" tags = \["nats", "guest post", "Golang", "technical"\] title = "Guest Post: Use cases for persistent logs with NATS Streaming" author = "Byron Ruth"
 
 +++
 
 ## What are persistent logs?
-In this context, a log is an ordered sequence of messages that you can append to, but cannot go back and change existing messages. The persistent bit simply means that they are remembered and potentially durable (on disk) beyond server restarts.
+
+In this context, a log is an ordered sequence of messages that you can append to, but cannot go back and change existing messages. The persistent bit simply means that they are remembered and potentially durable \(on disk\) beyond server restarts.
 
 ## What is NATS Streaming?
+
 [NATS Streaming](http://nats.io/documentation/streaming/nats-streaming-intro/) is a lightweight, streaming platform built on top of [NATS](http://nats.io/) that provides an API for persistent logs.
 
 A few of its features include:
 
-- Lightweight, written in Go
-- Single binary, zero runtime dependencies
-- Ordered, log-based persistence
-- At-least-once delivery model
-- Automatic subscriber offset tracking
-- Support to replay messages in a stream
+* Lightweight, written in Go
+* Single binary, zero runtime dependencies
+* Ordered, log-based persistence
+* At-least-once delivery model
+* Automatic subscriber offset tracking
+* Support to replay messages in a stream
 
-These properties are similar to what [Apache Kafka](https://kafka.apache.org/) offers in terms of ordered, log-based, persistence streams. There are certainly differences between the two systems, but we won't be discussing them here. In my opinion, the best feature of NATS Streaming (and NATS) is the simplicity of operating it and the client API. If you want to learn more, leave a comment :)
+These properties are similar to what [Apache Kafka](https://kafka.apache.org/) offers in terms of ordered, log-based, persistence streams. There are certainly differences between the two systems, but we won't be discussing them here. In my opinion, the best feature of NATS Streaming \(and NATS\) is the simplicity of operating it and the client API. If you want to learn more, leave a comment :\)
 
 ## Uses cases
-I am going to assume basic knowledge of the [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern), which is the core API provided by NATS Streaming. But even if not, you shouldn't have trouble following along.
+
+I am going to assume basic knowledge of the [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern), which is the core API provided by NATS Streaming. But even if not, you shouldn't have trouble following along.
 
 Below are the list of use cases that can be solved using specific variants of the publish-subscribe pattern. I will show how these can be solved using the Subscription API NATS Streaming provides, and discuss the semantics and guarantees provided.
 
 From the vantage point of the subscriber...
 
-- "I just want to receive messages off a stream"
-- "I want to pick up where I left off in case I disconnect"
-- "I am new and want to read the entire history of the stream"
-- "I want exactly once processing"
-- "I want to share the work of processing messages"
+* "I just want to receive messages off a stream"
+* "I want to pick up where I left off in case I disconnect"
+* "I am new and want to read the entire history of the stream"
+* "I want exactly once processing"
+* "I want to share the work of processing messages"
 
 ## Setup NATS Streaming
+
 If you want to code along and try out these patterns, [download a release of NATS Streaming from GitHub](https://github.com/nats-io/nats-streaming-server). There is also an [official Docker image called nats-streaming](https://hub.docker.com/_/nats-streaming/).
 
 Assuming you downloaded the single binary, you can unpack it and run it with the following options:
 
-```
+```text
 $ nats-streaming-server \
   --store file \
   --dir ./data \
@@ -50,11 +51,12 @@ $ nats-streaming-server \
   --max_bytes 0
 ```
 
-By default, NATS Streaming uses an in-memory store. The `--store` option is used to change this to a file-based which can survive restarts. The `--max_msgs` and `--max_bytes` are set to zero to make all messages retained for all channels. Otherwise the server will default to 1 million messages or ~100 MB in size, in which case the channel will be pruned of messages to go below whichever limit was reached (thus deleting history).
+By default, NATS Streaming uses an in-memory store. The `--store` option is used to change this to a file-based which can survive restarts. The `--max_msgs` and `--max_bytes` are set to zero to make all messages retained for all channels. Otherwise the server will default to 1 million messages or ~100 MB in size, in which case the channel will be pruned of messages to go below whichever limit was reached \(thus deleting history\).
 
 Once that is running in a shell, we can starting writing some code. For the code examples, I will be using the [Go client](https://github.com/nats-io/go-nats-streaming). There are several official clients and a few community-built ones on the [downloads page](http://nats.io/download/).
 
 ## Boilerplate code
+
 First we need to establish a connection.
 
 ```go
@@ -107,7 +109,7 @@ if err != nil {
 defer logCloser(sub)
 ```
 
-It is really that simple. NATS Streaming guarantees messages are received and processed in order. One caveat (which will be addressed in a later example) is that if there is an issue with acknowledging (ACK-ing) that a message has been processed to the server (such as a disconnect or timeout), then the message will be redelivered later (after earlier messages were processed).
+It is really that simple. NATS Streaming guarantees messages are received and processed in order. One caveat \(which will be addressed in a later example\) is that if there is an issue with acknowledging \(ACK-ing\) that a message has been processed to the server \(such as a disconnect or timeout\), then the message will be redelivered later \(after earlier messages were processed\).
 
 Likewise if there is an error while processing, by default there is no way to not send an ACK. This can be solved by adding a subscription option: `stan.SetManualAckMode()`
 
@@ -138,7 +140,7 @@ You may be thinking, why would you want to get the message redelivered if it fai
 
 With the default options, a subscription is only tracked while it is online. That is, if the client re-subscribes later, it receives only new messages. It won't receive any messages that were published while it was offline.
 
-For certain use cases, it may be desirable to "pick up where you left" such as work queues, [data replication streams](https://en.wikipedia.org/wiki/Replication_(computing)), and [CQRS architectures](https://martinfowler.com/bliki/CQRS.html).
+For certain use cases, it may be desirable to "pick up where you left" such as work queues, \[data replication streams\]\([https://en.wikipedia.org/wiki/Replication\_\(computing](https://en.wikipedia.org/wiki/Replication_%28computing)\)\), and [CQRS architectures](https://martinfowler.com/bliki/CQRS.html).
 
 Making a subscriber "resumable" is as simple as adding another subscription option.
 
@@ -158,7 +160,7 @@ The `stan.DurableName` option takes a name you provide for that particular subsc
 
 At the end of the previous section, I asked what happens if there is a bug if your handler code. With a durable subscription, you now have the freedom to bring the subscriber offline, fix the bug, and bring it back online resuming where it left off.
 
-To know whether the handler is failing, you should be logging these errors, but you can also immediately disconnect when the first *non-retryable* error occurs.
+To know whether the handler is failing, you should be logging these errors, but you can also immediately disconnect when the first _non-retryable_ error occurs.
 
 ```go
 // Declare above so the handler can reference it.
@@ -182,7 +184,7 @@ sub, _ = conn.Subscribe(
 
 Since messages are processed in ordered, closing the subscription on the first error will prevent subsequent messages from being processed. On reconnect, the message that failed will be redelivered followed by all new messages.
 
-This approach also guarantees fully ordered processing *no matter what*. Messages beyond the failure won't be processed, thus a redelivery can't be interleaved with new messages.
+This approach also guarantees fully ordered processing _no matter what_. Messages beyond the failure won't be processed, thus a redelivery can't be interleaved with new messages.
 
 This guaranteed ordering can also be achieved using the MaxInFlight option along with manual ACK-ing.
 
@@ -244,7 +246,7 @@ The server maintains the last message ID that was acknowledged by the client, bu
 
 ## "I want to read the entire history of the stream"
 
-This use case is most applicable to consumers that want to build some internal state based on the stream. In fact, this approach is exactly how many databases work in maintaining their internal indexes to support queries. All changes are written to a log first (for durability), and then an internal process applies those changes to in-memory indexes to support fast lookups.
+This use case is most applicable to consumers that want to build some internal state based on the stream. In fact, this approach is exactly how many databases work in maintaining their internal indexes to support queries. All changes are written to a log first \(for durability\), and then an internal process applies those changes to in-memory indexes to support fast lookups.
 
 Unless you are building a one-off index, in general you want to use a durable subscription so on restart, only a small set of the changes needs to be processed. Starting from the beginning is just another option.
 
@@ -261,11 +263,11 @@ conn.Subscribe(
 )
 ```
 
-This is a nice pattern to use when you want to deploy a new version of the internal state that requires processing old messages (because you discovered a bug or are applying more features, etc.). This can be done offline and take as long as it needs. Once built, it can be deployed alongside the old version and traffic can be routed over to the new version.
+This is a nice pattern to use when you want to deploy a new version of the internal state that requires processing old messages \(because you discovered a bug or are applying more features, etc.\). This can be done offline and take as long as it needs. Once built, it can be deployed alongside the old version and traffic can be routed over to the new version.
 
 ## "I want to share the work of processing messages"
 
-So far, each use case only needed a single subscriber to do the work since ordering was implied to be important in these cases (maybe with the exception of the first). However if ordering is not important or message processing can be done in parallel (and maybe reconciled later), then you can take advantage of the "queue subscriber".
+So far, each use case only needed a single subscriber to do the work since ordering was implied to be important in these cases \(maybe with the exception of the first\). However if ordering is not important or message processing can be done in parallel \(and maybe reconciled later\), then you can take advantage of the "queue subscriber".
 
 The queue subscriber enables multiple clients to subscribe to the same stream with the same "queue name" and messages will be distributed to each member of the queue group.
 
@@ -298,8 +300,9 @@ Likewise, think about if total ordering is actually required. Basically if any m
 
 ### "Exactly once" with QueueSubscribe
 
-The example of "exactly once" only works with a single subscriber. For a "queue subscription", the `lastProcessed` ID would need to be centrally (and atomically) accessible by all members of the queue subscription. If this is desirable, the simplest approach would be to use a shared key-value store that support atomic operations on setting a value.
+The example of "exactly once" only works with a single subscriber. For a "queue subscription", the `lastProcessed` ID would need to be centrally \(and atomically\) accessible by all members of the queue subscription. If this is desirable, the simplest approach would be to use a shared key-value store that support atomic operations on setting a value.
 
 ### Example simulations
 
 I put together [some examples](https://github.com/bruth/code-examples/tree/master/patterns-nats-streaming) that highlight a few of the scenarios discussed above. Runnable examples are provided as well as the output in the README to illustrate the behavior.
+

@@ -1,19 +1,12 @@
-+++
-title = "Tracking NATS Statistics"
-description = ""
-category = "server"
-[menu.main]
-  name = "Statistics"
-  weight = 11
-  identifier = "doc-statistics"
-  parent = "Managing the Server"
-+++
+# statistics
+
++++ title = "Tracking NATS Statistics" description = "" category = "server" \[menu.main\] name = "Statistics" weight = 11 identifier = "doc-statistics" parent = "Managing the Server" +++
 
 [nats-top](https://github.com/nats-io/nats-top) is a [top](http://man7.org/linux/man-pages/man1/top.1.html)-like tool for monitoring nats-server servers.
 
 The nats-top tool provides a dynamic real-time view of a NATS server. nats-top can display a variety of system summary information about the NATS server, such as subscription, pending bytes, number of messages, and more, in real time. For example:
 
-```sh
+```bash
 nats-top
 
 nats-server version 0.6.4 (uptime: 31m42s)
@@ -34,7 +27,7 @@ Connections: 4
 
 nats-top can be installed using `go get`. For example:
 
-```sh
+```bash
 go get github.com/nats-io/nats-top
 ```
 
@@ -44,7 +37,7 @@ NOTE: You may have to run the above command as user `sudo` depending on your set
 
 Once installed, nats-top can be run with the command `nats-top` and optional arguments.
 
-```sh
+```bash
 nats-top [-s server] [-m monitor] [-n num_connections] [-d delay_in_secs] [-sort by]
 ```
 
@@ -52,12 +45,12 @@ nats-top [-s server] [-m monitor] [-n num_connections] [-d delay_in_secs] [-sort
 
 Optional arguments inclde the following:
 
-| Option                | Description                                   |
-|-----------------------|-----------------------------------------------|
-| `-m monitor`          | Monitoring http port from nats-server.             |
-| `-n num_connections`  | Limit the connections requested to the server (default 1024). |
-| `-d delay_in_secs`    | Screen refresh interval (default 1 second).   |
-| `-sort by`            | Field to use for sorting the connections (see below). |
+| Option | Description |
+| :--- | :--- |
+| `-m monitor` | Monitoring http port from nats-server. |
+| `-n num_connections` | Limit the connections requested to the server \(default 1024\). |
+| `-d delay_in_secs` | Screen refresh interval \(default 1 second\). |
+| `-sort by` | Field to use for sorting the connections \(see below\). |
 
 ## Commands
 
@@ -87,4 +80,5 @@ Use the `q` command to quit nats-top.
 
 ### Tutorial
 
-For a walkthrough with `nats-top` check out the [tutorial](/documentation/additional_documentation/nats-top).
+For a walkthrough with `nats-top` check out the [tutorial](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/additional_documentation/nats-top/README.md).
+

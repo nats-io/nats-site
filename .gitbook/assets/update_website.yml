@@ -1,0 +1,8 @@
+### playbook.yml 
+---
+- name: update website
+  hosts: localhost
+  vars:
+    tag: "v0.0.60"
+  roles:
+    - ansible-role-deploy-natsio

@@ -1,10 +1,6 @@
-+++
-categories = ["Community", "Engineering"]
-date = "2016-04-11T11:22:41-08:00"
-tags = ["nats", "microservices", "technical", "Micro", "Golang"]
-title = "Guest Post: Micro on NATS - Microservices with Messaging"
-author = "Asim Aslam"
-+++
+# microonnats
+
++++ categories = \["Community", "Engineering"\] date = "2016-04-11T11:22:41-08:00" tags = \["nats", "microservices", "technical", "Micro", "Golang"\] title = "Guest Post: Micro on NATS - Microservices with Messaging" author = "Asim Aslam" +++
 
 In this post we’re going to discuss using [Micro](https://github.com/micro/micro) on [NATS](http://www.nats.io). It includes discussion around service discovery, synchronous and asynchronous communication for microservices.
 
@@ -19,27 +15,29 @@ Let’s get down to business.
 If you want to learn more about NATS itself, visit [nats.io](http://www.nats.io) or join the community [here](http://nats.io/community/).
 
 ## Why NATS?
+
 Why not NATS? Having worked with many message buses in the past, it was very quickly clear that NATS stood apart. Over the years messaging has been hailed as the saviour of the enterprise, resulting in systems that attempted to be everything to everyone. It led to a lot of false promises, significant feature bloat and high cost technologies that created more problems than they solved.
 
 NATS, in contrast, takes the approach of being very focused, solving the problems of performance and availability while staying incredibly lean. It speaks of being “always on and available”, and using a “fire and forget” messaging pattern. It’s simplicity, focus and lightweight characteristics make it a prime candidate for the microservices ecosystem. We believe it will soon become the primary candidate as a transport for communication between services where messaging is concerned.
 
 ## What NATS provides:
 
-- High performance and scalability
-- High availability
-- Extremely lightweight
-- At most once delivery
+* High performance and scalability
+* High availability
+* Extremely lightweight
+* At most once delivery
 
 ## What NATS does not provide:
 
-- Persistence
-- Transactions
-- Enhanced delivery modes
-- Enterprise queueing
+* Persistence
+* Transactions
+* Enhanced delivery modes
+* Enterprise queueing
 
 That briefly covers the what’s and why’s of NATS. So how does it fit in with Micro? Let’s discuss.
 
 ## Micro on NATS
+
 [Micro](https://github.com/micro/micro) is a microservice toolkit built with a pluggable architecture allowing the underlying dependencies to be swapped out with minimal changes. Each interface of the [Go-Micro](https://github.com/micro/go-micro) framework provides a building block for microservices; the [registry](https://godoc.org/github.com/micro/go-micro/registry#Registry) for service discovery, [transport](https://godoc.org/github.com/micro/go-micro/transport#Transport) for synchronous communication, [broker](https://godoc.org/github.com/micro/go-micro/broker#Broker) for asynchronous messaging, etc.
 
 Creating a plugin for each component is as simple as implementing the interface. We’ll spend more time detailing how to write plugins in a future blog post. If you want to check out the plugins for NATS or any other systems such as etcd discovery, kafka broker, rabbitmq transport, you can find them here: [github.com/micro/go-plugins](https://github.com/micro/go-plugins).
@@ -52,7 +50,7 @@ Below we’ll discuss implementations of the NATS plugins for the transport, bro
 
 ## Transport
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS1.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS1.png)
 
 The transport is the go-micro interface for synchronous communication. It uses fairly common Socket semantics similar to other Go code with Listen, Dial and Accept. These concepts and patterns are well understood for synchronous communication using tcp, http, etc but it can be somewhat more difficult to adapt to a message bus. A connection is established with the message bus rather than with a service itself. To get around this we use the notion of a pseudo connection with topics and channels.
 
@@ -64,69 +62,73 @@ A client which wants to communicate with this service will use transport.Dial to
 
 When either side wants to close the connection, they simply call `transport.Close` which will terminate the connection to NATS.
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS2.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS2.png)
 
 ## Using the transport plugin
 
 Import the transport plugin
 
-```
+```text
 import _ "github.com/micro/go-plugins/transport/nats"
 ```
+
 Start with the transport flag
 
-```
+```text
 go run main.go --transport=nats --transport_address=127.0.0.1:4222
 ```
 
 Alternatively use the transport directly
 
-```
+```text
 transport := nats.NewTransport()
 ```
 
-...
-The go-micro transport interface:
+... The go-micro transport interface:
 
-```
+```text
 type Transport interface {
     Dial(addr string, opts ...DialOption) (Client, error)
     Listen(addr string, opts ...ListenOption) (Listener, error)
     String() string
 }
 ```
- [Transport](https://github.com/micro/go-plugins/tree/master/transport/nats)
+
+[Transport](https://github.com/micro/go-plugins/tree/master/transport/nats)
 
 ## Broker
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS3.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS3.png)
 
 The broker is the go-micro interface for asynchronous messaging. It provides a high level generic implementation that applies across most message brokers. NATS, by its very nature, is an asynchronous messaging system, it’s made for use as a message broker. There’s only one caveat, NATS does not persist messages. While this may not be ideal for some, we still believe NATS can and should be used as a broker with go-micro. Where persistence is not required, it allows for a highly scalable pub sub architecture.
 
 NATS provides a very straight forward Publish and Subscribe mechanism with the concepts of Topics, Channels, etc. There was no real fancy work required here to make it work. Messages can be published in an asynchronous fire and forget manner. Subscribers using the same channel name form a Queue Group in NATS which will then allow messages to automatically be evenly distributed across the subscribers.
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS4.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS4.png)
 
 ## Using the broker plugin
 
 Import the broker plugin
 
-```
+```text
 import _ "github.com/micro/go-plugins/broker/nats"
 ```
+
 Start with the broker flag
 
-```
+```text
 go run main.go --broker=nats --broker_address=127.0.0.1:4222
 ```
+
 Alternatively use the broker directly
-```
+
+```text
 broker := nats.NewBroker()
 ```
-...
-The go-micro broker interface:
 
-```
+... The go-micro broker interface:
+
+```text
 type Broker interface {
     Options() Options
     Address() string
@@ -138,18 +140,18 @@ type Broker interface {
     String() string
 }
 ```
+
 [Broker](https://github.com/micro/go-plugins/tree/master/broker/nats)
 
 ## Registry
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS5.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS5.png)
 
 The registry is the go-micro interface for service discovery. You might be thinking. Service discovery using a message bus? Does that even work? Indeed it does and rather well. Many people using a message bus for their transport will avoid using any kind of separate discovery mechanism. This is because the message bus itself can handle routing via topics and channels. Topics defined as service names can be used as the routing key, automatically load balancing between instances of a service that subscribe to the topic.
 
 Go-micro treats the service discovery and transport mechanisms as two separate concerns. Anytime a client makes a request to another service, beneath the covers, it looks up the service in the registry by name, picks the address of a node and then communicates with it via the transport.
 
-Usually the most common way of storing service discovery information is via
-a distributed key-value store like zookeeper, etcd or something similar. As you may have realised, NATS is not a distributed key-value store, so we’re going to do something a little different…
+Usually the most common way of storing service discovery information is via a distributed key-value store like zookeeper, etcd or something similar. As you may have realised, NATS is not a distributed key-value store, so we’re going to do something a little different…
 
 ## Broadcast queries!
 
@@ -164,29 +166,31 @@ So to sum up how it works:
 3. Listen for responses and unsubscribe after a time limit
 4. Aggregate response and return result
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS6.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS6.png)
 
 ## Using the registry plugin
 
 Import the registry plugin
 
-```
+```text
 import _ "github.com/micro/go-plugins/registry/nats"
 ```
+
 Start with the registry flag
 
-```
+```text
 go run main.go --registry=nats --registry_address=127.0.0.1:4222
 ```
+
 Alternatively use the registry directly
 
-```
+```text
 registry := nats.NewRegistry()
 ```
-...
-The go-micro registry interface:
 
-```
+... The go-micro registry interface:
+
+```text
 type Registry interface {
     Register(*Service, ...RegisterOption) error
     Deregister(*Service) error
@@ -196,6 +200,7 @@ type Registry interface {
     String() string
 }
 ```
+
 [Registry](https://github.com/micro/go-plugins/tree/master/registry/nats)
 
 ## Scaling Micro on NATS
@@ -204,16 +209,17 @@ In the examples above we’re only specifying a single NATS server on localhost 
 
 Micro accepts a comma separated list of addresses as the flags mentioned above or optionally the use of environment variables. If you’re using the client libraries directly it also allows a variadic set of hosts as an option for initialisation of the registry, transport and broker.
 
-In terms of architecture in a cloud native world, our past experiences suggest that clusters per AZ or per region are ideal. Most cloud providers have relatively low (3-5ms) latency between AZs which allows for regional clustering without issue. When running a highly available configuration, it’s important to ensure that you’re system is capable of tolerating an AZ failure and in more mature configurations an entire region failure. We do not recommend clustering across regions. Ideally higher level tools should be used to manage multi-cluster and multi-region systems.
+In terms of architecture in a cloud native world, our past experiences suggest that clusters per AZ or per region are ideal. Most cloud providers have relatively low \(3-5ms\) latency between AZs which allows for regional clustering without issue. When running a highly available configuration, it’s important to ensure that you’re system is capable of tolerating an AZ failure and in more mature configurations an entire region failure. We do not recommend clustering across regions. Ideally higher level tools should be used to manage multi-cluster and multi-region systems.
 
 Micro is an incredibly flexible runtime agnostic microservices system. It’s designed to run anywhere and in any configuration. It’s view of the world is guided by the service registry. Clusters of services can be localised and namespaced within a pool of machines, AZs or regions based entirely on which registry you provide the service access to. In combination with NATS clustering it allows you to build a highly available architecture to serve your needs.
 
-<img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS7.png">
+![](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/micronats/MicroNATS7.png)
 
 ## Summary
+
 [NATS](http://www.nats.io) is a scalable and performant messaging system which we believe fits nicely into the microservice ecosystem. It plays extremely well with Micro and as we’ve demonstrated can be used as a plugin for the [Registry](https://godoc.org/github.com/micro/go-plugins/registry/nats), [Transport](https://godoc.org/github.com/micro/go-plugins/transport/nats) or [Broker](https://godoc.org/github.com/micro/go-plugins/broker/nats). We’ve implemented all three to highlight just how flexible NATS can be.
 
-Micro on NATS is an example of Micro’s powerful pluggable architecture. Each of the go-micro packages can be implemented and swapped out with minimal changes. In the future look to see more of examples of Micro on [X]. The next most likely to be Micro on Kubernetes.
+Micro on NATS is an example of Micro’s powerful pluggable architecture. Each of the go-micro packages can be implemented and swapped out with minimal changes. In the future look to see more of examples of Micro on \[X\]. The next most likely to be Micro on Kubernetes.
 
 Hopefully this will inspire you to try out Micro on NATS or even write some plugins for other systems and contribute back to the community.
 
@@ -222,3 +228,4 @@ Find the source for the NATS plugins at [github.com/micro/go-plugins](https://gi
 If you want to learn more about the services we offer or microservices, check out the [blog](https://blog.micro.mu/), the website [micro.mu](https://micro.mu/) or the github repo.
 
 Follow us on Twitter at [@MicroHQ](https://twitter.com/microhq) or join the [Slack](https://micro-services.slack.com/) community [here](http://slack.micro.mu/).
+

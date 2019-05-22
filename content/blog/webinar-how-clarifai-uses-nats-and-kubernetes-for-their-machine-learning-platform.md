@@ -1,10 +1,6 @@
-+++
-categories = ["Engineering", "Community"]
-date = "2017-04-13"
-tags = ["nats", "microservices", "webinar"]
-title = "Webinar: How Clarifai uses NATS and Kubernetes for their Machine Learning Platform"
-author = "Brian Flannery"
-+++
+# webinar-how-clarifai-uses-nats-and-kubernetes-for-their-machine-learning-platform
+
++++ categories = \["Engineering", "Community"\] date = "2017-04-13" tags = \["nats", "microservices", "webinar"\] title = "Webinar: How Clarifai uses NATS and Kubernetes for their Machine Learning Platform" author = "Brian Flannery" +++
 
 **Speaker:** Jack Li, Senior Infrastructure Engineer at [Clarifai](https://www.clarifai.com)
 
@@ -16,7 +12,7 @@ Clarifai has moved to a highly available Kubernetes-based architecture, which al
 
 This webinar will provide more information on the Clarifai platform, how Kubernetes and NATS are used on the back-end, and we'll also have QnA at the end.
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/DR2fx0mSwofXpY" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/Apcera/how-clarifai-uses-nats-and-kubernetes-for-machine-learning" title="How Clarifai uses NATS and Kubernetes for Machine Learning" target="_blank">How Clarifai uses NATS and Kubernetes for Machine Learning</a> </strong> from <strong><a href="https://www.slideshare.net/Apcera" target="_blank">Apcera</a></strong> </div>
+  [**How Clarifai uses NATS and Kubernetes for Machine Learning**](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/www.slideshare.net/Apcera/how-clarifai-uses-nats-and-kubernetes-for-machine-learning/README.md) from [**Apcera**](https://www.slideshare.net/Apcera)
 
-<img alt="Clarifai and NATS" src="/img/blog/webinar-clarifai.png">
+![Clarifai and NATS](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/img/blog/webinar-clarifai.png)
 

@@ -1,49 +1,41 @@
-+++
-date = "2015-09-27"
-title = "Using NATS Top to Monitor NATS"
-description = ""
-category = "tutorials"
-[menu.main]
-  name = "Explore nats-top"
-  weight = 7
-  identifier = "doc-nats-top"
-  parent = "Additional Documentation"
-+++
+# nats-top
 
-You can use [nats-top](/documentation/managing_the_server/statistics) to monitor in realtime NATS server connections and message statistics.
++++ date = "2015-09-27" title = "Using NATS Top to Monitor NATS" description = "" category = "tutorials" \[menu.main\] name = "Explore nats-top" weight = 7 identifier = "doc-nats-top" parent = "Additional Documentation" +++
 
-#### Prerequisites
+You can use [nats-top](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/statistics/README.md) to monitor in realtime NATS server connections and message statistics.
 
-- [Set up your Go environment](/documentation/additional_documentation/go-install/)
-- [Installed the NATS server](/documentation/managing_the_server/installing/)
+## Prerequisites
 
-#### 1. Install nats-top
+* [Set up your Go environment](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/additional_documentation/go-install/README.md)
+* [Installed the NATS server](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/managing_the_server/installing/README.md)
 
-```sh
+## 1. Install nats-top
+
+```bash
 % go get github.com/nats-io/nats-top
 ```
 
 You may need to run the following instead:
 
-```sh
+```bash
 % sudo -E go get github.com/nats-io/nats-top
 ```
 
-#### 2. Start the NATS server with monitoring enabled
+## 2. Start the NATS server with monitoring enabled
 
-```sh
+```bash
 % nats-server -m 8222
 ```
 
-#### 3. Start nats-top
+## 3. Start nats-top
 
-```sh
+```bash
 % nats-top
 ```
 
 Result:
 
-```sh
+```bash
 nats-server version 0.6.6 (uptime: 2m2s)
 Server:
   Load: CPU:  0.0%  Memory: 6.3M  Slow Consumers: 0
@@ -54,15 +46,15 @@ Connections: 0
   HOST                 CID      SUBS    PENDING     MSGS_TO     MSGS_FROM   BYTES_TO    BYTES_FROM  LANG     VERSION
 ```
 
-#### 4. Run NATS client programs
+## 4. Run NATS client programs
 
 Run some NATS client programs and exchange messages.
 
-For the best experience, you will want to run multiple subscribers, at least 2 or 3. Refer to the [example pub-sub clients](/documentation/additional_documentation/nats-pub-sub).
+For the best experience, you will want to run multiple subscribers, at least 2 or 3. Refer to the [example pub-sub clients](https://github.com/nats-io/nats-site/tree/c42c46a7c6b8669e66e28419887d2f8dd29aa502/documentation/additional_documentation/nats-pub-sub/README.md).
 
-#### 5. Check nats-top for statistics
+## 5. Check nats-top for statistics
 
-```sh
+```bash
 nats-server version 0.6.6 (uptime: 30m51s)
 Server:
   Load: CPU:  0.0%  Memory: 10.3M  Slow Consumers: 0
@@ -76,11 +68,11 @@ Connections: 3
   ::1:58953            39       1       0           21          0           105         0           go       1.1.0
 ```
 
-#### 6. Sort nats-top statistics
+## 6. Sort nats-top statistics
 
-In nats-top, enter the command `o` followed by the option, such as `bytes_to`. You see that nats-top sorts the BYTES_TO column in ascending order.
+In nats-top, enter the command `o` followed by the option, such as `bytes_to`. You see that nats-top sorts the BYTES\_TO column in ascending order.
 
-```sh
+```bash
 nats-server version 0.6.6 (uptime: 45m40s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
@@ -94,7 +86,7 @@ Connections: 3
   ::1:59342            90       1       0           0           0           0           0           go       1.1.0
 ```
 
-#### 7. Use different sort options
+## 7. Use different sort options
 
 Use some different sort options to explore nats-top, such as:
 
@@ -102,11 +94,11 @@ Use some different sort options to explore nats-top, such as:
 
 You can also set the sort option on the command line using the `-sort` flag. For example: `nats-top -sort bytes_to`.
 
-#### 8. Display the registered subscriptions.
+## 8. Display the registered subscriptions.
 
 In nats-top, enter the command `s` to toggle displaying connection subscriptions. When enabled, you see the subscription subject in nats-top table:
 
-```sh
+```bash
 nats-server version 0.6.6 (uptime: 1h2m23s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
@@ -120,21 +112,21 @@ Connections: 3
   ::1:59817            124      1       0           0           0           0           0           go       1.1.0   foo
 ```
 
-#### 9. Quit nats-top
+## 9. Quit nats-top
 
 Use the `q` command to quit nats-top.
 
-#### 10. Restart nats-top with a specified query
+## 10. Restart nats-top with a specified query
 
 For example, to query for the connection with largest number of subscriptions:
 
-```sh
+```bash
 % nats-top -n 1 -sort subs
 ```
 
 Result: nats-top displays only the client connection with the largest number of subscriptions:
 
-```sh
+```bash
 nats-server version 0.6.6 (uptime: 1h7m0s)
 Server:
   Load: CPU:  0.0%  Memory: 10.4M  Slow Consumers: 0
@@ -145,3 +137,4 @@ Connections: 3
   HOST                 CID      SUBS    PENDING     MSGS_TO     MSGS_FROM   BYTES_TO    BYTES_FROM  LANG     VERSION
   ::1:59708            115      1       0           6           0           48          0           go       1.1.0
 ```
+

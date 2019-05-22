@@ -1,18 +1,10 @@
-+++
-date = "2015-06-17"
-title = "Securing NATS Streaming Server"
-description = ""
-category = "server"
-[menu.main]
-  name = "Security"
-  weight = 4
-  identifier = "doc-streaming-security"
-  parent = "Event Streaming"
-+++
+# nats-streaming-tls
+
++++ date = "2015-06-17" title = "Securing NATS Streaming Server" description = "" category = "server" \[menu.main\] name = "Security" weight = 4 identifier = "doc-streaming-security" parent = "Event Streaming" +++
 
 ## Authenticating users
 
-To enable user authentication from the command line, you can use the same mechanism as the NATS Server (`nats-server`). You pass in the `—user <user>` and `—pass <pass>` commands, or `--auth` parameters, and the NATS streaming server will automatically use these credentials. Or you can use a configuration file with a single user or token.
+To enable user authentication from the command line, you can use the same mechanism as the NATS Server \(`nats-server`\). You pass in the `—user <user>` and `—pass <pass>` commands, or `--auth` parameters, and the NATS streaming server will automatically use these credentials. Or you can use a configuration file with a single user or token.
 
 When using a configuration file with multi-user authorization, you must use the `—user` and `—pass` parameters with the NATS streaming server, matching a user in the configuration file, in order to specify which user the NATS streaming server should authenticate with to it's embedded NATS server.
 
@@ -26,7 +18,7 @@ That means two sets of TLS configuration parameters must be used: TLS server par
 
 The streaming server specifies it's TLS client certificates with the following three parameters:
 
-```sh
+```bash
 -tls_client_key              Client key for the streaming server
 -tls_client_cert             Client certificate for the streaming server
 -tls_client_cacert           Client certificate CA for the streaming server
@@ -36,7 +28,7 @@ These could be the same certificates used with your NATS streaming clients.
 
 The embedded NATS server specifies TLS server certificates with these:
 
-```sh
+```bash
 --tlscert <file>             Server certificate file
 --tlskey <file>              Private key for server certificate
 --tlscacert <file>           Client certificate CA for verification
@@ -48,8 +40,9 @@ Proper usage of the NATS Streaming Server requires the use of both client and se
 
 For example:
 
-```sh
+```bash
 % nats-streaming-server -tls_client_cert client-cert.pem -tls_client_key client-key.pem -tls_client_cacert ca.pem -tlscert server-cert.pem -tlskey server-key.pem -tlscacert ca.pem
 ```
 
-Further TLS related functionality can be found in [Securing NATS > TLS](https://github.com/nats-io/nats-server#securing-nats). Note that if specifying cipher suites is required, a configuration file for the embedded NATS server can be passed through the `-config` command line parameter.
+Further TLS related functionality can be found in [Securing NATS &gt; TLS](https://github.com/nats-io/nats-server#securing-nats). Note that if specifying cipher suites is required, a configuration file for the embedded NATS server can be passed through the `-config` command line parameter.
+
