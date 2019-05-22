@@ -36,8 +36,6 @@ log.Printf("The connection is %v\n", getStatusTxt(nc))
 {% code-tabs-item title="java.md" %}
 ```java
 Connection nc = Nats.connect("nats://demo.nats.io:4222");
-
-
 System.out.println("The Connection is: " + nc.getStatus());
 
 nc.close();
