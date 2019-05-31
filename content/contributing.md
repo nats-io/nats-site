@@ -85,7 +85,7 @@ If possible, give a bit of context on where you hope to go next with your NATS d
 
 The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/master/content/blog to accelerate the review cycle! 
 
-## Contributing Documentation Changes
+<!--## Contributing Documentation Changes
 
 Our project documentation is available on the [NATS.IO website](http://nats.io). The source for the documentation, in markdown, can be found in the site's GitHub project https://github.com/nats-io/nats-site.
 
@@ -97,6 +97,7 @@ We will apply common-sense criteria to the review of these documentation-related
 - Correctness of content
 - Relevance to subject matter
 - Duplication of existing content
+-->
 
 ## Contributing By Testing
 
