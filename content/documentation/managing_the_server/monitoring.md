@@ -1,6 +1,5 @@
 +++
 title = "Monitoring the NATS Server"
-aliases = ["documentation/server/gnatsd-monitoring/"]
 description = ""
 category = "server"
 [menu.main]
