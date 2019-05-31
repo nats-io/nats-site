@@ -9,7 +9,7 @@ showChildren=true
   parent = "Getting Started With NATS"
 +++
 
-## Introduction
+## Contributing
 
 Do you want to contribute to NATS? Awesome! We’d love your help. To make it easier for you to contribute, we’ve provided some guidelines below to ensure that you (the contributor) know what we (the project maintainers) look for in terms of content as well as the criteria and procedures we use when reviewing your submissions.
 
