@@ -28,8 +28,8 @@ Releases:
     Release v1.8.0 on October 17th, 2018.
   github:
     - user: nats-io
-      repo: cnats
-      link: https://github.com/nats-io/
+      repo: nats.c
+      link: https://github.com/nats-io/nats.c
 
 - name: C Streaming
   type: streaming-client
@@ -53,13 +53,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.8.1
+  version_num: 0.9.0
   release_notes: |
-    Release 0.8.1 on June 14th, 2018.
+    Release 0.9.0 on June 9, 2019.
   github:
     - user: nats-io
-      repo: csnats
-      link: https://github.com/nats-io/csharp-nats
+      repo: nats.net
+      link: https://github.com/nats-io/nats.net
   links:
     - name: NuGet
       url:  https://www.nuget.org/packages/NATS.Client
@@ -664,30 +664,30 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.4.1
+  version_num: 2.0.0
   release_notes: |
-    Release v1.4.1 on February 7th, 2019.
+    Release v2.0.0 on June 5, 2019.
   github:
     - user: nats-io
-      repo: gnatsd
-      link: https://github.com/nats-io/gnatsd
+      repo: nats-server
+      link: https://github.com/nats-io/nats-server
   links:
-  - name: gnatsd-v1.4.1-darwin-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-darwin-amd64.zip
-  - name: gnatsd-v1.4.1-linux-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-amd64.zip
-  - name: gnatsd-v1.4.1-linux-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-386.zip
-  - name: gnatsd-v1.4.1-linux-arm6.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm6.zip
-  - name: gnatsd-v1.4.1-linux-arm7.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm7.zip
-  - name: gnatsd-v1.4.1-linux-arm64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-linux-arm64.zip
-  - name: gnatsd-v1.4.1-windows-386.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-windows-386.zip
-  - name: gnatsd-v1.4.1-windows-amd64.zip
-    url: https://github.com/nats-io/gnatsd/releases/download/v1.4.1/gnatsd-v1.4.1-windows-amd64.zip
+  - name: nats-server-v2.0.0-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-darwin-amd64.zip
+  - name: nats-server-v2.0.0-linux-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-linux-amd64.zip
+  - name: nats-server-v2.0.0-linux-386.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-linux-386.zip
+  - name: nats-server-v2.0.0-linux-arm6.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-linux-arm6.zip
+  - name: nats-server-v2.0.0-linux-arm7.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-linux-arm7.zip
+  - name: nats-server-v2.0.0-linux-arm64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-linux-arm64.zip
+  - name: nats-server-v2.0.0-windows-386.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-windows-386.zip
+  - name: nats-server-v2.0.0-windows-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.0.0/nats-server-v2.0.0-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
@@ -698,29 +698,29 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.14.3
+  version_num: 0.15.1
   release_notes: |
-    Release v0.14.3 May 31st, 2019.
+    Release v0.15.1 June 5, 2019.
   github:
     - user: nats-io
       repo: nats-streaming-server
       link: https://github.com/nats-io/nats-streaming-server
   links:
-  - name: nats-streaming-server-v0.14.3-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-darwin-amd64.zip
-  - name: nats-streaming-server-v0.14.3-linux-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-linux-386.zip
-  - name: nats-streaming-server-v0.14.3-linux-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-linux-amd64.zip
-  - name: nats-streaming-server-v0.14.3-linux-arm6.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-linux-arm6.zip
-  - name: nats-streaming-server-v0.14.3-linux-arm7.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-linux-arm7.zip
-  - name: nats-streaming-server-v0.14.3-linux-arm64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-linux-arm64.zip
-  - name: nats-streaming-server-v0.14.3-windows-386.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-windows-386.zip
-  - name: nats-streaming-server-v0.14.3-windows-amd64.zip
-    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.14.3/nats-streaming-server-v0.14.3-windows-amd64.zip
+  - name: nats-streaming-server-v0.15.1-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-darwin-amd64.zip
+  - name: nats-streaming-server-v0.15.1-linux-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-linux-386.zip
+  - name: nats-streaming-server-v0.15.1-linux-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-linux-amd64.zip
+  - name: nats-streaming-server-v0.15.1-linux-arm6.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-linux-arm6.zip
+  - name: nats-streaming-server-v0.15.1-linux-arm7.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-linux-arm7.zip
+  - name: nats-streaming-server-v0.15.1-linux-arm64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-linux-arm64.zip
+  - name: nats-streaming-server-v0.15.1-windows-386.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-windows-386.zip
+  - name: nats-streaming-server-v0.15.1-windows-amd64.zip
+    url: https://github.com/nats-io/nats-streaming-server/releases/download/v0.15.1/nats-streaming-server-v0.15.1-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats-streaming/
