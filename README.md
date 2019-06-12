@@ -62,9 +62,11 @@ The structure of the content directory is as follows:
 	- /documentation
 	- /download
 	- about.html
-	- community.html
+	- community.md
+	- contributing.md
 	- index.html
 	- support.html
+	- privacy.md
 ```
 
 The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
@@ -73,89 +75,7 @@ The **html files** or **directories** should be pretty self explanatory for what
 
 ## <a name="adding-documentation"></a>Adding Documentation
 
-The NATS documentation is a collection of Markdown articles located in `nats-docs/content and organized into the following categories/subdirectories:
-
-
-| Category        | Subirectory
-|-----------------|----------------
-| Getting Started | `documentation`
-| Clients         | `documentation/clients`
-| Concepts        | `documentation/concepts`
-| Internals       | `documentation/internals`
-| Tutorials       | `documentation/tutorials`
-
-The Markdown documents contained in these directories are assembled by Hugo and listed in their respective categories in a navigation menu at the left side of every page.
-
-### Style guidelines and conventions for documentation
-
-- Use topic-based files and titles
-- Use only headers 1 (#), 2 (##) and 3 (###)
-- Use single spaces to separate sentences
-- Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
-	- Links: `[NATS](http://nats.io/)`
-	- Cross references: `[NATS protocol](/documentation/internals/nats-protocol.md)`
-	- Images: `![drawing](/img/documentation/nats-msg.png)`
-- Triple ticks for code, commands to run, user operations, input/output
-- Single ticks for executable names, file paths, inline commands, parameters, etc.
-- Graphics: save as `*.png` source in `/src/img/documentation/nats-img-src.graffle`
-- Run `gulp` in the root of the app, this will automatically place the image in the correct location for use
-
-
-### Creating a new documentation page
-
-Any new page should be a Markdown document placed inside `/content/documentation/`. Place it inside of one of the current sub folders in `/content/documentation` or add a new category/folder. Directions are below for adding a new category for documentation.
-
- Each page added needs a header like the following:
-
-```
-+++
-date = "2015-09-27"
-title = "NATS Messaging"
-category = "concepts"
-[menu.main]
-  name = "Messaging"
-  weight = 1
-  identifier = "concepts-nats-messaging"
-  parent = "Concepts"
-+++
-```
-
-- date: Use the format of: Year-Month-Day Example: 2015-09-27
-- title: Title of the page
-- category: Directory path to file
-
-For the menu portion, follow this:
-
-- Name: Name of the menu item in the left nav
-- Weight: When listing pages it signifies its importance and where it should land in the list
-- Identifier: This is used behind the scenes for page generation and menu building. Please make sure its unique for each page
-- Parent: Set this to the exact name of the category this page is is.
-
-### Adding documentation sub categories
-
-Modify `config.toml` to add the category and its weight (list position) to menu.main. Below you will see an example of some pre existing **categories** as well as a new category specified as: **New Category**.
-
-```
-[[menu.main]]
-  name = "Documentation"
-  weight = 2
-  identifier = "documentation"
-  url = "/documentation"
-  [[menu.main]]
-    name = "Getting Started"
-    weight = 0
-    parent = "documentation"
-  [[menu.main]]
-    name = "Clients"
-    weight = 1
-    parent = "documentation"
-  [[menu.main]]
-    name = "New Category"
-    weight = 2
-    parent = "documentation"
-```
-
----
+The NATS documentation has moved to the [nats-io/docs](https://github.com/nats-io/docs/) repo.
 
 ## <a name="adding-content-pages"></a>Adding Content Pages
 
@@ -247,7 +167,7 @@ So for our example we would change `categories` in the frontmatter to:
 ```
 
 ### Date
-The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`
+The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`. The date cannot be in the future.
 
 ### Tags
 For Tags, you can add as many tags as you feel are needed and they can be anything:
