@@ -14,6 +14,7 @@ For more information on Bootstrap's themes, conventions, and content support (HT
 - [Adding Documentation](#adding-documentation)
 - [Adding Content Pages](#adding-content-pages)
 - [Adding a Blog Entry](#adding-blog-entry)
+- [Adding a Company Logo](#adding-logo)
 - [Local Development](#development)
 
 ---
@@ -183,6 +184,11 @@ Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed 
 
 #### Content
 For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
+
+---
+
+## <a name="adding-blog-entry"></a>Adding a Company Logo
+If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email <info@nats.io> with your request. 
 
 ---
 
