@@ -187,7 +187,7 @@ For adding content to the blog entry, please follow the [style guidelines and co
 
 ---
 
-## <a name="adding-blog-entry"></a>Adding a Company Logo
+## <a name="adding-logo"></a>Adding a Company Logo
 If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email <info@nats.io> with your request. 
 
 ---
