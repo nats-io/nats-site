@@ -21,7 +21,7 @@ The NATS streaming protocol sits atop the core [NATS protocol](/documentation/in
 
 **Wildcards**: NATS streaming does **not*- support wildcards in subject subscriptions
 
-**Protocol definition**: The fields of NATS streaming protocol messages are defined in the go-nats-streaming [protocol file](https://github.com/nats-io/go-nats-streaming/blob/master/pb/protocol.proto).
+**Protocol definition**: The fields of NATS streaming protocol messages are defined in the go-nats-streaming [protocol file](https://github.com/nats-io/stan.go/blob/master/pb/protocol.proto).
 
 ## NATS streaming protocol messages
 
