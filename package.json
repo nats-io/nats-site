@@ -4,7 +4,7 @@
   "description": "Nats.io",
   "main": "gulpfile.js",
   "dependencies": {
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "prismjs": "^1.15.0"
   },
   "scripts": {
