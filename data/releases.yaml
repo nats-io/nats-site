@@ -101,9 +101,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.5.2
+  version_num: 2.6.0
   release_notes: |
-    Release 2.5.2 on June 19, 2019.
+    Release 2.6.0 on July 22, 2019.
   github:
     - user: nats-io
       repo: jnats
