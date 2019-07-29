@@ -10,7 +10,7 @@ category = "server"
   parent = "Managing the Server"
 +++
 
-To monitor the NATS messaging system, `gnatsd` provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subz). All endpoints return a JSON object.
+To monitor the NATS messaging system, `gnatsd` provides a lightweight HTTP server on a dedicated monitoring port. The monitoring server provides several endpoints, including [varz](#/varz), [connz](#/connz), [routez](#/routez), and [subsz](#/subsz). All endpoints return a JSON object.
 
 The NATS monitoring endpoints support JSONP and CORS, making it easy to create single page monitoring web applications.
 
@@ -155,7 +155,7 @@ The `routez` endpoint does support the `subs` argument from the `/connz` endpoin
 
 ### /subsz
 
-The endpoint <a href="http://localhost:8222/subz" target="_blank">http://localhost:8222/subz</a> reports detailed information about the current subscriptions and the routing data structure.
+The endpoint <a href="http://localhost:8222/subsz" target="_blank">http://localhost:8222/subsz</a> reports detailed information about the current subscriptions and the routing data structure.
 
 ```json
 {
