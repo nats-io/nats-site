@@ -14,7 +14,7 @@ I'd like to focus for this blog on what NATS has helped us to achieve. There are
 
 For this post, though, I want to look at what using NATS has enabled us to do, which wasn't really possible before - I'm hoping our example might make it clearer quite why you would choose to use NATS in the heart of your product if you face business needs in any way like ours.
 
-First a bit of background on who we are. I work for a small government unit here in Australia called [NSIP](http://www.nsip.edu.au); The National Schools Interoperability Program, you can tell we're a government unit from the catchy name.
+First a bit of background on who we are. I work for a small government unit here in Australia called [NSIP](https://www.nsip.edu.au); The National Schools Interoperability Program, you can tell we're a government unit from the catchy name.
 We're funded by both the federal government and the states and territories to try and ensure that technology in education can achieve the best outcomes for students by allowing data from the multitude of possible sources - web applications, assessment programs, classroom apps, student administration systems - to work together to give a coherent view of the learner.
 
 A lot of our work is in the policy and architecture space Learning Services Architecture, and a key part of our success is that we work hard with the ed-tech community of solution vendors here in Australia to get agreement on how to make this happen - we don't just invent ideas in a vacuum, and every initiative is road-tested with the people who have to actually do the real work to ensure that we all move forwards in a collaborative and effective way.

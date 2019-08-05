@@ -21,7 +21,7 @@ For extensibility, the connector framework was designed with a plug-in architect
 
 
 ### Community
-With the plugin architecture of the ready-to-use framework, creating connectors is straightforward. We on the NATS team would love to see community users develop and share connectors. We'll gladly link to user contributions, and include these in the growing list of community developed NATS projects [here](http://nats.io/community).
+With the plugin architecture of the ready-to-use framework, creating connectors is straightforward. We on the NATS team would love to see community users develop and share connectors. We'll gladly link to user contributions, and include these in the growing list of community developed NATS projects [here](https://nats.io/community).
 
 As the NATS Connector framework is open source, don't forget that **you have a say**.  Contact the NATS team with ideas, suggestions, or comments, and feel free to go ahead and submit pull requests.  Let us know of the connectors you build!  To coin a phrase, *"All of us are smarter than any of us"*.
 
@@ -34,7 +34,7 @@ The tutorial includes...
 We'll create a project from scratch using the OSS coordinates to download the NATS Connector Framework.  Note, there are other options such as downloading the github repository and building the framework yourself using maven.
 
 ### Implementation of Connector Interfaces
-The tutorial demonstrates implementing connector interfaces to build a plug-in.  The interface documentation can be found [here](http://nats-io.github.io/nats-connector-framework/io/nats/connector/plugin/NATSConnectorPlugin.html).
+The tutorial demonstrates implementing connector interfaces to build a plug-in.  The interface documentation can be found [here](https://nats-io.github.io/nats-connector-framework/io/nats/connector/plugin/NATSConnectorPlugin.html).
 
 I'll implement the interfaces required for a NATS connector framework, and provide required code to create a stand-alone application utilizing the framework.
 
@@ -48,7 +48,7 @@ It takes just minutes to create a connector so the tutorial is short:
 </div>
 
 # What's Next?
-The future is wide open, and we're planning on creating a number of connectors including RabbitMQ and Apache Kafka to name a few - if there is one you'd like to see or contribute, don't hesitate contact us or open an issue.  Visit our [Community](http://nats.io/community/) Page!
+The future is wide open, and we're planning on creating a number of connectors including RabbitMQ and Apache Kafka to name a few - if there is one you'd like to see or contribute, don't hesitate contact us or open an issue.  Visit our [Community](https://nats.io/community/) Page!
 
 If you'd like to look at a full featured connector, check out the [NATS Redis Publish/Subscribe Connector](https://github.com/nats-io/nats-connector-redis).
 

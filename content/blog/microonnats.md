@@ -6,7 +6,7 @@ title = "Guest Post: Micro on NATS - Microservices with Messaging"
 author = "Asim Aslam"
 +++
 
-In this post we’re going to discuss using [Micro](https://github.com/micro/micro) on [NATS](http://www.nats.io). It includes discussion around service discovery, synchronous and asynchronous communication for microservices.
+In this post we’re going to discuss using [Micro](https://github.com/micro/micro) on [NATS](https://www.nats.io). It includes discussion around service discovery, synchronous and asynchronous communication for microservices.
 
 If you would like to learn more about Micro first, check out the blog post detailing the toolkit here.
 
@@ -14,9 +14,9 @@ Let’s get down to business.
 
 ## What is NATS?
 
-[NATS](http://www.nats.io) is an open source cloud native messaging system or more simply a message bus. NATS was created by Derek Collison, the founder of Apcera. It originated within VMWare and began life as a ruby based system. It’s long since been rewritten in Go and is steadily gaining adoption amongst those looking for a highly scalable and performant messaging system.
+[NATS](https://www.nats.io) is an open source cloud native messaging system or more simply a message bus. NATS was created by Derek Collison, the founder of Apcera. It originated within VMWare and began life as a ruby based system. It’s long since been rewritten in Go and is steadily gaining adoption amongst those looking for a highly scalable and performant messaging system.
 
-If you want to learn more about NATS itself, visit [nats.io](http://www.nats.io) or join the community [here](http://nats.io/community/).
+If you want to learn more about NATS itself, visit [nats.io](https://www.nats.io) or join the community [here](https://nats.io/community/).
 
 ## Why NATS?
 Why not NATS? Having worked with many message buses in the past, it was very quickly clear that NATS stood apart. Over the years messaging has been hailed as the saviour of the enterprise, resulting in systems that attempted to be everything to everyone. It led to a lot of false promises, significant feature bloat and high cost technologies that created more problems than they solved.
@@ -211,7 +211,7 @@ Micro is an incredibly flexible runtime agnostic microservices system. It’s de
 <img class="img-responsive center-block" src="/img/blog/micronats/MicroNATS7.png">
 
 ## Summary
-[NATS](http://www.nats.io) is a scalable and performant messaging system which we believe fits nicely into the microservice ecosystem. It plays extremely well with Micro and as we’ve demonstrated can be used as a plugin for the [Registry](https://godoc.org/github.com/micro/go-plugins/registry/nats), [Transport](https://godoc.org/github.com/micro/go-plugins/transport/nats) or [Broker](https://godoc.org/github.com/micro/go-plugins/broker/nats). We’ve implemented all three to highlight just how flexible NATS can be.
+[NATS](https://www.nats.io) is a scalable and performant messaging system which we believe fits nicely into the microservice ecosystem. It plays extremely well with Micro and as we’ve demonstrated can be used as a plugin for the [Registry](https://godoc.org/github.com/micro/go-plugins/registry/nats), [Transport](https://godoc.org/github.com/micro/go-plugins/transport/nats) or [Broker](https://godoc.org/github.com/micro/go-plugins/broker/nats). We’ve implemented all three to highlight just how flexible NATS can be.
 
 Micro on NATS is an example of Micro’s powerful pluggable architecture. Each of the go-micro packages can be implemented and swapped out with minimal changes. In the future look to see more of examples of Micro on [X]. The next most likely to be Micro on Kubernetes.
 
@@ -221,4 +221,4 @@ Find the source for the NATS plugins at [github.com/micro/go-plugins](https://gi
 
 If you want to learn more about the services we offer or microservices, check out the [blog](https://blog.micro.mu/), the website [micro.mu](https://micro.mu/) or the github repo.
 
-Follow us on Twitter at [@MicroHQ](https://twitter.com/microhq) or join the [Slack](https://micro-services.slack.com/) community [here](http://slack.micro.mu/).
+Follow us on Twitter at [@MicroHQ](https://twitter.com/microhq) or join the [Slack](https://micro-services.slack.com/) community [here](https://slack.micro.mu/).

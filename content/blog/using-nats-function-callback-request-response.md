@@ -6,7 +6,7 @@ title = "Using NATS: Function, Callback, Request, Response"
 author = "Brian Flannery"
 +++
 
-Bill Chute of [Acadiant Limited](http://www.acadiant.com/) has been using NATS for some time, and has given us some great feedback along the way. As Bill has stated in the past
+Bill Chute of [Acadiant Limited](https://www.acadiant.com/) has been using NATS for some time, and has given us some great feedback along the way. As Bill has stated in the past
 
 >"We considered a number of modern messaging platforms. NATS was the clear choice because it’s the highest-performance message broker we could find, and it solidly supports all the languages in our stack. Because of its clean design, it was easy for us to get up to speed with NATS and it gives us the scalability and responsiveness we need."
 
@@ -14,4 +14,4 @@ Bill’s talk delved into how NATS communicates with all the languages and layer
 
 Another interesting aspect of Bill’s talk was his tie-in between NATS and the UNIX philosophy. With microservices an increasingly talked about and implemented system design philosophy, Bill reminds us that everything old is new again. In particular, what he had to say about writing programs to handle text streams, as this is a universal interface. As many readers may be aware, one of the interesting things about NATS is that it is a text-based protocol.
 
-Bill’s presentation is available [here (PDF)](http://acadiant.com/NATSLondon2015.pdf).
+Bill’s presentation is available [here (PDF)](https://acadiant.com/NATSLondon2015.pdf).

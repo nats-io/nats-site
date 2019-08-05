@@ -6,7 +6,7 @@ title = "Combining the Simplicity of NATS with the Simplicity of Snapcraft.io - 
 author = "Wally Quevedo"
 +++
 
-The [Snap](http://snapcraft.io/) initiative spearheaded by Canonical, Dell, Samsung, Intel, The Linux Foundation and others, enables a single binary to run securely on any Linux system (desktop, mobile, cloud, IoT - you name it) -- a standard approach providing flexibility, simplicity, and security. Moreover, all of the various Snap-enabled applications need to communicate with a multitude of devices and systems.
+The [Snap](https://snapcraft.io/) initiative spearheaded by Canonical, Dell, Samsung, Intel, The Linux Foundation and others, enables a single binary to run securely on any Linux system (desktop, mobile, cloud, IoT - you name it) -- a standard approach providing flexibility, simplicity, and security. Moreover, all of the various Snap-enabled applications need to communicate with a multitude of devices and systems.
 
 NATS is a messaging system all about simplicity, security, and performance. It’s a single binary with no external dependencies, and just a few MB in size. It’s lightweight footprint, security, and scalability made it a great fit for the Snap initiative, and we’re happy to share that a Snap for NATS Server is now available via the command line (```
 sudo snap install nats-server

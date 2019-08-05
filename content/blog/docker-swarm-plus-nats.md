@@ -6,7 +6,7 @@ title = "Building a Microservices Control Plane using NATS and Docker Engine v1.
 author = "Wally Quevedo"
 +++
 
-For those of you who might have read the previous post I did on [Docker + NATS for Microservices](http://nats.io/blog/docker-compose-plus-nats/), you’ll recall we took an in-depth look at using Docker Compose with NATS.
+For those of you who might have read the previous post I did on [Docker + NATS for Microservices](https://nats.io/blog/docker-compose-plus-nats/), you’ll recall we took an in-depth look at using Docker Compose with NATS.
 
 That blog post was done a few days prior to DockerCon, and as expected Docker made many interesting announcements at DockerCon. One of the main things announced [that week](https://blog.docker.com/2016/06/dockercon-2016-just-wow/) was Docker 1.12.
 

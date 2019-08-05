@@ -1,8 +1,8 @@
 # <a name="about"></a>NATS.io
-The site is based on the [Bootstrap](http://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
-Please keep these principles in mind as you modify existing content or design new content for the [nats.io](http://nats.io) site.
+The site is based on the [Bootstrap](https://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
+Please keep these principles in mind as you modify existing content or design new content for the [nats.io](https://nats.io) site.
 
-For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](http://getbootstrap.com).
+For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](https://getbootstrap.com).
 
 ---
 
@@ -41,8 +41,8 @@ We will review and discuss with you any contributions or corrections submitted v
 - Use topic-based files and titles
 - Use only headers 1 (#), 2 (##) and 3 (###)
 - Use single spaces to separate sentences
-- Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
-	- Links: `[NATS](http://nats.io/)`
+- Markdown syntax: https://daringfireball.net/projects/markdown/syntax#img
+	- Links: `[NATS](https://nats.io/)`
 	- Cross references: `[Clients](/clients/)`
 	- Images: `![drawing](/img/nats-msg.png)`
 - Triple ticks for code, commands to run, user operations, input/output
@@ -113,7 +113,7 @@ To add a new blog entry, use the `hugo new` command like the following:
 	hugo new blog/page-url-for-blog-post.md
 ```
 
-Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
+Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `https://nats.io/blog/nats-lands-in-london`
 
 Once the command is run you can find the new blog entry in `content/blog/nats-lands-in-london.md`.
 
@@ -209,7 +209,7 @@ cd nats-site/
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/). 
+Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](https://www.graphicsmagick.org/). 
 
 > Building the NATS site/documentation currently requires Hugo version 0.53 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
@@ -238,7 +238,7 @@ To preview your changes, run:
 hugo server
 ```
 
-`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes on a browser.
+`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `https://127.0.0.1:1313`  to preview your changes on a browser.
 
 
 Whenever `src` is modified, remember to run `gulp build` to update the `static` directory, and allow hugo to see the changes.

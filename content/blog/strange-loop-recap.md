@@ -48,7 +48,7 @@ Slides are available on Slideshare:
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/KAE6b6Tjx5OYek" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
 
-[The Zen of High Performance Messaging with NATS (Strange Loop 2016)](http://www.slideshare.net/wallyqs/the-zen-of-high-performance-messaging-with-nats-strange-loop-2016)
+[The Zen of High Performance Messaging with NATS (Strange Loop 2016)](https://www.slideshare.net/wallyqs/the-zen-of-high-performance-messaging-with-nats-strange-loop-2016)
 
 You can also view my talk as a Reveal.js presentation GitHub pages (you’ll need the latter to watch any animated gifs with performance monitoring).
 

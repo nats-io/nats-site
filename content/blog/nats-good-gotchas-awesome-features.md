@@ -6,9 +6,9 @@ title = "Guest Post: StorageOS on how and why they use NATS in their storage pla
 author = "Karolis Rusenas"
 +++
 
-Over the last two years, I have used [NATS](http://nats.io) extensively in many projects. In this blog post I would like to highlight some pros and cons to help you decide whether NATS is the right tool for you.
+Over the last two years, I have used [NATS](https://nats.io) extensively in many projects. In this blog post I would like to highlight some pros and cons to help you decide whether NATS is the right tool for you.
 
-At [StorageOS](http://www.storageos.com/), we are building a system that provides [persistent storage for containers](https://storageos.com/why-containers-miss-a-major-mark-solving-persistent-data-in-docker/). StorageOS enables users to deploy database workloads inside containers and use local node storage without the fear of losing data and without frustration of slow disks.
+At [StorageOS](https://www.storageos.com/), we are building a system that provides [persistent storage for containers](https://storageos.com/why-containers-miss-a-major-mark-solving-persistent-data-in-docker/). StorageOS enables users to deploy database workloads inside containers and use local node storage without the fear of losing data and without frustration of slow disks.
 
 Our current architecture looks like this:
 

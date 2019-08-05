@@ -20,9 +20,9 @@ Knowledge management is a key factor in reducing silo effect and improving the i
 * When done correctly, it costs a lot of time to produce and maintain the knowledge persistence.
 * When not done or done partially, it costs a lot of time to understand your technical environment through reverse-engineering.
 
-The [Ariane project](http://ariane.echinopsii.net) is focused on reducing the knowledge production time through real-time diagram automation.
+The [Ariane project](https://ariane.echinopsii.net) is focused on reducing the knowledge production time through real-time diagram automation.
 
-Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformation of this mined data into a [bigraph](https://en.wikipedia.org/wiki/Bigraph) stored in a graph database ([Neo4J](http://neo4j.com)).
+Basically, the Ariane project is a framework : it allows you to develop plugins which will automate the data mining from your runtime and the transformation of this mined data into a [bigraph](https://en.wikipedia.org/wiki/Bigraph) stored in a graph database ([Neo4J](https://neo4j.com)).
 
 Then the user will request the Ariane web server to get the map - or the technical diagram - between some technical points or around a technical point (a technical point could be a server or a process inside a server, for example).
 
@@ -45,7 +45,7 @@ You can see the Ariane server (process: [29143] java), the ProcOS and Docker plu
 
 ## Scale the monolith: from nanoservices to microservices
 
-The previous Ariane versions have been done as a big Java monolith which is not really sexy with all the last cloud trends but this was a cost saver for the little startup [echinopsii](http://echinopsii.net):
+The previous Ariane versions have been done as a big Java monolith which is not really sexy with all the last cloud trends but this was a cost saver for the little startup [echinopsii](https://echinopsii.net):
 
 * It allowed us to focus on the Ariane APIs and functionalities instead of deployment problems.
 * It allowed us to quickly show demonstrations to some prospects and at some meetup.
@@ -93,7 +93,7 @@ If you look closely the Ariane maps provided, you'll notice that :
 
 Finally and to resume the reasons why we are using NATS now:
 
-* As we're migrating data flows from memory to the messaging bus, we have deep concern on the messaging bus latency and throughput: the NATS benchmark scores are [*impressive*](http://bravenewgeek.com/dissecting-message-queues/);
+* As we're migrating data flows from memory to the messaging bus, we have deep concern on the messaging bus latency and throughput: the NATS benchmark scores are [*impressive*](https://bravenewgeek.com/dissecting-message-queues/);
 * We don’t need messaging persistence/transaction (although NATS now has this via NATS Streaming) in the MoM server: persistence and transactions are managed in the Ariane endpoints;
 * We like simplicity: NATS is simple.
 
