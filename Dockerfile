@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER Mathilde Ffrench <mathilde.ffrench@echinopsii.net>
 
 ENV LANG=C.UTF-8 PYTHON_VERSION=2.7.12 PYTHON_PIP_VERSION=8.1.2 HUGO_VERSION=0.16 NODE_VERSION=v6.3.1 NPM_VERSION=3 NODE_CONFIG_FLAGS="--fully-static" NODE_DEL_PKGS="libgcc libstdc++" NODE_RM_DIRS=/usr/include GRMK_PKGNAME=graphicsmagick GRMK_PKGVER=1.3.23 
-ENV GRMK_PKGSOURCE=http://downloads.sourceforge.net/$GRMK_PKGNAME/$GRMK_PKGNAME/$GRMK_PKGVER/GraphicsMagick-$GRMK_PKGVER.tar.lz
+ENV GRMK_PKGSOURCE=https://downloads.sourceforge.net/$GRMK_PKGNAME/$GRMK_PKGNAME/$GRMK_PKGVER/GraphicsMagick-$GRMK_PKGVER.tar.lz
 
 # nats-site dev env - one shoot installer : Python, Hugo, Pygments, GraphicsMagick and Node
 RUN set -ex \

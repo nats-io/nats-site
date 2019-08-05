@@ -98,7 +98,7 @@ Now, let's take a look at the client side.
 
 There are two ways to get the resources from Resgate:
 
-**Using HTTP:**
+**Using https:**
 
 *GET: /api/models/mymodel*  
 ```js

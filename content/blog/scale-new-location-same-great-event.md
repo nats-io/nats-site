@@ -52,4 +52,4 @@ Here are some ways to get involved:
 
 - Follow us on [Twitter](https://twitter.com/nats_io)
 - Download NATS on [Github](https://github.com/nats-io/nats)
-- Join the Slack Community, Google Group, and the Meetup via the [NATS Community](http://nats.io/community/) page
+- Join the Slack Community, Google Group, and the Meetup via the [NATS Community](https://nats.io/community/) page

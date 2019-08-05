@@ -6,11 +6,11 @@ title = "Guest Post: NATS and IoT helping to meet Civic needs: An Example Projec
 author = "Jason Rotella"
 +++
 
-In the context of a submittal to the Samsung Maker’s Against Drought Challenge (more on that [here](http://artik.devpost.com/)) extended hackathon, my team has developed a partial solution to the very serious California drought crisis. I say partial since this problem is so vast that many solutions are required to operate collaboratively to fully solve it.
+In the context of a submittal to the Samsung Maker’s Against Drought Challenge (more on that [here](https://artik.devpost.com/)) extended hackathon, my team has developed a partial solution to the very serious California drought crisis. I say partial since this problem is so vast that many solutions are required to operate collaboratively to fully solve it.
 
 The solution utilizes physical water system monitoring and control with Samsung ARTIK 10 IoT modules, and a [Particle Photon](https://store.particle.io/) module running the [arduino-nats](https://github.com/isobit/arduino-nats)  NATS client. One ARTIK 10 is running a custom server written in Go and the second is running a NATS server and local database.
 
-[Ripple](http://devpost.com/software/ripples) incorporates concepts of pairing of users, via mobile applications, with: water devices they wish to use, as well as other people with similar conservation goals, and/or interest in receiving similar rewards for conserving water. Conserving water can span from simply reducing usage to, for example, using water supplied by reclamation or desalinization systems.
+[Ripple](https://devpost.com/software/ripples) incorporates concepts of pairing of users, via mobile applications, with: water devices they wish to use, as well as other people with similar conservation goals, and/or interest in receiving similar rewards for conserving water. Conserving water can span from simply reducing usage to, for example, using water supplied by reclamation or desalinization systems.
 
 The Ripple concept also incorporates a “civic override” feature, which enables organizations such as homes and businesses to authorize that consumption of water be preempted based on particular acute needs for the limited supply of water in an extended community. For example, operation of appliances such as dishwashers or washing machines could be preempted. By utilizing the civic override feature, community-wide good-will can be extended by, for example: providing drinking water to firefighters fighting a wild-fire (possibly caused by the drought conditions), or provision of a certain amount of water to irrigate a portion of little league infield. These good-will gestures add up in a way similar to how small donations can result in construction of entire buildings, one donor-brick at a time; with Ripple, it is one cup at a time. Diverse civic overrides can be established to produce end-results that are important to distributed members of a particular community of intent.
 
@@ -41,6 +41,6 @@ Here, we see a short example depiction of a toilet tank being refilled with the 
 Ripple has obtained great support to this point. We hope to advance the NATS ecosystem with the eco-friendly use case Ripple represents.
 Please consider Voting for and Liking this social/civic IoT project. Votes for Ripple will help us advance this NATS use case to the finalist round, and are greatly appreciated!
 
-Votes are accepted at http://devpost.com/software/ripples through 4/23/2016. When voting, please Like also, since this allows us to track support.
+Votes are accepted at https://devpost.com/software/ripples through 4/23/2016. When voting, please Like also, since this allows us to track support.
 
 More updates will be released either on this blog or at the DevPost link above as the design progresses.

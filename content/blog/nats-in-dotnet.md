@@ -101,4 +101,4 @@ public void demonstrateRuntimeDelegates()
 
 Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance.  Please don't hesistate to contact us with comments, feature requests, or contributions!
 
-Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](http://github.com/nats-io/csharp-nats/).  Let us know what you think, and visit our [Community](http://nats.io/community/) Page!  Contributors are welcome!
+Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](https://github.com/nats-io/csharp-nats/).  Let us know what you think, and visit our [Community](https://nats.io/community/) Page!  Contributors are welcome!

@@ -6,7 +6,7 @@ logo = "/img/companies/ericsson.jpg"
 
 [companies.htc]
 name = "HTC"
-home = "http://www.htc.com/"
+home = "https://www.htc.com/"
 logo = "/img/companies/htc.jpg"
 
 [companies.siemens]
@@ -16,22 +16,22 @@ logo = "/img/companies/siemens.jpg"
 
 [companies.vmware]
 name = "VMware"
-home = "http://www.vmware.com/"
+home = "https://www.vmware.com/"
 logo = "/img/companies/vmware.jpg"
 
 [companies.pivotal]
 name = "Pivotal"
-home = "http://pivotal.io/"
+home = "https://pivotal.io/"
 logo = "/img/companies/pivotal.jpg"
 
 [companies.ge]
 name = "GE"
-home = "http://www.ge.com/"
+home = "https://www.ge.com/"
 logo = "/img/companies/ge.jpg"
 
 [companies.baidu]
 name = "Baidu"
-home = "http://www.baidu.com/"
+home = "https://www.baidu.com/"
 logo = "/img/companies/baidu.jpg"
 
 [companies.clarify]
@@ -46,7 +46,7 @@ logo = "/img/companies/netlify.jpg"
 
 [companies.pex]
 name = "Pex"
-home = "http://www.pex.com"
+home = "https://www.pex.com"
 logo = "/img/companies/pex.png"
 
 [companies.zephyr]

@@ -7,7 +7,7 @@ author = "Ivan Kozlovic"
 
 +++
 
-When I was tasked with writing a C client for NATS, I decided to use the excellent [Go Client](https://github.com/nats-io/nats) as the model. We were going to provide more [Apcera](http://www.apcera.com) supported clients, and for maintainability sake, it was better that all our clients' implementation follow the same model.
+When I was tasked with writing a C client for NATS, I decided to use the excellent [Go Client](https://github.com/nats-io/nats) as the model. We were going to provide more [Apcera](https://www.apcera.com) supported clients, and for maintainability sake, it was better that all our clients' implementation follow the same model.
 
 However, before getting the very first alpha release out, I was not happy with the performance results. I decided to use a tool to instrument the code and see where the bottlenecks were.
 
@@ -61,4 +61,4 @@ Happy Profiling!
 
 
 
-Download the NATS C Client from [github](https://github.com/nats-io/cnats), and browse the [API documentation](http://nats-io.github.io/cnats/).  Let us know what you think, and visit our [Community](http://nats.io/community/) page!  Contributors are welcome!
+Download the NATS C Client from [github](https://github.com/nats-io/cnats), and browse the [API documentation](https://nats-io.github.io/cnats/).  Let us know what you think, and visit our [Community](https://nats.io/community/) page!  Contributors are welcome!

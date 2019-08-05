@@ -5,7 +5,7 @@ tags = ["nats", "microservices", "technical", "guest post", "financial services"
 title = "Guest Post - How Aditiva uses NATS in the Financial Services industry"
 author = "Andrés Cerda Jullian"
 +++
-[Aditiva](http://www.aditiva.com) recently started to use NATS inside solutions for financial institutions that are our customers. In this blog entry, you can learn more about Aditiva, some of our products, and how we use NATS in delivering these solutions for financial institutions.
+[Aditiva](https://www.aditiva.com) recently started to use NATS inside solutions for financial institutions that are our customers. In this blog entry, you can learn more about Aditiva, some of our products, and how we use NATS in delivering these solutions for financial institutions.
 
 Aditiva provides a High Performance Financial Transactional Platform (Aditiva EFT),that integrates Financial Institutions’ Core Systems, with 3rd party networks. For example, Financial Institution Customers execute different Financial Transactions using Plastic Cards from ATMs and POS networks; these generate ISO 8583 transaction messages, that are captured and routed to authorization services provided by the Aditiva EFT Platform installed on Financial Institution premises or on the Issuer side, and it is managed and supported by Aditiva.
 
@@ -26,6 +26,6 @@ The Aditiva EFT solution with NATS operates according to EMV standards, PCI-DSS 
 
 ## About Aditiva
 
-[Aditiva](http://www.aditiva.com) is a Financial Software Developer and Consultancy and IT Service Provider Private Company. Aditiva solutions are being used in Trade Finance, Retail Banking, Commercial Banking and Micro Finance. Aditiva IT engineering teams have more than 20 years of experience developing and maintaining first class Financial Institutions in Latin America.
+[Aditiva](https://www.aditiva.com) is a Financial Software Developer and Consultancy and IT Service Provider Private Company. Aditiva solutions are being used in Trade Finance, Retail Banking, Commercial Banking and Micro Finance. Aditiva IT engineering teams have more than 20 years of experience developing and maintaining first class Financial Institutions in Latin America.
 
-For more information on Aditiva, visit: [http://www.aditiva.com](http://www.aditiva.com)
+For more information on Aditiva, visit: [https://www.aditiva.com](https://www.aditiva.com)

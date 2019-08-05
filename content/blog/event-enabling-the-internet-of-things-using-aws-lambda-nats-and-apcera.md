@@ -68,7 +68,7 @@ Some new commands allowed me to manage the mapping of function packages through 
 
 We now have a functioning &lambda; framework within Apcera with an HTTP API Gateway
 
-`$ curl http://lambda.apcera.demo.net/myfunction hello`
+`$ curl https://lambda.apcera.demo.net/myfunction hello`
 
 The diagram below outlines the flow between the main components in the system:
 
@@ -113,4 +113,4 @@ We're in the process of event-enabling everything.. Watch this space...!
 
 ## How to get involved in NATS
 
-The [NATS Community Page] (http://nats.io/community/) is a great place to start - join and learn more from others in the community using NATS!
+The [NATS Community Page] (https://nats.io/community/) is a great place to start - join and learn more from others in the community using NATS!

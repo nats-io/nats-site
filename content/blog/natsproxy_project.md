@@ -6,14 +6,14 @@ title = "Guest Post: REST to NATS Proxy"
 author = "Radomír Sohlich"
 +++
 
-The REST to NATS proxy project [sohlich/nats-proxy](http://gopkg.in/sohlich/nats-proxy.v1) is the micro framework that provides a bridge between HTTP and NATS. To introduce the problem, we first compare the HTTP and NATS communication models. The table below represents the matching of HTTP and NATS concepts and what do they provide.
+The REST to NATS proxy project [sohlich/nats-proxy](https://gopkg.in/sohlich/nats-proxy.v1) is the micro framework that provides a bridge between HTTP and NATS. To introduce the problem, we first compare the HTTP and NATS communication models. The table below represents the matching of HTTP and NATS concepts and what do they provide.
 
 | HTTP |  NATS ||
 | ----- | -----|----|
 |Request/Response|Request/Reply|synchronous communication|
 |Websocket|Publish/Subscribe|real-time asynchronous communication|
 
-As you can see, the NATS provides both synchronous and asynchronous communication between clients. The synchronous communication, represented by simple Request and Response of HTTP protocol, could be matched with the Request/Reply communication model of NATS. As the documentation for ["request reply" ](http://nats.io/documentation/concepts/nats-req-rep/) model describes: each request sent via NATS contains reply subject, to which the reply is sent. The asynchronous, let's say real-time communication, can be represented by Websockets on HTTP side.The truth is that it is not really related to HTTP, but if we simplify it, at least the handshake is based on HTTP. For this purpose, the Publish/Subscribe model could be used.
+As you can see, the NATS provides both synchronous and asynchronous communication between clients. The synchronous communication, represented by simple Request and Response of HTTP protocol, could be matched with the Request/Reply communication model of NATS. As the documentation for ["request reply" ](https://nats.io/documentation/concepts/nats-req-rep/) model describes: each request sent via NATS contains reply subject, to which the reply is sent. The asynchronous, let's say real-time communication, can be represented by Websockets on HTTP side.The truth is that it is not really related to HTTP, but if we simplify it, at least the handshake is based on HTTP. For this purpose, the Publish/Subscribe model could be used.
 
 So the REST to NATS project uses this similarity between NATS and HTTP communication and tries to implement the bridge between HTTP(Websockets) and NATS in such way. The library was originally created for the purpose of migrating REST based architecture like this
 
@@ -39,12 +39,12 @@ type Request struct {
 }
 ```
 
-This struct is serialized and sent as a message through NATS via request (see http://nats.io/documentation/concepts/nats-req-rep/) to ensure synchronous processing.
+This struct is serialized and sent as a message through NATS via request (see https://nats.io/documentation/concepts/nats-req-rep/) to ensure synchronous processing.
 The subject, to which the serialized struct is sent, is constructed from the HTTP request URL and METHOD by a very simple rule: slashes in the path are replaced by dots and the method is used as the prefix.
 
 <img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_request.png">
 
->Lets say we have GET request on URL `http://example.com/user/info` so the proxy will translate this URL to  subject `GET:user.info`.
+>Lets say we have GET request on URL `https://example.com/user/info` so the proxy will translate this URL to  subject `GET:user.info`.
 
 The client side is subscribed to the subject `GET:user.info`. Because of that, it receives the request and writes back the response to the reply subject. The response struct also contains the body, status and header.
 

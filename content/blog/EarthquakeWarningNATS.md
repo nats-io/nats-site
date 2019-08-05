@@ -76,4 +76,4 @@ Compared to traditional enterprise messaging systems, and other options we consi
 
 All of these factors made it clear to us that NATS was the obvious choice for our project. 
 
-If you would like to learn more about the project, you can visit it [here](http://fb.com/acircularworld)
+If you would like to learn more about the project, you can visit it [here](https://fb.com/acircularworld)

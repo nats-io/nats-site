@@ -8,7 +8,7 @@ author = "R.I. Pienaar"
 
 My name is R.I. Pienaar, I'm a freelance DevOps architect. I designed and wrote a tool called The Marionette Collective, now owned by Puppet Inc. I maintain a blog at [devco.net](https://www.devco.net/) and you can follow me on twitter at <a href="https://twitter.com/ripienaar">@ripienaar</a>.
 
-I'd like to thank NATS team for reaching out and giving me the opportunity to talk about our use of [NATS](http://www.nats.io/) in a new project called [Choria](http://choria.io/) that upgrades The Marionette Collective for a more modern environment.
+I'd like to thank NATS team for reaching out and giving me the opportunity to talk about our use of [NATS](https://www.nats.io/) in a new project called [Choria](https://choria.io/) that upgrades The Marionette Collective for a more modern environment.
 
 ## Quick Intro to The Marionette Collective
 
@@ -48,7 +48,7 @@ client.restart(:service => "httpd")
 
 ## The Choria Project
 
-MCollective has been a bit neglected by its owners but as it's an open source framework and extremely pluggable, I set out to address the very significant getting started hurdles with a new project called [Choria](http://choria.io/).
+MCollective has been a bit neglected by its owners but as it's an open source framework and extremely pluggable, I set out to address the very significant getting started hurdles with a new project called [Choria](https://choria.io/).
 
 Choria is a set of plugins that creates some high level features but also replaces the Security and Connectivity layers. The Connectivity part is where NATS comes in and what I'll focus on in this article.
 
@@ -74,7 +74,7 @@ My criteria therefore were:
 
 ## Choosing NATS
 
-As it's been almost a decade since my previous de facto choice was made, I evaluated a number of options and [NATS](http://www.nats.io/) came out tops in all cases.
+As it's been almost a decade since my previous de facto choice was made, I evaluated a number of options and [NATS](https://www.nats.io/) came out tops in all cases.
 
 It's really easy to deploy and configure being a single binary. The only thing that may have made things any easier for us is the fact that NATS is not distributed in common Linux package formats (i.e. .deb, rpm). But, this is something being [worked on](https://github.com/nats-io/gnatsd/issues/404) by the NATS team. In today’s container driven world this is generally not a problem, but MCollective has an enterprise target audience and this kind of thing matters to them.
 
@@ -84,7 +84,7 @@ Documentation is generally very good. I'd say I've seen better, but I have also 
 
 MCollective users have reported comfortably managing more than 2,000 servers using a single NATS server and of course NATS is easy to cluster for availability. While serving 2,000 nodes, it was reported to only use 300MB RAM-quite an improvement over our previous usage patterns!
 
-The NATS team maintain a number of their own client libraries and provide architecture hints on how to write more, and there are quite a few community provided clients. There tends to be a high level of implementation parity between the client libraries, making switching languages easy. For Ruby there was just an EM client but now there's a [Pure Ruby](http://nats.io/download/nats-io/pure-ruby-nats/) one that's maturing nicely thanks to the responsive authors.
+The NATS team maintain a number of their own client libraries and provide architecture hints on how to write more, and there are quite a few community provided clients. There tends to be a high level of implementation parity between the client libraries, making switching languages easy. For Ruby there was just an EM client but now there's a [Pure Ruby](https://nats.io/download/nats-io/pure-ruby-nats/) one that's maturing nicely thanks to the responsive authors.
 
 While NATS provides no built-in WebSocket interface, of the options I considered it was by far the best for my needs, and presumably some bridge can be created in the long run (as illustrated by a community member [here](https://www.npmjs.com/package/websocket-nats)).
 

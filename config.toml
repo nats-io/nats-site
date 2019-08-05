@@ -1,4 +1,4 @@
-baseURL = "http://nats.io/"
+baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"

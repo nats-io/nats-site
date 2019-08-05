@@ -8,4 +8,4 @@ description = "NATS is a high performance messaging system that acts as a distri
 
 Our NATS community consists of company end-users, partners, and OSS contributors that make up a vibrant ecosystem. 
 
-If you’d like to help make NATS and its resources better, check out the <a href="#contribute">Ways to Contribute</a> below. Chances are, if you find a feature useful, others will too. This website pulls documentation from GitHub so once you update the readme on GitHub, changes will show up [here](http://nats.io/documentation) as well.
+If you’d like to help make NATS and its resources better, check out the <a href="#contribute">Ways to Contribute</a> below. Chances are, if you find a feature useful, others will too. This website pulls documentation from GitHub so once you update the readme on GitHub, changes will show up [here](https://nats.io/documentation) as well.

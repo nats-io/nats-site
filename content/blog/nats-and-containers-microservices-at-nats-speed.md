@@ -26,4 +26,4 @@ We’re excited to be partnering with leading open source companies like Red Hat
 
 There’s some exciting updates to gnatsd which were recently [made available](https://github.com/nats-io/gnatsd) on GitHub, and the team also recently added TLS support to a variety of clients inclduing(eg. Go, Ruby, Node.js, C). We’re constantly tuning NATS together with leaders in the open source community to provide a fast, simple, and secure way for you to scale your microservices architecture.
 
-Give NATS a try, and let us know what you think in our Google Group or Slack Community, which you can find on our [Community](http://nats.io/community/) Page!
+Give NATS a try, and let us know what you think in our Google Group or Slack Community, which you can find on our [Community](https://nats.io/community/) Page!
