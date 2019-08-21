@@ -30,7 +30,7 @@ gulp.task('css', function() {
 
 // Javascript
 gulp.task('js', function() {
-  return gulp.src(['src/js/moment.js', 'src/js/**/*.js'])
+  return gulp.src(['src/js/anchor.js', 'src/js/moment.js', 'src/js/**/*.js'])
     .pipe(concat('index.js'))
     .pipe(uglify())
     .pipe(gulp.dest('static/js'));
