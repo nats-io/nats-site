@@ -30,8 +30,13 @@
       <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
       <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
+    {{if eq .IsHome false}}
+    <script src="/js/index.js"></script>
+    {{end}}
   </head>
   <body id='{{ if isset .Params "cssid" }}{{ .Params.cssid }}{{ else if eq .Section "blog" }}blog-post{{ else if eq .Section "documentation" }}nats-documentation-detail{{ else if eq .Section "doc" }}nats-docs-detail{{ else if eq .Section "download" }}download{{ else if .IsHome }}home{{else}}{{ urlize .Title }}{{ end }}-page'>
+
+
   <div id="main_gdpr">
     {{ partial "gdpr.html" . }}
   </div>

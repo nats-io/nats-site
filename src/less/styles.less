@@ -156,12 +156,31 @@ body {
 }
 
 // Anchor fix for sticky header
-a[name]:before {
+:target:before {
   display: block;
   content: " ";
   margin-top: -85px;
   height: 77px;
   visibility: hidden;
+}
+
+
+// Links
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 // Headers
