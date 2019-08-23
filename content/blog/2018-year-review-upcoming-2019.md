@@ -41,7 +41,7 @@ Our goals for 2019 include expanding NATS while maintaining its core philosophy.
  
 In 2019 you will see several major additions and changes to the NATS.io ecosystem
 
-  * The long-awaited renaming of ‘gnastd’ to “nats-server”. This will provide resolution to [issue #226](https://github.com/nats-io/gnastd/issues/226) to return the server to its original 2010 name.
+  * The long-awaited renaming of ‘gnastd’ to “nats-server”. This will provide resolution to [issue #226](https://github.com/nats-io/nats-server/issues/226) to return the server to its original 2010 name.
   * We plan to extend into web and mobile and IoT with the addition of WebSockets as a supported transport.
   * The introduction of native support for MQTT clients as we continue our push towards Edge and IoT.
   * As a follow up to NATS Streaming, we will introduce what we are internally referring to as JetStream, to address some requested additions to our current offering.
