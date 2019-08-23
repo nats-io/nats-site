@@ -1,7 +1,7 @@
 +++
 categories = ["General", "Engineering"]
 date = "2019-03-19"
-tags = ["security", "c", "cncf", "Cure53", "gnatsd", "go", "node"]
+tags = ["security", "c", "cncf", "Cure53", "nats-server", "go", "node"]
 title = "NATS.io Security Update"
 author = "Colin Sullivan"
 +++
@@ -32,9 +32,9 @@ engaged in classic penetration testing against a NATS-provided cloud
 instance.”_
 
 Emphasis was on the [NATS server](https://github.com/nats-io/nats-server) and our
-canonical client, the [Go client](https://github.com/nats-io/go-nats),
+canonical client, the [Go client](https://github.com/nats-io/nats.go),
 since it is used as a reference for most other maintainer supported
-clients.  The [C client](https://github.com/nats-io/cnats) and [Node.js](https://github.com/nats-io/node-nats) client were also tested.  
+clients.  The [C client](https://github.com/nats-io/nats.c) and [Node.js](https://github.com/nats-io/nats.js) client were also tested.  
 
 ## Summary
 
