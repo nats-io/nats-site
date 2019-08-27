@@ -106,8 +106,8 @@ Releases:
     Release 2.6.0 on July 22, 2019.
   github:
     - user: nats-io
-      repo: jnats
-      link: https://github.com/nats-io/java-nats
+      repo: nats.java
+      link: https://github.com/nats-io/nats.java
 
 - name: NGINX
   type: nats-client
@@ -554,13 +554,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.4
+  version_num: 2.2.1
   release_notes: |
-    Release 2.1.4 on April 9, 2019
+    Release 2.2.1 on August 21, 2019
   github:
     - user: nats-io
-      repo: java-nats-streaming
-      link: https://github.com/nats-io/java-nats-streaming
+      repo: stan.java
+      link: https://github.com/nats-io/stan.java
 
 - name: Node.js
   type: streaming-client
