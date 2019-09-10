@@ -41,7 +41,7 @@ The usage service shows an approximation of your account-wide data usage.
 % nsc tool req ngs.usage ""
 ```
 
-The active server sends out a message stream you can subscribe to. Messages indicate known servers based on various locations in the NGS cluster.
+The active service sends out a message stream you can subscribe to. Messages indicate known servers based on various locations in the NGS cluster.
 
 ```bash
 % nsc tool sub ngs.active
