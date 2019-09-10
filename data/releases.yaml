@@ -214,6 +214,21 @@ Releases:
       repo: pure-ruby-nats
       link: https://github.com/nats-io/pure-ruby-nats
 
+- name: Crystal
+  type: nats-client
+  supported: true
+  language: Crystal
+  author:
+  - name:
+    link:
+  version_num: 0.0.0
+  release_notes: |
+    Release v0.0.0 on September 10, 2019.
+  github:
+  - user: nats-io
+    repo: nats.cr
+    link: https://github.com/nats-io/nats.cr
+
 - name: Arduino
   type: nats-client
   supported: false
