@@ -1,18 +1,10 @@
 [[events]]
 venue = "KubeCon + CloudNativeCon NA"
-when = "Tuesday, November 19, 2019 @ 9:54am"
-who = "Derek Collison"
-what = "Keynote"
+when = "November 19-22, 2019"
+who = "NATS Team"
+what = "Intro to NATS & NATS Deep Dive"
 where = "San Diego, California"
-ref = "https://sched.co/UdIm"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon NA"
-when = "Thursday, November 21, 2019 @ 10:55am"
-who = "Derek Collison, Colin Sullivan, Waldemar Quevedo"
-what = "Deploy Secure & Scalable Services Across Kubernetes Clusters with NATS"
-where = "San Diego, California"
-ref = "https://sched.co/UakY"
+ref = "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"
 
 
 # comment out to save
