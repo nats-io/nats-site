@@ -229,6 +229,21 @@ Releases:
     repo: nats.cr
     link: https://github.com/nats-io/nats.cr
 
+- name: Crystal
+  type: nats-community
+  supported: false
+  language: Crystal
+  author:
+  - name: Joakim Repomaa
+    link: https://github.com/repomaa
+  version_num: 0.2.0
+  release_notes: |
+    Release v0.2.0 on December 14, 2018.
+  github:
+  - user: repomaa
+    repo: nats.cr
+    link: https://github.com/repomaa/nats.cr
+
 - name: Arduino
   type: nats-client
   supported: false
