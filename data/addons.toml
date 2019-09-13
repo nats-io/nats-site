@@ -381,6 +381,31 @@ support = "Synadia"
 [[addons.nats_operator.authors]]
 author = "NATS Team"
 
+[addons.nats_kafka_bridge]
+name = "NATS Kafka Bridge"
+home = "https://github.com/nats-io/nats-kafka"
+description = "This project implements a multi-connector bridge between NATS or NATS streaming and Kafka topics."
+support = "Synadia"
+[[addons.nats_kafka_bridge.authors]]
+author = "NATS Team"
+
+[addons.nats_mqseries_bridge]
+name = "NATS MQ Series Bridge"
+home = "https://github.com/nats-io/nats-mq"
+description = "This project implements a simple, but generic, bridge between NATS or NATS streaming and MQ Series queues and topics."
+support = "Synadia"
+[[addons.nats_mqseries_bridge.authors]]
+author = "NATS Team"
+
+[addons.nats_spring_binder]
+name = "NATS Spring Support"
+home = "https://github.com/nats-io/spring-nats"
+description = "A Spring Cloud Stream Binder for NATS."
+support = "Synadia"
+[[addons.nats_spring_binder.authors]]
+author = "NATS Team"
+
+
 #[addons.xxx]
 #name = ""
 #home = ""
