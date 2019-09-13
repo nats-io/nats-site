@@ -405,6 +405,14 @@ support = "Synadia"
 [[addons.nats_spring_binder.authors]]
 author = "NATS Team"
 
+[addons.nats_replicator]
+name = "NATS Replicator"
+home = "https://github.com/nats-io/nats-replicator"
+description = "This project implements a multi-connector bridge, copier, replicator between NATS and NATS streaming endpoints."
+support = "Synadia"
+[[addons.nats_replicator.authors]]
+author = "NATS Team"
+
 
 #[addons.xxx]
 #name = ""
