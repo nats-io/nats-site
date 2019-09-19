@@ -566,13 +566,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.1.5
+  version_num: 0.1.7
   release_notes: |
-    Release v0.1.5 on April 19, 2019.
+    Release v0.1.7 on September 18, 2019.
   github:
     - user: nats-io
-      repo: csharp-nats-streaming
-      link: https://github.com/nats-io/csharp-nats-streaming
+      repo: stan.net
+      link: https://github.com/nats-io/stan.net
   links:
   - name: NuGet
     url:  https://www.nuget.org/packages/STAN.Client
