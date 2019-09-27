@@ -584,9 +584,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.2.1
+  version_num: 2.2.3
   release_notes: |
-    Release 2.2.1 on August 21, 2019
+    Release 2.2.3 on September 27, 2019
   github:
     - user: nats-io
       repo: stan.java
