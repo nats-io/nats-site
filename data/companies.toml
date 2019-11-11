@@ -44,11 +44,6 @@ name = "Netlify"
 home = "https://www.netlify.com/"
 logo = "/img/companies/netlify.jpg"
 
-[companies.pex]
-name = "Pex"
-home = "https://www.pex.com"
-logo = "/img/companies/pex.png"
-
 [companies.zephyr]
 name = "Zephyr"
 home = "https://www.zephyrproject.org/"
@@ -68,3 +63,8 @@ logo = "/img/companies/mastercard.png"
 name = "Tinder"
 home = "https://www.tinder.com"
 logo = "/img/companies/tinder.png"
+
+# [companies.pex]
+# name = "Pex"
+# home = "https://www.pex.com"
+# logo = "/img/companies/pex.png"
