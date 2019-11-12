@@ -444,15 +444,15 @@ Releases:
   supported: false
   language: Rust
   author:
-    - name: Frank Denis
-      link: https://github.com/jedisct1
-  version_num: 0.2.0
+    - name: Encabulators
+      link: https://github.com/encabulators
+  version_num: 0.0.0
   release_notes: |
-    Last updated August 15th, 2017.
+    
   github:
-    - user: jedisct1
-      repo: rust-nats
-      link: https://github.com/jedisct1/rust-nats
+    - user: encabulators
+      repo: natsclient
+      link: https://github.com/encabulators/natsclient
 
 - name: Scala
   type: nats-client
