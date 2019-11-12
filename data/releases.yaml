@@ -444,8 +444,8 @@ Releases:
   supported: false
   language: Rust
   author:
-    - name: Encabulators
-      link: https://github.com/encabulators
+    - name: Kevin Hoffman
+      link: https://github.com/autodidaddict
   version_num: 0.0.0
   release_notes: |
     
