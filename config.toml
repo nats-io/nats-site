@@ -15,7 +15,6 @@ title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
-description = "NATS High-Performnance Messaging System"
 images = ["/img/nats-icon-color.svg"]
 
 [[menu.main]]
