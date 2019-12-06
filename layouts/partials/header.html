@@ -13,6 +13,9 @@
 
     <title>{{if eq .Title ""}}{{.Site.Title}}{{else}}{{ .Title }}{{end}}</title>
 
+    <!-- Twitter Card -->
+    {{ template "_internal/twitter_cards.html" . }}
+
     <!-- CSS -->
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/slider.css" rel="stylesheet">
