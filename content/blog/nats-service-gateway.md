@@ -1,5 +1,5 @@
 +++
-categories = ["Community", "Engineering", "Apcera"]
+categories = ["Community", "Engineering"]
 date = "2016-03-16T10:30:00-08:00"
 tags = ["nats", "apcera", "technical"]
 title = "NATS Service Gateway"

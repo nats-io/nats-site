@@ -1,5 +1,5 @@
 +++
-categories = ["Community", "Blog Post"]
+categories = ["Community"]
 date = "2019-09-11"
 tags = ["nats", "microservices", "technical", "servicemesh", "service mesh", "service discovery", "cingulara"]
 title = "Guest Post: Using NATS to Implement Service Mesh Functionality, Part 1: Service Discovery"

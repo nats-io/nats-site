@@ -30,7 +30,7 @@ As services and service mesh functionality has become prominent, we have been lo
 
 ### Queue Permissions
 
-*Coming Soon*
+*NATS Server v2.1.2*
 
 Queue Permissions will allow you to express authorization for queue groups. As queue groups are integral to implementing horizontally scalable microservices, control of who is allowed to join a specific queue group is important to the overall security model. See PR - [https://github.com/nats-io/nats-server/pull/1143](https://github.com/nats-io/nats-server/pull/1143)
 
