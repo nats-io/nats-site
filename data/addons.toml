@@ -109,12 +109,12 @@ authorHome = "https://github.com/vsundupey"
 
 [addons.fluent_bit]
 name = "Fluent Bit"
-home = "http://fluentbit.io/documentation/0.8/output/nats.html"
+home = "https://docs.fluentbit.io/output/nats"
 description = "The NATS output connector allows to flush your Fluent Bit records into a NATS Server endpoint"
 support = "Community"
 [[addons.fluent_bit.authors]]
 author = "Fluent Bit"
-authorHome = "http://fluentbit.io/"
+authorHome = "https://fluentbit.io/"
 
 
 [addons.fluentd_event_collector]
