@@ -267,7 +267,7 @@ This is a nice pattern to use when you want to deploy a new version of the inter
 
 So far, each use case only needed a single subscriber to do the work since ordering was implied to be important in these cases (maybe with the exception of the first). However if ordering is not important or message processing can be done in parallel (and maybe reconciled later), then you can take advantage of the "queue subscriber".
 
-The queue subscriber enables multiple clients to subscribe to the same stream with the same "queue name" and messages will be distributed to each member of the queue group.
+The queue subscriber enables multiple clients to subscribe to the same stream with the same “queue name” and messages will be load balanced across members of the queue group.
 
 ```go
 handle := func(msg *stan.Msg) {
