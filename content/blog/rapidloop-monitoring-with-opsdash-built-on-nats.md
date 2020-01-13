@@ -88,7 +88,7 @@ On the con side, NATS’ load balancing is not sophisticated (random routing). I
 
 We’re quite happy with how NATS has worked out for us so far. Going ahead, we’re improving the tooling around creating and using NATS-based microservices. Have a look at our GitHub project [nRPC](https://github.com/rapidloop/nrpc), which aims generate server and client code for NATS-based microservices based on gRPC service definitions.
 
-We’re also looking forward to seeing more tooling around NATS, and more maturity and adoption in other languages, especially C++ and Python 3. [NATS Streaming](http://nats.io/documentation/streaming/nats-streaming-intro/) also looks promising, and we hope to re-evaluate it for our use cases once it supports true high availability.
+We’re also looking forward to seeing more tooling around NATS, and more maturity and adoption in other languages, especially C++ and Python 3. [NATS Streaming](https://nats.io/documentation/streaming/nats-streaming-intro/) also looks promising, and we hope to re-evaluate it for our use cases once it supports true high availability.
 
 Oh, and do check out our popular, fun project “[Virtual LAN over NATS](https://github.com/rapidloop/vlan-nats)” -- just goes to show how versatile NATS can be!
 

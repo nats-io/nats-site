@@ -11,7 +11,7 @@ author = "Byron Ruth"
 In this context, a log is an ordered sequence of messages that you can append to, but cannot go back and change existing messages. The persistent bit simply means that they are remembered and potentially durable (on disk) beyond server restarts.
 
 ## What is NATS Streaming?
-[NATS Streaming](http://nats.io/documentation/streaming/nats-streaming-intro/) is a lightweight, streaming platform built on top of [NATS](http://nats.io/) that provides an API for persistent logs.
+[NATS Streaming](https://nats.io/documentation/streaming/nats-streaming-intro/) is a lightweight, streaming platform built on top of [NATS](https://nats.io/) that provides an API for persistent logs.
 
 A few of its features include:
 
@@ -52,7 +52,7 @@ $ nats-streaming-server \
 
 By default, NATS Streaming uses an in-memory store. The `--store` option is used to change this to a file-based which can survive restarts. The `--max_msgs` and `--max_bytes` are set to zero to make all messages retained for all channels. Otherwise the server will default to 1 million messages or ~100 MB in size, in which case the channel will be pruned of messages to go below whichever limit was reached (thus deleting history).
 
-Once that is running in a shell, we can starting writing some code. For the code examples, I will be using the [Go client](https://github.com/nats-io/go-nats-streaming). There are several official clients and a few community-built ones on the [downloads page](http://nats.io/download/).
+Once that is running in a shell, we can starting writing some code. For the code examples, I will be using the [Go client](https://github.com/nats-io/go-nats-streaming). There are several official clients and a few community-built ones on the [downloads page](https://nats.io/download/).
 
 ## Boilerplate code
 First we need to establish a connection.
@@ -267,7 +267,7 @@ This is a nice pattern to use when you want to deploy a new version of the inter
 
 So far, each use case only needed a single subscriber to do the work since ordering was implied to be important in these cases (maybe with the exception of the first). However if ordering is not important or message processing can be done in parallel (and maybe reconciled later), then you can take advantage of the "queue subscriber".
 
-The queue subscriber enables multiple clients to subscribe to the same stream with the same "queue name" and messages will be distributed to each member of the queue group.
+The queue subscriber enables multiple clients to subscribe to the same stream with the same “queue name” and messages will be load balanced across members of the queue group.
 
 ```go
 handle := func(msg *stan.Msg) {

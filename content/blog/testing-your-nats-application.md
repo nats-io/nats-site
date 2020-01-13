@@ -6,15 +6,15 @@ title = "Need to test your NATS application? Gatling might be the solution."
 author = "Laurent Magnin"
 +++
 
-[NATS](http://nats.io) is about connecting different components: this allows you to test the components individually as well as their integration. As such, it’s essential to be able to generate and inject NATS messages. This is where a tool such as [Gatling](http://gatling.io) (an open-source load testing framework) is useful.
+[NATS](https://nats.io) is about connecting different components: this allows you to test the components individually as well as their integration. As such, it’s essential to be able to generate and inject NATS messages. This is where a tool such as [Gatling](https://gatling.io) (an open-source load testing framework) is useful.
 
 ## The Missing Piece (Until Now)
 To generate and send messages to NATS, you could use the [Java client for NATS (aka JNATS)](https://github.com/nats-io/jnats) by implementing your own Java code. However, in a complex ‘enterprise’ implementation you may start to generate a high volume of data required, or have complex integration scenarios in mind prior to deployment.
 
-To make our lives easier, we at [Logimethods](http://logimethods.com) have developed the [NATS Gatling Connector](https://github.com/Logimethods/nats-connector-gatling/), a connector that can be embedded into [Gatling](http://gatling.io) to send messages to NATS & [NATS Streaming](http://nats.io/documentation/streaming/nats-streaming-intro/).
+To make our lives easier, we at [Logimethods](https://logimethods.com) have developed the [NATS Gatling Connector](https://github.com/Logimethods/nats-connector-gatling/), a connector that can be embedded into [Gatling](https://gatling.io) to send messages to NATS & [NATS Streaming](https://nats.io/documentation/streaming/nats-streaming-intro/).
 
 ## Basic Usage
-This NATS connector is available on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cnats-connector-gatling). It provides a new Gatling “Protocol” (the archetype of such protocols being an [http connection](http://gatling.io/docs/2.1.7/http/http_protocol.html)), which can be used through “Gatling scenarios”, such as in the following code:
+This NATS connector is available on [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cnats-connector-gatling). It provides a new Gatling “Protocol” (the archetype of such protocols being an [http connection](https://gatling.io/docs/2.1.7/http/http_protocol.html)), which can be used through “Gatling scenarios”, such as in the following code:
 
 ```scala
 class NatsInjection extends Simulation {
@@ -41,10 +41,10 @@ val natsProtocol = NatsStreamingProtocol("nats://localhost:4222", clusterID, sub
 val natsScn = scenario("NATS call").exec(NatsStreamingBuilder("Message from Gatling!"))
 ```
 
-As you may have noticed, the code is written in [Scala](http://www.scala-lang.org), the native language of Gatling. This improves performance and parallelism (thanks to [Akka](http://akka.io) & [Netty](http://netty.io)). A good incentive to try that language (at least one of the multiple DSL builds on top of it) for those of you who haven’t yet!
+As you may have noticed, the code is written in [Scala](https://www.scala-lang.org), the native language of Gatling. This improves performance and parallelism (thanks to [Akka](https://akka.io) & [Netty](https://netty.io)). A good incentive to try that language (at least one of the multiple DSL builds on top of it) for those of you who haven’t yet!
 
 ## More Advanced Usages
-Thanks to the Gatling’s flexibility, you can also develop [more complex scenarios](http://gatling.io/docs/2.1.7/advanced_tutorial.html).
+Thanks to the Gatling’s flexibility, you can also develop [more complex scenarios](https://gatling.io/docs/2.1.7/advanced_tutorial.html).
 
 For example, it’s possible to generate NATS messages that may change over time: the NatsBuilder & NatsStreamingBuilder API accepts not only String, but also any type of instances from which the call to the toString() method will generate the actual messages.
 
@@ -104,11 +104,11 @@ class ValueProvider {
 }
 ```
 
-The NATS URI and the NATS Subject are provided here through environment variables. This is convenient when you embed your code into [Docker Images](https://www.docker.com), as we did for the [docker-nats-connector-spark project](https://github.com/Logimethods/docker-nats-connector-spark/tree/version_0.1.0) in order to test the Gatling to NATS Connector, in conjunction with NATS to [Spark](http://spark.apache.org/docs/1.5.2/), then [Spark to NATS connectors](https://github.com/Logimethods/nats-connector-spark) (also developed by us). This application is defined as a composition of Docker Containers (you might also have a look at the [Docker Compose + NATS: Microservices Development Made Easy](http://nats.io/blog/docker-compose-plus-nats/) blog):
+The NATS URI and the NATS Subject are provided here through environment variables. This is convenient when you embed your code into [Docker Images](https://www.docker.com), as we did for the [docker-nats-connector-spark project](https://github.com/Logimethods/docker-nats-connector-spark/tree/version_0.1.0) in order to test the Gatling to NATS Connector, in conjunction with NATS to [Spark](https://spark.apache.org/docs/1.5.2/), then [Spark to NATS connectors](https://github.com/Logimethods/nats-connector-spark) (also developed by us). This application is defined as a composition of Docker Containers (you might also have a look at the [Docker Compose + NATS: Microservices Development Made Easy](https://nats.io/blog/docker-compose-plus-nats/) blog):
 
 ![Blog Image](/img/blog/testing-your-nats-application/testing-nats-01.png "Blog Image")
 
-The build of all of those components is fully automated, through Gihub, [Wercker](http://wercker.com), Nexus & finally Docker Hub…
+The build of all of those components is fully automated, through Gihub, [Wercker](https://wercker.com), Nexus & finally Docker Hub…
 
 ![Blog Image](/img/blog/testing-your-nats-application/testing-nats-02.png "Blog Image")
 
@@ -124,7 +124,7 @@ The code of the [Gatling to NATS Connector](https://github.com/Logimethods/nats-
 ## About the Author
 [Laurent Magnin](https://ca.linkedin.com/in/lmagnin) is a Senior Consultant at Logimethods with a strong expertise in various domains (Big Data, BRMS, etc.). He holds a Ph.D. in Artificial Intelligence from the University of Paris VI (France).
 
-[Logimethods](http://logimethods.com) is a highly specialized consulting firm providing Enterprise Architecture, Enterprise Integration and Business Intelligence services to large organizations to help them:
+[Logimethods](https://logimethods.com) is a highly specialized consulting firm providing Enterprise Architecture, Enterprise Integration and Business Intelligence services to large organizations to help them:
 
   - Align, simplify and integrate their IT environment for greater efficiency and asset reuse, and
   - Achieve higher levels of process performance.

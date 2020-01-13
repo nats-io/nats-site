@@ -1,8 +1,8 @@
 # <a name="about"></a>NATS.io
-The site is based on the [Bootstrap](http://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
-Please keep these principles in mind as you modify existing content or design new content for the [nats.io](http://nats.io) site.
+The site is based on the [Bootstrap](https://getbootstrap.com) framework, and the content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
+Please keep these principles in mind as you modify existing content or design new content for the [nats.io](https://nats.io) site.
 
-For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](http://getbootstrap.com).
+For more information on Bootstrap's themes, conventions, and content support (HTML/CSS/JS), please visit [the Bootstrap website](https://getbootstrap.com).
 
 ---
 
@@ -14,6 +14,7 @@ For more information on Bootstrap's themes, conventions, and content support (HT
 - [Adding Documentation](#adding-documentation)
 - [Adding Content Pages](#adding-content-pages)
 - [Adding a Blog Entry](#adding-blog-entry)
+- [Adding a Company Logo](#adding-logo)
 - [Local Development](#development)
 
 ---
@@ -40,8 +41,8 @@ We will review and discuss with you any contributions or corrections submitted v
 - Use topic-based files and titles
 - Use only headers 1 (#), 2 (##) and 3 (###)
 - Use single spaces to separate sentences
-- Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
-	- Links: `[NATS](http://nats.io/)`
+- Markdown syntax: https://daringfireball.net/projects/markdown/syntax#img
+	- Links: `[NATS](https://nats.io/)`
 	- Cross references: `[Clients](/clients/)`
 	- Images: `![drawing](/img/nats-msg.png)`
 - Triple ticks for code, commands to run, user operations, input/output
@@ -62,9 +63,11 @@ The structure of the content directory is as follows:
 	- /documentation
 	- /download
 	- about.html
-	- community.html
+	- community.md
+	- contributing.md
 	- index.html
 	- support.html
+	- privacy.md
 ```
 
 The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
@@ -73,127 +76,28 @@ The **html files** or **directories** should be pretty self explanatory for what
 
 ## <a name="adding-documentation"></a>Adding Documentation
 
-The NATS documentation is a collection of Markdown articles located in `nats-docs/content and organized into the following categories/subdirectories:
+The NATS documentation has moved to the [nats-io/docs](https://github.com/nats-io/docs/) repo.
 
-
-| Category        | Subirectory
-|-----------------|----------------
-| Getting Started | `documentation`
-| Clients         | `documentation/clients`
-| Concepts        | `documentation/concepts`
-| Internals       | `documentation/internals`
-| Tutorials       | `documentation/tutorials`
-
-The Markdown documents contained in these directories are assembled by Hugo and listed in their respective categories in a navigation menu at the left side of every page.
-
-### Style guidelines and conventions for documentation
-
-- Use topic-based files and titles
-- Use only headers 1 (#), 2 (##) and 3 (###)
-- Use single spaces to separate sentences
-- Markdown syntax: http://daringfireball.net/projects/markdown/syntax#img
-	- Links: `[NATS](http://nats.io/)`
-	- Cross references: `[NATS protocol](/documentation/internals/nats-protocol.md)`
-	- Images: `![drawing](/img/documentation/nats-msg.png)`
-- Triple ticks for code, commands to run, user operations, input/output
-- Single ticks for executable names, file paths, inline commands, parameters, etc.
-- Graphics: save as `*.png` source in `/src/img/documentation/nats-img-src.graffle`
-- Run `gulp` in the root of the app, this will automatically place the image in the correct location for use
-
-
-### Creating a new documentation page
-
-Any new page should be a Markdown document placed inside `/content/documentation/`. Place it inside of one of the current sub folders in `/content/documentation` or add a new category/folder. Directions are below for adding a new category for documentation.
-
- Each page added needs a header like the following:
+The structure of the content in the docs directory is as follows:
 
 ```
-+++
-date = "2015-09-27"
-title = "NATS Messaging"
-category = "concepts"
-[menu.main]
-  name = "Messaging"
-  weight = 1
-  identifier = "concepts-nats-messaging"
-  parent = "Concepts"
-+++
+- /developer
+- /gateways
+- /leafnodes
+- /nats_admin
+- /nats_docker
+- /nats_protocol
+- /nats_server
+- /nats_streaming
+- /nats_tools
+- /sys_accounts
+- /whats_new
 ```
-
-- date: Use the format of: Year-Month-Day Example: 2015-09-27
-- title: Title of the page
-- category: Directory path to file
-
-For the menu portion, follow this:
-
-- Name: Name of the menu item in the left nav
-- Weight: When listing pages it signifies its importance and where it should land in the list
-- Identifier: This is used behind the scenes for page generation and menu building. Please make sure its unique for each page
-- Parent: Set this to the exact name of the category this page is is.
-
-### Adding documentation sub categories
-
-Modify `config.toml` to add the category and its weight (list position) to menu.main. Below you will see an example of some pre existing **categories** as well as a new category specified as: **New Category**.
-
-```
-[[menu.main]]
-  name = "Documentation"
-  weight = 2
-  identifier = "documentation"
-  url = "/documentation"
-  [[menu.main]]
-    name = "Getting Started"
-    weight = 0
-    parent = "documentation"
-  [[menu.main]]
-    name = "Clients"
-    weight = 1
-    parent = "documentation"
-  [[menu.main]]
-    name = "New Category"
-    weight = 2
-    parent = "documentation"
-```
-
----
+To update content, only the .md files should be used. The .html files in the repo [nats-io/docs](https://github.com/nats-io/docs/) are auto-generated by gitbook when building the book.
 
 ## <a name="adding-content-pages"></a>Adding Content Pages
 
-Any new page should be a raw HTML or Markdown document placed beneath the `content` directory. Each page added needs a header like the following:
-
-```
-+++
-date = "2015-09-01"
-title = "New Page"
-description = "Some page description can go here"
-+++
-```
-
-- date format: Year-Month-Day
-- title: Title of the page
-- cssid: Page specific css id used on the body tag for page specific styles
-- description: Description of the page
-In the current design, adding a new page to the main menu requires adding that page's title to the `[[menu.main]]` in `config.toml`:
-
-```
-[[menu.main]]
-  name = "Support"
-  weight = 3
-  identifier = "support"
-  url = "/support"
-
-[[menu.main]]
-  name = "Community"
-  weight = 4
-  identifier = "community"
-  url = "/community"
-
-[[menu.main]]
-  name = "New Page"
-  weight = 5
-  identifier = "new-page"
-  url = "/new-page"
-```
+Any new page should be a raw Markdown document placed in the appropriate content directory listed above. 
 
 ### Adding Quotes to Community
 To add a new quote and logo to **/community** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
@@ -209,7 +113,7 @@ To add a new blog entry, use the `hugo new` command like the following:
 	hugo new blog/page-url-for-blog-post.md
 ```
 
-Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `http://nats.io/blog/nats-lands-in-london`
+Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `https://nats.io/blog/nats-lands-in-london`
 
 Once the command is run you can find the new blog entry in `content/blog/nats-lands-in-london.md`.
 
@@ -247,7 +151,7 @@ So for our example we would change `categories` in the frontmatter to:
 ```
 
 ### Date
-The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`
+The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`. The date cannot be in the future.
 
 ### Tags
 For Tags, you can add as many tags as you feel are needed and they can be anything:
@@ -283,6 +187,11 @@ For adding content to the blog entry, please follow the [style guidelines and co
 
 ---
 
+## <a name="adding-logo"></a>Adding a Company Logo
+If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email <info@nats.io> with your request. 
+
+---
+
 ## <a name="development"></a>Local Development
 
 You can either user docker image for your local development or install requirements following this documentation.
@@ -300,7 +209,7 @@ cd nats-site/
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/). 
+Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](https://www.graphicsmagick.org/). 
 
 > Building the NATS site/documentation currently requires Hugo version 0.53 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
@@ -329,7 +238,7 @@ To preview your changes, run:
 hugo server
 ```
 
-`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `http://127.0.0.1:1313`  to preview your changes on a browser.
+`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `https://127.0.0.1:1313`  to preview your changes on a browser.
 
 
 Whenever `src` is modified, remember to run `gulp build` to update the `static` directory, and allow hugo to see the changes.

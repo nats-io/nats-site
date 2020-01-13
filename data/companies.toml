@@ -6,7 +6,7 @@ logo = "/img/companies/ericsson.jpg"
 
 [companies.htc]
 name = "HTC"
-home = "http://www.htc.com/"
+home = "https://www.htc.com/"
 logo = "/img/companies/htc.jpg"
 
 [companies.siemens]
@@ -16,22 +16,22 @@ logo = "/img/companies/siemens.jpg"
 
 [companies.vmware]
 name = "VMware"
-home = "http://www.vmware.com/"
+home = "https://www.vmware.com/"
 logo = "/img/companies/vmware.jpg"
 
 [companies.pivotal]
 name = "Pivotal"
-home = "http://pivotal.io/"
+home = "https://pivotal.io/"
 logo = "/img/companies/pivotal.jpg"
 
 [companies.ge]
 name = "GE"
-home = "http://www.ge.com/"
+home = "https://www.ge.com/"
 logo = "/img/companies/ge.jpg"
 
 [companies.baidu]
 name = "Baidu"
-home = "http://www.baidu.com/"
+home = "https://www.baidu.com/"
 logo = "/img/companies/baidu.jpg"
 
 [companies.clarify]
@@ -44,20 +44,10 @@ name = "Netlify"
 home = "https://www.netlify.com/"
 logo = "/img/companies/netlify.jpg"
 
-[companies.pex]
-name = "Pex"
-home = "http://www.pex.com"
-logo = "/img/companies/pex.png"
-
 [companies.zephyr]
 name = "Zephyr"
 home = "https://www.zephyrproject.org/"
 logo = "/img/companies/zephyr_project.png"
-
-[companies.opentable]
-name = "Open Table"
-home = "https://www.opentable.com/"
-logo = "/img/companies/open_table.png"
 
 [companies.telia]
 name = "Telia Company"
@@ -68,3 +58,13 @@ logo = "/img/companies/telia_company.png"
 name = "Mastercard"
 home = "https://www.mastercard.us/en-us.html"
 logo = "/img/companies/mastercard.png"
+
+[companies.tinder]
+name = "Tinder"
+home = "https://www.tinder.com"
+logo = "/img/companies/tinder.png"
+
+# [companies.pex]
+# name = "Pex"
+# home = "https://www.pex.com"
+# logo = "/img/companies/pex.png"

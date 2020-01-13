@@ -1,40 +1,19 @@
 [[events]]
-venue = "Cloud Expo Europe"
-when = "March 12-13, 2019"
-who = "Waldemar Quevedo"
-what = "Connect Everything with NATS"
-where = "Excel, London"
-ref = "https://www.cloudexpoeurope.com/"
+venue = "KubeCon + CloudNativeCon Europe"
+when = "March 30 - April 2, 2020"
+who = "NATS Team"
+what = "NATS Intro & Deep Dive"
+where = "Amsterdam, The Netherlands"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
-[[events]]
-venue = "OSCON"
-when = "July 18, 2019"
-who = "Derek Collison"
-what = "Time to Think Different. Decoupling Distributed Systems from IP Networks"
-where = "Portland, OR"
-ref = "https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/75998"
 
-[[events]]
-venue = "OSCON"
-when = "July 17, 2019"
-who = "Waldemar Quevedo"
-what = "Simple, Secure & Reliable: Building Cloud Native Applications with NATS"
-where = "Portland, OR"
-ref = "https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/75899"
 
-[[events]]
-venue = "Open Go"
-when = "September 23-25, 2019"
-who = "Waldemar Quevedo"
-what = "TBD"
-where = "Seminole Hard Rock Hotel & Casino | Hollywood, FL"
-ref = "https://opengo.io"
 
 # comment out to save
 #[[icymi]]
 # venue = "ICYMI"
-#when = "December 11, 2018"# who = "Colin Sullivan & Waldemar Quevedo"
-#what = "Intro to NATS"
+# when = "December 11, 2018"# who = "Colin Sullivan & Waldemar Quevedo"
+# what = "Intro to NATS"
 # link = "https://youtu.be/EI6clwKZ-qs"
 # where = "Kubecon + CloudNativeCon Seattle 2018"
 # ref = "https://kccna18.sched.com/event/Grbt"

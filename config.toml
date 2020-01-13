@@ -1,4 +1,4 @@
-baseURL = "http://nats.io/"
+baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"
@@ -15,6 +15,7 @@ title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
+images = ["/img/nats-icon-color.png"]
 
 [[menu.main]]
 name = "About"
@@ -80,7 +81,7 @@ parent = "nats-streaming"
 name = "Documentation"
 weight = 3
 identifier = "doc"
-url = "/documentation"
+url = "https://docs.nats.io"
 
 [[menu.main]]
 name = "Getting Started With NATS"

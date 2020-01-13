@@ -1,5 +1,5 @@
 +++
-categories = ["Community", "Engineering", "Apcera"]
+categories = ["Community", "Engineering"]
 date = "2016-03-16T10:30:00-08:00"
 tags = ["nats", "apcera", "technical"]
 title = "NATS Service Gateway"
@@ -36,7 +36,7 @@ With just that command, the Apcera Platform uploaded, built, and started the Go 
 Creating app "cast-server"... done
 Start Command: ./server
 Waiting for the application to start...
-App should be accessible at "http://cast-server-cvcmi.jaime.apcera-platform.io"
+App should be accessible at "https://cast-server-cvcmi.jaime.apcera-platform.io"
 Success!
 ```
 

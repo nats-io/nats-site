@@ -25,7 +25,7 @@ digraph nats_pub_sub {
     pub1 sub1 non_active
   }
 
-  gnatsd [shape="box", label="NATS", width=8];
+  nats-server [shape="box", label="NATS", width=8];
 
   sub2 [shape="box", label="SUB\ncom.msg.one"];
   sub3 [shape="box", label="SUB\ncom.msg.two"];
@@ -36,34 +36,34 @@ digraph nats_pub_sub {
     sub2 sub3 sub4
   }
 
-  pub1 -> gnatsd [penwidth=2];
-  gnatsd -> sub1 [penwidth=2];
-  gnatsd -> non_active [style=dashed color=red arrowhead="none"];
+  pub1 -> nats-server [penwidth=2];
+  nats-server -> sub1 [penwidth=2];
+  nats-server -> non_active [style=dashed color=red arrowhead="none"];
 
-  gnatsd -> sub2 [penwidth=2];
-  gnatsd -> sub3 [style=dashed color=red arrowhead="none"];
-  gnatsd -> sub4 [penwidth=2];
+  nats-server -> sub2 [penwidth=2];
+  nats-server -> sub3 [style=dashed color=red arrowhead="none"];
+  nats-server -> sub4 [penwidth=2];
 }
 </code></div>
 
 #### Prerequisites
 
-- [Set up your Go environment](/documentation/tutorials/go-install/)
-- [Installed the NATS server](/documentation/tutorials/gnatsd-install/)
-- [Cloned go-nats project to `$GOPATH/src/github.com/nats-io`](https://github.com/nats-io/go-nats)
+- [Set up your Go environment](/documentation/additional_documentation/go-install/)
+- [Installed the NATS server](/documentation/managing_the_server/installing/)
+- [Cloned nats.go project to `$GOPATH/src/github.com/nats-io`](https://github.com/nats-io/nats.go)
 
 #### 1. Start the NATS server
 
 ```sh
-% gnatsd
+% nats-server
 ```
 
 When the server starts successfully, you will see the following messages:
 
 ```sh
-[1] 2015/08/12 15:18:22.301550 [INF] Starting gnatsd version 0.6.4
+[1] 2015/08/12 15:18:22.301550 [INF] Starting nats-server version 0.6.4
 [1] 2015/08/12 15:18:22.301762 [INF] Listening for client connections on 0.0.0.0:4222
-[1] 2015/08/12 15:18:22.301769 [INF] gnatsd is ready
+[1] 2015/08/12 15:18:22.301769 [INF] nats-server is ready
 ```
 
 The NATS server listens for client connections on TCP Port 4222.
@@ -75,7 +75,7 @@ You will use this session to run an example NATS client subscriber program.
 #### 3. CD to the Go client examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/go-nats/examples
+% cd $GOPATH/src/github.com/nats-io/nats.go/examples
 ```
 
 #### 4. Run the client subscriber program
@@ -101,7 +101,7 @@ You will use this session to run a NATS publisher client.
 #### 6. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/go-nats/examples
+% cd $GOPATH/src/github.com/nats-io/nats.go/examples
 ```
 
 #### 7. Publish a NATS message
@@ -147,7 +147,7 @@ You will use this session to run a second NATS subscriber.
 #### 10. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/go-nats/examples
+% cd $GOPATH/src/github.com/nats-io/nats.go/examples
 ```
 
 #### 11. Subscribe to the message
@@ -171,7 +171,7 @@ You will use this session to run a third NATS subscriber.
 #### 14. CD to the examples directory
 
 ```sh
-% cd $GOPATH/src/github.com/nats-io/go-nats/examples
+% cd $GOPATH/src/github.com/nats-io/nats.go/examples
 ```
 
 #### 15. Subscribe to a different message

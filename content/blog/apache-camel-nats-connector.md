@@ -7,9 +7,9 @@ author = "Igor Fomenko"
 +++
 
 ## Introduction - Camel, NATS and Apcera
-Recently at [Logimethods](http://logimethods.com/) we’ve developed a new [Camel-Nats](http://camel.apache.org/nats.html) component that can deploy on premise (non-cloud), and through the Apcera platform. In this blog, we’ll introduce this new component and explain why we believe that it was a critical missing link for organizations trying to develop an integration platform based on open source tools and cloud infrastructure.
+Recently at [Logimethods](https://logimethods.com/) we’ve developed a new [Camel-Nats](https://camel.apache.org/nats.html) component that can deploy on premise (non-cloud), and through the Apcera platform. In this blog, we’ll introduce this new component and explain why we believe that it was a critical missing link for organizations trying to develop an integration platform based on open source tools and cloud infrastructure.
 
-If you are not familiar with Apache Camel, a “Component” is another term for an adapter built using Camel framework. So let’s examine how the [NATS](http://www.nats.io), [CAMEL](http://camel.apache.org/), and [Apcera](http://www.apcera.com) technologies complement each other and see how all three can integrate as core components of a modern IT architecture.
+If you are not familiar with Apache Camel, a “Component” is another term for an adapter built using Camel framework. So let’s examine how the [NATS](https://www.nats.io), [CAMEL](https://camel.apache.org/), and [Apcera](https://www.apcera.com) technologies complement each other and see how all three can integrate as core components of a modern IT architecture.
 
 Consider, for example, the typical integration architecture requirements for a company collecting real-time data from mobile devices utilised for automated asset tracking and control. The functional requirements are as follows:
 
@@ -40,9 +40,9 @@ Scaling out our integration platform horizontally with a secure cloud platform t
 
 ## Camel-Nats component for Cloud Platform is the missing piece.
 
-The benefit of Apache Camel is the capability to connect easily to a wide range of various technologies and applications through existing components. The Apache Camel project even released a new [Camel-Nats](http://camel.apache.org/nats.html) component a few months ago however it was not “Cloud Ready” and could not leverage Apcera as is. Let’s examine what is missing in the existing [Camel-Nats](http://camel.apache.org/nats.html) component.
+The benefit of Apache Camel is the capability to connect easily to a wide range of various technologies and applications through existing components. The Apache Camel project even released a new [Camel-Nats](https://camel.apache.org/nats.html) component a few months ago however it was not “Cloud Ready” and could not leverage Apcera as is. Let’s examine what is missing in the existing [Camel-Nats](https://camel.apache.org/nats.html) component.
 
-All existing Apache Camel components are based on the common framework using a component endpoint configuration in the form of URI to specify target system connection parameters. For example Camel-HTTP component needs to be configured with a URI that looks like this: **“http:hostname[:port][/resourceUri][?options]”**. An existing [Camel-Nats](http://camel.apache.org/nats.html) component needs endpoint configured with URI as follows: **“nats://hostname[:port]?options”**. However, this endpoint configuration, with an explicit hostname and port number, is not ideal when the Camel application and the NATS services are deployed on the same Apcera platform (or on any other cloud platform for that matter).
+All existing Apache Camel components are based on the common framework using a component endpoint configuration in the form of URI to specify target system connection parameters. For example Camel-HTTP component needs to be configured with a URI that looks like this: **“https:hostname[:port][/resourceUri][?options]”**. An existing [Camel-Nats](https://camel.apache.org/nats.html) component needs endpoint configured with URI as follows: **“nats://hostname[:port]?options”**. However, this endpoint configuration, with an explicit hostname and port number, is not ideal when the Camel application and the NATS services are deployed on the same Apcera platform (or on any other cloud platform for that matter).
 
 A more efficient way of specifying Camel-Nats connector endpoints on the Apcera platform is by using its native “Job Link” facility.  In a nutshell, job link provides connectivity information to the service and can dynamically be obtained through Apcera environment variables. For more information about job links, please see the [Apcera documentation](https://docs.apcera.com/). When the application deployed on Apcera is using job link to connect to another application, it can benefit from some of the built-in platform “service orchestration” capabilities such as load balancing, high availability, scaling, policy controls, dynamic routing.
 
@@ -66,7 +66,7 @@ Please note that the application can also be run as a standalone Spring applicat
 
 [Igor Fomenko](mailto:Igor.fomenko@logimethods.com) is a Senior Consultant at Logimethods with a strong expertise in integration architecture and application development.
 
-[Logimethods](http://logimethods.com/) is a highly specialized consulting firm providing Enterprise Architecture, Enterprise Integration and Business Intelligence services to help organizations:
+[Logimethods](https://logimethods.com/) is a highly specialized consulting firm providing Enterprise Architecture, Enterprise Integration and Business Intelligence services to help organizations:
 
   - Align, simplify and integrate their IT environment for greater efficiency and asset reuse, and
   - Achieve higher levels of process performance.

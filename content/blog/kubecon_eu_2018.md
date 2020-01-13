@@ -8,7 +8,7 @@ author = "Ginger Collison"
 
 KubeCon + CloudNativeCon EU 2018 in Copenhagen, Denmark has come and gone and we are getting back to work but first, a recap!
 
-This was our first conference for NATS under the stewardship of Synadia Communications, Inc. and the [Cloud Native Computing Foundation](http://cncf.io/) (CNCF), and for this Synadian, my first technology conference ever. With a sold out conference of over 4,300+ attendees, this event buzzed with energy and excitement each and every day.
+This was our first conference for NATS under the stewardship of Synadia Communications, Inc. and the [Cloud Native Computing Foundation](https://cncf.io/) (CNCF), and for this Synadian, my first technology conference ever. With a sold out conference of over 4,300+ attendees, this event buzzed with energy and excitement each and every day.
 
 As a new CNCF incubation project, NATS was honored to be invited to participate in the [CNCF Project Updates Keynote](https://www.youtube.com/watch?v=C1kwY0N4PUk) with [Liz Rice](https://twitter.com/lizrice). Colin Sullivan delivered a succinct overview of NATS basic DNA in conjunction with Wally Quevedo's [live demo](https://youtu.be/C1kwY0N4PUk?t=1292) of NATS performance and availability using the [NATS Kubernetes Operator](https://github.com/nats-io/nats-operator), Prometheus, and Grafana. Even with all of the worrying over a live demo for 4,300 people, the demo was a huge success and worked perfectly. This opportunity provided visibility to NATS to those otherwise unaware of the project.
 
@@ -33,7 +33,7 @@ If you couldn't make it to KubeCon or attend the talks in person, you can view t
 
 > NATS Deep Dive hosted by Wally Quevedo | [Review Slides](https://schd.ws/hosted_files/kccnceu18/e8/KubeCon%20EU%20-%20NATS%20Deep%20Dive.pdf) | [Watch Video](https://www.youtube.com/watch?v=MAKYz8oPRyw&t=4s)
 
-Now that the 'work' was out of the way we could relax and enjoy the rest of the conference. Thursday evening, KubeCon + CloudNativeCon EU was welcomed at [Tivoli Gardens](http://www.tivoli.dk/) for some food, drinks, and fun! We had a great time chatting with other conference goers, enjoying the nice weather and rides including a few rollercoasters and a spirited session of bumper cars.
+Now that the 'work' was out of the way we could relax and enjoy the rest of the conference. Thursday evening, KubeCon + CloudNativeCon EU was welcomed at [Tivoli Gardens](https://www.tivoli.dk/) for some food, drinks, and fun! We had a great time chatting with other conference goers, enjoying the nice weather and rides including a few rollercoasters and a spirited session of bumper cars.
 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/fluentd?ref_src=twsrc%5Etfw">@fluentd</a> having fun with <a href="https://twitter.com/nats_io?ref_src=twsrc%5Etfw">@nats_io</a> team. (Talking about Nats+TLS cc <a href="https://twitter.com/derekcollison?ref_src=twsrc%5Etfw">@derekcollison</a> go for it!) <a href="https://twitter.com/CloudNativeFdn?ref_src=twsrc%5Etfw">@CloudNativeFdn</a> <a href="https://twitter.com/hashtag/KubeCon?src=hash&amp;ref_src=twsrc%5Etfw">#KubeCon</a> <a href="https://t.co/dmcVfQu51W">pic.twitter.com/dmcVfQu51W</a></p>&mdash; Eduardo Silva (@edsiper) <a href="https://twitter.com/edsiper/status/992083494103846912?ref_src=twsrc%5Etfw">May 3, 2018</a></blockquote>

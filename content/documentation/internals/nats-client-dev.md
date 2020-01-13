@@ -48,7 +48,7 @@ By default clients can connect to the server in unauthenticated mode. You can co
 For example, using the command line:
 
 ```
-gnatsd -DV -m 8222 -user foo -pass bar
+nats-server -DV -m 8222 -user foo -pass bar
 ```
 
 The client must then authenticate to connect to the server. For example:

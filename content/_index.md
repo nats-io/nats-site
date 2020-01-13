@@ -1,12 +1,13 @@
 +++
-date = "2015-09-01T17:05:52-07:00"
+date = "2019-06-05T22:22:22-08:00"
 title = "NATS - Open Source Messaging System | Secure, Native Cloud Application Development"
 type = "index"
 cssid = "home"
 description = ""
 +++
-## NATS is now under the **CNCF** as an incubating project
-<p class="extra-info">
-    <a id="download-button" class="btn btn-lg" target="_blank" href="https://www.cncf.io/blog/2018/03/15/cncf-to-host-nats/">Learn More</a>
-</p>
 
+## NATS 2.0 is now Generally Available
+
+<p class="extra-info">
+    <a id="download-button" class="btn btn-lg" target="_blank" href="https://nats-io.github.io/docs/whats_new/whats_new_20.html">Learn More</a>
+</p>

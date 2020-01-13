@@ -9,7 +9,7 @@ showChildren=true
   parent = "Getting Started With NATS"
 +++
 
-## Introduction
+## Contributing
 
 Do you want to contribute to NATS? Awesome! We’d love your help. To make it easier for you to contribute, we’ve provided some guidelines below to ensure that you (the contributor) know what we (the project maintainers) look for in terms of content as well as the criteria and procedures we use when reviewing your submissions.
 
@@ -25,7 +25,7 @@ NATS is designed with four goals in mind:
 
 - Performance - achieve the highest message throughput and lowest latency possible
 - Stability - "always on". Nothing we put in NATS should cause it to crash, and NATS should guard itself against unruly client behavior that might compromise performance or availability for all clients.
-- Simplicity - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`gnatsd`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
+- Simplicity - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`nats-server`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
 - Security - NATS supports basic security features: authentication, authorization and encryption (TLS) 
 
 ## <a name="communityhelp"></a> Talking to Other NATS Users and Contributors
@@ -85,7 +85,7 @@ If possible, give a bit of context on where you hope to go next with your NATS d
 
 The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/master/content/blog to accelerate the review cycle! 
 
-## Contributing Documentation Changes
+<!--## Contributing Documentation Changes
 
 Our project documentation is available on the [NATS.IO website](http://nats.io). The source for the documentation, in markdown, can be found in the site's GitHub project https://github.com/nats-io/nats-site.
 
@@ -97,6 +97,7 @@ We will apply common-sense criteria to the review of these documentation-related
 - Correctness of content
 - Relevance to subject matter
 - Duplication of existing content
+-->
 
 ## Contributing By Testing
 
@@ -118,7 +119,7 @@ Before you get started, please consider whether the proposed change is likely to
 
 - Is it clear that code must change? In other words, has a clear problem or change been identified? As with most software projects, many issues that new users run into are rooted more in their understanding of how to use the software than in actual defects or limitations of the software. 
 - Check to see if there is history behind your proposal. Search the project's GitHub Issues and the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) for relevant discussions.  Often, the problem has been discussed before, with a resolution that doesn’t require a code change, or recording what kinds of changes will not be accepted as a resolution. If you don't find anything in either of those places, ask in the #general channel of the [NATS Slack team](http://natsio.slack.com) to see if anyone has anything to say.
-- If you’re considering modifying code that is in the data path (i.e. central to message flow in the server or in the client), have you taken time to understand why the current implementation was chosen? Fixing a typo is straightforward, but the core logic and algorithms of the NATS server (`gnatsd`) are the result of a significant amount of combined experience developing and supporting messaging solutions. That doesn't mean they're flawless, but please know that changes in this area will be scrutinized closely against performance and stability concerns. We suggest that If you're uncertain why the existing code is written in a particular way, or what the impact of your proposed change(s) might be, ask questions of the NATS team via Slack or the Google group.
+- If you’re considering modifying code that is in the data path (i.e. central to message flow in the server or in the client), have you taken time to understand why the current implementation was chosen? Fixing a typo is straightforward, but the core logic and algorithms of the NATS server (`nats-server`) are the result of a significant amount of combined experience developing and supporting messaging solutions. That doesn't mean they're flawless, but please know that changes in this area will be scrutinized closely against performance and stability concerns. We suggest that If you're uncertain why the existing code is written in a particular way, or what the impact of your proposed change(s) might be, ask questions of the NATS team via Slack or the Google group.
 
 ### <a name="reviewcriteria"></a> Code Review Criteria
 
@@ -167,11 +168,11 @@ If you have a unique issue, please be as descriptive as possible:
 
 - Use a short, descriptive title that gives a clue what the Issue is about
 - Describe (if applicable) the environment you're running on (OS, hardware, VM, Docker, etc)
-- Describe what version (if applicable) of `gnatsd` or relevant client libraries you're using
+- Describe what version (if applicable) of `nats-server` or relevant client libraries you're using
 - Give a detailed description of the problem and why you view it as a problem.
 - Whenever possible,-*please** include a [Minimal, Complete, and Verifiable example](http://stackoverflow.com/help/mcve)
 - If relevant, include or attach screenshots
-- If relevant, include log output of `gnatsd` (obtained by running `gnatsd <other options> -DV`. Trimming the log output to the relevant time period is always appreciated.
+- If relevant, include log output of `nats-server` (obtained by running `nats-server <other options> -DV`. Trimming the log output to the relevant time period is always appreciated.
 - If you have a unique issue you deem may include a vulnerability that would affect a broad user base in a highly negative or impactful way, you may log such issues privately to the NATS team via email <info@nats.io>, private direct message on [NATS Slack](https://natsio.slack.com) or private direct message on [NATS Twitter](https://twitter.com/nats_io).
 
 #### Change Proposals and Feature Requests
@@ -184,11 +185,11 @@ Please ensure that your Pull Request references an existing GitHub Issue that de
 
 We follow standard GitHub procedures for creating and processing pull requests.
 
- 1. [Fork](https://help.github.com/articles/fork-a-repo/) the relevant Github repository, e.g. `http://github.com/nats-io/gnatsd` if you haven’t already.
+ 1. [Fork](https://help.github.com/articles/fork-a-repo/) the relevant Github repository, e.g. `http://github.com/nats-io/nats-server` if you haven’t already.
  2. Clone your fork, create a new branch, push commits to the branch.
  3. Consider whether documentation or tests need to be added or updated as part of the change, and add them as needed.
  4. Run all tests to verify that the code still compiles, passes tests, and passes style checks. If style checks fail, review the relevant Code Style Guide in the project you're working in. It’s also advisable to ensure that any checks found in `.travis.yml` run successfully on your local system, when possible. These often include code formatting and static analysis checks that may cause CI tests to fail.
- 5. Open a pull request against the `master` branch of the relevant project (e.g. `nats-io/gnatsd`). (Only in special cases would the PR be opened against other branches.)
+ 5. Open a pull request against the `master` branch of the relevant project (e.g. `nats-io/nats-server`). (Only in special cases would the PR be opened against other branches.)
     - The PR title should be of the form `[ADDED | FIXED | CHANGED | UPDATED] <description>`
       - `ADDED` - a new feature or content was added
       - `FIXED` - a defect in existing behavior was resolved

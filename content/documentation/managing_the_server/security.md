@@ -47,7 +47,7 @@ The server can be run using command line arguments to enable TLS functionality.
 Examples using the test certificates which are self signed for localhost and 127.0.0.1.
 
 ```sh
-> ./gnatsd --tls --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem
+> ./nats-server --tls --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem
 
 [2935] 2016/04/26 13:34:30.685413 [INF] Starting nats-server version 0.8.0.beta
 [2935] 2016/04/26 13:34:30.685509 [INF] Listening for client connections on 0.0.0.0:4222
@@ -96,7 +96,7 @@ tls {
 }
 ```
 
-A list of supported cipher suites is [located here in the cipherMap variable](https://github.com/nats-io/gnatsd/blob/master/server/ciphersuites.go#L21).
+A list of supported cipher suites is [located here in the cipherMap variable](https://github.com/nats-io/nats-server/blob/master/server/ciphersuites.go#L21).
 
 ### Client TLS Mutual Authentication
 
@@ -114,7 +114,7 @@ tls {
 If you want the server to enforce and require client certificates as well via the command line, utilize this example.
 
 ```sh
-> ./gnatsd --tlsverify --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem --tlscacert=./test/configs/certs/ca.pem
+> ./nats-server --tlsverify --tlscert=./test/configs/certs/server-cert.pem --tlskey=./test/configs/certs/server-key.pem --tlscacert=./test/configs/certs/ca.pem
 ```
 
 This option simply verifies the client's certificate has been signed by the CA specified in the `ca_file` option. However, it does not map any attribute of the client's certificate to the user's identity.
@@ -208,19 +208,19 @@ cluster {
 
 In addition to TLS functionality, the server now also supports hashing of passwords and authentication tokens using `bcrypt`. To take advantage of this, simply replace the plaintext password in the configuration with its `bcrypt` hash, and the server will automatically utilize `bcrypt` as needed.
 
-A utility for creating `bcrypt` hashes is included with the gnatsd distribution (`util/mkpasswd.go`). Running it with no arguments will generate a new secure password along with the associated hash. This can be used for a password or a token in the configuration.
+A utility for creating `bcrypt` hashes is included with the nats-server distribution (`util/mkpasswd.go`). Running it with no arguments will generate a new secure password along with the associated hash. This can be used for a password or a token in the configuration.
 
 ```
-~/go/src/github.com/nats-io/gnatsd/util> go get golang.org/x/crypto/ssh/terminal
-~/go/src/github.com/nats-io/gnatsd/util> go build mkpasswd.go
-~/go/src/github.com/nats-io/gnatsd/util> ./mkpasswd
+~/go/src/github.com/nats-io/nats-server/util> go get golang.org/x/crypto/ssh/terminal
+~/go/src/github.com/nats-io/nats-server/util> go build mkpasswd.go
+~/go/src/github.com/nats-io/nats-server/util> ./mkpasswd
 pass: #IclkRPHUpsTmACWzmIGXr
 bcrypt hash: $2a$11$3kIDaCxw.Glsl1.u5nKa6eUnNDLV5HV9tIuUp7EHhMt6Nm9myW1aS
 ```
 
 If you already have a password selected, you can supply the `-p` flag on the command line, enter your desired password, and a `bcrypt` hash will be generated for it:
 ```
-~/go/src/github.com/nats-io/gnatsd/util> ./mkpasswd -p
+~/go/src/github.com/nats-io/nats-server/util> ./mkpasswd -p
 Enter Password: *******
 Reenter Password: ******
 bcrypt hash: $2a$11$3kIDaCxw.Glsl1.u5nKa6eUnNDLV5HV9tIuUp7EHhMt6Nm9myW1aS

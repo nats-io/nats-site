@@ -6,7 +6,7 @@ title = "Guest Post - NATS as a Secure and Scalable control plane for Go, AWS, a
 author = "Mark Songhurst"
 +++
 
-[Equine Register](http://www.equineregister.co.uk/) provides the government, industry and members of the public with bespoke digital tools and services that increase equine welfare and combat criminal activity. We are actively replacing legacy paper-based systems with smartphone and web delivered solutions which provide unequivocal information regarding the identity, history, health and ownership of an equine from it’s birth onwards.
+[Equine Register](https://www.equineregister.co.uk/) provides the government, industry and members of the public with bespoke digital tools and services that increase equine welfare and combat criminal activity. We are actively replacing legacy paper-based systems with smartphone and web delivered solutions which provide unequivocal information regarding the identity, history, health and ownership of an equine from it’s birth onwards.
 
 I am responsible for the design and implementation of the architecture providing our RESTful API, which needs to serve an array of different Clients and be capable of supporting new functionality with minimal delay and impact. With an ever-increasing customer base, our system’s performance metrics are estimates at best, requiring the API to be highly performant and stable.
 

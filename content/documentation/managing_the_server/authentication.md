@@ -25,7 +25,7 @@ Token is mutually exclusive from user and password, so only use one of those.
 For example:
 
 ```sh
-gnatsd -DV --user foo --pass bar
+nats-server -DV --user foo --pass bar
 ```
 
 will allow the user `foo` to log in with the password `bar`, but no other users to access the server.
@@ -33,7 +33,7 @@ will allow the user `foo` to log in with the password `bar`, but no other users 
 Using the command line with an authorization token:
 
 ```sh
-gnatsd -DV -auth 'S3Cr3T0k3n!'
+nats-server -DV -auth 'S3Cr3T0k3n!'
 ```
 
 will allow clients with that token to connect, and no others.
@@ -92,7 +92,7 @@ authorization {
 }
 ```
 
-The gnatsd source code includes a tool that can be used to bcrypt passwords for the config file:
+The nats-server source code includes a tool that can be used to bcrypt passwords for the config file:
 
 ```sh
 > go run mkpasswd.go -p

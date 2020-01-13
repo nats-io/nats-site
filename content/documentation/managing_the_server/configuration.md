@@ -46,7 +46,7 @@ In general the configuration parameters are the same as the [command line argume
 
 ## Sample server config file
 
-The following demonstrates an example NATS server config file. See also the [NATS Server README](https://github.com/nats-io/gnatsd/blob/master/README.md#configuration-file)
+The following demonstrates an example NATS server config file. See also the [NATS Server README](https://github.com/nats-io/nats-server/blob/master/README.md#configuration-file)
 
 ```ascii
 port: 4242      # port to listen for client connections
