@@ -2,7 +2,7 @@
 venue = "KubeCon + CloudNativeCon Europe"
 when = "March 30 - April 2, 2020"
 who = "NATS Team"
-what = "Intro & Deep Dive"
+what = "NATS Intro & Deep Dive"
 where = "Amsterdam, The Netherlands"
 ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
