@@ -1,4 +1,5 @@
-{{ $here := .RelPermalink }}
+{{ $here    := .RelPermalink }}
+{{ $clients := .Params.clients }}
 {{ partial "header.html" . }}
 <div id="main-con" class="container">
   <div class="row">
@@ -9,61 +10,27 @@
       {{ $ghInfo := index .github 0 }}
       {{ $user   := $ghInfo.user }}
       {{ $repo   := $ghInfo.repo | lower }}
+      {{ $link   := $ghInfo.link }}
       {{ $isHere := eq $here (printf "/download/%s/%s/" $user $repo) }}
+
+      {{ if $isHere }}
       {{ $name   := cond (not (in .name "Server")) .name (printf "%s Client" .name) }}
+      {{ $params := (dict "link" $link "links" .links "author" .author "supported" .supported "language" .language "release_notes" .release_notes) }}
 
-        {{ if $isHere }}
-          <div class="page-header">
-            <h1>{{ $name }}</h1>
-          </div>
-          <div id="download-detail-con" class="row">
-            <div class="col-lg-3 col-sm-4 detail-block left">
-              <div class="well">
-                {{ if .supported }}<p class="supported">Supported by Synadia</p>{{ end }}
+      <div class="page-header">
+        <h1>{{ $name }}</h1>
+      </div>
 
-                <div class="download-info">
-                  <p>Language: {{ .language }}</p>
-                  {{ if .release_notes }}
-                  <p>Release Notes: {{ .release_notes | safeHTML }}</p>
-                  {{ else }}
-                  <p>No release notes.</p>
-                  {{ end }}
-                  {{ range first 1 .author }}
-                  {{ if .name }}
-                  <p>Author: <a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
-                  {{ end }}
-                  {{ end }}
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-9 col-sm-8 detail-block">
-              <div class="github-buttons">
-              {{ $link := $ghInfo.link }}
+      {{ if $clients }}
+      {{ range $clients }}
+      {{ template "client" $params }}
+      {{ end }}
 
+      {{ else }}
+      {{ template "client" $params }}
+      {{ end }}
+      {{ end }}
 
-              <!-- Watch -->
-              <a class="github-button" href="{{ $link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
-              <!-- Star -->
-              <a class="github-button" href="{{ $link }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="# stargazers on GitHub">Star</a>
-              <!-- Fork -->
-              <a class="github-button" href="{{ $link }}/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="# forks on GitHub">Fork</a>
-
-            </div>
-              <ul class="list-unstyled">
-     
-                <li><a href="{{ $link }}" target="_blank">View on Github</a></li>
-                <li><a href="{{ $link }}/releases/latest" target="_blank">Download Latest</a></li>
-        
-                {{ range .links }}
-                <li><a href="{{ .url }}">{{ .name }}</a></li>
-                {{ end }}
-              </ul>
-            </div>
-          </div>
-          <hr>
-
-          {{ partial "menu-downloads.html" . }}
-        {{ end }}
       {{ end }}
       {{ end }}
       {{ partial "menu-downloads.html" . }}
@@ -75,3 +42,53 @@
 </div>
 </div>
 {{ partial "footer.html" . }}
+
+{{ define "client" }}
+{{ $author := index .author 0 }}
+
+<div id="download-detail-con" class="row">
+  <div class="col-lg-3 col-sm-4 detail-block left">
+    <div class="well">
+      {{ if .supported }}<p class="supported">Supported by Synadia</p>{{ end }}
+
+      <div class="download-info">
+        <p>Language: {{ .language }}</p>
+        {{ if .release_notes }}
+        <p>Release Notes: {{ .release_notes | safeHTML }}</p>
+        {{ else }}
+        <p>No release notes.</p>
+        {{ end }}
+        {{ with $author }}
+        {{ if .name }}
+        <p>Author: <a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9 col-sm-8 detail-block">
+    <div class="github-buttons">
+
+    <!-- Watch -->
+    <a class="github-button" href="{{ .link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
+    <!-- Star -->
+    <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="# stargazers on GitHub">Star</a>
+    <!-- Fork -->
+    <a class="github-button" href="{{ .link }}/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="# forks on GitHub">Fork</a>
+
+  </div>
+    <ul class="list-unstyled">
+
+      <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
+      <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+
+      {{ range .links }}
+      <li><a href="{{ .url }}">{{ .name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<hr>
+
+{{ partial "menu-downloads.html" . }}
+{{ end }}
