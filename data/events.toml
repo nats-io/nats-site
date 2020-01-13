@@ -1,26 +1,12 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon NA"
-when = "Tuesday, November 19, 2019 @ 9:54am"
-who = "Derek Collison"
-what = "Keynote"
-where = "San Diego, California"
-ref = "https://sched.co/UdIm"
+venue = "KubeCon + CloudNativeCon Europe"
+when = "March 30 - April 2, 2020"
+who = "NATS Team"
+what = "NATS Intro & Deep Dive"
+where = "Amsterdam, The Netherlands"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
-[[events]]
-venue = "KubeCon + CloudNativeCon NA"
-when = "Thursday, November 21, 2019 @ 10:55am"
-who = "Derek Collison, Colin Sullivan & Waldemar Quevedo"
-what = "Deploy Secure and Scalable Sevices Across Kubernetes Clusters with NATS"
-where = "San Diego, California"
-ref = "https://sched.co/UakY"
 
-[[events]]
-venue = "Cloud Native Computing Sophia-Antipolis MeetUp"
-when = "Thursday, December 12, 2019"
-who = "Derek Collison & Waldemar Quevedo"
-what = "NATS.io"
-where = "Valbonne, France"
-ref = "https://www.meetup.com/fr-FR/CNCF-Cloud-Native-Computing-Sophia-Antipolis/events/265897038/"
 
 
 # comment out to save
