@@ -64,6 +64,11 @@ name = "Tinder"
 home = "https://www.tinder.com"
 logo = "/img/companies/tinder.png"
 
+[companies.lauchdarkly]
+name = "LaunchDarkly"
+home = "https://www.launchdarkly.com"
+logo = "/img/companies/launchdarkly.png"
+
 # [companies.pex]
 # name = "Pex"
 # home = "https://www.pex.com"
