@@ -22,6 +22,7 @@ images = ["/img/nats-icon-color.png"]
 
 [params.logos]
 navbar = "nats-horizontal-white.png"
+hero = "nats-horizontal-color.png"
 
 [[params.fonts]]
 name = "Source Sans Pro"

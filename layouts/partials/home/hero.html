@@ -1,0 +1,26 @@
+<section class="hero is-dark is-fullheight-with-navbar is-bold">
+  <div class="hero-head">
+    {{ partial "navbar.html" . }}
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      {{ partial "logo.html" (dict "logo" "hero" "class" true) }}
+
+      <p class="title is-size-1 is-size-2-mobile has-text-weight-bold">
+        <span class="has-text-nats-blue">
+          Secure.
+        </span>
+        <span class="has-text-nats-green">
+          Simple.
+        </span>
+        <span class="has-text-nats-dark-blue">
+          Scalable.
+        </span>
+        <span class="has-text-nats-light-green">
+          Open Source.
+        </span>
+      </p>
+    </div>
+  </div>
+</section>

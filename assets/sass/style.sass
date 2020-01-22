@@ -25,10 +25,10 @@ $nats-green: #34a574
 $nats-dark-blue: #375c93
 $nats-light-green: #8dc63f
 
-$nats-colors: ("nats-dark": $nats-dark, "nats-blue": $nats-blue, "nats-dark-blue": $nats-dark-blue, "nats-light-green": $nats-light-green)
+$nats-colors: ("nats-blue": $nats-blue, "nats-green": $nats-green, "nats-dark-blue": $nats-dark-blue, "nats-light-green": $nats-light-green)
 
 @each $name, $color in $nats-colors
-  .has-text-#{name}
+  .has-text-#{$name}
     color: $color
 
 // Extra colors specified in config
@@ -117,3 +117,7 @@ $colors: mergeColorMaps(("{{ .name }}": ({{ .hex }}, $white)), $colors)
 // @import "bulma/sass/components/pagination"
 // @import "bulma/sass/components/panel"
 // @import "bulma/sass/components/tabs"
+
+.is-hero-logo
+  +desktop
+    width: 50%
