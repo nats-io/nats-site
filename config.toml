@@ -2,12 +2,14 @@ baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
 title = "NATS - Cloud Native, Open Source, High Performance Messaging"
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
 pygmentsStyle = "native"
 
 [params]
+font_awesome_version = "5.12.0"
 leftNav = false
 description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
 author = "The NATS team"
@@ -16,6 +18,16 @@ SectionPagesMenu = "main"
 noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
 images = ["/img/nats-icon-color.png"]
+
+[[params.fonts]]
+name = "Source Sans Pro"
+sizes = [300, 400, 600, 700]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [300, 400, 600, 700]
+type = "monospace"
 
 [[menu.main]]
 name = "About"
