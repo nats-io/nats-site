@@ -112,10 +112,17 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white)), $colors)
   .is-main
     flex: 1
 
-.is-hero-logo
+=logo($desktop, $tablet, $touch)
   +desktop
-    width: 50%
+    width: $desktop
   +tablet-only
-    width: 70%
+    width: $tablet
   +touch
-    width: 90%
+    width: $touch
+
+.is-hero-logo
+  +logo(50%, 70%, 90%)
+
+.is-cncf-logo
+  margin-top: 2rem
+  +logo(40%, 70%, 70%)
