@@ -1,6 +1,7 @@
 {{ $title := site.Title }}
 {{ $home  := site.BaseURL }}
 {{ $menu  := site.Menus.main }}
+{{ $here  := .RelPermalink }}
 <nav class="navbar is-dark is-fixed-top is-transparent">
   <div class="container">
     <div class="navbar-brand">
@@ -19,7 +20,7 @@
       <div class="navbar-end">
         {{ range $menu }}
         {{ $isExternal := hasPrefix .URL "http" }}
-        <a class="navbar-item has-text-weight-bold" href="{{ .URL }}">
+        <a class="navbar-item has-text-weight-bold" href="{{ .URL }}"{{ if $isExternal }} target="_blank"{{ end }}>
           <span>
             {{ .Name }}
           </span>

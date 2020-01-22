@@ -1,13 +1,9 @@
-<section class="hero is-dark is-fullheight-with-navbar is-bold">
-  <div class="hero-head">
-    {{ partial "navbar.html" . }}
-  </div>
-
+<section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container has-text-centered">
       {{ partial "logo.html" (dict "logo" "hero" "class" true) }}
 
-      <p class="title is-size-1 is-size-2-mobile has-text-weight-bold">
+      <p class="title is-size-1 is-size-3-mobile has-text-weight-bold is-spaced">
         <span class="has-text-nats-blue">
           Secure.
         </span>
@@ -21,6 +17,19 @@
           Open Source.
         </span>
       </p>
+
+      <p class="subtitle is-size-2 is-size-4-mobile has-text-weight-light">
+        <span class="has-text-weight-bold">
+          NATS 2.0
+        </span>
+        is now Generally Available
+      </p>
+
+      <div class="buttons is-centered">
+        <a class="button is-medium is-light-green has-text-weight-bold">
+          Learn more
+        </a>
+      </div>
     </div>
   </div>
 </section>

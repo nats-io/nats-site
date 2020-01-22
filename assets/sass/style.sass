@@ -1,5 +1,4 @@
 @charset "utf-8"
-{{ $extraColors := site.Params.colors.extra }}
 {{ $fontAwesomeVersion := site.Params.font_awesome_version }}
 {{ $fonts := site.Params.fonts }}
 {{ if $fonts }}
@@ -31,20 +30,9 @@ $nats-colors: ("nats-blue": $nats-blue, "nats-green": $nats-green, "nats-dark-bl
   .has-text-#{$name}
     color: $color
 
-// Extra colors specified in config
-{{ with $extraColors }}
-{{ range . }}
-${{ .name }}: '{{ .hex }}'
-{{ end }}
-{{ end }}
-
 // Initial Bulma imports
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
-
-// Bulma-specific overrides
-$dark: $nats-dark
-$primary: $nats-blue
 
 // Font overrides
 {{ if $fonts }}
@@ -59,17 +47,15 @@ $family-monospace: "{{ . }}", monospace
 {{ end }}
 {{ end }}
 
+// Bulma-specific overrides
+$dark: $nats-dark
+$primary: $nats-blue
+$navbar-height: 4rem
+
 // Final Bulma imports
 @import "bulma/sass/utilities/derived-variables"
 
-// Bulma variable overrdides that require derived variables like $dark
-$footer-background-color: $dark
-
-{{ with $extraColors }}
-{{ range . }}
-$colors: mergeColorMaps(("{{ .name }}": ({{ .hex }}, $white)), $colors)
-{{ end }}
-{{ end }}
+$colors: mergeColorMaps(("light-green": ($nats-light-green, $white)), $colors)
 
 // Bulma core
 @import "bulma/sass/utilities/_all"
@@ -121,3 +107,7 @@ $colors: mergeColorMaps(("{{ .name }}": ({{ .hex }}, $white)), $colors)
 .is-hero-logo
   +desktop
     width: 50%
+  +tablet-only
+    width: 70%
+  +touch
+    width: 90%

@@ -11,8 +11,10 @@
     {{ partial "css.html" . }}
     {{ partial "favicon.html" . }}
   </head>
-  <body class="is-page">
+  <body class="is-page has-navbar-fixed-top">
     <main class="is-main">
+      {{ partial "navbar.html" . }}
+
       {{ block "main" . }}
       {{ end }}
     </main>
