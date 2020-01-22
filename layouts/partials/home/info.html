@@ -3,8 +3,8 @@
 
 <section class="section">
   <div class="container">
-    <div class="columns is-variable is-8">
-      <div class="column is-one-third">
+    <div class="columns is-variable is-8 is-vcentered">
+      <div class="column">
         <div class="content is-medium">
           {{ $desc }}
         </div>
@@ -15,7 +15,7 @@
           <div class="columns is-multiline">
             {{ range $k, $v := $companies }}
             {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
-            <div class="column is-one-third">
+            <div class="column has-text-centered is-one-third logo">
               <a href="{{ $v.home }}" target="_blank">
                 <img src="{{ $img }}" alt="{{ $v.name }} logo">
               </a>
@@ -23,19 +23,6 @@
             {{ end }}
           </div>
         </div>
-
-        <!--
-        <div class="logos">
-          {{ range $k, $v := $companies }}
-          {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
-          <div class="logo">
-            <a href="{{ $v.home }}" target="_blank">
-              <img src="{{ $img }}" alt="{{ $v.name }} logo">
-            </a>
-          </div>
-          {{ end }}
-        </div>
-        -->
       </div>
     </div>
   </div>

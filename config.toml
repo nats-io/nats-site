@@ -31,6 +31,7 @@ Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, Alibaba 
 [params.logos]
 navbar = "nats-horizontal-white.png"
 hero = "nats-horizontal-color.png"
+footer = "nats-icon-black.png"
 
 [[params.fonts]]
 name = "Source Sans Pro"

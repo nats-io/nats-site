@@ -1,5 +1,10 @@
-<footer class="footer has-background-black">
-  <div class="container">
-    FOOTER
+{{ $bgColor  := cond .IsHome "black" "white" }}
+{{ $color    := cond .IsHome "white-bis" "black" }}
+{{ $year     := now.Year }}
+<footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
+  <div class="container has-text-centered">
+    <p class="has-text-weight-medium">
+      Copyright &copy; NATS Authors {{ $year }}
+    </p>
   </div>
 </footer>

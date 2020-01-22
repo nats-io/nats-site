@@ -61,7 +61,7 @@ logo = "mastercard.png"
 [companies.tinder]
 name = "Tinder"
 home = "https://www.tinder.com"
-logo = "tinder.png"
+logo = "tinder.svg"
 
 [companies.lauchdarkly]
 name = "LaunchDarkly"

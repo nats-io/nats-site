@@ -124,16 +124,17 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white)), $colors)
 .is-hero-logo
   +logo(50%, 70%, 90%)
 
+.is-footer-logo
+  +logo(25%, 25%, 15%)
+
 .is-cncf-logo
   margin-top: 2rem
   +logo(40%, 70%, 70%)
 
-.logos
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-
-  .logo
-    max-height: 3rem
-    flex: 25%
-    margin-bottom: 1rem
+.logo
+  margin: auto auto
+  
+  +tablet-only
+    width: 90%
+  +touch
+    width: 80%
