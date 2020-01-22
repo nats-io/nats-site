@@ -1,7 +1,6 @@
 var gulp         = require('gulp'),
     gm           = require('gulp-gm'),
-    imageResize  = require('gulp-image-resize'),
-    clean        = require('gulp-clean');
+    imageResize  = require('gulp-image-resize');
 
 // Resize User Logos
 gulp.task('userLogos', function() {
