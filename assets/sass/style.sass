@@ -104,6 +104,14 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white)), $colors)
 // @import "bulma/sass/components/panel"
 // @import "bulma/sass/components/tabs"
 
+.is-page
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+  .is-main
+    flex: 1
+
 .is-hero-logo
   +desktop
     width: 50%
