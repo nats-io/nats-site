@@ -5,7 +5,7 @@
   <head>
     <title>
       {{ block "title" . }}
-      {{ site.Title }}
+      {{ site.Title }} &ndash; {{ site.Params.tagline }}
       {{ end }}
     </title>
     {{ partial "css.html" . }}
