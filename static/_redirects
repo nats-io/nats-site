@@ -1,1 +1,2 @@
 /documentation     https://docs.nats.io
+/documentation/*     https://docs.nats.io
