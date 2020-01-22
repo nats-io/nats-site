@@ -19,6 +19,9 @@ noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
 images = ["/img/nats-icon-color.png"]
 
+[params.logos]
+navbar = "nats-horizontal-white.png"
+
 [[params.fonts]]
 name = "Source Sans Pro"
 sizes = [300, 400, 600, 700]

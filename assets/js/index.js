@@ -1,7 +1,17 @@
 // General Javascript
 
+function navbarToggle() {
+  const burger = $('.navbar-burger'),
+    menu = $('.navbar-menu');
+
+  burger.click(() => {
+    [burger, menu].forEach((el) => el.toggleClass('is-active'));
+  });
+}
+
 // On Page Load
 $(function() {
+  navbarToggle();
 
   // Lets make sure we're on the about page before running this
   if($("#throughputChart").length > 0) {

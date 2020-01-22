@@ -19,8 +19,17 @@
 {{ end }}
 
 // Site-specific variables here
-$cncf-blue: #426cab
-$cncf-green: #76c5d5
+$nats-dark: rgb(0, 1, 31)
+$nats-blue: #27aae1
+$nats-green: #34a574
+$nats-dark-blue: #375c93
+$nats-light-green: #8dc63f
+
+$nats-colors: ("nats-dark": $nats-dark, "nats-blue": $nats-blue, "nats-dark-blue": $nats-dark-blue, "nats-light-green": $nats-light-green)
+
+@each $name, $color in $nats-colors
+  .has-text-#{name}
+    color: $color
 
 // Extra colors specified in config
 {{ with $extraColors }}
@@ -34,7 +43,8 @@ ${{ .name }}: '{{ .hex }}'
 @import "bulma/sass/utilities/functions"
 
 // Bulma-specific overrides
-$primary: $cncf-blue
+$dark: $nats-dark
+$primary: $nats-blue
 
 // Font overrides
 {{ if $fonts }}

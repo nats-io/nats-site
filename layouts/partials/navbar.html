@@ -1,3 +1,36 @@
-<nav class="navbar is-black is-fixed-top">
+{{ $title := site.Title }}
+{{ $home  := site.BaseURL }}
+{{ $menu  := site.Menus.main }}
+<nav class="navbar is-dark is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ $home }}">
+        {{ partial "logo.html" (dict "logo" "navbar") }}
+      </a>
 
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        {{ range $menu }}
+        {{ $isExternal := hasPrefix .URL "http" }}
+        <a class="navbar-item has-text-weight-bold" href="{{ .URL }}">
+          <span>
+            {{ .Name }}
+          </span>
+          {{ if $isExternal }}
+          <span class="icon has-text-primary">
+            <i class="fas fa-sm fa-external-link-alt"></i>
+          </span>
+          {{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
 </nav>
