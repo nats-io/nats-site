@@ -279,15 +279,30 @@ Releases:
   supported: false
   language: C++
   author:
-    - name: Petar Koretić
-      link: https://github.com/pkoretic/
+  - name: Petar Koretić
+    link: https://github.com/pkoretic/
   version_num: 0.0.0
   release_notes: |
     Last udpated on August 12th, 2017.
   github:
-    - user: pkoretic
-      repo: qt-nats
-      link: https://github.com/pkoretic/qt-nats
+  - user: pkoretic
+    repo: qt-nats
+    link: https://github.com/pkoretic/qt-nats
+
+- name: Asio C++
+  type: nats-client
+  supported: false
+  language: C++
+  author:
+    - name: Vlad Troinich
+      link: https://github.com/antlad
+  version_num: 0.0.0
+  release_notes: |
+    Last udpated on October 24th, 2019.
+  github:
+    - user: antlad
+      repo: nats-asio
+      link: https://github.com/antlad/nats_asio
 
 - name: Elm
   type: nats-client
@@ -453,6 +468,21 @@ Releases:
     - user: encabulators
       repo: natsclient
       link: https://github.com/encabulators/natsclient
+
+- name: Rust-Rants
+  type: nats-client
+  supported: false
+  language: Rust
+  author:
+  - name: David McNeil
+    link: https://github.com/davidMcneil
+  version_num: 0.0.0
+  release_notes: |
+
+  github:
+  - user: davidmcneil
+    repo: rants
+    link: https://github.com/davidMcneil/rants
 
 - name: Scala
   type: nats-client
