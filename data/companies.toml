@@ -1,75 +1,69 @@
-[companies]
 [companies.ericsson]
 name = "Ericsson"
 home = "https://www.ericsson.com/"
-logo = "/img/companies/ericsson.jpg"
+logo = "ericsson.jpg"
 
 [companies.htc]
 name = "HTC"
 home = "https://www.htc.com/"
-logo = "/img/companies/htc.jpg"
+logo = "htc.jpg"
 
 [companies.siemens]
 name = "Siemens"
 home = "https://www.siemens.com"
-logo = "/img/companies/siemens.jpg"
+logo = "siemens.jpg"
 
 [companies.vmware]
 name = "VMware"
 home = "https://www.vmware.com/"
-logo = "/img/companies/vmware.jpg"
+logo = "vmware.jpg"
 
 [companies.pivotal]
 name = "Pivotal"
 home = "https://pivotal.io/"
-logo = "/img/companies/pivotal.jpg"
+logo = "pivotal.jpg"
 
 [companies.ge]
 name = "GE"
 home = "https://www.ge.com/"
-logo = "/img/companies/ge.jpg"
+logo = "ge.jpg"
 
 [companies.baidu]
 name = "Baidu"
 home = "https://www.baidu.com/"
-logo = "/img/companies/baidu.jpg"
+logo = "baidu.jpg"
 
 [companies.clarify]
 name = "Clarifai"
-home = "https://www.clarifai.com/"
-logo = "/img/companies/clarifai.jpg"
+home = "https://www.clarifai.com"
+logo = "clarifai.jpg"
 
 [companies.netlify]
 name = "Netlify"
-home = "https://www.netlify.com/"
-logo = "/img/companies/netlify.jpg"
+home = "https://www.netlify.com"
+logo = "netlify.jpg"
 
 [companies.zephyr]
 name = "Zephyr"
-home = "https://www.zephyrproject.org/"
-logo = "/img/companies/zephyr_project.png"
+home = "https://www.zephyrproject.org"
+logo = "zephyr.png"
 
 [companies.telia]
 name = "Telia Company"
-home = "https://www.teliacompany.com/"
-logo = "/img/companies/telia_company.png"
+home = "https://www.teliacompany.com"
+logo = "telia.png"
 
 [companies.mastercard]
 name = "Mastercard"
-home = "https://www.mastercard.us/en-us.html"
-logo = "/img/companies/mastercard.png"
+home = "https://www.mastercard.us"
+logo = "mastercard.png"
 
 [companies.tinder]
 name = "Tinder"
 home = "https://www.tinder.com"
-logo = "/img/companies/tinder.png"
+logo = "tinder.png"
 
 [companies.lauchdarkly]
 name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
-logo = "/img/companies/launchdarkly.png"
-
-# [companies.pex]
-# name = "Pex"
-# home = "https://www.pex.com"
-# logo = "/img/companies/pex.png"
+logo = "launchdarkly.png"
