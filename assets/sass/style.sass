@@ -24,6 +24,10 @@ $nats-green: #34a574
 $nats-dark-blue: #375c93
 $nats-light-green: #8dc63f
 
+$reddit-orange: rgba(255, 86, 0, 1)
+$slack-purple: rgb(88, 27, 93)
+$twitter-blue: rgb(29, 202, 255)
+
 $nats-colors: ("nats-blue": $nats-blue, "nats-green": $nats-green, "nats-dark-blue": $nats-dark-blue, "nats-light-green": $nats-light-green)
 
 @each $name, $color in $nats-colors
@@ -56,7 +60,7 @@ $navbar-height: 4rem
 // Final Bulma imports
 @import "bulma/sass/utilities/derived-variables"
 
-$colors: mergeColorMaps(("light-green": ($nats-light-green, $white)), $colors)
+$colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-orange": ($reddit-orange, $white), "twitter-blue": ($twitter-blue, $white), "slack-purple": ($slack-purple, $white)), $colors)
 
 // Bulma core
 @import "bulma/sass/utilities/_all"

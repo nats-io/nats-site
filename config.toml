@@ -28,6 +28,25 @@ Members of the [Synadia](https://synadia.com) team created and maintain the NATS
 Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, Alibaba and Baidu, among others, rely on the NATS.io messaging system for its highly performant, secure and resilient capabilities.
 """
 
+[[params.social]]
+icon = "twitter"
+url = "https://twitter.com/nats_io"
+color = "twitter-blue"
+
+[[params.social]]
+icon = "github"
+url = "https://github.com/nats-io"
+
+[[params.social]]
+icon = "slack"
+url = "https://slack.nats.io"
+color = "slack-purple"
+
+[[params.social]]
+icon = "reddit-alien"
+url = "https://www.reddit.com/r/NATS_io/"
+color = "reddit-orange"
+
 [params.logos]
 navbar = "nats-horizontal-white.png"
 hero = "nats-horizontal-color.png"
