@@ -4,6 +4,11 @@
 {{ $year    := now.Year }}
 {{ $logo    := cond .IsHome "footer_dark" "footer_light" }}
 {{ $menu    := site.Menus.main }}
+{{ $showHr  := not .IsHome }}
+
+{{ if $showHr }}
+<hr />
+{{ end }}
 <footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
   <section class="section">
     <div class="container">
@@ -25,7 +30,7 @@
         </div>
       </div>
 
-      <hr class="is-footer-hr has-background-white-bis" />
+      <hr class="is-footer-hr{{ if not $showHr }} has-background-white-bis{{ end }}" />
 
       <p class="has-text-weight-medium">
         Copyright &copy; NATS Authors {{ $year }}
