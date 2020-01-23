@@ -50,7 +50,8 @@ color = "reddit-orange"
 [params.logos]
 navbar = "nats-horizontal-white.png"
 hero = "nats-horizontal-color.png"
-footer = "nats-icon-black.png"
+footer_dark = "nats-icon-white.png"
+footer_light = "nats-icon-black.png"
 
 [[params.fonts]]
 name = "Source Sans Pro"

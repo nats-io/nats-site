@@ -1,4 +1,4 @@
-{{ $alt  := printf "%s %s logo" site.Title .logo }}
-{{ $logo := index site.Params.logos .logo }}
-{{ $img  := printf "img/logos/%s" $logo | relURL }}
-<img{{ if .class }} class="is-{{ .logo }}-logo"{{ end }} src="{{ $img }}" alt="{{ $alt }}">
+{{ $alt   := printf "%s %s logo" site.Title .logo }}
+{{ $logo  := index site.Params.logos .logo }}
+{{ $img   := printf "img/logos/%s" $logo | relURL }}
+<img{{ if .class }} class="is-{{ .logo }}-logo"{{ end }}{{ if .footer }} class="is-footer-logo"{{ end }} src="{{ $img }}" alt="{{ $alt }}">

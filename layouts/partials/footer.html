@@ -1,23 +1,32 @@
-{{ $bgColor  := cond .IsHome "black" "white" }}
-{{ $color    := cond .IsHome "white-bis" "black" }}
-{{ $year     := now.Year }}
+{{ $title   := site.Title }}
+{{ $bgColor := cond .IsHome "black" "white" }}
+{{ $color   := cond .IsHome "white-bis" "black" }}
+{{ $year    := now.Year }}
+{{ $logo    := cond .IsHome "footer_dark" "footer_light" }}
+{{ $menu    := site.Menus.main }}
 <footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
   <section class="section">
     <div class="container">
-      <div class="columns">
+      <div class="columns is-vcentered">
         <div class="column">
+          {{ partial "logo.html" (dict "logo" $logo "footer" true) }}
+        </div>
 
+        <div class="column">
+          {{ range $menu }}
+          <a class="is-size-5 is-size-6-mobile" href="{{ .URL }}">
+            {{ .Name }}
+          </a><br />
+          {{ end }}
         </div>
 
         <div class="column">
           {{ partial "social-buttons.html" (dict "align" "right") }}
         </div>
       </div>
-    </div>
 
-    <br />
+      <hr class="is-footer-hr has-background-white-bis" />
 
-    <div class="container has-text-centered">
       <p class="has-text-weight-medium">
         Copyright &copy; NATS Authors {{ $year }}
       </p>
