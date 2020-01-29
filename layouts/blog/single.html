@@ -1,0 +1,8 @@
+{{ define "title" }}
+{{ .Title }} | NATS blog
+{{ end }}
+
+{{ define "main" }}
+{{ partial "blog/hero.html" . }}
+{{ partial "blog/content.html" . }}
+{{ end }}

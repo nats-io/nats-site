@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-variable is-8">
+      <div class="column is-two-thirds">
+        <div class="content is-medium">
+          {{ .Content }}
+        </div>
+
+        <br />
+
+        <a class="button is-dark is-outlined" href="/blog">
+          <span class="icon">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          <span>
+            Back to blog
+          </span>
+        </a>
+      </div>
+
+      <div class="column">
+        <p class="title">
+          Categories
+        </p>
+
+        <div class="buttons are-small">
+          {{ range .Params.categories }}
+          <a class="button is-dark is-outlined" href="/categories/{{ . | lower }}">
+            {{ . }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
