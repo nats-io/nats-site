@@ -1,0 +1,30 @@
+{{ define "title" }}
+NATS | Pages with the category {{ .Data.Term }}
+{{ end }}
+
+{{ define "main" }}
+{{ $category := .Data.Term }}
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-size-2 is-size-3-mobile has-text-weight-light">
+        Pages with the category <span class="has-text-weight-bold">{{ $category }}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content">
+      {{ range .Data.Pages }}
+      <a class="is-size-4 is-size-5-mobile" href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+
+      <br />
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
