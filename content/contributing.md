@@ -32,7 +32,7 @@ Twitter ([@nats_io](https://twitter.com/nats_io)) | You can follow NATS's [Twitt
 
 ## Contributing A Blog Post
 
-We’d love to highlight your NATS implementations or insights on the NATS blog  (http://nats.io/blog). If you have a submission you'd like us to consider, please contact info@nats.io. Here are some basic guidelines for submissions:
+We’d love to highlight your NATS implementations or insights on the [NATS blog](/blog). If you have a submission you'd like us to consider, please contact info@nats.io. Here are some basic guidelines for submissions:
 Markdown is the preferred format, although we can work with you on other formats.
 Try to keep your submission to 3-4 paragraphs in length. Sometimes lengthy blog posts are better served as several smaller ones.
 As context for your blog post, please share a bit about your role, and what your company/organization does before getting into your technical content.
@@ -70,7 +70,7 @@ Please test our releases in your environment and report any issues you run into 
 
 NATS is a small but ambitious project with a similarly small dedicated core team. Review of any proposed change can be a very time consuming task, and there will be times when our available bandwidth for PR review is limited. Therefore everyone benefits if submissions are useful, clear, easy to evaluate, and already pass basic checks.
 
-If you are eager to contribute, but you're just not sure-what* to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack team](http://natsio.slack.com). If you need to join, you can request an invitation to join via the Slack icon on our [Community Page](http://nats.io/community/).
+If you are eager to contribute, but you're just not sure-what* to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack team](http://natsio.slack.com). If you need to join, you can request an invitation to join via the Slack icon on our [Community Page](community).
 
 Before you get started, please consider whether the proposed change is likely to be relevant, new and actionable.
 
