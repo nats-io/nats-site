@@ -6,7 +6,13 @@ Here you will find the NATS Server (for simple, fast publish-subscribe) , NATS S
 
 Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at info@nats.io to share what you have built with us!
 
-## Connectors and utilities
+# Clients
+
+{{< clients >}}
+
+---
+
+# Connectors and utilities
 
 {{< connectors >}}
 
