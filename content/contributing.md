@@ -8,7 +8,7 @@ Do you want to contribute to NATS? Awesome! We’d love your help. To make it ea
 
 ### A Word On Governance
 
-NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#design-goals) while welcoming and facilitating broad contribution from the growing NATS user community.
+NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals](#design-goals) while welcoming and facilitating broad contribution from the growing NATS user community.
 
 When discussing GitHub procedures, we’ll use the term “committers” to refer to this group.
 
@@ -28,7 +28,7 @@ Venue | Description
 Stack Overflow | We regularly monitor [NATS questions](https://stackoverflow.com/search?tab=newest&q=NATS.IO) and so do many other knowledgeable NATS users. 
 Slack | The NATS Slack team at natsio.slack.com is a great place to ask and answer questions about the NATS project and ecosystem and to compare notes with other users. We welcome your contribution to the discussion there, especially in sharing your experiences implementing with NATS and answering the questions of other users. You can request an invitation to join via the Slack icon on our [Community page](/community).
 Google Groups | The [natsio](https://groups.google.com/forum/#!topic/natsio) Google group is for contributors and other people contributing to the NATS project. You can join them without a google account by sending an email to [natsio+subscribe@googlegroups.com](mailto:natsio+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription. 
-Twitter | You can follow NATS's [Twitter feed](https://twitter.com/nats_io/) to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
+Twitter ([@nats_io](https://twitter.com/nats_io)) | You can follow NATS's [Twitter feed](https://twitter.com/nats_io/) to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
 
 ## Contributing A Blog Post
 
@@ -78,7 +78,7 @@ Before you get started, please consider whether the proposed change is likely to
 - Check to see if there is history behind your proposal. Search the project's GitHub Issues and the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) for relevant discussions.  Often, the problem has been discussed before, with a resolution that doesn’t require a code change, or recording what kinds of changes will not be accepted as a resolution. If you don't find anything in either of those places, ask in the #general channel of the [NATS Slack team](http://natsio.slack.com) to see if anyone has anything to say.
 - If you’re considering modifying code that is in the data path (i.e. central to message flow in the server or in the client), have you taken time to understand why the current implementation was chosen? Fixing a typo is straightforward, but the core logic and algorithms of the NATS server (`nats-server`) are the result of a significant amount of combined experience developing and supporting messaging solutions. That doesn't mean they're flawless, but please know that changes in this area will be scrutinized closely against performance and stability concerns. We suggest that If you're uncertain why the existing code is written in a particular way, or what the impact of your proposed change(s) might be, ask questions of the NATS team via Slack or the Google group.
 
-### <a name="reviewcriteria"></a> Code Review Criteria
+### Code Review Criteria {#review-criteria}
 
 Knowing what's likely to be accepted or rejected and-why* is a key consideration in deciding whether and what to contribute. The criteria below are things we think about and look for in any proposed change. We have Performance, Stability, Simplicity, and Security in mind at all times. 
 
@@ -186,7 +186,6 @@ NATS follows widely-adopted standards for code formatting and style in each impl
 
 ## Acknowledgements
 
-*"If I have seen further, it is by standing on the shoulders of giants."*
-														- Sir Isaac Newton
+*"If I have seen further, it is by standing on the shoulders of giants"* — Sir Isaac Newton
 
 In preparing this guide, we gratefully borrowed ideas and words from the contribution guidelines of other popular open-source projects such as Apache Spark, Redis, and Docker. We thank them for inspiring us.

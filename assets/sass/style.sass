@@ -155,5 +155,11 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-ora
   height: 1px
 
 .content
+  table tr td
+    +desktop
+      min-width: 20rem
+    +mobile
+      min-width: 10rem
+
   hr
     margin: 4rem 0
