@@ -48,8 +48,8 @@
 
 {{ define "server" }}
 {{ $gh   := index .github 0 }}
-{{ $user := $gh.user }}
-{{ $repo := $gh.repo }}
+{{ $user := $gh.user | lower }}
+{{ $repo := $gh.repo | lower }}
 {{ $url  := printf "download/%s/%s" $user $repo | relURL }}
 <a class="button is-black is-outlined has-text-weight-bold" href="{{ $url }}">
   {{ .name }}
@@ -58,8 +58,8 @@
 
 {{ define "client" }}
 {{ $gh   := index .github 0 }}
-{{ $user := $gh.user }}
-{{ $repo := $gh.repo }}
+{{ $user := $gh.user | lower }}
+{{ $repo := $gh.repo | lower }}
 {{ $url  := printf "download/%s/%s" $user $repo | relURL }}
 <a class="button is-primary is-outlined has-text-weight-bold" href="{{ $url }}">
   {{ .name }}
