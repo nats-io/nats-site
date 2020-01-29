@@ -1,0 +1,17 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<section class="hero is-dark is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-size-1 is-size-2-mobile">
+        {{ .Title }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{{ partial "download/clients.html" . }}
+{{ end }}
