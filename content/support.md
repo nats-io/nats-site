@@ -1,14 +1,14 @@
----
-title: Support
----
++++
+title = "Support"
++++
 
 ## Reporting bugs
 
-If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](https://nats.io/contributing#githubissues).
+If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing#github-issues).
 
 ## Community Support for NATS and Clients
 
-Often the quickest way to get help is to start a discussion with other NATS users. There are [several public forums](https://nats.io/contributing#communityhelp) where you can discuss NATS with other knowledgeable users.
+Often the quickest way to get help is to start a discussion with other NATS users. There are [several public forums](/contributing#community-help) where you can discuss NATS with other knowledgeable users.
 
 ## Commercial Support and Services
 

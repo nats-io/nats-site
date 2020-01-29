@@ -1,12 +1,5 @@
 +++
 title = "NATS Contributor Guide"
-category = "concepts"
-showChildren=true
-[menu.main]
-  name = "How To Contribute"
-  weight = 2
-  identifier = "doc-contributing"
-  parent = "Getting Started With NATS"
 +++
 
 ## Contributing
@@ -15,63 +8,27 @@ Do you want to contribute to NATS? Awesome! We’d love your help. To make it ea
 
 ### A Word On Governance
 
-NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#designgoals) while welcoming and facilitating broad contribution from the growing NATS user community.
+NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#design-goals) while welcoming and facilitating broad contribution from the growing NATS user community.
 
 When discussing GitHub procedures, we’ll use the term “committers” to refer to this group.
 
-## <a name="designgoals"></a> NATS Design Goals and Philosophy
+## NATS Design Goals and Philosophy {#design-goals}
 
 NATS is designed with four goals in mind:
 
-- Performance - achieve the highest message throughput and lowest latency possible
-- Stability - "always on". Nothing we put in NATS should cause it to crash, and NATS should guard itself against unruly client behavior that might compromise performance or availability for all clients.
-- Simplicity - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`nats-server`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
-- Security - NATS supports basic security features: authentication, authorization and encryption (TLS) 
+1. **Performance** - achieve the highest message throughput and lowest latency possible
+1. **Stability** - NATS is "always on." Nothing we put in NATS should cause it to crash, and NATS should guard itself against unruly client behavior that might compromise performance or availability for all clients.
+1. **Simplicity** - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`nats-server`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
+1. **Security** - NATS supports basic security features: authentication, authorization and encryption (TLS) 
 
-## <a name="communityhelp"></a> Talking to Other NATS Users and Contributors
+## Talking to Other NATS Users and Contributors {#community-help}
 
-<table class="tg">
-  <col width="45%">
-  <col width="65%">
-  <tr>
-    <td>Stack Overflow</td>
-    <td>
-      We regularly monitor <a href="https://stackoverflow.com/search?tab=newest&q=NATS.IO" target="_blank">NATS questions</a>
-      and so do many other knowledgeable NATS users.
-    </td>
-  </tr>
-  <tr>
-    <td>Slack</td>
-    <td>
-      <p>
-        The NATS Slack team at <strong>natsio.slack.com</strong> is a great place to ask and answer 
-        questions about the NATS project and ecosystem and to compare notes with other users. 
-        We welcome your contribution to the discussion there, especially in sharing your 
-        experiences implementing with NATS and answering the questions of other users. 
-        You can request an invitation to join via the Slack icon on our 
-        <a href="http://nats.io/community/" target="_blank">Community page</a>.
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>Google Group</td>
-    <td>
-      The <a href="" target="_blank">natsio</a>  Google group is for contributors and other people 
-      contributing to the NATS project.
-      You can join them without a google account by sending an email to 
-      <a href="mailto:natsio+subscribe@googlegroups.com">natsio+subscribe@googlegroups.com</a>.
-      After receiving the join-request message, you can simply reply to that to confirm the subscription.
-    </td>
-  </tr>
-  <tr>
-    <td>Twitter (@nats_io)</td>
-    <td>
-      You can follow <a href="https://twitter.com/nats_io/" target="_blank">NATS.IO's Twitter feed</a>
-      to get updates on our project(s). You can also tweet us questions or just
-      share blogs or stories.
-    </td>
-  </tr>
-</table>
+Venue | Description
+:-----|:-----------
+Stack Overflow | We regularly monitor [NATS questions](https://stackoverflow.com/search?tab=newest&q=NATS.IO) and so do many other knowledgeable NATS users. 
+Slack | The NATS Slack team at natsio.slack.com is a great place to ask and answer questions about the NATS project and ecosystem and to compare notes with other users. We welcome your contribution to the discussion there, especially in sharing your experiences implementing with NATS and answering the questions of other users. You can request an invitation to join via the Slack icon on our [Community page](/community).
+Google Groups | The [natsio](https://groups.google.com/forum/#!topic/natsio) Google group is for contributors and other people contributing to the NATS project. You can join them without a google account by sending an email to [natsio+subscribe@googlegroups.com](mailto:natsio+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription. 
+Twitter | You can follow NATS's [Twitter feed](https://twitter.com/nats_io/) to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
 
 ## Contributing A Blog Post
 

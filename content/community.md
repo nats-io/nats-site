@@ -1,6 +1,6 @@
----
-title: Community
----
++++
+title = "Community"
++++
 
 ### Our NATS community consists of company end-users, partners, and OSS contributors that make up a vibrant ecosystem.
 
