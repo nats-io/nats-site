@@ -19,6 +19,8 @@
       </div>
 
       <div class="column">
+        <hr class="is-hidden-tablet" />
+
         <p class="title">
           Categories
         </p>
@@ -26,6 +28,20 @@
         <div class="buttons are-small">
           {{ range .Params.categories }}
           <a class="button is-dark is-outlined" href="/categories/{{ . | lower }}">
+            {{ . }}
+          </a>
+          {{ end }}
+        </div>
+
+        <br />
+
+        <p class="title">
+          Tags
+        </p>
+
+        <div class="buttons are-small">
+          {{ range .Params.tags }}
+          <a class="button is-dark is-outlined" href="/tags/{{ . | lower }}">
             {{ . }}
           </a>
           {{ end }}

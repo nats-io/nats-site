@@ -3,48 +3,46 @@
 {{ $streamingServer := where $releases ".type" "streaming-server" }}
 {{ $natsClient      := where $releases ".type" "nats-client" }}
 {{ $streamingClient := where $releases ".type" "streaming-client" }}
+<div class="container content">
+  <div class="columns">
+    <div class="column is-two-thirds">
+      <p class="is-size-3 has-text-weight-bold">
+        NATS
+      </p>
 
-<section class="section">
-  <div class="container content">
-    <div class="columns">
-      <div class="column is-two-thirds">
-        <p class="is-size-3 has-text-weight-bold">
-          NATS
-        </p>
-  
-        <div class="buttons">
-          {{ range $natsServer }}
-          {{ template "server" . }}
-          {{ end }}
-        </div>
-  
-        <div class="buttons">
-          {{ range $natsClient }}
-          {{ template "client" . }}
-          {{ end }}
-        </div> 
+      <div class="buttons">
+        {{ range $natsServer }}
+        {{ template "server" . }}
+        {{ end }}
       </div>
-  
-      <div class="column">
-        <p class="is-size-3 has-text-weight-bold">
-          NATS Streaming
-        </p>
-  
-        <div class="buttons">
-          {{ range $streamingServer }}
-          {{ template "server" . }}
-          {{ end }}
-        </div>
-  
-        <div class="buttons">
-          {{ range $streamingClient }}
-          {{ template "client" . }}
-          {{ end }}
-        </div>
+
+      <div class="buttons">
+        {{ range $natsClient }}
+        {{ template "client" . }}
+        {{ end }}
+      </div> 
+    </div>
+
+    <div class="column">
+      <p class="is-size-3 has-text-weight-bold">
+        NATS Streaming
+      </p>
+
+      <div class="buttons">
+        {{ range $streamingServer }}
+        {{ template "server" . }}
+        {{ end }}
+      </div>
+
+      <div class="buttons">
+        {{ range $streamingClient }}
+        {{ template "client" . }}
+        {{ end }}
       </div>
     </div>
   </div>
-</section>
+</div>
+
 
 {{ define "server" }}
 {{ $gh   := index .github 0 }}
