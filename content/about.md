@@ -1,5 +1,6 @@
 +++
 title = "About NATS"
+chart = true
 +++
 
 ### NATS is a family of open source products that are tightly integrated but can be deployed independently. NATS is being deployed globally by thousands of companies, spanning innovative use-cases including: Mobile apps, Microservices and Cloud Native, and IoT.
