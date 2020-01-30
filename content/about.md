@@ -9,3 +9,19 @@ title = "About NATS"
 The core NATS Server acts as a central nervous system for building distributed applications. There are dozens of clients ranging from Java, .NET, to GO. NATS Streaming extends the platform to provide for real-time streaming & big data use-cases.
 
 NATS was created by Derek Collison, Founder and CEO at [Synadia](https://synadia.com), in response to the market need for a simple and high performance messaging solution. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is available under the Apache-2.0 Open Source License.
+
+{{< throughput >}}
+
+---
+
+## Roadmap
+
+Our roadmap represents coming features lined up for the future of NATS. We are excited to bring these advances to the NATS community and look forward to your valuable input. Please contact us at [info@nats.io](mailto:info@nats.io) or join our Slack channel with any questions, comments, or requests.
+
+{{< figure src="/img/roadmap.png" width="90%" alt="NATS roadmap" caption="NATS Roadmap" >}}
+
+---
+
+## Recent posts
+
+{{< recent-posts >}}

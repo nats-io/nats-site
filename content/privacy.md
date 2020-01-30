@@ -8,7 +8,8 @@ description ="NATS Privacy Policy and Cookie Usage"
 
 
 ## NATS Privacy Policy and Cookie Usage
-Effective Date September 15, 2018
+
+Effective Date: **September 15, 2018**
 
 We are committed to safeguarding the privacy of our website visitors. In this policy we will explain how we treat your personal information.
 Analytics is used to track consumers of our site and improve its content. Various cookies along with Google Analytics are used to collect the following kinds of personal information.
@@ -22,11 +23,4 @@ This Policy is current as of the effective date set forth above. If we change ou
 
 ## Privacy Settings
 
-<form>
-    <div>
-        <span class="checkbox">
-            <label class="switch" style="vertical-align:middle;"> <input id="disable_analytics" value="true" type="checkbox"><span class="slider round"></span></label>
-            <span style="vertical-align:middle;font-size:18px;">Disable Google Analytics</span>
-        </span>
-    </div>
-</form>
+{{< privacy-settings >}}
