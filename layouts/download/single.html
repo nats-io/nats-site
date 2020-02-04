@@ -4,6 +4,7 @@
 
 {{ define "main" }}
 {{ $title   := .Title }}
+{{ $clients := .Params.clients }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container">
@@ -16,10 +17,10 @@
 
 <section class="section">
   <div class="container">
-    <div class="github-embed">
-      <a class="github-button" href="https://github.com/nats-io/nats.c" data-icon="octicon-star" data-show-count="true" aria-label="Star {{ $title }} on GitHub">Star</a>
-      <a class="github-button" href="https://github.com/nats-io/nats.c/subscribe" data-icon="octicon-eye" data-show-count="true" aria-label="Watch {{ $title }} on GitHub">Watch</a>
-      <a class="github-button" href="https://github.com/nats-io/nats.c/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork {{ $title }} on GitHub">Fork</a>
+    <div class="columns is-multiline is-variable is-8">
+      {{ range $clients }}
+      {{ partial "download/client.html" (dict "language" $title "org" .org "repo" .repo "author" .author "release" .release) }}
+      {{ end }}
     </div>
   </div>
 </section>

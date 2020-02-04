@@ -1,0 +1,7 @@
+{{ $repo := printf "https://github.com/%s" .repo }}
+
+<div class="github-embed">
+  <a class="github-button" href="{{ $repo }}/subscription" data-icon="octicon-eye" aria-label="Watch {{ .repo }} on GitHub">Watch</a>
+  <a class="github-button" href="{{ $repo }}" data-icon="octicon-star" aria-label="Star {{ .repo }} on GitHub">Star</a>
+  <a class="github-button" href="{{ $repo }}/fork" data-icon="octicon-repo-forked" aria-label="Fork {{ .repo }} on GitHub">Fork</a>
+</div>

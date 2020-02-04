@@ -47,7 +47,7 @@ $dark: $nats-dark
 $navbar-height: 4rem
 $navbar-item-hover-color: $nats-light-green !important
 $navbar-item-hover-background-color: $dark !important
-$card-content-padding: 2rem
+$card-content-padding: 1.75rem
 
 // Font overrides
 {{ if $fonts }}
@@ -103,9 +103,9 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-ora
 // @import "bulma/sass/components/breadcrumb"
 @import "bulma/sass/components/card"
 // @import "bulma/sass/components/dropdown"
-// @import "bulma/sass/components/level"
+@import "bulma/sass/components/level"
 // @import "bulma/sass/components/list"
-// @import "bulma/sass/components/media"
+@import "bulma/sass/components/media"
 // @import "bulma/sass/components/menu"
 // @import "bulma/sass/components/message"
 // @import "bulma/sass/components/modal"
@@ -113,6 +113,15 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-ora
 // @import "bulma/sass/components/pagination"
 // @import "bulma/sass/components/panel"
 // @import "bulma/sass/components/tabs"
+
+.repo-link
+  color: $dark
+
+  &:hover
+    color: $grey
+
+.has-margin-right
+  margin-right: 2rem
 
 .is-constrained
   max-width: 90ch
