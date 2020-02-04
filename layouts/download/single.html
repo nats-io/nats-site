@@ -3,12 +3,23 @@
 {{ end }}
 
 {{ define "main" }}
+{{ $title   := .Title }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container">
       <p class="title is-size-1 is-size-2-mobile">
-        {{ .Title }}
+        {{ $title }}
       </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="github-embed">
+      <a class="github-button" href="https://github.com/nats-io/nats.c" data-icon="octicon-star" data-show-count="true" aria-label="Star {{ $title }} on GitHub">Star</a>
+      <a class="github-button" href="https://github.com/nats-io/nats.c/subscribe" data-icon="octicon-eye" data-show-count="true" aria-label="Watch {{ $title }} on GitHub">Watch</a>
+      <a class="github-button" href="https://github.com/nats-io/nats.c/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork {{ $title }} on GitHub">Fork</a>
     </div>
   </div>
 </section>
