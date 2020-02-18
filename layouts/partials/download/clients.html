@@ -1,8 +1,13 @@
-{{ $releases  := site.Data.releases.Releases }}
-{{ $natsServer      := where $releases ".type" "nats-server" }}
-{{ $streamingServer := where $releases ".type" "streaming-server" }}
-{{ $natsClient      := where $releases ".type" "nats-client" }}
-{{ $streamingClient := where $releases ".type" "streaming-client" }}
+{{ $clients   := site.Data.clients }}
+{{ $streaming := (slice) }}
+{{ range $clients }}
+{{ $this := . }}
+{{ range .clients }}
+{{ if .streaming_support }}
+{{ $streaming = $streaming | append $this }}
+{{ end }}
+{{ end }}
+{{ end }}
 <div class="container content">
   <div class="columns">
     <div class="column is-two-thirds">
@@ -11,16 +16,10 @@
       </p>
 
       <div class="buttons">
-        {{ range $natsServer }}
-        {{ template "server" . }}
-        {{ end }}
-      </div>
-
-      <div class="buttons">
-        {{ range $natsClient }}
+        {{ range $clients }}
         {{ template "client" . }}
         {{ end }}
-      </div> 
+      </div>
     </div>
 
     <div class="column">
@@ -29,13 +28,7 @@
       </p>
 
       <div class="buttons">
-        {{ range $streamingServer }}
-        {{ template "server" . }}
-        {{ end }}
-      </div>
-
-      <div class="buttons">
-        {{ range $streamingClient }}
+        {{ range $streaming }}
         {{ template "client" . }}
         {{ end }}
       </div>
@@ -43,23 +36,11 @@
   </div>
 </div>
 
-
-{{ define "server" }}
-{{ $gh   := index .github 0 }}
-{{ $user := $gh.user | lower }}
-{{ $repo := $gh.repo | lower }}
-{{ $url  := printf "download/%s/%s" $user $repo | relURL }}
-<a class="button is-black is-outlined has-text-weight-bold" href="{{ $url }}">
-  {{ .name }}
-</a>
-{{ end }}
-
 {{ define "client" }}
-{{ $gh   := index .github 0 }}
-{{ $user := $gh.user | lower }}
-{{ $repo := $gh.repo | lower }}
-{{ $url  := printf "download/%s/%s" $user $repo | relURL }}
+{{ $lang    := .language }}
+{{ $display := cond (eq .language "C-sharp") "C#" .language }}
+{{ $url  := printf "download/%s" ($lang | lower) | relURL }}
 <a class="button is-primary is-outlined has-text-weight-bold" href="{{ $url }}">
-  {{ .name }}
+  {{ $display }}
 </a>
 {{ end }}

@@ -16,35 +16,6 @@
 #       link: URL to the repo on github. Example: https://github.com/nats-io/cnats
 
 Releases:
-- name: C
-  type: nats-client
-  supported: true
-  language: C
-  author:
-    - name:
-      link:
-  version_num: 2.1.0
-  release_notes: |
-    Release v2.1.0 on October 2nd, 2019.
-  github:
-    - user: nats-io
-      repo: nats.c
-      link: https://github.com/nats-io/nats.c
-
-- name: C Streaming
-  type: streaming-client
-  supported: true
-  language: C
-  author:
-    - name:
-      link:
-  version_num: 2.1.0
-  release_notes: |
-    Release v2.1.0 on October 2nd, 2019.
-  github:
-    - user: nats-io
-      repo: stan.c
-      link: https://github.com/nats-io/nats.c
 
 - name: C#
   type: nats-client

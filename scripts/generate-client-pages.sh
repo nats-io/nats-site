@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-File.open('./data/clients.yaml', 'r') do |f|
+File.open("./data/clients.yaml", 'r') do |f|
     languages = YAML.load(f)
     languages.each do |l|
         language = l['language']

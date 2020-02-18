@@ -1,4 +1,4 @@
-{{ $repo := printf "%s/%s" .org .repo }}
+{{ $repo := printf "%s/%s" .ctx.org .ctx.repo }}
 {{ $link := printf "https://github.com/%s" $repo }}
 <div class="column is-half">
   <div class="card">
@@ -11,7 +11,7 @@
         Language: <strong>{{ .language }}</strong>
       </p>
 
-      {{ with .author }}
+      {{ with .ctx.author }}
       Author:
       {{ if .link }}
       <a href="{{ .link }}" target="_blank">
@@ -22,7 +22,7 @@
       {{ end }}
       {{ end }}
 
-      {{ with .release }}
+      {{ with .ctx.release }}
       <p>
         Release notes: <strong>v{{ .version }}</strong>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
       </p>

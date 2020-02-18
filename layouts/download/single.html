@@ -3,31 +3,24 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $title    := .Title }}
-{{ $clients  := .Params.clients }}
-{{ $releases := site.Data.releases.Releases }}
+{{ $title      := .Title }}
+{{ $lang       := .Title }}
+{{ $display    := cond (eq .Title "C-sharp") "C#" .Title }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container">
       <p class="title is-size-1 is-size-2-mobile">
-        {{ $title }}
+        {{ $display }} clients
       </p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    {{ .Params }}
-  </div>
-</section>
 
 <section class="section">
   <div class="container">
     <div class="columns is-multiline is-variable is-8">
-      {{ range $clients }}
-      {{ partial "download/client.html" (dict "language" $title "org" .org "repo" .repo "author" .author "release" .release) }}
-      {{ end }}
+
     </div>
   </div>
 </section>

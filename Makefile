@@ -5,7 +5,7 @@ setup:
 generate-client-pages:
 	scripts/generate-client-pages.sh
 
-develop:
+develop: generate-client-pages
 	hugo server --buildDrafts --buildFuture
 
 netlify-production-build:

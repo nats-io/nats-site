@@ -2,9 +2,21 @@
   clients:
   - org: nats-io
     repo: nats.cr
+    streaming_support: true
     author:
       name: Synadia
       link: https://synadia.com
     release:
       version: '2.1.0'
       date: '2019-10-02'
+- language: C-sharp
+  clients:
+  - org: nats-io
+    repo: nats.net
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.10.0'
+      date: '2019-11-18'
