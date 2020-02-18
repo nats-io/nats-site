@@ -39,7 +39,7 @@
 {{ define "client" }}
 {{ $lang    := .language }}
 {{ $display := cond (eq .language "C-sharp") "C#" .language }}
-{{ $url  := printf "download/%s" ($lang | lower) | relURL }}
+{{ $url  := printf "download/%s" ($lang | urlize) | relURL }}
 <a class="button is-primary is-outlined has-text-weight-bold" href="{{ $url }}">
   {{ $display }}
 </a>

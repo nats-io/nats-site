@@ -1,7 +1,7 @@
 - language: C
   clients:
   - org: nats-io
-    repo: nats.cr
+    repo: nats.c
     streaming_support: true
     author:
       name: Synadia
@@ -20,3 +20,75 @@
     release:
       version: '0.10.0'
       date: '2019-11-18'
+- language: Crystal
+  clients:
+  - org: nats-io
+    repo: nats.cr
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.0.0'
+      date: '2019-09-10'
+- language: Elixir
+  clients:
+  - org: nats-io
+    repo: nats.ex
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.6.1'
+      date: '2019-03-03'
+- language: Go
+  clients:
+  - org: nats-io
+    repo: nats.go
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '1.7.2'
+      date: '2019-02-21'
+- language: Java
+  clients:
+  - org: nats-io
+    repo: nats.java
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '2.6.0'
+      date: '2019-07-22'
+- language: NGINX
+  clients:
+  - org: nats-io
+    repo: nginx-nats
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      date: '2015-08-18'
+- language: Node.js
+  clients:
+  - org: nats-io
+    repo: node-nats
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '1.2.6'
+      date: '2019-03-29'
+- language: Pure Ruby
+  clients:
+  - org: nats-io
+    repo: pure-ruby-nats
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.6.0'
+      date: '2019-06-19'
