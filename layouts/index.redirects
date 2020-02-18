@@ -1,0 +1,10 @@
+{{ $clients := site.Data.clients }}
+/documentation     https://docs.nats.io
+/documentation/*     https://docs.nats.io
+
+{{ range $clients -}}
+{{- $lang := .language | lower -}}
+{{ range .clients -}}
+/download/{{ .org }}/{{ .repo }} /download/{{ $lang }}
+{{ end -}}
+{{ end }}

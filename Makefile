@@ -8,8 +8,8 @@ generate-client-pages:
 develop: generate-client-pages
 	hugo server --buildDrafts --buildFuture
 
-netlify-production-build:
+netlify-production-build: generate-client-pages
 	hugo --minify
 
-netlify-preview-build: assets
+netlify-preview-build: generate-client-pages
 	hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture
