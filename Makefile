@@ -2,6 +2,9 @@ setup:
 	npm install
 	brew install hugo
 
+generate-client-pages:
+	scripts/generate-client-pages.sh
+
 develop:
 	hugo server --buildDrafts --buildFuture
 

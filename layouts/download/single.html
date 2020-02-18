@@ -3,8 +3,9 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $title   := .Title }}
-{{ $clients := .Params.clients }}
+{{ $title    := .Title }}
+{{ $clients  := .Params.clients }}
+{{ $releases := site.Data.releases.Releases }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container">
@@ -12,6 +13,12 @@
         {{ $title }}
       </p>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ .Params }}
   </div>
 </section>
 

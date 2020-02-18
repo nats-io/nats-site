@@ -7,6 +7,10 @@ ehthumbs.db
 /public
 /resources
 
+# Generated client pages
+content/download/*.md
+!content/download/_index.md
+
 # Node
 node_modules
 npm-debug.log
