@@ -10,6 +10,7 @@ setup:
 	brew install hugo
 	brew install imagemagick
 	brew install graphicsmagick
+	brew install gnupg
 	npm install gm
 
 build:
