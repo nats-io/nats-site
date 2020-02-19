@@ -1,13 +1,3 @@
-- language: .NET
-  clients:
-  - org: danielwertheim
-    repo: mynatsclient
-    author:
-      name: Daniel Wertheim
-      link: https://github.com/danielwertheim
-    release:
-      version: '0.10.0'
-      date: '2017-01-10'
 - language: Arduino
   clients:
   - org: isobit
@@ -32,13 +22,6 @@
       link: https://github.com/antlad
     release:
       date: '2019-10-24'
-- language: Asyncio
-  clients:
-  - org: mackeyja92
-    repo: asyncio-nats-streaming
-    author:
-      name: Jared Mackey
-      link: https://github.com/mackeyja92
 - language: C
   clients:
   - org: nats-io
@@ -70,6 +53,14 @@
     release:
       version: '0.10.0'
       date: '2019-11-18'
+  - org: danielwertheim
+    repo: mynatsclient
+    author:
+      name: Daniel Wertheim
+      link: https://github.com/danielwertheim
+    release:
+      version: '0.10.0'
+      date: '2017-01-10'
 - language: Crystal
   clients:
   - org: nats-io

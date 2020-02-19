@@ -3,14 +3,16 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $title      := .Title }}
-{{ $lang       := .Title }}
-{{ $display    := cond (eq .Title "C-sharp") "C#" .Title }}
+{{ $title       := .Title }}
+{{ $lang        := .Title }}
+{{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }}
+{{ $display     := printf "%s clients" $displayLang }}
+{{ $clients     := where site.Data.clients ".language" $title }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
     <div class="container">
       <p class="title is-size-1 is-size-2-mobile">
-        {{ $display }} clients
+        {{ $display }}
       </p>
     </div>
   </div>
@@ -20,7 +22,11 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline is-variable is-8">
-
+      {{ range $clients }}
+      {{ range .clients }}
+      {{ partial "download/client.html" (dict "ctx" . "language" $title) }}
+      {{ end }}
+      {{ end }}
     </div>
   </div>
 </section>

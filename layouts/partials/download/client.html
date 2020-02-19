@@ -7,6 +7,14 @@
         {{ $repo }}
       </p>
 
+      {{ if .ctx.streaming_support }}
+      <div class="buttons are-small">
+        <span class="button is-rounded is-success has-text-weight-bold">
+          nats-streaming
+        </span>
+      </div>
+      {{ end }}
+
       <p>
         Language: <strong>{{ .language }}</strong>
       </p>

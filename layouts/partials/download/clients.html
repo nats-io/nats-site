@@ -34,11 +34,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>  
 
 {{ define "client" }}
-{{ $lang    := .language }}
-{{ $display := cond (eq .language "C-sharp") "C#" .language }}
+{{ $lang    := cond (isset . "language") .language .language_alt }}
+{{ $display := cond (eq $lang "C-sharp") "C#" .language }}
 {{ $url  := printf "download/%s" ($lang | urlize) | relURL }}
 <a class="button is-primary is-outlined has-text-weight-bold" href="{{ $url }}">
   {{ $display }}
