@@ -102,6 +102,11 @@ gulp.task('clean', function() {
 // HUGO
 gulp.task('hugo', shell.task('hugo --minify'));
 
+// OpenPGP WKD
+// <https://datatracker.ietf.org/doc/draft-koch-openpgp-webkey-service/?include_text=1>
+gulp.task('openpgp-wkd',
+	  shell.task('./pgp/standalone-update-website -d nats.io -k pgp/*.asc -o public'))
+
 // // Watch
  gulp.task('watch', function() {
    gulp.watch('src/less/**/*.less', [ 'less' ]);
@@ -126,5 +131,5 @@ gulp.task('assets', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLog
 
 // Build for Production
 gulp.task('build', function (callback) {
-  runSequence( 'clean', 'assets', 'hugo', callback);
+  runSequence( 'clean', 'assets', 'hugo', 'openpgp-wkd', callback);
 });

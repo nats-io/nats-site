@@ -1,0 +1,22 @@
+pgp
+===
+
+Drop the ASCII-armored `.asc` export of any OpenPGP keys for users or systems
+with email addresses in the nats.io domain into this directory.
+
+The build system will generate the right content in the
+`.well-known/openpgpkey/` area of the web-site to support
+<https://datatracker.ietf.org/doc/draft-koch-openpgp-webkey-service/>.
+
+This enables commands such as the following to work, to allow the public to get
+the signing key for our Java artifacts from a trusted source:
+
+    gpg --locate-key info@nats.io
+
+With sufficiently recent versions of gpg, `--locate-external-key` will force a
+lookup even if the key exists on the local keyring, enabling refreshes:
+
+    gpg --locate-external-key info@nats.io
+
+
+Anyone with an email address in the `nats.io` domain can have a PGP key added here.
