@@ -146,6 +146,9 @@ class Email:
     def __str__(self):
         return self.lower
 
+    def __repr__(self):
+        return f'[<{self.lower}>,{self.wkd_local}]'
+
     def __lt__(self, other):
         return self.lower < other.lower
 
@@ -174,6 +177,9 @@ class GPGHandler:
             self._cmd(['--import', '--'], key_files),
             check=True, env=self.cmd_env)
 
+    def keyring_list(self):
+        subprocess.run(self._cmd(['--list-keys']), env=self.cmd_env)
+
     def raw_emails_in_keyring(self):
         lister = subprocess.Popen(
             self._cmd(['--with-colons', '--list-keys']),
@@ -185,10 +191,14 @@ class GPGHandler:
             line = lister.stdout.readline()
             if not line:
                 break
-            if not line.startswith('uid:'):
+            # All modern GnuPG uses the uid: field here, but some ancient GnuPG 1
+            # puts the email in the pub: field instead.
+            if not (line.startswith('uid:') or line.startswith('pub:')):
                 continue
             try:
                 uid_str = line.split(':')[9]
+                if not uid_str:
+                    continue
                 m = extract.search(uid_str)
                 if m:
                     yield Email(m.group(1))
@@ -222,15 +232,21 @@ def _main():
                         type=str, required=True, nargs='+',
                         metavar='FILE',
                         help='one or more PGP key files to scan')
+    parser.add_argument('-v', '--verbose',
+                        action='count', default=0,
+                        help='Be more verbose')
     parser.add_argument('--gpg-command',
                         type=str, default='gpg',
                         help='Change the gpg command to invoke [%(default)s]')
     options = parser.parse_args()
 
+    if options.verbose >= 2:
+        print('python: ' + sys.version)
+        print(repr(sys.argv))
+        print('key files: ' + repr(options.keys_file))
+
     allowed_domains = set(d.lower() for d in options.domain)
     output_dir = pathlib.Path(options.output_dir)
-    if not output_dir.exists():
-        raise Exit(f'output directory {shlex.quote(str(output_dir))} must exist')
 
     wkd_wellknown = output_dir / '.well-known' / 'openpgpkey'
     hu_dir = wkd_wellknown / 'hu'
@@ -244,11 +260,18 @@ def _main():
         sub_env['GNUPGHOME'] = gnupghome
         gpg = GPGHandler(options=options, cmd_env=sub_env)
         gpg.key_import(options.keys_file)
+        if options.verbose >= 3:
+            print('', end='', flush=True)
+            gpg.keyring_list()
         for email in gpg.emails_in_keyring():
             if email.domain not in allowed_domains:
+                if options.verbose >= 3:
+                    print(f'Skipping for bad domain: {email}')
                 continue
             with open(hu_dir / email.wkd_local, 'wb') as out:
                 gpg.export_binary_key(email=email, out=out)
+            if options.verbose:
+                print(f'pgp: created {email.wkd_local} for {email}')
 
 
 if __name__ == '__main__':
