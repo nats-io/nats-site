@@ -10,4 +10,6 @@ author:
 release:
   version: '2.1.4'
   date: '2020-01-31'
+docker: nats
+prefix: nats-server
 ---
