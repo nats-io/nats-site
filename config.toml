@@ -2,7 +2,6 @@ baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
 title = "NATS"
-disableKinds = ["taxonomy", "taxonomyTerm"]
 
 pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
