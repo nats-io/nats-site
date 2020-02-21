@@ -1,0 +1,286 @@
+#!/usr/bin/env python3
+#
+# Copyright © 2020 Pennock Tech, LLC
+# Available under a MIT-style license as found in LICENSE.txt
+
+# The MIT License (MIT)
+#
+# Copyright © 2019,2020 Pennock Tech, LLC
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""
+standalone-update-website: update PGP WKD within a website tree
+
+Writes content per the "direct method" layout of
+draft-koch-openpgp-webkey-service version 09.
+
+Much of this is based on my pdpzbase32.py library, but wrapped up with some
+layout and GnuPG handling logic to specifically handle the WKD tree layout.
+This package should not depend upon any Python outside of stdlib.
+"""
+
+# https://philzimmermann.com/docs/human-oriented-base-32-encoding.txt
+
+__author__ = 'phil@pennock-tech.com (Phil Pennock)'
+
+import argparse
+import binascii
+import functools
+import hashlib
+import pathlib
+import os
+import re
+import shlex
+import subprocess
+import sys
+import tempfile
+
+ZOOKO32_ALPHABET = b'ybndrfg8ejkmcpqxot1uwisza345h769'
+
+
+class Error(Exception):
+    pass
+
+class Exit(Error):
+    pass
+
+
+@functools.lru_cache(maxsize=4)
+def _forward_table(alphabet):
+    tab = [bytes((i,)) for i in alphabet]
+    return [a + b for a in tab for b in tab]
+
+
+@functools.lru_cache(maxsize=4)
+def _reverse_table(alphabet):
+    return {v: k for k, v in enumerate(alphabet)}
+
+
+# _bytes_from_decode_data: From Python 3.7.0 base64.py {{{
+
+bytes_types = (bytes, bytearray)  # Types acceptable as binary data
+
+
+def _bytes_from_decode_data(s):
+    if isinstance(s, str):
+        try:
+            return s.encode('ascii')
+        except UnicodeEncodeError:
+            raise ValueError('string argument should contain only ASCII characters')
+    if isinstance(s, bytes_types):
+        return s
+    try:
+        return memoryview(s).tobytes()
+    except TypeError:
+        raise TypeError("argument should be a bytes-like object or ASCII "
+                        "string, not %r" % s.__class__.__name__) from None
+
+# From Python 3.7.0 base64.py }}}
+
+
+def encode(s):
+    if not isinstance(s, bytes_types):
+        s = memoryview(s).tobytes()
+    leftover = len(s) % 5
+    if leftover:
+        s = s + b'\0' * (5 - leftover)
+    encoded = bytearray()
+    from_bytes = int.from_bytes
+    tab = _forward_table(ZOOKO32_ALPHABET)
+    for i in range(0, len(s), 5):
+        c = from_bytes(s[i: i + 5], 'big')
+        encoded += (
+            tab[c >> 30] +
+            tab[(c >> 20) & 0x3ff] +
+            tab[(c >> 10) & 0x3ff] +
+            tab[c & 0x3ff]
+        )
+    # FIXME: handle padding, still not clear on how, the zooko doc waves it away
+    return bytes(encoded)
+
+
+def decode(s):
+    s = _bytes_from_decode_data(s)
+    if len(s) % 8:
+        raise binascii.Error('Incorrect padding')
+    rev = _reverse_table(ZOOKO32_ALPHABET)
+    decoded = bytearray()
+    for i in range(0, len(s), 8):
+        quanta = s[i: i + 8]
+        acc = 0
+        try:
+            for c in quanta:
+                acc = (acc << 5) + rev[c]
+        except KeyError:
+            raise binascii.Error('Non-base32 digit found') from None
+        decoded += acc.to_bytes(5, 'big')
+    # FIXME: do we need padding handling?
+    return bytes(decoded)
+
+
+class Email:
+    def __init__(self, full):
+        self.original = full
+        # WKD also lower-cases the LHS, so in this operating context,
+        # lower-casing the entire email address is correct.
+        self.lower = full.lower()
+        self.lhs, self.domain = self.lower.rsplit('@', 1)
+
+    def __str__(self):
+        return self.lower
+
+    def __repr__(self):
+        return f'[<{self.lower}>,{self.wkd_local}]'
+
+    def __lt__(self, other):
+        return self.lower < other.lower
+
+    def encoded_lhs(self):
+        h = hashlib.sha1(self.lhs.encode('ASCII'))
+        return encode(h.digest()).decode('ASCII')
+
+    @property
+    def wkd_local(self):
+        return self.encoded_lhs()
+
+
+class GPGHandler:
+    def __init__(self, *, options, cmd_env):
+        self.options = options
+        self.cmd_env = cmd_env
+
+    def _cmd(self, *extras):
+        cmd_list = [self.options.gpg_command, '--quiet', '--batch']
+        for extra in extras:
+            cmd_list.extend(extra)
+        return cmd_list
+
+    def key_import(self, key_files):
+        subprocess.run(
+            self._cmd(['--import', '--'], key_files),
+            check=True, env=self.cmd_env)
+
+    def keyring_list(self):
+        subprocess.run(self._cmd(['--list-keys']), env=self.cmd_env)
+
+    def raw_emails_in_keyring(self):
+        lister = subprocess.Popen(
+            self._cmd(['--with-colons', '--list-keys']),
+            stdout=subprocess.PIPE,
+            universal_newlines=True,
+            env=self.cmd_env)
+        extract = re.compile(r"<([^@>]+@[^>]+)>")
+        while True:
+            line = lister.stdout.readline()
+            if not line:
+                break
+            # All modern GnuPG uses the uid: field here, but some ancient GnuPG 1
+            # puts the email in the pub: field instead.
+            if not (line.startswith('uid:') or line.startswith('pub:')):
+                continue
+            try:
+                uid_str = line.split(':')[9]
+                if not uid_str:
+                    continue
+                m = extract.search(uid_str)
+                if m:
+                    yield Email(m.group(1))
+            except Exception:
+                continue
+
+    def emails_in_keyring(self):
+        emails = set()
+        for email in self.raw_emails_in_keyring():
+            emails.add(email)
+        return sorted(emails)
+
+    def export_binary_key(self, *, email, out):
+        # Needs to be binary export for WKD
+        subprocess.run(
+            self._cmd(['--export', '--', email.lower]),
+            stdout=out, check=True, env=self.cmd_env)
+
+
+def _main():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('-d', '--domain',
+                        type=str, required=True, nargs='+',
+                        help='which domain name to look for in key uids')
+    parser.add_argument('-o', '--output-dir',
+                        type=str, required=True, metavar='DIR',
+                        help='where to write the output tree')
+    parser.add_argument('-k', '--keys-file',
+                        type=str, required=True, nargs='+',
+                        metavar='FILE',
+                        help='one or more PGP key files to scan')
+    parser.add_argument('-v', '--verbose',
+                        action='count', default=0,
+                        help='Be more verbose')
+    parser.add_argument('--gpg-command',
+                        type=str, default='gpg',
+                        help='Change the gpg command to invoke [%(default)s]')
+    options = parser.parse_args()
+
+    if options.verbose >= 2:
+        print('python: ' + sys.version)
+        print(repr(sys.argv))
+        print('key files: ' + repr(options.keys_file))
+
+    allowed_domains = set(d.lower() for d in options.domain)
+    output_dir = pathlib.Path(options.output_dir)
+
+    wkd_wellknown = output_dir / '.well-known' / 'openpgpkey'
+    hu_dir = wkd_wellknown / 'hu'
+    hu_dir.mkdir(parents=True, exist_ok=True)
+
+    with open(wkd_wellknown / 'policy', 'w') as policy:
+        pass
+
+    with tempfile.TemporaryDirectory() as gnupghome:
+        sub_env = os.environ.copy()
+        sub_env['GNUPGHOME'] = gnupghome
+        gpg = GPGHandler(options=options, cmd_env=sub_env)
+        gpg.key_import(options.keys_file)
+        if options.verbose >= 3:
+            print('', end='', flush=True)
+            gpg.keyring_list()
+        for email in gpg.emails_in_keyring():
+            if email.domain not in allowed_domains:
+                if options.verbose >= 3:
+                    print(f'Skipping for bad domain: {email}')
+                continue
+            with open(hu_dir / email.wkd_local, 'wb') as out:
+                gpg.export_binary_key(email=email, out=out)
+            if options.verbose:
+                print(f'pgp: created {email.wkd_local} for {email}')
+
+
+if __name__ == '__main__':
+    try:
+        rv = _main()
+        sys.exit(rv)
+    except Exit as e:
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+
+# vim: set sw=4 foldmethod=marker :
