@@ -1,0 +1,71 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ $org       := .Params.org }}
+{{ $repo      := .Params.repo }}
+{{ $streaming := .Params.streaming_support }}
+{{ $author    := .Params.author }}
+{{ $release   := .Params.release }}
+
+{{ partial "hero.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      {{ $repo := printf "%s/%s" $org $repo }}
+      {{ $link := printf "https://github.com/%s" $repo }}
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-size-3 is-size-4-mobile">
+              {{ $repo }}
+            </p>
+
+            {{ if $streaming }}
+            <div class="buttons are-small">
+              <span class="button is-rounded is-success has-text-weight-bold">
+                nats-streaming
+              </span>
+            </div>
+            {{ end }}
+
+            {{ with $author }}
+            Author:
+            {{ if .link }}
+            <a href="{{ .link }}" target="_blank">
+              {{ .name }}
+            </a>
+            {{ else }}
+            <strong>{{ .name }}</strong>
+            {{ end }}
+            {{ end }}
+
+            {{ with $release }}
+            <p>
+              Release notes: <strong>v{{ .version }}</strong>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
+            </p>
+            {{ end }}
+
+            <br /><br />
+
+            <div class="buttons are-small">
+              <a class="button is-black is-outlined" href="{{ $link }}" target="_blank">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>
+                  View on GitHub
+                </span>
+              </a>
+            </div>
+
+            {{ partial "download/github-embed.html" (dict "repo" $repo) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -8,3 +8,6 @@
 /download/{{ .org }}/{{ .repo }} /download/{{ $lang }}
 {{ end -}}
 {{ end }}
+
+/download/nats-io/nats-server     /download/nats-server
+/download/nats-io/nats-streaming-server     /download/nats-streaming-server

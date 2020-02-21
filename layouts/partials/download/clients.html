@@ -1,4 +1,4 @@
-{{ $clients   := site.Data.clients }}
+{{ $clients := site.Data.clients }}
 {{ $streaming := (slice) }}
 {{ range $clients }}
 {{ $this := . }}
@@ -16,6 +16,12 @@
       </p>
 
       <div class="buttons">
+        <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-server">
+          NATS server
+        </a>
+      </div>
+
+      <div class="buttons">
         {{ range $clients }}
         {{ template "client" . }}
         {{ end }}
@@ -26,6 +32,12 @@
       <p class="is-size-3 has-text-weight-bold">
         NATS Streaming
       </p>
+
+      <div class="buttons">
+        <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-streaming-server">
+          NATS Streaming Server
+        </a>
+      </div>
 
       <div class="buttons">
         {{ range $streaming }}

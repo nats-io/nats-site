@@ -7,14 +7,12 @@
 {{ $fontSlice = $fontSlice | append (printf "%s:%s" (replace .name " " "+") (delimit .sizes ",")) }}
 {{ end }}
 {{ $fontsUrl := printf "https://fonts.googleapis.com/css?family=%s" (delimit $fontSlice "|") }}
-@import url({{ $fontsUrl }})
+@import url("{{ $fontsUrl }}")
 {{ end }}
-
-@import url({{ $fontAwesomeVersion }})
 
 {{ with $fontAwesomeVersion }}
 {{ $fontAwesomeUrl := printf "https://use.fontawesome.com/releases/v%s/css/all.css" . }}
-@import url({{ $fontAwesomeUrl }})
+@import url("{{ $fontAwesomeUrl }}")
 {{ end }}
 
 // Site-specific variables here
