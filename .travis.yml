@@ -1,13 +1,9 @@
 ---
-sudo: required
 dist: bionic
 language: node_js
 
 node_js:
   - 9
-
-python:
-  - 3.6.x
 
 git:
   depth: false
@@ -29,6 +25,10 @@ script:
   - if [[ "$TRAVIS_TAG" != "" ]]; then mv ./public site_$TRAVIS_TAG; fi
   - if [[ "$TRAVIS_TAG" != "" ]]; then zip site_$TRAVIS_TAG.zip -r site_$TRAVIS_TAG; fi
 
+# "travis lint" complaints about skip_cleanup; looking at
+# https://docs.travis-ci.com/user/deployment-v2#cleaning-up-the-git-working-directory
+# I see that the deploy v2 approach is to skip by default, but that v1 is still
+# default, so we're leaving that option in. -- 2020-02
 deploy:
   - provider: releases
     api_key: $GITHUB_TOKEN

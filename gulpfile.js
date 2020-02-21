@@ -105,7 +105,7 @@ gulp.task('hugo', shell.task('hugo --minify'));
 // OpenPGP WKD
 // <https://datatracker.ietf.org/doc/draft-koch-openpgp-webkey-service/?include_text=1>
 gulp.task('openpgp-wkd',
-	  shell.task('./pgp/standalone-update-website -d nats.io -k pgp/*.asc -o public'))
+	  shell.task('./pgp/update -v -d nats.io -k pgp/*.asc -o static'))
 
 // // Watch
  gulp.task('watch', function() {
@@ -124,12 +124,12 @@ gulp.task('help', function(){
   console.log('if gulp build fails, simply add ".pipe(plumber())" to the task to see the error');
 });
 
-gulp.task('assets', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'collateral']);
+gulp.task('assets', [ 'less', 'css', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'collateral', 'openpgp-wkd']);
 
 // Default Task
 // gulp.task('default', [ 'less', 'js', 'img', 'font', 'docsImages', 'userLogos', 'partnerLogos', 'blogImages', 'blogImagesGifs', 'watch' ]);
 
 // Build for Production
 gulp.task('build', function (callback) {
-  runSequence( 'clean', 'assets', 'hugo', 'openpgp-wkd', callback);
+  runSequence( 'clean', 'assets', 'hugo', callback);
 });
