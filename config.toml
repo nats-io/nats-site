@@ -61,7 +61,7 @@ url = "https://www.reddit.com/r/NATS_io/"
 color = "reddit-orange"
 
 [params.logos]
-navbar = "nats-horizontal-white.png"
+navbar = "nats-horizontal-color.png"
 hero = "nats-horizontal-color.png"
 footer_dark = "nats-icon-white.png"
 footer_light = "nats-icon-black.png"
