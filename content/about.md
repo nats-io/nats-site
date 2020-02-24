@@ -26,3 +26,9 @@ Our roadmap represents coming features lined up for the future of NATS. We are e
 ## Recent posts
 
 {{< recent-posts >}}
+
+---
+
+## Resources
+
+{{< resources >}}

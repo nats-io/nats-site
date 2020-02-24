@@ -3,7 +3,8 @@ NATS | Pages with the tag {{ .Data.Term }}
 {{ end }}
 
 {{ define "main" }}
-{{ $tag := .Data.Term }}
+{{ $tag   := .Data.Term }}
+{{ $pages := .Data.Pages }}
 <section class="hero is-dark">
   <div class="hero-body">
     <div class="container">
@@ -16,13 +17,21 @@ NATS | Pages with the tag {{ .Data.Term }}
 
 <section class="section">
   <div class="container">
-    <div class="content">
-      {{ range .Data.Pages }}
-      <a class="is-size-4 is-size-5-mobile" href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
+    <div class="columns is-variable is-6 is-multiline">
+      {{ range $pages }}
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <a class="is-size-5 is-size-6-mobile" href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
 
-      <br />
+            <p class="has-text-grey-light has-top-margin-small">
+              {{ .Section }}
+            </p>
+          </div>
+        </div>
+      </div>
       {{ end }}
     </div>
   </div>

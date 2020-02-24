@@ -7,15 +7,12 @@
     <div class="column is-one-quarter">
       <div class="card">
         <div class="card-content">
-          <a class="is-size-4 is-size-5-mobile has-text-weight-bold" href="{{ .RelPermalink }}">
+          <a class="is-size-4 is-size-5-mobile has-text-weight-medium" href="{{ .RelPermalink }}">
             {{ .Title }}
           </a>
 
-          <br />
-          <br />
-
-          <p>
-            {{ $date }}
+          <p class="title is-size-5 is-size-6-mobile has-text-weight-light has-top-margin">
+            Posted on {{ $date }}
           </p>
         </div>
       </div>
