@@ -4,7 +4,7 @@ draft = false
 title = "Appsecco Chooses NATS"
 author = "NATS & Appsecco"
 categories = ["Engineering","Guest-Post","Use Case","Community"]
-tags = ["NATS","Appsecco","Community"]
+tags = ["NATS","Appsecco","Community","Security","Kubernetes","CNCF"]
 +++
 
 <img alt="Appsecco Logo" src="/img/blog/appsecco_chooses_nats/appsecco_logo.png" height="32" width="225">
