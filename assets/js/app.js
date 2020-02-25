@@ -13,10 +13,13 @@ function navbarToggle() {
 $(function() {
   navbarToggle();
 
+  const chart = $("#throughput-chart-container");
+
   // Lets make sure we're on the about page before running this
-  if($("#throughputChart").length > 0) {
+  if (chart.length > 0) {
+
     // Get the context of the canvas element we want to select
-    var ctx = $("#throughputChart");
+    var ctx = chart;
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
