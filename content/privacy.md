@@ -3,7 +3,6 @@ date = "2018-09-14"
 type = "privacy"
 cssid = "privacy"
 title = "NATS Privacy Policy"
-description ="NATS Privacy Policy and Cookie Usage"
 +++
 
 
