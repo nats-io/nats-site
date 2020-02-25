@@ -1,0 +1,16 @@
+{{ $events := site.Data.events.events }}
+{{ range $events }}
+<h4 class="has-text-primary-dark">
+  {{ .venue }}
+</h4>
+
+<strong>When</strong>: {{ .when }}<br />
+<strong>Who</strong>: {{ .who }}<br />
+<strong>What</strong>: {{ .what }}<br />
+<strong>Where</strong>: {{ .where }}<br />
+
+<a href="{{ .ref }}" target="_blank">
+  More Information
+</a>
+<br /><br />
+{{ end }}

@@ -7,6 +7,9 @@ pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
 pygmentsStyle = "native"
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [taxonomies]
 tag = "tags"
 category = "categories"

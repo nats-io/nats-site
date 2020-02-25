@@ -63,7 +63,7 @@ $family-monospace: "{{ . }}", monospace
 // Final Bulma imports
 @import "bulma/sass/utilities/derived-variables"
 
-$colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-orange": ($reddit-orange, $white), "twitter-blue": ($twitter-blue, $white), "slack-purple": ($slack-purple, $white)), $colors)
+$colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green": ($nats-light-green, $white), "reddit-orange": ($reddit-orange, $white), "twitter-blue": ($twitter-blue, $white), "slack-purple": ($slack-purple, $white)), $colors)
 
 // Bulma core
 @import "bulma/sass/utilities/_all"
@@ -111,6 +111,10 @@ $colors: mergeColorMaps(("light-green": ($nats-light-green, $white), "reddit-ora
 // @import "bulma/sass/components/pagination"
 // @import "bulma/sass/components/panel"
 // @import "bulma/sass/components/tabs"
+
+.social-button
+  & + &
+    margin-left: 0.5rem
 
 .repo-link
   color: $dark
