@@ -456,6 +456,21 @@ Releases:
 
 - name: Rust
   type: nats-client
+  supported: true
+  language: Rust
+  author:
+    - name:
+      link:
+  version_num:
+  release_notes: |
+    Beta Release
+  github:
+    - user: nats-io
+      repo: nats.rs
+      link: https://github.com/nats-io/nats.rs
+
+- name: Rust
+  type: nats-client
   supported: false
   language: Rust
   author:
