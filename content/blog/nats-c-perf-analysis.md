@@ -23,14 +23,14 @@ When valgrind finishes, it produces a `callgrind.out.<pid>` file. I load it up w
 
 Let's have a look at the message delivery thread:
 
-<img src="/img/blog/nats-c-pre-alpha-delivery-msg.png">
+![Message delivery thread](/img/blog/nats-c-pre-alpha-delivery-msg.png)
 
 We see that for 100,000 messages received, we lock/unlock 200,000 times. The extra 100,000 lock/unlock were caused by the fact that we were checking for the connection's close status, which requires the connection lock. This is easy to fix: introduce a boolean in the subscription object itself so that when the connection is closed, this boolean gets updated under the subscription lock. Then, we don't need the connection lock in the deliver message thread anymore. 
 
 Next, although we don't want the delivery thread spending time in a condition wait, it was surprising to see that it would not even get there (at least not enough to show up in the graph). This is probably due to a very high lock contention with the `readLoop` thread, which is the one invoking `natsConn_processMsg`. Let's have a look at this function now:
 
 
-<img src="/img/blog/nats-c-pre-alpha-process-msg.png">
+![Request latency graph](/img/blog/nats-c-pre-alpha-process-msg.png)
 
 It is not surprising to see that the majority of time spent in this function is the creation of the message. The problem is that this was done under the subscription lock. There was no need for the creation of the message to be done under the subscription lock.
 
@@ -42,9 +42,11 @@ Also, in the delivery message thread, we see that destroying the message is very
 
 Taking all this into account, I was able to optimize further in subsequent releases to a point of doubling the performance between the first and last release (at the time of this writting, verion [1.2.8](https://github.com/nats-io/cnats/tree/v1.2.8)). Creating a message now requires a single malloc, and destroying a message is off-loaded to a dedicated thread.
 
-<img src="/img/blog/nats-c-master-process-msg.png">
 
-<img src="/img/blog/nats-c-master-delivery-msg.png">
+
+![Process message graph](/img/blog/nats-c-master-process-msg.png)
+
+![Delivery message graph](/img/blog/nats-c-master-delivery-msg.png)
 
 For reference, on my MacBook Pro 2.8 GHz Intel Core i7, running on a Ubuntu 14.04 Docker image, consuming 1,000,000 messages sent on `foo` with the payload `test` gives the following results:
 

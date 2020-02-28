@@ -17,11 +17,11 @@ As you can see, the NATS provides both synchronous and asynchronous communicatio
 
 So the REST to NATS project uses this similarity between NATS and HTTP communication and tries to implement the bridge between HTTP(Websockets) and NATS in such way. The library was originally created for the purpose of migrating REST based architecture like this
 
-<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_rest.png">
+<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_rest.png" alt="REST-based architecture">
 
 into NATS messaging platform based one. But as it evolved, it started to grow into some kind of framework, that can be used for the creation of service API and seamless protocol bridging. So one of the many examples of how the system using a nats-proxy framework could look like is on the architecture below.
 
-<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_arch.png">
+<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_arch.png" alt="NATS proxy architecture">
 
 
 
@@ -42,7 +42,7 @@ type Request struct {
 This struct is serialized and sent as a message through NATS via request (see https://nats.io/documentation/concepts/nats-req-rep/) to ensure synchronous processing.
 The subject, to which the serialized struct is sent, is constructed from the HTTP request URL and METHOD by a very simple rule: slashes in the path are replaced by dots and the method is used as the prefix.
 
-<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_request.png">
+<img class="img-responsive center-block" src="/img/blog/natsproxy/natsproxy_request.png" alt="NATS proxy request">
 
 >Lets say we have GET request on URL `https://example.com/user/info` so the proxy will translate this URL to  subject `GET:user.info`.
 
