@@ -4,7 +4,7 @@ title = "Support"
 
 ## Reporting bugs
 
-If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing#github-issues).
+If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing).
 
 ## Community Support for NATS and Clients
 

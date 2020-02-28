@@ -4,7 +4,7 @@ title = "Community"
 
 ### Our NATS community consists of company end-users, partners, and OSS contributors that make up a vibrant ecosystem.
 
-#### If you’d like to help make NATS and its resources better, check out the [Ways to Contribute](#contribute) below. Chances are, if you find a feature useful, others will too. This website pulls documentation from GitHub so once you update the readme on GitHub, changes will show up [here](/documentation) as well.
+#### If you’d like to help make NATS and its resources better, check out the [Ways to Contribute](#contribute) below. Chances are, if you find a feature useful, others will too. This website pulls documentation from GitHub so once you update the readme on GitHub, changes will show up [here](https://nats.io/documentation) as well.
 
 ---
 
@@ -26,7 +26,7 @@ We work with a variety of companies to ensure NATS is delivered in a broad range
 
 {{< columns >}}
 {{< column >}}
-## Ways to Contribute
+## Ways to Contribute {#contribute}
 
 The best way to get started contributing to NATS is to read our [Contributor's Guide](/contributing). Here are some examples of how you can contribute:
 

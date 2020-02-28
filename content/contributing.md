@@ -70,7 +70,7 @@ Please test our releases in your environment and report any issues you run into 
 
 NATS is a small but ambitious project with a similarly small dedicated core team. Review of any proposed change can be a very time consuming task, and there will be times when our available bandwidth for PR review is limited. Therefore everyone benefits if submissions are useful, clear, easy to evaluate, and already pass basic checks.
 
-If you are eager to contribute, but you're just not sure-what* to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack team](http://natsio.slack.com). If you need to join, you can request an invitation to join via the Slack icon on our [Community Page](community).
+If you are eager to contribute, but you're just not sure-what* to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack team](http://natsio.slack.com). If you need to join, you can request an invitation to join via the Slack icon on our [Community Page](/community).
 
 Before you get started, please consider whether the proposed change is likely to be relevant, new and actionable.
 
@@ -113,7 +113,7 @@ Simply put, changes that have many or large positives, and few negative effects 
 
 Please review the preceding section before proposing a code change. This section documents how to do so.
 
-### <a name="githubissues"></a> GitHub Issues
+### GitHub Issues
 
 GitHub Issues are used to describe what should be fixed or changed, and high-level approaches, while Pull Requests describe how to implement that change in the project’s source code. 
 

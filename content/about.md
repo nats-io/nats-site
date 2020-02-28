@@ -18,7 +18,7 @@ NATS was created by Derek Collison, Founder and CEO at [Synadia](https://synadia
 Written in Go, NATS is available as a client for approximately a dozen languages, many of which are supported by the Synadia team. Here’s the full list of [NATS clients](/download).
 {{< /column >}}
 {{< column >}}
-NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about the design characteristics in the [NATS FAQ](/faq).
+NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about the design characteristics in the [NATS FAQ](https://docs.nats.io/faq).
 {{< /column >}}
 {{< /columns >}}
 

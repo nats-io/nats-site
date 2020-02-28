@@ -27,7 +27,7 @@
 
         <div class="buttons are-small">
           {{ range .Params.categories }}
-          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/categories/{{ . | lower }}">
+          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/categories/{{ . | urlize }}">
             {{ . }}
           </a>
           {{ end }}
@@ -41,7 +41,7 @@
 
         <div class="buttons are-small">
           {{ range .Params.tags }}
-          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/tags/{{ . | lower }}">
+          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/tags/{{ . | urlize }}">
             {{ . }}
           </a>
           {{ end }}
