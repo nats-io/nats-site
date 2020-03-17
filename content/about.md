@@ -40,4 +40,8 @@ Our roadmap represents coming features lined up for the future of NATS. We are e
 
 ## Resources
 
+* [Ovum's "On the Radar" Report](https://nats.io/collateral/On_The_Radar_NATS.pdf)
+* [YouTube](https://www.youtube.com/channel/UCi0nerPAzqPiu6nZPw9imfQ)
+* [SlideShare](https://www.slideshare.net/nats_io/presentations)
+
 {{< resources >}}
