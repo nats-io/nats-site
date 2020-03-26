@@ -10,5 +10,5 @@ description = ""
 ## NATS Connect Live <br/> April 9, 2020 @ 8am PDT
 ## A virtual NATS conference for developers and end users
 <p class="extra-info">
-    <a id="download-button" class="btn btn-lg" target="_blank" href="/nats_connect">Join Us</a>
+    <a id="download-button" class="btn btn-lg" href="/nats_connect">Join Us</a>
 </p>
