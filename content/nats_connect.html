@@ -15,6 +15,10 @@ description = "NATS is a high performance messaging system that acts as a distri
   padding: 20px;
   text-align: left;
 }
+
+table tr td.centery{
+  text-align: center;
+}
 </style>
 
 <div class="row">
@@ -36,7 +40,7 @@ description = "NATS is a high performance messaging system that acts as a distri
             <th class="col-md-2">Talk Topic</th>
             <th class="col-md-2">Speaker(s)</th>
             <th class="col-md-1">Scheduled Start</th>
-            <th class="col-md-3">Description</th>
+            <th class="col-md-4">Description</th>
         </tr>
         </thead>
 
@@ -44,31 +48,31 @@ description = "NATS is a high performance messaging system that acts as a distri
         <tr>
             <td>Welcome & Introduction</td>
             <td>Derek Collison</td>
-            <td>8:00am</td>
+            <td class="centery">8:00am</td>
             <td></td>
         </tr>
         <tr>
             <td>NATS & Kubernetes</td>
             <td>Wally Quevedo</td>
-            <td>8:20am</td>
+            <td class="centery">8:20am</td>
             <td>Past, Present, Future</td>
         </tr>
         <tr>
             <td>NATS & Rust</td>
             <td>Tyler Neely
-            <td>8:40am</td>
+            <td class="centery">8:40am</td>
             <td></td>
         </tr>
         <tr>
             <td>Resgate.io</td>
             <td>Samuel Jirénus</td>
-            <td>9:00am</td>
+            <td class="centery">9:00am</td>
             <td>Building REST And real-time APIs with Messaging</td>
         </tr>
         <tr>
             <td>Pub/Sub on the Power Grid</td>
             <td>Dwayne Bradley</td>
-            <td>9:20am</td>
+            <td class="centery">9:20am</td>
             <td></td>
         </tr>
         <tr class="success">
@@ -77,80 +81,85 @@ description = "NATS is a high performance messaging system that acts as a distri
         <tr>
             <td>NATS as Service Mesh</td>
             <td>Dale Bingham</td>
-            <td>9:40am</td>
+            <td class="centery">9:50am</td>
             <td>Using NATS to Implement Service Mesh Functionality</td>
         </tr>
          <tr>
             <td>NATS JetStream</td>
             <td>R.I. Pienaar</td>
-            <td>10:00am</td>
+            <td class="centery">10:10am</td>
             <td>The future of NATS Streaming</td>
         </tr>
         <tr>
             <td>NATS Websockets</td>
             <td>Alberto Ricart / Ivan Kozlovic</td>
-            <td>10:20am</td>
+            <td class="centery">10:30am</td>
             <td></td>
         </tr>
         <tr>
             <td>NATS Surveyor</td>
             <td>Colin Sullivan / R.I. Pienaar</td>
-            <td>10:40am</td>
+            <td class="centery">10:50am</td>
             <td>Simplified monitoring for complex deployments</td>
         </tr>
         <tr>
-            <td>NATS at Sam's Club</td>
-            <td>Matt Ryner / Michael Tyler</td>
-            <td>11:00am</td>
+            <td>OpenFaaS</td>
+            <td>Alex Ellis</td>
+            <td class="centery">11:10am</td>
             <td></td>
         </tr>
         <tr class="success">
             <td colspan="4" align="center">Break</td>
         </tr>
         <tr>
-            <td>NATS & WASM</td>
+            <td>Cloud Native WebAssembly</td>
             <td>Kevin Hoffman</td>
-            <td>11:40am</td>
-            <td></td>
+            <td class="centery">11:40am</td>
+            <td>waSCC, a framework that allows developers to strip away unnecessary boilerplate and compile pure business logic into WebAssembly modules</td>
         </tr>
         <tr>
             <td>NATS & Augmented Reality</td>
             <td>Ron Britvich</td>
-            <td>12:00pm</td>
+            <td class="centery">12:00pm</td>
             <td>NATS in Unity - Worlds' Augmented Reality Platform loves NATS</td>
         </tr>
         <tr>
             <td>NATS Leafnodes</td>
             <td>Derek Collison</td>
-            <td>12:20pm</td>
+            <td class="centery">12:20pm</td>
             <td>The Best of All Worlds</td>
         </tr>
         <tr>
             <td>NGS Getting Started</td>
             <td>Wally Quevedo</td>
-            <td>1:00pm</td>
+            <td class="centery">12:40pm</td>
             <td></td>
         </tr>
         <tr>
             <td>Running NGS</td>
             <td>David Kemper / Phil Pennock</td>
-            <td>12:40pm</td>
+            <td class="centery">1:00pm</td>
             <td>A DevOps perspective to running NATS globally</td>
         </tr>
         <tr class="success">
             <td colspan="4" align="center">Break</td>
         </tr>
-
+        <tr>
+            <td>Swim.ai</td>
+            <td>Chris Sachs</td>
+            <td class="centery">1:30pm</td>
+            <td></td>
+        </tr>
         <tr>
             <td>NATS Community & Ecosystem Engagement</td>
             <td>Ginger Collison</td>
-            <td>1:40pm</td>
+            <td class="centery">1:50pm</td>
             <td>Code contributions, hosting Meetups, NATS evangelism</td>
         </tr>
         <tr>
             <td>NATS Future Work & Wrap Up</td>
             <td>Derek Collison</td>
-            <td>1:50pm</td>
+            <td class="centery">2:10pm</td>
             <td></td>
         </tr>
         <tr class="info">
@@ -187,7 +196,7 @@ description = "NATS is a high performance messaging system that acts as a distri
           <a href="https://gitlab.com/dwaynebradley70" target="_blank"><img src="/img/social/gitlab.png"height="25px" width="25px"></a>
       </div>
       <div class="grid-item">
-          <strong>Ron Britvich</strong><br>
+          <strong>Ron Britvich</strong> <br>
           Worlds, Inc.<br>
           <a href="mailto:ron@britvich.com" target="_blank"><img src="/img/social/black_envelope.png" height="18px" width="18px"></a>
       </div>
@@ -200,9 +209,8 @@ description = "NATS is a high performance messaging system that acts as a distri
       </div>
       <div class="grid-item">
           <strong>Kevin Hoffman</strong><br>
-          <a href="https://github.com/derekcollison" target="_blank"><img src="/img/social/github.png" height="16px" width="16px"></a>
-          &nbsp;<a href="https://www.linkedin.com/in/derekcollison/" target="_blank"><img src="/img/social/linkedin.png" height="16px" width="16px">
-          &nbsp;<a href="https://twitter.com/derekcollison" target="_blank"><img src="/img/social/twitter.png"height="16px" width="16px"></a>
+          Distinguished Engineer, Capital One<br>
+          <a href="https://twitter.com/kevinhoffman" target="_blank"><img src="/img/social/twitter.png"height="16px" width="16px"></a>
       </div>
       <div class="grid-item">
           <strong>Samuel Jirénius</strong><br>
