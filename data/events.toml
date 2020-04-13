@@ -1,28 +1,18 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Tuesday, March 31st, 15:30 - 16:05"
-who = "Colin Sullivan, R.I. Pienaar"
-what = "Easy, Secure & Fast - Using NATS for Data Streams & Services"
-where = "Amsterdam, The Netherlands"
-ref = "https://sched.co/Zewv"
+venue = "NATS Connect Live!"
+when = "Thursday, April 16th @ 8am PDT"
+who = "The NATS Team & Community"
+what = "A Free NATS Virtual Online Conference"
+where = "Online"
+ref = "https://nats.io/nats_connect"
 
 [[events]]
 venue = "KubeCon + CloudNativeCon Europe"
-when = "Wednesday, April 1st, 10:55 - 11:30"
-who = "Waldemar Quevedo, Phil Pennock"
-what = "Deep Dive into building a secure & multi-tenant SaaS solution with NATS"
+when = "TBD"
+who = "The NATS Team"
+what = "NATS Maintainer Track Talks"
 where = "Amsterdam, The Netherlands"
-ref = "https://sched.co/Zext"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Thursday, April 2nd, 16:35 - 18:05"
-who = "Waldemar Quevedo"
-what = "Tutorial: Building Secure, Decentralized & Global Applications with NATS"
-where = "Amsterdam, The Netherlands"
-ref = "https://sched.co/Zekp"
-
-
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 
 # comment out to save
