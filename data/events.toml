@@ -1,12 +1,4 @@
 [[events]]
-venue = "NATS Connect Live!"
-when = "Thursday, April 16th @ 8am PDT"
-who = "The NATS Team & Community"
-what = "A Free NATS Virtual Online Conference"
-where = "Online"
-ref = "https://nats.io/nats_connect"
-
-[[events]]
 venue = "KubeCon + CloudNativeCon Europe"
 when = "TBD"
 who = "The NATS Team"

@@ -7,8 +7,8 @@ description = ""
 +++
 
 
-# NATS Connect Live <br/> April 16, 2020 @ 8am PDT
+## NATS 2.0 is Generally Available
 
 <p class="extra-info">
-    <a id="download-button" class="btn btn-lg" href="/nats_connect">More Information</a>
+    <a id="download-button" class="btn btn-lg" target="_blank" href="https://docs.nats.io/whats_new_20">Learn More</a>
 </p>
