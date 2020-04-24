@@ -581,7 +581,7 @@ Releases:
   author:
     - name: ccQ
       link: https://github.com/ccqpein
-  version_num: 0.0.0
+  version_num: 0.1.0
   release_notes: |
     No Release Notes
   github:
