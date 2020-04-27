@@ -574,6 +574,21 @@ Releases:
       repo: nats_ex
       link: https://github.com/iamd3vil/nats_ex
 
+- name: Common Lisp
+  type: nats-client
+  supported: false
+  language: Common Lisp
+  author:
+    - name: ccQ
+      link: https://github.com/ccqpein
+  version_num: 0.1.0
+  release_notes: |
+    No Release Notes
+  github:
+    - user: ccQpein
+      repo: nats-cl
+      link: https://github.com/ccqpein/nats-cl
+
 - name: Python Asyncio
   type: streaming-client
   supported: true
