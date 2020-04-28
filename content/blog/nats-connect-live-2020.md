@@ -19,12 +19,12 @@ See the [full schedule](https://nats.io/nats_connect) for a list of the speakers
 
 All of the sessions combined to make an amazing and informative event, but a few talks stuck out in my mind that you should check out.
 
-#### 1. Serverless and OpenFaaS and NATS
+### 1. Serverless and OpenFaaS and NATS
 <div class="grid-container">
  <div class="grid-item">
-This is a great talk from Alex Ellis [(@alexellisuk)](https://twitter.com/alexellisuk) on how OpenFaaS and NATS work together. If you have not heard of [OpenFaaS](https://openfaas.com), I suggest you check it out.
+This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" target="_blank">@alexellisuk</a> on how OpenFaaS and NATS work together. If you have not heard of <a href="https://openfaas.com" target="_blank">OpenFaas</a>, I suggest you check it out.
  <br><br>
- <a href="" alt="Resgate Topology" target="_blank">
+ <a href="https://www.slideshare.net/nats_io/nats-connect-live-serverless-on-kubernetes-with-openfaas-nats" alt="OpenFaas" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
  <a href="https://www.youtube.com/watch?v=J0zbYbvYiM8" target="_blank">
@@ -36,7 +36,7 @@ This is a great talk from Alex Ellis [(@alexellisuk)](https://twitter.com/alexel
 </div>
 </div>
 
-#### 2. The World of HTTP and NATS Together
+### 2. The World of HTTP and NATS Together
 <div class="grid-container">
  <div class="grid-item">
  <a href="https://resgate.io">Resgate.io</a> has long been a favorite project of ours and Samuel Jirénius gave an inspiring talk of how systems can utilize both.
@@ -53,7 +53,7 @@ This is a great talk from Alex Ellis [(@alexellisuk)](https://twitter.com/alexel
 </div>
 </div>
 
-#### 3. NATS and Augmented Reality
+### 3. NATS and Augmented Reality
 <div class="grid-container">
  <div class="grid-item">
 This was a fascinating talk from Ron Britvich on how NATS is enabling real-time events at a massive scale and updating for local frame of reference in the Unity game engine. <br><br>
@@ -69,7 +69,7 @@ This was a fascinating talk from Ron Britvich on how NATS is enabling real-time 
 </div>
 </div>
 
-#### 4. Cloud Native WebAssembly
+### 4. Cloud Native WebAssembly
 <div class="grid-container">
  <div class="grid-item">
 I am a big fan of WASM’s potential and we believe it will play a large role in the NATS ecosystem in the near future. Kevin Hoffman is always pushing the boundaries and his project is no different! He discusses the project and how NATS plays a role.
@@ -87,14 +87,14 @@ I am a big fan of WASM’s potential and we believe it will play a large role in
 </div>
 </div>
 
-#### 4. SwimOS and NATS
+### 5. SwimOS and NATS
 <div class="grid-container">
  <div class="grid-item">
 Enabling edge systems has become a sweet spot for NATS. Enabling remote edge environments to work autonomously but also communicate with more centralized resources is a dominant pattern for distributed data processing. Simon Crosby walks us through what this will really look like in the near future with the <a href="https://swim.ai">Swim.ai</a> platform and why the team think NATS is such a good enabler for these types of platforms. 
 <a href="https://www.slideshare.net/nats_io/nats-connect-live-swimos-nats" target="_blank">
    <br><br /><img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=J56wrBDG01k" alt="Unity NATS Subjects" target="_blank">
+ <a href="https://www.youtube.com/watch?v=J56wrBDG01k" alt="SwimOS" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
@@ -105,7 +105,9 @@ Enabling edge systems has become a sweet spot for NATS. Enabling remote edge env
 <br /><br />
 All of the talks are worth checking out, and we look forward to having these events more often. Feel free to reach me directly with any feedback or questions.
 
-Contact NATS [info@nats.io](mailto:info@nats.io).
+Contact Derek [derek@nats.io](mailto:derek@nats.io)
+
+Join the NATS Slack Channel [slack.nats.io](https://slack.nats.io)
 
 
 
