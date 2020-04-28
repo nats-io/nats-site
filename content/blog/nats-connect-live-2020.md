@@ -24,7 +24,7 @@ All of the sessions combined to make an amazing and informative event, but a few
  <div class="grid-item">
 This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" target="_blank">@alexellisuk</a> on how OpenFaaS and NATS work together. If you have not heard of <a href="https://openfaas.com" target="_blank">OpenFaas</a>, I suggest you check it out.
  <br><br>
- <a href="https://www.slideshare.net/nats_io/nats-connect-live-serverless-on-kubernetes-with-openfaas-nats" alt="OpenFaas" target="_blank">
+ <a href="https://www.slideshare.net/nats_io/nats-connect-live-serverless-on-kubernetes-with-openfaas-nats" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
  <a href="https://www.youtube.com/watch?v=J0zbYbvYiM8" target="_blank">
@@ -32,7 +32,7 @@ This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" t
 </a>
   </div>
   <div class="grid-item">
-<img src="/img/blog/nats-connect-live-2020/openfaas-slide.png" >
+<img src="/img/blog/nats-connect-live-2020/openfaas-slide.png" alt="OpenFaas">
 </div>
 </div>
 
@@ -41,11 +41,11 @@ This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" t
  <div class="grid-item">
  <a href="https://resgate.io">Resgate.io</a> has long been a favorite project of ours and Samuel Jirénius gave an inspiring talk of how systems can utilize both.
  <br><br>
- <a href="https://www.slideshare.net/nats_io/nats-connect-live-resgate" alt="Resgate Topology" target="_blank">
+ <a href="https://www.slideshare.net/nats_io/nats-connect-live-resgate" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
  <a href="https://www.youtube.com/watch?v=J0zbYbvYiM8&list=PLose4NjLOQvwMOG-WAw62vyrGsPi5LUe7" target="_blank">
- <img src="/img/social/youtube.png" height="60" width="85">
+ <img src="/img/social/youtube.png" height="60" width="85" alt="Resgate Topology" >
 </a>
   </div>
   <div class="grid-item">
@@ -60,12 +60,12 @@ This was a fascinating talk from Ron Britvich on how NATS is enabling real-time 
  <a href="https://www.slideshare.net/nats_io/nats-connect-live-nats-augmented-reality" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk&list=PLose4NjLOQvwMOG-WAw62vyrGsPi5LUe7&index=3" alt="Unity NATS Subjects" target="_blank">
+ <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk&list=PLose4NjLOQvwMOG-WAw62vyrGsPi5LUe7&index=3" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
   <div class="grid-item">
-<img src="/img/blog/nats-connect-live-2020/unity-slide.png" >
+<img src="/img/blog/nats-connect-live-2020/unity-slide.png" alt="Unity NATS Subjects">
 </div>
 </div>
 
@@ -78,12 +78,12 @@ I am a big fan of WASM’s potential and we believe it will play a large role in
  <a href="https://slides.com/autodidaddict/nats-connect-cloud-native-webassembly#/" target="_blank">
    <img src="/img/social/slides_logo.png" height="50" width="75">
    </a><br>
- <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk" alt="Unity NATS Subjects" target="_blank">
+ <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
   <div class="grid-item">
-<img src="/img/blog/nats-connect-live-2020/wasm-slide.png" >
+<img src="/img/blog/nats-connect-live-2020/wasm-slide.png" alt="Webassembly" >
 </div>
 </div>
 
@@ -94,12 +94,12 @@ Enabling edge systems has become a sweet spot for NATS. Enabling remote edge env
 <a href="https://www.slideshare.net/nats_io/nats-connect-live-swimos-nats" target="_blank">
    <br><br /><img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=J56wrBDG01k" alt="SwimOS" target="_blank">
+ <a href="https://www.youtube.com/watch?v=J56wrBDG01k" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
   <div class="grid-item">
-<img src="/img/blog/nats-connect-live-2020/swim-slide.png" >
+<img src="/img/blog/nats-connect-live-2020/swim-slide.png" alt="SwimOS">
 </div>
 </div>
 <br /><br />
