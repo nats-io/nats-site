@@ -27,7 +27,7 @@ This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" t
  <a href="https://www.slideshare.net/nats_io/nats-connect-live-serverless-on-kubernetes-with-openfaas-nats" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=J0zbYbvYiM8" target="_blank">
+ <a href="https://youtu.be/Iu9rwft0Rhw" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
 </a>
   </div>
@@ -44,7 +44,7 @@ This is a great talk from Alex Ellis <a href="https://twitter.com/alexellisuk" t
  <a href="https://www.slideshare.net/nats_io/nats-connect-live-resgate" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=J0zbYbvYiM8&list=PLose4NjLOQvwMOG-WAw62vyrGsPi5LUe7" target="_blank">
+ <a href="https://youtu.be/DcQ3tdmY-8k" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85" alt="Resgate Topology" >
 </a>
   </div>
@@ -60,7 +60,7 @@ This was a fascinating talk from Ron Britvich on how NATS is enabling real-time 
  <a href="https://www.slideshare.net/nats_io/nats-connect-live-nats-augmented-reality" target="_blank">
    <img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk&list=PLose4NjLOQvwMOG-WAw62vyrGsPi5LUe7&index=3" target="_blank">
+ <a href="https://youtu.be/WYSuy1Yrlgk" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
@@ -78,7 +78,7 @@ I am a big fan of WASM’s potential and we believe it will play a large role in
  <a href="https://slides.com/autodidaddict/nats-connect-cloud-native-webassembly#/" target="_blank">
    <img src="/img/social/slides_logo.png" height="50" width="75">
    </a><br>
- <a href="https://www.youtube.com/watch?v=7AGY9iiOgmk" target="_blank">
+ <a href="https://youtu.be/cPVRfsc2X5U" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
@@ -94,7 +94,7 @@ Enabling edge systems has become a sweet spot for NATS. Enabling remote edge env
 <a href="https://www.slideshare.net/nats_io/nats-connect-live-swimos-nats" target="_blank">
    <br><br /><img src="/img/social/slideshare.png" height="65" width="90">
    </a><br>
- <a href="https://www.youtube.com/watch?v=J56wrBDG01k" target="_blank">
+ <a href="https://youtu.be/q2BNlySJEnE" target="_blank">
  <img src="/img/social/youtube.png" height="60" width="85">
  </a>
   </div>
