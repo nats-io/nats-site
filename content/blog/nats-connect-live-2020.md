@@ -13,7 +13,7 @@ NATS has evolved to provide advanced security, true multi-tenancy, and the abili
 
 As we approached our first conference, we really wanted the majority of speakers to be from the external end-user ecosystem and not just maintainers of the project. We did not quite get there but we did achieve 50% of our sessions from external speakers, which I thought was great!
 
-See the [full schedule](https://nats.io/nats_connect) for a list of the speakers, topics, and their contact information and view videos of the presentations on [NATS Messaging YouTube](https://youtube.com/c/nats_messaging) channel.
+See the [full schedule](https://nats.io/nats_connect) for a list of the speakers, topics, and their contact information and view videos of the presentations on [NATS Messaging YouTube](https://youtube.com/c/nats_messaging/videos) channel.
 
 
 
