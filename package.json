@@ -3,13 +3,24 @@
   "version": "2.0.0",
   "description": "Nats.io",
   "main": "gulpfile.js",
+  "devDependencies": {
+    "anchor-js": "^4.2.0",
+    "bulma": "^0.8.0",
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.15",
+    "minimist": "^1.2.5",
+    "prismjs": "^1.15.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build && npm run minify",
+    "check": "nsp check",
+    "minify": "minify --html-keep-conditional-comments --html-keep-document-tags --html-keep-end-tags -r -o public/ -a public/"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:nats-io/nats-site.git"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bulma": "^0.8.0"
-  }
+  "license": "ISC"
 }
