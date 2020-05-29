@@ -46,7 +46,7 @@ Releases:
       repo: stan.c
       link: https://github.com/nats-io/nats.c
 
-- name: C#
+- name: .NET
   type: nats-client
   supported: true
   language: C#
@@ -619,7 +619,7 @@ Releases:
       repo: stan.go
       link: https://github.com/nats-io/stan.go/
 
-- name: C#
+- name: .NET
   type: streaming-client
   supported: true
   language: C#
