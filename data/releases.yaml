@@ -46,16 +46,16 @@ Releases:
       repo: stan.c
       link: https://github.com/nats-io/nats.c
 
-- name: C#
+- name: .NET
   type: nats-client
   supported: true
   language: C#
   author:
     - name:
       link:
-  version_num: 0.10.0
+  version_num: 0.10.1
   release_notes: |
-    Release 0.10.0 on November 18, 2019.
+    Release 0.10.1 on May 15, 2020.
   github:
     - user: nats-io
       repo: nats.net
@@ -619,16 +619,16 @@ Releases:
       repo: stan.go
       link: https://github.com/nats-io/stan.go/
 
-- name: C#
+- name: .NET
   type: streaming-client
   supported: true
   language: C#
   author:
     - name:
       link:
-  version_num: 0.2.0
+  version_num: 0.2.1
   release_notes: |
-    Release v0.2.0 on November 22, 2019.
+    Release v0.2.1 on January 2, 2020.
   github:
     - user: nats-io
       repo: stan.net
