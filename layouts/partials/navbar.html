@@ -6,9 +6,10 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ $home }}">
+        {{ if not .IsHome }}
         {{ partial "logo.html" (dict "logo" "navbar") }}
       </a>
-
+       {{ end }}
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -31,10 +32,10 @@
           {{ end }}
         </a>
         {{ end }}
-
         <div class="navbar-item">
           {{ partial "social-buttons.html" (dict) }}
         </div>
+
       </div>
     </div>
   </div>

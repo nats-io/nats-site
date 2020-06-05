@@ -1,9 +1,13 @@
 {{ $social := site.Params.social }}
+<div class="buttons is-left">
 {{ range $social }}
 {{ $color := .color | default "black" }}
+
 <a class="social-button" href="{{ .url }}" target="_blank">
   <span class="icon has-text-{{ $color }}">
     <i class="fab fa-lg fa-{{ .icon }}"></i>
   </span>
 </a>
+
 {{ end }}
+</div>

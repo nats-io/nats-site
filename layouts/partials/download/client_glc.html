@@ -1,0 +1,36 @@
+
+
+<table>
+  <thead>
+  <th>Client</th>
+  <th>Repo</th>
+
+    </thead>
+  <tbody>
+  {{ range site.Data.clients }}
+
+  <tr>
+    <td>
+      {{ .language }}
+    </td>
+
+    <td>
+      {{ range .clients }}
+      {{ .repo }}
+    </td>
+
+    {{ end }}
+  </tr>
+  {{ end }}
+
+  </tbody>
+
+</table>
+
+
+
+
+
+
+
+

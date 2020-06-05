@@ -1,7 +1,7 @@
 {{ $desc      := site.Params.description_long | markdownify }}
 {{ $companies := site.Data.companies.companies }}
 
-<section class="section">
+<section class="section is-light">
   <div class="container">
     <div class="columns is-variable is-8 is-vcentered">
       <div class="column">
@@ -10,20 +10,7 @@
         </div>
       </div>
 
-      <div class="column">
-        <div class="container">
-          <div class="columns is-multiline">
-            {{ range $k, $v := $companies }}
-            {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
-            <div class="column has-text-centered is-one-third logo">
-              <a href="{{ $v.home }}" target="_blank">
-                <img src="{{ $img }}" alt="{{ $v.name }} logo">
-              </a>
-            </div>
-            {{ end }}
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>

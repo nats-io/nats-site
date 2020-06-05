@@ -31,9 +31,14 @@
       {{ end }}
 
       {{ with .ctx.release }}
+
+      {{ if .version }}
       <p>
         Release notes: <strong>v{{ .version }}</strong>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
       </p>
+      {{ else }}
+      <p>No release notes</p>
+      {{ end }}
       {{ end }}
 
       <br /><br />

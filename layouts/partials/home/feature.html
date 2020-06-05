@@ -1,0 +1,14 @@
+<article class="media is-large">
+  <figure class="media-left">
+    <span class="icon is-medium has-text-nats-blue">
+      <i class="fas fa-lg fa-{{ .icon }}"></i>
+    </span>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <h2>{{ .title }}</h2>
+
+      {{ .description | markdownify }}
+    </div>
+  </div>
+</article>

@@ -8,6 +8,7 @@
 {{ end }}
 {{ end }}
 {{ end }}
+
 <div class="container content">
   <div class="columns is-variable is-8">
     <div class="column is-two-thirds">
@@ -16,15 +17,20 @@
       </p>
 
       <div class="buttons">
-        <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-server">
-          NATS server
+        <span class="icon is-medium"><a class="button is-primary has-text-weight-bold" href="/download/nats-server">
+          <i class="fas fa-download"></i></span>
+        <span>NATS Server</span>
         </a>
       </div>
 
-      <div class="buttons">
+
+      <div class="buttons has-addons">
+
         {{ range $clients }}
         {{ template "client" . }}
         {{ end }}
+
+
       </div>
     </div>
 
@@ -34,12 +40,13 @@
       </p>
 
       <div class="buttons">
-        <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-streaming-server">
-          NATS Streaming Server
+        <span class="icon is-medium"><a class="button is-light-green has-text-weight-bold" href="/download/nats-streaming-server">
+          <i class="fas fa-download"></i></span>
+        <span>NATS Streaming Server</span>
         </a>
       </div>
 
-      <div class="buttons">
+      <div class="buttons has-addons">
         {{ range $streaming }}
         {{ template "client" . }}
         {{ end }}
@@ -49,10 +56,13 @@
 </div>  
 
 {{ define "client" }}
+{{ $title := .Title }}
 {{ $lang    := cond (isset . "language") .language .language_alt }}
 {{ $display := cond (eq $lang "C-sharp") "C#" .language }}
 {{ $url  := printf "download/%s" ($lang | urlize) | relURL }}
-<a class="button is-primary is-outlined has-text-weight-bold" href="{{ $url }}">
+<a class="button is-client is-white is-medium" href="{{ $url }}">
   {{ $display }}
 </a>
 {{ end }}
+
+

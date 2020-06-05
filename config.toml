@@ -27,11 +27,11 @@ noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
 images = ["/img/nats-icon-color.png"]
 description_long = """
-**NATS.io** is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
+NATS.io is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
 
 Members of the [Synadia](https://synadia.com) team created and maintain the NATS and Streaming Servers, as well as clients written in Go, Java, JavaScript/TypeScript, Python, Ruby, C#, C, and NGINX. The community has also contributed a growing list of client libraries, including Arduino, Rust, Lua, PHP, Perl, and [more](https://nats.io/download).
 
-Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, Alibaba and Baidu, among others, rely on the NATS.io messaging system for its highly performant, secure and resilient capabilities.
+Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, and Baidu, among others, rely on the NATS.io messaging system for its highly performant, secure and resilient capabilities.
 """
 
 [mediaTypes."text/netlify"]
@@ -45,29 +45,39 @@ baseName = "_redirects"
 home = [ "HTML", "REDIRECTS" ]
 
 [[params.social]]
+label = "Twitter"
 icon = "twitter"
 url = "https://twitter.com/nats_io"
 color = "twitter-blue"
 
 [[params.social]]
+label = "GitHub"
 icon = "github"
 url = "https://github.com/nats-io"
 
 [[params.social]]
+label = "Slack"
 icon = "slack"
 url = "https://slack.nats.io"
 color = "slack-purple"
 
 [[params.social]]
+label = "Reddit"
 icon = "reddit-alien"
 url = "https://www.reddit.com/r/NATS_io/"
 color = "reddit-orange"
 
+[[params.social]]
+label = "YouTube"
+icon = "youtube"
+url = "https://youtube.com/c/nats_messaging/videos"
+color = "youtube-red"
+
 [params.logos]
 navbar = "nats-horizontal-color.png"
 hero = "nats-horizontal-color.png"
-footer_dark = "nats-icon-white.png"
-footer_light = "nats-icon-black.png"
+footer_dark = "nats-icon-color.png"
+footer_light = "nats-icon-color.png"
 
 [[params.fonts]]
 name = "Source Sans Pro"
@@ -78,6 +88,28 @@ type = "sans_serif"
 name = "Roboto Mono"
 sizes = [300, 400, 600, 700]
 type = "monospace"
+
+# Features
+[[languages.en.params.features]]
+title = "Flexible and Adaptable"
+description = "With flexible deployments models using clusters, superclusters, and leaf nodes, optimize communications for your unique deployment.  NATS can adapt to any communications topology from IoT to Edge to Cloud to Hybrid deployments.  The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs to connect devices, edge, cloud or hybrid deployments."
+icon = "hand-holding-usd"
+
+[[languages.en.params.features]]
+title = "Secure"
+description = "Define your data silos by your needs, not by software limitations.  With true multi-tenancy, NATS isolates your data by default, allowing you to share just what is necessary between security domains.  Organizations can independently develop in their own sandbox, mitigating risk and providing value faster..  Security is bifurcated from topology, so clients simply need a connection url and credentials.  Connect anywhere in the NATS deployment and NATS will do the right thing."
+icon = "cubes"
+
+[[languages.en.params.features]]
+title = "Performant"
+description = "With the ability to process over 80 million messages a second per server, you’ll be able to process data as fast as you need to.  With optimized compute usage and network usage combined with a topology optimized for your use case, cloud costs will be minimized."
+icon = "feather"
+
+[[languages.en.params.features]]
+title = "Scalable and Resilient"
+description = "NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system.  Clients require zero awareness of NATS topology allowing you future proof your system to meet your needs of tomorrow, not only today."
+icon = "cubes"
+
 
 [[menu.main]]
 name = "About"

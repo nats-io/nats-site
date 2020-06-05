@@ -5,13 +5,13 @@
     {{ range $recent }}
     {{ $date := dateFormat "January 2, 2006" .Date }}
     <div class="column is-one-quarter">
-      <div class="card">
+      <div>
         <div class="card-content">
-          <a class="is-size-4 is-size-5-mobile has-text-weight-medium" href="{{ .RelPermalink }}">
+          <a class="is-size-5 is-size-5-mobile has-text-weight-medium" href="{{ .RelPermalink }}">
             {{ .Title }}
           </a>
 
-          <p class="title is-size-5 is-size-6-mobile has-text-weight-light has-top-margin">
+          <p class="title is-size-6 is-size-6-mobile has-text-weight-light has-top-margin">
             Posted on {{ $date }}
           </p>
         </div>
