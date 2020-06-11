@@ -20,7 +20,7 @@ favicon = "favicon.ico"
 font_awesome_version = "5.12.0"
 leftNav = false
 description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
-author = "The NATS team"
+author = "The NATS Team"
 title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true
@@ -75,6 +75,7 @@ color = "youtube-red"
 
 [params.logos]
 navbar = "nats-horizontal-color.png"
+navbar_home = "nats-horizontal-white.png"
 hero = "nats-horizontal-color.png"
 footer_dark = "nats-icon-color.png"
 footer_light = "nats-icon-color.png"
@@ -91,24 +92,24 @@ type = "monospace"
 
 # Features
 [[languages.en.params.features]]
-title = "Flexible and Adaptable"
-description = "With flexible deployments models using clusters, superclusters, and leaf nodes, optimize communications for your unique deployment.  NATS can adapt to any communications topology from IoT to Edge to Cloud to Hybrid deployments.  The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs to connect devices, edge, cloud or hybrid deployments."
-icon = "hand-holding-usd"
+title = "Agile"
+description = "With flexible deployments models using clusters, superclusters, and leaf nodes, optimize communications for your unique deployment.  The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs to connect devices, edge, cloud or hybrid deployments."
+icon = "arrows-alt"
 
 [[languages.en.params.features]]
 title = "Secure"
-description = "Define your data silos by your needs, not by software limitations.  With true multi-tenancy, NATS isolates your data by default, allowing you to share just what is necessary between security domains.  Organizations can independently develop in their own sandbox, mitigating risk and providing value faster..  Security is bifurcated from topology, so clients simply need a connection url and credentials.  Connect anywhere in the NATS deployment and NATS will do the right thing."
-icon = "cubes"
+description = "With true multi-tenancy, securely isolate and share your data to fully meet your business needs, mitigating risk and achieving faster time to value. Security is bifurcated from topology, so you can connect anywhere in a deployment and NATS will do the right thing."
+icon = "shield-alt"
 
 [[languages.en.params.features]]
 title = "Performant"
-description = "With the ability to process over 80 million messages a second per server, you’ll be able to process data as fast as you need to.  With optimized compute usage and network usage combined with a topology optimized for your use case, cloud costs will be minimized."
-icon = "feather"
+description = "With the ability to process millions of messages a second per server, you’ll find unparalleled efficiency with NATS.  Save money by minimizing cloud costs with reduced compute and network usage for streams, services, and eventing."
+icon = "tachometer-alt"
 
 [[languages.en.params.features]]
-title = "Scalable and Resilient"
-description = "NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system.  Clients require zero awareness of NATS topology allowing you future proof your system to meet your needs of tomorrow, not only today."
-icon = "cubes"
+title = "Resilient"
+description = "NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system.  Clients require zero awareness of NATS topology allowing you future proof your system to meet your needs of today and tomorrow."
+icon = "star-of-life"
 
 
 [[menu.main]]
@@ -208,25 +209,25 @@ weight = 6
 parent = "doc"
 
 [[menu.main]]
+name = "Blog"
+weight = 5
+identifier = "blog"
+url = "/blog"
+
+[[menu.main]]
 name = "Support"
-weight = 4
+weight = 7
 identifier = "support"
 url = "/support"
 
 [[menu.main]]
 name = "Community"
-weight = 5
+weight = 6
 identifier = "community"
 url = "/community"
 
 [[menu.main]]
-name = "Blog"
-weight = 6
-identifier = "blog"
-url = "/blog"
-
-[[menu.main]]
 name = "Privacy"
-weight = 7
+weight = 8
 identifier = "privacy"
 url = "/privacy"

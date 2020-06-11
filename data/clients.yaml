@@ -26,6 +26,16 @@
   clients:
   - org: nats-io
     repo: nats.c
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '2.1.0'
+      date: '2019-10-02'
+  - org: nats-io
+    repo: stan.c
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -37,6 +47,7 @@
   clients:
   - org: employeerepublic
     repo: clj-nats-async
+    supported: false
     author:
       name: Employee Republic
       link: https://github.com/employeerepublic/
@@ -46,6 +57,7 @@
   clients:
   - org: nats-io
     repo: nats.net
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -55,6 +67,7 @@
       date: '2019-11-18'
   - org: danielwertheim
     repo: mynatsclient
+    supported: false
     author:
       name: Daniel Wertheim
       link: https://github.com/danielwertheim
@@ -65,6 +78,7 @@
   clients:
   - org: nats-io
     repo: nats.cr
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com
@@ -73,6 +87,7 @@
       date: '2019-09-10'
   - org: repomaa
     repo: nats.cr
+    supported: true
     author:
       name: Joakim Repomaa
       link: https://github.com/repomaa
@@ -83,6 +98,7 @@
   clients:
   - org: nats-io
     repo: nats.ex
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com
@@ -91,6 +107,7 @@
       date: '2019-03-03'
   - org: iamd3vil
     repo: nats_ex
+    supported: false
     author:
       name: Sarat Chandra
       link: https://github.com/iamd3vil
@@ -101,6 +118,7 @@
   clients:
   - org: orus-io
     repo: elm-nats
+    supported: false
     author:
       name: Christophe de Vienne
       link: https://github.com/cdevienne
@@ -110,6 +128,7 @@
   clients:
   - org: yuce
     repo: teacup_nats
+    supported: false
     author:
       name: Yuce Tekol
       link: https://github.com/yuce
@@ -120,6 +139,7 @@
   clients:
   - org: nats-io
     repo: nats.go
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -131,6 +151,7 @@
   clients:
   - org: ondrap
     repo: nats-queue
+    supported: false
     author:
       name: Ondrej Palkovsky
       link: https://github.com/ondrap
@@ -141,6 +162,7 @@
   clients:
   - org: nats-io
     repo: nats.java
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -150,6 +172,7 @@
       date: '2019-07-22'
   - org: cloudfoundry-community
     repo: java-nats
+    supported: false
     author:
       name: Mike Heath
       link: https://github.com/mheath
@@ -160,6 +183,7 @@
   clients:
   - org: kedzie
     repo: nats-android
+    supported: false
     author:
       name: Marek Kedzierski
       link: https://kedzie.github.com/
@@ -170,6 +194,7 @@
   clients:
   - org: dawnangel
     repo: lua-nats
+    supported: false
     author:
       name: Eric Pinto
       link: https://github.com/DawnAngel
@@ -180,6 +205,7 @@
   clients:
   - org: mkharibalaji
     repo: mpynats
+    supported: false
     author:
       name: M K Hari Balaji
       link: https://github.com/mkharibalaji
@@ -189,6 +215,7 @@
   clients:
   - org: carwynmoore
     repo: perl-nats
+    supported: false
     author:
       name: Carwyn Moore
       link: https://github.com/carwynmoore
@@ -196,6 +223,7 @@
       date: '2016-07-20'
   - org: sergeykolychev
     repo: perl-nats-streaming
+    supported: false
     streaming_support: true
     author:
       name: Sergey Kolychev
@@ -207,6 +235,7 @@
   clients:
   - org: repejota
     repo: phpnats
+    supported: false
     author:
       name: Raül Pérez
       link: https://github.com/repejota
@@ -215,6 +244,7 @@
       date: '2017-07-17'
   - org: byrnedo
     repo: php-nats-streaming
+    supported: false
     streaming_support: true
     author:
       name: Donal Byrne
@@ -226,6 +256,7 @@
   clients:
   - org: nats-io
     repo: nginx-nats
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com
@@ -235,6 +266,7 @@
   clients:
   - org: nats-io
     repo: node-nats
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -246,6 +278,7 @@
   clients:
   - org: nats-io
     repo: pure-ruby-nats
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com
@@ -256,6 +289,7 @@
   clients:
   - org: gr1n
     repo: nats-python
+    supported: false
     author:
       name: Nikita Grishko
       link: https://github.com/Gr1N
@@ -265,6 +299,7 @@
   clients:
   - org: nats-io
     repo: nats.py
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -276,6 +311,7 @@
   clients:
   - org: nats-io
     repo: python-nats
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com
@@ -286,6 +322,7 @@
   clients:
   - org: johnwlockwood
     repo: txnats
+    supported: false
     author:
       name: John Lockwood
       link: https://github.com/johnwlockwood
@@ -295,6 +332,7 @@
   clients:
   - org: pkoretic
     repo: qt-nats
+    supported: false
     author:
       name: Petar Koretić
       link: https://github.com/pkoretic/
@@ -304,6 +342,7 @@
   clients:
   - org: nats-io
     repo: ruby-nats
+    supported: true
     streaming_support: true
     author:
       name: Synadia
@@ -315,6 +354,7 @@
   clients:
   - org: davidmcneil
     repo: rants
+    supported: false
     author:
       name: David McNeil
       link: https://github.com/davidMcneil
@@ -327,6 +367,7 @@
   clients:
   - org:  tyagihas
     repo: scala_nats
+    supported: false
     author:
       name: Teppei Yagihashi
       link: https://github.com/tyagihas
@@ -334,6 +375,7 @@
   clients:
   - org: travelish
     repo: swiftnats
+    supported: false
     author:
       name: Firman Maulana
       link: https://github.com/kakilangit
@@ -344,6 +386,7 @@
   clients:
   - org: nats-io
     repo: ts-nats
+    supported: true
     author:
       name: Synadia
       link: https://synadia.com

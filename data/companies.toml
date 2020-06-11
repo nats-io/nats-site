@@ -61,9 +61,80 @@ logo = "mastercard.png"
 [companies.tinder]
 name = "Tinder"
 home = "https://www.tinder.com"
-logo = "tinder.svg"
+logo = "tinder.png"
 
 [companies.lauchdarkly]
 name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
 logo = "launchdarkly.png"
+
+[companies.zerodha]
+name = "Zerodha"
+home = "https://www.zerodha.com"
+logo = "zerodha.png"
+
+[companies.compumark]
+name = "CompuMark"
+home = "https://www.clarivate.com/compumark"
+logo = "compumark.png"
+
+[companies.dukeenergy]
+name = "Duke Energy"
+home = "https://www.duke-energy.com/home"
+logo = "duke.png"
+
+[companies.tesla]
+name = "Tesla"
+home = "https://tesla.com"
+logo = "tesla.png"
+
+[companies.schaeffler]
+name = "Schaeffler"
+home = "https://schaeffler.com"
+logo = "schaeffler.png"
+
+[companies.samsclub]
+name = "Sam's Club"
+home = "https://samsclub.com"
+logo = "samsclub.png"
+
+[companies.paypal]
+name = "PayPal"
+home = "https://paypal.com"
+logo = "paypal.png"
+
+[companies.cruise]
+name = "Cruise"
+home = "https://getcruise.com"
+logo = "cruise.png"
+
+[companies.viacom]
+name = "ViacomCBS"
+home = "https://www.viacbs.com/home"
+logo = "viacom.png"
+
+[companies.att]
+name = "AT&T"
+home = "https://att.com"
+logo = "att.png"
+
+[companies.alibaba]
+name = "Alibaba Group"
+home = "https://alibaba.com"
+logo = "alibaba.png"
+
+[companies.qlik]
+name = "Qlik"
+home = "https://qlik.com"
+logo = "qlik.png"
+
+[companies.capitalone]
+name = "Capital One"
+home = "https://capitalone.com"
+logo = "capitalone.png"
+
+[companies.walmart]
+name = "Walmart"
+home = "https://walmart.com"
+logo = "walmart.png"
+
