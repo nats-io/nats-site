@@ -589,6 +589,21 @@ Releases:
       repo: nats_ex
       link: https://github.com/iamd3vil/nats_ex
 
+- name: Tcl
+  type: nats-client
+  supported: false
+  language: Tcl
+  author:
+    - name: Petro Kazmirchuk
+      link: https://github.com/Kazmirchuk
+  version_num: 0.9
+  release_notes: |
+    Last updated to 0.9 on June 21, 2020.
+  github:
+    - user: kazmirchuk
+      repo: nats-tcl
+      link: https://github.com/Kazmirchuk/nats-tcl
+
 - name: Python Asyncio
   type: streaming-client
   supported: true
