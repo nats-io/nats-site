@@ -42,6 +42,13 @@
       link: https://github.com/employeerepublic/
     release:
       date: '2017-05-11'
+- language: Common Lisp
+  clients:
+  - org: ccqpein
+    repo: nats-cl
+    author:
+      name: ccQ
+      link: https://github.com/ccqpein
 - language: C-sharp
   clients:
   - org: nats-io
@@ -313,6 +320,11 @@
       date: '2019-06-09'
 - language: Rust
   clients:
+  - org: nats-io
+    repo: nats.rs
+    author:
+      name: Synadia
+      link: https://synadia.com
   - org: davidmcneil
     repo: rants
     author:
@@ -340,6 +352,16 @@
     release:
       version: '3.0.0-alpha.1'
       date: '2016-08-28'
+- language: Tcl
+  clients:
+  - org: Kazmirchuk
+    repo: nats-tcl
+    author:
+      name: Petro Kazmirchuk
+      link: https://github.com/Kazmirchuk
+    release:
+      version: '0.9'
+      date: '2020-06-11'
 - language: TypeScript
   clients:
   - org: nats-io
@@ -350,4 +372,3 @@
     release:
       version: '1.0.4'
       date: '2018-08-27'
-
