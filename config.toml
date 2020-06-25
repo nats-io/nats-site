@@ -73,6 +73,12 @@ icon = "youtube"
 url = "https://youtube.com/c/nats_messaging/videos"
 color = "youtube-red"
 
+[[params.social]]
+label = "Stack Overflow"
+icon = "stack-overflow"
+url = "https://stackoverflow.com/questions/tagged/nats.io"
+color = "stack-orange"
+
 [params.logos]
 navbar = "nats-horizontal-color.png"
 navbar_home = "nats-horizontal-white.png"

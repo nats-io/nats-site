@@ -24,7 +24,9 @@ $nats-light-green: #8dc63f
 
 $reddit-orange: rgba(255, 86, 0, 1)
 $slack-purple: rgb(88, 27, 93)
-$twitter-blue: rgb(29, 202, 255)
+$twitter-blue: rgb(29, 161, 242)
+$youtube-red: rgb(255, 0, 0)
+$stack-orange: #FF9900
 
 $nats-colors: ("nats-blue": $nats-blue, "nats-green": $nats-green, "nats-dark-blue": $nats-dark-blue, "nats-light-green": $nats-light-green)
 
@@ -32,12 +34,14 @@ $nats-colors: ("nats-blue": $nats-blue, "nats-green": $nats-green, "nats-dark-bl
   .has-text-#{$name}
     color: $color
 
+
 // Initial Bulma imports
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
 
 // Bulma-specific overrides
 $primary: $nats-blue
+$light-green: $nats-light-green
 $link: $primary
 $code: $nats-dark-blue
 $code-background: $white-bis
@@ -46,6 +50,12 @@ $navbar-height: 4rem
 $navbar-item-hover-color: $nats-light-green !important
 $navbar-item-hover-background-color: $dark !important
 $card-content-padding: 1.75rem
+$footer-padding: 0rem 1.5rem 2rem
+$hero-body-padding-medium: 5rem 1.5rem
+$box-background-color: $dark
+
+
+
 
 // Font overrides
 {{ if $fonts }}
@@ -63,7 +73,7 @@ $family-monospace: "{{ . }}", monospace
 // Final Bulma imports
 @import "bulma/sass/utilities/derived-variables"
 
-$colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green": ($nats-light-green, $white), "reddit-orange": ($reddit-orange, $white), "twitter-blue": ($twitter-blue, $white), "slack-purple": ($slack-purple, $white)), $colors)
+$colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green": ($nats-light-green, $white), "reddit-orange": ($reddit-orange, $white), "youtube-red": ($youtube-red, $white), "twitter-blue": ($twitter-blue, $white), "stack-orange": ($stack-orange, $white), "slack-purple": ($slack-purple, $white)), $colors)
 
 // Bulma core
 @import "bulma/sass/utilities/_all"
@@ -108,7 +118,7 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 // @import "bulma/sass/components/message"
 // @import "bulma/sass/components/modal"
 @import "bulma/sass/components/navbar"
-// @import "bulma/sass/components/pagination"
+@import "bulma/sass/components/pagination"
 // @import "bulma/sass/components/panel"
 // @import "bulma/sass/components/tabs"
 
@@ -117,7 +127,7 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 
 .social-button
   & + &
-    margin-left: 0.5rem
+    margin-left: 1.75rem
 
 .repo-link
   color: $dark
@@ -148,17 +158,17 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
     width: $touch
 
 .is-hero-logo
-  +logo(50%, 70%, 90%)
+  +logo(50%, 50%, 50%)
 
 .is-footer-logo
   +logo(25%, 25%, 15%)
 
 .is-cncf-logo
-  margin-top: 2rem
-  +logo(40%, 70%, 70%)
+  margin-top: 0rem
+  +logo(40%, 90%, 90%)
 
 .logo
-  margin: auto auto
+  margin: auto auto auto
   
   +tablet-only
     width: 90%
@@ -189,9 +199,20 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
   position: -webkit-sticky
   top: 0
 
-.card + .card
-  margin-top: 1.5rem
 
+.card + .card
+    margin-top: 1.5rem
+
+.card
+    &.is-fullheight
+      height: 100%
+
+.section
+  &.is-light
+    background-color: $light
+
+.background-con
+    background: url(/img/home-background.jpg) repeat-x center 150px
 
 .has-top-margin
   margin-top: 2rem
@@ -204,3 +225,63 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 
   +desktop
     width: 70%
+
+.is-user-logo-section
+   display: flex
+   flex-wrap: wrap
+   justify-content: right
+
+.is-user-logo
+     height: 50%
+     width: 50%
+
+.column
+    &.has-text-centered
+      text-align: center
+
+.button
+  &.is-client
+   padding-left: .5em
+   padding-right: .5em
+   margin-bottom: 0rem;
+
+//Blog Pagination
+
+.pagination
+    display: flex
+    list-style: none
+    border-radius: .25rem
+    margin: 20px 0
+    padding: 0
+    justify-content: center
+
+
+.page-link
+    position: relative
+    display: block
+    padding: .75rem 1rem
+    margin-left: -1px
+    line-height: 1.25
+    color: #007bff
+    background-color: #fff
+    border: 1px solid #dee2e6
+
+
+.homepage .page-link,
+.listing .page-link
+    background-color: #fff
+
+
+.page-item.disabled .page-link
+    color: #6c757d
+    pointer-events: none
+    cursor: auto
+    background-color: #fff
+    border-color: #dee2e6
+
+
+.page-item.active .page-link
+    z-index: 1
+    color: #fff
+    background-color: #007bff
+    border-color: #007bff

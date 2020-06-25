@@ -3,9 +3,9 @@ title = "About NATS"
 chart = true
 +++
 
-### NATS is a family of open source products that are tightly integrated but can be deployed independently. NATS is being deployed globally by thousands of companies, spanning innovative use-cases including: Mobile apps, Microservices and Cloud Native, and IoT.
+NATS is a family of open source products that are tightly integrated but can be deployed independently. NATS is being deployed globally by thousands of companies, spanning innovative use-cases including: Mobile apps, Microservices and Cloud Native, and IoT.
 
-#### NATS is also available as a global communications system called NGS. Get started today for free at [NGS Signup](https://synadia.com/ngs/signup).
+NATS is also available as a global communications system called NGS. Get started today for free at [NGS Signup](https://synadia.com/ngs/signup).
 
 The core NATS Server acts as a central nervous system for building distributed applications. There are dozens of clients ranging from Java, .NET, to GO. NATS Streaming extends the platform to provide for real-time streaming & big data use-cases.
 

@@ -6,12 +6,14 @@
 {{ $title       := .Title }}
 {{ $lang        := .Title }}
 {{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }}
-{{ $display     := printf "%s clients" $displayLang }}
+{{ $display     := printf "%s Clients" $displayLang }}
 {{ $clients     := where site.Data.clients ".language" $title }}
-<section class="hero is-dark is-medium">
+
+
+<section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <p class="title is-size-1 is-size-2-mobile">
+      <p class="title is-size-2 is-size-2-mobile">
         {{ $display }}
       </p>
     </div>
@@ -34,3 +36,5 @@
   {{ partial "download/clients.html" . }}
 </section>
 {{ end }}
+
+

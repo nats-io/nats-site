@@ -1,0 +1,66 @@
+{{ $languages := site.Data.language.language }}
+{{ $clients := site.Data.clients }}
+
+<table>
+  <thead>
+  <tr>
+    <th>
+      Client Language
+    </th>
+  <th>
+  Repo
+  </th>
+    <th>
+      Streaming
+    </th>
+    <th>
+      Author
+    </th>
+  </thead>
+  <tbody>
+  {{ range $k, $v := $languages }}
+  <tr>
+    <td>
+        {{ $v.name }}
+    </td>
+    <td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.link }}
+      <a href="{{ $a.link }}/{{ $a.repo }}">
+        {{ $a.repo }}
+      </a>
+      {{ else }}
+      {{ $a.repo }}
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+    </td>
+
+    <td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.streaming_support }}
+      <span>Streaming</span>
+      </span>
+
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+    </td>
+
+    <td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ $a.author }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+    </td>
+
+  </tr>
+  {{ end }}
+  </tbody>
+</table>

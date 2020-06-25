@@ -1,0 +1,274 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- Viz Support -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.7.1/viz.js"> </script>
+
+<!-- Anchor Links -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.js"> </script>
+<script>
+    anchors.options.placement = 'left';
+    anchors.add('h1,h2,h3');
+</script>
+
+<!-- Site code -->
+<script>
+    function copyToClipboard(text, el) {
+        var copyTest = document.queryCommandSupported('copy');
+        var elOriginalText = el.attr('data-original-title');
+
+        if (copyTest === true) {
+            var copyTextArea = document.createElement("textarea");
+            copyTextArea.value = text;
+            document.body.appendChild(copyTextArea);
+            copyTextArea.select();
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'Copied!' : 'Whoops, not copied!';
+                el.attr('data-original-title', msg).tooltip('show');
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+            document.body.removeChild(copyTextArea);
+            el.attr('data-original-title', elOriginalText);
+        } else {
+            // Fallback if browser doesn't support .execCommand('copy')
+            window.prompt("Copy to clipboard: Ctrl+C or Command+C, Enter", text);
+        }
+    }
+
+    function processGraphVizSections(elements) {
+        var elements = document.querySelectorAll("[data-viz]");
+        Array.prototype.forEach.call(elements, function(x){
+            var engine = x.getAttribute("data-viz");
+            //var image = new DOMParser().parseFromString(Viz(x.innerText, {format:"svg", engine:engine}), "image/svg+xml");
+            //x.parentNode.insertBefore(image.documentElement, x);
+            var image = Viz(x.innerText, { format: "png-image-element", engine:engine });
+            x.parentNode.insertBefore(image, x);
+        });
+
+
+    };
+    
+    function updateLanguageParameter(value) {
+        const param = "lang";
+
+        if (window.location.href.indexOf("?") >= 0) {
+            const regExp = new RegExp(param + "(.+?)(&|$)", "g");
+            const newUrl = window.location.href.replace(regExp, param + "=" + encodeURIComponent(value) + "$2");
+            window.history.pushState("", "", newUrl);
+        } else {
+            const newUrl = window.location.href + "?" + param + "=" + encodeURIComponent(value);
+            window.history.pushState("", "", newUrl);
+        }
+    }
+    
+    function getLanguageParameter() {
+        var match = RegExp('[?&]lang=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
+
+    $(document).ready(function() {
+        checkTrack();
+        $('.js-tooltip').tooltip({container: "body"});
+        $('.js-copy').click(function() {
+            var el = $(this);
+            var text = $(this).parents('pre').find('code').first().text();
+            copyToClipboard(text, el);
+        });
+
+        $('.api-lang').click(function() {
+            var curLang = sessionStorage.getItem('nats-api-language');
+            var lang = $(this).data('language');
+
+            // Stop the infinite loop
+            if (curLang == lang) {
+                return;
+            }
+
+            sessionStorage.setItem('nats-api-language', lang); // So we only do this 1x
+
+            updateLanguageParameter(lang)
+            
+            $('.nav-tabs .api-lang[data-language='+lang+'] a').trigger('click');
+        });
+
+        if (sessionStorage) {
+            var curLang = sessionStorage.getItem('nats-api-language');
+            var queryLang = getLanguageParameter();
+
+            if(queryLang) { // query takes precedent
+                sessionStorage.setItem('nats-api-language', queryLang); // So we only do this 1x
+                $('.nav-tabs .api-lang[data-language='+queryLang+'] a').trigger('click');
+            } else if (curLang) {
+                $('.nav-tabs .api-lang[data-language='+curLang+'] a').trigger('click');
+            }
+        }
+
+        setTimeout(function() {
+            processGraphVizSections();
+        }, 1);
+    });
+
+    $('#priv').on('click', function(e) {
+        openPrivacy();
+    });
+</script>
+
+<script src="/js/index.js"></script>
+<!-- Github Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-ruby.min.js"></script>
+
+
+<script>
+    function getGAKey() {
+        return "UA-111730698-1";
+    }
+
+    function getGAKeyDisableKey() {
+        return "ga-disable-" + getGAKey();
+    }
+    function getCookie() {
+        var cookies = document.cookie;
+        var a = cookies.split(";");
+        return a.find(function (e) {
+            e = e.trim();
+            return e.startsWith("ga-disable=");
+        });
+    }
+
+    function updateCheckbox(tc) {
+        // set the state of the html to match in case the preview it
+        var checked = false;
+        if (tc) {
+            checked = tc.trim().split('=')[1] == "true";
+        }
+        $('#disable_analytics').prop('checked', checked);
+        return checked;
+    }
+
+    function addGA() {
+        // now load google analytics script
+        if (!$('#gascript').length) {
+            var s = document.createElement('script', {async: '', id: 'gascript'});
+            s.type = 'text/javascript';
+            s.src = 'https://www.google-analytics.com/analytics.js';
+            $('body').append(s);
+        }
+    }
+
+    function checkTrack() {
+        var tc = getCookie();
+        var disable = updateCheckbox(tc);
+        // set a property on the window to disable ga
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out
+        window[getGAKeyDisableKey()] = disable;
+
+        if (!tc) {
+            // while this is opened, we don't track or download scripts
+            openPrivacy(tc);
+        } else {
+            addGA();
+        }
+    }
+
+    function openPrivacy(tc) {
+        var gdprSel = $('#gdpr');
+        gdprSel.removeClass('hide');
+        return handleSizes();
+    }
+
+    var paddingTop = 0;
+    function handleSizes() {
+        var gdprSel = $('#gdpr');
+        if (!gdprSel.hasClass('hide')) {
+            var h = gdprSel.innerHeight();
+            var body = $('body');
+            var pt = parseInt(body.css('padding-top'), 10);
+            if(paddingTop === 0) {
+                paddingTop = pt;
+            }
+            body.css("padding-top", (paddingTop + h) + "px");
+            $('#nav').css({top: h + "px"});
+            gdprSel.css({top: 0, position: "fixed", zIndex: 2000, width: "100%"});
+        }
+    }
+
+    $(window).resize(handleSizes);
+    $(window).load(function() {
+        var sel = $('#disable_analytics');
+        if(sel.length) {
+            sel.change(function() {
+                deleteCookie("ga-disable");
+                if ($(this).is(':checked')) {
+                    disableAnalytics();
+                } else {
+                    enableAnalytics();
+                }
+                return false;
+            });
+        };
+    });
+
+    function disableAnalytics() {
+        window[getGAKeyDisableKey()] = true;
+        closeRibbon();
+        var d = new Date();
+        d.setFullYear(d.getFullYear() + 1);
+        document.cookie = "ga-disable=true; expires=" + oneYearFromNow().toUTCString() + "; path=/";
+        addGA();
+    }
+
+    function enableAnalytics() {
+        window[getGAKeyDisableKey()] = false;
+        closeRibbon();
+        var d = new Date();
+        d.setFullYear(d.getFullYear() + 1);
+        document.cookie = "ga-disable=false; expires=" + oneYearFromNow().toUTCString() + "; path=/";
+        addGA();
+    }
+
+
+    function oneYearFromNow() {
+        var d = new Date();
+        d.setFullYear(d.getFullYear() + 1);
+        return d;
+    }
+
+    function closeRibbon() {
+        var gdprSel = $('#gdpr');
+        if(!gdprSel.hasClass('hide')) {
+            $('#nav').css({top: "0px"});
+            gdprSel.addClass('hide');
+            if (paddingTop) {
+                $('body').css("padding-top", paddingTop + "px");
+            }
+            // they closed the notice, so they accepted
+            if(getCookie() === undefined) {
+                enableAnalytics();
+            }
+        }
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+</script>
+
+<!-- Google Analytics Configuration - scripts added dynamically after user opts in or out-->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', getGAKey(), {
+        cookieExpires: 0
+    });
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
