@@ -6,6 +6,7 @@
   "devDependencies": {
     "anchor-js": "^4.2.0",
     "bulma": "^0.8.0",
+    "bulma-switch": "^2.0.0",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5",
