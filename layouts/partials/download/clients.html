@@ -1,5 +1,7 @@
-{{ $clients := site.Data.clients }}
-{{ $streaming := (slice) }}
+{{/* Template for the client listing on every page in the /download domain */}}
+
+{{ $clients := site.Data.clients }} {{/* All clients */}}
+{{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $clients }}
 {{ $this := . }}
 {{ range .clients }}
@@ -46,8 +48,9 @@
       </div>
     </div>
   </div>
-</div>  
+</div>
 
+{{/* Inline template for each client button */}}
 {{ define "client" }}
 {{ $lang    := cond (isset . "language") .language .language_alt }}
 {{ $display := cond (eq $lang "C-sharp") "C#" .language }}

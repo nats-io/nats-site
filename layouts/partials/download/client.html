@@ -1,3 +1,6 @@
+{{/* Template for language client cards */}}
+
+{{/* You see .ctx here because that's one of the variables passed in via the layouts/download/single.html template */}}
 {{ $repo     := printf "%s/%s" .ctx.org .ctx.repo }}
 {{ $link     := printf "https://github.com/%s" $repo }}
 {{ $official := eq .ctx.org "nats-io" }}

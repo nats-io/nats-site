@@ -1,3 +1,5 @@
+{{/* Template for language client pages, e.g. https://nats.io/download/go */}}
+
 {{ define "title" }}
 {{ .Title }} NATS clients
 {{ end }}
@@ -5,8 +7,8 @@
 {{ define "main" }}
 {{ $title       := .Title }}
 {{ $lang        := .Title }}
-{{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }}
-{{ $display     := printf "%s clients" $displayLang }}
+{{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }} {{/* Adjust the title if you're dealing with C# */}}
+{{ $display     := printf "%s clients" $displayLang }} {{/* The display string for each client, e.g. "Go clients" */}}
 {{ $clients     := where site.Data.clients ".language" $title }}
 <section class="hero is-dark is-medium">
   <div class="hero-body">
@@ -23,7 +25,7 @@
     <div class="columns is-multiline is-variable is-8">
       {{ range $clients }}
       {{ range .clients }}
-      {{ partial "download/client.html" (dict "ctx" . "language" $title) }}
+      {{ partial "download/client.html" (dict "ctx" . "language" $title) }} {{/* Pass variables into the client template */}}
       {{ end }}
       {{ end }}
     </div>
