@@ -60,14 +60,13 @@ The structure of the content directory is as follows:
 ```
 - /content
 	- /blog
-	- /documentation
 	- /download
-	- about.html
+	- about.md
 	- community.md
 	- contributing.md
-	- index.html
-	- support.html
-	- privacy.md
+  - nats_connect.html
+  - privacy.md
+	- support.md
 ```
 
 The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
@@ -97,7 +96,7 @@ To update content, only the .md files should be used. The .html files in the rep
 
 ## <a name="adding-content-pages"></a>Adding Content Pages
 
-Any new page should be a raw Markdown document placed in the appropriate content directory listed above. 
+Any new page should be a raw Markdown document placed in the appropriate content directory listed above.
 
 ### Adding Quotes to Community
 To add a new quote and logo to **/community** you are going to have to modify `/layouts/partials/quotes.html` and follow the convention as seen from the existing quotes.
@@ -107,10 +106,11 @@ If you have a logo to go along with the quote, just add a full size `.jpeg` or `
 ---
 
 ## <a name="adding-blog-entry"></a>Adding a Blog Entry
+
 To add a new blog entry, use the `hugo new` command like the following:
 
-```
-	hugo new blog/page-url-for-blog-post.md
+```sh
+hugo new blog/page-url-for-blog-post.md
 ```
 
 Replace `page-url-for-blog-post` with a SEO (Search Engine Optimization) friendly page url like: `nats-lands-in-london`. So the resulting command would be: `hugo new blog/nats-lands-in-london`. Then new blog entry would reside at: `https://nats.io/blog/nats-lands-in-london`
@@ -119,7 +119,7 @@ Once the command is run you can find the new blog entry in `content/blog/nats-la
 
 In the frontmatter of the new entry you will see metadata like this:
 
-```
+```toml
 +++
 date = "2019-12-01"
 draft = true
@@ -138,6 +138,7 @@ By default, `draft = true` is set on blog posts. When a post has this status, it
 * The `draft` parameter must be set to `false` or not be present
 
 ### Categories
+
 For Categories you are going to add on or more of the following:
 
 - General
@@ -146,49 +147,68 @@ For Categories you are going to add on or more of the following:
 
 So for our example we would change `categories` in the frontmatter to:
 
-```
-	categories = ["Community"]
+```toml
+categories = ["Community"]
 ```
 
 ### Date
-The date timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`. The date cannot be in the future.
+
+The `date` timestamp should be the exact time you ran the command to create the new blog entry. If you need to change it make sure you follow the same convention that is already there. `date = "2015-11-05T11:45:03-08:00"`. The date cannot be in the future.
 
 ### Tags
-For Tags, you can add as many tags as you feel are needed and they can be anything:
 
-```
-	tags = ["nats","london","community"]
+For tags, you can add as many tags as you feel are needed and they can be anything:
+
+```toml
+tags = ["nats","london","community"]
 ```
 
 ### Title
-A default title is generated from the url you provided with the `hugo` command but we recommend you change this to something is better suited for display purposes. Example: `title = "NATS Lands In London"`
+
+A default title is generated from the url you provided with the `hugo` command but we recommend you change this to something better suited for display purposes. Example: `title = "NATS Lands In London"`
 
 ### Blog Entry Content
 
 #### Images
-To add images to a blog entry, first place them in `/src/blog`. You may add images of any size, but please make sure they are at least 800x600 for quality purposes. Once added, run `gulp` in the root of the repo. This will automatically resize any images added and put them in the proper place.
 
-You may link to these images then. Example: `<img src="/img/blog/IMAGE-NAME.png">`
+To add images to a blog entry (or any other page) place them in `static/img`. You may add images of any size, but please make sure they are at least 800x600 for quality purposes.
+
+You may link to these images then in Markdown. Here's an example:
+
+```markdown
+Below is the NATS logo:
+
+![NATS logo](/img/logos/nats-horizontal-color.png)
+```
 
 #### Embedded Tweets
 To add an embedded tweet, you just need to grab the embed code from the tweet, and then wrap the embed code in a div as follows:
 
-```
-	<div class="tweet-embed-con">
-	  <!-- Twitter Embed code goes here -->
-	</div>
+```html
+<div class="tweet-embed-con">
+  <!-- Twitter Embed code goes here -->
+</div>
 ```
 
 Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed example.
 
 
 #### Content
+
 For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
 
 ---
 
 ## <a name="adding-logo"></a>Adding a Company Logo
-If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email <info@nats.io> with your request. 
+If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email <info@nats.io> with your request.
+
+---
+
+## The Download Page
+
+The [Download](https://nats.io/download) page is one of the more complex parts of the site. All of the NATS language clients are listed in [`data/clients.yaml`](./data/clients.yaml). A [Ruby](https://www.ruby-lang.org) script in [`scripts/generate-client-pages.sh`](./scripts/generate) generates Markdown pages for each client in the [`content/download`](./content/download) directory.
+
+If you'd like to add a new client to the site, update `data/clients.yaml` and use the other clients as a template. Clients that have `org` set to `nats-io` will automatically be marked as official.
 
 ---
 
@@ -198,55 +218,37 @@ You can either user docker image for your local development or install requireme
 
 
 Clone your forked copy of the repository:
-```
+
+```sh
 git clone git@github.com:<YOUR GIT USERNAME>/nats-site.git
 ```
 
 Change to the directory:
-```
+
+```sh
 cd nats-site/
 ```
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node), [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](https://www.graphicsmagick.org/). 
+Install [Hugo](https://gohugo.io/) and [npm](https://docs.npmjs.com/getting-started/installing-node).
 
-> Building the NATS site/documentation currently requires Hugo version 0.53 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
+> Building the NATS site/documentation currently requires Hugo version 0.62.2 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
-If you are running on MacOS, you can try issuing the command `make setup`, this command will brew install requirements. Please refer to the `Makefile` for more information.
-
+If you are running on macOS, you can try issuing the command `make setup`, this command will `brew install` requirements. Please refer to the [`Makefile`](./Makefile) for more information.
 
 Enter the following commands to install additional software dependencies (if you used `make setup` you can skip this next step.)
 
 ```sh
 npm install
-npm install --global gulp-cli
 ```
 
-#### Building the Site
+#### Running the Site Locally
 
-Images and other source assets live in the `src` directory. The build workflow will resize images, and compile files in `src` and create the assets directory for hugo.
+You can serve the site locally using this command:
 
 ```sh
-gulp build
+make develop
 ```
 
-The `gulp` command will do a build of the src directory and copy assets to the the `static` directory. This command will also run hugo and process the `content` directory creating a snapshot of the site in the `public` directory.
-
-To preview your changes, run:
-```sh
-hugo server
-```
-
-`hugo server` starts hugo as a server. You can directly edit your forked repository and then go to `https://127.0.0.1:1313`  to preview your changes on a browser.
-
-
-Whenever `src` is modified, remember to run `gulp build` to update the `static` directory, and allow hugo to see the changes.
-
-
-
-Create a new blog post : 
-```sh
-hugo new blog/my-blog-post.md
-```
-
+This runs a script that creates the [download](https://nats.io/download) pages and starts Hugo as a server. You can directly edit your forked repository and then go to `https://127.0.0.1:1313` to preview your changes in a browser. As you make changes, the page will be updated and refreshed automatically.
