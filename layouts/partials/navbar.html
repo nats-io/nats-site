@@ -2,6 +2,7 @@
 {{ $home   := site.BaseURL }}
 {{ $menu   := site.Menus.main }}
 {{ $here   := .RelPermalink }}
+{{ $isBlog := eq .Section "blog" }}
 <nav class="navbar is-dark is-fixed-top is-expanded">
   <div class="container">
    <div class="navbar-item"><a href="{{ $home }}">
@@ -11,7 +12,9 @@
      {{ partial "logo.html" (dict "logo" "navbar_home") }}
    </a>
      {{ end }}
+
    </div>
+
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -21,6 +24,9 @@
 
     <div class="navbar-menu">
       <div class="navbar-end is-expanded">
+        {{ if $isBlog }}
+        {{ partial "search-bar.html" . }}
+        {{ end }}
         {{ range $menu }}
         {{ $isExternal := hasPrefix .URL "http" }}
         <a class="navbar-item has-text-weight-bold" href="{{ .URL }}"{{ if $isExternal }} target="_blank"{{ end }}>

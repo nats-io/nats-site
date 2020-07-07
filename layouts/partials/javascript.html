@@ -6,3 +6,15 @@
 {{ $chart := resources.Get "js/Chart.js" | fingerprint }}
 <script src="{{ $chart.RelPermalink }}" integrity="{{ $chart.Data.Integrity }}"></script>
 {{ end }}
+
+<!-- Algolia Search for Blog -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: '22d6bf4e34b8974d2f19c337df8f33c4',
+  indexName: 'nats',
+  inputSelector: '#search-bar',
+  debug: false
+});
+</script>

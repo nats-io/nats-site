@@ -1,15 +1,18 @@
 {{ $languages := site.Data.language.language }}
 {{ $clients := site.Data.clients }}
 
+<div class="container content">
+<div class="columns">
+  <div class="column is-two-thirds">
 <table>
   <thead>
   <tr>
     <th>
       Client Language
     </th>
-  <th>
-  Repo
-  </th>
+    <!--<th>
+      Repo
+    </th> -->
     <th>
       Streaming
     </th>
@@ -19,11 +22,14 @@
   </thead>
   <tbody>
   {{ range $k, $v := $languages }}
+  {{ $url  := printf "download/%s" ($v.name | urlize) | relURL }}
   <tr>
     <td>
+       <a href="{{ $url }}">
         {{ $v.name }}
+      </a>
     </td>
-    <td>
+    <!--<td>
       {{ $n := len $v.orgs }}
       {{ range $idx, $a := $v.orgs }}
       {{ $isLast := eq (sub $n 1) $idx }}
@@ -36,7 +42,7 @@
       {{ end }}
       {{ if not $isLast }}<br />{{ end }}
       {{ end }}
-    </td>
+    </td> -->
 
     <td>
       {{ $n := len $v.orgs }}
@@ -55,7 +61,14 @@
       {{ $n := len $v.orgs }}
       {{ range $idx, $a := $v.orgs }}
       {{ $isLast := eq (sub $n 1) $idx }}
+      {{ $official := eq $a.org "nats-io" }}
+      {{ if $official }}
       {{ $a.author }}
+          <span>
+            <i class="fas fa-star fa-xs"></i>
+          </span>
+      {{ else }} {{ $a.author }}
+      {{ end }}
       {{ if not $isLast }}<br />{{ end }}
       {{ end }}
     </td>
@@ -64,3 +77,6 @@
   {{ end }}
   </tbody>
 </table>
+</div>
+</div>
+</div>
