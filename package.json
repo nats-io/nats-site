@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "anchor-js": "^4.2.2",
-    "bulma": "^0.8.0"
+    "bulma": "^0.8.2"
   }
 }
