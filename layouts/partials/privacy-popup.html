@@ -1,0 +1,19 @@
+{{ $privacyMessage := site.Params.privacy_message | markdownify }}
+<div class="privacy-popup has-background-light" id="privacy-popup">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-three-quarters">
+        <p class="is-size-5 is-size-6-mobile has-text-weight-bold">
+          {{ $privacyMessage }}
+        </p>
+      </div>
+
+      <div class="column has-text-right">
+        <a class="button has-text-weight-bold is-primary-dark" id="privacy-popup-toggle">
+          Got it
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

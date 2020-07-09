@@ -82,7 +82,7 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 @import "bulma/sass/elements/content"
 @import "bulma/sass/elements/icon"
 // @import "bulma/sass/elements/image"
-// @import "bulma/sass/elements/notification"
+@import "bulma/sass/elements/notification"
 // @import "bulma/sass/elements/progress"
 // @import "bulma/sass/elements/table"
 @import "bulma/sass/elements/tag"
@@ -114,6 +114,10 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 
 // Bulma extensions
 @import "bulma-switch/src/sass/index"
+
+.privacy-popup
+  display: none
+  padding: 1.25rem 0
 
 .has-extra-top-margin
   margin-top: 2rem

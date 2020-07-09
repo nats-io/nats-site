@@ -134,7 +134,7 @@ var googleAnalyticsToggle = () => {
   }
 }
 
-function throughputChart() {
+const throughputChart = () => {
   const chart = $("#throughput-chart-container");
 
   // Lets make sure we're on the about page before running this
@@ -182,6 +182,22 @@ function throughputChart() {
   }
 }
 
+const privacyPopup = () => {
+  const popup = $('#privacy-popup'),
+    toggle = $('#privacy-popup-toggle');
+
+  const hidePopup = window.localStorage.getItem('hide-popup') || false;
+
+  if (!hidePopup) {
+    popup.css({'display': 'block'});
+  }
+
+  toggle.click(() => {
+    popup.hide();
+    window.localStorage.setItem('hide-popup', true);
+  });
+}
+
 // On page load
 $(function() {
   navbarToggle();
@@ -189,4 +205,6 @@ $(function() {
   throughputChart();
 
   googleAnalyticsToggle();
+
+  privacyPopup();
 });
