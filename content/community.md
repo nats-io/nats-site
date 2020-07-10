@@ -24,7 +24,7 @@ The best way to get started contributing to NATS is to read our [Contributor's G
 * Add or propose new features
 * [Improve our documentation](https://github.com/nats-io/nats-site#adding-documentation)
 * Add or update client libraries
-* [Host a meetup](mailto:info@nats.io?subject=Hosting a NATS Meetup)
+* <a href="mailto:info@nats.io?subject=Host a NATS MeetUp">Host a Meetup</a>
 * [Improve this website](https://github.com/nats-io/nats-site)
 
 Please [contact us](mailto:info@nats.io) with any other suggestions.

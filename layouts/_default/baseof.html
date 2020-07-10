@@ -18,6 +18,7 @@
   </head>
   <body class="is-page has-navbar-fixed-top">
     <main class="is-main">
+      {{ partial "gdpr.html" .}}
       {{ partial "navbar.html" . }}
 
       {{ block "main" . }}

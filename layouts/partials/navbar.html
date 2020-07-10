@@ -3,8 +3,13 @@
 {{ $menu   := site.Menus.main }}
 {{ $here   := .RelPermalink }}
 {{ $isBlog := eq .Section "blog" }}
+
+
 <nav class="navbar is-dark is-fixed-top is-expanded">
   <div class="container">
+    <div class="navbar-item">
+
+    </div>
    <div class="navbar-item"><a href="{{ $home }}">
      {{ if not .IsHome }}
      {{ partial "logo.html" (dict "logo" "navbar") }}
