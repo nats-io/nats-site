@@ -10,6 +10,7 @@
     date: '2020-01-31'
   docker: nats
   prefix: nats-server
+  official: true
 - title: NATS Streaming Server
   org: nats-io
   repo: nats-streaming-server
@@ -22,3 +23,5 @@
     date: '2020-02-11'
   docker: nats-streaming
   prefix: nats-streaming
+  official: true
+  streaming_support: true

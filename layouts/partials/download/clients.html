@@ -1,5 +1,6 @@
 {{/* Template for the client listing on every page in the /download domain */}}
 
+{{ $isMain  := eq $.Page.Title "Download" }}
 {{ $clients := site.Data.clients }} {{/* All clients */}}
 {{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $clients }}
@@ -17,11 +18,13 @@
         NATS
       </p>
 
+      {{ if not $isMain }}
       <div class="buttons">
         <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-server">
           NATS server
         </a>
       </div>
+      {{ end }}
 
       <div class="buttons">
         {{ range $clients }}
@@ -35,11 +38,13 @@
         NATS Streaming
       </p>
 
+      {{ if not $isMain }}
       <div class="buttons">
         <a class="button is-dark is-outlined has-text-weight-bold" href="/download/nats-streaming-server">
           NATS Streaming Server
         </a>
       </div>
+      {{ end }}
 
       <div class="buttons">
         {{ range $streaming }}
