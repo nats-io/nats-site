@@ -28,7 +28,7 @@ NATS is unique in its simplicity and performance, and as a result powers some of
 
 Our roadmap represents coming features lined up for the future of NATS. We are excited to bring these advances to the NATS community and look forward to your valuable input. Please contact us at [info@nats.io](mailto:info@nats.io) or join our Slack channel with any questions, comments, or requests.
 
-{{< figure src="/img/roadmap.png" width="90%" alt="NATS roadmap" caption="NATS Roadmap" >}}
+{{< figure src="/img/roadmap.png" width="90%" alt="NATS roadmap" >}}
 
 ---
 

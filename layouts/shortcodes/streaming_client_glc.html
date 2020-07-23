@@ -1,5 +1,14 @@
 {{ $languages := site.Data.language.language }}
 {{ $clients := site.Data.clients }}
+{{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
+{{ range $languages }}
+{{ $this := . }}
+{{ range .orgs }}
+{{ if .streaming_support }}
+{{ $streaming = $streaming | append $this }}
+{{ end }}
+{{ end }}
+{{ end }}
 
 
 <div class="container content">
@@ -18,18 +27,25 @@
       Description
     </th>
     <th>
-      Author(s)
+      Author
     </th>
     <th>
       Details
     </th>
   </thead>
   <tbody>
-  {{ range $k, $v := $languages }}
-  {{ $url  := printf "download/%s" ($v.name | urlize) | relURL }}
-  <tr>
+  {{ range $k, $v := $streaming }}
+    <tr>
     <td>
-        {{ $v.name }}
+    {{ range $k, $a := $v.orgs }}
+      {{ if $a.streaming_support }}
+      <a href="{{ $a.link }}/{{ $a.repo }}" target="_blank">
+      {{ end }}
+      {{ end }}
+    {{ $v.name }}
+    </a>
+
+
     </td>
     <!--<td>
       {{ $n := len $v.orgs }}
@@ -63,7 +79,7 @@
     <td>
       {{ $n := len $v.orgs }}
       {{ range $idx, $a := $v.orgs }}
-      {{ if not $a.streaming_support }}
+      {{ if $a.streaming_support }}
       {{ $isLast := eq (sub $n 1) $idx }}
       {{ $official := eq $a.org "nats-io" }}
       {{ if $official }}
@@ -79,7 +95,7 @@
     </td>
     <td>
       {{ range $idx, $a := $v.orgs }}
-      {{ if not $a.streaming_support }}
+      {{ if $a.streaming_support }}
       {{ $repo := printf "%s/%s" $a.org $a.repo }}
       {{ partial "download/github_embed_clients.html" (dict "repo" $repo) }}
       {{ end }}

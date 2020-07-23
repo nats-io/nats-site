@@ -1,5 +1,8 @@
-{{ $clients := site.Data.clients }}
-{{ $streaming := (slice) }}
+{{/* Template for the client listing on every page in the /download domain */}}
+
+{{ $isMain  := eq $.Page.Title "Download" }}
+{{ $clients := site.Data.clients }} {{/* All clients */}}
+{{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $clients }}
 {{ $this := . }}
 {{ range .clients }}
@@ -9,8 +12,6 @@
 {{ end }}
 {{ end }}
 
-
-
 <div class="container content">
   <div class="columns is-variable is-8">
     <div class="column is-two-thirds">
@@ -18,12 +19,14 @@
         NATS
       </p>
 
+      {{ if not $isMain }}
       <div class="buttons">
         <span class="icon is-medium"><a class="button is-primary has-text-weight-bold" href="/download/nats-server">
           <i class="fas fa-download"></i></span>
         <span>NATS Server</span>
         </a>
       </div>
+      {{ end }}
 
 
       <div class="buttons has-addons">
@@ -41,12 +44,14 @@
         NATS Streaming
       </p>
 
+      {{ if not $isMain }}
       <div class="buttons">
         <span class="icon is-medium"><a class="button is-light-green has-text-weight-bold" href="/download/nats-streaming-server">
           <i class="fas fa-download"></i></span>
         <span>NATS Streaming Server</span>
         </a>
       </div>
+      {{ end }}
 
       <div class="buttons has-addons">
         {{ range $streaming }}
@@ -55,8 +60,10 @@
       </div>
     </div>
   </div>
-</div>  
 
+</div>
+
+{{/* Inline template for each client button */}}
 {{ define "client" }}
 {{ $title := .Title }}
 {{ $lang    := cond (isset . "language") .language .language_alt }}
@@ -66,4 +73,6 @@
   {{ $display }}
 </a>
 {{ end }}
+
+
 

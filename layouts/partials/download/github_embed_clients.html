@@ -1,0 +1,7 @@
+{{ $repo := printf "https://github.com/%s" .repo }}
+
+<div class="github-embed">
+  <a class="github-button" href="{{ $repo }}"  aria-label="View {{ .repo }} on GitHub" >View on GitHub</a>
+  <a class="github-button" href="{{ $repo }}" data-icon="octicon-star" aria-label="Star {{ .repo }} on GitHub" data-show-count="true">Star</a>
+
+</div>
