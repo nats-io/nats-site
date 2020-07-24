@@ -50,7 +50,6 @@
           </span> -->
           {{ end }}
         </div>
-        {{ partial "download/github-embed.html" (dict "repo" $repo) }}
 
 <!--
         <span>
@@ -86,6 +85,8 @@
             </span>
           </a>
         </div> -->
+        {{ partial "download/github-embed.html" (dict "repo" $repo) }}
+
         <br />
           <div class="buttons">
             {{ if .streaming_support }}

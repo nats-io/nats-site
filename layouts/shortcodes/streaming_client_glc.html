@@ -27,7 +27,7 @@
       Description
     </th>
     <th>
-      Author
+      Developer
     </th>
     <th>
       Details
@@ -39,13 +39,9 @@
     <td>
     {{ range $k, $a := $v.orgs }}
       {{ if $a.streaming_support }}
-      <a href="{{ $a.link }}/{{ $a.repo }}" target="_blank">
+      {{ $v.name }}
       {{ end }}
       {{ end }}
-    {{ $v.name }}
-    </a>
-
-
     </td>
     <!--<td>
       {{ $n := len $v.orgs }}
@@ -85,7 +81,7 @@
       {{ if $official }}
       {{ $a.author }}
           <span>
-            <i class="fas fa-star fa-xs"></i>
+            <i class="fas fa-star fa-xs fa-star-blue"></i>
           </span>
       {{ else }} {{ $a.author }}
       {{ end }}
