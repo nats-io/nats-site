@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.0
+  version_num: 2.2.0
   release_notes: |
-    Release v2.1.0 on October 2nd, 2019.
+    Release v2.2.0 on July 29th, 2020.
   github:
     - user: nats-io
       repo: nats.c
@@ -38,9 +38,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.0
+  version_num: 2.2.0
   release_notes: |
-    Release v2.1.0 on October 2nd, 2019.
+    Release v2.2.0 on July 29th, 2020.
   github:
     - user: nats-io
       repo: stan.c
@@ -493,7 +493,7 @@ Releases:
       link: https://github.com/autodidaddict
   version_num: 0.0.0
   release_notes: |
-    
+
   github:
     - user: encabulators
       repo: natsclient
