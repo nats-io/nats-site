@@ -4,11 +4,11 @@
   "description": "Nats.io",
   "main": "gulpfile.js",
   "dependencies": {
-    "anchor-js": "^4.2.0",
+    "anchor-js": "^4.2.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "minimist": "^1.2.5",
-    "prismjs": "^1.15.0"
+    "prismjs": "^1.20.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,7 +23,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.2",
     "gm": "^1.23.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
