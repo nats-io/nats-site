@@ -38,8 +38,10 @@
             <div class="col-lg-9 col-sm-8 detail-block">
               <div class="github-buttons">
               {{ range first 1 .github }}
-              <!-- Watch -->
-              <a class="github-button" href="{{ .link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
+              <!--Download -->
+              <a class="github-button" href="{{ .link }}/releases/latest" data-icon="octicon-download" data-size="large" aria-label="Download from GitHub">Download NATS.io/{{ .repo }}</a>
+               <!-- Watch -->
+              <br><a class="github-button" href="{{ .link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
               <!-- Star -->
               <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="# stargazers on GitHub">Star</a>
               <!-- Fork -->
@@ -49,7 +51,7 @@
               <ul class="list-unstyled">
                 {{ range first 1 .github }}
                 <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
-                <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li>
+              <!--  <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li> -->
                 {{ end }}
                 {{ range .links }}
                 <li><a href="{{ .url }}">{{ .name }}</a></li>
