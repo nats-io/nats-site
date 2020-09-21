@@ -551,9 +551,9 @@ Releases:
   author:
     - name: Daniel Wertheim
       link: https://github.com/danielwertheim
-  version_num: 0.10.0
+  version_num: 0.16.0
   release_notes: |
-    Release v0.10.0 on January 10th, 2017.
+    Release v0.16.0 on September 19th, 2020.
   github:
     - user: danielwertheim
       repo: mynatsclient
