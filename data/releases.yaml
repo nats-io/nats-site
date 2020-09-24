@@ -762,7 +762,7 @@ Releases:
       repo: perl-nats-streaming
       link: https://github.com/sergeykolychev/perl-nats-streaming
 
-- name: NATS Server
+- name: NATS.io Server
   type: nats-server
   supported: true
   language: Golang
@@ -796,7 +796,7 @@ Releases:
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
-- name: NATS Streaming Server
+- name: NATS.io Streaming Server
   type: streaming-server
   supported: true
   language: Golang
