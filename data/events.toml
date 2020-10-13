@@ -1,34 +1,20 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Monday, August 17, 2020 16:55 CEST/ 7:55 PDT"
-who = "Waledmar Quevedo"
-what = "Tutorial | Building Secure & Decentralized Global Applications on k8s with NATS"
-where = "Virtual"
-ref = "https://sched.co/Zekp"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Tuesday, August 18, 2020 18:30 CEST/ 9:30 PDT"
-who = "Colin Sullivan"
-what = "Easy, Secure, & Fast - Using NATS for Data Streams & Services"
-where = "Virtual"
-ref = "https://sched.co/Zewv"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Wednesday, August 19, 2020 16:55 CEST/ 7:55 PDT"
-who = "Waldemar Quevedo"
-what = "Deep Dive Into Building a Secure & Multi-tenant SaaS Solution with NATS"
-where = "Virtual"
-ref = "https://sched.co/Zext"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Thursday, August 20, 2020 17:00 CEST/ 8:00 PDT"
+venue = "KubeCon + CloudNativeCon North America"
+when = "Tuesday, November 17, 2020 1:00 pm EST"
 who = "The NATS Team"
 what = "Meet the Maintainers - NATS Project Office Hours"
 where = "Virtual"
-ref = "https://sched.co/djV6"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon North America"
+when = "Thursday, November 19, 2020 5:40 pm EST"
+who = "Waldedmar Quevedo & Jaime Piña"
+what = "NATS Streams and Services - From Zero to Hero"
+where = "Virtual"
+ref = "https://sched.co/ekHe"
+
+
 
 
 # comment out to save
