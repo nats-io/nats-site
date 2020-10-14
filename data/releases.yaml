@@ -641,9 +641,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.1
+  version_num: 0.3.0
   release_notes: |
-    Release v0.2.1 on January 2, 2020.
+    Release v0.3.0 on October 13, 2020.
   github:
     - user: nats-io
       repo: stan.net
