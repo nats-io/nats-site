@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.2.0
+  version_num: 2.3.0
   release_notes: |
-    Release v2.2.0 on July 29th, 2020.
+    Release v2.3.0 on October 16th, 2020.
   github:
     - user: nats-io
       repo: nats.c
@@ -38,9 +38,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.2.0
+  version_num: 2.3.0
   release_notes: |
-    Release v2.2.0 on July 29th, 2020.
+    Release v2.3.0 on October 16h, 2020.
   github:
     - user: nats-io
       repo: stan.c
