@@ -40,7 +40,7 @@ Releases:
       link:
   version_num: 2.3.0
   release_notes: |
-    Release v2.3.0 on October 16h, 2020.
+    Release v2.3.0 on October 16th, 2020.
   github:
     - user: nats-io
       repo: stan.c
