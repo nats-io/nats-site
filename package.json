@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "anchor-js": "^4.2.2",
+    "gulp-update": "0.0.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "minimist": "^1.2.5",
