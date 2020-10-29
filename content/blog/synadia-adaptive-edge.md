@@ -62,7 +62,7 @@ In the big picture, we have headquarters, distribution centers, and factories.  
 ## Application to Vertical Markets
 
 |  Use Case | Central | Shared Services or Streams  | Remote Entity  | Endpoints |
-|-|-|-|-|-|
+| ------ | ------ | ------ | ------ | ----- |
 | Connected Car | Headquarters |Location Services, Weather, Metrics, Security |Vehicle|Various systems within the vehicle|
 | Manufacturing  | Regional, Divisional, or National Headquarters |Analytics, QA, Schematic updates, inventory|Factory|Line Equipment|
 | Retail/Restaurant | Regional Headquarters |Points programs, Ad rewards, coupons, logistics|Stores/Distribution Centers|Scanners, POS devices, Inventory|
