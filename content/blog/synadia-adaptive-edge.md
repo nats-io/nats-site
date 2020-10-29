@@ -9,7 +9,7 @@ tags = ["NATS", "Synadia"]
 
 # Overview
 
-At [Synadia](https://synadia.com) we have the goal of unifying all cloud, edge, and IoT communications.  We guide companies in their journey from where they are at today toward efficiently operating a secure and resilient modern distributed communications system and leverage the [NATS.io](https://nats.io) project to get them there.  Derek Collison, creator of NATS, founded Synadia which helps sponsor the NATS project by stewarding and donating the time and effort.
+At [Synadia](https://synadia.com) we have the goal of unifying all cloud, edge, and IoT communications.  We guide companies in their journey from where they are today toward efficiently operating a secure and resilient modern distributed communications system and leverage the [NATS.io](https://nats.io) project to get them there.  Derek Collison, creator of NATS, founded Synadia which stewards the NATS project.
 
 We see users deploy NATS that fit into a few buckets - a single cluster [k8s](http://kubernetes.io) deployment, a cluster of NATS servers in the cloud on VMs or on bare metal.  As companies grow we see many multi-regional deployments spread out geographically, in data centers, across cloud providers or more often now with hybrid deployments.
 
@@ -19,7 +19,7 @@ What is really interesting is that we're seeing this pattern applied to many dif
 
 # Security
 
-In NATS 2.0, we enhanced security around the concept of [operators and accounts](https://docs.nats.io/nats-tools/nsc/nsc#creating-an-operator-account-and-user).  An operator is a "owner" of a NATS deployment, such as an Ericsson, Mastercard, or Synadia.  Operators create accounts - think of accounts like *"containers for messaging"* - true multi-tenancy.  An account might contain users representing a group of applications, a regional deployment, or a business unit.  Note that we're moving toward zero trust, so in operator mode, even with this notion of accounts and users, the NATS system **never** stores or accesses a private NATS key.
+In NATS 2.0, we enhanced security around the concept of [operators and accounts](https://docs.nats.io/nats-tools/nsc/nsc#creating-an-operator-account-and-user).  An operator is an "owner" of a NATS deployment, such as an Ericsson, Mastercard, or Synadia.  Operators create accounts - think of accounts like *"containers for messaging"* - true multi-tenancy.  An account might contain users representing a group of applications, a regional deployment, or a business unit.  Note that we're moving toward zero trust, so in operator mode, even with this notion of accounts and users, the NATS system **never** stores or accesses a private NATS key.
 
 When a NATS client connects its credentials indicates it belongs to a particular account.  Its subject namespace (where it can send and receive data) exists only within its account.  This means that by default, data will never traverse an account boundary and a client can only directly communicate with other clients in the same account, even if using the same subjects.
 
@@ -75,6 +75,6 @@ In the big picture, we have headquarters, distribution centers, and factories.  
 
 # About the Author
 
-I'm Colin Sullivan, Product Manager at Synadia as well a long time NATS maintainer.
+I'm Colin Sullivan, Product Manager at Synadia and a long time NATS maintainer.
 
-At Synadia we see new use cases every day and are excited to help NATS users.  We are invested in NATS and love to see it help solve increasingly common problems.  If you're interested in learning more, contact us at info@synadia.com or myself directly at colin@synadia.com.
+At Synadia we see new use cases every day and are excited to help NATS users.  We are invested in NATS and love to see it help solve increasingly common problems.  If you're interested in learning more, contact us at <info@synadia.com> or myself directly at <colin@synadia.com>.
