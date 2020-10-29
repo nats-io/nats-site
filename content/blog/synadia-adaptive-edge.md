@@ -23,7 +23,7 @@ In NATS 2.0, we enhanced security around the concept of [operators and accounts]
 
 When a NATS client connects its credentials indicates it belongs to a particular account.  Its subject namespace (where it can send and receive data) exists only within its account.  This means that by default, data will never traverse an account boundary and a client can only directly communicate with other clients in the same account, even if using the same subjects.
 
-However, accounts can import and export streams (think telemetry) or services (think RPC) with other accounts allowing one to securely share specific data and map subjects, effectively decoupling data access from the application subject namespace.  Within a deployment, streams and services may be made public for all accounts to import, or private to  adhere to the strictest of security policies.  Because security is truly bifurcated from connectivity, if one chooses accounts may only exist on a subset of servers to create data silos.
+However, accounts can import and export **streams** (think telemetry) or **services** (think RPC) with other accounts allowing one to securely share specific data and map subjects, effectively decoupling data access from the application subject namespace.  Within a deployment, streams and services may be made public for all accounts to import, or private to  adhere to the strictest of security policies.  Because security is truly bifurcated from connectivity, if one chooses accounts may only exist on a subset of servers to create data silos.
 
 # Deployment Topologies
 
