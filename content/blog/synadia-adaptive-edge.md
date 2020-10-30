@@ -23,7 +23,7 @@ In NATS 2.0, we enhanced security around the concept of [Operators, Accounts, an
 
 When a NATS client connects its credentials indicates it belongs to a particular account.  Its subject namespace (where it can send and receive data) exists only within its account.  This means that by default, data will never traverse an account boundary and a client can only directly communicate with other clients in the same account, even if using the same subjects found in other accounts.
 
-However, accounts can import and export **streams** (think telemetry) or **services** (think RPC) with other accounts allowing one to securely share specific data and map subjects, effectively decoupling data access from the application subject namespace.  Within a deployment, streams and services may be made public for all accounts to import, or private to  adhere to the strictest of security policies.  Because security is truly bifurcated from connectivity, accounts may only exist on a subset of servers to create data silos.
+However, accounts can [export and import](https://docs.nats.io/nats-server/configuration/securing_nats/accounts#exporting-and-importing]) **streams** (think telemetry) or **services** (think RPC) with other accounts allowing one to securely share specific data and map subjects, effectively decoupling data access from the application subject namespace.  Within a deployment, streams and services may be made public for all accounts to import, or private to  adhere to the strictest of security policies.  Because security is truly bifurcated from connectivity, accounts may only exist on a subset of servers to create data silos.
 
 # Deployment Topologies
 
@@ -78,6 +78,6 @@ In the big picture, we have headquarters, distribution centers, and factories.  
 
 # About the Author
 
-I'm Colin Sullivan, Product Manager at Synadia and a long time NATS maintainer.
+I'm [Colin Sullivan](https://www.linkedin.com/in/colinsullivan/), Product Manager at Synadia and a long time NATS maintainer.
 
 At Synadia we see new use cases every day and are excited to help NATS users.  We are invested in NATS and love to see it help solve increasingly common yet difficult problems.  If you're interested in learning more, contact us at <info@synadia.com> or myself at <colin@synadia.com>.
