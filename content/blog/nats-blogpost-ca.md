@@ -1,8 +1,11 @@
-+++ date = "2020-11-06" draft = false title = "NATS and Certificate Authorities" author = "Phil Pennock" categories = ["Engineering", "Security", "TLS", "Certificates", "Lets Encrypt"] tags = ["NATS", "Synadia"] +++
-
-
-NATS and Certificate Authorities: Intermediate Rolls
-====================================================
++++ 
+date = "2020-11-06" 
+draft = false 
+title = "NATS and Certificate Authorities - Intermediate Rolls" 
+author = "Phil Pennock" 
+categories = ["Engineering", "Security", "TLS", "Certificates", "Lets Encrypt"] 
+tags = ["NATS", "Synadia"] 
++++
 
 The NATS Server [can make good use of TLS](https://docs.nats.io/nats-server/configuration/securing_nats/tls)
 for securing various connections, including some modes where NATS servers talk
