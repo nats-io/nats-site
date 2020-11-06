@@ -1,4 +1,4 @@
-+++ date = "2020-11-06" draft = false title = "NATS and Certificate Authorities: Intermediate Rolls" author = "Phil Pennock" categories = ["Engineering", "Security", "TLS", "Certificates", "Lets Encrypt"] tags = ["NATS", "Synadia"] +++
++++ date = "2020-11-06" draft = false title = "NATS and Certificate Authorities" author = "Phil Pennock" categories = ["Engineering", "Security", "TLS", "Certificates", "Lets Encrypt"] tags = ["NATS", "Synadia"] +++
 
 
 NATS and Certificate Authorities: Intermediate Rolls
