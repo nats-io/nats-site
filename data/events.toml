@@ -9,10 +9,18 @@ ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/p
 [[events]]
 venue = "KubeCon + CloudNativeCon North America"
 when = "Thursday, November 19, 2020 5:40 pm EST"
-who = "Waldedmar Quevedo & Jaime Piña"
+who = "Waldemar Quevedo & Jaime Piña"
 what = "NATS Streams and Services - From Zero to Hero"
 where = "Virtual"
 ref = "https://sched.co/ekHe"
+
+[[events]]
+venue = "Go Systems Conf SF"
+when = "Thursday, December 3, 2020"
+who = "Waldemar Quevedo & Jaime Piña"
+what = "NATS All the Way Up"
+where = "Virtual"
+ref = "https://systemsconf.io"
 
 
 
