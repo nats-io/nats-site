@@ -626,9 +626,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.7.0
+  version_num: 0.8.2
   release_notes: |
-    Release v0.7.0 on June 23rd, 2020.
+    Release v0.8.2 on January 11th, 2021.
   github:
     - user: nats-io
       repo: stan.go
