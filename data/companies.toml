@@ -69,6 +69,11 @@ name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
 logo = "/img/companies/launchdarkly.png"
 
+[companies.sote]
+name = "Sote"
+home = "https://www.getsote.com"
+logo = "/img/companies/sote.png"
+
 # [companies.pex]
 # name = "Pex"
 # home = "https://www.pex.com"
