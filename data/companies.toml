@@ -74,6 +74,11 @@ name = "NSCI"
 home = "https://www.nsci.io"
 logo = "/img/companies/nsci.png"
 
+[companies.sote]
+name = "Sote"
+home = "https://www.getsote.com"
+logo = "/img/companies/sote.png"
+
 # [companies.pex]
 # name = "Pex"
 # home = "https://www.pex.com"
