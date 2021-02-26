@@ -53,9 +53,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.11.0
+  version_num: 0.12.0
   release_notes: |
-    Release 0.11.0 on October 12, 2020.
+    Release 0.12.0 on February 26, 2021.
   github:
     - user: nats-io
       repo: nats.net
