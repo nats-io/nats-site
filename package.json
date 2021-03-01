@@ -9,7 +9,7 @@
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "minimist": "^1.2.5",
-    "prismjs": "^1.21.0"
+    "prismjs": "^1.23.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
