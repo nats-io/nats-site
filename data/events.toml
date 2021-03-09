@@ -1,28 +1,18 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon North America"
-when = "Tuesday, November 17, 2020 1:00 pm EST"
+venue = "KubeCon + CloudNativeCon Europe"
+when = "Friday, May 7, 2021 13:45 CEST"
+who = "Waldemar Quevedo"
+what = "NATS v2.2 | The JetStream Release"
+where = "Virtual"
+ref = "https://sched.co/iE8x"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon Europe"
+when = "TBD"
 who = "The NATS Team"
-what = "Meet the Maintainers - NATS Project Office Hours"
+what = "Meet the Maintainers - Project Office Hours"
 where = "Virtual"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon North America"
-when = "Thursday, November 19, 2020 5:40 pm EST"
-who = "Waldemar Quevedo & Jaime Piña"
-what = "NATS Streams and Services - From Zero to Hero"
-where = "Virtual"
-ref = "https://sched.co/ekHe"
-
-[[events]]
-venue = "Go Systems Conf SF"
-when = "Thursday, December 3, 2020"
-who = "Waldemar Quevedo & Jaime Piña"
-what = "NATS All the Way Up"
-where = "Virtual"
-ref = "https://systemsconf.io"
-
-
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 
 # comment out to save
