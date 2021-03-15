@@ -769,30 +769,30 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.1.9
+  version_num: 2.2.0
   release_notes: |
-    Release v2.1.9 on November 2nd, 2020.
+    Release v2.2.0 on March 14th, 2021.
   github:
     - user: nats-io
       repo: nats-server
       link: https://github.com/nats-io/nats-server
   links:
-  - name: nats-server-v2.1.9-darwin-amd64.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-darwin-amd64.zip
-  - name: nats-server-v2.1.9-linux-amd64.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-linux-amd64.zip
-  - name: nats-server-v2.1.9-linux-386.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-linux-386.zip
-  - name: nats-server-v2.1.9-linux-arm6.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-linux-arm6.zip
-  - name: nats-server-v2.1.9-linux-arm7.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-linux-arm7.zip
-  - name: nats-server-v2.1.9-linux-arm64.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-linux-arm64.zip
-  - name: nats-server-v2.1.9-windows-386.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-windows-386.zip
-  - name: nats-server-v2.1.9-windows-amd64.zip
-    url: https://github.com/nats-io/nats-server/releases/download/v2.1.9/nats-server-v2.1.9-windows-amd64.zip
+  - name: nats-server-v2.2.0-darwin-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-darwin-amd64.zip
+  - name: nats-server-v2.2.0-linux-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-linux-amd64.zip
+  - name: nats-server-v2.2.0-linux-386.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-linux-386.zip
+  - name: nats-server-v2.2.0-linux-arm6.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-linux-arm6.zip
+  - name: nats-server-v2.2.0-linux-arm7.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-linux-arm7.zip
+  - name: nats-server-v2.2.0-linux-arm64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-linux-arm64.zip
+  - name: nats-server-v2.2.0-windows-386.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-windows-386.zip
+  - name: nats-server-v2.2.0-windows-amd64.zip
+    url: https://github.com/nats-io/nats-server/releases/download/v2.2.0/nats-server-v2.2.0-windows-amd64.zip
   - name: Official Docker Image
     url: https://hub.docker.com/_/nats/
 
