@@ -469,6 +469,21 @@ Releases:
       repo: txnats
       link: https://github.com/johnwlockwood/txnats
 
+- name: Python Minimal
+  type: nats-client
+  supported: false
+  language: Python
+  author:
+    - name: Eugene Van Den Bulke
+      link: https://github.com/3kwa
+  version_num: 0.0.0
+  release_notes: |
+    Last updated March 15th, 2021.
+  github:
+    - user: 3kwa
+      repo: goingnats
+      link: https://github.com/3kwa/goingnats
+
 - name: Rust
   type: nats-client
   supported: true
