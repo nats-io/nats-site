@@ -449,23 +449,6 @@ support = "Community"
 author = "Yuna Morgenstern"
 authorHome = "https://github.com/YunaBraska"
 
-[addons.ballerina_nats_server]
-name = "Ballerina NATS Server"
-home = "https://github.com/ballerina-platform/module-ballerinax-nats"
-description = "This package provides the capability to connect with NATS Server."
-support = "Community"
-[[addons.ballerina_nats_server.authors]]
-author = "Ballerina"
-authorHome = "https://github.com/ballerina-platform"
-
-[addons.ballerina_nats_streaming_server]
-name = "Ballerina NATS Streaming Server"
-home = "https://github.com/ballerina-platform/module-ballerinax-stan"
-description = "This package provides the capability to connect with NATS Streaming Server."
-support = "Community"
-[[addons.ballerina_nats_streaming_server.authors]]
-author = "Ballerina"
-authorHome = "https://github.com/ballerina-platform"
 
 #[addons.xxx]
 #name = ""
