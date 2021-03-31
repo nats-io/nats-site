@@ -131,13 +131,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 1.2.6
+  version_num: 2.0.1
   release_notes: |
-    Release v1.2.6 on March 29, 2019.
+    Release v2.0.1 on March 26, 2021.
   github:
     - user: nats-io
-      repo: node-nats
-      link: https://github.com/nats-io/node-nats
+      repo: nats.js
+      link: https://github.com/nats-io/nats.js
 
 - name: TypeScript Node NATS
   type: nats-client
@@ -273,6 +273,36 @@ Releases:
     - user: employeerepublic
       repo: clj-nats-async
       link: https://github.com/employeerepublic/clj-nats-async
+
+- name: Ballerina
+  type: nats-client
+  supported: false
+  language: Ballerina
+  author:
+    - name: Ballerina
+      link: https://github.com/ballerina-platform
+  version_num: v1.1.0-alpha5
+  release_notes: |
+    Last udpated on March 20th, 2021.
+  github:
+    - user: ballerina-platform
+      repo: module-ballerinax-nats
+      link: https://github.com/ballerina-platform/module-ballerinax-nats
+
+- name: Ballerina
+  type: streaming-client
+  supported: false
+  language: Ballerina
+  author:
+    - name: Ballerina
+      link: https://github.com/ballerina-platform
+  version_num: v1.1.0-alpha5
+  release_notes: |
+    Last udpated on March 20th, 2021.
+  github:
+    - user: ballerina-platform
+      repo: module-ballerinax-stan
+      link: https://github.com/ballerina-platform/module-ballerinax-stan
 
 - name: Qt5 C++
   type: nats-client
@@ -689,13 +719,13 @@ Releases:
   author:
     - name:
       link:
-  version_num: 0.2.2
+  version_num: 0.3.2
   release_notes: |
-    Release 0.2.2 on March 29, 2019.
+    Release 0.3.2 on May 12, 2020.
   github:
     - user: nats-io
-      repo: node-nats-streaming
-      link: https://github.com/nats-io/node-nats-streaming
+      repo: stan.js
+      link: https://github.com/nats-io/stan.js
 
 - name: Ruby
   type: streaming-client
