@@ -101,9 +101,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.7.0
+  version_num: 2.10.0
   release_notes: |
-    Release 2.7.0 on August 19, 2020.
+    Release 2.10.0 on April 1st, 2021.
   github:
     - user: nats-io
       repo: nats.java
