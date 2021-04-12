@@ -413,6 +413,42 @@ support = "Synadia"
 [[addons.nats_replicator.authors]]
 author = "NATS Team"
 
+[addons.spring_nats_server]
+name = "Spring NATS Server"
+home = "https://github.com/YunaBraska/nats-server-embedded"
+description = "Spring NATS Server for unit testing."
+support = "Community"
+[[addons.spring_nats_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.java_nats_server]
+name = "Java NATS Server"
+home = "https://github.com/YunaBraska/nats-server"
+description = "Java NATS Server for unit testing."
+support = "Community"
+[[addons.java_nats_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.spring_nats_streaming_server]
+name = "Spring NATS Streaming Server"
+home = "https://github.com/YunaBraska/nats-streaming-server-embedded"
+description = "Spring NATS Streaming Server for unit testing."
+support = "Community"
+[[addons.spring_nats_streaming_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.java_nats_streaming_server]
+name = "Java NATS Streaming Server"
+home = "https://github.com/YunaBraska/nats-streaming-server"
+description = "Java NATS Streaming Server for unit testing."
+support = "Community"
+[[addons.java_nats_streaming_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
 
 #[addons.xxx]
 #name = ""

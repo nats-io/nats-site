@@ -7,8 +7,8 @@ description = ""
 +++
 
 
-## NATS 2.0 is Generally Available
+## NATS 2.2 is Generally Available
 
 <p class="extra-info">
-    <a id="download-button" class="btn btn-lg" target="_blank" href="https://docs.nats.io/whats_new_20">Learn More</a>
+    <a id="download-button" class="btn btn-lg" target="_blank" href="https://docs.nats.io/whats_new_22">Learn More</a>
 </p>

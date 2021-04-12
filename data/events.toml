@@ -1,9 +1,17 @@
 [[events]]
 venue = "KubeCon + CloudNativeCon Europe"
+when = "Friday, May 7, 2021 13:45 CEST"
+who = "Waldemar Quevedo"
+what = "NATS v2.2 | The JetStream Release"
+where = "Virtual"
+ref = "https://sched.co/iE8x"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon Europe"
 when = "TBD"
 who = "The NATS Team"
-what = "NATS Maintainer Track Talks"
-where = "Amsterdam, The Netherlands"
+what = "Meet the Maintainers - Project Office Hours"
+where = "Virtual"
 ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 
