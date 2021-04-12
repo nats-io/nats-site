@@ -1,0 +1,5 @@
+# The markdown in the content area is part of our serving content, not
+# documentation about code, so we want GitHub language statistics to include
+# it.  This shows up in the Languages side-bar for the repository.
+content/**/*.md		linguist-detectable -linguist-documentation
+content/*.md		linguist-detectable -linguist-documentation
