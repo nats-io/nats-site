@@ -10,7 +10,7 @@ NATS is a family of open source products that are tightly integrated but can be 
 The core NATS Server acts as a central nervous system for building distributed applications. Written in Go, NATS is available as a client for approximately a dozen languages, many of which are supported by the Synadia team, including Go, Java, JavaScript/TypeScript, Python, Ruby, Rust, C#, C, and NGINX. NATS JetStream extends the platform to provide for real-time streaming & big data use-cases. Check out the full list of [NATS clients](/download).
 
 
-NATS was created by Derek Collison, Founder and CEO at [Synadia](https://synadia.com), in response to the market need for a simple and high performance messaging solution. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is available under the Apache-2.0 Open Source License.
+NATS was created by Derek Collison, in response to the market need for a simple, secure, and connective technology. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is available under the Apache-2.0 Open Source License.
 
 NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about the design characteristics in the [NATS FAQ](https://docs.nats.io/faq).
 

@@ -2,7 +2,17 @@
 # yarn lockfile v1
 
 
-bulma@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.0.tgz#ac1606431703a4761b18a4a2d5cc1fa864a2aece"
-  integrity sha512-nhf3rGyiZh/VM7FrSJ/5KeLlfaFkXz0nYcXriynfPH4vVpnxnqyEwaNGdNCVzHyyCA3cHgkQAMpdF/SFbFGZfA==
+"anchor-js@^4.2.2":
+  "integrity" "sha512-Rg1tGaG4K3avYqDh7rOYCE/odWxpUiHStnlKL/bGOt9cl6NjR06zhPGVQcCAjE5PT48oQeHVgqNmLzxh0Kuk4A=="
+  "resolved" "https://registry.npmjs.org/anchor-js/-/anchor-js-4.2.2.tgz"
+  "version" "4.2.2"
+
+"bulma-switch@^2.0.0":
+  "integrity" "sha512-myD38zeUfjmdduq+pXabhJEe3x2hQP48l/OI+Y0fO3HdDynZUY/VJygucvEAJKRjr4HxD5DnEm4yx+oDOBXpAA=="
+  "resolved" "https://registry.npmjs.org/bulma-switch/-/bulma-switch-2.0.0.tgz"
+  "version" "2.0.0"
+
+"bulma@^0.8.2":
+  "integrity" "sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA=="
+  "resolved" "https://registry.npmjs.org/bulma/-/bulma-0.8.2.tgz"
+  "version" "0.8.2"

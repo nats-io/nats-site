@@ -4,7 +4,7 @@
 {{ range $languages }}
 {{ $this := . }}
 {{ range .orgs }}
-{{ if .streaming_support }}
+{{ if .jetstream_support }}
 {{ $streaming = $streaming | append $this }}
 {{ end }}
 {{ end }}
@@ -38,7 +38,7 @@
     <tr>
     <td>
     {{ range $k, $a := $v.orgs }}
-      {{ if $a.streaming_support }}
+      {{ if $a.jetstream_support }}
       {{ $v.name }}
       {{ end }}
       {{ end }}
@@ -75,7 +75,7 @@
     <td>
       {{ $n := len $v.orgs }}
       {{ range $idx, $a := $v.orgs }}
-      {{ if $a.streaming_support }}
+      {{ if $a.jetstream_support }}
       {{ $isLast := eq (sub $n 1) $idx }}
       {{ $official := eq $a.org "nats-io" }}
       {{ if $official }}
@@ -91,7 +91,7 @@
     </td>
     <td>
       {{ range $idx, $a := $v.orgs }}
-      {{ if $a.streaming_support }}
+      {{ if $a.jetstream_support }}
       {{ $repo := printf "%s/%s" $a.org $a.repo }}
       {{ partial "download/github_embed_clients.html" (dict "repo" $repo) }}
       {{ end }}
