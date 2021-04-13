@@ -63,12 +63,6 @@ url = "https://slack.nats.io"
 color = "slack-purple"
 
 [[params.social]]
-label = "Reddit"
-icon = "reddit-alien"
-url = "https://www.reddit.com/r/NATS_io/"
-color = "reddit-orange"
-
-[[params.social]]
 label = "YouTube"
 icon = "youtube"
 url = "https://youtube.com/c/nats_messaging/videos"

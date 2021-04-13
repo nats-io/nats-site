@@ -14,10 +14,11 @@
   {{ $docker    := printf "https://hub.docker.com/_/%s" .docker }}
   {{ $prefix    := .prefix }}
   {{ $release   := .release }}
+  {{ $nightly   := printf "https://hub.docker.com/r/synadia/nats-server/tags?page=1&ordering=last_updated&name=nightly" }}
 
 
 
-  <div class="column is-half">
+  <div class="column is-two-thirds">
     <div class="card">
       <div class="card-content">
         <span class="title is-size-3 is-size-4-mobile">
@@ -118,6 +119,15 @@
                         Official Docker image
                       </span>
             </a>
+
+              <a class="button is-black is-outlined" href="{{ $nightly }}" target="_blank">
+                      <span class="icon">
+                        <i class="fas fa-moon"></i>
+                      </span>
+                <span>
+                        Nightly Build
+                      </span>
+              </a>
           </div>
         <!--  <ul style="list-style-type:none;font-size:17px;">
             {{ range $platforms }}

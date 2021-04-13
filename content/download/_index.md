@@ -2,11 +2,11 @@
 title: Download
 ---
 
-Here you will find the NATS Server (for simple, fast publish-subscribe), NATS Streaming Server (for data streaming and persistence), and officially supported clients. Our [documentation](https://docs.nats.io) provides detailed instructions on how to get started.
+Here you will find the NATS Server for simple, (fast publish-subscribe), NATS Streaming Server (for data streaming and persistence), and officially supported clients. Our [documentation](https://docs.nats.io) provides detailed instructions on how to get started.
 
 Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at [info@nats.io](mailto:info@nats.io) to share what you have built with us!
 
-## Servers
+## Server
 
 {{< servers >}}
 

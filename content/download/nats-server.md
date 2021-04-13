@@ -8,8 +8,8 @@ author:
   name: Synadia
   link: https://synadia.com
 release:
-  version: '2.1.4'
-  date: '2020-01-31'
+  version: '2.2.1'
+  date: '2021-04-02'
 docker: nats
 prefix: nats-server
 ---
