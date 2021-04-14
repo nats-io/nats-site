@@ -3,14 +3,12 @@ title = "About NATS"
 chart = true
 +++
 
-NATS is a family of open source products that are tightly integrated but can be deployed independently. NATS is being deployed globally by thousands of companies, spanning innovative use-cases including: Mobile apps, Microservices and Cloud Native, and IoT.
+NATS is a connective technology built for the ever increasingly hyper-connected world.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices.
+NATS consists of a family of open source products that are tightly integrated but can be deployed easily and independently. NATS is being used globally by thousands of companies, spanning use-cases including microservices, edge computing, mobile, IoT and can be used to augment or replace traditional messaging.
 
-<!--NATS is also available as a global communications system called NGS. Get started today for free at [NGS Signup](https://synadia.com/ngs/signup). -->
+The NATS Server acts as a central nervous system for building distributed applications. Client APIs are provided in over 40 languages and frameworks including Go, Java, JavaScript/TypeScript, Python, Ruby, Rust, C#, C, and NGINX.  Real time data streaming, highly resilient data storage and flexible data retrieval are supported through [JetStream](https://docs.nats.io/jetstream/), the next generation streaming platform built into the NATS server.  Check out the full list of [NATS clients](/download).
 
-The core NATS Server acts as a central nervous system for building distributed applications. Written in Go, NATS is available as a client for approximately a dozen languages, many of which are supported by the Synadia team, including Go, Java, JavaScript/TypeScript, Python, Ruby, Rust, C#, C, and NGINX. NATS JetStream extends the platform to provide for real-time streaming & big data use-cases. Check out the full list of [NATS clients](/download).
-
-
-NATS was created by Derek Collison, in response to the market need for a simple, secure, and connective technology. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is available under the Apache-2.0 Open Source License.
+NATS was created by Derek Collison, in response to the market need for a simple, secure, and connective technology. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is 100% free to use under the Apache-2.0 Open Source License.
 
 NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about the design characteristics in the [NATS FAQ](https://docs.nats.io/faq).
 

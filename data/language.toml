@@ -200,11 +200,11 @@ release_date = "2016-09-12"
 [language.java_android]
 name = "Java Android"
 [[language.java_android.orgs]]
-org = "kedzie"
+org = "spotoninc"
 repo = "nats-android"
 supported = false
 author = "Marek Kedzierski"
-link = "https://kedzie.github.com/"
+link = "https://github.com/spotoninc"
 release_version = "2.4.1"
 release_date = "2018-12-19"
 
@@ -292,6 +292,7 @@ date = "2021-04-05"
 org = "nats-io"
 repo = "stan.js"
 supported = true
+jetstream_support = true
 streaming_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
@@ -333,7 +334,7 @@ release_date = "2019-05-31"
 [language.python_minimal]
 name = "Python Minimal"
 [[language.python_minimal.orgs]]
-org = "goingnats"
+org = "3kwa"
 repo = "goingnats"
 supported = false
 author = "Eugene Van Den Bulke"
@@ -387,6 +388,7 @@ name = "Rust"
 org = "nats-io"
 repo = "nats.rs"
 supported = true
+jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = "0.9.11"
@@ -442,3 +444,23 @@ author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = "1.0.4"
 release_date = "2018-08-27"
+
+[language.websockets]
+name = "WebSocket"
+[[language.websockets.orgs]]
+org = "nats-io"
+repo = "nats.ws"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+
+[language.deno]
+name = "Deno"
+[[language.deno.orgs]]
+org = "nats-io"
+repo = "nats.deno"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"

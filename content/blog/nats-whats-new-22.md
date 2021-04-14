@@ -14,16 +14,10 @@ NATS 2.2 is the largest feature release since version 2.0. The 2.2 release provi
 # JetStream - Next Generation Streaming
 
 Streaming is the processing of an unbounded, continuously updating data set that is ordered, immutable, replayable, and fault-tolerant, and is used in a variety of use cases ranging from fraud detection to replaying market data to holding sensor readings.
-<div class="flex-container">
-   <div>
-     <img src="/img/blog/nats-whats-new-22/jetstream-logo.png" alt="JetStream Logo" height="200" width="200"> 
-   </div>
-   <div>
-    <a href="https://docs.nats.io/jetstream/" target="_blank">JetStream</a> was created to solve the problems identified with today’s streaming technology - complexity, fragility, and a lack of scalability resulting in expensive systems that hinder innovation.
 
-Some technologies address these better than others, but no current streaming technology is truly multi-tenant, horizontally scalable, and supports multiple deployment models and consumption patterns until JetStream.
-   </div>
-</div>
+<img class="left" src="/img/blog/nats-whats-new-22/jetstream-logo.png" alt="JetStream Logo" height="120" width="120"> 
+  
+[JetStream](https://docs.nats.io/jetstream/) was created to solve the problems identified with today’s streaming technology - complexity, fragility, and a lack of scalability resulting in expensive systems that hinder innovation. Some technologies address these better than others, but no current streaming technology is truly multi-tenant, horizontally scalable, and supports multiple deployment models and consumption patterns until JetStream.
 
 ## Features
 
@@ -78,14 +72,9 @@ Security is difficult and managing accounts and users at scale can be onerous. M
 
 # Security For Any Deployment
 
-<div class="flex-container">
-   <div>
-<img src="/img/blog/nats-security-update/nats-security.png" alt="NATS Security Logo" height="400" width="400">
-   </div>
-   <div>
-   We’ve enhanced NATS existing multi-tenant security model with a few new features to lock down from where and when applications can connect to NATS, and to allow operators to simplify securing NATS with default permissions to reduce the potential for human error.
-   </div>
-</div>
+<img class="left" src="/img/blog/nats-security-update/nats-security.png" alt="NATS Security Logo" height="150" width="150">
+We’ve enhanced NATS existing multi-tenant security model with a few new features to lock down from where and when applications can connect to NATS, and to allow operators to simplify securing NATS with default permissions to reduce the potential for human error.
+
 
 ## CIDR Block Account Restrictions
 By specifying a CIDR block restriction for a user, policy can be applied to limit connections from clients within a certain range or set of IP addresses. Use this as another layer of security atop user credentials to better secure your distributed system. Ensure your applications can only connect from within a specific cloud, enterprise, geographic location, virtual or physical network.
@@ -98,26 +87,14 @@ Now you can specify [default user permissions](https://docs.nats.io/nats-server/
 
 # Mobile Connectivity with WebSockets
 
-<div class="flex-container">
- <div>
-<img src="/img/blog/nats-whats-new-22/mobile_phone_cloud.png" alt="Mobile Phone Cloud" height="400" width="400">
- </div>
-
- <div>
- Connect mobile and web applications to any NATS server using <a hef="https://docs.nats.io/nats-server/configuration/websocket" target="_blank">WebSockets</a>. Built to more easily traverse firewalls and load balancers, NATS WebSocket support provides even more flexibility to NATS deployments and makes it easier to communicate to the edge and endpoints. This is currently supported in NATS server leaf nodes, nats.ts, nats.deno, and the nats.js clients.
- </div>
-</div>
+<img class="left" src="/img/blog/nats-whats-new-22/mobile_phone_cloud.png" alt="Mobile Phone Cloud" height="150" width="150">
+Connect mobile and web applications to any NATS server using <a hef="https://docs.nats.io/nats-server/configuration/websocket" target="_blank">WebSockets</a>. Built to more easily traverse firewalls and load balancers, NATS WebSocket support provides even more flexibility to NATS deployments and makes it easier to communicate to the edge and endpoints. This is currently supported in NATS server leaf nodes, nats.ts, nats.deno, and the nats.js clients.
 
 # Leverage Existing IoT Deployments with MQTT
 
-<div class="flex-container">
-  <div>
-  <img src="/img/blog/nats-whats-new-22/iot-ecosystem.png" alt="IoT Ecosystems" height="1000" width="1000">
-  </div>
-  <div>
-  With the <a href="https://nats.io/blog/synadia-adaptive-edge">Adaptive Edge architecture</a> and the ease with which NATS can extend a cloud deployment to the edge, it makes perfect sense to leverage existing investments in IoT deployments. It’s expensive to update devices and large edge deployments. Our goal is to enable the hyperconnected world, so we added first-class support for MQTT 3.1.1 directly into the NATS Server. There are no sidecars, external processes or bridges to manage.
-  </div>
-</div>
+<img class="left" src="/img/blog/nats-whats-new-22/iot-ecosystem.png" alt="IoT Ecosystems" height="225" width="225">
+
+With the [Adaptive Edge Architecture](https://nats.io/blog/synadia-adaptive-edge) and the ease with which NATS can extend a cloud deployment to the edge, it makes perfect sense to leverage existing investments in IoT deployments. It’s expensive to update devices and large edge deployments. Our goal is to enable the hyperconnected world, so we added first-class support for MQTT 3.1.1 directly into the NATS Server. There are no sidecars, external processes or bridges to manage.
 
 Seamlessly integrate existing IoT deployments using [MQTT 3.1.1](https://docs.nats.io/nats-server/configuration/mqtt) with a cloud-native NATS deployment. Enable MQTT in the NATS server and instantly send and receive messages to your MQTT applications and devices from a NATS deployment whether it be edge, single-cloud, multi-cloud, on-premise, or any combination thereof.
 

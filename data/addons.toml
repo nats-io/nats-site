@@ -449,6 +449,15 @@ support = "Community"
 author = "Yuna Morgenstern"
 authorHome = "https://github.com/YunaBraska"
 
+[addons.synadia_ngs]
+name = "Synadia NGS"
+home = "https://synadia.com/ngs"
+description = "NGS is a global communications system built on NATS.io."
+support = "Community"
+[[addons.synadia_ngs.authors]]
+author = "Synadia"
+authorHome = "https://synadia.com"
+
 
 #[addons.xxx]
 #name = ""

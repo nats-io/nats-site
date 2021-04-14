@@ -138,3 +138,7 @@ name = "Walmart"
 home = "https://walmart.com"
 logo = "walmart.png"
 
+[companies.starbucks]
+name = "Starbucks"
+home = "https://starbucks.com"
+logo = "starbucks.png"

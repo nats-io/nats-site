@@ -8,11 +8,19 @@ ref = "https://sched.co/iE8x"
 
 [[events]]
 venue = "KubeCon + CloudNativeCon Europe"
-when = "TBD"
+when = "Tuesday, May 4, 2021 16:00 CEST"
 who = "The NATS Team"
-what = "Meet the Maintainers - Project Office Hours"
+what = "Meet the Maintainers Office Hours"
 where = "Virtual"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+ref = "https://sched.co/ilDC"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon Europe"
+when = "Thursday, May 6, 2021 14:15 CEST"
+who = "The NATS Team"
+what = "Meet the Maintainers Office Hours"
+where = "Virtual"
+ref = "https://sched.co/ilDs"
 
 
 # comment out to save
