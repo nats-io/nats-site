@@ -6,7 +6,7 @@ title = "Headers with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
 
-A few months ago Headers were added to NATS.io server.
+A few months ago, Header support was added to NATS Server.
 With the release of the 2.10.0 Java client, Headers are completely supported.
 
 NATS Headers are analogous to http request Headers and you can leverage them for the same type of things
@@ -18,8 +18,8 @@ In Java terms, it's analogous to a map of type
 List<String, List<String>>
 ```
 
-in fact that's exactly what is used for the backing data structure in the Headers object. 
-Using Headers is straightforward, again analogous to a Java map with some limitations to the keys and values
+In fact, that's exactly what is used for the backing data structure in the Headers object. 
+Using Headers is straightforward, again analogous to a Java map with some limitations to the keys and values.
 
 ### Keys
 
@@ -28,8 +28,8 @@ So every character from space to tilde are allowed, again except for the colon.
 
 ### Values
 
-Values can contain all printable character including the colon and are also allowed to contain the
-tab (0x9) character. If you want to encrypt a value, make sure use some encoding like base64 to make sure
+Values can contain all printable characters including the colon and are also allowed to contain the
+tab (0x9) character. If you want to encrypt a value, make sure you use some encoding like base64 to make sure
 it conforms to this requirement.
 
 ## Creating Headers
@@ -49,7 +49,7 @@ They even support fluent style creation...
 Headers h = new Headers().add("key1", "value1").add("key1", "value2").add("key2", "value1");
 ```
 
-The NatsMessage Builder has a place for them and they work with regular or JetStream messages
+The NatsMessage Builder has a place for them and they work with regular or JetStream messages.
 
 ```java
 Message msg = NatsMessage.builder()
@@ -68,7 +68,7 @@ jetStream.publish(msg);
 
 ## Reading Headers
 
-The Message object has 2 new relevant api that allow you to work with the Headers.
+The Message object has 2 new relevant APIs that allow you to work with the Headers.
 You can check if the the message has Headers, and get them if they do:
 
 ```java
