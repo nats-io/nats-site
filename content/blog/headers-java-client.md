@@ -15,7 +15,7 @@ for example, to pass information like security, request, transaction or state in
 In Java terms, it's analogous to a map of type
 
 ```java
-List<String, List<String>>
+Map<String, List<String>>
 ```
 
 In fact, that's exactly what is used for the backing data structure in the Headers object. 
@@ -73,7 +73,7 @@ You can check if the the message has Headers, and get them if they do:
 
 ```java
 Message msg = sub.nextMessage(Duration.of Minutes(1));
-if (msg.hasHeaders) {
+if (msg.hasHeaders()) {
     Headers headers = msg.getHeaders();
     List<String> values = headers.get("key1");
     ...
