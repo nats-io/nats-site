@@ -73,7 +73,7 @@ You can check if the the message has Headers, and get them if they do:
 
 ```java
 Message msg = sub.nextMessage(Duration.of Minutes(1));
-if (msg.hasHeaders) {
+if (msg.hasHeaders()) {
     Headers headers = msg.getHeaders();
     List<String> values = headers.get("key1");
     ...
