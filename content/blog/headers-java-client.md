@@ -7,10 +7,10 @@ author = "Scott Fauerbach"
 +++
 
 A few months ago, Header support was added to NATS Server.
-With the release of the 2.10.0 Java client, Headers are completely supported.
+With the release of the 2.10.0 [Java client](https://github.com/nats-io/nats.java), Headers are completely supported.
 
-NATS Headers are analogous to http request Headers and you can leverage them for the same type of things
-for example to pass information like security, request, transaction or state information.
+NATS Headers are analogous to http request Headers and you can leverage them for the same type of things,
+for example, to pass information like security, request, transaction or state information.
 
 In Java terms, it's analogous to a map of type
 
