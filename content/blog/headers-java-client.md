@@ -69,7 +69,7 @@ jetStream.publish(msg);
 ## Reading Headers
 
 The Message object has 2 new relevant APIs that allow you to work with the Headers.
-You can check if the the message has Headers, and get them if they do:
+You can check if the message has Headers, and get them if they do:
 
 ```java
 Message msg = sub.nextMessage(Duration.of Minutes(1));
