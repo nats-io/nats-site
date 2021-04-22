@@ -143,3 +143,8 @@ name = "Sote"
 home = "https://getsote.com"
 logo = "sote.png"
 
+[companies.teamsystem]
+name = "TeamSystem"
+home = "https://teamsystem.com"
+logo = "teamsystem.png"
+
