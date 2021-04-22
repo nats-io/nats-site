@@ -75,7 +75,7 @@ url = "https://stackoverflow.com/questions/tagged/nats.io"
 color = "stack-orange"
 
 [params.logos]
-navbar = "nats-icon-color.png"
+navbar = "nats-horizontal-color.png"
 navbar_home = "nats-icon-white.png"
 hero = "nats-horizontal-color.png"
 footer_dark = "nats-icon-color.png"

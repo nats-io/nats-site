@@ -10,7 +10,7 @@ The NATS Server acts as a central nervous system for building distributed applic
 
 NATS was created by Derek Collison, in response to the market need for a simple, secure, and connective technology. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is 100% free to use under the Apache-2.0 Open Source License.
 
-NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about the design characteristics in the [NATS FAQ](https://docs.nats.io/faq).
+NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about NATS in our [extensive documentation](https://docs.nats.io).
 
 <!--{{< throughput >}} -->
 
