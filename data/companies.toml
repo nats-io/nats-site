@@ -138,3 +138,8 @@ name = "Walmart"
 home = "https://walmart.com"
 logo = "walmart.png"
 
+[companies.sote]
+name = "Sote"
+home = "https://getsote.com"
+logo = "sote.png"
+
