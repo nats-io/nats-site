@@ -1,0 +1,16 @@
+{{ $desc      := site.Params.description_long | markdownify }}
+{{ $companies := site.Data.companies.companies }}
+
+<section class="section is-light">
+  <div class="container">
+    <div class="columns is-variable is-8 is-vcentered">
+      <div class="column">
+        <div class="content is-medium">
+          {{ $desc }}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

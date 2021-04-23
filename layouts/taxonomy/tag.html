@@ -1,35 +1,39 @@
-{{ partial "header.html" . }}
-<div id="main-con" class="container">
-  <div class="row">
-    <div class="col-md-12">
+{{ define "title" }}
+NATS | Pages with the tag {{ .Data.Term }}
+{{ end }}
 
-      <div class="row">
-        <div class="col-md-7">
-          <div class="blog-nav-con-upper">
-            <a href="/blog"><i class="icon-back"></i> Back to Blog</a>
-          </div>
-          <div class="page-header">
-            <h1>{{ .Title }}</h1>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          {{ range .Data.Pages }}
-          <div class="row">
-            <div class="col-md-12">
-              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a><br></h3>
-              <p>By: <strong>{{ .Params.author }}</strong> - Date: <strong>{{ .Date.Format "January 2, 2006" }}</strong></p>
-              <p>{{ .Summary }} <a href="{{ .RelPermalink }}">Read More&#8230;</a></p>
-            </div>
-          </div>
-          <hr>
-        	{{ end }}
-        </div>
-      </div>
-
+{{ define "main" }}
+{{ $tag   := .Data.Term }}
+{{ $pages := .Data.Pages }}
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-size-2 is-size-3-mobile has-text-weight-light">
+        Pages with the tag <span class="has-text-weight-bold">{{ $tag }}</span>
+      </p>
     </div>
   </div>
-</div>
-{{ partial "footer.html" . }}
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-variable is-6 is-multiline">
+      {{ range $pages }}
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <a class="is-size-5 is-size-6-mobile" href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+
+            <p class="has-text-grey-light has-top-margin-small">
+              {{ .Section }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

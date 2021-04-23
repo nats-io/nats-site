@@ -1,0 +1,63 @@
+<section class="section">
+  <div class="container">
+    <div class="content">
+    <a class="button is-small is-dark is-outlined" href="/blog">
+          <span class="icon has-text-primary">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+      <span>
+            Back to Blog
+          </span>
+    </a>
+    </div>
+    <div class="columns is-variable is-8">
+      <div class="column is-two-thirds">
+        <div class="content is-medium">
+
+          {{ .Content }}
+        </div>
+
+        <br />
+
+        <a class="button is-dark is-outlined" href="/blog">
+          <span class="icon has-text-primary">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          <span>
+            Back to Blog
+          </span>
+        </a>
+      </div>
+
+      <!--<div class="column">
+        <hr class="is-hidden-tablet" />
+
+        <p class="title">
+          Categories
+        </p>
+
+        <div class="buttons are-small">
+          {{ range .Params.categories }}
+          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/categories/{{ . | urlize }}">
+            {{ . }}
+          </a>
+          {{ end }}
+        </div>
+
+        <br />
+
+        <p class="title">
+          Tags
+        </p>
+
+        <div class="buttons are-small">
+          {{ range .Params.tags }}
+          <a class="button has-text-primary has-text-weight-bold is-dark is-outlined" href="/tags/{{ . | urlize }}">
+            {{ . }}
+          </a>
+          {{ end }}
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>

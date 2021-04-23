@@ -1,0 +1,42 @@
+{{ $posts  := where site.RegularPages "Section" "blog" }}
+{{ $recent := first 10 $posts }}
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-variable is-12">
+      <p class="is-size-5 is-size-6-mobile">Welcome to the NATS Blog! We have content from NATS Maintainers, end-users, and community contributors. We always appreciate outside contributions so if you would like to contribute a blog post, see our <a href="/contributing/#contributing-a-blog-post">Contributor's Guide</a> for more information.
+    </p>
+    </div>
+      <div class="columns is-variable is-12">
+        <div class="column is-three-fourths">
+
+        {{ range (.Paginator 10).Pages }}
+        {{ $author := .Params.author | upper }}
+        {{ $date   := dateFormat "January 2, 2006" .Date }}
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-spaced">
+              <a class="is-size-4 is-size-5-mobile" href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
+            </p>
+
+            <p class="subtitle">
+              <strong>{{ $author }}</strong> &mdash; {{ $date }}
+            </p>
+
+            <div class="content">
+              {{ .Summary }}
+
+              <a href="{{ .RelPermalink }}">Read more...</a>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      <br>
+        {{ template "_internal/pagination.html" . }}
+      </div>
+
+  </div>
+</section>

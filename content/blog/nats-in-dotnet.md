@@ -1,7 +1,7 @@
 +++
 categories = ["Engineering"]
 date = "2016-01-11T11:22:41-08:00"
-tags = ["nats", "C#", ".NET"]
+tags = ["nats", "C-sharp", ".NET"]
 title = "NATS in Microsoft .NET"
 author = "Colin Sullivan"
 +++

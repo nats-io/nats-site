@@ -1,0 +1,39 @@
+    <!-- Footer -->
+    <footer {{ if .IsHome }}id="home-page-footer"{{ end }}>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-6 copyright">
+                  <p class="social">
+                      <a target="_blank" href="https://twitter.com/nats_io"><i class="icon icon-twitter"></i></a>
+                      <a target="_blank" href="https://groups.google.com/forum/#!forum/natsio"><i
+                              class="icon icon-google-plus"></i></a>
+                      <a target="_blank" href="https://github.com/nats-io"><i class="icon icon-github"></i></a>
+                      <a target="_blank"
+                         href="https://slack.nats.io"><i
+                              class="icon icon-slack"></i></a>
+                      <a target="_blank" href="https://www.reddit.com/r/NATS_io/"><i class="icon icon-reddit"></i></a>
+                  </p>
+                  <p>NATS is <a href="https://github.com/nats-io" target="_blank">open-source
+                      software</a>, as is <a href="https://github.com/nats-io/nats-site" target="_blank">this site</a>. <a id="priv" class="dynamic" target="_blank">Privacy</a>.
+                  </p>
+              </div>
+              <div class="col-xs-6 copyright">
+                  <p class="social">
+                      <a target="_blank" href="http://www.cncf.io/" class="pull-right">
+                          {{ if .IsHome }}
+                          <img src="/img/cncf-white.png" alt="cncf" class="cncf pull-right img-responsive"/>
+                          {{ else }}
+                          <img src="/img/cncf-blue.png" alt="cncf" class="cncf pull-right img-responsive"/>
+                          {{ end }}
+                      </a>
+                  </p>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+    <!-- End Footer -->
+    {{ partial "js.html" . }}
+    </body>
+</html>
+

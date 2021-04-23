@@ -5,8 +5,13 @@ ehthumbs.db
 
 # HUGO
 /public
-/themes/*
-/static
+/resources
+
+# Generated client pages
+content/download/*.md
+!content/download/_index.md
+!content/download/nats-server.md
+!content/download/nats-streaming-server.md
 
 # Node
 node_modules

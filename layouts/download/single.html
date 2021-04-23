@@ -1,76 +1,40 @@
-{{ $.Scratch.Set "pageRelUrl" .RelPermalink }}
-{{ partial "header.html" . }}
-<div id="main-con" class="container">
-  <div class="row">
-    <div class="col-md-12">
-      {{ .Content }}
-      {{ range $.Site.Data }}
-      {{ range .Releases }}
+{{ define "title" }}
+{{ .Title }} NATS clients
+{{ end }}
 
-        {{ range first 1 .github }}
-          {{ $.Scratch.Set "githubUser" .user }}
-          {{ $.Scratch.Set "githubRepo" .repo }}
-        {{ end }}
-        {{ if eq ($.Scratch.Get "pageRelUrl") ( print "/download/" ($.Scratch.Get "githubUser") "/" (lower ($.Scratch.Get "githubRepo")) "/" ) }}
-          <div class="page-header">
-            <h1>{{ .name }}{{ if not (in .name "Server") }} Client{{ end }}</h1>
-          </div>
-          <div id="download-detail-con" class="row">
-            <div class="col-lg-3 col-sm-4 detail-block left">
-              <div class="well">
-                {{ if .supported }}<p class="supported">Supported by Synadia</p>{{ end }}
+{{ define "main" }}
+{{ $title       := .Title }}
+{{ $lang        := .Title }}
+{{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }}
+{{ $display     := printf "%s Clients" $displayLang }}
+{{ $clients     := where site.Data.clients ".language" $title }}
 
-                <div class="download-info">
-                  <p>Language: {{ .language }}</p>
-                  {{ if .release_notes }}
-                  <p>Release Notes: {{ .release_notes | safeHTML }}</p>
-                  {{ else }}
-                  <p>No release notes.</p>
-                  {{ end }}
-                  {{ range first 1 .author }}
-                  {{ if .name }}
-                  <p>Author: <a target="_blank" href="{{ .link }}">{{ .name }}</a></p>
-                  {{ end }}
-                  {{ end }}
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-9 col-sm-8 detail-block">
-              <div class="github-buttons">
-              {{ range first 1 .github }}
-              <!--Download -->
-              <a class="github-button" href="{{ .link }}/releases/latest" data-icon="octicon-download" data-size="large" aria-label="Download from GitHub">Download NATS.io/{{ .repo }}</a>
-               <!-- Watch -->
-              <br><a class="github-button" href="{{ .link }}/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="# watchers on GitHub">Watch</a>
-              <!-- Star -->
-              <a class="github-button" href="{{ .link }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="# stargazers on GitHub">Star</a>
-              <!-- Fork -->
-              <a class="github-button" href="{{ .link }}/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="# forks on GitHub">Fork</a>
-              {{ end }}
-            </div>
-              <ul class="list-unstyled">
-                {{ range first 1 .github }}
-                <li><a href="{{ .link }}" target="_blank">View on Github</a></li>
-              <!--  <li><a href="{{ .link }}/releases/latest" target="_blank">Download Latest</a></li> -->
-                {{ end }}
-                {{ range .links }}
-                <li><a href="{{ .url }}">{{ .name }}</a></li>
-                {{ end }}
-              </ul>
-            </div>
-          </div>
-          <hr>
 
-          {{ partial "menu-downloads.html" . }}
-        {{ end }}
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-size-2 is-size-2-mobile">
+        {{ $display }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-variable is-8">
+      {{ range $clients }}
+      {{ range .clients }}
+      {{ partial "download/client.html" (dict "ctx" . "language" $title) }}
       {{ end }}
       {{ end }}
-      {{ partial "menu-downloads.html" . }}
+    </div>
+  </div>
+</section>
 
-  </div>
-  <div class="external-clients-con col-md-12">
-      <p><em>Please <a href="mailto:info@nats.io?subject=NATS External Client">contact us</a> to add your external client to the download list.</em></p>
-  </div>
-</div>
-</div>
-{{ partial "footer.html" . }}
+<section class="section">
+  {{ partial "download/clients.html" . }}
+</section>
+{{ end }}
+
+

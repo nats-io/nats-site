@@ -1,33 +1,129 @@
 baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
-title = "NATS - Cloud Native, Open Source, High Performance Messaging"
+title = "NATS"
 
 pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
 pygmentsStyle = "native"
 
+[markup.goldmark.renderer]
+unsafe = true
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
 [params]
+google_analytics_id = "UA-111730698-1"
+tagline = "Cloud Native, Open Source, High-performance Messaging"
+favicon = "favicon.ico"
+font_awesome_version = "5.12.0"
 leftNav = false
 description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
-author = "The NATS team"
+author = "The NATS Team"
 title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
-images = ["/img/super_nats.png"]
+images = ["/img/nats-icon-color.png"]
+description_long = """
+NATS.io is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
+
+Members of the [Synadia](https://synadia.com) team created and maintain the NATS and Streaming Servers, as well as clients written in Go, Java, JavaScript/TypeScript, Python, Ruby, C#, C, and NGINX. The community has also contributed a growing list of client libraries, including Arduino, Rust, Lua, PHP, Perl, and [more](https://nats.io/download).
+
+Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, and Baidu, among others, rely on the NATS.io messaging system for its highly performant, secure and resilient capabilities.
+"""
+
+[mediaTypes."text/netlify"]
+delimiter = ""
+
+[outputFormats.REDIRECTS]
+mediaType = "text/netlify"
+baseName = "_redirects"
+
+[outputs]
+home = [ "HTML", "REDIRECTS" ]
+
+[[params.social]]
+label = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/nats_io"
+color = "twitter-blue"
+
+[[params.social]]
+label = "GitHub"
+icon = "github"
+url = "https://github.com/nats-io"
+
+[[params.social]]
+label = "Slack"
+icon = "slack"
+url = "https://slack.nats.io"
+color = "slack-purple"
+
+[[params.social]]
+label = "YouTube"
+icon = "youtube"
+url = "https://youtube.com/c/nats_messaging/videos"
+color = "youtube-red"
+
+[[params.social]]
+label = "Stack Overflow"
+icon = "stack-overflow"
+url = "https://stackoverflow.com/questions/tagged/nats.io"
+color = "stack-orange"
+
+[params.logos]
+navbar = "nats-horizontal-color.png"
+navbar_home = "nats-icon-white.png"
+hero = "nats-horizontal-color.png"
+footer_dark = "nats-icon-color.png"
+footer_light = "nats-icon-color.png"
+
+[[params.fonts]]
+name = "Source Sans Pro"
+sizes = [300, 400, 600, 700]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [300, 400, 600, 700]
+type = "monospace"
+
+# Features
+[[languages.en.params.features]]
+title = "Agile"
+description = "With flexible deployments models using clusters, superclusters, and leaf nodes, optimize communications for your unique deployment.  The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs to connect devices, edge, cloud or hybrid deployments."
+icon = "arrows-alt"
+
+[[languages.en.params.features]]
+title = "Secure"
+description = "With true multi-tenancy, securely isolate and share your data to fully meet your business needs, mitigating risk and achieving faster time to value. Security is bifurcated from topology, so you can connect anywhere in a deployment and NATS will do the right thing."
+icon = "shield-alt"
+
+[[languages.en.params.features]]
+title = "Performant"
+description = "With the ability to process millions of messages a second per server, you’ll find unparalleled efficiency with NATS.  Save money by minimizing cloud costs with reduced compute and network usage for streams, services, and eventing."
+icon = "tachometer-alt"
+
+[[languages.en.params.features]]
+title = "Resilient"
+description = "NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system.  Clients require zero awareness of NATS topology allowing you future proof your system to meet your needs of today and tomorrow."
+icon = "star-of-life"
+
 
 [[menu.main]]
 name = "About"
 weight = 1
 identifier = "about"
-url = "/about"
+url = "/about/"
 
 [[menu.main]]
 name = "Download"
 weight = 2
 identifier = "download"
-url = "/download"
+url = "/download/"
 
 [[menu.main]]
 name = "NATS"
@@ -114,25 +210,25 @@ weight = 6
 parent = "doc"
 
 [[menu.main]]
+name = "Blog"
+weight = 5
+identifier = "blog"
+url = "/blog"
+
+[[menu.main]]
 name = "Support"
-weight = 4
+weight = 7
 identifier = "support"
 url = "/support"
 
 [[menu.main]]
 name = "Community"
-weight = 5
+weight = 6
 identifier = "community"
 url = "/community"
 
 [[menu.main]]
-name = "Blog"
-weight = 6
-identifier = "blog"
-url = "/blog"
-
-[[menu.main]]
 name = "Privacy"
-weight = 7
+weight = 8
 identifier = "privacy"
 url = "/privacy"

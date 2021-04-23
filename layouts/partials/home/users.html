@@ -1,0 +1,29 @@
+{{ $desc      := site.Params.description_long | markdownify }}
+{{ $companies := site.Data.companies.companies }}
+
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column has-text-centered is-one-fifth">
+      <p class="title is-spaced is-size-2 is-size-3-mobile has-text-dark has-text-weight-light" id="who-uses">
+        Who uses NATS
+      </p>
+      <a class="button is-small is-primary has-text-weight-bold" href="https://github.com/nats-io/nats-site#adding-a-company-logo" target="_blank">
+        Add your logo
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="columns is-multiline is-vcentered is-gapless ">
+
+          {{ range $k, $v := $companies }}
+          {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
+      <div class="column has-text-centered is-one-fifth logo">
+            <a href="{{ $v.home }}" target="_blank">
+              <img class="is-user-logo" src="{{ $img }}" alt="{{ $v.name }} logo">
+            </a>
+          </div>
+          {{ end }}
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,15 @@
+{{ $author := .Params.author }}
+{{ $date   := dateFormat "January 2, 2006" .Date }}
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title is-size-2 is-size-2-mobile has-text-weight-light is-spaced">
+        {{ .Title }}
+      </p>
+
+      <p class="subtitle is-size-3 is-size-4-mobile">
+        <strong>{{ $author }}</strong> &mdash; {{ $date }}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+{{ $lang       := site.LanguageCode }}
+{{ $isDownload := eq .Section "download" }}
+<!DOCTYPE html>
+<html{{ with $lang }} lang="{{ . }}"{{ end }}>
+  <head>
+    <title>
+      {{ block "title" . }}
+      {{ site.Title }} &ndash; {{ site.Params.tagline }}
+      {{ end }}
+    </title>
+    {{ partial "css.html" . }}
+    {{ partial "favicon.html" . }}
+
+    {{ if $isDownload }}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    {{ end }}
+
+  </head>
+  <body class="is-page has-navbar-fixed-top">
+    <main class="is-main">
+      {{ partial "gdpr.html" .}}
+      {{ partial "navbar.html" . }}
+
+      {{ block "main" . }}
+      {{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+    {{ partial "javascript.html" . }}
+  </body>
+</html>
