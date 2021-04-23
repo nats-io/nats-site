@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html{{ with $lang }} lang="{{ . }}"{{ end }}>
   <head>
+    {{ partial "meta.html" . }}
     <title>
       {{ block "title" . }}
       {{ site.Title }} &ndash; {{ site.Params.tagline }}
