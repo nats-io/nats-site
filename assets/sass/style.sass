@@ -172,7 +172,7 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 
 .logo
   margin: auto auto auto
-  
+
   +tablet-only
     width: 90%
   +touch
@@ -238,6 +238,10 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
 .is-user-logo
      height: 60%
      width: 60%
+
+.is-video
+  @include mobile
+    max-width: 100%
 
 .column
     &.has-text-centered
