@@ -20,13 +20,13 @@ tagline = "Cloud Native, Open Source, High-performance Messaging"
 favicon = "favicon.ico"
 font_awesome_version = "5.12.0"
 leftNav = false
-description = "NATS is a high performance messaging system that acts as a distributed messaging queue for cloud native applications, IoT device messaging, and microservices architecture."
+description = "NATS is a connective technology powering modern distributed systems, unifying Cloud, On-Premise, Edge, and IoT."
 author = "The NATS Team"
 title = "NATS - Documentation"
 SectionPagesMenu = "main"
 noCategoryLink = true
 githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
-images = ["/img/nats-icon-color.png"]
+images = ["/img/new_social_nats.png"]
 description_long = """
 NATS.io is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
 
