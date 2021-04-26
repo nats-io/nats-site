@@ -155,7 +155,10 @@ Default is -1 meaning unlimited.
 
 ### NoAck
 
-Disables acknowledging messages that are received by the Stream
+Disables the server acknowledging that messages are received for the Stream. 
+This is an advanced feature that allows publishing without confirmation. 
+This will improve publish speed, the downside being that you cannot be sure a message was received.
+There are certainly use cases where this is acceptable.
 
 ### Replicas
 
