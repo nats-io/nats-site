@@ -2,7 +2,7 @@
 date = "2021-04-27"
 draft = false
 title = "Intro NATS CLI"
-author = "R.I. Piennar"
+author = "R.I. Pienaar"
 categories = ["General", "Engineering"]
 tags = ["NATS", "CLI", "ADMIN", "JetStream"]
 +++
@@ -47,6 +47,6 @@ For other Operating Systems and package formats - including Linux, Windows, Free
 
 ### About the Author
 
-R.I. Piennar is a long-time NATS Maintainer and a member of the engineering team at [Synadia Communications](https://synadia.com).
+R.I. Pienaar is a long-time NATS Maintainer and a member of the engineering team at [Synadia Communications](https://synadia.com).
 
 Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).
