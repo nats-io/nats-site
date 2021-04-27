@@ -17,7 +17,7 @@ to build a full CLI tool for users and administrators alike.
 
 Below is a quick video tour of the CLI as an introduction.
 
-[![CLI Introduction](https://img.youtube.com/vi/rn5l9rQ-krM/0.jpg)](https://youtu.be/OFUjbv1ItJc)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OFUjbv1ItJc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Features
 
