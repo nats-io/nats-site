@@ -8,17 +8,15 @@ author = "Scott Fauerbach"
 
 The <a href="https://github.com/nats-io/java-nats">NATS Java library</a> with support for JetStream has just been released!
 
-JetStream allows you to persist streams of messages, allowing consumers to either subscribe in real time
-or to access the messages at a later time, with the flexibility to where in the stream you want to start receiving messages from. 
-You can start reading from the stream at a specific point in time or starting at a specific message sequence number.
+JetStream allows you to persist streams of messages, allows consumers to either subscribe in real time
+or to access the messages at a later time with the added flexibility to choose from where in the stream you want to start receiving messages. 
+You can start reading from the stream at a specific point in time or start at a specific message sequence number.
 
-Since JetStream is built on top of NATS Messaging, you get streaming on top of all the benefits of normal NATS messaging.
-Stream messages are sent on subjects, just like a normal NATS message, so you can even just use a normal NATS subscription to
+Since JetStream is built natively into the NATS Server, you get message persistence on top of all of the benefits of core NATS messaging.
+Stream messages are sent on subjects, just like a normal NATS messages, so you can even just use a normal NATS subscription to
 get messages. Using the stream functionality however provides benefits above and beyond regular messaging.
 
-There are various ways to create Streams. You can use configuration. You can use the command line program (CLI).
-Or you can use the Java client's JetStream Management API to manage streams. 
-There are several stream functions you can execute with the management api:
+There are various ways to create streams. You can use configuration, the command line program (CLI), or you can use the Java client's JetStream Management API to manage streams. There are several stream functions you can execute with the management API:
 
 - Create a stream
 - Modify a stream
@@ -31,8 +29,7 @@ This blog entry will focus on creating a stream and the available options.
 
 ## Creating a Stream
 
-The stream is essentially a grouping or organization for a set of subjects.
-It might identify a business function or logical domain of your business
+The stream is essentially a grouping or organization for a set of subjects. It might identify a business function or logical domain of your business.
 
 Every stream needs a name and it must be unique within your account. The stream name itself
 cannot contain spaces or tabs, a period (`.`), the greater than wildcard character (`>`) or the
@@ -43,7 +40,7 @@ There are several options when creating a stream.
 ### Storage Type
 
 There are 2 types of storage, Memory or File, with File being the default. 
-Memory storage is excellent for development purposes, and also good if absolute speed is a requirement.
+Memory storage is excellent for development purposes and also good if absolute speed is a requirement.
 If replicas are used, the stream data is replicated across multiple servers whether it's File or Memory storage.
 Memory streams are not persisted across the shutdown of an individual server (but will be repopulated in a cluster 
 setup depending on replication settings.)
@@ -113,17 +110,17 @@ As you can see in the CLI output there are several other options available for c
 
 The maximum age of any message in the stream, expressed in nanoseconds.
 Messages older than this will be removed from the stream.
-The default is 0 which is unlimited, meaning the age of the message age is not considered when pruning the stream.
-MaxAge is independent of the Discard and Retention policies (see below) 
+The default is 0 which is unlimited, meaning the age of the message is not considered when pruning the stream.
+MaxAge is independent of the Discard and Retention policies (see below).
 
 ### MaxMsgSize
 
-The maximum size of the data portion of a message that will be accepted by the Stream. 
+The maximum size of the data portion of a message that will be accepted by the stream. 
 Messages with data containing more bytes will be refused.
 
 ### MaxConsumers
 
-The maximum number of Consumers that can have interest / be active for a given Stream. 
+The maximum number of Consumers that can have interest / be active for a given stream. 
 The default is -1 for unlimited. 
 If you attempt to create a consumer that would exceed this setting, it will be refused. 
 
@@ -136,12 +133,12 @@ The default is -1, meaning unlimited.
 Each message counts towards the byte count in the following manner:
 - The entire number of bytes in the subject
 - The entire number of bytes of any data
-- Overhead data including length information, timestamp, sequence number and hash code.
+- Overhead data including length information, timestamp, sequence number and hash code
     - Memory streams, 16 bytes
     - File streams, 30 bytes
 
-If there are headers, add this much:
-- The number of bytes making up header tuples. A tuple consists of the key and value for each value of a key
+If there are headers, you will need to add the following to allow for the space of the header:
+- The number of bytes making up header tuples; a tuple consists of the key and value for each value of a key
 - 3 bytes of overhead per tuple
 - Overhead for headers
     - Memory streams, 12 bytes
@@ -155,20 +152,20 @@ Default is -1 meaning unlimited.
 
 ### NoAck
 
-Disables the server acknowledging that messages are received for the Stream. 
+Disables the server acknowledging that messages are received for the stream. 
 This is an advanced feature that allows publishing without confirmation. 
 This will improve publish speed, the downside being that you cannot be sure a message was received.
 There are certainly use cases where this is acceptable.
 
 ### Replicas
 
-Set how many replicas to keep for each message in a clustered JetStream. Default is 0, maximum is 5
+Set how many replicas to keep for each message in a clustered JetStream. Default is 0, maximum is 5.
 
 ### Retention
 
 How message retention is considered, LimitsPolicy (default), InterestPolicy or WorkQueuePolicy.
-Limits policy enforces the MaxBytes and MaxMsgs limits. 
-Interest policy keeps messages as long as there is a consumer that has not acknowledged the message unless
+LimitsPolicy enforces the MaxBytes and MaxMsgs limits. 
+InterestPolicy keeps messages as long as there is a consumer that has not acknowledged the message unless
 MaxAge, MaxBytes or MaxMsgs would prune them.
 WorkQueuePolicy removes a message as soon as anyone acknowledges it, or again, one of the Max policies requires it to be removed.
 
@@ -181,9 +178,9 @@ If the policy is New, new messages are refused if it would put the stream over t
 ### Duplicates
 
 The window within which to track duplicate messages. 
-This only matters if you are sending a message id when publishing.
-If a message with an id that has already been received during the window, it will be refused.
-If a message with an id that has already been received is received outside the window, it will be accepted.
+This only matters if you are sending a message ID when publishing.
+If a message with an ID that has already been received during the window, it will be refused.
+If a message with an ID that has already been received is received outside the window, it will be accepted.
 
 ## Builder with Advanced Options
 ```java
