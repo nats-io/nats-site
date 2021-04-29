@@ -1,6 +1,6 @@
 +++
 categories = ["Clients", "Java", "JetStream"]
-date = "2021-04-25"
+date = "2021-04-29"
 tags = ["java", "stream", "create", "jetstream"]
 title = "JetStream Stream Creation with the NATS.io Java Library"
 author = "Scott Fauerbach"
