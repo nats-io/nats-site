@@ -104,7 +104,7 @@ State:
 
 ## Advanced Options
 
-As you can see in the CLI output there are several other options available for configuring the stream.
+As you can see in the CLI output, there are several other options available for configuring the stream.
 
 ### MaxAge
 
@@ -208,7 +208,8 @@ StreamConfiguration streamConfig = StreamConfiguration.builder()
 StreamInfo streamInfo = jsm.addStream(streamConfig);
 ```
 
-Up next, Publishing
+
+Stay tuned for the next blog post, Publishing!
 
 ## About the Author
 
