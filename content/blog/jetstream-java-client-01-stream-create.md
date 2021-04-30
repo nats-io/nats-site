@@ -65,7 +65,7 @@ JetStreamManagement jsm = nc.jetStreamManagement();
 StreamConfiguration streamConfig = StreamConfiguration.builder()
    .name("Widgets")
    .storageType(StorageType.Memory)
-   .subjects("widget.one", "subject.two")
+   .subjects("subject.one", "subject.two")
    .build();
 
 // Create the stream
