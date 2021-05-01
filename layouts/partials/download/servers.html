@@ -10,7 +10,7 @@
   {{ range $servers }}
   {{ $repo := printf "%s/%s" .org .repo }}
   {{ $url  := printf "https://github.com/%s" $repo }}
-  {{ $ghLatest  := printf "https://github.com/%s/%s/releases/latest" .org $repo }}
+  {{ $ghLatest  := printf "https://github.com/%s/releases/latest" $repo }}
   {{ $docker    := printf "https://hub.docker.com/_/%s" .docker }}
   {{ $prefix    := .prefix }}
   {{ $release   := .release }}
