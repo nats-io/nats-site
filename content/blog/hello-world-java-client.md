@@ -6,6 +6,8 @@ title = "Hello World with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
 
+# Hello World with the NATS Java Library
+
 Recently, stream functionality was added to the NATS server in release 2.2. See our [JetStream](https://docs.nats.io/jetstream/jetstream) section in docs for additional information.
 
 Check out this video where I discuss the basics of how to create a stream and then publish and consume messages 
