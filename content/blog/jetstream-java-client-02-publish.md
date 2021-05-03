@@ -30,7 +30,7 @@ There are some options that you can set when sending a message.
 
 ### Stream Name
 
-On JetStream publish, you are always required to supply the subject, but are not required to supply the 
+When you publish to JetStream, you are required to supply the subject, but are not required to supply the 
 stream name as the client will figure it out for you, so in regular uses cases this is not necessary.
 
 So when would you use it? When the client creates a subscription, if you don't give it the stream name, 
