@@ -13,6 +13,9 @@ content/download/*.md
 !content/download/nats-server.md
 !content/download/nats-streaming-server.md
 
+# Generated PGP WKD files
+static/.well-known/openpgpkey/
+
 # Node
 node_modules
 npm-debug.log
