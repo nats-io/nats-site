@@ -6,7 +6,7 @@ title = "JetStream Publishing with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
 
-The previous entry in this series showed us how to create a stream.
+The [previous entry](jetstream-java-client-01-stream-create.md) in this series showed us how to create a stream.
 Once you have defined a stream, you can publish to the configured subjects. 
 Publishing to stream subjects isn't really much different from publishing a regular NatsMessage. 
 Once a subject is established, you could publish a regular NatsMessage to that subject,
