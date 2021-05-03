@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="columns is-multiline is-vcentered is-gapless ">
+    <div class="columns is-vcentered is-multiline">
 
           {{ range $k, $v := $companies }}
           {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
@@ -24,6 +24,7 @@
           </div>
           {{ end }}
     </div>
+  </div>
   </div>
 </section>
 

@@ -148,3 +148,7 @@ name = "TeamSystem"
 home = "https://teamsystem.com"
 logo = "teamsystem.png"
 
+[companies.nsci]
+name = "NSCI"
+home = "https://nsci.io"
+logo = "nsci.png"
