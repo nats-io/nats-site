@@ -153,8 +153,8 @@ supported = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
-release_version = "1.7.2"
-release_date = "2019-02-21"
+release_version = "1.11.0"
+release_date = "2021-05-03"
 [[language.go.orgs]]
 org = "nats-io"
 repo = "stan.go"
