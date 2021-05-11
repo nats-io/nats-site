@@ -1,3 +1,12 @@
++++
+date = "2021-05-11"
+draft = false
+title = "Pub-Sub with NATS CLI"
+author = "R.I. Pienaar"
+categories = ["General", "Engineering"]
+tags = ["NATS", "CLI", "ADMIN", "JetStream"]
++++
+
 # Publish-Subscribe with NATS CLI
 
 
