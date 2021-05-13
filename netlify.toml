@@ -10,8 +10,3 @@ command = "make netlify-preview-build"
 
 [context.branch-deploy]
 command = "make netlify-preview-build"
-
-[[headers]]
-  for = "/.well-known/openpgpkey/hu/*"
-  [headers.values]
-  Content-Type = "application/octet-stream"
