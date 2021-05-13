@@ -5,14 +5,11 @@ setup:
 generate-client-pages:
 	scripts/generate-client-pages.sh
 
-generate-pgp-wkd:
-	./pgp/update -v -d nats.io -k pgp/*.asc -o static
-
-develop: generate-client-pages generate-pgp-wkd
+develop: generate-client-pages
 	hugo server --buildDrafts --buildFuture
 
-netlify-production-build: generate-client-pages generate-pgp-wkd
+netlify-production-build: generate-client-pages
 	hugo --minify
 
-netlify-preview-build: generate-client-pages generate-pgp-wkd
+netlify-preview-build: generate-client-pages
 	hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture
