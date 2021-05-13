@@ -6,7 +6,7 @@ title = "JetStream Multi Tool"
 author = "Scott Fauerbach"
 +++
 
-As we were building the [NATS Java client](https://github.com/nats-io/nats.java) we realized that we wanted code to run the client through its paces.
+As we were building the [NATS Java client](https://github.com/nats-io/nats.java) we realized we wanted code to run the client through its paces.
 We built unit tests, example code and added basic functionality to our existing benchmarking tool.
 
 As we talked to prospective users, they were asking for benchmarks across the variety of different ways we can publish and subscribe.
@@ -26,7 +26,7 @@ So it made sense to put everything into one program and the
 [NATS Java Client JetStream Multi Tool](https://github.com/nats-io/nats.java/tree/main/src/examples/java/io/nats/examples/jsmulti)
 was created to provide complete exercising and benchmarking specific to the NATS Java client with the intent of establishing a baseline for client performance and behavior.
 
-> Administration and server related benchmarking of NATS should prefer the NATS CLI tooling, especially in production environments.
+> Administration and server related benchmarking of NATS should prefer the [NATS CLI](https://github.com/nats-io/natscli) tooling, especially in production environments.
 
 I know what you are thinking. All developers worth their salt agonize on naming stuff and the best you could come up with is "Multi Tool"? 
 How good could it be? Well, it's not like I'm asking you to trust a developer who's wearing a suit and tie!
