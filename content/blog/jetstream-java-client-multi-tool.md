@@ -2,7 +2,7 @@
 categories = ["Clients", "Java", "JetStream"]
 date = "2021-05-13"
 tags = ["java", "stream", "publish", "subscribe", "benchmark", "tool"]
-title = "JetStream Multi Tool"
+title = "NATS Java Client JetStream Multi Tool"
 author = "Scott Fauerbach"
 +++
 
