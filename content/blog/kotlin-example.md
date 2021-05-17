@@ -5,6 +5,7 @@ tags = ["java", "koltin", "android"]
 title = "Java client usage on Android with Kotlin"
 author = "Iván Ferro"
 +++
+# Java Client Usage on Android with Kotlin
 
 ## Dependencies
 To use the official [NATS.java](https://github.com/nats-io/nats.java) library in Android we need to add the dependency to the ***build.gradle*** file at ***Module*** level. Please use the latest released version, which at this writing is 2.11.2
@@ -18,7 +19,7 @@ dependencies {
 
 ## Implementation
 
-We will create a class as a manager to control our NATS client to be able to connect, disconnect, publish ... This is necessary because when Nats.java tries to connect, it makes a blocking call, which we don't want in the main thread, so we execute it in another thread. Also, in order to have communication between the main thread and connect thread, we generate an interface that we will implement in the MainActivity and that we pass as parameter to our class NatsManager. In this case, we will make that the interface returns us when we are connected and what messages it revokes.
+We will create a class as a manager to control our NATS client to be able to connect, disconnect, publish ... This is necessary because when nats.java tries to connect, it makes a blocking call, which we don't want in the main thread, so we execute it in another thread. Also, in order to have communication between the main thread and connect thread, we generate an interface that we will implement in the MainActivity and that we pass as parameter to our class NatsManager. In this case, we will make that the interface returns us when we are connected and what messages it revokes.
 
 ```kotlin
 open interface IDataCollector {
@@ -80,7 +81,7 @@ class NatsManager(datacollector: MainActivity) {
 
 ```
 
-In this example we are going to create a method ***connect*** that is going to connect to the server with the options that we indicate. Once connected it is going to subscribe to the subject ***test***. As we said before, we need that the instruction ***Nats.connect()*** goes inside a new thread. Initializing from this the variable nc, being thus accessible from the main thread.
+In this example we are going to create a method ***connect*** that is going to connect to the server with the options that we indicate. Once connected it is going to subscribe to the subject ***test***. As we said before, we need the instruction ***Nats.connect()*** inside a new thread. Initializing from this the variable nc, being thus accessible from the main thread.
 
 ```kotlin
  fun connect() {
@@ -114,7 +115,7 @@ In this example we are going to create a method ***connect*** that is going to c
     }
 ```
 
-To create a publication method we just have to call the Nats.java function, passing as parameters the subject and message in ByteArray.
+To create a publication method we just have to call the nats.java function, passing as parameters the subject and message in ByteArray.
 
 ```kotlin
 fun pub(topic: String, msg: String){
@@ -123,8 +124,8 @@ fun pub(topic: String, msg: String){
     }
 ```
 
-In this way we have a functional client in Android using the official nats java library in a very simple way.
-You can check the complete code [here](https://github.com/nats-io/kotlin-nats-examples/tree/main/simple-android-app)
+In this way we have a functional client in Android using the official NATS Java library in a very simple way.
+You can check the complete code in Github [https://github.com/nats-io/kotlin-nats-examples/tree/main/simple-android-app](https://github.com/nats-io/kotlin-nats-examples/tree/main/simple-android-app).
 
 ## About the Author
 
