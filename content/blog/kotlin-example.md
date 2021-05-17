@@ -7,19 +7,18 @@ author = "Iván Ferro"
 +++
 
 ## Dependencies
-To use the official [NATS.java](https://github.com/nats-io/nats.java) library in Android we need to add the dependency to the ***build.gradle*** file at ***Module*** level as follows:
+To use the official [NATS.java](https://github.com/nats-io/nats.java) library in Android we need to add the dependency to the ***build.gradle*** file at ***Module*** level. Please use the latest released version, which at this writing is 2.11.2
 
 ```xml
 dependencies {
     //other dependencies
-    implementation 'io.nats:jnats:2.8.0'
-
+    implementation 'io.nats:jnats:2.11.2'
 }
 ```
 
 ## Implementation
 
-We will need to create a class as a manager to control our nats client to be able to connect, disconnect, publish ... This is necessary because when Nats.java tries to connect makes a blocking call, which we cannot do in the main thread and, therefore, we need it to be executed in another thread. Also, in order to have communication between the main thread and this thread we generate an interface that we will implement in the MainActivity and that we will pass as parameter to our class NatsManager. In this case, we will make that the interface returns us when we are connected and what messages it revokes.
+We will create a class as a manager to control our NATS client to be able to connect, disconnect, publish ... This is necessary because when Nats.java tries to connect, it makes a blocking call, which we don't want in the main thread, so we execute it in another thread. Also, in order to have communication between the main thread and connect thread, we generate an interface that we will implement in the MainActivity and that we pass as parameter to our class NatsManager. In this case, we will make that the interface returns us when we are connected and what messages it revokes.
 
 ```kotlin
 open interface IDataCollector {
