@@ -87,7 +87,7 @@ In this example we are going to create a method ***connect*** that is going to c
  fun connect() {
         Log.d(TAG, "TRY TO CONNECT")
         Thread {
-            val options: Options = Options.Builder().server("nats://demo.nats.io:4222").build()
+            val options: Options = Options.Builder().server("nats://demo.nats.io").build()
 
             try {
                 nc = Nats.connect(options)
