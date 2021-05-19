@@ -52,8 +52,11 @@ ConsumerConfiguration c = ConsumerConfiguration.builder()
 
 ### Durable (Name)
 
-There is no default for the durable name. For push consumers, this is the only way to set the durable consumer name.
-For pull consumers, you can set the durable name in the `ConsumerConfiguration` object or in the `PullSubscribeOptions` object.
+By default, a consumer is ephemeral. To make the consumer durable, set the name.
+In the Java client, there are two ways to set the durable name. You can set it in the Consumer Configuration, or
+you can leverage the helper method in the `PushSubscribeOptions` or `PullSubscribeOptions` builders, which will
+either add it to the Consumer Configuration you supply or create a default one with the durable. The value in
+the Consumer Configuration object takes precedece over the value supplied in either of the Subscribe options builders. 
 
 ### Deliver Policy / Start Sequence / Start Time
 
@@ -63,8 +66,8 @@ This is the `DeliverPolicy` and it's options are as follows:
 | Option  | Description  |
 | --- | --- |
 | All | All is the default policy. The consumer will start receiving from the earliest available message. |
-| Last | The consumer will start receiving messages with the last message. /
-| New | The consumer will only start receiving messages that were created after the consumer was created. /
+| Last | The consumer will start receiving messages with the last message added to the stream, so the very last message in the stream when the server realizes the consumer is ready. |
+| New | The consumer will only start receiving messages that were created after the consumer was created. |
 | ByStartSequence | The consumer is required to specify the `.startSequence(...)`, the sequence number to start on. It will receive the closest available sequence if that message was removed based on the stream limit policy. | 
 | ByStartTime | The consumer is required to specify the `.startTime(...)`, the time in the stream to start at. It will receive the closest available message on or after that time. | 
 
@@ -96,16 +99,16 @@ If acks don't occur in the Ack Wait period, then the server will resume starting
 ### Replay Policy
 
 The replay policy applies when the deliver policy is `All`, `ByStartSequence` or `ByStartTime` since those deliver policies begin reading the stream at a position other than the end.
-If the policy is `ReplayOriginal` (the default), the messages in the stream will be pushed to the client at the same rate that they were originally received, simulating the original timing of messages.
-If the policy is `ReplayInstant`, the messages will be pushed to the client as fast as possible while adhering to the Ack Policy, Max Ack Pending and the client's ability to consume those messages.
+If the policy is `ReplayOriginal`, the messages in the stream will be pushed to the client at the same rate that they were originally received, simulating the original timing of messages.
+If the policy is `ReplayInstant` (the default), the messages will be pushed to the client as fast as possible while adhering to the Ack Policy, Max Ack Pending and the client's ability to consume those messages.
 
 ### Max Deliver
 
-The maximum amount times a specific message will be delivered. Applies to messages that are re-sent due to ack policy.
+The maximum number of times a specific message will be delivered. Applies to any message that is re-sent due to ack policy.
 
 ### Filter Subject
 
-When consuming from a stream with many subjects, or wildcards, this allows you to select only a specific incoming subjects, supports wildcards
+When consuming from a stream with a wildcard subject, this allows you to select a subset of the full wildcarded subject to receive messages from.
 
 ### Rate Limit
 
@@ -117,14 +120,16 @@ Sets the percentage of acknowledgements that should be sampled for observability
 
 ### Idle Heartbeat
 
-If the idle heartbeat period is set, the server will send a status message to the client when the period has elapsed but it has not received any new messages.
+If the idle heartbeat period is set, the server will send a status message with to the client when the period has elapsed but it has not received any new messages.
 This lets the client know that it's still there, but just isn't receiving messages.
+The Java client's `Status` object has a helper method `isHeartbeat()` that can help you identify this specific status message.
 
 ### Flow Control
 
 Flow control is another way for the consumer to manage back pressure. Instead of relying on the rate limit, it relies on the pending limits of max messages and/or max bytes.
 If the server sends the number of messages or bytes without receiving an ack, it will send a status message letting you know it has reached this limit.
 Once flow control is tripped, the server will not start sending messages again until the client tells the server, even if all messages have been acknowledged.
+The Java client's `Status` object has a helper method `isFlowControl()` that can help you identify this specific status message.
 
 ## About the Author
 
