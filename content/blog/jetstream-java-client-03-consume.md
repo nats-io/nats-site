@@ -32,21 +32,31 @@ this doesn't really apply since they are created new every time.
 ## Configuration Object
 The `ConsumerConfiguration` object has a builder to simplify setting options. Here is the builder skeleton showing all the builder methods.
 
+    private final String deliverSubject;
+    private final long startSeq;
+    private final ZonedDateTime startTime;
+    private final Duration ackWait;
+    private final long maxDeliver;
+    private final long rateLimit;
+    private final long maxAckPending;
+    private final Duration idleHeartbeat;
+    private final boolean flowControl;
+
 ```
 ConsumerConfiguration c = ConsumerConfiguration.builder()
-    .durable(...)
-    .deliverPolicy(...)
+    .durable(string)
+    .deliverPolicy(deliverPolicy)
     .startSequence(...)
     .startTime(...)
-    .deliverSubject(...)
+    .deliverSubject(string)
     .ackPolicy(...)
     .ackWait(...)
     .maxAckPending(...)
     .replayPolicy(...)
     .maxDeliver(...)
-    .filterSubject(...)
+    .filterSubject(string)
     .rateLimit(...)
-    .sampleFrequency(...)
+    .sampleFrequency(string)
     .idleHeartbeat(...)
     .flowControl(...)
     .build();
@@ -122,7 +132,8 @@ Used to throttle the delivery of messages to the consumer, in bits per second.
 
 ### Sample Frequency
 
-Sets the percentage of acknowledgements that should be sampled for observability, 0-100
+Sets the percentage of acknowledgements that should be sampled for observability, 0-100. 
+This value is a string and for example allows both `30` and `30%` as valid values. 
 
 ### Idle Heartbeat
 
