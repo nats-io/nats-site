@@ -79,9 +79,9 @@ This is the `DeliverPolicy` and it's options are as follows:
 
 ### Deliver Subject
 
-Deliver subject essentially creates an alias core NATS subject for the stream. This means a core NATS subscriber could be set up to receive messages on the deliver subject,
-starting wherever the deliver policy was configured for the consumer. You could use a core NATS subscriber to access the stream by its original subject, but that would always start at
-the next message that appears on the subject, instead of where the consumer configured start sequence or start time. This is only allowed for push subscriptions.
+The subject to deliver observed messages. Not allowed for pull subscriptions.
+Deliver subject is required for queue subscribing for ephemeral consumers as it configures a subject that all the queue consumers should listen on.
+For durable consumers, an internal deliver subject will be created if one is not supplied.
 
 ### Ack Policy
 
