@@ -24,8 +24,10 @@ the consumer will be remembered. A durable consumer is required when making a pu
 when making a push subscription.
 
 An ephemeral consumer will only be tracked by the server while it is active and showing interest in the stream.
-Using consumer configuration options, an ephemeral can be manually set to start at a specific sequence or time.
-Ephemeral consumers are only allowed in push subscriptions.
+Again, ephemeral consumers are only allowed in push subscriptions.
+
+For durable consumers, some options cannot be changed once the consumer is created. For ephemeral consumers, 
+this doesn't really apply since they are created new every time. 
 
 ## Configuration Object
 The `ConsumerConfiguration` object has a builder to simplify setting options. Here is the builder skeleton showing all the builder methods.
@@ -50,13 +52,17 @@ ConsumerConfiguration c = ConsumerConfiguration.builder()
     .build();
 ```
 
+As you can see, there are several options. In general, the defaults will do just fine. 
+The Durable name is probably the most common option used, so in the Java client we gave several ways
+to set it when making a subscription.
+
 ### Durable (Name)
 
 By default, a consumer is ephemeral. To make the consumer durable, set the name.
 In the Java client, there are two ways to set the durable name. You can set it in the Consumer Configuration, or
 you can leverage the helper method in the `PushSubscribeOptions` or `PullSubscribeOptions` builders, which will
 either add it to the Consumer Configuration you supply or create a default one with the durable. The value in
-the Consumer Configuration object takes precedece over the value supplied in either of the Subscribe options builders. 
+the Consumer Configuration object takes precedence over the value supplied in either of the Subscribe options builders. 
 
 ### Deliver Policy / Start Sequence / Start Time
 
@@ -99,8 +105,8 @@ If acks don't occur in the Ack Wait period, then the server will resume starting
 ### Replay Policy
 
 The replay policy applies when the deliver policy is `All`, `ByStartSequence` or `ByStartTime` since those deliver policies begin reading the stream at a position other than the end.
-If the policy is `ReplayOriginal`, the messages in the stream will be pushed to the client at the same rate that they were originally received, simulating the original timing of messages.
-If the policy is `ReplayInstant` (the default), the messages will be pushed to the client as fast as possible while adhering to the Ack Policy, Max Ack Pending and the client's ability to consume those messages.
+If the policy is `Original`, the messages in the stream will be pushed to the client at the same rate that they were originally received, simulating the original timing of messages.
+If the policy is `Instant` (the default), the messages will be pushed to the client as fast as possible while adhering to the Ack Policy, Max Ack Pending and the client's ability to consume those messages.
 
 ### Max Deliver
 
@@ -108,7 +114,7 @@ The maximum number of times a specific message will be delivered. Applies to any
 
 ### Filter Subject
 
-When consuming from a stream with a wildcard subject, this allows you to select a subset of the full wildcarded subject to receive messages from.
+When consuming from a stream with a wildcard subject, this allows you to select a subset of the full wildcard subject to receive messages from.
 
 ### Rate Limit
 
