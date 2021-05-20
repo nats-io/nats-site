@@ -32,33 +32,23 @@ this doesn't really apply since they are created new every time.
 ## Configuration Object
 The `ConsumerConfiguration` object has a builder to simplify setting options. Here is the builder skeleton showing all the builder methods.
 
-    private final String deliverSubject;
-    private final long startSeq;
-    private final ZonedDateTime startTime;
-    private final Duration ackWait;
-    private final long maxDeliver;
-    private final long rateLimit;
-    private final long maxAckPending;
-    private final Duration idleHeartbeat;
-    private final boolean flowControl;
-
 ```
 ConsumerConfiguration c = ConsumerConfiguration.builder()
     .durable(string)
-    .deliverPolicy(deliverPolicy)
-    .startSequence(...)
-    .startTime(...)
+    .deliverPolicy(enum)
+    .startSequence(long)
+    .startTime(ZonedDateTime)
     .deliverSubject(string)
-    .ackPolicy(...)
-    .ackWait(...)
-    .maxAckPending(...)
-    .replayPolicy(...)
-    .maxDeliver(...)
+    .ackPolicy(enum)
+    .ackWait(duration)
+    .maxAckPending(long)
+    .replayPolicy(enum)
+    .maxDeliver(long)
     .filterSubject(string)
-    .rateLimit(...)
+    .rateLimit(long)
     .sampleFrequency(string)
-    .idleHeartbeat(...)
-    .flowControl(...)
+    .idleHeartbeat(duration)
+    .flowControl(boolean)
     .build();
 ```
 
