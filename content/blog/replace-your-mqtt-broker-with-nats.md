@@ -1,6 +1,6 @@
 +++
-date = "2021-05-19"
-draft = true
+date = "2021-05-20"
+draft = false
 title = "Replace your MQTT broker with NATS Server"
 author = "Ivan Kozlovic"
 categories = ["General", "Engineering"]
