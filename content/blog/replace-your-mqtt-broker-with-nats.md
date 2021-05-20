@@ -11,8 +11,8 @@ tags = ["NATS", "MQTT", "IoT"]
 
 NATS Server v2.2.0+ has native support for MQTT v3.1.1 protocol.
 
-If you already have a deployment with existing MQTT broker(s) and use NATS messaging, or planning to,
-this blog post will show you how easy it is to replace your existign MQTT broker with a NATS server.
+If you already have a deployment with existing MQTT broker(s) and use NATS messaging, or are planning to,
+this blog post will show you how easy it is to replace your existing MQTT broker with a NATS server.
 
 Not only you would have to manage a single server instead of two, using NATS with MQTT will allow
 you to exchange data from MQTT to NATS and vice-versa.
@@ -21,7 +21,7 @@ In this [repository](https://github.com/kozlovic/nats_mqtt_demo) you will find d
 and all required scripts to run the demonstration.
 
 * The first [stage](https://github.com/kozlovic/nats_mqtt_demo#without-nats) is to run a simulator
-that generates MQTT messages and a MQTT susbcription to consume them.
+that generates MQTT messages and a MQTT subscription to consume them.
 * Then, in the second [stage](https://github.com/kozlovic/nats_mqtt_demo#with-standalone-nats-server),
 we replace the MQTT broker with NATS and see how messages can be exchanged between MQTT and NATS.
 * Finally, in the third [stage](https://github.com/kozlovic/nats_mqtt_demo#with-nats-leafnode-server-connected-to-synadias-ngs)
