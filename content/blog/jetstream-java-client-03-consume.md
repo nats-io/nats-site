@@ -6,7 +6,7 @@ title = "JetStream Consumers with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
 
-The previous entry in this series showed us how to publish messages.
+The previous entries in this series showed us how to [create JetStream streams](jetstream-java-client-01-stream-create.md) and [publish](jetstream-java-client-02-publish.md) messages.
 This entry will start building up to subscribing by describing the configuration for consumers.
 
 ## Push vs Pull Subscription
@@ -79,12 +79,12 @@ This is the `DeliverPolicy` and it's options are as follows:
 | All | All is the default policy. The consumer will start receiving from the earliest available message. |
 | Last | The consumer will start receiving messages with the last message added to the stream, so the very last message in the stream when the server realizes the consumer is ready. |
 | New | The consumer will only start receiving messages that were created after the consumer was created. |
-| ByStartSequence | The consumer is required to specify the `.startSequence(...)`, the sequence number to start on. It will receive the closest available sequence if that message was removed based on the stream limit policy. | 
-| ByStartTime | The consumer is required to specify the `.startTime(...)`, the time in the stream to start at. It will receive the closest available message on or after that time. | 
+| ByStartSequence | The consumer is required to specify the `.startSequence(...)`, the sequence number to start on. It will receive the closest available message moving forward in the sequence if the message specified has been removed based on the stream limit policy. | 
+| ByStartTime | The consumer is required to specify the `.startTime(...)`, the time in the stream at which to start. It will receive the closest available message on or after that time. | 
 
 ### Deliver Subject
 
-The subject to deliver observed messages. Not allowed for pull subscriptions.
+The Deliver Subject is the subject to deliver observed messages and is not allowed for pull subscriptions.
 Deliver subject is required for queue subscribing for ephemeral consumers as it configures a subject that all the queue consumers should listen on.
 For durable consumers, an internal deliver subject will be created if one is not supplied.
 
@@ -92,7 +92,7 @@ See the [NatsJsPushSubDeliverSubject](https://github.com/nats-io/nats.java/blob/
 
 ### Ack Policy
 
-`Explicit` is the default policy and means that each individual message must be acknowledged.
+`Explicit` is the default Ack policy and means that each individual message must be acknowledged.
 For pull consumers, `Explicit` is the only allowed option.
 For push consumers, you can choose `None`, which means you do not have to ack any messages,
 or `All` which means whenever you choose to ack a message, all the previous messages received are automatically acknowledged.
@@ -112,7 +112,7 @@ If acks don't occur in the Ack Wait period, then the server will resume starting
 ### Replay Policy
 
 The replay policy applies when the deliver policy is `All`, `ByStartSequence` or `ByStartTime` since those deliver policies begin reading the stream at a position other than the end.
-If the policy is `Original`, the messages in the stream will be pushed to the client at the same rate that they were originally received, simulating the original timing of messages.
+If the policy is `Original`, the messages in the stream will be pushed to the client at the same rate they were originally received, simulating the original timing of messages.
 If the policy is `Instant` (the default), the messages will be pushed to the client as fast as possible while adhering to the Ack Policy, Max Ack Pending and the client's ability to consume those messages.
 
 ### Max Deliver
@@ -121,7 +121,7 @@ The maximum number of times a specific message will be delivered. Applies to any
 
 ### Filter Subject
 
-When consuming from a stream with a wildcard subject, this allows you to select a subset of the full wildcard subject to receive messages from.
+When consuming from a stream with a wildcard subject, the Filter Subject allows you to select a subset of the full wildcard subject to receive messages from.
 
 See the [NatsJsPushSubFilterSubject](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubFilterSubject.java) example.
 
@@ -136,7 +136,7 @@ This value is a string and for example allows both `30` and `30%` as valid value
 
 ### Idle Heartbeat
 
-If the idle heartbeat period is set, the server will send a status message with to the client when the period has elapsed but it has not received any new messages.
+If the idle heartbeat period is set, the server will send a status message to the client when the period has elapsed but it has not received any new messages.
 This lets the client know that it's still there, but just isn't receiving messages.
 The Java client's `Status` object has a helper method `isHeartbeat()` that can help you identify this specific status message.
 
