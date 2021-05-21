@@ -56,6 +56,9 @@ As you can see, there are several options. In general, the defaults will do just
 The Durable name is probably the most common option used, so in the Java client we gave several ways
 to set it when making a subscription.
 
+In the [Java client repo](https://github.com/nats-io/nats.java), there is a [JetStream Example Directory](https://github.com/nats-io/nats.java/tree/main/src/examples/java/io/nats/examples/jetstream)
+that covers many of these options.
+
 ### Durable (Name)
 
 By default, a consumer is ephemeral. To make the consumer durable, set the name.
@@ -63,6 +66,8 @@ In the Java client, there are two ways to set the durable name. You can set it i
 you can leverage the helper method in the `PushSubscribeOptions` or `PullSubscribeOptions` builders, which will
 either add it to the Consumer Configuration you supply or create a default one with the durable. The value in
 the Consumer Configuration object takes precedence over the value supplied in either of the Subscribe options builders. 
+
+Several of the examples demonstrate use of durable. [NatsJsPushSub](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSub.java) is a good place to start.
 
 ### Deliver Policy / Start Sequence / Start Time
 
@@ -82,6 +87,8 @@ This is the `DeliverPolicy` and it's options are as follows:
 The subject to deliver observed messages. Not allowed for pull subscriptions.
 Deliver subject is required for queue subscribing for ephemeral consumers as it configures a subject that all the queue consumers should listen on.
 For durable consumers, an internal deliver subject will be created if one is not supplied.
+
+See the [NatsJsPushSubDeliverSubject](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubDeliverSubject.java) example.
 
 ### Ack Policy
 
@@ -116,6 +123,8 @@ The maximum number of times a specific message will be delivered. Applies to any
 
 When consuming from a stream with a wildcard subject, this allows you to select a subset of the full wildcard subject to receive messages from.
 
+See the [NatsJsPushSubFilterSubject](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubFilterSubject.java) example.
+
 ### Rate Limit
 
 Used to throttle the delivery of messages to the consumer, in bits per second.
@@ -131,12 +140,16 @@ If the idle heartbeat period is set, the server will send a status message with 
 This lets the client know that it's still there, but just isn't receiving messages.
 The Java client's `Status` object has a helper method `isHeartbeat()` that can help you identify this specific status message.
 
+See the [NatsJsPushSubHeartbeat](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubHeartbeat.java) example.
+
 ### Flow Control
 
 Flow control is another way for the consumer to manage back pressure. Instead of relying on the rate limit, it relies on the pending limits of max messages and/or max bytes.
 If the server sends the number of messages or bytes without receiving an ack, it will send a status message letting you know it has reached this limit.
 Once flow control is tripped, the server will not start sending messages again until the client tells the server, even if all messages have been acknowledged.
 The Java client's `Status` object has a helper method `isFlowControl()` that can help you identify this specific status message.
+
+See the [NatsJsPushSubFlowControl](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubFlowControl.java) example.
 
 ## About the Author
 
