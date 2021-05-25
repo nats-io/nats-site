@@ -54,13 +54,13 @@ Let's look at a manufacturing use case.  As manufacturing continues to transitio
 
 We have a factory line with equipment, sensors, quality control, and AR to assist engineers, and AI to watch and intelligently aggregate data.  Incidentally, NATS works very well with the [Unity](https://unity.com/solutions/automotive-transportation-manufacturing) platform which is being applied to Industry 4.0.
 
- <img class="img-responsive center-block" src="/img/blog/synadia-adaptive-edge-iiot1.png" alt="A jpg showing a factory floor" height="400" width="600">
+ <img class="img-responsive center-block" src="/img/blog/synadia-adaptive-edge-iiot1.png" alt="A png showing a factory floor" height="400" width="600">
 
 ## Headquarters, Factories and Distribution Centers
 
 In the big picture, we have headquarters, distribution centers, and factories.  Note that all of these are connected, and data is exchanged through NATS.  While not pictured, the flow and availability of data is dictated by accounts.  This is just a simple diagram; using the adaptive edge architecture supply chain can be included to provide services that allow for optimization of logistics, inventory, and more.
 
- <img class="img-responsive center-block" src="/img/blog/synadia-adaptive-edge-iiot2.png" alt="A jpg showing a factories, warehouses, and headquarters" height="400" width="600">
+ <img class="img-responsive center-block" src="/img/blog/synadia-adaptive-edge-iiot2.png" alt="A png showing a factories, warehouses, and headquarters" height="400" width="600">
 
 ## Application to Vertical Markets
 
