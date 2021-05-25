@@ -11,7 +11,7 @@ author = "Scott Fauerbach"
 In the continuation of the series on using the [NATS Java client](https://github.com/nats-io/nats.java) with [JetStream](https://docs.nats.io/jetstream/jetstream),
 there is new video that demonstrates publishing messages to a stream synchronously and asynchronously. Check out this video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FIXME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HfUVwzfrrNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The source code discussed in the video can be found here:
 
