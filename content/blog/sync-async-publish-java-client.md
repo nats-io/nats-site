@@ -1,6 +1,6 @@
 +++
 categories = ["Clients", "Java", "Tutorials"]
-date = "2021-05-25"
+date = "2021-05-27"
 tags = ["java"]
 title = "Synchronous and Asynchronous Publishing with the NATS.io Java Library"
 author = "Scott Fauerbach"
