@@ -1,26 +1,12 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Friday, May 7, 2021 13:45 CEST"
-who = "Waldemar Quevedo"
-what = "NATS v2.2 | The JetStream Release"
+venue = "NATS Connect Live 2021"
+when = "Fall 2021"
+who = "NATS Team"
+what = "Our 2nd Annual Virtual NATS Conference"
 where = "Virtual"
-ref = "https://sched.co/iE8x"
+ref = "/nats_connect_2021"
 
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Tuesday, May 4, 2021 16:00 CEST"
-who = "The NATS Team"
-what = "Meet the Maintainers Office Hours"
-where = "Virtual"
-ref = "https://sched.co/ilDC"
 
-[[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "Thursday, May 6, 2021 14:15 CEST"
-who = "The NATS Team"
-what = "Meet the Maintainers Office Hours"
-where = "Virtual"
-ref = "https://sched.co/ilDs"
 
 
 # comment out to save
