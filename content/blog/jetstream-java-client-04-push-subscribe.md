@@ -26,10 +26,10 @@ JetStreamSubscription subscribe(String subject, String queue, Dispatcher dispatc
 
 * subject - every subscription needs a subject
 * options - configure PushSubscribeOptions or use the default configuration
-* queue - multiple consumers in using the same queue name will each get a unique portion of the messages in the stream  
+* queue - multiple consumers using the same queue name will each get a unique portion of the messages in the stream.  
 * dispatcher - necessary if you want to handle messages asynchronously
 * handler - the asynchronous handler
-* autoAck - for asynchronous handling, the message can be acknowledged for you before your own handler is called
+* autoAck - for asynchronous handling, the message can be acknowledged for you before your own handler is called.
 
 ### PushSubscribeOptions
 
@@ -42,11 +42,11 @@ in which case the values set in the `PushSubscribeOptions` builder will take pre
 #### Builder
 
 ```
-// set the deliver subject
-public Builder deliverSubject(String deliverSubject)
-
 // set the stream name
 public Builder stream(String stream)
+
+// set the deliver subject
+public Builder deliverSubject(String deliverSubject)
 
 // set the durable name
 public Builder durable(String durable)
@@ -60,6 +60,11 @@ public Builder configuration(ConsumerConfiguration configuration)
 You can handle a push subscription message synchronously...
 
 ```
+Connection nc = Nats.connect("nats://demo.nats.io")
+JetStream js = nc.jetStream();
+
+...
+        
 JetStreamSubscription sub = js.subscribe("my-subject");
 nc.flush(Duration.ofSeconds(1)); // flush outgoing communication with/to the server
 
