@@ -15,7 +15,7 @@ This entry will demonstrate the basics of a push subscription.
 A push subscription is where the server is in control and sends messages to the client. 
 It can be made durable or ephemeral based on your use case. Here are the API method calls used for creating a push subscription:
 
-```java
+```
 JetStreamSubscription subscribe(String subject) throws IOException, JetStreamApiException;
 JetStreamSubscription subscribe(String subject, PushSubscribeOptions options) throws IOException, JetStreamApiException;
 JetStreamSubscription subscribe(String subject, String queue, PushSubscribeOptions options) throws IOException, JetStreamApiException;
@@ -41,7 +41,7 @@ in which case the values set in the `PushSubscribeOptions` builder will take pre
 
 #### Builder
 
-```java
+```
 // set the stream name
 public Builder stream(String stream)
 
@@ -59,7 +59,7 @@ public Builder configuration(ConsumerConfiguration configuration)
 
 You can handle a push subscription message synchronously...
 
-```java
+```
 Connection nc = Nats.connect("nats://demo.nats.io")
 JetStream js = nc.jetStream();
 
@@ -100,7 +100,7 @@ void handleMessage(Message msg) {
 
 Or asynchronously in the thread that the dispatcher will be run in...
 
-```java
+```
 MessageHandler handler = (Message msg) -> {
     // see handleMessage in above example
     handleMessage(msg)
