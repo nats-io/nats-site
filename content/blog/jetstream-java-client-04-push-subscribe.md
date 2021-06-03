@@ -5,7 +5,6 @@ tags = ["java", "stream", "consumer"]
 title = "JetStream Push Consumers with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
-
 # JetStream Push Consumers with the NATS.io Java Library
 
 The last entry in this series talked about the [consumer options](jetstream-java-client-03-consume.md) that are available when subscribing to messages.
