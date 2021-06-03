@@ -25,10 +25,10 @@ JetStreamSubscription subscribe(String subject, String queue, Dispatcher dispatc
 
 * subject - every subscription needs a subject
 * options - configure PushSubscribeOptions or use the default configuration
-* queue - multiple consumers in using the same queue name will each get a unique portion of the messages in the stream.  
+* queue - multiple consumers in using the same queue name will each get a unique portion of the messages in the stream  
 * dispatcher - necessary if you want to handle messages asynchronously
 * handler - the asynchronous handler
-* autoAck - for asynchronous handling, the message can be acknowledged for you before your own handler is called.
+* autoAck - for asynchronous handling, the message can be acknowledged for you before your own handler is called
 
 ### PushSubscribeOptions
 
