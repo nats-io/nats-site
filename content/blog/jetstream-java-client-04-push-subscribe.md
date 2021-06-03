@@ -12,7 +12,7 @@ This entry will demonstrate the basics of a push subscription.
 ## Push
 
 A push subscription is where the server is in control and sends messages to the client. 
-It can be made durable or ephemeral based on your use case. Here are the api available to set up a push subscription:
+It can be made durable or ephemeral based on your use case. Here are the API method calls used for creating a push subscription:
 
 ```java
 JetStreamSubscription subscribe(String subject) throws IOException, JetStreamApiException;
