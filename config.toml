@@ -1,7 +1,7 @@
 baseURL = "https://nats.io/"
 languageCode = "en-us"
 defaultLanguage = "en"
-title = "NATS"
+title = "NATS.io"
 
 pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
