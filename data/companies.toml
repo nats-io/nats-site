@@ -162,3 +162,9 @@ logo = "ekeynow.png"
 name = "PortSIP"
 home = "https://portsip.com"
 logo = "portsip.png"
+
+[companies.foodrocket]
+name = "Food Rocket"
+home = "https://foodrocket.me"
+logo = "foodrocket.png"
+
