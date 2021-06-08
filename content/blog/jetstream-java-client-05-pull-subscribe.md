@@ -29,7 +29,7 @@ is a helper for the most common pull `ConsumerConfiguration` option, the _durabl
 (Remember, durable name is required for pull subscriptions.)
 Setting those in the `PullSubscribeOptions` builder will create a `ConsumerConfiguration` with those values. 
 If you also provide a `ConsumerConfiguration` the values set in the `PullSubscribeOptions` builder will be used
-in place of any values already set in the `ConsumerConfiguration`
+in place of any values already set in the `ConsumerConfiguration`.
 
 #### Builder
 
@@ -166,7 +166,7 @@ There are two detailed examples,
 [NatsJsPullSubExpire](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPullSubExpire.java)
 and
 [NatsJsPullSubExpireUseCases](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPullSubExpireUseCases.java)
-if you really want to look into it.
+that can be found in the client repo.
 
 ```
 ...
@@ -233,3 +233,7 @@ while (...) {
     }
 }
 ```
+
+## About the Author
+
+Scott Fauerbach is a member of the engineering team at [Synadia Communications](https://synadia.com).
