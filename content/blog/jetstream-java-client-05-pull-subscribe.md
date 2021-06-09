@@ -107,7 +107,7 @@ while (...) {
             }
             m = sub.nextMessage(Duration.ofMillis(100)); // other messages should already be on the client
         }
-        // if we got a null message before we got the batch size, the server
+        // if we receive a null message before we get the batch size, the server
         // does not have any more messages at the moment.
         // Maybe sleep here or do some housekeeping before trying again?
         // Don't just keep looping or you will just max the cpu in a wait loop.    
