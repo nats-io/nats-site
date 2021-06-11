@@ -472,3 +472,14 @@ supported = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
+
+[language.fibjs]
+name = "Fibjs"
+[[language.fibjs.orgs]]
+org = "lhkzh"
+repo = "fibjs-nats"
+supported = false
+author = "lhkzh"
+link = "https://github.com/lhkzh"
+release_version = "1.1.6"
+release_date = "2021-06-11"

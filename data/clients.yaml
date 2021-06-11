@@ -393,4 +393,14 @@
     release:
       version: '1.0.4'
       date: '2018-08-27'
-
+- language: Fibjs
+  clients:
+  - org: lhkzh
+    repo: fibjs-nats
+    supported: false
+    author:
+      name: lhkzh
+      link: https://github.com/lhkzh
+    release:
+      version: '1.1.6'
+      date: '2021-06-11'
