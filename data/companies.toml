@@ -148,10 +148,10 @@ name = "TeamSystem"
 home = "https://teamsystem.com"
 logo = "teamsystem.png"
 
-[companies.nsci]
-name = "NSCI"
-home = "https://nsci.io"
-logo = "nsci.png"
+[companies.strech]
+name = "Strech"
+home = "https://strech.io"
+logo = "strech.png"
 
 [companies.ekeynow]
 name = "ekeynow"
