@@ -85,7 +85,6 @@ This is the `DeliverPolicy` and it's options are as follows:
 ### Deliver Subject
 
 The Deliver Subject is the subject to deliver observed messages and is not allowed for pull subscriptions.
-Deliver subject is required for queue subscribing for ephemeral consumers as it configures a subject that all the queue consumers should listen on.
 For durable consumers, an internal deliver subject will be created if one is not supplied.
 
 See the [NatsJsPushSubDeliverSubject](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/jetstream/NatsJsPushSubDeliverSubject.java) example.
