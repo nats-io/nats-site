@@ -8,22 +8,22 @@ author = "Scott Fauerbach"
 
 Many users have asked to see how the [NATS Java client](https://github.com/nats-io/nats.java) performs specifically in regard to latency.
 This blog will discuss using the [NatsAutoBench program](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/autobench/NatsAutoBench.java)
-to run a latency test, and how to use the results to generate a histogram.
+to run a latency test and how to generate a CSV file that can be used to make a histogram.
 
-The NatsAutoBench can run a variety of tests.
+The NatsAutoBench can run a variety of tests. This blog will show you how to run just the latency test.
 
 ### Running the Latency Test
 
 You can run the latency test from an IDE or a command line, but you will need to build from the source code.
 
-1. Get the source code from https://github.com/nats-io/nats.java whether using Git or downloading the zip.
+1. Get the source code from https://github.com/nats-io/nats.java using `git clone` or downloading the zip.
 1. Build the code. There is a gradle file in the directory. Your IDE should be able to handle this, or you can build from the command line using the `./gradlew clean build -x test`
 1. Prepare the correct command line arguments or modify the NatsAutoBench code before you build to have the correct arguments. The code itself has examples on how to do this.
 1. Run the program from your IDE or command line.
 
-### Running from the command line
+#### Running from the command line
 
-Assuming the version you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars.
+Assuming the version you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars. If you are running from the nats.java directory the command will look like this:
 
 ```
 java -cp build/libs/jnats-2.11.4-SNAPSHOT.jar:build/libs/jnats-2.11.4-SNAPSHOT-examples.jar io.nats.examples.autobench.NatsAutoBench [serverURL] latency [tiny|small|med|large] [-lcsv <filespec>]
@@ -77,14 +77,14 @@ This file can be used to create a histogram.
 
 #### Example
 
-Run a large latency out output to a file:
+Run a large latency and output to a file:
 
 ```
 java -cp ... NatsAutoBench myhost:4333 latency large -lcsv /home/myuser/nats/latency.csv
 ```
 
-Each cell represents a message timing in nanoseconds for that run of the payload byte size of the column it's in
-since there will be the same number of rows for each payload size.
+Each cell represents a message timing in nanoseconds for that run of the payload byte size of the column it's in.
+There will be the same number of rows for each payload size.
 
 ```
 0 bytes,8 bytes,32 bytes,256 bytes,512 bytes,1024 bytes,4096 bytes,8192 bytes
@@ -106,7 +106,7 @@ You can use a spreadsheet or other tool to create a histogram:
 
 Many things will affect performance. Here are just a few things to consider:
 
-1. CPU Power of machine running the test program and the server.
+1. CPU power of machine running the test program and the server.
 1. Mode of the server. Don't run the server with -DV debugging flag, run it like you would in production.
 1. Physical networking configuration. Please don't run the test from your laptop over wi-fi connecting to a server in another region. Unless that's your production configuration I suppose!
 
