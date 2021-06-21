@@ -25,7 +25,7 @@ You can run the latency test from an IDE or a command line, but you will need to
 
 #### Running from the command line
 
-Assuming the NATS Java client version you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars. If you are running from the nats.java directory the command will look like this:
+If for example, the version of the code you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars. If you are running from the nats.java directory the command will look like this:
 
 ```
 java -cp build/libs/jnats-2.11.4-SNAPSHOT.jar:build/libs/jnats-2.11.4-SNAPSHOT-examples.jar io.nats.examples.autobench.NatsAutoBench [serverURL] latency [tiny|small|med|large] [-lcsv <filespec>]
