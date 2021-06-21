@@ -2,28 +2,30 @@
 categories = ["Clients", "Java"]
 date = "2021-06-21"
 tags = ["benchmark", "latency"]
-title = "NATS Java Client Latency benchmarking"
+title = "NATS Java Client Latency Benchmarking"
 author = "Scott Fauerbach"
 +++
+
+## NATS Java Client Latency Benchmarking
 
 Many users have asked to see how the [NATS Java client](https://github.com/nats-io/nats.java) performs specifically in regard to latency.
 This blog will discuss using the [NatsAutoBench program](https://github.com/nats-io/nats.java/blob/main/src/examples/java/io/nats/examples/autobench/NatsAutoBench.java)
 to run a latency test and how to generate a CSV file that can be used to make a histogram.
 
-The NatsAutoBench can run a variety of tests. This blog will show you how to run just the latency test.
+The NatsAutoBench can run a variety of tests. This blog will focus only on the latency testing.
 
 ### Running the Latency Test
 
 You can run the latency test from an IDE or a command line, but you will need to build from the source code.
 
-1. Get the source code from https://github.com/nats-io/nats.java using `git clone` or downloading the zip.
+1. Get the source code from [https://github.com/nats-io/nats.java](https://github.com/nats-io/nats.java) using `git clone` or downloading the zip.
 1. Build the code. There is a gradle file in the directory. Your IDE should be able to handle this, or you can build from the command line using the `./gradlew clean build -x test`
 1. Prepare the correct command line arguments or modify the NatsAutoBench code before you build to have the correct arguments. The code itself has examples on how to do this.
 1. Run the program from your IDE or command line.
 
 #### Running from the command line
 
-Assuming the version you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars. If you are running from the nats.java directory the command will look like this:
+Assuming the NATS Java client version you have is 2.11.4, the build will create jnats-2.11.4-SNAPSHOT jars. If you are running from the nats.java directory the command will look like this:
 
 ```
 java -cp build/libs/jnats-2.11.4-SNAPSHOT.jar:build/libs/jnats-2.11.4-SNAPSHOT-examples.jar io.nats.examples.autobench.NatsAutoBench [serverURL] latency [tiny|small|med|large] [-lcsv <filespec>]
@@ -31,9 +33,9 @@ java -cp build/libs/jnats-2.11.4-SNAPSHOT.jar:build/libs/jnats-2.11.4-SNAPSHOT-e
 
 ### Options
 
-#### Server Url
+#### Server URL
 
-If your server is running on somewhere other than localhost:4222, you need to supply this information as the first parameter on the command line.
+If your server is running somewhere other than localhost:4222, you will need to supply this information as the first parameter on the command line.
 
 #### Latency Instruction
 
@@ -83,7 +85,7 @@ Run a large latency and output to a file:
 java -cp ... NatsAutoBench myhost:4333 latency large -lcsv /home/myuser/nats/latency.csv
 ```
 
-Each cell represents a message timing in nanoseconds for that run of the payload byte size of the column it's in.
+Each cell represents a message timing in nanoseconds for the run of the payload byte size in that column.
 There will be the same number of rows for each payload size.
 
 ```
@@ -107,8 +109,8 @@ You can use a spreadsheet or other tool to create a histogram:
 Many things will affect performance. Here are just a few things to consider:
 
 1. CPU power of machine running the test program and the server.
-1. Mode of the server. Don't run the server with -DV debugging flag, run it like you would in production.
-1. Physical networking configuration. Please don't run the test from your laptop over wi-fi connecting to a server in another region. Unless that's your production configuration I suppose!
+1. Mode of the server. Don't run the server with `-DV` debugging flag, run it like you would in production.
+1. Physical networking configuration. For true benchmarking, it would be best not to run the test from your laptop over wi-fi connecting to a server in another region. Unless that is your production configuration.
 
 ## About the Author
 
