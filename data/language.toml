@@ -23,6 +23,22 @@ author = "Vlad Troinich"
 link = "https://github.com/antlad"
 release_date = "2019-10-24"
 
+[language.ballerina]
+name = "Ballerina"
+[[language.ballerina.orgs]]
+org = "ballerina-platform"
+repo = "module-ballerinax-nats"
+author = "Ballerina"
+link = "https://github.com/ballerina-platform"
+release_date = "2021-06-28"
+[[language.ballerina.orgs]]
+org = "ballerina-platform"
+repo = "module-ballerinax-stan"
+streaming-support = true
+author = "Ballerina"
+link = "https://github.com/ballerina-platform"
+release_date = "2021-06-28"
+
 [language.c]
 name = "C"
 [[language.c.orgs]]
