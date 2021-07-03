@@ -61,17 +61,6 @@ but none of them set the `enableStatusRequestExtension` flag. As far as we can t
 
 The example `getSiloedContext()` shows how to make a siloed SSLContext that does revocation checking. See the [OCSP Example Class](src/main/java/io/nats/ocsp/OcspExample.java)
 
-## Licenses
-
-This example leverages the [SSLContext Kickstart project](https://github.com/Hakky54/sslcontext-kickstart)
-which operates under the [Apache License 2.0](https://github.com/Hakky54/sslcontext-kickstart/blob/master/LICENSE)
-Their library had some functionality scoped `private` which we needed to use directly so we copied it and made it public.
-This usage is allowed by Apache 2.0 license policy, but we are noting it here for full transparency.
-
-That library and this example both use [Bouncy Castle](https://www.bouncycastle.org/) which has this [Licence](https://www.bouncycastle.org/license.html), an [MIT License](https://opensource.org/licenses/MIT)
-
-Unless otherwise noted, NATS source files are distributed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-
 ## About the Author
 
 Scott Fauerbach is a member of the engineering team at [Synadia Communications](https://synadia.com).
