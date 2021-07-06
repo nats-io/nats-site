@@ -13,13 +13,25 @@ but this [OCSP Example](https://github.com/nats-io/java-nats-examples/tree/main/
 
 # OCSP Stapling SSLContext
 
-OCSP Stapling is supported in Java since JDK 8. There is an excellent document from Oracle which describes it in detail.
+OCSP Stapling has been supported in Java since JDK 8. There is an excellent document from Oracle which describes it in detail.
 
 [Client-Driven OCSP and OCSP Stapling](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/ocsp.html)
 
+### Examples
+
+Example of creating the SSLContext can be found in the [OCSP Example Class](src/main/java/io/nats/ocsp/OcspExample.java)
+These are the methods of interest...
+
+| Description | Method |
+| --- | --- |
+| _Standard TLS_ | `createStandardContext()` |
+| _Vm Wide Check Revocation_ | `createVmWideOcspCheckRevocationContext()` |
+| _Vm Wide Don't Check Revocation_ | `createVmWideOcspDontCheckRevocationContext()` |
+| _Siloed Check Revocation_ | `createSiloedContextCheckRevocation()` |
+
 ### Entire VM Approach
 
-It's actually trivial to turn on Client Side OCSP Revocation checking. It's as simple at this code, adding System Properties:
+It's actually trivial to turn on Client Side OCSP revocation checking. It's as simple at this code, adding system properties:
 
 ```java
 System.setProperty("jdk.tls.client.enableStatusRequestExtension", "true");
@@ -30,8 +42,6 @@ The caveat here is that these properties apply to every single SSLContext runnin
 These properties are checked at runtime, each time a TLS handshake is made, so it cannot be turned on
 to create an `SSLContext` then turned off. If it is turned off, revocation checking will not happen.
 
-The example `getVmWideContext()` shows how to make a Vm-Wide SSLContext. See the [OCSP Example Class](src/main/java/io/nats/ocsp/OcspExample.java)
-
 ### Siloed Approach
 
 If it's that easy to turn on OCSP stapling with revocation, why do we need the example?
@@ -39,27 +49,27 @@ If it's that easy to turn on OCSP stapling with revocation, why do we need the e
 Consider 3 different types of connections.
 
 1. Standard TLS
-2. OCSP with Revocation checking (OCSP W/REV)
-3. OCSP with no Revocation checking (OCSP NO REV)
+2. OCSP with revocation checking
+3. OCSP without revocation checking
 
-It appears that setting the System Properties does not affect Standard TLS certificate handshakes.
-Find your configuration in this table to see if you have to set the System Properties.
+It appears that setting the system properties does not affect Standard TLS certificate handshakes.
+But if you need both OCSP with revocation checking and OCSP without, you cannot use the `com.sun.net.ssl.checkRevocation` property,
+so must use the siloed implementation for the context that will check revocation.
+Find your configuration in this table to see if you have to set the system properties / which OCSP context implementation to use.
 
-| Standard TLS | OCSP W/REV | OCSP NO REV | `enableStatusRequestExtension` | `checkRevocation` |
-| --- | --- | --- | --- | --- |
-| Yes | No | No | false | false |
-| Yes | Yes | No | true | true |
-| Yes | No | Yes | true | false |
-| No | No | No | false | false |
-| No | Yes | No | true | true |
-| No | No | Yes | true | false |
-| Yes | Yes | Yes | true | __siloed__ |
-| No | Yes | Yes | true | __siloed__ |
+| Have Standard TLS? | Have  OCSP With Revocation? | Have OCSP Without Revocation? | Enable Status Request Extension Flag? | Check Revocation Flag? | Use Context Implementations | 
+| --- | --- | --- | --- | --- | --- |
+| Yes | No  | No  | false | false | _Standard TLS_ | 
+| Yes | Yes | No  | true  | true  | _Standard TLS_ and _Vm Wide Check Revocation_ |
+| Yes | No  | Yes | true  | false | _Standard TLS_ and _Vm Wide Don't Check Revocation_ |
+| Yes | Yes | Yes | true  | false | _Standard TLS_, _Siloed Check Revocation_ and _Vm Wide Don't Check Revocation_ |
+| No  | No  | No  | false | false | None |
+| No  | Yes | No  | true  | true  | _Vm Wide Check Revocation_ |
+| No  | No  | Yes | true  | false | _Vm Wide Don't Check Revocation_ |
+| No  | Yes | Yes | true  | false | _Siloed Check Revocation_ and _Vm Wide Don't Check Revocation_ |
 
-Please be aware. There are a few examples on the internet that guided development example, in fact it is almost identical to those,
+Please be aware. There are a few examples on the internet that guided development examples, in fact the siloed version is almost identical to those,
 but none of them set the `enableStatusRequestExtension` flag. As far as we can tell it simply does not work without setting the flag!
-
-The example `getSiloedContext()` shows how to make a siloed SSLContext that does revocation checking. See the [OCSP Example Class](src/main/java/io/nats/ocsp/OcspExample.java)
 
 ## About the Author
 
