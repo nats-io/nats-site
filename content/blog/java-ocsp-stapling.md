@@ -33,7 +33,7 @@ These are the methods of interest...
 
 It's trivial to turn on Client Side OCSP revocation checking. It's as simple as this code, adding system properties:
 
-```java
+```
 System.setProperty("jdk.tls.client.enableStatusRequestExtension", "true");
 System.setProperty("com.sun.net.ssl.checkRevocation", "true");
 ```
