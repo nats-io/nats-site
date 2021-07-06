@@ -6,8 +6,6 @@ title = "Using OCSP Stapling with the NATS Java Library"
 author = "Scott Fauerbach"
 +++
 
-# Using OCSP Stapling with the NATS Java Library
-
 You already know that the [NATS Java library](https://github.com/nats-io/java-nats) can connect to the NATS Server
 with TLS. The NATS Server now supports OCSP Stapling. To that end, I have built an example on how to set up the `SSLContext`
 to use with the NATS Java Library. Mileage may vary, and you will need to incorporate your own certificates and key stores,
