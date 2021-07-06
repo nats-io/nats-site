@@ -19,7 +19,7 @@ OCSP Stapling has been supported in Java since JDK 8. This excellent document fr
 
 ### Examples
 
-Example of creating the `SSLContext` can be found in the [OCSP Example Class](src/main/java/io/nats/ocsp/OcspExample.java)
+Example of creating the `SSLContext` can be found in the [OCSP Example Class](https://github.com/nats-io/java-nats-examples/blob/main/ocsp/src/main/java/io/nats/ocsp/OcspExample.java)
 These are the methods of interest...
 
 | Description | Method |
