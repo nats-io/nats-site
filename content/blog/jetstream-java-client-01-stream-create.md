@@ -6,7 +6,7 @@ title = "JetStream Stream Creation with the NATS.io Java Library"
 author = "Scott Fauerbach"
 +++
 
-The <a href="https://github.com/nats-io/java-nats">NATS Java library</a> with support for JetStream has just been released!
+The <a href="https://github.com/nats-io/nats.java">NATS Java library</a> with support for JetStream has just been released!
 
 JetStream allows you to persist streams of messages, allows consumers to either subscribe in real time
 or to access the messages at a later time with the added flexibility to choose from where in the stream you want to start receiving messages. 
