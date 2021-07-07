@@ -149,7 +149,7 @@ We follow standard GitHub procedures for creating and processing pull requests.
  2. Clone your fork, create a new branch, push commits to the branch.
  3. Consider whether documentation or tests need to be added or updated as part of the change, and add them as needed.
  4. Run all tests to verify that the code still compiles, passes tests, and passes style checks. If style checks fail, review the relevant Code Style Guide in the project you're working in. It’s also advisable to ensure that any checks found in `.travis.yml` run successfully on your local system, when possible. These often include code formatting and static analysis checks that may cause CI tests to fail.
- 5. Open a pull request against the `master` branch of the relevant project (e.g. `nats-io/nats-server`). (Only in special cases would the PR be opened against other branches.)
+ 5. Open a pull request against the `main` branch of the relevant project (e.g. `nats-io/nats-server`). (Only in special cases would the PR be opened against other branches.)
     - The PR title should be of the form `[ADDED | FIXED | CHANGED | UPDATED] <description>`
       - `ADDED` - a new feature or content was added
       - `FIXED` - a defect in existing behavior was resolved
@@ -163,7 +163,7 @@ We follow standard GitHub procedures for creating and processing pull requests.
     - Fixes can simply be pushed to the same branch from which you opened your pull request
     - Travis CI will automatically re-test when new commits are pushed
     - If the tests failed for reasons unrelated to the change (e.g. timing issues in Travis), the test can usually be re-run in Travis. Ask a committer if you need a test restarted, or if there are any other test failures that you believe are not related to your change(s).
-    - Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin master` and resolving the conflicts by hand, then pushing the result to your branch.
+    - Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin main` and resolving the conflicts by hand, then pushing the result to your branch.
     - Try to be responsive to the discussion rather than let days pass between replies.
  8. Squash your changes to a single commit as described [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
  9. Remember to remove `[WIP]` from your PR title once it is ready for submission, otherwise it will be ignored.
@@ -175,11 +175,11 @@ We follow standard GitHub procedures for creating and processing pull requests.
 - Lively, polite, rapid technical debate is encouraged from everyone in the community. The outcome may be a rejection of the entire change.
 - Reviewers can indicate that a change looks suitable for merging with a comment such as: “I think this patch/pull/change looks good”, or, more succinctly, "LGTM" (looks good to me).
 - Generally we require LGTMs by at least two committers in order to approve a change for merge. There may be cases where this varies depending on size/scope/complexity of the change.
-- Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin master` and resolving the conflicts by hand, then pushing the result to your branch.
+- Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin main` and resolving the conflicts by hand, then pushing the result to your branch.
 
 ### Closing Your Pull Request
 
-- If accepted, your pull request will be automatically closed once the change is merged into `master`
+- If accepted, your pull request will be automatically closed once the change is merged into `main`
 - If your pull request is rejected, the committers will close your PR.
 - If committers have requested changes or further information from you, and you do not respond within a reasonable timeframe, your PR may be closed at our discretion.
 
