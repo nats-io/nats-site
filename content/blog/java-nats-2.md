@@ -113,7 +113,7 @@ Of course, you can still find jnats at Maven Central:
 
 ## We Want Your Feedback
 
-An [updated version](https://github.com/nats-io/nats.java-streaming/tree/version2) of the Java NATS Streaming library is in progress, available in a branch, and should be released by the end of the month.
+An [updated version](https://github.com/nats-io/java-nats-streaming/) of the Java NATS Streaming library is in progress, available in a branch, and should be released by the end of the month.
 
 This new version uses 1.8 features of Java and is not optimized for mobile (Android). But perhaps we can improve on that with your help. If you are using NATS for Android and have ideas, please open issues on the [repo](https://github.com/nats-io/nats.java).
 
