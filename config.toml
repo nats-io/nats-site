@@ -26,7 +26,7 @@ title = "NATS.io"
 url = "https://nats.io/"
 SectionPagesMenu = "main"
 noCategoryLink = true
-githubBaseUrl = "https://github.com/nats-io/nats-site/edit/master/content"
+githubBaseUrl = "https://github.com/nats-io/nats-site/edit/main/content"
 images = ["/img/new_social_nats.png"]
 description_long = """
 NATS.io is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
