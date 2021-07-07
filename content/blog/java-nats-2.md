@@ -8,15 +8,15 @@ author = "Stephen Asbury"
 
 ## We Are Listening
 
-We know the [NATS Java library](https://github.com/nats-io/java-nats) hasn't seen a lot of love in the last year, but we are reinvigorated and the library has reached a new milestone. We wanted to let the community know we have taken your feedback from GitHub:
+We know the [NATS Java library](https://github.com/nats-io/nats.java) hasn't seen a lot of love in the last year, but we are reinvigorated and the library has reached a new milestone. We wanted to let the community know we have taken your feedback from GitHub:
 
-* [Optional reconnect behavior on connect](https://github.com/nats-io/java-nats/issues/158)
-* [Excessive thread usage](https://github.com/nats-io/java-nats/issues/151)
-* [Disabling the reconnect buffer](https://github.com/nats-io/java-nats/issues/138)
-* [Notification on cluster discovery](https://github.com/nats-io/java-nats/issues/116)
-* [Improve robustness](https://github.com/nats-io/java-nats/issues/126)
-* [Improve robustness](https://github.com/nats-io/java-nats/issues/150)
-* [Better documentation](https://github.com/nats-io/java-nats/issues/25)
+* [Optional reconnect behavior on connect](https://github.com/nats-io/nats.java/issues/158)
+* [Excessive thread usage](https://github.com/nats-io/nats.java/issues/151)
+* [Disabling the reconnect buffer](https://github.com/nats-io/nats.java/issues/138)
+* [Notification on cluster discovery](https://github.com/nats-io/nats.java/issues/116)
+* [Improve robustness](https://github.com/nats-io/nats.java/issues/126)
+* [Improve robustness](https://github.com/nats-io/nats.java/issues/150)
+* [Better documentation](https://github.com/nats-io/nats.java/issues/25)
 
 as well as comments in face to face meetings, and on Slack, to build a new compact library with:
 
@@ -113,8 +113,8 @@ Of course, you can still find jnats at Maven Central:
 
 ## We Want Your Feedback
 
-An [updated version](https://github.com/nats-io/java-nats-streaming/tree/version2) of the Java NATS Streaming library is in progress, available in a branch, and should be released by the end of the month.
+An [updated version](https://github.com/nats-io/stan.java/) of the Java NATS Streaming library is in progress, available in a branch, and should be released by the end of the month.
 
-This new version uses 1.8 features of Java and is not optimized for mobile (Android). But perhaps we can improve on that with your help. If you are using NATS for Android and have ideas, please open issues on the [repo](https://github.com/nats-io/java-nats).
+This new version uses 1.8 features of Java and is not optimized for mobile (Android). But perhaps we can improve on that with your help. If you are using NATS for Android and have ideas, please open issues on the [repo](https://github.com/nats-io/nats.java).
 
 We believe the Java community will enjoy this new version and with your help we can make NATS even more Java friendly.
