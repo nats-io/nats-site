@@ -43,7 +43,7 @@ Here are some basic guidelines for submissions.
  * Sharing how you did this process before NATS, and how it works with NATS (and what the results have been) is useful to the reader.
 If possible, give a bit of context on where you hope to go next with your NATS deployment(s).
 
-The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/master/content/blog to accelerate the review cycle.
+The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/main/content/blog to accelerate the review cycle.
 
 <!--## Contributing Documentation Changes
 
