@@ -1,3 +1,13 @@
++++
+date = "2021-07-20"
+draft = false
+title = "NATS JetStream Deduplication for LinuxForHealth Blockchain Smart Contract Messaging"
+author = "Carole Corley"
+categories = ["General", "Engineering", "Guest Post", "JetStream"]
+tags = ["NATS", "JetStream", "IBM", "Deduplication"]
++++
+
+
 # NATS JetStream Deduplication for LinuxForHealth Blockchain Smart Contract Messaging
 Deduplication of messages is a key NATS JetStream feature needed by the LinuxForHealth open source project to implement blockchain smart contract messaging.  Messaging from a smart contract allows the contract to notify NATS subscribers of key contract-based decisions.  This is especially helpful for blockchain client applications that may not utilize a full blockchain node and can enable message-driven smart contract workflows.
 
