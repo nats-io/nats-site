@@ -1,5 +1,5 @@
 +++
-date = "2021-07-20"
+date = "2021-07-19"
 draft = false
 title = "NATS JetStream Deduplication for LinuxForHealth Blockchain Smart Contract Messaging"
 author = "Carole Corley"
@@ -7,8 +7,6 @@ categories = ["General", "Engineering", "Guest Post", "JetStream"]
 tags = ["NATS", "JetStream", "IBM", "Deduplication"]
 +++
 
-
-# NATS JetStream Deduplication for LinuxForHealth Blockchain Smart Contract Messaging
 Deduplication of messages is a key NATS JetStream feature needed by the LinuxForHealth open source project to implement blockchain smart contract messaging.  Messaging from a smart contract allows the contract to notify NATS subscribers of key contract-based decisions.  This is especially helpful for blockchain client applications that may not utilize a full blockchain node and can enable message-driven smart contract workflows.
 
 While messaging from a smart contract is desirable, every blockchain node runs the same smart contract and, as such, will publish the same NATS message.  Thus, deduplication is a necessity.  The remainder of this post explains the LinuxForHealth blockchain solution flow and the NATS JetStream configuration that enabled it.
@@ -16,7 +14,7 @@ While messaging from a smart contract is desirable, every blockchain node runs t
 ## Solution Data Flows
 LinuxForHealth handles healthcare protocol validation, data syncronization and secure transmission of healthcare data to downstream servers and includes a blockchain client.  An example deployment is shown below.
 
-![LinuxForHealth-NATS-Architecture](LFH-NATS-Arch.png)
+{{< figure src="/img/blog/NATS-JetStream-DeDuplication-For-LFH/LFH-NATS-Arch.png" alt="LinuxForHealth NATS Architecture" >}}
 
 In this scenario, we send an X12 270 eligibility verification request and receive the eligibility result from the blockchain via the following steps:
 - The LinuxForHealth client converts the X12 270 to FHIR and sends the request to LinuxForHealth connect;
