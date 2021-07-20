@@ -69,7 +69,7 @@ docker exec -it "${NATS_SERVICE_NAME}" \
 ```
 
 ### The JetStream Publisher
-The JetStream publisher is written in Node.js as a part of the smart contract.  The smart contract creates the NATS connection and JetStream client on the first message processed, specifying the URL of the NATS JetStream server running in a docker container, as well as the NKey used to secure connections and the CA cert for TLS:
+The JetStream publisher is written in Javascript as a part of the smart contract.  The smart contract creates the NATS connection and JetStream client on the first message processed, specifying the URL of the NATS JetStream server running in a docker container, as well as the NKey used to secure connections and the CA cert for TLS:
 ```shell
 async createNATSClient(): Promise<nats.JetStreamClient> {
         const nkey = fs.readFileSync(path.resolve(__dirname, '../conf/nats-server.nk'));
