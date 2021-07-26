@@ -1,5 +1,5 @@
 +++
-categories = ["Clients", ".NET", "C#", "JetStream"]
+categories = ["Clients", ".NET", "C Sharp", "JetStream"]
 date = "2021-07-26"
 tags = ["dotnet", "csharp", "jetstream", "client"]
 title = "NATS.io .NET C# Client Library JetStream Pre-Release"
@@ -10,9 +10,9 @@ A pre-release of JetStream support has just been made available for the <a href=
 
 The package [NATS.Client 0.14.0-pre1](https://www.nuget.org/packages/NATS.Client/0.14.0-pre1) has been published on NuGet Gallery.
 
-You can follow progress via the [Add Jetstream Connection/Client APIs](https://github.com/nats-io/nats.net/issues/417) GitHub Issue.
+You can follow progress and provide feedback via the [Add Jetstream Connection/Client APIs](https://github.com/nats-io/nats.net/issues/417) GitHub Issue.
 
-### Code Starting Points
+## Code Starting Points
 
 These are the important interfaces for you to get familiar with.
 
@@ -33,19 +33,19 @@ contains the subscription interfaces:
 - IJetStreamPushAsyncSubscription
 - IJetStreamPullSubscription
 
-### Example Code
+## Example Code
 
-There are also some sample projects that can help you get started.
+Here are some sample projects that can help you get started.
 
 - [JetStreamPublish](https://github.com/nats-io/nats.net/tree/master/src/Samples/JetStreamPublish)
 - [JetStreamPublishVsCorePublish](https://github.com/nats-io/nats.net/tree/master/src/Samples/JetStreamPublishVsCorePublish)
 - [JetStreamPublishWithOptionsUseCases](https://github.com/nats-io/nats.net/tree/master/src/Samples/JetStreamPublishWithOptionsUseCases)
 - [JetStreamPushSubcribeSync](https://github.com/nats-io/nats.net/tree/master/src/Samples/JetStreamPushSubcribeSync)
 
-There are also code examples in the [Integration Tests](https://github.com/nats-io/nats.net/tree/master/src/Tests/IntegrationTests).
+You will also find code examples in the [Integration Tests](https://github.com/nats-io/nats.net/tree/master/src/Tests/IntegrationTests).
 Look for the files `TestJetStream*.cs`
 
-More examples are on the way!
+More examples are on the way.
 
 ## About the Author
 
