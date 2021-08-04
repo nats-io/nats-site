@@ -45,7 +45,7 @@ name = "C"
 org = "nats-io"
 repo= "nats.c"
 suported = true
-jetstream_support = false
+jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = '2.1.0'
@@ -57,8 +57,8 @@ streaming_support = true
 suported = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
-release_version = '2.1.0'
-release_date = '2019-10-02'
+release_version = '3.0.0'
+release_date = '2021-08-03'
 
 [language.clojure]
 name = "Clojure"
