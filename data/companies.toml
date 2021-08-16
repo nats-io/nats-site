@@ -168,3 +168,7 @@ name = "Food Rocket"
 home = "https://foodrocket.me"
 logo = "foodrocket.png"
 
+[companies.inspur]
+name = "Inspur Cloud"
+home = "https://cloud.inspur.com/"
+logo = "inspur.png"
