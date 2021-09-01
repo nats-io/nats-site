@@ -449,6 +449,17 @@ link = "https://github.com/kakilangit"
 release_version = "3.0.0-alpha.1"
 release_date = "2016-08-28"
 
+[language.swift]
+name = "Swift"
+[[language.swift.orgs]]
+org = "aus-der-Technik"
+repo = "swifty-nats"
+supported = false
+author = "aus der Technik"
+link = "https://github.com/aus-der-Technik"
+release_version = "2.0.0"
+release_date = "2021-09-01"
+
 [language.tcl]
 name = "Tcl"
 [[language.tcl.orgs]]
