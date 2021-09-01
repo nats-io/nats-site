@@ -382,6 +382,15 @@
     release:
       version: '3.0.0-alpha.1'
       date: '2016-08-28'
+  - org: aus-der-Technik
+    repo: swifty-nats
+    supported: false
+    author:
+      name: aus der Technik
+      link: https://github.com/aus-der-Technik
+    release:
+      version: '2.0.0'
+      date: '2021-09-01'      
 - language: TypeScript
   clients:
   - org: nats-io

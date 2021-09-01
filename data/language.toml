@@ -448,9 +448,6 @@ author = "Firman Maulana"
 link = "https://github.com/kakilangit"
 release_version = "3.0.0-alpha.1"
 release_date = "2016-08-28"
-
-[language.swift_5_4]
-name = "Swift"
 [[language.swift.orgs]]
 org = "aus-der-Technik"
 repo = "swifty-nats"
