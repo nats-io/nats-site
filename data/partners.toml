@@ -48,3 +48,13 @@ logo = "bitnami.png"
 name = "Agile Stacks"
 home = "https://agilestacks.com/"
 logo = "agilestacks.jpg"
+
+[partners.cosmonic]
+name = "Cosmonic"
+home = "https://cosmonic.com/"
+logo = "cosmonic.png"
+
+[partners.wasmcloud]
+name = "wasmCloud"
+home = "https://wasmCloud.com/"
+logo = "wasmcloud.png"
