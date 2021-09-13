@@ -172,3 +172,8 @@ logo = "foodrocket.png"
 name = "Inspur Cloud"
 home = "https://cloud.inspur.com/"
 logo = "inspur.png"
+
+[companies.brobridge]
+name = "Brobridge"
+home = "https://brobridge.com"
+logo = "brobridge.png"
