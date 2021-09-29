@@ -463,6 +463,7 @@ name = "Tcl"
 org = "kazmirchuk"
 repo = "nats-tcl"
 supported = false
+jetstream_support = true
 author = "Petro Kazmirchuk"
 link = "https://github.com/kazmirchuk"
 
