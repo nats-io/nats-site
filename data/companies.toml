@@ -177,3 +177,8 @@ logo = "inspur.png"
 name = "Brobridge"
 home = "https://brobridge.com"
 logo = "brobridge.png"
+
+[companies.litmus]
+name = "Litmus"
+home = "https://litmus.io"
+logo = "litmus.png"
