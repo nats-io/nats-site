@@ -71,24 +71,25 @@ link = "https://github.com/employeerepublic/"
 release_date = "2017-05-11"
 
 [language.c-sharp]
-name = "C#"
+name = ".NET C#"
 [[language.c-sharp.orgs]]
 org = "nats-io"
 repo = "nats.net"
 supported = true
 streaming_support = true
+jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
-release_version = "0.10.0"
-release_date = "2019-11-18"
+release_version = "0.14.0"
+release_date = "2021-10-26"
 [[language.c-sharp.orgs]]
 org = "nats-io"
 repo = "nats.net"
 supported = true
 author = "NATS Authors"
 link = "https://github.com/nats-io/nats.net"
-release_version = "0.12.0"
-release_date = "2021-02-26"
+release_version = "0.14.0"
+release_date = "2021-10-26"
 [[language.c-sharp.orgs]]
 org = "danielwertheim"
 repo = "mynatsclient"
