@@ -182,3 +182,8 @@ logo = "brobridge.png"
 name = "Litmus"
 home = "https://litmus.io"
 logo = "litmus.png"
+
+[companies.cyscale]
+name = "Cyscale"
+home = "https://cyscale.com"
+logo = "cyscale.png"
