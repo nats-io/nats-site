@@ -1,3 +1,11 @@
++++
+categories = ["Microservices", "Engineering", "Guest Blog"]
+date = "2021-11-18"
+tags = ["microservices", "service mesh"]
+title = "Building Microservices with NATS"
+author = "Chanaka Fernando"
++++
+
 ## Introduction
 
 Microservices are becoming a commodity in the enterprise world. The reason being the agility and the modularity it brings to the software development and delivery process. It is not that difficult to getting started with the microservices since there are enough tools and frameworks available to bootstrap the microservices-based application development. But there is a point that most teams who adopt microservices find it challenging to deal with. That is when the number of microservices goes beyond a certain limit (let’s say 25 in some cases), people start realizing the real challenges that microservices architecture brings to the table. Some major challenges most teams face at this point are
@@ -54,3 +62,6 @@ In fact, NATS provides the same set of capabilities (even more) as the service m
 If you need to learn more on this topic and understand how to design and implement microservices-based enterprise platforms, you can read the book on the subject from the following links. It provides practical examples of how to design and implement a microservices-based platform with NATS.
 
 [Designing Microservices Platforms with NATS](https://packt.link/cQhe8)
+
+## About the Author
+Chanaka Fernando is an Associate Director at WSO2 who contributes to open source technology as a committer and an evangelist
