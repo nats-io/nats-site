@@ -187,3 +187,8 @@ logo = "litmus.png"
 name = "Cyscale"
 home = "https://cyscale.com"
 logo = "cyscale.png"
+
+[companies.noxum]
+name = "Noxum"
+home = "https://www.noxum.com/en/"
+logo = "noxum.png"
