@@ -133,48 +133,6 @@ identifier = "nats"
 parent = "download"
 
 [[menu.main]]
-name = "Server"
-weight = 1
-identifier = "nats-server"
-parent = "nats"
-
-[[menu.main]]
-name = "Synadia Supported Clients"
-weight = 2
-identifier = "nats-clients"
-parent = "nats"
-
-[[menu.main]]
-name = "Community Clients"
-weight = 3
-identifier = "nats-community"
-parent = "nats"
-
-[[menu.main]]
-name = "NATS Streaming"
-weight = 0
-identifier = "nats-streaming"
-parent = "download"
-
-[[menu.main]]
-name = "Server"
-weight = 1
-identifier = "streaming-server"
-parent = "nats-streaming"
-
-[[menu.main]]
-name = "Synadia Supported Clients"
-weight = 2
-identifier = "streaming-clients"
-parent = "nats-streaming"
-
-[[menu.main]]
-name = "Community Clients"
-weight = 3
-identifier = "streaming-community"
-parent = "nats-streaming"
-
-[[menu.main]]
 name = "Documentation"
 weight = 3
 identifier = "doc"
