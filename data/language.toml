@@ -208,7 +208,6 @@ org = "nats-io"
 repo = "nats.java"
 supported = true
 jetstream_support = true
-streaming_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = "2.6.0"
