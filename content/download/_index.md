@@ -1,5 +1,8 @@
 ---
 title: Download
+aliases: 
+  - /download/nats-server/
+  - /download/nats-streaming-server/
 ---
 
 Here you will find the NATS Server and officially supported & community [clients](#clients) and our [JetStream enabled clients](#nats-jetstream-enabled-clients). Our [documentation](https://docs.nats.io) provides detailed instructions on how to get started.
