@@ -1,18 +1,10 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon North America"
-when = "Tuesday, October 12, 2021 9:00am PT"
+venue = "KubeCon + CloudNativeCon EU"
+when = "May 16-20, 2022"
 who = "The NATS Maintainers"
-what = "NATS Project Office Hours"
-where = "Virtual"
-ref = "https://sched.co/mtJK"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon North America"
-when = "Thursday, October 14, 2021 2:30pm PT"
-who = "Matthias Hanel and Jean-Noël Moyne"
-what = "Global Cloud and Edge Connectivity in Minutes with NATS.io"
-where = "Virtual"
-ref = "https://sched.co/lV7x"
+what = "NATS Maintainer Track Talks"
+where = "Valencia, Spain"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 
 # comment out to save
