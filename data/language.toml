@@ -469,17 +469,6 @@ jetstream_support = true
 author = "Petro Kazmirchuk"
 link = "https://github.com/kazmirchuk"
 
-[language.typescript]
-name = "TypeScript"
-[[language.typescript.orgs]]
-org = "nats-io"
-repo = "ts-nats"
-supported = true
-author = "NATS Authors"
-link = "https://github.com/nats-io"
-release_version = "1.0.4"
-release_date = "2018-08-27"
-
 [language.websockets]
 name = "WebSocket"
 [[language.websockets.orgs]]
