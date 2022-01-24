@@ -3,7 +3,7 @@ publish = "public"
 command = "make netlify-production-build"
 
 [build.environment]
-HUGO_VERSION = "0.73.0"
+HUGO_VERSION = "0.80.0"
 
 [context.deploy-preview]
 command = "make netlify-preview-build"

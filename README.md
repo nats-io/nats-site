@@ -14,6 +14,7 @@ Please keep these principles in mind as you modify existing content or design ne
 - [Content Organization](#content-organization)
 - [Adding Documentation](#adding-documentation)
 - [Adding Content Pages](#adding-content-pages)
+- [Adding Clients](#adding-clients-and-utilities)
 - [Adding a Blog Entry](#adding-a-blog-entry)
 - [Adding a Company Logo](#adding-a-company-logo)
 - [Local Development](#local-development)
@@ -69,7 +70,7 @@ The structure of the content directory is as follows:
 	- support.html
 ```
 
-The **html files** or **directories** should be pretty self explanatory for what pages they are used for.
+The **html files** or **directories** should be pretty self-explanatory for what pages they are used for.
 
 ---
 
@@ -81,7 +82,12 @@ The NATS documentation has moved to the [nats-io/nats.docs](https://github.com/n
 
 Any new page should be a raw Markdown document placed in the appropriate content directory listed above. 
 
----
+## Adding Clients and Utilities
+
+To add a new NATS Client or Utility, add to the applicable data file
+* Add/update NATS Clients - `languages.toml`
+* Add/update NATS Connectors & Utilities - `addons.toml`
+
 
 ## Adding a Blog Entry
 To add a new blog entry, use the `hugo new` command like the following:
@@ -107,7 +113,7 @@ tags = ["NATS"]
 +++
 ```
 
-Make sure to update that page metadata to reflect the specifics of your post (author, targeted publish date, etc.).
+Make sure to update the page metadata to reflect the specifics of your post (author, targeted publish date, etc.).
 
 By default, `draft = true` is set on blog posts. When a post has this status, it won't be published to the production site, but it will be viewable via the Netlify deploy preview. The following must be true for a post to go live on the site:
 
@@ -158,14 +164,10 @@ To add an embedded tweet, you just need to grab the embed code from the tweet, a
 
 Check out the blog entry `/content/blog/nats-lands-in-london.md` for a detailed example.
 
-
-#### Content
-For adding content to the blog entry, please follow the [style guidelines and conventions](#styleguide) below.
-
 ---
 
 ## Adding a Company Logo
-If you are a production end user of NATS and would like your company logo displayed on our [Community](https://nats.io/community) page, please email [info@nats.io](mailto:info@nats.io) with your request. 
+If you are a production end user of NATS and would like your company logo displayed on our [Home](https://nats.io/) page, please email [info@nats.io](mailto:info@nats.io) with your request. 
 
 ---
 
@@ -190,9 +192,10 @@ Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started
 
 > Building the NATS site/documentation currently requires Hugo version 0.80 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
-See the makefile for run commands.
 
 #### Building the Site
 
-WIP
+See the makefile for run commands.
 
+
+Thank you for your interest in NATS!
