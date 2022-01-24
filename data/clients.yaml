@@ -391,15 +391,3 @@
     release:
       version: '2.0.0'
       date: '2021-09-01'      
-- language: TypeScript
-  clients:
-  - org: nats-io
-    repo: ts-nats
-    supported: true
-    author:
-      name: Synadia
-      link: https://synadia.com
-    release:
-      version: '1.0.4'
-      date: '2018-08-27'
-
