@@ -192,3 +192,13 @@ logo = "cyscale.png"
 name = "Noxum"
 home = "https://www.noxum.com/en/"
 logo = "noxum.png"
+
+[companies.nexus]
+name = "Nature.Tech"
+home = "https://nature.tech"
+logo = "nexus.png"
+
+[companies.skyband]
+name = "Skyband"
+home = "https://www.skyband.com.sa/epos"
+logo = "skyband.png"
