@@ -202,3 +202,8 @@ logo = "nexus.png"
 name = "Skyband"
 home = "https://www.skyband.com.sa/epos"
 logo = "skyband.png"
+
+[companies.ninjalerts]
+name = "Ninjalerts"
+home = "https://www.ninjalerts.com"
+logo = "ninjalerts.png"
