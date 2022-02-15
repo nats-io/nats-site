@@ -278,6 +278,7 @@ name = "PHP"
 org = "basis-company"
 repo = "nats.php"
 supported = false
+jetstream_support = true
 author = "Dmitry Krokhin"
 link = "https://github.com/basis-company/nats.php"
 release_version = "0.6.0"
