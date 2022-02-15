@@ -275,6 +275,15 @@ release_date = "2017-11-13"
 [language.php]
 name = "PHP"
 [[language.php.orgs]]
+org = "basis-company"
+repo = "nats.php"
+supported = false
+jetstream_support = true
+author = "Dmitry Krokhin"
+link = "https://github.com/basis-company/nats.php"
+release_version = "0.6.0"
+release_date = "2022-02-09"
+[[language.php.orgs]]
 org = "repejota"
 repo = "phpnats"
 supported = false
