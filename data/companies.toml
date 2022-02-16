@@ -207,3 +207,8 @@ logo = "skyband.png"
 name = "Ninjalerts"
 home = "https://www.ninjalerts.com"
 logo = "ninjalerts.png"
+
+[companies.cabify]
+name = "Cabify"
+home = "https://cabify.tech/"
+logo = "cabify.png"
