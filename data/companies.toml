@@ -212,3 +212,13 @@ logo = "ninjalerts.png"
 name = "Cabify"
 home = "https://cabify.tech/"
 logo = "cabify.png"
+
+[companies.whiteprompt]
+name = "Whiteprompt"
+home = "https://www.whiteprompt.com/"
+logo = "whiteprompt.png"
+
+[companies.templum]
+name = "Templum"
+home = "https://www.templuminc.com/"
+logo = "templum.png"
