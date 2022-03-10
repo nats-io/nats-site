@@ -1,10 +1,18 @@
 [[events]]
 venue = "KubeCon + CloudNativeCon EU"
-when = "May 16-20, 2022"
-who = "The NATS Maintainers"
-what = "NATS Maintainer Track Talks"
+when = "May 18, 2022, 14:30 CEST"
+who = "Waldemar Quevedo, Tomasz Pietrek"
+what = "State of NATS: Core, Persistence, & Materialized Views"
 where = "Valencia, Spain"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+ref = "https://sched.co/ytm8"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon EU"
+when = "May 19, 2022, 15:25 CEST"
+who = "Adelina Simion, Form3"
+what = "Choosing Cloud Native Technologies for the Journey to Multi-cloud"
+where = "Valencia, Spain"
+ref = "https://sched.co/ytpu"
 
 
 # comment out to save
