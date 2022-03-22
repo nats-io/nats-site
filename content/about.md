@@ -38,9 +38,13 @@ Our roadmap represents coming features lined up for the future of NATS. We are e
 ---
 
 ## Resources
+In addition to our official [Documentation](https://docs.nats.io), the following resources are just a few available to learn, share, and grow your knowledge of NATS.
+If you would like to share your experience with NATS and would like help publishing you can [contact us](mailto:info@nats.io) or if you have an article published, tag us on [Twitter](https://twitter.com/nats_io) or ping us on [Slack](https://slack.nats.io).
 
-* [Ovum's "On the Radar" Report](https://nats.io/collateral/On_The_Radar_NATS.pdf)
-* [YouTube](https://www.youtube.com/channel/UCi0nerPAzqPiu6nZPw9imfQ)
+* [Byron Ruth Blog](https://www.byronruth.com/) | Byron Ruth has created a weekly NATS News combining announcements, Slack Q&A, and updates. Additional featured NATS articles are also available.
+* [Karan Pratap Singh NATS Series](https://dev.to/karanpratapsingh/series/17024) | Karan shares his experiences with NATS including "Building Microservices" and "NATS with Kubernetes".
 * [SlideShare](https://www.slideshare.net/nats_io/presentations)
+* [Ovum's "On the Radar" Report](https://nats.io/collateral/On_The_Radar_NATS.pdf)
+* [YouTube](https://www.youtube.com/c/nats_messaging/videos)
 
 {{< resources >}}
