@@ -1,4 +1,12 @@
 [[events]]
+venue = "We Love Tech"
+when = "April 20, 2022, 18:30 CEST"
+who = "Derek Collison, Synadia | Adelina Simion, Form3 | David Ramsbottom, Fleetcor"
+what = "We Love NATS"
+where = "Red Badger HQ & Virtual"
+ref = "https://content.red-badger.com/events/we-love-tech/we-love-nats?utm_campaign=NATS&utm_source=RB%20Events%20Page"
+
+[[events]]
 venue = "KubeCon + CloudNativeCon EU"
 when = "May 18, 2022, 14:30 CEST"
 who = "Waldemar Quevedo, Tomasz Pietrek"
