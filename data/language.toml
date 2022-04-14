@@ -497,3 +497,13 @@ supported = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
+
+[language.dart]
+name = "Dart"
+[[language.dart.orgs]]
+org = "dgofman"
+repo = "nats_client"
+supported = false
+jetstream_support = false
+author = "David Gofman"
+link = "https://github.com/dgofman"
