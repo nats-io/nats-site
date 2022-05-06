@@ -222,3 +222,8 @@ logo = "whiteprompt.png"
 name = "Templum"
 home = "https://www.templuminc.com/"
 logo = "templum.png"
+
+[companies.voxo]
+name = "Voxo"
+home = "https://https://voxo.co/"
+logo = "voxo.svg"
