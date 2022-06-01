@@ -59,8 +59,7 @@ authorHome = "https://github.com/fatihcode"
 [addons.caddy_nats]
 name = "Caddy NATS"
 home = "https://github.com/codegangsta/caddy-nats"
-description = "A caddy module that allows the caddy server to interact with a NATS server. 
-This extension supports: publish/subscribe, fan in/out, and request reply."
+description = "A caddy module that allows the caddy server to interact with a NATS server. This extension supports: publish/subscribe, fan in/out, and request reply."
 support = "Community"
 [[addons.caddy_nats.authors]]
 author = "Jeremy Saenz"
