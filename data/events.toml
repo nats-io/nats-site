@@ -1,26 +1,20 @@
-[[events]]
-venue = "We Love Tech"
-when = "April 20, 2022, 18:30 BST"
-who = "Derek Collison, Synadia | Adelina Simion, Form3 | David Ramsbottom, Fleetcor"
-what = "We Love NATS"
-where = "Red Badger HQ & Virtual"
-ref = "https://content.red-badger.com/events/we-love-tech/we-love-nats?utm_campaign=NATS&utm_source=RB%20Events%20Page"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon EU"
-when = "May 18, 2022, 14:30 CEST"
-who = "Waldemar Quevedo, Tomasz Pietrek"
+[[icymi]]
+venue = "ICYMI"
+when = "May 2022"
+#who = "Tomasz Pietrek"
 what = "State of NATS: Core, Persistence, & Materialized Views"
-where = "Valencia, Spain"
-ref = "https://sched.co/ytm8"
+link = "https://youtu.be/MPda_7EPrNU"
+where = "Kubecon + CloudNativeCon EU 2022"
+#ref = "https://kccna18.sched.com/event/Grbt"
 
-[[events]]
-venue = "KubeCon + CloudNativeCon EU"
-when = "May 19, 2022, 15:25 CEST"
-who = "Adelina Simion, Form3"
-what = "Choosing Cloud Native Technologies for the Journey to Multi-cloud"
-where = "Valencia, Spain"
-ref = "https://sched.co/ytpu"
+# comment out to save
+#[[events]]
+#venue = "KubeCon + CloudNativeCon EU"
+#when = "May 19, 2022, 15:25 CEST"
+#who = "Adelina Simion, Form3"
+#what = "Choosing Cloud Native Technologies for the Journey to Multi-cloud"
+#where = "Valencia, Spain"
+#ref = "https://sched.co/ytpu"
 
 
 # comment out to save
