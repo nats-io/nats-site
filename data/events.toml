@@ -1,11 +1,11 @@
-[[icymi]]
-venue = "ICYMI"
+[[events]]
+venue = "#ICYMI"
 when = "May 2022"
-#who = "Tomasz Pietrek"
+who = "Tomasz Pietrek"
 what = "State of NATS: Core, Persistence, & Materialized Views"
 link = "https://youtu.be/MPda_7EPrNU"
 where = "Kubecon + CloudNativeCon EU 2022"
-#ref = "https://kccna18.sched.com/event/Grbt"
+ref = "https://sched.co/ytm8"
 
 # comment out to save
 #[[events]]
