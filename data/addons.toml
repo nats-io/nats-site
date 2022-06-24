@@ -467,6 +467,15 @@ support = "Community"
 author = "Synadia"
 authorHome = "https://synadia.com"
 
+[addons.nats_embedded_java]
+name = "Embedded Nats Java"
+home = "https://github.com/madansp/nats-embedded"
+description = "Embedded Nats for JVM based integration tests"
+support = "Community"
+[[addons.nats_embedded_java.authors]]
+author = "Madan Pokharel"
+authorHome = "https://github.com/madansp"
+
 
 #[addons.xxx]
 #name = ""
