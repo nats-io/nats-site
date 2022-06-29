@@ -2,22 +2,28 @@
 title = "Support"
 +++
 
-{{< columns >}}
-{{< column >}}
+
 ## Community Support for NATS and Clients
 
-Often the quickest way to get help is to start a discussion with other NATS users. There are [several public forums](/contributing#community-help) where you can discuss NATS with other knowledgeable users.
-{{< /column >}}
-{{< column >}}
+You can ask questions in our community forums in <a href="https://slack.nats.io" target="_blank">Slack</a> or <a href="https://groups.google.com/g/natsio" target="_blank">Google Groups</a>, both of which have many knowledgeable users.
+
 ## Commercial Support and Services
 
-The NATS team, under the stewardship of [Synadia Communications, Inc.](https://synadia.com), has decades of experience in distributed systems messaging and are here to help you implement and maximize the benefits of a lightweight messaging system in any environment. Support is available for the NATS Server, and the Synadia supported clients listed [here](/download).
+Synadia, one of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
 
-Contact our world class team at [Synadia](https://synadia.com) for commercial support and professional services to help you best leverage NATS for your business.
-{{< /column >}}
-{{< column >}}
+#### NGS
+A global, multi-cloud, multi-geo and extensible connectivity fabric for messaging, streaming, pub/sub and JetStream data persistence. NGS is powered by NATS.io and fully managed by Synadia.
+
+#### Synadia Enterprise NATS Subscription and NGS
+Run NATS in a public cloud, private cloud, on the edge, or any environment you want – fully supported by Synadia and its world-class team of NATS experts. 
+
+Includes:
+* Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
+* 24/7/365 support and troubleshooting on your specific issues from the expert engineers who know NATS inside and out.
+* Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
+
+
 ## Reporting bugs
 
 If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing).
-{{< /column >}}
-{{< /columns >}}
+
