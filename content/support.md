@@ -5,7 +5,7 @@ title = "Support"
 
 ## Community Support for NATS and Clients
 
-You can ask questions in our community forums in <a href="https://slack.nats.io" target="_blank">Slack</a> or <a href="https://natsio.slack.com/ssb/redirect" target="_blank">Google Groups</a>, both of which have many knowledgeable users.
+You can ask questions in our community forums in <a href="https://slack.nats.io" target="_blank">Slack</a> or <a href="https://groups.google.com/g/natsio" target="_blank">Google Groups</a>, both of which have many knowledgeable users.
 
 ## Commercial Support and Services
 
