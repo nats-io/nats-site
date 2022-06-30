@@ -9,13 +9,12 @@ You can ask questions in our community forums in <a href="https://slack.nats.io"
 
 ## Commercial Support and Services
 
-[Synadia](https://synadia.com), one of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
+### [Synadia](https://synadia.com)
 
-#### NGS
-[NGS](https://synadia.com/ngs) is a global, multi-cloud, multi-geo and extensible connectivity fabric for messaging, streaming, pub/sub and JetStream data persistence. NGS is powered by NATS.io and fully managed by Synadia.
+One of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
 
-#### Enterprise NATS
-Deploy [Enterprise NATS](https://synadia.com/nats) in a public cloud, private cloud, on the edge, or any environment you want – fully supported by Synadia and its world-class team of NATS experts. 
+- [NGS](https://synadia.com/ngs) - A global, multi-cloud, multi-geo and extensible connectivity fabric for messaging, streaming, pub/sub and JetStream data persistence. NGS is powered by NATS.io and fully managed by Synadia.
+- [Enterprise NATS Subscription](https://synadia.com/nats) - Run NATS to a public cloud, private cloud, on the edge, or any environment you want – fully supported by Synadia and its world-class team of NATS experts. 
 
 Includes:
 * Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
