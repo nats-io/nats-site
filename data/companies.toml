@@ -227,3 +227,8 @@ logo = "templum.png"
 name = "Voxo"
 home = "https://voxo.co/"
 logo = "voxo.svg"
+
+[companies.pleggi]
+name = "Pleggi"
+home = "https://pleggi.com"
+logo = "pleggi.png"
