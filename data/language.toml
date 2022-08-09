@@ -232,6 +232,17 @@ link = "https://github.com/spotoninc"
 release_version = "2.4.1"
 release_date = "2018-12-19"
 
+[language.labview]
+name = "LabVIEW"
+[[language.labview.orgs]]
+org = "drew-herron"
+repo = "nats.lv"
+supported = false
+author = "Drew Herron"
+link = "https://github.com/drew-herron/nats.lv"
+release_version = "1.0.0.1"
+relesase_date = "2022-08-09"
+
 [language.lua]
 name = "Lua"
 [[language.lua.orgs]]
