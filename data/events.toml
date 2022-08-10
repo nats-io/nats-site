@@ -1,11 +1,11 @@
 [[events]]
-venue = "#ICYMI"
-when = "May 2022"
-who = "Tomasz Pietrek"
-what = "State of NATS: Core, Persistence, & Materialized Views"
-link = "https://youtu.be/MPda_7EPrNU"
-where = "Kubecon + CloudNativeCon EU 2022"
-ref = "https://sched.co/ytm8"
+venue = "KubeCon + CloudNativeCon NA"
+when = "October 24-28, 2022"
+who = "Tomasz Pietrek & Jeremy Saenz & Todd Beets, Synadia"
+what = "Connect All the Things! Using NATS to Simplify Communication Everywhere"
+link = "https://sched.co/182OD"
+where = "Kubecon + CloudNativeCon NA 2022"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america"
 
 # comment out to save
 #[[events]]
