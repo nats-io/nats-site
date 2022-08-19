@@ -385,6 +385,16 @@ author = "John Lockwood"
 link = "https://github.com/johnwlockwood"
 release_date = "2016-11-12"
 
+[language.qt]
+name = "C++/Qt/QML"
+[[language.qt.orgs]]
+org = "kazmirchuk"
+repo = "qtnats"
+supported = false
+jetstream_support = true
+author = "Petro Kazmirchuk"
+link = "https://github.com/kazmirchuk"
+
 [language.qt5]
 name = "Qt5 C++"
 [[language.qt5.orgs]]
