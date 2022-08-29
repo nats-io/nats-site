@@ -237,3 +237,8 @@ logo = "pleggi.png"
 name = "Mender"
 home = "https://mender.io"
 logo = "mender.png"
+
+[companies.filewave]
+name = "Filewave"
+home = "https://filewave.com"
+logo = "filewave.png"
