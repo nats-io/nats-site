@@ -1,10 +1,10 @@
 {{ $companies := site.Data.companies.companies }}
 
 <div class="container">
-  <div class="columns is-vcentered is-multiline">
+  <div class="columns is-vcentered is-multiline is-gapless">
     {{ range $k, $v := $companies }}
     {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
-    <div class="column is-one-fifth logo">
+    <div class="column is-one-fifth is-gapless logo">
       <a href="{{ $v.home }}" target="_blank">
         <img class="is-user-logo" src="{{ $img }}" alt="{{ $v.name }} logo">
       </a>
