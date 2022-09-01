@@ -242,3 +242,8 @@ logo = "mender.png"
 name = "Filewave"
 home = "https://filewave.com"
 logo = "filewave.png"
+
+[companies.harperdb]
+name = "HarperDB"
+home = "https://harperdb.io/"
+logo = "harperdb.png"
