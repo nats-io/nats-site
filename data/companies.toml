@@ -193,10 +193,10 @@ name = "Noxum"
 home = "https://www.noxum.com/en/"
 logo = "noxum.png"
 
-[companies.nexus]
-name = "Nature.Tech"
-home = "https://nature.tech"
-logo = "nexus.png"
+[companies.mrv]
+name = "MRV Collective"
+home = "https://MRVCollective.org"
+logo = "mrv.svg"
 
 [companies.skyband]
 name = "Skyband"
