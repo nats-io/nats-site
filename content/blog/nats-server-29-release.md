@@ -25,9 +25,9 @@ Please refer to the granular release notes for the long tail of additions, chang
 
 [JetStream][jetstream] was introduced in March 2021, as the successor to [NATS Streaming][stan] (STAN) which extends NATS to provide *at-least-once* delivery guarantees and the facilities for *exactly-once* processing. STAN was designed as a client process that embedded the NATS server. Observing the limitations of this approach both in terms of performance and scalability, JetStream was reimagined as a first-class, embedded subsystem of the NATS server. Since JetStream's release, adoption has grown significantly with ever-increasing scale and performance requirements.
 
-JetStream contributes the overarching vision of NATS which is to be a **connective technology**, bridging communication between applications in the cloud, devices at the edge, and everything in between. JetStream fills a gap that *at-most-once* message delivery has, which is "what i of a client interested in a message is offline?" For edge devices in particular, loosing connectivity is common. JetStream enables these clients to *catch-up* on messages or re-join a group once they reconnect.
+JetStream contributes the overarching vision of NATS which is to be a **connective technology**, bridging communication between applications in the cloud, devices at the edge, and everything in between. JetStream fills a gap that *at-most-once* message delivery has, which is "what if a client interested in a message is offline?" For edge devices in particular, losing connectivity is common. JetStream enables these clients to *catch-up* on messages or re-join a group once they reconnect.
 
-Along with other NATS' capabilities such as [decentralized auth][dauth], providing multi-tenant identity and authorization management, [supercluster][supercluster] and [leaf node][leafnodes] configurations, supporting cross-geo and hub-and-spoke topologies, and native a [WebSocket][websocket] interface to bridge Web clients to NATS, JetStream lays a new foundation of capabilities including a [MQTT][mqtt] interface to bridge existing IoT deployments, as well as [key-value][kv] and, experimental, [object store][objectstore] layers.
+Along with other NATS' capabilities such as [decentralized auth][dauth], providing multi-tenant identity and authorization management, [supercluster][supercluster] and [leaf node][leafnodes] configurations, supporting cross-geo and hub-and-spoke topologies, and a native [WebSocket][websocket] interface to bridge Web clients to NATS, JetStream lays a new foundation of capabilities including a [MQTT][mqtt] interface to bridge existing IoT deployments, as well as [key-value][kv] and, experimental, [object store][objectstore] layers.
 
 All of these capabilities are fully [open source][ghrepo], baked into a small, [static binary][install], and with zero dependencies. 🎉
 
@@ -116,7 +116,7 @@ js.AddConsumer("EVENTS", &nats.ConsumerConfig{
 })
 ```
 
-In practice, an inactive threshold for a durable should be set to a value that would be highly unlikely the consumer would *not* have been active in the meantime. In other words, if the consumer is expected to be active regularly every couple minutes, if there is no activity for an hour, that may be a good indicator that consumer can be auto-deleted.
+In practice, an inactive threshold for a durable should be set to a value that would be highly unlikely the consumer would *not* have been active in the meantime. In other words, if the consumer is expected to be active regularly every couple minutes, if there is no activity for an hour, that may be a good indicator that the consumer can be auto-deleted.
 
 ## Scale and Mobility
 
@@ -175,7 +175,7 @@ Since mirrors are technically streams themselves with a different name from the 
 
 #### Stream and key-value message republishing
 
-Message republishgin was introduced as an experimental feature in 2.8.3. It has since evolved and matured as an established feature for use cases that want to _consume_ to a stream, but need the scale of core NATS. Combining republish with the more optimized *direct get* support mentioned above, a new pattern can be implemented to support _millions_ of concurrent subscriptions interested in one or more streams.
+Message republishing was introduced as an experimental feature in 2.8.3. It has since evolved and matured as an established feature for use cases that want to _consume_ to a stream, but need the scale of core NATS. Combining republish with the more optimized *direct get* support mentioned above, a new pattern can be implemented to support _millions_ of concurrent subscriptions interested in one or more streams.
 
 So what does republish do and how do you configure it?
 
@@ -279,7 +279,7 @@ jetstream {
 }
 ```
 
-With a servers having these additional config, placement of replicas for a stream would guarantee to be in different availability zones (being the most common use case).
+With a server having these additional configurations, placement of replicas for a stream would guarantee to be in different availability zones (being the most common use case).
 
 Stream placement becomes even more flexible by supporting **changing** the placement declaration in order to transparently move a stream to new servers. This can be done by simply doing `js.UpdateStream` with a new `Placement` configuration.
 
