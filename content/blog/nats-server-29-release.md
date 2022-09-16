@@ -407,7 +407,7 @@ In addition, to the standard mapping syntax, e.g. `"foo.*.*": "bar.$2.$1"` (whic
 As of 2.9, the following functions are available:
 
 - `{{wildcard(x)}}` - outputs the value of the token for wildcard-token index `x` (equivalent to the legacy `$x` notation)
-- `{{partition(x,a,b,c,...)}}` - ouputs a partition number between `0` and `x-1` assigned from a deterministic hashing of
+- `{{partition(x,a,b,c,...)}}` - outputs a partition number between `0` and `x-1` assigned from a deterministic hashing of
   the value of wildcard-tokens `a`, `b` and `c`
 - `{{split(x,y)}}` - splits the value of wildcard-token `x` into multiple tokens on the presence of character `y`
 - `{{splitFromLeft(x,y)}}` - splits in two the value of wildcard-token `x` at `y` characters starting from the left
