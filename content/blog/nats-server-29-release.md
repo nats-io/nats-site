@@ -148,7 +148,7 @@ This release brings _more_ capabilities to scale in more dimensions and make dat
 
 #### Replica and mirror-based direct gets
 
-Streams have supported a `GetMsg` operation since JetStream was first released. This method is avaliable on the client's JetStream Manager interface and takes a stream name and the specific sequence number to get a message from the stream. For example, in Go:
+Streams have supported a `GetMsg` operation since JetStream was first released. This method is available on the client's JetStream Manager interface and takes a stream name and the specific sequence number to get a message from the stream. For example, in Go:
 
 ```go
 js.GetMsg("EVENTS", 29)
