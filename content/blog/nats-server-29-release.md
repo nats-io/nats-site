@@ -138,7 +138,7 @@ In practice, an inactive threshold for a durable should be set to a value that w
 
 #### Memory usage for containered deployments
 
-As noted above, the NATS server can be deployed in many different environments. An increasingly common one is in containerized environments where, historically, reliable resource management from within a container has been difficult.
+As noted above, the NATS server can be deployed in many different environments. An increasingly common one is in containerized environments where, historically, reliable resource management from within a container has been difficult since the Go runtime is unaware of the memory limits set by cgroups in a container and instead base the behavior of the Go GC on the available memory from the host.
 
 Earlier this year, [Go 1.19](https://go.dev/doc/go1.19) was released which introduced a new environment variable called `GOMEMLIMIT` which better controls when the garbage collector runs in lower-memory resourced environments (see this useful [blog][gomemlimit] on the topic).
 
