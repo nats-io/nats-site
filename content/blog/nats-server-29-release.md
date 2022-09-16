@@ -136,7 +136,7 @@ js.AddConsumer("EVENTS", &nats.ConsumerConfig{
 
 In practice, an inactive threshold for a durable should be set to a value that would be highly unlikely the consumer would *not* have been active in the meantime. In other words, if the consumer is expected to be active regularly every couple minutes, if there is no activity for an hour, that may be a good indicator that the consumer can be auto-deleted.
 
-#### Memory usage for containered deployments
+#### Memory usage for containerized deployments
 
 As noted above, the NATS server can be deployed in many different environments. An increasingly common one is in containerized environments where, historically, reliable resource management from within a container has been difficult since the Go runtime is unaware of the memory limits set by cgroups in a container and instead base the behavior of the Go GC on the available memory from the host.
 
