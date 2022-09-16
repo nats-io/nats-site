@@ -417,12 +417,14 @@ As of 2.9, the following functions are available:
 - `{{sliceFromRight(x,y)}}` - slices into multiple tokens the value of wildcard-token `x`, every `y` characters starting
   from the right
 
-To try out these mappings, check out the `nats server mappings` command on the CLI which takes the source and destination subject mapping as well as an input to test against.
+To try out these mappings, check out the `nats server mappings` command on the CLI.
 
 ```sh
 $ nats server mappings "foo.*.*" "bar.{{wildcard(2)}}.{{wildcard(1)}}" "foo.10.40"
 bar.40.10
 ```
+
+In this example, first two arguments model the mapping from the source to destination subject and the third argument is an input to test the mapping out against.
 
 [subject-mapping]: https://docs.nats.io/nats-concepts/subject_mapping
 
