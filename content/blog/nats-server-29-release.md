@@ -120,7 +120,7 @@ The client library handles:
 - Auto-creating an *unnamed* consumer (which makes an ephemeral)
 - Initializing a subscription and binding it to the consumer
 
-From the server's persective, it keeps track of whether at least one subscription is bound to this ephemeral consumer _and_ if the subscription is still _active_. If/when it detects the subscription is no longer active, it will automatically delete the ephemeral consumer after the [`InactiveThreshold`](https://docs.nats.io/nats-concepts/jetstream/consumers#inactivethreshold) period (which defaults to five seconds).
+From the server's perspective, it keeps track of whether at least one subscription is bound to this ephemeral consumer _and_ if the subscription is still _active_. If/when it detects the subscription is no longer active, it will automatically delete the ephemeral consumer after the [`InactiveThreshold`](https://docs.nats.io/nats-concepts/jetstream/consumers#inactivethreshold) period (which defaults to five seconds).
 
 In contrast, durables are intended to survive process crashes, restarts (client or server), and regardless if there are any active subscriptions. The lifecycle of a durable is expected to be managed by the application/operator.
 
