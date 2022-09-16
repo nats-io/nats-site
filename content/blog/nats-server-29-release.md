@@ -2,7 +2,7 @@
 date = "2022-09-13"
 draft = true
 title = "NATS Server 2.9 Release"
-author = "The NATS Team"
+author = "Byron Ruth"
 categories = ["General"]
 tags = ["NATS", "Release", "JetStream"]
 +++
@@ -15,17 +15,38 @@ This release is a milestone for users leveraging JetStream with many improvement
 
 The key themes to this release include:
 
-- ⚖️  Increased stability and resilience
-- 🌏 Greater scale and mobility
-- 🔧 Improved operability and security
+- ⚖️  [Increased stability and resilience](#stability-and-resilience)
+- 🌏 [Greater scale and mobility](#scale-and-mobility)
+- 🔧 [Improved operability and security](#operability-and-security)
 
-Please refer to the granular release notes for the long tail of additions, changes, and fixes as well as PR links on the [v2.9.0 release page](https://github.com/nats-io/nats-server/releases/tag/v2.9.0).
+The following set of client releases have parity with all 2.9 server features:
+
+- CLI - [v0.0.34][cli-client]
+- nats.go - [v1.1.17][go-client]
+- nats.js - [v2.8.0][node-client]
+- nats.deno - [v1.8.0][deno-client]
+- nats.ws - [v1.9.0][ws-client]
+- nats.java - [v2.15.7][java-client]
+- nats.net - [v1.0.0][net-client]
+- nats.rs - [async-v0.20.0][rust-async-client]
+
+The remaining [official clients][official-clients] will have support by the end of the month (September 2022).
+
+[cli-client]: https://github.com/nats-io/natscli/releases/tag/v0.0.34
+[go-client]: https://github.com/nats-io/nats.go/releases/tag/v1.17.0
+[node-client]: https://github.com/nats-io/nats.js/releases/tag/v2.8.0
+[deno-client]: https://github.com/nats-io/nats.deno/releases/tag/v1.8.0
+[ws-client]: https://github.com/nats-io/nats.ws/releases/tag/v1.9.0
+[java-client]: https://github.com/nats-io/nats.java/releases/tag/2.15.7
+[net-client]: https://github.com/nats-io/nats.net/releases/tag/1.0.0
+[rust-async-client]: https://github.com/nats-io/nats.rs/releases/tag/async-nats%2Fv0.20.0
+[official-clients]: https://nats.io/download/#clients
 
 ## Background
 
-[JetStream][jetstream] was introduced in March 2021, as the successor to [NATS Streaming][stan] (STAN) which extends NATS to provide *at-least-once* delivery guarantees and the facilities for *exactly-once* processing. STAN was designed as a client process that embedded the NATS server. Observing the limitations of this approach both in terms of performance and scalability, JetStream was reimagined as a first-class, embedded subsystem of the NATS server. Since JetStream's release, adoption has grown significantly with ever-increasing scale and performance requirements.
+[JetStream][jetstream] was introduced in March 2021, as the successor to NATS Streaming (STAN) which extends NATS to provide *at-least-once* delivery guarantees and the facilities for *exactly-once* processing. STAN was designed as a client process that embedded the NATS server. Observing the limitations of this approach both in terms of performance and scalability, JetStream was reimagined as a first-class, embedded subsystem of the NATS server. Since JetStream's release, adoption has grown significantly to support unique use cases with ever-increasing scale and performance requirements.
 
-JetStream contributes the overarching vision of NATS which is to be a **connective technology**, bridging communication between applications in the cloud, devices at the edge, and everything in between. JetStream fills a gap that *at-most-once* message delivery has, which is "what if a client interested in a message is offline?" For edge devices in particular, losing connectivity is common. JetStream enables these clients to *catch-up* on messages or re-join a group once they reconnect.
+JetStream contributes to the overarching vision of NATS which is to be a **connective technology**, bridging communication between applications in the cloud, devices at the edge, and everything in between. JetStream fills a gap that *at-most-once* message delivery has, which is "what if a client interested in a message is offline?" For edge devices in particular, losing connectivity is common. JetStream enables these clients to *catch-up* on messages or re-join a group once they reconnect.
 
 Along with other NATS' capabilities such as [decentralized auth][dauth], providing multi-tenant identity and authorization management, [supercluster][supercluster] and [leaf node][leafnodes] configurations, supporting cross-geo and hub-and-spoke topologies, and a native [WebSocket][websocket] interface to bridge Web clients to NATS, JetStream lays a new foundation of capabilities including a [MQTT][mqtt] interface to bridge existing IoT deployments, as well as [key-value][kv] and, experimental, [object store][objectstore] layers.
 
@@ -33,7 +54,6 @@ All of these capabilities are fully [open source][ghrepo], baked into a small, [
 
 [release]: https://github.com/nats-io/nats-server/releases/v2.9.0
 [jetstream]: https://docs.nats.io/nats-concepts/jetstream
-[stan]: https://docs.nats.io/legacy/stan
 [dauth]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/auth_intro/jwt
 [supercluster]: https://docs.nats.io/running-a-nats-service/configuration/gateways
 [leafnodes]: https://docs.nats.io/running-a-nats-service/configuration/leafnodes
@@ -46,11 +66,11 @@ All of these capabilities are fully [open source][ghrepo], baked into a small, [
 
 ## Stability and Resilience
 
-Given NATS vision of being a *connective technology*, stability and resiliency of the server is **critical**.
+Given NATS vision of being a *connective technology*, server stability and resiliency are **critical**.
 
-We can define *stability* as having predictable behavior, performance, and resource utilization under *normal* usage, e.g. "it just works". However, for systems that need to span multiple geographies or need to support edge devices, the system needs to be *resilient*.
+We can define *stability* as having predictable behavior, performance, and resource utilization under *normal* usage, i.e. "it just works". However, for systems that need to span multiple geographies or need to support edge devices, the system needs to be *resilient*.
 
-We can define *resiliency* as being tolerant of *atypical* situations whether this is spiky traffic, nodes failing, network issues, or slow clients. NATS must still perform under these circumstances using built-in self-healing mechanisms or allowing an operator to intervene.
+We can define *resiliency* as being tolerant of *atypical* situations whether this is spiky traffic, nodes failing, network issues, or slow clients. NATS must still perform under these circumstances using built-in self-healing mechanisms or providing the necessary tooling for an operator to intervene.
 
 A primary focus of 2.9 was to harden and optimize JetStream's implementation based on real-world usage over the past 18 months since it was released. As a vanity metric, of the net ~15k lines of code added for this release, **67%** 📈 of them contributed to improving the test and benchmark suite.
 
@@ -58,7 +78,7 @@ In addition to fixes and optimizations, there are a few notable highlights that 
 
 #### Reduced time and bandwidth for replication *catch-up*
 
-When a server containing stream replicas becomes unavailable or a new server joins the cluster and is assigned one or more stream replicas, for streams that have a large amount of data in them, it could take a significant amount of time and bandwidth to replicate a full or partial copy of the data. With 2.9, compression is automatically applied to this traffic to optimize this *catch-up* phase.
+When a server containing stream replicas becomes unavailable or a new server joins the cluster and is assigned one or more replicas, for streams that have a large amount of data in them, it could take a significant amount of time and bandwidth to replicate a full or partial copy of the data. With 2.9, compression is automatically applied to this traffic to optimize this *catch-up* phase.
 
 ⚠️ TODO: compression algorithm used? Rough numbers of size reduction or time decrease?
 
@@ -130,32 +150,51 @@ This release brings _more_ capabilities to scale in more dimensions and make dat
 
 #### Replica and mirror-based direct gets
 
-Streams have supported a `GetMsg` operation since JetStream originally launched. This method is avaliable on the client's JetStream Manager interface and takes stream name and the specific sequence number to get a _raw_ message from the stream. For example, in Go:
+Streams have supported a `GetMsg` operation since JetStream was first released. This method is avaliable on the client's JetStream Manager interface and takes a stream name and the specific sequence number to get a message from the stream. For example, in Go:
 
 ```go
-rmsg, _ := js.GetMsg("EVENTS", 29)
+js.GetMsg("EVENTS", 29)
 ```
 
 With the introduction of the [Key/Value Store][kv] layer which builds upon a stream and relies on subjects for keys, a new API has been exposed directly in the manager API called `GetLastMsg` which takes the stream name and a _subject_ and returns the last known message for that subject.
 
 ```go
-rmsg, _ := js.GetLastMsg("EVENTS", "events.device.15")
+js.GetLastMsg("EVENTS", "events.device.15")
 ```
 
-With the increasing use cases and potential around the Key/Value API in order to reduce dependencies and infrastructure cost, there has also been a need to further optimize and scale _get_ operations.
+With the increasing use cases and potential around the Key/Value API in order to reduce dependencies and infrastructure cost, there has been significant effort in further optimizing get operations, specifically reducing latency, as well as new options to fan-out gets which will further reduce latency and improve scalability.
 
-Two new **opt-in** stream configuration options include `AllowDirect` and `MirrorDirect`. The first allows get operations to be directed to any replica of the stream, not only the leader, while the second spreads out the gets to any (unfiltered) [mirrors][mirrors] that have been created for that stream as well.
+In 2.9, two new stream configuration options are available: `AllowDirect` and `MirrorDirect`. The first allows get operations to be directed to any replica of the stream, not only the leader, while the second allows for (unfiltered) [mirrors][mirrors] to participate in serving get operations on behalf of the origin stream.
+
+As these options were introduced primarily for Key/Value store, `AllowDirect` is enabled automatically. For a standard stream, however, it is opt-in.
 
 ```go
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS",
   Subjects: []string{"events.device.*"},
   AllowDirect: true,
-  MirrorDirect: true,
+  Placement: &nats.Placement{
+    Cluster: "us-east",
+  },
 })
 ```
 
-Mirrors are of particular interest since they are typically created to provide read-only data locality to clients interested in a stream. For clients using these get operations, requests will be routed to the closest mirror rather than the origin stream.
+To configure a mirror that will participate, create a mirror stream and set the `MirrorDirect` option.
+
+```go
+js.AddStream(&nats.StreamConfig{
+  Name: "EVENTS-M",
+  Mirror: &nats.StreamSource{
+    Name: "EVENTS",
+  },
+  MirrorDirect: true,
+  Placement: &nats.Placement{
+    Cluster: "us-west",
+  },
+})
+```
+
+Mirrors are of particular interest since they can reside in a different cluster from the origin stream (as shown with the `Placement` option) to provide data locality and offline access to clients reading from the stream. Client requests will be routed to the closest replica (origin or mirror) that can serve the request. It is also worth a reminder that a Key/Value store is a stream itself, so mirrors can be created for these as well. Given a Key/Value bucket name of `FOO`, the raw stream name is `KV_FOO`.
 
 <img src="/img/nats-server-29-release/direct-get.jpg" width="600px" style="display: block; margin: 0 auto 20px auto" />
 
@@ -163,11 +202,10 @@ Do note that this introduces a trade-off of reducing pressure on the leader to s
 
 Since mirrors are technically streams themselves with a different name from the origin, each message returned from a *direct get* call will automatically include a few useful headers:
 
-- `Nats-Stream` - original name of the stream the message was written to
-- `Nats-Sequence` - original sequence number in the origin stream
-- `Nats-Time-Stamp` - original timestamp associated with the message
-- `Nats-Subject` - original subject of the message
-- `Nats-Last-Sequence` - the previous sequence number for the subject
+- `Nats-Stream` - name of the origin stream the message was written to
+- `Nats-Sequence` - sequence number of the message in the origin stream
+- `Nats-Time-Stamp` - timestamp of the message in the origin stream
+- `Nats-Subject` - subject of the message in the origin stream
 
 [kv]: https://docs.nats.io/nats-concepts/jetstream/key-value-store
 [mirrors]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/replication#mirrors
@@ -210,7 +248,11 @@ A **new** option in this release is `HeadersOnly` which will omit republishing t
 - Subscribers of republished messages only care about the headers
 - Allow subscribers to perform a *direct get* for the messages they need the data payload (kind of a lazy/deferred data fetch)
 
-Like the direct get capability above, each republished message has the same set of headers injected into it as metadata from the origin stream.
+Like the direct get capability above, each republished message has the same set of headers injected into it as metadata from the origin stream with an additional one:
+
+- `Nats-Last-Sequence` - sequence number of the *prior* message for the subject
+
+This header is of particular interest since a client can use it to detect gaps for a given subject. A direct get can then be used to get the previous message for that subject.
 
 [subject-mapping]: https://docs.nats.io/nats-concepts/subject_mapping
 
@@ -294,28 +336,108 @@ This release brings a handful improvements including a new [encryption][encrypti
 [security]: https://docs.nats.io/nats-concepts/security
 [encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
 
-#### Account stats endpoint and purge operation
+#### Account purge operation
 
-For more insight into account resources and limits...
-
-*TODO: what do `tiers` refer to in [updated payload](https://github.com/nats-io/nats-architecture-and-design/issues/120#issuecomment-1162441701)?*
-
-For operators managing accounts, it may be desired to purge all resources associated with an account. A new API available to the system account has been implemented to support this.
+For operators managing accounts, it may be desired to purge all resources associated with an account. A new API available to the system account has been implemented to support this:
 
 ```
-nats req '$JS.API.ACCOUNT.PURGE.<account name>' ''
+$JS.API.ACCOUNT.PURGE.<account>
 ```
+
+where `<account>` is the unique name of the account.
+
+For example, given the following server config with inline [accounts][accounts]:
+
+```
+accounts: {
+  \$SYS: {
+    users: [{ user: sys, password: sys }]
+  }
+
+  APP: {
+    jetstream: true
+    users: [{ user: app, password: app }]
+  }
+}
+```
+
+Using the CLI, a raw request could be invoked as such:
+
+```
+nats --user sys --password sys \
+  req '$JS.API.ACCOUNT.PURGE.APP' ''
+```
+
+If using [decentralized auth][jwt], the account would be the public key.
+
+```
+nats --user sys --password sys \
+  req '$JS.API.ACCOUNT.PURGE.AAWFSQ7EDAMTCZ2EUZ7B3YPVOF7VFL6ZKUM7IEEMW2IOFXUGTCHMNZEP' ''
+```
+
+[accounts]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/accounts
+[jwt]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/auth_intro/jwt
 
 #### Templates for scoped signing keys
 
-TODO
+TODO: finish
 
 #### New subject mapping functions
 
-TODO
+NATS supports this concept of [subject mapping][subject-mapping] which, in essence, is a transform of an input subject to an output subject. This can be used for simple remapping, determinstic partitioning, canary deployments, A/B testing, etc. Subject mapping also is used when defining account imports and exports as well as the new republish capability noted above.
+
+In addition, to the standard mapping syntax, e.g. `"foo.*.*": "bar.$2.$1"` (which changes the prefix and reorders the two wildcard tokens), there are *functions* including `partition()` and `wildcard()`. `wildcard()` replaces the legacy `$x` notation, so the previous example could be expressed as `"foo.*.*": "bar.{{wildcard(2)}}.{{wildcard(1)}}"`. This is to disambigate usage of `$`, but also be consistent with other functions.
+
+As of 2.9, the following functions are available:
+
+- `{{wildcard(x)}}` - outputs the value of the token for wildcard-token index `x` (equivalent to the legacy `$x` notation)
+- `{{partition(x,a,b,c,...)}}` - ouputs a partition number between `0` and `x-1` assigned from a deterministic hashing of
+  the value of wildcard-tokens `a`, `b` and `c`
+- `{{split(x,y)}}` - splits the value of wildcard-token `x` into multiple tokens on the presence of character `y`
+- `{{splitFromLeft(x,y)}}` - splits in two the value of wildcard-token `x` at `y` characters starting from the left
+- `{{splitFromRight(x,y)}}` - splits in two the value of wildcard-token `x` at `y` characters starting from the right
+- `{{sliceFromLeft(x,y)}}` - slices into multiple tokens the value of wildcard-token `x`, every `y` characters starting
+  from the left
+- `{{sliceFromRight(x,y)}}` - slices into multiple tokens the value of wildcard-token `x`, every `y` characters starting
+  from the right
+
+To try out these mappings, check out the `nats server mappings` command on the CLI which takes the source and destination subject mapping as well as an input to test against.
+
+```sh
+$ nats server mappings "foo.*.*" "bar.{{wildcard(2)}}.{{wildcard(1)}}" "foo.10.40"
+bar.40.10
+```
+
+[subject-mapping]: https://docs.nats.io/nats-concepts/subject_mapping
 
 #### AES-GCM cipher for JetStream file-based encryption
 
-TODO: may not be too exciting of an annoncement? show how to declare in the config
+JetStream has had support for [encryption at rest][encryption] since 2.3.0, specifically using the [ChaCha20-Poly1305][chacha] algorithm. This release adds support for [AES-GCM][aes-gcm], which may be desired or required for some organizations.
 
+To enable encryption, set the key and the cipher in the `jetstream` block of the server configuration.
 
+```
+jetstream {
+  key: $JETSTREAM_KEY
+  cipher: aes
+}
+```
+
+*Note: as a best practice, the key should *not* be inlined in the configuration file. Instead, it can expressed as [variable][variable] using the `$` notation which will get interpolated from the environment by default.*
+
+[encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
+[chacha]: https://pkg.go.dev/golang.org/x/crypto/chacha20poly1305
+[aes-gcm]: https://pkg.go.dev/crypto/aes
+[variable]: https://docs.nats.io/running-a-nats-service/configuration#variables
+
+## Takeaways
+
+The 2.9 release is a milestone release for hardening JetStream and introducing new capabilities and optimizations to push the boundaries of scale and performance.
+
+TODO: finish takeaways
+
+Please refer to the granular release notes for the long tail of additions, changes, and fixes as well as PR links on the [v2.9.0 release page](https://github.com/nats-io/nats-server/releases/tag/v2.9.0).
+
+## About the Author
+
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth-97216a1b7/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
