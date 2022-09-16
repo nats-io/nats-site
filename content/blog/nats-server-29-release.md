@@ -82,7 +82,7 @@ When a server containing stream replicas becomes unavailable or a new server joi
 
 A related feature is a new configuration option in the server called [`max_outstanding_catchup`][max_outstanding_catchup] which limits the total bytes that are *in-flight* during stream catch-up. This was introduced to control how much bandwidth should be dedicated during catch-up to guard against saturating and degrading performance of the network.
 
-```config
+```
 jetstream {
   max_outstanding_catchup: 32MB
 }
@@ -108,7 +108,7 @@ For a set of fetch requests queued on the server, messages will be round-robin d
 
 Consumers can be either ephemeral or durable. By design, an ephemeral consumer is intended to be used for one-off reads/replay of a stream and has a limited lifetime. In the client libraries, ephemerals are often created using one of the *convenience* methods. For example, in Go, using the [`JetStream`](https://pkg.go.dev/github.com/nats-io/nats.go#JetStream) interface.
 
-```go
+```
 sub, _ := js.SubscribeSync("events.*")
 // Do some work...
 sub.Unsubscribe()
@@ -126,7 +126,7 @@ In contrast, durables are intended to survive process crashes, restarts (client 
 
 However, what happens if consumers are being created and not properly cleaned up? Each consumer has a small amount of state associated with it that the server needs to keep track of, replicate, restore, etc. To prevent an evergrowing number of consumers, this consumer configuration can now be applied to durables.
 
-```go
+```
 js.AddConsumer("EVENTS", &nats.ConsumerConfig{
   Durable: "event-processor",
   AckPolicy: nats.AckExplicitPolicy,
@@ -164,13 +164,13 @@ This release brings _more_ capabilities to scale in more dimensions and make dat
 
 Streams have supported a `GetMsg` operation since JetStream was first released. This method is available on the client's JetStream Manager interface and takes a stream name and the specific sequence number to get a message from the stream. For example, in Go:
 
-```go
+```
 js.GetMsg("EVENTS", 29)
 ```
 
 With the introduction of the [Key/Value Store][kv] layer which builds upon a stream and relies on subjects for keys, a new API has been exposed directly in the manager API called `GetLastMsg` which takes the stream name and a _subject_ and returns the last known message for that subject.
 
-```go
+```
 js.GetLastMsg("EVENTS", "events.device.15")
 ```
 
@@ -180,7 +180,7 @@ In 2.9, two new stream configuration options are available: `AllowDirect` and `M
 
 As these options were introduced primarily for Key/Value store, `AllowDirect` is enabled automatically. For a standard stream, however, it is opt-in.
 
-```go
+```
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS",
   Subjects: []string{"events.device.*"},
@@ -194,7 +194,7 @@ js.AddStream(&nats.StreamConfig{
 
 To configure a mirror that will participate, create a mirror stream and set the `MirrorDirect` option.
 
-```go
+```
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS-M",
   Mirror: &nats.StreamSource{
@@ -233,7 +233,7 @@ So what does republish do and how do you configure it?
 
 For a stream:
 
-```go
+```
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS",
   RePublish: &nats.RePublish{
@@ -246,7 +246,7 @@ js.AddStream(&nats.StreamConfig{
 
 For a key-value store:
 
-```go
+```
 js.CreateKeyValue(&nats.KeyValueConfig{
   Bucket: "SNAPSHOTS",
   RePublish: &nats.RePublish{
@@ -276,7 +276,7 @@ As of 2.8.3, consumer replicas and forcing memory storage has been supported to 
 
 For use cases that desire a large number of consumers, making them as lightweight as possible can help with scale and performance, such as one replica and having the state in memory.
 
-```go
+```
 js.AddConsumer("EVENTS", &nats.ConsumerConfig{
   Durable: "processor",
   Replicas: 1,
@@ -290,7 +290,7 @@ This release brings the ability to update both `Replicas` and `MemoryStorage` af
 
 In addition, the `FilterSubject` field is now able to be changed after creation.
 
-```go
+```
 js.UpdateConsumer("EVENTS", &nats.ConsumerConfig{
   Durable: "processor",
   Replicas: 1,
@@ -316,7 +316,7 @@ server_tags: ["cloud:aws", "region:us-east-2", "az:us-east-2c"]
 
 A stream could then be defined with a *placement* declaration indicating the subset of nodes in a cluster that the stream replicas should exist on.
 
-```go
+```
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS",
   Placement: &nats.Placement{
@@ -432,7 +432,7 @@ As of 2.9, the following functions are available:
 
 To try out these mappings, check out the `nats server mappings` command on the CLI.
 
-```sh
+```
 $ nats server mappings "foo.*.*" "bar.{{wildcard(2)}}.{{wildcard(1)}}" "foo.10.40"
 bar.40.10
 ```
