@@ -136,6 +136,20 @@ js.AddConsumer("EVENTS", &nats.ConsumerConfig{
 
 In practice, an inactive threshold for a durable should be set to a value that would be highly unlikely the consumer would *not* have been active in the meantime. In other words, if the consumer is expected to be active regularly every couple minutes, if there is no activity for an hour, that may be a good indicator that the consumer can be auto-deleted.
 
+#### Memory usage for containered deployments
+
+As noted above, the NATS server can be deployed in many different environments. An increasingly common one is in containerized environments where, historically, reliable resource management from within a container has been difficult.
+
+Earlier this year, [Go 1.19](https://go.dev/doc/go1.19) was released which introduced a new environment variable called `GOMEMLIMIT` which better controls when the garbage collector runs in lower-memory resourced environments (see this useful [blog][gomemlimit] on the topic).
+
+In containerized environments, such as Kubernetes, it is best practice to set a resource hard limit on containers to prevent overloading the node the container is allocated to. The 2.9 release has been built using Go 1.19 and therefore will respect the `GOMEMLIMIT` environment variable in the environment you deploy. If you are using the official NATS [helm chart][helmchart], this variable can be set automatically by define the [`gomemlimit` value][helmvalue].
+
+
+[gomemlimit]: https://weaviate.io/blog/2022/08/GOMEMLIMIT-a-Game-Changer-for-High-Memory-Applications.html
+[helmchart]: https://github.com/nats-io/k8s/tree/main/helm/charts/nats
+[helmvalue]: https://github.com/nats-io/k8s/blob/3aa985b7b14242365c3790dd7a459c6997801002/helm/charts/nats/values.yaml#L19-L24
+
+
 ## Scale and Mobility
 
 NATS was designed to scale in multiple dimensions whether the need is high message throughput or geographically distributed nodes to service users or devices.
@@ -331,10 +345,9 @@ NATS is multi-faceted infrastructure that can be used in a variety of ways, be i
 
 Given how fundamental NATS has become for increasingly large and complex systems, ease of operability and modern [security features and practices][security] are crucial.
 
-This release brings a handful improvements including a new [encryption][encryption] choice for JetStream file storage, a new account purge operation, new subject mapping functions for more powerful transforms, and the ability to define user templates for scoped signing keys.
+This release brings a handful improvements further improving the operability and security posture of NATS.
 
 [security]: https://docs.nats.io/nats-concepts/security
-[encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
 
 #### AES-GCM cipher for JetStream file-based encryption
 
