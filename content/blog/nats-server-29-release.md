@@ -80,8 +80,6 @@ In addition to fixes and optimizations, there are a few notable highlights that 
 
 When a server containing stream replicas becomes unavailable or a new server joins the cluster and is assigned one or more replicas, for streams that have a large amount of data in them, it could take a significant amount of time and bandwidth to replicate a full or partial copy of the data. With 2.9, compression is automatically applied to this traffic to optimize this *catch-up* phase.
 
-⚠️ TODO: compression algorithm used? Rough numbers of size reduction or time decrease?
-
 A related feature is a new configuration option in the server called [`max_outstanding_catchup`][max_outstanding_catchup] which limits the total bytes that are *in-flight* during stream catch-up. This was introduced to control how much bandwidth should be dedicated during catch-up to guard against saturating and degrading performance of the network.
 
 ```config
@@ -172,6 +170,7 @@ As these options were introduced primarily for Key/Value store, `AllowDirect` is
 js.AddStream(&nats.StreamConfig{
   Name: "EVENTS",
   Subjects: []string{"events.device.*"},
+  Replicas: 3,
   AllowDirect: true,
   Placement: &nats.Placement{
     Cluster: "us-east",
@@ -200,16 +199,17 @@ Mirrors are of particular interest since they can reside in a different cluster 
 
 Do note that this introduces a trade-off of reducing pressure on the leader to serve both reads and writes exclusively, however at the risk of getting a _stale_ read if the replica or mirror is not fully caught up. A stale read is much less likely among replicas, but for mirrors that there could be increased latency due to being across regions, or if there are network interruptions.
 
-Since mirrors are technically streams themselves with a different name from the origin, each message returned from a *direct get* call will automatically include a few useful headers:
+Each message returned from a *direct get* call will automatically include a few useful headers:
 
 - `Nats-Stream` - name of the origin stream the message was written to
 - `Nats-Sequence` - sequence number of the message in the origin stream
 - `Nats-Time-Stamp` - timestamp of the message in the origin stream
 - `Nats-Subject` - subject of the message in the origin stream
 
+This provides consistent metadata about the message in the origin stream, no matter where the message is retrieved from.
+
 [kv]: https://docs.nats.io/nats-concepts/jetstream/key-value-store
 [mirrors]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/replication#mirrors
-
 
 #### Stream and key-value message republishing
 
@@ -252,7 +252,7 @@ Like the direct get capability above, each republished message has the same set 
 
 - `Nats-Last-Sequence` - sequence number of the *prior* message for the subject
 
-This header is of particular interest since a client can use it to detect gaps for a given subject. A direct get can then be used to get the previous message for that subject.
+This header is of particular interest since a client can use it to detect gaps for a given subject. A direct get can then be used to get the previous message for that subject. If there is a larger gap, a one-off ephemeral consumer could be created to backfill additional messages.
 
 [subject-mapping]: https://docs.nats.io/nats-concepts/subject_mapping
 
@@ -331,10 +331,30 @@ NATS is multi-faceted infrastructure that can be used in a variety of ways, be i
 
 Given how fundamental NATS has become for increasingly large and complex systems, ease of operability and modern [security features and practices][security] are crucial.
 
-This release brings a handful improvements including a new [encryption][encryption] choice for JetStream file storage, a new account stats endpoint and purge operation, and the ability to define user templates for scoped signing keys.
+This release brings a handful improvements including a new [encryption][encryption] choice for JetStream file storage, a new account purge operation, new subject mapping functions for more powerful transforms, and the ability to define user templates for scoped signing keys.
 
 [security]: https://docs.nats.io/nats-concepts/security
 [encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
+
+#### AES-GCM cipher for JetStream file-based encryption
+
+JetStream has had support for [encryption at rest][encryption] since 2.3.0, specifically using the [ChaCha20-Poly1305][chacha] algorithm. This release adds support for [AES-GCM][aes-gcm], which may be desired or required for some organizations.
+
+To enable encryption, set the key and the cipher in the `jetstream` block of the server configuration.
+
+```
+jetstream {
+  key: $JETSTREAM_KEY
+  cipher: aes
+}
+```
+
+*Note: as a best practice, the key should *not* be inlined in the configuration file. Instead, it can expressed as [variable][variable] using the `$` notation which will get interpolated from the environment by default.*
+
+[encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
+[chacha]: https://pkg.go.dev/golang.org/x/crypto/chacha20poly1305
+[aes-gcm]: https://pkg.go.dev/crypto/aes
+[variable]: https://docs.nats.io/running-a-nats-service/configuration#variables
 
 #### Account purge operation
 
@@ -378,10 +398,6 @@ nats --user sys --password sys \
 [accounts]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/accounts
 [jwt]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/auth_intro/jwt
 
-#### Templates for scoped signing keys
-
-TODO: finish
-
 #### New subject mapping functions
 
 NATS supports this concept of [subject mapping][subject-mapping] which, in essence, is a transform of an input subject to an output subject. This can be used for simple remapping, determinstic partitioning, canary deployments, A/B testing, etc. Subject mapping also is used when defining account imports and exports as well as the new republish capability noted above.
@@ -410,31 +426,59 @@ bar.40.10
 
 [subject-mapping]: https://docs.nats.io/nats-concepts/subject_mapping
 
-#### AES-GCM cipher for JetStream file-based encryption
+#### Templates for scoped signing keys
 
-JetStream has had support for [encryption at rest][encryption] since 2.3.0, specifically using the [ChaCha20-Poly1305][chacha] algorithm. This release adds support for [AES-GCM][aes-gcm], which may be desired or required for some organizations.
+[Scoped signing keys][scoped-key] have been supported since 2.2.0 and is used for simplifying user permission management. An account signing key can be created with pre-defined permissions that a user that is created by the account signing key will inherit. Refer to the documentation link for a full description and short tutorial.
 
-To enable encryption, set the key and the cipher in the `jetstream` block of the server configuration.
+Although scoped signing are very useful and improve security, by limiting the scope of a particular signing key, the permissions that are set may be too rigid in multi-user setups. For example, given two users `pam` and `joe`, we may want to allow them to subscribe to their own namespaced subject in order to service requests, e.g. `pam.>` and `joe.>`. The permission _structure_ is the same between these users, but they differ in the concrete subjects which are further scoped to some property about that user.
+
+2.9 introduces *templated* scope signing keys which provides a way to declare the structure within a scope signing key, but utilize basic templating so that each user that is create with the signing key has user-specific subjects.
+
+The following template functions that will expand when a user is created.
+
+- `{{name()}}` - expands to the name of the user, e.g. `pam`
+- `{{subject()}}` - expands to the user public nkey value of the user, e.g. `UAC...`
+- `{{account-name()}}` - expands to the signing account name, e.g. `sales`
+- `{{account-subject()}}` - expands to the account public nkey value, e.g. `AXU...`
+- `{{tag(key)}}` - expands `key:value` tags associated with the signing key
+
+For example, given a scoped signing key with a templated `--allow-sub` subject:
 
 ```
-jetstream {
-  key: $JETSTREAM_KEY
-  cipher: aes
-}
+nsc edit signing-key \
+  --account sales \
+  --role team-service \
+  --sk AXUQXKDPOTGUCOCOGDW7HWWVR5WEGF3KYL7EKOEHW2XWRS2PT5AOTRH3 \
+  --allow-sub "{{account-name()}}.{{tag(team)}}.{{name()}}.>" \
+  --allow-pub-response
 ```
 
-*Note: as a best practice, the key should *not* be inlined in the configuration file. Instead, it can expressed as [variable][variable] using the `$` notation which will get interpolated from the environment by default.*
+We can create two users in different teams.
 
-[encryption]: https://docs.nats.io/running-a-nats-service/nats_admin/jetstream_admin/encryption_at_rest
-[chacha]: https://pkg.go.dev/golang.org/x/crypto/chacha20poly1305
-[aes-gcm]: https://pkg.go.dev/crypto/aes
-[variable]: https://docs.nats.io/running-a-nats-service/configuration#variables
+```
+nsc add user pam -K team-service --tag team:support
+nsc add user joe -K team-service --tag team:leads
+```
 
-## Takeaways
+The resulting `--allow-sub` permission per user would be expanded to:
+
+```
+sales.support.pam.>
+```
+
+and
+
+```
+sales.leads.joe.>
+```
+
+[scoped-key]: https://docs.nats.io/using-nats/nats-tools/nsc/signing_keys#scoped-signing-keys
+
+## Conclusion
 
 The 2.9 release is a milestone release for hardening JetStream and introducing new capabilities and optimizations to push the boundaries of scale and performance.
 
-TODO: finish takeaways
+The NATS team wants to reiterate how appreciative we are for the users who have contributed to this release in one form or another.
 
 Please refer to the granular release notes for the long tail of additions, changes, and fixes as well as PR links on the [v2.9.0 release page](https://github.com/nats-io/nats-server/releases/tag/v2.9.0).
 
