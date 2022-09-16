@@ -400,7 +400,7 @@ nats --user sys --password sys \
 
 #### New subject mapping functions
 
-NATS supports this concept of [subject mapping][subject-mapping] which, in essence, is a transform of an input subject to an output subject. This can be used for simple remapping, determinstic partitioning, canary deployments, A/B testing, etc. Subject mapping also is used when defining account imports and exports as well as the new republish capability noted above.
+NATS supports this concept of [subject mapping][subject-mapping] which, in essence, is a transform of an input subject to an output subject. This can be used for simple remapping, deterministic partitioning, canary deployments, A/B testing, etc. Subject mapping also is used when defining account imports and exports as well as the new republish capability noted above.
 
 In addition, to the standard mapping syntax, e.g. `"foo.*.*": "bar.$2.$1"` (which changes the prefix and reorders the two wildcard tokens), there are *functions* including `partition()` and `wildcard()`. `wildcard()` replaces the legacy `$x` notation, so the previous example could be expressed as `"foo.*.*": "bar.{{wildcard(2)}}.{{wildcard(1)}}"`. This is to disambigate usage of `$`, but also be consistent with other functions.
 
