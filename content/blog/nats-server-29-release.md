@@ -26,8 +26,8 @@ The following set of client releases have parity with all 2.9 server features:
 - nats.js - [v2.8.0][node-client]
 - nats.deno - [v1.8.0][deno-client]
 - nats.ws - [v1.9.0][ws-client]
-- nats.java - [v2.15.7][java-client]
-- nats.net - [v1.0.0][net-client]
+- nats.java - [v2.16.0][java-client]
+- nats.net - [v1.0.1][net-client]
 - nats.rs - [async-v0.20.0][rust-async-client]
 
 The remaining [official clients][official-clients] will have support by the end of the month (September 2022).
@@ -37,8 +37,8 @@ The remaining [official clients][official-clients] will have support by the end 
 [node-client]: https://github.com/nats-io/nats.js/releases/tag/v2.8.0
 [deno-client]: https://github.com/nats-io/nats.deno/releases/tag/v1.8.0
 [ws-client]: https://github.com/nats-io/nats.ws/releases/tag/v1.9.0
-[java-client]: https://github.com/nats-io/nats.java/releases/tag/2.15.7
-[net-client]: https://github.com/nats-io/nats.net/releases/tag/1.0.0
+[java-client]: https://github.com/nats-io/nats.java/releases/tag/2.16.0
+[net-client]: https://github.com/nats-io/nats.net/releases/tag/1.0.1
 [rust-async-client]: https://github.com/nats-io/nats.rs/releases/tag/async-nats%2Fv0.20.0
 [official-clients]: https://nats.io/download/#clients
 
