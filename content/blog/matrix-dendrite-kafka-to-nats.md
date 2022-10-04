@@ -1,6 +1,6 @@
 +++
 date = "2022-10-04"
-title = "Matrix Dendrite Project move from Kafka to NATS"
+title = "The Matrix Dendrite Project move from Kafka to NATS"
 author = "Neil Alexander "
 categories = ["Engineering","JetStream","Kafka"]
 tags = ["NATS"]
