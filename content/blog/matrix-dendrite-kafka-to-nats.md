@@ -1,12 +1,12 @@
 +++
 date = "2022-10-04"
-title = "Matrix & Dendrite Projects move from Kafka to NATS"
+title = "Matrix Dendrite Project move from Kafka to NATS"
 author = "Neil Alexander "
 categories = ["Engineering","JetStream","Kafka"]
 tags = ["NATS"]
 +++
 
-## Matrix & Dendrite
+## Matrix Dendrite
 
 [Matrix](https://matrix.org/) is a federated protocol for real-time communications built on top of distributed data structures and Dendrite is an implementation of a Matrix homeserver built following a microservice architecture. It was originally intended to help us to overcome some load issues that were present in earlier monolithic implementations at the time. As a result, flexibility, performance, and scalability have been three critical areas of focus in our development.
 
