@@ -247,3 +247,8 @@ logo = "filewave.png"
 name = "HarperDB"
 home = "https://harperdb.io/"
 logo = "harperdb.png"
+
+[companies.loungeup]
+name = "Lounge Up"
+home = "https://www.loungeup.com/"
+logo = "loungeup.jpg"
