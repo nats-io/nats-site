@@ -252,3 +252,9 @@ logo = "harperdb.png"
 name = "Lounge Up"
 home = "https://www.loungeup.com/"
 logo = "loungeup.jpg"
+
+[companies.deutsche-boerse]
+name = "Deutsche Böerse Group"
+home = "https://deutsche-boerse.com/dbg-en/"
+logo = "deutsche_borse.png"
+
