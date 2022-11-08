@@ -258,3 +258,8 @@ name = "Deutsche Böerse Group"
 home = "https://deutsche-boerse.com/dbg-en/"
 logo = "deutsche_borse.png"
 
+[companies.aurora]
+name = "Aurora"
+home = "https://aurora.dev/"
+logo = "aurora-horiz.png"
+
