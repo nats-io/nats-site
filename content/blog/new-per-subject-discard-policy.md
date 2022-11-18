@@ -215,3 +215,9 @@ Ensuring message deduplication is also not the only use for this new feature: it
 - Out of 1000s of workers a subset only n should be able to do something concurrently
 
 Finally, do remember that 'nothing comes for free': just like a proper data store should, JetStream uses indexing to ensure that it doesn't have to scan the entire stream to find any existing message with a matching subject. This means that the more individual subjects you have in a stream, the more the overhead (i.e. memory) taken up on the servers for this indexing. It doesn't mean that the existing time-based message deduplication window feature is not needed anymore, as there are some use cases where it may be better suited than using a per-subject limit.
+
+## About the Author
+
+Jean-Noël Moyne is Field CTO at [Synadia Communications](https://synadia.com).
+
+Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).
