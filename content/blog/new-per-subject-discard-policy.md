@@ -210,6 +210,8 @@ To resume: the newly introduced discard policy `new` for per subject limit now e
 
 This new functionality is specific to JetStream due to its fundamental design differences compared to other stream processing systems: it is subject based addressing capable and is a proper data store (rather than an append-only log with compaction). The functionality is built-in to NATS server itself rather than something that you have to implement and deploy using something additional (e.g. Kafka Streams processes) and requiring an external data store (e.g. Redis). 
 
-Ensuring message deduplication is also not the only use for this new feature: it can effectively be used for any kind of (optimistic) distributed processing concurrency access control (e.g. forms of locks, semaphores, logic gating, etc...). 
+Ensuring message deduplication is also not the only use for this new feature: it can effectively be used for any kind of (optimistic) distributed processing concurrency access control (e.g. forms of locks, semaphores, logic gating, etc...), and you can combine it with message TTL to automatically clear the lock after some time. Other use cases include:
+- n Workers need to perform an action at most once/twice/thrice per period
+- Out of 1000s of workers a subset only n should be able to do something concurrently
 
 Finally, do remember that 'nothing comes for free': just like a proper data store should, JetStream uses indexing to ensure that it doesn't have to scan the entire stream to find any existing message with a matching subject. This means that the more individual subjects you have in a stream, the more the overhead (i.e. memory) taken up on the servers for this indexing. It doesn't mean that the existing time-based message deduplication window feature is not needed anymore, as there are some use cases where it may be better suited than using a per-subject limit.
