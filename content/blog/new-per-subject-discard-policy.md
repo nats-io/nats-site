@@ -6,10 +6,10 @@ title = "Infinite message deduplication using the new 'new per subject' discard 
 author = "Jean-Noël Moyne"
 +++
 
-## A new JetStream feature
-One of the new features that was released with nats-server version 2.9 that is called the "new per subject discard policy". This blog post will attempt to describe this new feature as well as give a practical example of how it can be used to provide exactly-once message publication quality of service through 'infinite' deduplication that goes beyond what the existing deduplication window features of JS (and what distributed log Streaming systems such as Kafka, Pulsar and others) can do.
+## A New JetStream Feature
+One of the new features that was released with nats-server version 2.9 is the "new per subject discard policy". This blog post will describe this new feature as well as give a practical example of how it can be used to provide exactly-once message publication quality of service through 'infinite' deduplication that goes beyond what the existing deduplication window features of JetStream (and what distributed log Streaming systems such as Kafka, Pulsar and others) can do.
 
-In order to understand what this new feature is (bear with me here, as it introduces a subtle change in behavior) rather than just describe it, let me instead start by first describing one of the very useful functionalities that it now enables.
+In order to understand what this new feature is (bear with me here, as it introduces a subtle change in behavior) rather than just describe it, let me instead start by first describing one of the useful functionalities it now enables.
 
 ## What can it do for you?
 
@@ -23,14 +23,14 @@ Message deduplication is very useful to deal with two kinds of stream publishing
 
 1. Protecting against the failure scenarios where a client application 'fails' before it gets an acknowledgement of its publication being successful or not. In those scenarios, the application will typically re-publish the same message again upon re-connecting or restarting, thereby resulting in duplication of the message in the stream. This scenario can happen when the client application gets disconnected, crashes, when the server or client application process (or VM or container/pod) gets moved, updated, restarted, etc... This potential for message duplication also gets exacerbated when publication acks are handled asynchronously (such as when high throughput is desired).
 
-2. Protecting against failure scenarios in stream processing pipelines (like Kafka Streams) where the event processing is happening in series of steps as messages representing the event being processed go through a number of streams (e.g. a message published on an upstream stream causes 1 or more messages to be published on one or more downstream streams). When there is a problem with one of the applications somewhere in the pipeline you can end up in a situation where some events can end up in an 'half-processed' state within the pipeline. In those scenarios, being able to recover the processing of those events simply by replaying original the event messages from the initial most stream *without having to worry about duplicate message publishing* (and its possible side effects in any of the steps of the pipeline as a result of the replay) becomes a very desirable functionality.
+2. Protecting against failure scenarios in stream processing pipelines (like Kafka Streams) where the event processing is happening in series of steps as messages representing the event being processed go through a number of streams (e.g. a message published on an upstream stream causes 1 or more messages to be published on one or more downstream streams). When there is a problem with one of the applications somewhere in the pipeline you can end up in a situation where some events can end up in a 'half-processed' state within the pipeline. In those scenarios, being able to recover the processing of those events simply by replaying original the event messages from the initial most stream *without having to worry about duplicate message publishing* (and its possible side effects in any of the steps of the pipeline as a result of the replay) becomes a very desirable functionality.
 
 ## Can't you do that already?
 
-Indeed, this is obviously not a new problem and there are already available functionalities to provide some kind of message deduplication in many streaming systems. All of them rely on the concept of 'BYOID' (meaning you (the app developer) must bring your own unique ID for each of the event messages that you publish):
+Indeed, this is obviously not a new problem and there are already available functionalities to provide some kind of message deduplication in many streaming systems. All of them rely on the concept of 'BYOID' (meaning you, the app developer, must bring your own unique ID for each of the event messages that you publish):
 
 - JetStream does have a 'time scoped window' deduplication mechanism built-in. When enabled for a stream the NATS servers remember message IDs (specified in a header in the published messages) for a configurable period of time, which means that it applies regardless of client connections being dropped or client application processes being restarted as long as they reconnect within the period of time of the window.
-- Kafka also does have a 'connection scoped window' deduplication mechanism built-in referred to a producer idempotence. When enabled the brokers remember all the request IDs received from a client connection ID and detects retries, which means that the producer can only guarantee idempotence for messages sent within a single session.
+- Kafka also has a 'connection scoped window' deduplication mechanism built-in referred to as producer idempotence. When enabled the brokers remember all the request IDs received from a client connection ID and detects retries, which means that the producer can only guarantee idempotence for messages sent within a single session.
 
 As you can probably guess both methods have some clear limitations back in the real world of production systems:
 
@@ -41,13 +41,13 @@ As you can probably guess both methods have some clear limitations back in the r
 
 Now this finally brings us to the part where I describe the feature itself 🎉
 
-As the title of this blog implies, what this new feature of JS enables is the ability to have exactly-once publication through deduplication by BYOID over the entire stream, regardless of time between fault and restart, of client disconnections, or of the client or server processes getting restarted.
+As the title of this blog implies, what this new feature of JetStream enables is the ability to have exactly-once publication through deduplication by BYOID over the entire stream, regardless of time between fault and restart, of client disconnections, or of the client or server processes getting restarted.
 
-So, how do you actually use this new feature, and how does it work? Bear with me again as I first go through some pre-requisite knowledge about stream limits and discard policies.
+So, how do you actually use this new feature, and how does it work? Bear with me again as I first go through some prerequisite knowledge about stream limits and discard policies.
 
 ### Stream limits
 
-JetStream allows you to set basic limits for a stream: the maximum number of messages in the stream, the maximum number of bytes, and you can specify the max amount of time you want the stream to keep messages for (i.e. a TTL). On the other hand, Kafka and other distributed log systems allow you to adjust when log compaction kicks in to prune the tail end of the stream data.
+JetStream allows you to set basic limits for a stream: the maximum number of messages in the stream, the maximum number of bytes, and you can specify the max amount of time you want the stream to keep messages (i.e. a TTL). On the other hand, Kafka and other distributed log systems allow you to adjust when log compaction kicks in to prune the tail end of the stream data.
 
 ### Discard policies
 
@@ -55,17 +55,17 @@ Because it is a data store, JetStream also allows you to specify a 'discard poli
 
 - Discard `old` means that the stream will discard the oldest message in the stream in order to accept the new message being published while keeping the stream at the limit.
 
-This is probably the most common use-case: you want the stream to be a rolling window of data and yet control the size of the stream, new publications silently push out the oldest message in the stream. It is the only kind of discard policy that append only log streaming system with log compaction systems support (as they are meant to always accept new messages or block until they can).
+This is probably the most common use-case: you want the stream to be a rolling window of data and yet control the size of the stream, new publications silently push out the oldest message in the stream. It is the only kind of discard policy that append only log streaming system with log compaction systems support, as they are meant to always accept new messages or block until they can.
 
- - Discard `new` means that the JS publish operation will immediately return a "maximum messages exceeded" error if the message would take the stream over its max messages limit.
+ - Discard `new` means that the JetStream publish operation will immediately return a "maximum messages exceeded" error if the message would take the stream over its max messages limit.
 
 ### Per subject limits
 
-So far so good on the basic limits, now this where it gets interesting (and relevant to message deduplication): JetStream also allows you to place a stream limit on the _exact_ maximum number of messages per subject that can be stored in the stream at any given time.
+So far so good on the basic limits, but now this is where it gets interesting and relevant to message deduplication: JetStream also allows you to place a stream limit on the _exact_ maximum number of messages per subject that can be stored in the stream at any given time.
 
 ## How do you use it?
 
-The exact per subject limit enforcement when combined with the new ability to choose which discard policy you want to have applied to the per subject limit means you can have a limit of 'exactly 1' messages per subject, and know right away if your publication you break that limit. This enables many kind of distributed logic coordination use cases, including the ability to have the streaming equivalent of using an `insert` (vs an `update` or an `upsert`) on a table with a unique id constraint in SQL.
+The exact per subject limit enforcement when combined with the new ability to choose which discard policy you want to have applied to the per subject limit means you can have a limit of 'exactly 1' messages per subject, and know right away if your publication breaks that limit. This enables many kinds of distributed logic coordination use cases, including the ability to have the streaming equivalent of using an `insert` (vs an `update` or an `upsert`) on a table with a unique id constraint in SQL.
 
 ### Using Publish as an 'Upsert'
 When the stream's discard policy is `old`, and you also have a per subject limit of 1 (for example) then it means a new message being published on subject 'x' will always cause the automatic deletion of the message (if any) already stored in the stream with that subject.
@@ -80,7 +80,7 @@ This is because it is the behavior you want for one of the most basic and common
 
 However, and this is the new feature being introduced in 2.9, JetStream also allows you to create streams with the `new-per-subject` attribute which sets the _per subject_ discard policy to `new` when the stream's discard policy is also set to `new`.
 
-So for example if you have set the steam's max messages per subject limit to 1 and there is already a message stored in the stream with that subject then the JS publish call fails immediately, just like an `insert` fails if there's already a row for that key in a table with a unique id constraint in SQL.
+So for example if you have set the steam's max messages per subject limit to 1 and there is already a message stored in the stream with that subject then the JetStream publish call fails immediately, just like an `insert` fails if there's already a row for that key in a table with a unique id constraint in SQL.
 
 This in turns gives us infinite exactly-once publication quality of service, simply by including the unique id somewhere in the subject name.
 
@@ -89,23 +89,23 @@ This in turns gives us infinite exactly-once publication quality of service, sim
 While it is outside the subject of this blog, I still want to mention that JetStream also has a 'compare and set' functionality (using the `nats.ExpectLastSequence()` publish option) which can be used to implement an equivalent to `update` in SQL.
 
 ## How does it work?
-The ability to strictly and consistently enforce this limit (a key attribute for our use case) is possible because a fundamental differences between JetStream and distributed log streaming systems: JetStream is 'subject-based addressing aware', it allows you to capture messages on multiple subjects into a single stream, rather than having a hard equivalency of exactly one topic per stream. Of course Kafka and other streaming systems also allow the publishing application to provide a 'key' field along with the message being published to a topic, but the key really meant to be only used for distribution (partitioning) purposes. But that is not the same thing as having the key(s) in the subject and then being able to use subject-based server-side (indexed) filtering consumers of the messages in a stream
+The ability to strictly and consistently enforce this limit (a key attribute for our use case) is possible because of a fundamental difference between JetStream and distributed log streaming systems: JetStream is 'subject-based addressing aware', it allows you to capture messages on multiple subjects into a single stream, rather than having a hard equivalency of exactly one topic per stream. Of course Kafka and other streaming systems also allow the publishing application to provide a 'key' field along with the message being published to a topic, but the key is really meant to be only used for distribution (partitioning) purposes. But that is not the same thing as having the key(s) in the subject and then being able to use subject-based server-side (indexed) filtering consumers of the messages in a stream.
 
 ### Doesn't Kafka do this also?
-And indeed, if you know your Kafka, this may look to you just like the 'keep at least one message per key' log compaction feature, but there is a big difference: JS is 'exactly *n*' maximum number of messages per subject while log compaction only ensures that you will have 'at least 1' message per key.
+And indeed, if you know your Kafka, this may look to you just like the 'keep at least one message per key' log compaction feature, but there is a big difference: JetStream is 'exactly *n*' maximum number of messages per subject while log compaction only ensures that you will have 'at least 1' message per key.
 
-Besides the potential inefficiency (i.e. having to scan the whole to be sure to get the latest message for a specific key in the last message cache) you will not be able to use a distributed log streaming to enforce a strict per key limit, and to signal the client application publishing a message immediately when the publication would break the limit. This why there is no concept of a `new` discard policy in distributed log streaming systems, they are designed and designed and meant for always accepting new messages or block until they can.
+Besides the potential inefficiency (i.e. having to scan the whole to be sure to get the latest message for a specific key in the last message cache) you will not be able to use a distributed log streaming to enforce a strict per key limit, and to signal the client application publishing a message immediately when the publication would break the limit. This is why there is no concept of a `new` discard policy in distributed log streaming systems, they are designed and designed and meant for always accepting new messages or block until they can.
 
 ## How do I play with it?
-Congratulations, you have now reached the practical exercise walk through part of this blog and test this for yourself using the `nats` CLI tool!
+Congratulations, you have now reached the practical exercise walk through part of this blog and you can test this for yourself using the `nats` CLI tool!
 
-Pre-requisite is access to a JS-enabled NATS service infrastructure (e.g. running `nats-server -js` locally) and having the `nats` CLI context pointing to it.
+Prerequisite is access to a JetStream-enabled NATS service infrastructure (e.g. running `nats-server -js` locally) and having the `nats` CLI context pointing to it.
 
 First let's create the stream:
 ```
 nats stream add dedup --discard-per-subject
 ```
-Apecify a subject filter of your choice, it needs to have at least one `*` (or a `>`) wildcard for the subject token(s) where the unique id is located. In this example `foo.*`.
+Specify a subject filter of your choice, it needs to have at least one `*` (or a `>`) wildcard for the subject token(s) where the unique id is located. In this example `foo.*`.
 
 You can select what you want for the other parameters, or just hit return to use the defaults, as long as you set the "Per subject Messages Limit" to `1`, and the stream's discard policy to `new` (as this new discard per subject is not relevant to the `old` stream discard policy).
 ```
@@ -208,7 +208,7 @@ Which works:
 
 To resume: the newly introduced discard policy `new` for per subject limit now enables the ability to have an 'infinite deduplication window' to avoid duplicated publications that can otherwise happen to some failure scenarios.
 
-This new functionality is specific to JetStream due to its fundamental design differences compared to other stream processing systems: it is subject based addressing capable and is a proper data store (rather than an append-only log with compaction). The functionality is built-in to NATS server itself rather than something that you have to implement and deploy using something additional (e.g. Kafka Streams processes) and requiring an external data store (e.g. Redis). 
+This new functionality is specific to JetStream due to its fundamental design differences compared to other stream processing systems: it is subject based addressing capable and is a proper data store (rather than an append-only log with compaction). The functionality is built-in to NATS server itself rather than something you have to implement and deploy using something additional (e.g. Kafka Streams processes) and requiring an external data store (e.g. Redis). 
 
 Ensuring message deduplication is also not the only use for this new feature: it can effectively be used for any kind of (optimistic) distributed processing concurrency access control (e.g. forms of locks, semaphores, logic gating, etc...), and you can combine it with message TTL to automatically clear the lock after some time. Other use cases include:
 - n Workers need to perform an action at most once/twice/thrice per period
