@@ -2,7 +2,7 @@
 categories = ["Engineering", "General"]
 date = "2022-11-14"
 tags = ["NATS", "JetStream", "exactly-once", "Stream processing", "deduplication","Kafka","Pulsar"]
-title = "Infinite message deduplication using the new 'new per subject' discard policy"
+title = "Infinite message deduplication in JetStream"
 author = "Jean-Noël Moyne"
 +++
 
