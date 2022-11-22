@@ -6,7 +6,8 @@ title = "Infinite message deduplication in JetStream"
 author = "Jean-Noël Moyne"
 +++
 
-One of the new features that was released with nats-server version 2.9 is the "new per subject discard policy". This blog post will describe this new feature as well as give a practical example of how it can be used to provide exactly-once message publication quality of service through 'infinite' deduplication that goes beyond what the existing deduplication window features of JetStream (and what other distributed Streaming system exposing a 'Write Ahead Log' (WAL) feature set, such as Kafka, Pulsar and others) can do.
+One feature, released in the [v2.9.0 NATS server
+]https://nats.io/blog/nats-server-29-release/), that flew under the radar was the new `DiscardNewPerSubject` option on a stream. This blog post will describe this new feature as well as give a practical example of how it can be used to provide exactly-once message publication quality of service (QoS) through *infinite* deduplication that goes beyond the existing time-based deduplication feature of JetStream as well as many other streaming systems, such as Kafka.
 
 In order to understand what this new feature is (bear with me here, as it introduces a subtle change in behavior) rather than just describe it, let me instead start by first describing one of the useful functionalities it now enables.
 
