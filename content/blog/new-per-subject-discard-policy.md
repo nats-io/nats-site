@@ -15,7 +15,7 @@ In order to understand what this new feature is (bear with me here, as it introd
 
 Starting at the highest level, as a developer we want a streaming service to be *perfect*. Perfection can mean many things, but it includes providing an 'exactly-once' quality of service such that, no matter what the failure scenario may be, the developer doesn't have to worry about handling and recovering from the failures that happen in production (i.e. services and application being restarted unexpectedly because of: crashes, upgrades, VM and containers being moved, etc...). 
 
-There are two parts to the exactly-once streaming QoS equation: 'publish exactly-once' which is done through server side message deduplication, and reliable consumption on the subscriber's side (a separate subject of its own) which is done through acknowledgements and re-deliveries. 
+There are two parts to the exactly-once streaming QoS equation: 'publish exactly-once' which is done through server side message deduplication, and reliable consumption on the subscriber's side (a separate subject of its own) which is done through acknowledgements, re-deliveries, and idempotent processing. 
 
 ## Why would you need it?
 
