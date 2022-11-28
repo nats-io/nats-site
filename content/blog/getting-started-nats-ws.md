@@ -7,11 +7,11 @@ categories = ["General"]
 tags = ["NATS", "WebSockets", "JavaScript", "SolidJS"]
 +++
 
-For those relatively new to NATS, it may come as a surprise that the server has [native support for WebSockets](https://docs.nats.io/running-a-nats-service/configuration/websocket)!
+For those relatively new to NATS, it may come as a surprise that the NATS server has [native support for WebSockets](https://docs.nats.io/running-a-nats-service/configuration/websocket)!
 
 What this means in practice, is that the NATS server binary is able to support direct WebSocket connections from the browser (or other clients) using it as a transport layer for the [NATS protocol](https://docs.nats.io/reference/reference-protocols/nats-protocol) rather than raw TCP packets. This is not only useful for building Web applications, but it can be useful in enterprises where only certain ports and protocols are allowed.
 
-In addition to server-side support, there is an official [nats.ws](https://github.com/nats-io/nats.ws) client library which builds upon the [nats.deno](https://github.com/nats-io/nats.deno) and swaps out the transport layer for WebSockets.
+In addition to server-side support, there is an official [nats.ws](https://github.com/nats-io/nats.ws) client library which builds upon the [nats.deno](https://github.com/nats-io/nats.deno) client library and swaps out the transport layer for WebSockets.
 
 ## Enabling WebSockets
 
@@ -21,7 +21,7 @@ The minimum requirement is to declare the `websockets` block in the server confi
 websockets: {}
 ```
 
-Yes, that is really it. However, there are are a handful of [configuration options](https://docs.nats.io/running-a-nats-service/configuration/websocket/websocket_conf) you will want to review if you are hosting the servers yourself. For example, by default it assumes TLS is required and attempts to bind on port 443.
+Yes, that is really it. However, there are a handful of [configuration options](https://docs.nats.io/running-a-nats-service/configuration/websocket/websocket_conf) you will want to review if you are hosting the servers yourself. For example, by default it assumes TLS is required and attempts to bind on port 443.
 
 For this post, we will be using the convenient NATS demo server which exposes the WebSocket interface over port `8443`.
 
@@ -34,15 +34,15 @@ $ nats -s wss://demo.nats.io:8443 req 'greet.sue' ''
 Hello, pam
 ```
 
-Although that is nice the NATS CLI natively supports testing out the WebSocket interface, the purpose of this blog post is to showcase how straightforward it is to get started with using NATS **in the browser**.
+Although it's nice the NATS CLI natively supports testing out the WebSocket interface, the purpose of this blog post is to showcase how straightforward it is to get started with using NATS **in the browser**.
 
 ## No frameworks, no build tools
 
-The first point to highlight, which is a core principle held by the contributors of NATS, including the server and official client libraries, is *simplicity*. Simple is hard, and the contributors strive to make everything with NATS as simple as possible.
+The first point to highlight, which is a core principle held by the maintainers of NATS, including the server and official client libraries, is *simplicity*. Simple is hard, and the maintainers strive to make everything with NATS as simple as possible.
 
 In this case, we can see that enabling WebSocket support on the server is a matter of declaring a server configuration block. For nats.ws itself, it comes in the form of only **two** transitive dependencies for the library (`node_modules` memes do not apply here 😄).
 
-The other form of simpicity is trying it out without any additional steps. Here is a full working example that can be pasted into an HTML file and open locally within your browser. The output is written to the browser's console. No frameworks or build tools required.
+Another example of NATS simpicity is being able to try it without any additional steps. Here is a full working example that can be pasted into an HTML file and opened locally within your browser. The output is written to the browser's console. No frameworks or build tools required.
 
 ```html
 <!doctype html>
@@ -57,8 +57,8 @@ The other form of simpicity is trying it out without any additional steps. Here 
       } from "https://cdn.jsdelivr.net/npm/nats.ws@1.10.0/esm/nats.js";
 
       // Initialize a string codec for encoding and decoding message data.
-      // This is because NATS message data are just byte arrays, so proper
-      // encoding and decoding needs to be performed when using the working
+      // This is needed because NATS message data is just byte arrays, so proper
+      // encoding and decoding needs to be performed when using and working
       // with the message data.
       // See also JSONCodec.
       const sc = new StringCodec();
@@ -83,7 +83,7 @@ The other form of simpicity is trying it out without any additional steps. Here 
         for await (const msg of sub) handle(msg)
       })();
 
-      // Now we can send a couple requests to that subject. Note how we
+      // Now we can send a couple of requests to that subject. Note how we
       // are encoding the string data on request and decoding the reply
       // message data.
       let rep = await nc.request("echo", sc.encode("Hello!"));
@@ -110,7 +110,7 @@ Arguably, the most pervasive component library used today is [ReactJS](https://r
 
 If you have not heard about SolidJS, but are familiar with React, I suggest you [watch this progressive introduction](https://www.youtube.com/watch?v=O6xtMrDEhcE) at React Finland (yes, at a React conference) by the creator [Ryan Carniato](https://twitter.com/RyanCarniato).
 
-The two examples below assume a top-level `App` component that establish a single NATS connection over WebSockets and treat it as a _state_ value so it can be passed down through props and properly signal a re-render when first established or the connection value changes.
+The two examples below assume a top-level `App` component that establishes a single NATS connection over WebSockets and treats it as a _state_ value so it can be passed down through props and properly signal a re-render when first established or the connection value changes.
 
 ### ReactJS
 
