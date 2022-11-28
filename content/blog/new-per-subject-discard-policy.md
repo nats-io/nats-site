@@ -86,7 +86,7 @@ This in turns gives us infinite exactly-once publication quality of service, sim
 
 ### Using Publish as an 'Update'
 
-While it is outside of the scope of this blog, for completeness, it is worth mentioning that JetStream can acheive a *compare-and-append* behavior (using the `Nats-Expected-Last-Subject-Sequence` message header) which can be used to implement an equivalent to `update` in SQL.
+While it is outside of the scope of this blog, for completeness, it is worth mentioning that JetStream can achieve a *compare-and-append* behavior (using the `Nats-Expected-Last-Subject-Sequence` message header) which can be used to implement an equivalent to `update` in SQL.
 
 ## How does it work?
 
@@ -209,7 +209,7 @@ Which works:
 
 To review, the new discard policy *discard-new-per-subject* enables the ability to have an 'infinite deduplication window' to avoid duplicated publications that can otherwise happen to some failure scenarios.
 
-This new ability is specific to JetStream due to its fundamental functional differences compared to other distributed streaming systems: it is subject-based addressing capable and has the features of a proper data store (rather than the features of an append-only log with compaction). The functionality is built-in to NATS server itself rather than something you have to implement and deploy separately (e.g. Kafka Streams processes) and requires an external data store (e.g. Redis). 
+This new ability is specific to JetStream due to its fundamental functional differences compared to other distributed streaming systems: it is subject-based addressing capable and has the features of a proper data store (rather than just the features of an append-only log with compaction). The functionality is built-in to NATS server itself rather than something you have to implement and deploy separately (e.g. Kafka Streams processes) and requires an external data store (e.g. Redis). 
 
 Ensuring message deduplication is also not the only use for this new feature: it can effectively be used for any kind of (optimistic) distributed processing concurrency access control (e.g. forms of locks, semaphores, logic gating, etc...), and you can combine it with message TTL to automatically clear the lock after some time. Other use cases include:
 
