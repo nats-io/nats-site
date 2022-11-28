@@ -9,7 +9,7 @@ tags = ["NATS", "WebSockets", "JavaScript", "SolidJS"]
 
 For those relatively new to NATS, it may come as a surprise that the NATS server has [native support for WebSockets](https://docs.nats.io/running-a-nats-service/configuration/websocket)!
 
-What this means in practice, is that the NATS server binary is able to support direct WebSocket connections from the browser (or other clients) using it as a transport layer for the [NATS protocol](https://docs.nats.io/reference/reference-protocols/nats-protocol) rather than raw TCP packets. This is not only useful for building Web applications, but it can be useful in enterprises where only certain ports and protocols are allowed.
+What this means in practice, is that the NATS server binary is able to support direct WebSocket connections from the browser (or other clients) using it as a transport layer for the [NATS protocol](https://docs.nats.io/reference/reference-protocols/nats-protocol) rather than raw TCP packets.
 
 In addition to server-side support, there is an official [nats.ws](https://github.com/nats-io/nats.ws) client library which builds upon the [nats.deno](https://github.com/nats-io/nats.deno) client library and swaps out the transport layer for WebSockets.
 
@@ -156,10 +156,9 @@ export default function Home() {
 
   return (
     <>
-      {nats && (
+      {nats ? (
         <h1>Connected to {nats?.getServer()}</h1>
-      )}
-      {!nats && (
+      ) : (
         <h1>Connecting to NATS...</h1>
       )}
     </>
@@ -208,14 +207,33 @@ export default function App() {
 
   return (
     <>
-      {nats() && (
+      {nats() ? (
         <h1>Connected to {nats()?.getServer()}</h1>
-      )}
-
-      {!nats() && (
+      ) : (
         <h1>Connecting to NATS...</h1>
       )}
     </>
   )
 };
 ```
+
+## Final thoughts
+
+Although this was (hopefully) a straightforward getting started guide, one lingering question you may have is **why**? Why *does* the NATS server support WebSockets?
+
+There are two primary reasons:
+
+- It provides a native way for in-browser Web applications to connect to NATS
+- It can act as an alternate transport for leaf node connections\*
+
+> \*Although the second point is outside of the scope of this post, the takeaway is that some environments (many enterprises) only allow certain ports and protocols to be used across network interfaces.)
+
+NATS is often not thought about as a Web-friendly protocol, however using WebSockets as the transport, NATS extends it **connectivity** to Web applications that want to leverage the M:N messaging and JetStream APIs natively from the browser.
+
+It is also important to note that leveraging nats.ws (or WebSockets in general) is not an either-or decision with using HTTP. Indeed it is the protocol of the Web and was specifically designed for serving up hypermedia. However, given that many Web applications today use JSON over HTTP in an asynchronous manner, arguably, this is a different class of interaction. For these kinds of interactions, applications could benefit from a technology that was originally designed for asynchronous messaging (among many other capabilities).
+
+## About the author
+
+[Byron Ruth](https://twitter.com/thedevel) is the Director of Developer Relations at [Synadia](https://synadia.com).
+
+Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).
