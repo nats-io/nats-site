@@ -352,6 +352,13 @@
       date: '2019-06-09'
 - language: Rust
   clients:
+  - org: "nats-io"
+    repo: "nats.rs"
+    supported: true
+    author:
+      name: "NATS Authors"
+      link: "https://nats.io"
+    link: "https://github.com/nats-io"
   - org: davidmcneil
     repo: rants
     supported: false
