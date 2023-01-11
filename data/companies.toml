@@ -263,3 +263,7 @@ name = "Aurora"
 home = "https://aurora.dev/"
 logo = "aurora-horiz.png"
 
+[companies.wundergraph]
+name = "WunderGraph"
+home = "https://wundergraph.com/"
+logo = "wundergraph.png"
