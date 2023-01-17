@@ -58,3 +58,8 @@ logo = "cosmonic.png"
 name = "wasmCloud"
 home = "https://wasmCloud.com/"
 logo = "wasmcloud.png"
+
+[partners.harperdb]
+name = "HarperDB"
+home = "https://harperdb.io/"
+logo = "harperdb.png"
