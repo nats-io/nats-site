@@ -30,11 +30,6 @@ The best way to get started contributing to NATS is to read our [Contributor's G
 Please [contact us](mailto:info@nats.io) with any other suggestions.
 {{< /column >}}
 {{< column >}}
-## NATS Newsletter
-
-Stay up to date with the latest information on NATS.
-
-{{< buttons/sign-up >}}
 
 ## Branding
 
@@ -43,8 +38,18 @@ NATS is an open source project hosted by the CNCF. All colors, logos, and styles
 * [NATS Logo Colors and Images](https://cncf-branding.netlify.app/projects/nats/)
 * [CNCF Style Guide](https://branding.cncf.io/style-guide)
 
+## NATS Newsletter
+
+Stay up to date with the latest information on NATS.
+
+
+{{< newsletter >}}
+
+
 {{< /column >}}
 {{< column >}}
+
+
 ## Coming Events
 
 Join us at our upcoming events and talks. Have a suggested event or want us to join yours? Let us know [info@nats.io](mailto:info@nats.io).
