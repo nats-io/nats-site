@@ -50,4 +50,4 @@ If you're interested in helping us solve some of the challenges ahead, feel free
 
 ## About the Author
 
-Dustin Deus is Co-Founder & Tech-Lead working at [WunderGraph](https://wundergraph.com/). He is passioned about web, distributed systems and infrastructure. He is also a Open Source enthusiast and loves to share his knowledge with the community. You can find him on [Twitter](https://twitter.com/dustindeus) or [Github](https://github.com/StarpTech).
+Dustin Deus is Co-Founder & Tech-Lead working at [WunderGraph](https://wundergraph.com/). He is passioned about web, distributed systems and infrastructure. He is also a Open Source enthusiast and loves to share his knowledge with the community. You can find him on [Twitter](https://twitter.com/dustindeus) or [GitHub](https://github.com/StarpTech).
