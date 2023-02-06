@@ -33,7 +33,7 @@ Say "Hi" to "Heimdall". It's our custom edge proxy deployed to all our point-of-
 When a new app is provisioned on WunderGraph Cloud, we need a reliable way to store the host->IP mapping and propagate the change to all global Heimdall instances. After experimenting with different solutions, we used [NATS JetStream](https://docs.nats.io/nats-concepts/jetstream) as our distributed Key/Value store.
 
 It's a perfect fit for our use case. The Key/value store is consistent, highly available, and horizontally scalable. In addition, JetStream allows us to watch changes, so a Heimdall instance can be notified about a change and update its routing table. After a restart, it will load the latest state from JetStream into its memory. In practice, we distribute updates in less than a second across the globe.
-	 
+
 Besides the functionality, we also enjoy the quality of the NATS ecosystem. The Golang client is actively maintained, and the interface is [well-designed](https://twitter.com/dustindeus/status/1613203957857361920).
 
 Therefore, JetStream is also an excellent fit for the rest of our architecture. We want to use JetStream for more than just storing the routing table. NATS & JetStream will be the backbone of a few other services we plan to offer.
@@ -50,3 +50,4 @@ If you're interested in helping us solve some of the challenges ahead, feel free
 
 ## About the Author
 
+Dustin Deus is Co-Founder & Tech-Lead working at [WunderGraph](https://wundergraph.com/). He is passioned about web, distributed systems and infrastructure. He is also a Open Source enthusiast and loves to share his knowledge with the community. You can find him on [Twitter](https://twitter.com/dustindeus) or [Github](https://github.com/StarpTech).
