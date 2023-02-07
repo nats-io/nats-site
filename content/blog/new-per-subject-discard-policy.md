@@ -70,7 +70,7 @@ The per-subject limit combined with the choice of discard policy applied at the 
 
 When the stream's discard policy is `old`, and you also have a per-subject limit of one, then it means a new message being published on subject `x` will always cause the automatic deletion of the message (if any) already stored in the stream with subject `x`.
 
-When the stream's discard policy is `new`, and you also have a per-subject limit of one, then by default a new message on subject `x` will cause the automatic deletion of the message already stored in the stream for that subject. This is true even if the stream, as a whole, is at its stream limit. However, if a message is received on a new subject, it will be rejected with "maximum messages exceeded" it is not, effectively, replacing an existing message.
+When the stream's discard policy is `new`, and you also have a per-subject limit of one, then by default a new message on subject `x` will cause the automatic deletion of the message already stored in the stream for that subject. This is true even if the stream, as a whole, is at its stream limit. However, if the stream is at limit, a message received on a new subject will be rejected with "maximum messages exceeded".
 
 With this behavior, one could say that the per-subject discard policy is _always_ `old`, regardless of the stream's discard policy being `new` or `old`. 
 
