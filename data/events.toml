@@ -1,11 +1,20 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon NA"
-when = "Thursday October 27, 2022 2:30pm - 3:05pm EDT"
-who = "Tomasz Pietrek & Jeremy Saenz & Todd Beets, Synadia"
-what = "Connect All the Things! Using NATS to Simplify Communication Everywhere"
-link = "https://sched.co/182OD"
-where = "Detroit, Michigan"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america"
+venue = "KubeCon + CloudNativeCon EU - ContribFest"
+when = "Wednesday, April 19, 2023 11:00 - 12:30"
+who = "Waldemar Quevedo & Piotr Piotrowski, Synadia"
+what = "Help design and build the future of the NATS Go client!"
+link = "https://sched.co/1HzcQ"
+where = "Amsterdam, The Netherlands"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon EU"
+when = "Friday April 21, 2023 11:55 - 12:30"
+who = "Tomasz Pietrek & David Gee, Synadia"
+what = "Painless Multi-Cloud to the Edge Powered by NATS & Kubernetes"
+link = "https://sched.co/1HyUn"
+where = "Amsterdam, The Netherlands"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 # comment out to save
 #[[events]]
