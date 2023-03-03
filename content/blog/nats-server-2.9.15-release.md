@@ -66,7 +66,7 @@ Although this context is useful, that is not what we are talking about here 😅
 
 The primary culprit was `NumPending` which indicates the number of messages in the stream available to be processed. This was being accessed constantly in various monitoring environments as well as being a pattern in application code for checking how far behind a given consumer is.
 
-The previous design of this `NumPending` calculation was fairly expensive. With application code and monitoring infrastrature attempting to get the latest count every few seconds (for 100s or 1000s of consumers) resulted a lot of overhead and consumer requests timing out.
+The previous design of this `NumPending` calculation was fairly expensive. With application code and monitoring infrastructure attempting to get the latest count every few seconds (for 100s or 1000s of consumers) resulted a lot of overhead and consumer requests timing out.
 
 This release brings changes that optimize this calculation both in terms of *when* and *how* the count is calculated. In addition, other general optimizations around aggregating the consumer state have been made.
 
