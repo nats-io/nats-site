@@ -60,7 +60,7 @@ A lot of fixes and improvements have been made to managing consumer lifecycle (t
 
 ## 🐢 "Slow consumers"
 
-The term "slow consumer" actually [means something](https://docs.nats.io/running-a-nats-service/nats_admin/slow_consumers) concrete in the NATS parlance. However, it pre-dates JetStream and does not actually indicate there is an issue with a [Consumer](https://docs.nats.io/nats-concepts/jetstream/consumers). It refers to a client connection with a subscription that can't keep up with messages being _pushed_ to it. Essentially the subscription buffer is full and the client it yelling at the server "I can't handle any more!". At this point, the subscription is marked as a slow consumer.
+The term "slow consumer" actually [means something](https://docs.nats.io/running-a-nats-service/nats_admin/slow_consumers) concrete in the NATS parlance. However, it pre-dates JetStream and does not actually indicate there is an issue with a [Consumer](https://docs.nats.io/nats-concepts/jetstream/consumers). It refers to a client connection with a subscription that can't keep up with messages being _pushed_ to it. Essentially the subscription buffer is full and the client is yelling at the server "I can't handle any more!". At this point, the subscription is marked as a slow consumer.
 
 Although this context is useful, that is not what we are talking about here 😅. In this case, we literally mean the JetStream consumer is responding slowly to requests about it's state.
 
