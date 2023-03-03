@@ -15,7 +15,7 @@ What does a patch release mean to NATS? And what are these new quality engineeri
 
 At the beginning of 2023, the NATS maintainers drafted an end-to-end “release management” document which includes the policies and procedures used for each NATS server release, everything from initial scoping to communication of the release itself.
 
-This effort was driven largely by acknowledging the ever-increasing number of critical, high-scale production NATS deployments companies rely on.
+This effort was driven largely by acknowledging the ever-increasing number of critical, high-scale production NATS deployments our end-users rely on.
 
 For how basic it may sound, one such policy is adherence to the SemVer semantics and explicitly defining what a patch, minor, and major release means for NATS.
 
@@ -48,7 +48,7 @@ There were a handful of inbound issues where consumers were being "cleaned up" w
 
 The two root causes were over-active timers for tracking activity thresholds and improperly propagating errors to the JetStream "meta-layer" which handles the lifecycle of streams and consumers.
 
-The *ghost factor* comes from the fact that not all replicas would report the existence or deletion of a given consumer. NATS CLI consumer reports may list a consumer, but the consumer info would be fail to report.
+The *ghost factor* comes from the fact that not all replicas would report the existence or deletion of a given consumer. NATS CLI consumer reports may list a consumer, but the consumer info would fail to report.
 
 A lot of fixes and improvements have been made to managing consumer lifecycle (this section) and accessing their state (see the section below 👇)!
 
@@ -60,7 +60,7 @@ A lot of fixes and improvements have been made to managing consumer lifecycle (t
 
 ## 🐢 "Slow consumers"
 
-The term "slow consumer" actually [means something](https://docs.nats.io/running-a-nats-service/nats_admin/slow_consumers) concretely in the NATS parlance. However, it pre-dates JetStream and does not actually indicate there is an issue with a [Consumer](https://docs.nats.io/nats-concepts/jetstream/consumers). It refers to a client connection with a subscription that can't keep up with messages being _pushed_ to it. Essentially the subscription buffer is full and the client it yelling at the server "I can't handle any more!". At this point, the subscription is marked as a slow consumer.
+The term "slow consumer" actually [means something](https://docs.nats.io/running-a-nats-service/nats_admin/slow_consumers) concrete in the NATS parlance. However, it pre-dates JetStream and does not actually indicate there is an issue with a [Consumer](https://docs.nats.io/nats-concepts/jetstream/consumers). It refers to a client connection with a subscription that can't keep up with messages being _pushed_ to it. Essentially the subscription buffer is full and the client is yelling at the server "I can't handle any more!". At this point, the subscription is marked as a slow consumer.
 
 Although this context is useful, that is not what we are talking about here 😅. In this case, we literally mean the JetStream consumer is responding slowly to requests about it's state.
 
@@ -83,7 +83,7 @@ A bug in how pull consumer state was being managed resulted in not properly trac
 
 The root cause was that the snapshot and compact processes of pull consumer state was triggered as part of the corresponding stream processes. Of course, this would be problematic if the stream is idle!
 
-The fix now decouples these processes so pull consumers will properly snapshot and compact even if there is no new messages in the stream.
+The fix now decouples these processes so pull consumers will properly snapshot and compact even if there are no new messages in the stream.
 
 **Relevant PRs**
 
@@ -93,7 +93,7 @@ The fix now decouples these processes so pull consumers will properly snapshot a
 
 Distributed systems are hard, even in the "happy path". However, the real challenge is dealing with abrupt server failures and data corruption. This release brings a plethora of fixes and optimizations for recovering Raft state when these non-ideal failures occur.
 
-This set of fixes are a bit more in the weeds, however, the overarching focus was in more explicit management of state when failures do occur as well as improvements in the Raft implementation to recover a quorum more quickly.
+This set of fixes is a bit more in the weeds, however, the overarching focus was in more explicit management of state when failures do occur as well as improvements in the Raft implementation to recover a quorum more quickly.
 
 **Relevant PRs**
 
@@ -123,7 +123,7 @@ That said, if your environment has 10Gbit+ links and/or have not observed “slo
 
 ## Conclusion
 
-The NATS team has been put a tremendous amount of effort and care into this release, following our new quality engineering practices. Even if you are not observing any of the stability issues noted above, there have been many other improvements and optimizations that you will benefit from.
+The NATS team has put a tremendous amount of effort and care into this release, following our new quality engineering practices. Even if you are not observing any of the stability issues noted above, there have been many other improvements and optimizations that you will benefit from.
 
 As always, refer to the [download page](https://nats.io/download/) for direct links to the GitHub release page and the official Docker image.
 
