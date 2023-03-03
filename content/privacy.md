@@ -1,5 +1,5 @@
 +++
-date = "2022-11-01"
+date = "2023-03-01"
 type = "privacy"
 cssid = "privacy"
 title = "Privacy"
@@ -8,11 +8,13 @@ title = "Privacy"
 
 ## NATS Privacy Policy and Cookie Usage
 
-Effective Date: **November 01, 2022**
+Effective Date: **March 01, 2023**
 
-We are committed to safeguarding the privacy of our website visitors. In this policy we will explain how we treat your personal information.
+We are committed to safeguarding the privacy of our website visitors. We want to process as little personal information as possible when you use our website. 
 
-We want to process as little personal information as possible when you use our website. That's why we've chosen Fathom Analytics for our website analytics, which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. Using this privacy-friendly website analytics software, your IP address is only briefly processed, and we (running this website) have no way of identifying you. As per the CCPA, your personal information is de-identified. You can read more about this on <a href="https://usefathom.com/" target="_blank">Fathom Analytics' website</a>.
+Analytics is used to track consumers of our site and improve its content. The analytics enables us to measure traffic and engagement across our websites. Our website includes hyperlinks to, and details of, third party websites. We have no control over, and are not responsible for, the privacy practices of third parties.
+
+We do not supply your personal information to third parties. Using this privacy-friendly website analytics software, your IP address is only briefly processed, and we (running this website) have no way of identifying you. As per the CCPA, any personal information is de-identified.
 
 The purpose of us using this software is to understand our website traffic in the most privacy-friendly way possible so that we can continually improve our website and business. The lawful basis as per the GDPR is "Article 6(1)(f); where our legitimate interests are to improve our website and business continually." As per the explanation, no personal data is stored over time.
 
