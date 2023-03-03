@@ -7,13 +7,13 @@ categories = ["Engineering"]
 tags = ["NATS", "Testing", "Quality"]
 +++
 
-Normally, the NATS maintainers do not publish a dedicated announcement for a patch release, but the [2.9.15 release](https://github.com/nats-io/nats-server/releases/tag/v2.9.15) of the NATS server has several significant stability and performance improvements worth highlighting, all driven by our new quality engineering process.
-
-## Release management
+Normally, the NATS maintainers do not publish a dedicated announcement for a patch release, but the [2.9.15 release](https://github.com/nats-io/nats-server/releases/tag/v2.9.15) of the NATS server has several significant stability and performance improvements worth highlighting, all driven by our new quality engineering process! 🥳
 
 What does a patch release mean to NATS? And what are these new quality engineering processes?
 
-At the beginning of 2023, the NATS maintainers drafted an end-to-end “release management” document which includes the policies and procedures used for each NATS server release, everything from initial scoping to communication of the release.
+## Release management
+
+At the beginning of 2023, the NATS maintainers drafted an end-to-end “release management” document which includes the policies and procedures used for each NATS server release, everything from initial scoping to communication of the release itself.
 
 This effort was driven largely by acknowledging the ever-increasing number of critical, high-scale production NATS deployments companies rely on.
 
@@ -32,11 +32,11 @@ Quality engineering encompasses the spectrum of burn-in testing and quality assu
 
 To reiterate, this release is significant as it is the first patch release where many of these new techniques have been applied.
 
-## Get on with it
+## Get on with it!
 
 So what are all of these great changes??
 
-Historically we would point you to the [release notes on GitHub](https://github.com/nats-io/nats-server/releases/tag/v2.9.15), but going forward, as part of improving our “release communication,” we will focus on the observed behavior first and link them to the relevant code changes.
+Historically we would point you to the [release notes on GitHub](https://github.com/nats-io/nats-server/releases/tag/v2.9.15), but going forward, as part of improving our "release communication," we will focus on observed behaviors first and link them to the relevant code changes.
 
 ## 👻 Ghost consumers
 
