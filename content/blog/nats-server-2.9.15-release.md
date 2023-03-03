@@ -1,6 +1,6 @@
 +++
 date = "2023-03-03"
-draft = true
+draft = false
 title = "NATS Server 2.9.15 Release"
 author = "Byron Ruth"
 categories = ["Engineering"]
