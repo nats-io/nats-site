@@ -21,6 +21,19 @@ Includes:
 * 24/7/365 support and troubleshooting on your specific issues from the expert engineers who know NATS inside and out.
 * Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
 
+### [Luxant Solutions](https://luxantsolutions.com)
+
+NATS is the first choice that [Luxant Solutions](https://luxantsolutions.com) uses when enabling businesses to best leverage their distributed computing and communication technologies.  
+
+Services include:
+
+* Strategy and guidance around NATS enabled distributed applications, microservices, and devices
+* Architectural guidance and assessments
+* POCs / Benchmarks
+* Implementation or Advisory roles
+
+Whether your environment is cloud, edge, device, or on-premise, Luxant can help. Luxant Solutions is owned and operated by a NATS maintainer.
+
 ## Reporting bugs
 
 If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing).
