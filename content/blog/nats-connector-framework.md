@@ -21,7 +21,7 @@ For extensibility, the connector framework was designed with a plug-in architect
 
 
 ### Community
-With the plugin architecture of the ready-to-use framework, creating connectors is straightforward. We on the NATS team would love to see community users develop and share connectors. We'll gladly link to user contributions, and include these in the growing list of community developed NATS projects [here](https://nats.io/community).
+With the plugin architecture of the ready-to-use framework, creating connectors is straightforward. We on the NATS team would love to see community users develop and share connectors. We'll gladly link to user contributions, and include these in the growing list of community developed NATS projects [here](https://nats.io/download/#connectors-and-utilities).
 
 As the NATS Connector framework is open source, don't forget that **you have a say**.  Contact the NATS team with ideas, suggestions, or comments, and feel free to go ahead and submit pull requests.  Let us know of the connectors you build!  To coin a phrase, *"All of us are smarter than any of us"*.
 
@@ -44,11 +44,11 @@ This will show the new connector in action, generating and publishing NATS messa
 It takes just minutes to create a connector so the tutorial is short:
 
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/VTKODUoC12A" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Od1FgLlK-mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 # What's Next?
-The future is wide open, and we're planning on creating a number of connectors including RabbitMQ and Apache Kafka to name a few - if there is one you'd like to see or contribute, don't hesitate contact us or open an issue.  Visit our [Community](https://nats.io/community/) Page!
+The future is wide open, and we're planning on creating a number of connectors including RabbitMQ and Apache Kafka to name a few - if there is one you'd like to see or contribute, don't hesitate contact us or open an issue.  Visit our [Contribution](https://nats.io/contributing/) page for contribution instructions!
 
 If you'd like to look at a full featured connector, check out the [NATS Redis Publish/Subscribe Connector](https://github.com/nats-io/nats-connector-redis).
 
