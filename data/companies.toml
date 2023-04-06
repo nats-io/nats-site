@@ -267,3 +267,8 @@ logo = "aurora-horiz.png"
 name = "WunderGraph"
 home = "https://wundergraph.com/"
 logo = "wundergraph.png"
+
+[companies.tessell]
+name = "Tessell"
+home = "https://tessell.io/"
+logo = "tessell.png"
