@@ -1,7 +1,7 @@
 {{ $features := site.Params.features }}
 <section class="section is-light">
-  <div class="container">
-    <div class="columns is-multiline is-variable is-8">
+  <div class="container has-extra-top-margin has-extra-bottom-margin">
+    <div class="columns is-multiline is-variable is-6">
       {{ range $features }}
       <div class="column is-one-third">
         {{ partial "home/feature.html" . }}
