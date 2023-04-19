@@ -99,12 +99,12 @@ icon = "compress-arrows-alt"
 
 [[languages.en.params.features]]
 title = "Microservices"
-description = "Services can live anywhere and are easily discoverable. Decentralized, zerotrust security"
+description = "Services can live anywhere and are easily discoverable - decentralized, zerotrust security"
 icon = "cubes"
 
 [[languages.en.params.features]]
 title = "Multi-cloud to Edge"
-description = "Connect all your applications and data. In the cloud, on premise, and at the edge."
+description = "Connect all your applications and data - in the cloud, on premise, and at the edge"
 icon = "users-cog"
 
 [[menu.main]]
