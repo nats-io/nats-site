@@ -17,7 +17,7 @@ category = "categories"
 [params]
 tagline = "Cloud Native, Open Source, High-performance Messaging"
 favicon = "favicon.ico"
-font_awesome_version = "5.12.0"
+font_awesome_version = "6.4.0"
 leftNav = false
 description = "NATS is a connective technology powering modern distributed systems, unifying Cloud, On-Premise, Edge, and IoT."
 author = "The NATS Team"
@@ -93,25 +93,19 @@ type = "monospace"
 
 # Features
 [[languages.en.params.features]]
-title = "Agile"
-description = "With flexible deployments models using clusters, superclusters, and leaf nodes, optimize communications for your unique deployment.  The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs to connect devices, edge, cloud or hybrid deployments."
-icon = "arrows-alt"
+title = "Single Platform"
+description = "Streaming, Key-Value, Object store, PubSub"
+icon = "compress-arrows-alt"
 
 [[languages.en.params.features]]
-title = "Secure"
-description = "With true multi-tenancy, securely isolate and share your data to fully meet your business needs, mitigating risk and achieving faster time to value. Security is bifurcated from topology, so you can connect anywhere in a deployment and NATS will do the right thing."
-icon = "shield-alt"
+title = "Microservices"
+description = "Services can live anywhere and are easily discoverable. Decentralized, zerotrust security"
+icon = "cubes"
 
 [[languages.en.params.features]]
-title = "Performant"
-description = "With the ability to process millions of messages a second per server, you’ll find unparalleled efficiency with NATS.  Save money by minimizing cloud costs with reduced compute and network usage for streams, services, and eventing."
-icon = "tachometer-alt"
-
-[[languages.en.params.features]]
-title = "Resilient"
-description = "NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system.  Clients require zero awareness of NATS topology allowing you future proof your system to meet your needs of today and tomorrow."
-icon = "star-of-life"
-
+title = "Multi-cloud to Edge"
+description = "Connect all your applications and data. In the cloud, on premise, and at the edge."
+icon = "users-cog"
 
 [[menu.main]]
 name = "About"
