@@ -9,7 +9,7 @@ You can ask questions in our community forums in <a href="https://slack.nats.io"
 
 ## Commercial Support and Services
 
-<br><a href="https://synadia.com"><img class="is-support-logo" src="/img/synadia.png" ></a>
+### [Synadia](https://synadia.com)
 
 One of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
 
@@ -22,7 +22,7 @@ Includes:
 * Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
 <br><br>
 
-<a href="https://luxantsolutions.com"><img class="is-support-logo" src="/img/luxant.png"></a>
+### [Luxant Solutions](https://luxantsolutions.com)
 
 NATS is the first choice that [Luxant Solutions](https://luxantsolutions.com) uses when enabling businesses to best leverage their distributed computing and communication technologies.  
 
