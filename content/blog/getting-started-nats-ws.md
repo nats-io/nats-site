@@ -15,10 +15,10 @@ In addition to server-side support, there is an official [nats.ws](https://githu
 
 ## Enabling WebSockets
 
-The minimum requirement is to declare the `websockets` block in the server config.
+The minimum requirement is to declare the `websocket` block in the server config.
 
 ```
-websockets: {}
+websocket: {}
 ```
 
 Yes, that is really it. However, there are a handful of [configuration options](https://docs.nats.io/running-a-nats-service/configuration/websocket/websocket_conf) you will want to review if you are hosting the servers yourself. For example, by default it assumes TLS is required and attempts to bind on port 443.
