@@ -1,12 +1,22 @@
 {{ $features := site.Params.features }}
 <section class="section is-light">
-  <div class="container">
-    <div class="columns is-multiline is-variable is-8">
+  <div class="container has-extra-top-margin has-extra-bottom-margin">
+    <div class="columns is-multiline is-variable is-6">
       {{ range $features }}
-      <div class="column is-half">
+      <div class="column is-centered is-one-third">
         {{ partial "home/feature.html" . }}
       </div>
       {{ end }}
     </div>
+    <div class="columns is-centered has-extra-top-margin">
+      <a class="button is-normal is-primary has-text-weight-bold" href="/support">
+      <span class="icon">
+          <i class="far fa-comments"></i>
+        </span>
+      <span>
+          Talk with an Expert
+        </span>
+      </a>
+      </div>
   </div>
 </section>
