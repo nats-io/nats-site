@@ -36,7 +36,7 @@ Please [contact us](mailto:info@nats.io) with any other suggestions.
 NATS is an open source project hosted by the CNCF. All colors, logos, and styles should be used as governed by the Linux Foundation/CNCF.
 
 * [NATS Logo Colors and Images](https://cncf-branding.netlify.app/projects/nats/)
-* [CNCF Style Guide](https://branding.cncf.io/style-guide)
+* [CNCF Style Guide](https://github.com/cncf/artwork#cncf-brand-guidelines)
 
 ## NATS Newsletter
 
