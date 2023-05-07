@@ -18,7 +18,7 @@ NATS is unique in its simplicity and performance, and as a result powers some of
 
 ## Roadmap
 
-The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are serveral sources of input for this decision making:
+The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
 
 - Community, driven by GitHub and Slack interest and discussions
 - Customers, solicited from [Synadia's](https://synadia.com) customer use cases
