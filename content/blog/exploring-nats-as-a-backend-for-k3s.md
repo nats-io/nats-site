@@ -31,13 +31,15 @@ What does using NATS give you out of the box?
 
 During RethinkConn 2022, [Caleb Lloyd][caleb] presented [Using NATS JetStream as a KINE backend for k3s][rethinkconn] where he demonstrated the ability to deploy multiple k3s clusters in different regions all connected to a global, multi-cloud deployment of NATS (in this case [Synadia's NGS][ngs]).
 
+![k3s with NATS](/img/k3s-nats.png)
+
 The main takeaways include:
 
 - The ability to deploy multiple k3s clusters, each having their own isolated [account][accounts] and KV bucket to store cluster state on a shared NATS system.
 - The ability for _applications running in k3s_ to leverage the same NATS system for their workloads (within their own accounts).
 - The ability to create cross-region mirrors of the KV buckets for straightforward backup/restore disaster recovery scenarios.
 
-Given this is one NATS system, an operator gets end-to-end visibility and management of all of these assets out-of-the-box.
+Given this is one NATS system, an operator gets end-to-end visibility and management of all of these assets out-of-the-box. Check out the [k3s-on-nats demo repo][demo] to try it out youself.
 
 [k3s]: https://k3s.io
 [kine]: https://github.com/k3s-io/kine
@@ -50,6 +52,7 @@ Given this is one NATS system, an operator gets end-to-end visibility and manage
 [rethinkconn]: https://www.youtube.com/watch?v=CetW4eGkyS0
 [ngs]: https://synadia.com/ngs
 [accounts]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/accounts
+[demo]: https://github.com/ConnectEverything/k3s-on-nats
 
 ## Embedded NATS
 
