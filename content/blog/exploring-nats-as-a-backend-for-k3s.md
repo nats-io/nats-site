@@ -1,6 +1,6 @@
 +++
 date = "2023-05-09"
-draft = true
+draft = false
 title = "Exploring NATS as a backend for k3s"
 author = "Byron Ruth"
 categories = ["General"]
