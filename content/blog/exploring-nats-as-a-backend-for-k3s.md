@@ -66,7 +66,7 @@ Starting k3s with this version of KINE embedded is now reduced to the following 
 k3s server --datastore-endpoint=nats://
 ```
 
-The minimal `nats://` endpoint relies on the defaults in the NATS server, listening on all hosts (`0.0.0.0`) and binding to port `4222`. Of course, if don't want to embed the server, you can add the query parameter `noEmbed` and it will connect to a remote system.
+The minimal `nats://` endpoint relies on the defaults in the NATS server, listening on all hosts (`0.0.0.0`) and binding to port `4222`. Of course, if you don't want to embed the server, you can add the query parameter `noEmbed` and it will connect to a remote system.
 
 What do we gain with an embedded server?
 
@@ -78,7 +78,7 @@ The `nats://` endpoint supports a `serverConfig` query param pointing to a local
 
 Building on the above example showcased in the RethinkConn talk, embedded NATS makes it possible to extend to the edge and maintain local state without remote connectivity to a NATS cluster. However, visibility and management of these edge (and non-edge) deployments can still be acheived.
 
-This segways into the second point, which is, acknowledging the combination of NATS embedded within k3s. A single binary gives you all the advantages of NATS combined with a workload scheduler!
+This segues into the second point, which is, acknowledging the combination of NATS embedded within k3s. A single binary gives you all the advantages of NATS combined with a workload scheduler!
 
 **Having a single binary with k3s and NATS is superpower.**
 
