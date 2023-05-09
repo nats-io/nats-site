@@ -91,6 +91,7 @@ Having NATS available as KINE/k3s backend was a great start and having the optio
 
 - Native support for NATS in k3s' embedded HA/cluster mode ( join the discussion on the [GitHub issue](https://github.com/k3s-io/k3s/issues/7451))
 - How NATS may be able to be leveraged within [Fleet](https://github.com/rancher/fleet)
+- What would it take to setup an agent-less k3s _mirror_ of another instance, leveraging NATS mirror/sourcing capability
 
 If you find any of this interesting, have use cases to share, or want to show your support, please join us on [Slack](https://slack.nats.io)!
 
