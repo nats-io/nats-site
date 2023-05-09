@@ -11,7 +11,7 @@ tags = ["NATS", "KV", "k3s", "KINE"]
 
 In April 2022, the [v0.9.0 release][v0.9.0] of KINE introduced native support for NATS as a backend. In June 2022, the k3s [v1.23.7+k3s1][v1.23.7] release included this KINE version making it possible for k3s deployments to connect to an existing NATS system.
 
-The KINE backend leverages the [Key-Value API][kv] built on top of the NATS persistence subsystem, [JetStream][jetstream].
+The KINE backend leverages the [Key-Value API][kv] built on top of the NATS persistence subsystem called [JetStream][jetstream].
 
 A minimal example of bootstrapping a k3s server backed by NATS can be done by starting a JetStream-enable `nats-server` followed by starting `k3s server` with the `--datastore-endpoint` configured.
 
@@ -33,11 +33,11 @@ During RethinkConn 2022, [Caleb Lloyd][caleb] presented [Using NATS JetStream as
 
 ![k3s with NATS](/img/k3s-nats.png)
 
-The main takeaways include:
+The main takeaways:
 
-- The ability to deploy multiple k3s clusters, each having their own isolated [account][accounts] and KV bucket to store cluster state on a shared NATS system.
-- The ability for _applications running in k3s_ to leverage the same NATS system for their workloads (within their own accounts).
-- The ability to create cross-region mirrors of the KV buckets for straightforward backup/restore disaster recovery scenarios.
+- Each k3s cluster can have their own isolated [account][accounts] and KV bucket to store cluster state on a shared NATS system.
+- Applications running in k3s can leverage the same NATS system for their workloads (within their own accounts) as what k3s does.
+- Cross-region mirrors of the KV buckets can be created for straightforward backup/restore disaster recovery scenarios.
 
 Given this is one NATS system, an operator gets end-to-end visibility and management of all of these assets out-of-the-box. Check out the [k3s-on-nats demo repo][demo] to try it out youself.
 
@@ -70,15 +70,11 @@ The minimal `nats://` endpoint relies on the defaults in the NATS server, listen
 
 What do we gain with an embedded server?
 
-The original motivation was to further reduce the distribution and dependency footprint, resulting in the option of a single k3s binary with KINE and NATS embedded.
+The original motivation was to further reduce the distribution and dependency footprint, resulting in the option of a single k3s binary with KINE and NATS embedded. In addition to the reduced dependency footprint, there are multiple benefits over etcd and SQLite:
 
-However, there are two other benefits over the other embedded options currently available (etcd and SQLite).
-
-The `nats://` endpoint supports a `serverConfig` query param pointing to a local NATS config file. This gives the flexibility of configuring the instance as a [Leaf Node][ln] extending an existing NATS system.
-
-Building on the above example showcased in the RethinkConn talk, embedded NATS makes it possible to extend to the edge and maintain local state without remote connectivity to a NATS cluster. However, visibility and management of these edge (and non-edge) deployments can still be acheived.
-
-This segues into the second point, which is, acknowledging the combination of NATS embedded within k3s. A single binary gives you all the advantages of NATS combined with a workload scheduler!
+* The `nats://` endpoint supports a `serverConfig` query param pointing to a local NATS config file. This gives the flexibility of configuring the instance as a [Leaf Node][ln], which enables the secure extension of an existing NATS system. Leaf nodes initiate connections to the remote servers, making them friendly for network environments with heavy use of network address translation (NAT).
+* Building on the above example showcased in the RethinkConn talk, embedded NATS makes it possible to extend to the edge and maintain local state if remote connectivity to a NATS cluster is lost, without sacrificing visibility or management capabilities.
+* A single binary provides all of the advantages of NATS combined with a workload scheduler! As a result, your data lives on and traverses one system, unifying design, development and operations.
 
 **Having a single binary with k3s and NATS is superpower.**
 
