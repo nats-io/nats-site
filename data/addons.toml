@@ -467,6 +467,15 @@ support = "Community"
 author = "Synadia"
 authorHome = "https://synadia.com"
 
+[addons.mongodb]
+name = "MongoDB NATS Connector"
+home = "https://github.com/damianiandrea/mongodb-nats-connector"
+description = "A connector that uses MongoDB's change streams to capture data changes and publishes those changes to NATS JetStream."
+support = "Community"
+[[addons.mongodb.authors]]
+author = "Andrea Damiani"
+authorHome = "https://github.com/damianiandrea"
+
 
 #[addons.xxx]
 #name = ""
