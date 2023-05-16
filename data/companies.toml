@@ -272,3 +272,8 @@ logo = "wundergraph.png"
 name = "Tessell"
 home = "https://tessell.io/"
 logo = "tessell.png"
+
+[companies.epicode]
+name = "Epicode"
+home = "https://epicode.in"
+logo = "epicode.png"
