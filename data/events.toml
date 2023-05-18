@@ -1,20 +1,29 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon EU - ContribFest"
-when = "Wednesday, April 19, 2023 11:00 - 12:30"
-who = "Waldemar Quevedo & Piotr Piotrowski, Synadia"
-what = "Help design and build the future of the NATS Go client!"
-link = "https://sched.co/1HzcQ"
-where = "Amsterdam, The Netherlands"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+venue = "DataOps Poland Meetup"
+when = "Tuesday, May 30, 2023 7:00pm"
+who = "Tomasz Pietrek"
+what = "NATS as a Next-Gen Connectivity Substrate"
+link = "https://www.meetup.com/pl-PL/dataops-poland/events/293345433/"
+where = "Virtual & Warsaw, Poland"
+ref = "https://www.meetup.com/pl-PL/dataops-poland/events/293345433/"
 
 [[events]]
-venue = "KubeCon + CloudNativeCon EU"
-when = "Friday April 21, 2023 11:55 - 12:30"
-who = "Tomasz Pietrek & David Gee, Synadia"
-what = "Painless Multi-Cloud to the Edge Powered by NATS & Kubernetes"
-link = "https://sched.co/1HyUn"
+venue = "Susecon 2023 Munich"
+when = "June 20-22, 2023"
+who = "David Gee, Synadia"
+what = "Developing a pervasive telehealth edge with K3S and NATS"
+link = "https://www.suse.com/susecon/sessions/?search=nats#/"
+where = "Munich Germany"
+ref = "https://www.suse.com/susecon/"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon NA 2023"
+when = "November 6-9, 2023"
+who = "Synadia/NATS Team"
+what = "TBA"
+link = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 where = "Amsterdam, The Netherlands"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 
 # comment out to save
 #[[events]]
