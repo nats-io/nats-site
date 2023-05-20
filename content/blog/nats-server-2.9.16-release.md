@@ -15,11 +15,11 @@ Given the positive feedback on the previous announcement post focusing on the hi
 
 In this post we will cover a few key areas:
 
-- [False positive vulnerabilities](#false-positive-vulnerabilities)
-- [Nightly builds](#nightly-builds)
-- [Raft self-healing and cleanup](#raft-self-healing-and-cleanup)
-- [Minimizing restart impact](#minimizing-restart-impact)
-- [P99 performance](#p99-performance)
+- [False positive vulnerabilities](#-false-positive-vulnerabilities)
+- [Nightly builds](#-nightly-builds)
+- [Raft self-healing and cleanup](#-raft-self-healing-and-cleanup)
+- [Minimizing restart impact](#-minimizing-restart-impact)
+- [P99 performance](#-p99-performance)
 
 For the entirety of the improvements and fixes, check out the [release
 notes](https://github.com/nats-io/nats-server/releases/tag/v2.9.16).
@@ -48,7 +48,7 @@ The build is available as a [Docker image](https://hub.docker.com/r/synadia/nats
 $ docker run -p 4222:4222 synadia/nats-server:nightly-main -js
 ```
 
-For those that were not aware, there is an [existing Docker image](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly) having the `nightly` tag based on the `dev` branch which tracks the next *minor* version, in this case `2.10.0`.
+For those that were not aware, there is an [existing Docker image](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly) having the `nightly` tag based on the `dev` branch which tracks the next _minor_ version, in this case `2.10.0`.
 
 ```sh
 $ docker run -p 4222:4222 synadia/nats-server:nightly -js
@@ -60,10 +60,9 @@ $ docker run -p 4222:4222 synadia/nats-server:nightly -js
 - [#3972](https://github.com/nats-io/nats-server/pull/3972)
 - [#4019](https://github.com/nats-io/nats-server/pull/4019)
 
-
 ## 🪵 Raft self-healing and cleanup
 
-One of the NATS core pillars is for the server to be *self-healing*. Specifically, the ability to preserve itself against slow or rogue clients, and recover in the face of partial failure.
+One of the NATS core pillars is for the server to be _self-healing_. Specifically, the ability to preserve itself against slow or rogue clients, and recover in the face of partial failure.
 
 The JetStream subsystem, managing streams and consumers, relies on a [custom Raft implementation](https://github.com/nats-io/nats-server/blob/main/server/raft.go) built on top of Core NATS itself enhanced by two distinctive features:
 
@@ -89,9 +88,9 @@ Finally, an uncommon split-brain failure mode, resulting in two separate leaders
 
 For NATS deployments that have hundreds or thousands (or more) streams and consumers with high loads, a server restart (or failure) can be potentially disruptive in production.
 
-When a clustered server goes offline whilst running as replica leaders, although leader election is handled transparently, all of the load will ultimately shift to other servers, increasing their load further. When the offline server comes back online (or is replaced), it will need to be deemed *healthy* before it is possible to shift leaders and load back to this server.
+When a clustered server goes offline whilst running as replica leaders, although leader election is handled transparently, all of the load will ultimately shift to other servers, increasing their load further. When the offline server comes back online (or is replaced), it will need to be deemed _healthy_ before it is possible to shift leaders and load back to this server.
 
-The single entrypoint for determining server health is the `/healthz` monitoring endpoint. For Kubernetes-based deployments, this is the endpoint used for the readiness and liveness probes (using different parameters). For servers having many assigned assets, becoming healthy for *all* assets could take a significant amount of time, delaying the server from being an active participant for the assets that were asserted to be healthy.
+The single entrypoint for determining server health is the `/healthz` monitoring endpoint. For Kubernetes-based deployments, this is the endpoint used for the readiness and liveness probes (using different parameters). For servers having many assigned assets, becoming healthy for _all_ assets could take a significant amount of time, delaying the server from being an active participant for the assets that were asserted to be healthy.
 
 A key improvement in this release is to provide more granular, per asset checking to prevent blocking healthy assets from participating in their Raft group.
 
@@ -101,7 +100,7 @@ A second improvement is to better handle the case that recovering the local stat
 
 Previous manual intervention required scaling down a stream to R1, effectively wiping local replica state, followed by scaling back up, causing a fresh copy to sync from the leader.
 
-This *stall* detection will reduce the time for a server to become healthy (via `/healthz`), thus minimizing the impact on planned or unplanned restarts.
+This _stall_ detection will reduce the time for a server to become healthy (via `/healthz`), thus minimizing the impact on planned or unplanned restarts.
 
 **Relevant PRs**
 
@@ -114,7 +113,7 @@ This *stall* detection will reduce the time for a server to become healthy (via 
 
 Their setup consisted of ~200 R3 streams spread out across a private network tying together all three major public clouds. Their workload had peak publish throughput of ~180-200k messages/second.
 
-After their own evaluation, they discovered their P99 metric had some publish latencies reaching **several seconds**. To level-set, in this context, P99 refers to the 1% *worst* publish latencies that were measured. The other 99% of measured publish latencies were in range of their needs.
+After their own evaluation, they discovered their P99 metric had some publish latencies reaching **several seconds**. To level-set, in this context, P99 refers to the 1% _worst_ publish latencies that were measured. The other 99% of measured publish latencies were in range of their needs.
 
 The quality engineering team modeled the workload with a similar topology, number streams, etc. and added it as part of the load testing suite. Throughout the development cycle, this workload was run repeatedly to ensure proposed changes were in fact improving performance.
 
