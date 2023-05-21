@@ -53,11 +53,7 @@ This is possible by configuring the leafnodes as a local [cluster](https://docs.
 
 As the scale of edge deployments increases, so does the need to optimize how real-time propagation of _subject-interest_ happens. Where it was common to have many single leafnode deployments, having clusters of three or greater for edge deployment 3x-5x's the number of nodes in the fleet. For use cases such as electric vehicles and charging stations, the number of edge locations and leafnodes can be quite high!
 
-<<<<<<< Updated upstream
-This release brings the first of a series of optimizations for increasingly large-scale fleets. This initial improvement accounts for the fact that interest-propagation updates only need to be sent to _one_ of the nodes in the leafnode cluster, rather than all of them. Once one node in the cluster receives these updates, it will then locally propagate these updates. This removes the propagation multiplier of running a leafnode cluster.
-=======
 This release brings the first of a series of optimizations for increasingly large-scale fleets. This initial improvement accounts for the fact that interest-propagation updates, directly, _one_ of the nodes in the leafnode cluster, rather than all of them. Once one node in the cluster receives these updates, it will then locally propagate these updates. This removes the progagation multiplier of running a leafnode cluster.
->>>>>>> Stashed changes
 
 **Relevant PRs**
 
@@ -68,11 +64,7 @@ This release brings the first of a series of optimizations for increasingly larg
 
 Although this improvement fixes a number of timing edge cases internal to the server, this section will serve as a Pro-Tip for anyone relying on Go's [time](https://pkg.go.dev/time) package for calculating durations using two time values.
 
-<<<<<<< Updated upstream
-It is not uncommon for preferring UTC time values, especially in system spanning multiple time zones. However, did you know that calling the `time.Now().UTC()` will result in throwing away an internal monotonic value which differentiates two time values that are invoked within a nano-second level time frame, either in succession or concurrently. The [`time` package documentation calls this out](https://pkg.go.dev/time#hdr-Monotonic_Clocks).
-=======
 It is not uncommon to prefer UTC time values, especially in system spanning multiple time zones. However, did you know that calling the `time.Now().UTC()` will resort in throwing away an internal monotonic value which differentiates two time values that are invoked within a nano-second level time frame, either in succession or concurrently? The [`time` package documentation calls this out](https://pkg.go.dev/time#hdr-Monotonic_Clocks).
->>>>>>> Stashed changes
 
 As a quick demonstration, the following code gets two time values in succession and then prints their values and the difference between them.
 
@@ -123,11 +115,7 @@ UTC time values are certainly valuable for user/system reported times, however, 
 
 ## Conclusion
 
-<<<<<<< Updated upstream
-The NATS team wants to reiterate our appreciation to all contributors in this release, including those testing and providing feedback during the release cycle. As a reminder, nightly builds on the `main` branch are available on Docker hub: [`synadia/nats-server:nightly-main`](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly-main).
-=======
 The NATS team wants reiterate the appreciation to all contributors in this release, including those testing and providing feedback during the release cycle. Nightly builds on the `main` branch, tracking the minor series (currently `2.9.x`), are available on Docker hub: [`synadia/nats-server:nightly-main`](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly-main).
->>>>>>> Stashed changes
 
 As always, refer to the [download page](https://nats.io/download/) for direct links to the GitHub release page and the official Docker image.
 
