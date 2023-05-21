@@ -1,0 +1,56 @@
+{{ $connectors := site.Data.addons.addons }}
+{{ $clients := site.Data.clients}}
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Developer
+      </th>
+      <th>
+        Support
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range $k, $v := $connectors }}
+    <tr>
+      <td>
+        <a href="{{ $v.home }}" target="_blank">
+          {{ $v.name }}
+        </a>
+      </td>
+      <td>
+        {{ $v.description | markdownify }}
+      </td>
+      <td>
+        {{ $n := len $v.authors }}
+        {{ range $idx, $a := $v.authors }}
+        {{ $isLast := eq (sub $n 1) $idx }}
+        {{ if $a.authorHome }}
+        <a href="{{ $a.authorHome }}">
+          {{ $a.author }}
+        </a>
+        {{ else }}
+        {{ $a.author }}
+        {{ end }}
+        {{ if not $isLast }}<br />{{ end }}
+        {{ end }}
+      </td>
+      <td>
+        {{ $v.support }}
+      </td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+
+
+
+

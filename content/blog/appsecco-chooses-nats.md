@@ -7,7 +7,7 @@ categories = ["Engineering","Guest-Post","Use Case","Community"]
 tags = ["NATS","Appsecco","Community","Security","Kubernetes","CNCF"]
 +++
 
-<img alt="Appsecco Logo" src="/img/blog/appsecco_chooses_nats/appsecco_logo.png" height="32" width="225">
+<img alt="Appsecco Logo" src="/img/blog/appsecco_logo.png" height="32" width="225">
 
 Appsecco is a security-focused company out of London specializing in Application and Data Security for cloud-based companies. At almost 4-years-old, Appsecco has clients ranging from major global financial institutions and professional services firms to leading international retailers and retail brands and from large scale, heavy engineering companies to cutting edge technology companies across the globe.
 
@@ -22,7 +22,7 @@ The team landed on NATS citing its easy adoption and low memory usage as key rea
 ## System Design
 Appsecco designed an API first loosely coupled, distributed system to solve its requirement for generic security workflow automation. The system consists of core components like **API Server**, **Feedback Function** and security tools (**Automation Services**). All the components are glued together using the NATS server for message passing. **API Server** initiates a scan workflow by providing input to scanners through NATS. The **Feedback Function** is responsible for generating new input to the system based on output produced by one of the security tools. The diagram below presents brief architecture of the system and how they are connected through the NATS server.
 
-<img alt="Appsecco SPLAT Arch" src="/img/blog/appsecco_chooses_nats/SPLAT-Arch-NATS-Blog.png">
+<img alt="Appsecco SPLAT Arch" src="/img/blog/SPLAT-Arch-NATS-Blog.png">
 
 More information about the original POC using NATS can be found on Appsecco’s Medium article [Designing Distributed Systems for Security Workflow — Learning from our Nullcon Workshop](https://blog.appsecco.com/designing-distributed-systems-for-security-workflow-learning-from-our-nullcon-workshop-93c2445667f4).
 

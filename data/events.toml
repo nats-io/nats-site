@@ -1,10 +1,38 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe"
-when = "TBD"
-who = "The NATS Team"
-what = "NATS Maintainer Track Talks"
-where = "Amsterdam, The Netherlands"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+venue = "DataOps Poland Meetup"
+when = "Tuesday, May 30, 2023 7:00pm"
+who = "Tomasz Pietrek"
+what = "NATS as a Next-Gen Connectivity Substrate"
+link = "https://www.meetup.com/pl-PL/dataops-poland/events/293345433/"
+where = "Virtual & Warsaw, Poland"
+ref = "https://www.meetup.com/pl-PL/dataops-poland/events/293345433/"
+
+[[events]]
+venue = "Susecon 2023 Munich"
+when = "June 20-22, 2023"
+who = "David Gee, Synadia"
+what = "Developing a pervasive telehealth edge with K3S and NATS"
+link = "https://www.suse.com/susecon/sessions/?search=nats#/"
+where = "Munich Germany"
+ref = "https://www.suse.com/susecon/"
+
+[[events]]
+venue = "KubeCon + CloudNativeCon NA 2023"
+when = "November 6-9, 2023"
+who = "Synadia/NATS Team"
+what = "TBA"
+link = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
+where = "Chicago, Illinois"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
+
+# comment out to save
+#[[events]]
+#venue = "KubeCon + CloudNativeCon EU"
+#when = "May 19, 2022, 15:25 CEST"
+#who = "Adelina Simion, Form3"
+#what = "Choosing Cloud Native Technologies for the Journey to Multi-cloud"
+#where = "Valencia, Spain"
+#ref = "https://sched.co/ytpu"
 
 
 # comment out to save

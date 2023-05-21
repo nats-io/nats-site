@@ -1,0 +1,10 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ partial "hero.html" . }}
+{{ partial "blog/posts.html" . }}
+{{ end }}
+
+

@@ -1,0 +1,98 @@
+{{ $languages := site.Data.language.language }}
+{{ $clients := site.Data.clients }}
+
+
+<div class="container content">
+<div class="columns">
+  <div class="column">
+<table>
+  <thead>
+  <tr>
+    <th>
+      Language
+    </th>
+    <!--<th>
+      Repo
+    </th> -->
+    <th>
+      Description
+    </th>
+    <th>
+      Developers
+    </th>
+    <th>
+      Details
+    </th>
+  </thead>
+  <tbody>
+  {{ range $k, $v := $languages }}
+  {{ $url  := printf "download/%s" ($v.name | urlize) | relURL }}
+  <tr>
+    <td>
+        {{ $v.name }}
+    </td>
+    <!--<td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.link }}
+      <a href="{{ $a.link }}/{{ $a.repo }}">
+        {{ $a.repo }}
+      </a>
+      {{ else }}
+      {{ $a.repo }}
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+    </td> -->
+
+    <td>
+      <!--{{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.streaming_support }}
+      <span>Streaming</span>
+
+
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }} -->
+      NATS {{ $v.name }} Client
+    </td>
+
+    <td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ if not $a.streaming_support }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ $official := eq $a.org "nats-io" }}
+      {{ if $official }}
+      {{ $a.author }}
+          <span>
+            <i class="fas fa-star fa-xs fa-star-blue"></i>
+          </span>
+      {{ else }} {{ $a.author }}
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+      {{ end }}
+    </td>
+    <td>
+      {{ range $idx, $a := $v.orgs }}
+      {{ if not $a.streaming_support }}
+      {{ $repo := printf "%s/%s" $a.org $a.repo }}
+      {{ partial "download/github_embed_clients.html" (dict "repo" $repo) }}
+      {{ end }}
+      {{ end }}
+
+    </td>
+
+  </tr>
+  {{ end }}
+  </tbody>
+</table>
+
+
+</div>
+</div>
+</div>

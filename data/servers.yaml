@@ -1,0 +1,27 @@
+- title: NATS Server
+  org: nats-io
+  repo: nats-server
+  language: Go
+  author:
+    name: Synadia
+    link: https://synadia.com
+  release:
+    version: "2.9.17"
+    date: "2023-05-18"
+  docker: nats
+  prefix: nats-server
+  official: true
+#- title: NATS Streaming Server
+#  org: nats-io
+#  repo: nats-streaming-server
+#  language: Go
+#  author:
+#    name: Synadia
+#    link: https://synadia.com
+#  release:
+#    version: '0.17.0'
+#    date: '2020-02-11'
+#  docker: nats-streaming
+#  prefix: nats-streaming
+#  official: true
+#  streaming_support: true

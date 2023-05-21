@@ -1,0 +1,530 @@
+[language]
+[language.arduino]
+name ="Arduino"
+[[language.arduino.orgs]]
+org = "isobit"
+repo = "arduino-nats"
+author = "Josh Glendenning"
+link = "https://github.com/isobit"
+release_date = "2015-03-15"
+[[language.arduino.orgs]]
+org = "davidsai"
+repo = "arduino-nats-streaming-client"
+streaming_support = true
+author = "David Sai"
+link = "https://github.com/davidsai"
+
+[language.asio]
+name = "Asio C++"
+[[language.asio.orgs]]
+org = "antlad"
+repo = "nats-asio"
+author = "Vlad Troinich"
+link = "https://github.com/antlad"
+release_date = "2019-10-24"
+
+[language.ballerina]
+name = "Ballerina"
+[[language.ballerina.orgs]]
+org = "ballerina-platform"
+repo = "module-ballerinax-nats"
+author = "Ballerina"
+link = "https://github.com/ballerina-platform"
+release_date = "2021-06-28"
+[[language.ballerina.orgs]]
+org = "ballerina-platform"
+repo = "module-ballerinax-stan"
+streaming-support = true
+author = "Ballerina"
+link = "https://github.com/ballerina-platform"
+release_date = "2021-06-28"
+
+[language.c]
+name = "C"
+[[language.c.orgs]]
+org = "nats-io"
+repo= "nats.c"
+suported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = '2.1.0'
+release_date = '2019-10-02'
+[[language.c.orgs]]
+org = "nats-io"
+repo= "stan.c"
+streaming_support = true
+suported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = '3.0.0'
+release_date = '2021-08-03'
+
+[language.clojure]
+name = "Clojure"
+[[language.clojure.orgs]]
+org = "employeerepublic"
+repo = "clj-nats-async"
+supported = false
+author = "Employee Republic"
+link = "https://github.com/employeerepublic/"
+release_date = "2017-05-11"
+
+[language.c-sharp]
+name = ".NET C#"
+[[language.c-sharp.orgs]]
+org = "nats-io"
+repo = "nats.net"
+supported = true
+streaming_support = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.14.0"
+release_date = "2021-10-26"
+[[language.c-sharp.orgs]]
+org = "nats-io"
+repo = "nats.net"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io/nats.net"
+release_version = "0.14.0"
+release_date = "2021-10-26"
+[[language.c-sharp.orgs]]
+org = "danielwertheim"
+repo = "mynatsclient"
+supported = false
+author = "Daniel Wertheim"
+link = "https://github.com/danielwertheim"
+release_version = "0.10.0"
+release_date = "2017-01-10"
+
+[language.lisp]
+name = "Common Lisp"
+[[language.lisp.orgs]]
+org = "ccqpein"
+repo = "nats-cl"
+supported = false
+author = "ccQ"
+link = "https://github.com/ccqpein"
+release_version = "0.1.0"
+release_date = ""
+
+[language.crystal]
+name = "Crystal"
+[[language.crystal.orgs]]
+org = "nats-io"
+repo = "nats.cr"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.0.0"
+release_date = "2019-09-10"
+[[language.crystal.orgs]]
+org = "repomaa"
+repo = "nats.cr"
+supported = true
+author = "Joakim Repomaa"
+link = "https://github.com/repomaa"
+release_version = "0.2.0"
+reelease_date = "2018-12-14"
+
+[language.elixir]
+name = "Elixir"
+[[language.elixir.orgs]]
+org = "nats-io"
+repo = "nats.ex"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.6.1"
+release_date = "2019-03-03"
+[[language.elixir.orgs]]
+org = "iamd3vil"
+repo = "nats_ex"
+supported = false
+author = "Sarat Chandra"
+link = "https://github.com/iamd3vil"
+release_version = "0.1.0"
+release_date = "2016-07-26"
+
+[language.elm]
+name = "Elm"
+[[language.elm.orgs]]
+org = "orus-io"
+repo = "elm-nats"
+supported = false
+author = "Christophe de Vienne"
+link = "https://github.com/cdevienne"
+release_date = "2017-05-22"
+
+[language.erlang]
+name = "Erlang"
+[[language.erlang.orgs]]
+org = "yuce"
+repo = "teacup_nats"
+supported = false
+author = "Yuce Tekol"
+link = "https://github.com/yuce"
+release_version = "0.4.0"
+release_date = "2016-04-17"
+
+[language.go]
+name = "Go"
+[[language.go.orgs]]
+org = "nats-io"
+repo = "nats.go"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "1.7.2"
+release_date = "2019-02-21"
+[[language.go.orgs]]
+org = "nats-io"
+repo = "stan.go"
+supported = true
+streaming_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.7.0"
+release_date = "2020-06-23"
+
+[language.haskell]
+name = "Haskell"
+[[language.haskell.orgs]]
+org = "ondrap"
+repo = "nats-queue"
+supported = false
+author = "Ondrej Palkovsky"
+link = "https://github.com/ondrap"
+release_version = "1.2.1"
+date = "2015-09-02"
+
+[language.java]
+name = "Java"
+[[language.java.orgs]]
+org = "nats-io"
+repo = "nats.java"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "2.6.0"
+release_date = "2019-07-22"
+[[language.java.orgs]]
+org = "cloudfoundry-community"
+repo = "java-nats"
+supported = false
+author = "Mike Heath"
+link = "https://github.com/mheath"
+release_version = "0.6.6"
+release_date = "2016-09-12"
+
+[language.java_android]
+name = "Java Android"
+[[language.java_android.orgs]]
+org = "spotoninc"
+repo = "nats-android"
+supported = false
+author = "Marek Kedzierski"
+link = "https://github.com/spotoninc"
+release_version = "2.4.1"
+release_date = "2018-12-19"
+
+[language.labview]
+name = "LabVIEW"
+[[language.labview.orgs]]
+org = "drew-herron"
+repo = "nats.lv"
+supported = false
+author = "Drew Herron"
+link = "https://github.com/drew-herron/nats.lv"
+release_version = "1.0.0.1"
+relesase_date = "2022-08-09"
+
+[language.lua]
+name = "Lua"
+[[language.lua.orgs]]
+org = "dawnangel"
+repo = "lua-nats"
+supported = false
+author = "Eric Pinto"
+link = "https://github.com/DawnAngel"
+release_version = "0.0.2"
+relesase_date = "2015-07-16"
+
+[language.micropython]
+name = "MicroPython"
+[[language.micropython.orgs]]
+org = "mkharibalaji"
+repo = "mpynats"
+supported = false
+author = "M K Hari Balaji"
+link = "https://github.com/mkharibalaji"
+release_date = "2017-01-20"
+
+[language.perl]
+name = "Perl"
+[[language.perl.orgs]]
+org = "carwynmoore"
+repo = "perl-nats"
+supported = false
+author = "Carwyn Moore"
+link = "https://github.com/carwynmoore"
+release_date = "2016-07-20"
+[[language.perl.orgs]]
+org = "sergeykolychev"
+repo = "perl-nats-streaming"
+supported = false
+streaming_support = true
+author = "Sergey Kolychev"
+link = "https://github.com/sergeykolychev"
+release_version = "0.0.3"
+release_date = "2017-11-13"
+
+[language.php]
+name = "PHP"
+[[language.php.orgs]]
+org = "basis-company"
+repo = "nats.php"
+supported = false
+jetstream_support = true
+author = "Dmitry Krokhin"
+link = "https://github.com/basis-company/nats.php"
+release_version = "0.6.0"
+release_date = "2022-02-09"
+[[language.php.orgs]]
+org = "repejota"
+repo = "phpnats"
+supported = false
+author = "Raül Pérez"
+link = "https://github.com/repejota"
+release_version = "0.8.6"
+release_date = "2017-07-17"
+[[language.php.orgs]]
+org = "byrnedo"
+repo = "php-nats-streaming"
+supported = false
+streaming_support = true
+author = "Donal Byrne"
+link = "https://github.com/byrnedo"
+release_version = "0.2.1"
+release_date = "2017-12-01"
+
+[language.nginx]
+name = "NGINX"
+[[language.nginx.orgs]]
+org = "nats-io"
+repo = "nginx-nats"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_date = "2015-08-18"
+
+[language.nodejs]
+name = "Node.js"
+[[language.nodejs.orgs]]
+org = "nats-io"
+repo = "nats.js"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "2.0.2"
+date = "2021-04-05"
+[[language.nodejs.orgs]]
+org = "nats-io"
+repo = "stan.js"
+supported = true
+streaming_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.3.2"
+date = "2020-05-12"
+
+[language.pureruby]
+name = "Pure Ruby"
+[[language.pureruby.orgs]]
+org = "nats-io"
+repo = "pure-ruby-nats"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.6.0"
+release_date = "2019-06-19"
+
+[language.python]
+name = "Python"
+[[language.python.orgs]]
+org = "gr1n"
+repo = "nats-python"
+supported = false
+author = "Nikita Grishko"
+link = "https://github.com/Gr1N"
+release_date = "2018-09-01"
+
+[language.python_asyncio]
+name = "Python Asyncio"
+[[language.python_asyncio.orgs]]
+org = "nats-io"
+repo = "nats.py"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.9.2"
+release_date = "2019-05-31"
+
+[language.python_minimal]
+name = "Python Minimal"
+[[language.python_minimal.orgs]]
+org = "3kwa"
+repo = "goingnats"
+supported = false
+author = "Eugene Van Den Bulke"
+link = "https://github.com/3kwa"
+
+[language.python_tornado]
+name = "Python Tornado"
+[[language.python_tornado.orgs]]
+org = "nats-io"
+repo = "python-nats"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.8.0"
+release_date = "2018-09-22"
+
+[language.python_twisted]
+name = "Python Twisted"
+[[language.python_twisted.orgs]]
+org = "johnwlockwood"
+repo = "txnats"
+supported = false
+author = "John Lockwood"
+link = "https://github.com/johnwlockwood"
+release_date = "2016-11-12"
+
+[language.qt]
+name = "C++/Qt/QML"
+[[language.qt.orgs]]
+org = "kazmirchuk"
+repo = "qtnats"
+supported = false
+jetstream_support = true
+author = "Petro Kazmirchuk"
+link = "https://github.com/kazmirchuk"
+
+[language.qt5]
+name = "Qt5 C++"
+[[language.qt5.orgs]]
+org = "pkoretic"
+repo = "qt-nats"
+supported = false
+author = "Petar Koretić"
+link = "https://github.com/pkoretic/"
+release_date = "2017-08-12"
+
+[language.ruby]
+name = "Ruby"
+[[language.ruby.orgs]]
+org = "nats-io"
+repo = "nats.rb"
+supported = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.11.0"
+release_date = "2019-06-09"
+
+[language.rust]
+name = "Rust"
+[[language.rust.orgs]]
+org = "nats-io"
+repo = "nats.rs"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+release_version = "0.9.11"
+release_date = "2021-04-12"
+[[language.rust.orgs]]
+org = "davidmcneil"
+repo = "rants"
+supported = false
+author = "David McNeil"
+link = "https://github.com/davidMcneil"
+[[language.rust.orgs]]
+org = "encabulators"
+repo = "natsclient"
+author = "Kevin Hoffman"
+link = "https://github.com/autodidaddict"
+
+[language.scala]
+name = "Scala"
+[[language.scala.orgs]]
+org = "tyagihas"
+repo = "scala_nats"
+supported = false
+author = "Teppei Yagihashi"
+link = "https://github.com/tyagihas"
+
+[language.swift]
+name = "Swift"
+[[language.swift.orgs]]
+org = "travelish"
+repo = "swiftnats"
+supported = false
+author = "Firman Maulana"
+link = "https://github.com/kakilangit"
+release_version = "3.0.0-alpha.1"
+release_date = "2016-08-28"
+[[language.swift.orgs]]
+org = "aus-der-Technik"
+repo = "swifty-nats"
+supported = false
+author = "aus der Technik"
+link = "https://github.com/aus-der-Technik"
+release_version = "2.0.0"
+release_date = "2021-09-01"
+
+[language.tcl]
+name = "Tcl"
+[[language.tcl.orgs]]
+org = "kazmirchuk"
+repo = "nats-tcl"
+supported = false
+jetstream_support = true
+author = "Petro Kazmirchuk"
+link = "https://github.com/kazmirchuk"
+
+[language.websockets]
+name = "WebSocket"
+[[language.websockets.orgs]]
+org = "nats-io"
+repo = "nats.ws"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+
+[language.deno]
+name = "Deno"
+[[language.deno.orgs]]
+org = "nats-io"
+repo = "nats.deno"
+supported = true
+jetstream_support = true
+author = "NATS Authors"
+link = "https://github.com/nats-io"
+
+[language.dart]
+name = "Dart"
+[[language.dart.orgs]]
+org = "dgofman"
+repo = "nats_client"
+supported = false
+jetstream_support = false
+author = "David Gofman"
+link = "https://github.com/dgofman"

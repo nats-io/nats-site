@@ -3,15 +3,10 @@ publish = "public"
 command = "make netlify-production-build"
 
 [build.environment]
-HUGO_VERSION = "0.53"
+HUGO_VERSION = "0.80.0"
 
 [context.deploy-preview]
 command = "make netlify-preview-build"
 
 [context.branch-deploy]
 command = "make netlify-preview-build"
-
-[[headers]]
-  for = "/.well-known/openpgpkey/hu/*"
-  [headers.values]
-  Content-Type = "application/octet-stream"

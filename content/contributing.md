@@ -1,93 +1,53 @@
 +++
 title = "NATS Contributor Guide"
-category = "concepts"
-showChildren=true
-[menu.main]
-  name = "How To Contribute"
-  weight = 2
-  identifier = "doc-contributing"
-  parent = "Getting Started With NATS"
 +++
 
-## Contributing
+# Contributing
 
 Do you want to contribute to NATS? Awesome! We’d love your help. To make it easier for you to contribute, we’ve provided some guidelines below to ensure that you (the contributor) know what we (the project maintainers) look for in terms of content as well as the criteria and procedures we use when reviewing your submissions.
 
-### A Word On Governance
+## A Word On Governance
 
-NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals] (#designgoals) while welcoming and facilitating broad contribution from the growing NATS user community.
+NATS is governed by a small, dedicated and experienced team of maintainers. This team decides which contributions are accepted and included in releases, based largely on input and feedback from the community. In this role, our principal goal is to ensure that NATS adheres to its [Design Goals](#design-goals) while welcoming and facilitating broad contribution from the growing NATS user community.
 
 When discussing GitHub procedures, we’ll use the term “committers” to refer to this group.
 
-## <a name="designgoals"></a> NATS Design Goals and Philosophy
+## NATS Design Goals and Philosophy {#design-goals}
 
 NATS is designed with four goals in mind:
 
-- Performance - achieve the highest message throughput and lowest latency possible
-- Stability - "always on". Nothing we put in NATS should cause it to crash, and NATS should guard itself against unruly client behavior that might compromise performance or availability for all clients.
-- Simplicity - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`nats-server`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
-- Security - NATS supports basic security features: authentication, authorization and encryption (TLS) 
+1. **Performance** - achieve the highest message throughput and lowest latency possible
+1. **Stability** - NATS is "always on." Nothing we put in NATS should cause it to crash, and NATS should guard itself against unruly client behavior that might compromise performance or availability for all clients.
+1. **Simplicity** - a compact, simple, and easily mastered API that requires no knowledge about the implementation of the broker (`nats-server`), and a broker that is lightweight, requiring minimal configuration, system resources and external dependencies.
+1. **Security** - NATS supports basic security features: authentication, authorization and encryption (TLS) 
 
-## <a name="communityhelp"></a> Talking to Other NATS Users and Contributors
+## Talking to Other NATS Users and Contributors {#community-help}
 
-<table class="tg">
-  <col width="45%">
-  <col width="65%">
-  <tr>
-    <td>Stack Overflow</td>
-    <td>
-      We regularly monitor <a href="https://stackoverflow.com/search?tab=newest&q=NATS.IO" target="_blank">NATS questions</a>
-      and so do many other knowledgeable NATS users.
-    </td>
-  </tr>
-  <tr>
-    <td>Slack</td>
-    <td>
-      <p>
-        The NATS Slack team at <strong>natsio.slack.com</strong> is a great place to ask and answer 
-        questions about the NATS project and ecosystem and to compare notes with other users. 
-        We welcome your contribution to the discussion there, especially in sharing your 
-        experiences implementing with NATS and answering the questions of other users. 
-        You can request an invitation to join via the Slack icon on our 
-        <a href="http://nats.io/community/" target="_blank">Community page</a>.
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>Google Group</td>
-    <td>
-      The <a href="" target="_blank">natsio</a>  Google group is for contributors and other people 
-      contributing to the NATS project.
-      You can join them without a google account by sending an email to 
-      <a href="mailto:natsio+subscribe@googlegroups.com">natsio+subscribe@googlegroups.com</a>.
-      After receiving the join-request message, you can simply reply to that to confirm the subscription.
-    </td>
-  </tr>
-  <tr>
-    <td>Twitter (@nats_io)</td>
-    <td>
-      You can follow <a href="https://twitter.com/nats_io/" target="_blank">NATS.IO's Twitter feed</a>
-      to get updates on our project(s). You can also tweet us questions or just
-      share blogs or stories.
-    </td>
-  </tr>
-</table>
+Venue | Description
+:-----|:-----------
+<span class = "has-text-slack-purple"><i class="fab fa-lg fa-slack"></i></span> Slack  | The NATS Slack workspace is a great place to ask and answer questions about the NATS project and ecosystem and to compare notes with other users. We welcome your contribution to the discussion there, especially in sharing your experiences implementing with NATS and answering the questions of other users. [Join now](https://slack.nats.io)!
+<span class = "has-text-twitter-blue"><i class="fab fa-lg fa-twitter"></i></span> Twitter ([@nats_io](https://twitter.com/nats_io)) | You can follow NATS on [Twitter](https://twitter.com/nats_io/) to get updates on NATS. You can also tweet us questions or just share blogs or stories.
+<span class = "has-text-reddit-orange"><i class="fab fa-lg fa-stack-overflow"></i></span> Stack Overflow | We regularly monitor [NATS questions](https://stackoverflow.com/search?tab=newest&q=NATS.IO) and so do many other knowledgeable NATS users. 
+<span class = "has-text-primary"><i class="fab fa-lg fa-google"></i></span> Google Groups | The [natsio](https://groups.google.com/forum/#!topic/natsio) Google group is for contributors and other people contributing to the NATS project. You can join them without a google account by sending an email to [natsio+subscribe@googlegroups.com](mailto:natsio+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription. 
 
 ## Contributing A Blog Post
 
-We’d love to highlight your NATS implementations or insights on the NATS blog  (http://nats.io/blog). If you have a submission you'd like us to consider, please contact info@nats.io. Here are some basic guidelines for submissions:
-Markdown is the preferred format, although we can work with you on other formats.
-Try to keep your submission to 3-4 paragraphs in length. Sometimes lengthy blog posts are better served as several smaller ones.
-As context for your blog post, please share a bit about your role, and what your company/organization does before getting into your technical content.
-Logical architecture diagrams or similar visuals are really helpful! People are visual, especially when thinking about and discussing systems architecture.
-Sharing how you did this process before NATS, and how it works with NATS (and what the results have been) is useful to the reader.
+We’d love to highlight your NATS implementations or insights on the [NATS blog](/blog). If you have a submission you'd like us to consider, please contact <a href="mailto:info@nats.io?NATS Blog Submission">info@nats.io</a>. No blog experience? We'll help!
+
+Here are some basic guidelines for submissions.
+
+ * Markdown is the preferred format, although we can work with you on other formats.
+ * Try to keep your submission to 3-4 paragraphs in length. Sometimes lengthy blog posts are better served as several smaller ones.
+ * As context for your blog post, please share a bit about your role, and what your company/organization does before getting into your technical content.
+ * Logical architecture diagrams or similar visuals are really helpful! People are visual, especially when thinking about and discussing systems architecture.
+ * Sharing how you did this process before NATS, and how it works with NATS (and what the results have been) is useful to the reader.
 If possible, give a bit of context on where you hope to go next with your NATS deployment(s).
 
-The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/master/content/blog to accelerate the review cycle! 
+The NATS website is open source; GitHub users are encouraged to fork/clone and submit their proposed blog entry as a Pull Request against https://github.com/nats-io/nats-site/tree/main/content/blog to accelerate the review cycle.
 
 <!--## Contributing Documentation Changes
 
-Our project documentation is available on the [NATS.IO website](http://nats.io). The source for the documentation, in markdown, can be found in the site's GitHub project https://github.com/nats-io/nats-site.
+Our project documentation is available on [docs.nats.io](https://docs.nats.io). The source for the documentation, in markdown, can be found in the site's GitHub project https://github.com/nats-io/nats-site.
 
 To contribute changes, simply fork/clone the project, find the appropriate markdown file under `nats-site/content/documentation`, edit the file(s), and submit a Pull Request. Please ensure you've reviewed your changes for visual formatting/rendering using the instructions contained in the site's [README](https://github.com/nats-io/nats-site#install-hugo).
 
@@ -111,9 +71,9 @@ Please test our releases in your environment and report any issues you run into 
 
 ### Choosing What To Contribute 
 
-NATS is a small but ambitious project with a similarly small dedicated core team. Review of any proposed change can be a very time consuming task, and there will be times when our available bandwidth for PR review is limited. Therefore everyone benefits if submissions are useful, clear, easy to evaluate, and already pass basic checks.
+NATS is an ambitious project with a similarly dedicated core team. Review of any proposed change can be a very time consuming task, and there will be times when our available bandwidth for PR review is limited. Therefore everyone benefits if submissions are useful, clear, easy to evaluate, and already pass basic checks.
 
-If you are eager to contribute, but you're just not sure-what* to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack team](http://natsio.slack.com). If you need to join, you can request an invitation to join via the Slack icon on our [Community Page](http://nats.io/community/).
+If you are eager to contribute, but you're just not sure what to contribute, please check the GitHub Issues for the relevant project for open issues labeled [**help wanted**](https://github.com/issues?utf8=%E2%9C%93&q=org%3Anats-io+is%3Aopen+is%3Aissue+label%3A%22help+wanted%22). You may also ask in the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) or the [NATS Slack workspace](http://natsio.slack.com). Join here if you are not a member [slack.nats.io](https://slack.nats.io).
 
 Before you get started, please consider whether the proposed change is likely to be relevant, new and actionable.
 
@@ -121,7 +81,7 @@ Before you get started, please consider whether the proposed change is likely to
 - Check to see if there is history behind your proposal. Search the project's GitHub Issues and the [NATS Google group](https://groups.google.com/forum/#!forum/natsio) for relevant discussions.  Often, the problem has been discussed before, with a resolution that doesn’t require a code change, or recording what kinds of changes will not be accepted as a resolution. If you don't find anything in either of those places, ask in the #general channel of the [NATS Slack team](http://natsio.slack.com) to see if anyone has anything to say.
 - If you’re considering modifying code that is in the data path (i.e. central to message flow in the server or in the client), have you taken time to understand why the current implementation was chosen? Fixing a typo is straightforward, but the core logic and algorithms of the NATS server (`nats-server`) are the result of a significant amount of combined experience developing and supporting messaging solutions. That doesn't mean they're flawless, but please know that changes in this area will be scrutinized closely against performance and stability concerns. We suggest that If you're uncertain why the existing code is written in a particular way, or what the impact of your proposed change(s) might be, ask questions of the NATS team via Slack or the Google group.
 
-### <a name="reviewcriteria"></a> Code Review Criteria
+### Code Review Criteria {#review-criteria}
 
 Knowing what's likely to be accepted or rejected and-why* is a key consideration in deciding whether and what to contribute. The criteria below are things we think about and look for in any proposed change. We have Performance, Stability, Simplicity, and Security in mind at all times. 
 
@@ -156,7 +116,7 @@ Simply put, changes that have many or large positives, and few negative effects 
 
 Please review the preceding section before proposing a code change. This section documents how to do so.
 
-### <a name="githubissues"></a> GitHub Issues
+### GitHub Issues
 
 GitHub Issues are used to describe what should be fixed or changed, and high-level approaches, while Pull Requests describe how to implement that change in the project’s source code. 
 
@@ -189,7 +149,7 @@ We follow standard GitHub procedures for creating and processing pull requests.
  2. Clone your fork, create a new branch, push commits to the branch.
  3. Consider whether documentation or tests need to be added or updated as part of the change, and add them as needed.
  4. Run all tests to verify that the code still compiles, passes tests, and passes style checks. If style checks fail, review the relevant Code Style Guide in the project you're working in. It’s also advisable to ensure that any checks found in `.travis.yml` run successfully on your local system, when possible. These often include code formatting and static analysis checks that may cause CI tests to fail.
- 5. Open a pull request against the `master` branch of the relevant project (e.g. `nats-io/nats-server`). (Only in special cases would the PR be opened against other branches.)
+ 5. Open a pull request against the `main` branch of the relevant project (e.g. `nats-io/nats-server`). (Only in special cases would the PR be opened against other branches.)
     - The PR title should be of the form `[ADDED | FIXED | CHANGED | UPDATED] <description>`
       - `ADDED` - a new feature or content was added
       - `FIXED` - a defect in existing behavior was resolved
@@ -203,7 +163,7 @@ We follow standard GitHub procedures for creating and processing pull requests.
     - Fixes can simply be pushed to the same branch from which you opened your pull request
     - Travis CI will automatically re-test when new commits are pushed
     - If the tests failed for reasons unrelated to the change (e.g. timing issues in Travis), the test can usually be re-run in Travis. Ask a committer if you need a test restarted, or if there are any other test failures that you believe are not related to your change(s).
-    - Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin master` and resolving the conflicts by hand, then pushing the result to your branch.
+    - Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin main` and resolving the conflicts by hand, then pushing the result to your branch.
     - Try to be responsive to the discussion rather than let days pass between replies.
  8. Squash your changes to a single commit as described [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html).
  9. Remember to remove `[WIP]` from your PR title once it is ready for submission, otherwise it will be ignored.
@@ -215,11 +175,11 @@ We follow standard GitHub procedures for creating and processing pull requests.
 - Lively, polite, rapid technical debate is encouraged from everyone in the community. The outcome may be a rejection of the entire change.
 - Reviewers can indicate that a change looks suitable for merging with a comment such as: “I think this patch/pull/change looks good”, or, more succinctly, "LGTM" (looks good to me).
 - Generally we require LGTMs by at least two committers in order to approve a change for merge. There may be cases where this varies depending on size/scope/complexity of the change.
-- Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin master` and resolving the conflicts by hand, then pushing the result to your branch.
+- Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can typically be resolved with `git pull --rebase origin main` and resolving the conflicts by hand, then pushing the result to your branch.
 
 ### Closing Your Pull Request
 
-- If accepted, your pull request will be automatically closed once the change is merged into `master`
+- If accepted, your pull request will be automatically closed once the change is merged into `main`
 - If your pull request is rejected, the committers will close your PR.
 - If committers have requested changes or further information from you, and you do not respond within a reasonable timeframe, your PR may be closed at our discretion.
 
@@ -229,7 +189,6 @@ NATS follows widely-adopted standards for code formatting and style in each impl
 
 ## Acknowledgements
 
-*"If I have seen further, it is by standing on the shoulders of giants."*
-														- Sir Isaac Newton
+*"If I have seen further, it is by standing on the shoulders of giants"* — Sir Isaac Newton
 
 In preparing this guide, we gratefully borrowed ideas and words from the contribution guidelines of other popular open-source projects such as Apache Spark, Redis, and Docker. We thank them for inspiring us.

@@ -5,8 +5,16 @@ ehthumbs.db
 
 # HUGO
 /public
-/themes/*
-/static
+/resources
+
+# Generated client pages
+content/download/*.md
+!content/download/_index.md
+!content/download/nats-server-1.md
+!content/download/nats-streaming-server-1.md
+
+# Generated PGP WKD files
+static/.well-known/openpgpkey/
 
 # Node
 node_modules

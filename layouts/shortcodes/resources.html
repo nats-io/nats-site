@@ -1,0 +1,30 @@
+{{ $resources := site.Data.resources }}
+<div class="columns is-multiline has-extra-top-margin">
+  {{ range $resources }}
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-image">
+    <figure class="image is-4by3">
+      <iframe src="https://www.youtube.com/embed/{{ .youtube_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </figure>
+  </div>
+      <div class="card-content">    
+        <div class="content">
+          <p class="title is-size-4 is-size-5-mobile">
+            {{ .title }}
+          </p>
+
+          <a class="button is-black is-outlined" href="{{ .slideshare_url }}" target="_blank">
+            <span class="icon has-text-primary">
+              <i class="fab fa-slideshare"></i>
+            </span>
+            <span>
+              SlideShare slide deck
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>

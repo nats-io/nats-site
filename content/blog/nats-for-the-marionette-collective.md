@@ -96,7 +96,7 @@ MCollective does have another mode, one suitable to REST servers where you'd lik
 
 The NATS team built a new product called NATS Streaming that adds a persistence layer atop NATS. This tool is perfect for the needs of MCollective in this REST compatible mode. The team gave me early access to the GitHub repository to evaluate it, and having this early access really helped me cement my choice in NATS.
 
-[NATS Streaming](/documentation/streaming/nats-streaming-intro/) is quite young. Once it supports clustering Choria will for sure adopt it as an option.
+[NATS Streaming](https://docs.nats.io/streaming/nats-streaming-intro/) is quite young. Once it supports clustering Choria will for sure adopt it as an option.
 
 ## Conclusion
 

@@ -1,0 +1,110 @@
+{{ $languages := site.Data.language.language }}
+{{ $clients := site.Data.clients }}
+{{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
+{{ range $languages }}
+{{ $this := . }}
+{{ range .orgs }}
+{{ if .jetstream_support }}
+{{ $streaming = $streaming | append $this }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+
+<div class="container content">
+<div class="columns">
+  <div class="column">
+<table>
+  <thead>
+  <tr>
+    <th>
+      Language
+    </th>
+    <!--<th>
+      Repo
+    </th> -->
+    <th>
+      Description
+    </th>
+    <th>
+      Developer
+    </th>
+    <th>
+      Details
+    </th>
+  </thead>
+  <tbody>
+  {{ range $k, $v := $streaming }}
+    <tr>
+    <td>
+    {{ range $k, $a := $v.orgs }}
+      {{ if $a.jetstream_support }}
+      {{ $v.name }}
+      {{ end }}
+      {{ end }}
+    </td>
+    <!--<td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.link }}
+      <a href="{{ $a.link }}/{{ $a.repo }}">
+        {{ $a.repo }}
+      </a>
+      {{ else }}
+      {{ $a.repo }}
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+    </td> -->
+
+    <td>
+      <!--{{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ if $a.streaming_support }}
+      <span>Streaming</span>
+
+
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }} -->
+      NATS {{ $v.name }} Client
+    </td>
+
+    <td>
+      {{ $n := len $v.orgs }}
+      {{ range $idx, $a := $v.orgs }}
+      {{ if $a.jetstream_support }}
+      {{ $isLast := eq (sub $n 1) $idx }}
+      {{ $official := eq $a.org "nats-io" }}
+      {{ if $official }}
+      {{ $a.author }}
+          <span>
+            <i class="fas fa-star fa-xs fa-star-blue"></i>
+          </span>
+      {{ else }} {{ $a.author }}
+      {{ end }}
+      {{ if not $isLast }}<br />{{ end }}
+      {{ end }}
+      {{ end }}
+    </td>
+    <td>
+      {{ range $idx, $a := $v.orgs }}
+      {{ if $a.jetstream_support }}
+      {{ $repo := printf "%s/%s" $a.org $a.repo }}
+      {{ partial "download/github_embed_clients.html" (dict "repo" $repo) }}
+      {{ end }}
+      {{ end }}
+
+    </td>
+
+  </tr>
+  {{ end }}
+  </tbody>
+</table>
+
+
+</div>
+</div>
+</div>

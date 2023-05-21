@@ -2,49 +2,64 @@
 [partners.docker]
 name="Docker"
 home ="https://www.docker.com/"
-logo = "/img/partners/docker.jpg"
+logo = "docker.jpg"
 
 [partners.influxdata]
 name = "Influx Data"
 home = "https://www.influxdata.com/"
-logo = "/img/partners/influxdata.jpg"
+logo = "influxdata.jpg"
 
 [partners.redhat]
 name = "Redhat Technology Partner"
 home = "http://connect.redhat.com/"
-logo = "/img/partners/redhat.jpg"
+logo = "redhat.jpg"
 
 [partners.treasuredata]
 name = "Treasure Data"
 home = "https://www.treasuredata.com/"
-logo = "/img/partners/treasure-data.jpg"
+logo = "treasure-data.jpg"
 
 [partners.spindox]
 name = "spindox digital soul"
 home = "https://www.spindox.it/en/"
-logo = "/img/partners/spindox.jpg"
+logo = "spindox.jpg"
 
 [partners.minio]
 name = "Minio"
 home = "https://www.minio.io/"
-logo = "/img/partners/minio.jpg"
+logo = "minio.jpg"
 
 [partners.freebsd]
 name = "FreeBSD"
 home = "https://www.freebsd.org/cgi/ports.cgi?query=NATS&stype=all"
-logo = "/img/partners/freebsd.jpg"
+logo = "freebsd.jpg"
 
 [partners.storageos]
 name = "StorageOS"
 home = "https://storageos.com/"
-logo = "/img/partners/storageos.jpg"
+logo = "storageos.jpg"
 
 [partners.bitnami]
 name = "Bitnami"
 home = "https://bitnami.com/"
-logo = "/img/partners/Bitnami-Logo-Full-Color.png"
+logo = "bitnami.png"
 
 [partners.agilestacks]
 name = "Agile Stacks"
 home = "https://agilestacks.com/"
-logo = "/img/partners/agilestacks_horz.jpg"
+logo = "agilestacks.jpg"
+
+[partners.cosmonic]
+name = "Cosmonic"
+home = "https://cosmonic.com/"
+logo = "cosmonic.png"
+
+[partners.wasmcloud]
+name = "wasmCloud"
+home = "https://wasmCloud.com/"
+logo = "wasmcloud.png"
+
+[partners.harperdb]
+name = "HarperDB"
+home = "https://harperdb.io/"
+logo = "harperdb.png"

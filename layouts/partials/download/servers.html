@@ -1,0 +1,155 @@
+{{/* Template for the server listings on /download (NATS Server, NATS Streaming Server, etc.) */}}
+
+{{ $servers := site.Data.servers }} {{/* All servers */}}
+{{ $platforms := (slice "darwin-amd64" "linux-amd64" "linux-386" "linux-arm6" "linux-arm7" "linux-arm64" "windows-386" "windows-amd64") }}
+
+
+<section class="section">
+  <div class="container">
+<div class="columns is-variable is-12">
+  {{ range $servers }}
+  {{ $repo := printf "%s/%s" .org .repo }}
+  {{ $url  := printf "https://github.com/%s" $repo }}
+  {{ $ghLatest  := printf "https://github.com/%s/releases/latest" $repo }}
+  {{ $docker    := printf "https://hub.docker.com/_/%s" .docker }}
+  {{ $prefix    := .prefix }}
+  {{ $release   := .release }}
+  {{ $nightly   := printf "https://hub.docker.com/r/synadia/nats-server/tags?page=1&ordering=last_updated&name=nightly" }}
+
+
+
+  <div class="column is-two-thirds">
+    <div class="card">
+      <div class="card-content">
+        <span class="title is-size-3 is-size-4-mobile">
+          {{ .title }}
+        </span>
+
+        <br /><br />
+
+        <div class="buttons are-small subtitle">
+          {{ if .official }}
+
+          <span class="button is-rounded is-primary has-text-weight-bold">
+            <span class="icon">
+              <i class="fas fa-star"></i>
+            </span>
+            <span>
+            official
+          </span>
+          </span>
+
+          {{ end }}
+          {{ if .streaming_support }}
+       <!--   <span class="button is-success has-text-weight-bold">
+            <span class="icon">
+              <i class="fas fa-star"></i>
+            </span>
+            <span>
+              nats streaming
+            </span>
+          </span> -->
+          {{ end }}
+        </div>
+
+<!--
+        <span>
+          Language: <strong>{{ .language }}</strong>
+        </span>
+        <br />
+
+        {{ with .author }}
+        Author:
+        {{ if .link }}
+        <a href="{{ .link }}" target="_blank">
+          {{ .name }}
+        </a>
+        {{ else }}
+        <strong>{{ .name }}</strong>
+        {{ end }}
+        {{ end }}
+                    -->
+
+        {{ with .release }}
+        <p>
+          Latest Release: <a href="{{ $ghLatest }}" target="_blank"><strong>v{{ .version }}</strong></a>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
+        </p>
+        {{ end }}
+
+       <!-- <div class="buttons are-small">
+          <a class="button is-black is-outlined" href="{{ $url }}" target="_blank">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            <span>
+              View on GitHub
+            </span>
+          </a>
+        </div> -->
+        {{ partial "download/github-embed.html" (dict "repo" $repo) }}
+
+        <br />
+          <div class="buttons">
+            {{ if .streaming_support }}
+            <a class="button is-black is-outlined" href="https://docs.nats.io/nats-streaming-server/install" target="_blank">
+            {{ else }}
+            <a class="button is-black is-outlined" href="https://docs.nats.io/nats-server/installation" target="_blank">
+            {{ end }}
+                      <span class="icon">
+                        <i class="fas fa-book-open"></i>
+                      </span>
+              <span>
+                        Installation
+                      </span>
+            </a>
+            <a class="button is-black is-outlined" href="{{ $ghLatest }}" target="_blank">
+                      <span class="icon">
+                        <i class="fas fa-download"></i>
+                      </span>
+              <span>
+                        Download latest
+                      </span>
+            </a>
+
+            <a class="button is-black is-outlined" href="{{ $docker }}" target="_blank">
+                      <span class="icon">
+                        <i class="fab fa-docker"></i>
+                      </span>
+              <span>
+                        Official Docker image
+                      </span>
+            </a>
+
+              <a class="button is-black is-outlined" href="{{ $nightly }}" target="_blank">
+                      <span class="icon">
+                        <i class="fas fa-moon"></i>
+                      </span>
+                <span>
+                        Nightly Build
+                      </span>
+              </a>
+          </div>
+        <!--  <ul style="list-style-type:none;font-size:17px;">
+            {{ range $platforms }}
+            {{ $version := $release.version }}
+            {{ $zipUrl     := printf "https://github.com/nats-io/%s/releases/download/v%s/%s-v%s-%s.zip" $prefix $version $prefix $version . }}
+            {{ $displayUrl := printf "%s-v%s-%s.zip" $prefix $version . }}
+            <li>
+              <a href="{{ $zipUrl }}">
+                {{ $displayUrl }}
+              </a>
+            </li>
+            {{ end }}
+          </ul> -->
+
+
+      </div>
+
+    </div>
+
+    </div>
+  {{ end }}
+
+
+    </div>
+  </section>

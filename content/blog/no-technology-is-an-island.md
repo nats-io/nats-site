@@ -30,4 +30,6 @@ An example of how useful Connectors can be is the solution Logimethods is delive
 </div>
 Be interesting to see what else the community comes up with over the next few weeks. Maybe connectors for MQTT, Prometheus, or Elastic next? ....But I'm guessing our inventory of custom NATS Hoodies will be gone soon!
 
+<!--
 <img class="img-responsive center-block" src="/img/blog/win-a-hoodie.jpg">
+-->

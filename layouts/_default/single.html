@@ -1,14 +1,8 @@
-{{ partial "header.html" . }}
-<div id="main-con" class="container">
-  <div class="row">
-    {{ if .Site.Params.leftNav }}
-    <div id="left-nav-con" class="col-md-3 hidden-xs hidden-sm">
-      {{ partial "side-menu.html" . }}
-    </div>
-    {{ end }}
-    <div class="col-md-{{if .Site.Params.leftNav }}9{{ else }}12{{ end }}">
-      {{ .Content }}
-    </div>
-  </div>
-</div>
-{{ partial "footer.html" . }}
+{{ define "title" }}
+{{ site.Title }} | {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ partial "hero.html" . }}
+{{ partial "content.html" . }}
+{{ end }}

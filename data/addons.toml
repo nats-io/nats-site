@@ -56,6 +56,15 @@ support = "Community"
 author = "Fatih Cetinkaya"
 authorHome = "https://github.com/fatihcode"
 
+[addons.caddy_nats]
+name = "Caddy NATS"
+home = "https://github.com/codegangsta/caddy-nats"
+description = "A caddy module that allows the caddy server to interact with a NATS server. This extension supports: publish/subscribe, fan in/out, and request reply."
+support = "Community"
+[[addons.caddy_nats.authors]]
+author = "Jeremy Saenz"
+authorHome = "https://github.com/codegangsta"
+
 
 [addons.coreos_clustering]
 name = "CoreOS Clustering"
@@ -412,6 +421,60 @@ description = "This project implements a multi-connector bridge, copier, replica
 support = "Synadia"
 [[addons.nats_replicator.authors]]
 author = "NATS Team"
+
+[addons.spring_nats_server]
+name = "Spring NATS Server"
+home = "https://github.com/YunaBraska/nats-server-embedded"
+description = "Spring NATS Server for unit testing."
+support = "Community"
+[[addons.spring_nats_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.java_nats_server]
+name = "Java NATS Server"
+home = "https://github.com/YunaBraska/nats-server"
+description = "Java NATS Server for unit testing."
+support = "Community"
+[[addons.java_nats_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.spring_nats_streaming_server]
+name = "Spring NATS Streaming Server"
+home = "https://github.com/YunaBraska/nats-streaming-server-embedded"
+description = "Spring NATS Streaming Server for unit testing."
+support = "Community"
+[[addons.spring_nats_streaming_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.java_nats_streaming_server]
+name = "Java NATS Streaming Server"
+home = "https://github.com/YunaBraska/nats-streaming-server"
+description = "Java NATS Streaming Server for unit testing."
+support = "Community"
+[[addons.java_nats_streaming_server.authors]]
+author = "Yuna Morgenstern"
+authorHome = "https://github.com/YunaBraska"
+
+[addons.synadia_ngs]
+name = "Synadia NGS"
+home = "https://synadia.com/ngs"
+description = "NGS is a global communications system built on NATS.io."
+support = "Community"
+[[addons.synadia_ngs.authors]]
+author = "Synadia"
+authorHome = "https://synadia.com"
+
+[addons.mongodb]
+name = "MongoDB NATS Connector"
+home = "https://github.com/damianiandrea/mongodb-nats-connector"
+description = "A connector that uses MongoDB's change streams to capture data changes and publishes those changes to NATS JetStream."
+support = "Community"
+[[addons.mongodb.authors]]
+author = "Andrea Damiani"
+authorHome = "https://github.com/damianiandrea"
 
 
 #[addons.xxx]

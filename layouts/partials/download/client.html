@@ -1,0 +1,75 @@
+{{ $repo     := printf "%s/%s" .ctx.org .ctx.repo }}
+{{ $link     := printf "https://github.com/%s" $repo }}
+{{ $official := eq .ctx.org "nats-io" }}
+<div class="column is-half">
+  <div class="card">
+    <div class="card-content">
+      <p class="title is-size-3 is-size-4-mobile">
+        {{ $repo }}
+      </p>
+
+      {{ if or .ctx.streaming_support $official }}
+      <div class="buttons are-small">
+        {{ if .ctx.streaming_support }}
+        <span class="button is-rounded is-success has-text-weight-bold">
+          nats-streaming
+        </span>
+        {{ end }}
+        {{ if $official }}
+        <span class="button is-primary has-text-weight-bold">
+          <span class="icon">
+            <i class="fas fa-star"></i>
+          </span>
+          <span>
+            official
+          </span>
+        </span>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <p>
+        Language: <strong>{{ .language }}</strong>
+      </p>
+
+      {{ with .ctx.author }}
+      Author:
+      {{ if .link }}
+      <a href="{{ .link }}" target="_blank">
+        {{ .name }}
+      </a>
+      {{ else }}
+      <strong>{{ .name }}</strong>
+      {{ end }}
+      {{ end }}
+
+      {{ with .ctx.release }}
+
+      {{ if .version }}
+      <p>
+        Release notes: <strong>v{{ .version }}</strong>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
+      </p>
+      {{ else }}
+      <p>No release notes</p>
+      {{ end }}
+      {{ end }}
+
+      <br /><br />
+
+      <div class="buttons are-small">
+        <a class="button is-black is-outlined" href="{{ $link }}" target="_blank">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>
+            View on GitHub
+          </span>
+        </a>
+      </div>
+
+      {{ partial "download/github-embed.html" (dict "repo" $repo) }}
+    </div>
+  </div>
+</div>
+
+

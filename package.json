@@ -3,41 +3,15 @@
   "version": "2.0.0",
   "description": "Nats.io",
   "main": "gulpfile.js",
-  "dependencies": {
-    "anchor-js": "^4.2.0",
-    "kind-of": "^6.0.3",
-    "lodash": "^4.17.15",
-    "minimist": "^1.2.5",
-    "prismjs": "^1.15.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build && npm run minify",
-    "check": "nsp check",
-    "minify": "minify --html-keep-conditional-comments --html-keep-document-tags --html-keep-end-tags -r -o public/ -a public/"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:nats-io/nats-site.git"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "gm": "^1.23.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-concat": "^2.6.0",
-    "gulp-gm": "0.0.9",
-    "gulp-image-resize": "^0.13.1",
-    "gulp-less": "^4.0.1",
-    "gulp-notify": "^3.2.0",
-    "gulp-shell": "^0.7.1",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "nsp": "^3.2.1",
-    "run-sequence": "^2.2.1"
+  "dependencies": {
+    "anchor-js": "^4.2.2",
+    "bulma": "^0.8.2",
+    "bulma-switch": "^2.0.0"
   }
 }

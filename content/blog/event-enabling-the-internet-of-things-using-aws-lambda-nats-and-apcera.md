@@ -72,7 +72,7 @@ We now have a functioning &lambda; framework within Apcera with an HTTP API Gate
 
 The diagram below outlines the flow between the main components in the system:
 
-<img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_1.png">
+<img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_1.png" alt="Component flow diagram">
 
 1. An HTTP(S) request is received by the Apcera Routers
 2. The Apcera Router redirects the request to the Dispatcher that is running somewhere within the cluster.
@@ -98,7 +98,7 @@ pub myfunction.lambda reply-box 0
 MSG reply-box 200 5
 hello
 ```
-<img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_2.png">
+<img class="img-responsive center-block" src="/img/blog/NATS_Lambda_Image_2.png" alt="Lambda request diagram">
 
 ## Conclusion & Futures
 Implementing a &lambda; framework in Apcera was very easy, as was connecting it up to NATS.

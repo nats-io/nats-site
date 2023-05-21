@@ -1,0 +1,56 @@
+{{ $title  := site.Title }}
+{{ $home   := site.BaseURL }}
+{{ $menu   := site.Menus.main }}
+{{ $here   := .RelPermalink }}
+{{ $isBlog := eq .Section "blog" }}
+
+
+<nav class="navbar is-dark is-fixed-top is-expanded">
+  <div class="container">
+   <div class="navbar-brand">
+    <div class="navbar-item">
+
+    </div>
+   <div class="navbar-item"><a href="{{ $home }}">
+     {{ if not .IsHome }}
+     {{ partial "logo.html" (dict "logo" "navbar") }}
+     {{ else }}
+     {{ partial "logo.html" (dict "logo" "navbar_home") }}
+   </a>
+     {{ end }}
+
+   </div>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+   </div>
+    <div class="navbar-menu">
+      <div class="navbar-end is-expanded">
+        {{ if $isBlog }}
+        {{ partial "search-bar.html" . }}
+        {{ end }}
+        {{ range $menu }}
+        {{ $isExternal := hasPrefix .URL "http" }}
+        <a class="navbar-item has-text-weight-bold" href="{{ .URL }}"{{ if $isExternal }} target="_blank"{{ end }}>
+          <span>
+            {{ .Name }}
+          </span>
+       {{ if $isExternal }}
+          <!--<span class="icon has-text-primary">
+            <i class="fas fa-sm fa-external-link-alt"></i>
+          </span> -->
+          {{ end }}
+        </a>
+        {{ end }}
+        <div class="navbar-item">
+          {{ partial "social-buttons.html" (dict) }}
+        </div>
+
+
+    </div>
+  </div>
+</nav>

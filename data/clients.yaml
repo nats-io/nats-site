@@ -1,0 +1,393 @@
+- language: Arduino
+  clients:
+  - org: isobit
+    repo: arduino-nats
+    author:
+      name: Josh Glendenning
+      link: https://github.com/isobit
+    release:
+      date: '2015-03-15'
+  - org: davidsai
+    repo: arduino-nats-streaming-client
+    streaming_support: true
+    author:
+      name: David Sai
+      link: https://github.com/davidsai
+- language: Asio C++
+  clients:
+  - org: antlad
+    repo: nats-asio
+    author:
+      name: Vlad Troinich
+      link: https://github.com/antlad
+    release:
+      date: '2019-10-24'
+- language: C
+  clients:
+  - org: nats-io
+    repo: nats.c
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '2.1.0'
+      date: '2019-10-02'
+  - org: nats-io
+    repo: stan.c
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '2.1.0'
+      date: '2019-10-02'
+- language: Clojure
+  clients:
+  - org: employeerepublic
+    repo: clj-nats-async
+    supported: false
+    author:
+      name: Employee Republic
+      link: https://github.com/employeerepublic/
+    release:
+      date: '2017-05-11'
+- language: C-sharp
+  clients:
+  - org: nats-io
+    repo: nats.net
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.10.0'
+      date: '2019-11-18'
+  - org: danielwertheim
+    repo: mynatsclient
+    supported: false
+    author:
+      name: Daniel Wertheim
+      link: https://github.com/danielwertheim
+    release:
+      version: '0.10.0'
+      date: '2017-01-10'
+- language: Crystal
+  clients:
+  - org: nats-io
+    repo: nats.cr
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.0.0'
+      date: '2019-09-10'
+  - org: repomaa
+    repo: nats.cr
+    supported: true
+    author:
+      name: Joakim Repomaa
+      link: https://github.com/repomaa
+    release:
+      version: '0.2.0'
+      date: '2018-12-14'
+- language: Elixir
+  clients:
+  - org: nats-io
+    repo: nats.ex
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.6.1'
+      date: '2019-03-03'
+  - org: iamd3vil
+    repo: nats_ex
+    supported: false
+    author:
+      name: Sarat Chandra
+      link: https://github.com/iamd3vil
+    release:
+      version: '0.1.0'
+      date: '2016-07-26'
+- language: Elm
+  clients:
+  - org: orus-io
+    repo: elm-nats
+    supported: false
+    author:
+      name: Christophe de Vienne
+      link: https://github.com/cdevienne
+    release:
+      date: '2017-05-22'
+- language: Erlang
+  clients:
+  - org: yuce
+    repo: teacup_nats
+    supported: false
+    author:
+      name: Yuce Tekol
+      link: https://github.com/yuce
+    release:
+      version: '0.4.0'
+      date: '2016-04-17'
+- language: Go
+  clients:
+  - org: nats-io
+    repo: nats.go
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '1.7.2'
+      date: '2019-02-21'
+- language: Haskell
+  clients:
+  - org: ondrap
+    repo: nats-queue
+    supported: false
+    author:
+      name: Ondrej Palkovsky
+      link: https://github.com/ondrap
+    release:
+      version: '1.2.1'
+      date: '2015-09-02'
+- language: Java
+  clients:
+  - org: nats-io
+    repo: nats.java
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '2.6.0'
+      date: '2019-07-22'
+  - org: cloudfoundry-community
+    repo: java-nats
+    supported: false
+    author:
+      name: Mike Heath
+      link: https://github.com/mheath
+    release:
+      version: '0.6.6'
+      date: '2016-09-12'
+- language: Java Android
+  clients:
+  - org: kedzie
+    repo: nats-android
+    supported: false
+    author:
+      name: Marek Kedzierski
+      link: https://kedzie.github.com/
+    release:
+      version: '2.4.1'
+      date: '2018-12-19'
+- language: Lua
+  clients:
+  - org: dawnangel
+    repo: lua-nats
+    supported: false
+    author:
+      name: Eric Pinto
+      link: https://github.com/DawnAngel
+    release:
+      version: '0.0.2'
+      date: '2015-07-16'
+- language: MicroPython
+  clients:
+  - org: mkharibalaji
+    repo: mpynats
+    supported: false
+    author:
+      name: M K Hari Balaji
+      link: https://github.com/mkharibalaji
+    release:
+      date: '2017-01-20'
+- language: Perl
+  clients:
+  - org: carwynmoore
+    repo: perl-nats
+    supported: false
+    author:
+      name: Carwyn Moore
+      link: https://github.com/carwynmoore
+    release:
+      date: '2016-07-20'
+  - org: sergeykolychev
+    repo: perl-nats-streaming
+    supported: false
+    streaming_support: true
+    author:
+      name: Sergey Kolychev
+      link: https://github.com/sergeykolychev
+    release:
+      version: '0.0.3'
+      date: '2017-11-13'
+- language: PHP
+  clients:
+  - org: repejota
+    repo: phpnats
+    supported: false
+    author:
+      name: Raül Pérez
+      link: https://github.com/repejota
+    release:
+      version: '0.8.6'
+      date: '2017-07-17'
+  - org: byrnedo
+    repo: php-nats-streaming
+    supported: false
+    streaming_support: true
+    author:
+      name: Donal Byrne
+      link: https://github.com/byrnedo
+    release:
+      version: '0.2.1'
+      date: '2017-12-01'
+- language: NGINX
+  clients:
+  - org: nats-io
+    repo: nginx-nats
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      date: '2015-08-18'
+- language: Node.js
+  clients:
+  - org: nats-io
+    repo: node-nats
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '1.2.6'
+      date: '2019-03-29'
+- language: Pure Ruby
+  clients:
+  - org: nats-io
+    repo: pure-ruby-nats
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.6.0'
+      date: '2019-06-19'
+- language: Python
+  clients:
+  - org: gr1n
+    repo: nats-python
+    supported: false
+    author:
+      name: Nikita Grishko
+      link: https://github.com/Gr1N
+    release:
+      date: '2018-09-01'
+- language: Python Asyncio
+  clients:
+  - org: nats-io
+    repo: nats.py
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.9.2'
+      date: '2019-05-31'
+- language: Python Tornado
+  clients:
+  - org: nats-io
+    repo: python-nats
+    supported: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.8.0'
+      date: '2018-09-22'
+- language: Python Twisted
+  clients:
+  - org: johnwlockwood
+    repo: txnats
+    supported: false
+    author:
+      name: John Lockwood
+      link: https://github.com/johnwlockwood
+    release:
+      date: '2016-11-12'
+- language: Qt5 C++
+  clients:
+  - org: pkoretic
+    repo: qt-nats
+    supported: false
+    author:
+      name: Petar Koretić
+      link: https://github.com/pkoretic/
+    release:
+      date: '2017-08-12'
+- language: Ruby
+  clients:
+  - org: nats-io
+    repo: ruby-nats
+    supported: true
+    streaming_support: true
+    author:
+      name: Synadia
+      link: https://synadia.com
+    release:
+      version: '0.11.0'
+      date: '2019-06-09'
+- language: Rust
+  clients:
+  - org: davidmcneil
+    repo: rants
+    supported: false
+    author:
+      name: David McNeil
+      link: https://github.com/davidMcneil
+  - org: encabulators
+    repo: natsclient
+    author:
+      name: Kevin Hoffman
+      link: https://github.com/autodidaddict
+- language: Scala
+  clients:
+  - org:  tyagihas
+    repo: scala_nats
+    supported: false
+    author:
+      name: Teppei Yagihashi
+      link: https://github.com/tyagihas
+- language: Swift
+  clients:
+  - org: travelish
+    repo: swiftnats
+    supported: false
+    author:
+      name: Firman Maulana
+      link: https://github.com/kakilangit
+    release:
+      version: '3.0.0-alpha.1'
+      date: '2016-08-28'
+  - org: aus-der-Technik
+    repo: swifty-nats
+    supported: false
+    author:
+      name: aus der Technik
+      link: https://github.com/aus-der-Technik
+    release:
+      version: '2.0.0'
+      date: '2021-09-01'      

@@ -1,0 +1,119 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+{{ $platforms := (slice "darwin-amd64" "linux-amd64" "linux-386" "linux-arm6" "linux-arm7" "linux-arm64" "windows-386" "windows-amd64") }}
+
+{{ $org       := .Params.org }}
+{{ $repo      := .Params.repo }}
+{{ $streaming := .Params.streaming_support }}
+{{ $author    := .Params.author }}
+{{ $release   := .Params.release }}
+{{ $ghLatest  := printf "https://github.com/%s/%s/releases/latest" $org $repo }}
+{{ $docker    := printf "https://hub.docker.com/_/%s" .Params.docker }}
+{{ $prefix    := .Params.prefix }}
+
+{{ partial "hero.html" . }}
+
+
+    <div class="columns">
+      {{ $repo := printf "%s/%s" $org $repo }}
+      {{ $link := printf "https://github.com/%s" $repo }}
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-size-3 is-size-4-mobile">
+              {{ $repo }}
+            </p>
+
+            <div class="container">
+              <div class="columns">
+                <div class="column">
+                  {{ if $streaming }}
+                  <div class="buttons are-small">
+                    <span class="button is-rounded is-success has-text-weight-bold">
+                      nats-streaming
+                    </span>
+                  </div>
+                  {{ end }}
+
+                  {{ with $author }}
+                  Author:
+                  {{ if .link }}
+                  <a href="{{ .link }}" target="_blank">
+                    {{ .name }}
+                  </a>
+                  {{ else }}
+                  <strong>{{ .name }}</strong>
+                  {{ end }}
+                  {{ end }}
+
+                  {{ with $release }}
+                  <p>
+                    Release notes: <strong>v{{ .version }}</strong>{{ with .date }} on {{ dateFormat "January 2, 2006" . }}{{ end }}
+                  </p>
+                  {{ end }}
+
+                  <br /><br />
+
+                  <div class="buttons are-small">
+                    <a class="button is-black is-outlined" href="{{ $link }}" target="_blank">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>
+                        View on GitHub
+                      </span>
+                    </a>
+                  </div>
+
+                  {{ partial "download/github-embed.html" (dict "repo" $repo) }}
+                </div>
+
+                <div class="column">
+                  <div class="buttons">
+                    <a class="button is-black is-outlined" href="{{ $ghLatest }}" target="_blank">
+                      <span class="icon">
+                        <i class="fas fa-download"></i>
+                      </span>
+                      <span>
+                        Download latest
+                      </span>
+                    </a>
+
+                    <a class="button is-black is-outlined" href="{{ $docker }}" target="_blank">
+                      <span class="icon">
+                        <i class="fab fa-docker"></i>
+                      </span>
+                      <span>
+                        Official Docker image
+                      </span>
+                    </a>
+                  </div>
+
+                  <ul>
+                    {{ range $platforms }}
+                    {{ $version := $release.version }}
+                    {{ $zipUrl     := printf "https://github.com/nats-io/%s/releases/download/v%s/%s-v%s-%s.zip" $prefix $version $prefix $version . }}
+                    {{ $displayUrl := printf "%s-v%s-%s.zip" $prefix $version . }}
+                    <li>
+                      <a href="{{ $zipUrl }}">
+                        {{ $displayUrl }}
+                      </a>
+                    </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<section class="section">
+  {{ partial "download/clients.html" . }}
+</section>
+{{ end }}

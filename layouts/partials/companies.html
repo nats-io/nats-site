@@ -1,12 +1,14 @@
-<h2>Companies</h2>
-<p class="lead">The ecosystem of companies using NATS varies from rapidly growing startups to some of the largest companies in the world.</p>
+{{ $companies := site.Data.companies.companies }}
 
-<div class="row company-logos">
-    {{ range .Site.Data }}
-    {{ range .companies }}
-    <div class="col-xs-6 col-md-3">
-        <a target="_blank" href="{{ .home }}"><img src="{{ .logo }}" class="img-responsive" alt="{{ .name }}"></a>
+<div class="container">
+  <div class="columns is-vcentered is-multiline is-gapless">
+    {{ range $k, $v := $companies }}
+    {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
+    <div class="column is-one-fifth is-gapless logo">
+      <a href="{{ $v.home }}" target="_blank">
+        <img class="is-user-logo" src="{{ $img }}" alt="{{ $v.name }} logo">
+      </a>
     </div>
     {{ end }}
-    {{ end }}
+  </div>
 </div>
