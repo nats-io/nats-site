@@ -115,7 +115,7 @@ UTC time values are certainly valuable for user/system reported times, however, 
 
 ## Conclusion
 
-The NATS team wants to reiterate our appreciation to all contributors in this release, including those testing and providing feedback during the release cycle. Nightly builds on the `main` branch, tracking the minor series (currently `2.9.x`), are available on Docker hub: [`synadia/nats-server:nightly-main`](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly-main).
+The NATS team wants to reiterate our appreciation to all contributors in this release, including those testing and providing feedback during the release cycle. Nightly builds on the `main` branch, tracking the stable series (currently `2.9.x`), are available on Docker hub: [`synadia/nats-server:nightly-main`](https://hub.docker.com/r/synadia/nats-server/tags?page=1&name=nightly-main).
 
 As always, refer to the [download page](https://nats.io/download/) for direct links to the GitHub release page and the official Docker image.
 
