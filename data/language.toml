@@ -322,6 +322,17 @@ author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_date = "2015-08-18"
 
+[language.nim]
+name = "Nim"
+[[language.nim.orgs]]
+org = "deem0n"
+repo = "nim-nats"
+supported = false
+author = "Dmitry Dorofeev"
+link = "https://github.com/deem0n"
+release_version = "3.0.0"
+date = "2022-05-23"
+
 [language.nodejs]
 name = "Node.js"
 [[language.nodejs.orgs]]
