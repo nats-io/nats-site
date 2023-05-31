@@ -476,6 +476,15 @@ support = "Community"
 author = "Andrea Damiani"
 authorHome = "https://github.com/damianiandrea"
 
+[addons.apache_js_spark]
+name = "Apache Spark NATS Connector"
+home = "https://github.com/nats-io/nats-spark-connector"
+description = "NATS JetStream Spark adapters - 2 adapters (balanced and partitioned) using different approaches to the integration."
+support = "Synadia"
+[[addons.apache_js_spark.authors]]
+author = "NATS Team"
+
+
 
 #[addons.xxx]
 #name = ""
