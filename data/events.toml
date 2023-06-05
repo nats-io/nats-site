@@ -9,7 +9,7 @@ ref = "https://www.meetup.com/pl-PL/dataops-poland/events/293345433/"
 
 [[events]]
 venue = "Susecon 2023 Munich"
-when = "June 20-22, 2023"
+when = "Thursday, Jun 22nd 11:30 AM CEST"
 who = "David Gee, Synadia"
 what = "Developing a pervasive telehealth edge with K3S and NATS"
 link = "https://www.suse.com/susecon/sessions/?search=nats#/"
