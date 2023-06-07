@@ -282,3 +282,8 @@ logo = "epicode.png"
 name = "Eyetowers"
 home = "https://www.eyetowers.cz/en/"
 logo = "eyetowers.svg"
+
+[companies.chatgod-ai]
+name = "Chatgod"
+home = "https://chatgod.ai/"
+logo = "chatgod-ai.svg"
