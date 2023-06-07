@@ -282,3 +282,8 @@ logo = "epicode.png"
 name = "Eyetowers"
 home = "https://www.eyetowers.cz/en/"
 logo = "eyetowers.svg"
+
+[companies.rxdb]
+name = "RxDB"
+home = "https://rxdb.info/"
+logo = "rxdb.svg"
