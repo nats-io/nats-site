@@ -11,7 +11,7 @@ tags = ["NATS", "API", "JetStream"]
 
 The NATS Maintainers at Synadia are excited to announce the **preview release** of the latest major improvement to the NATS client libraries - the new JetStream API. This is an important milestone to continue delivering developer-friendly, flexible, and comprehensive tooling for NATS. We’ve listened to your feedback and are confident this new API will simplify JetStream-related development and adoption.
 
-The two week preview period, starting June 12, 2023, is an opportunity for you to try the new API and provide feedback to refine and polish the client APIs. During the preview period, subtle breaking changes will likely be made. The client releases following the preview period will then be considered stable. 
+The two-week preview period, starting June 12, 2023, is an opportunity for you to try the new API and provide feedback to refine and polish the client APIs. During the preview period, subtle breaking changes will likely be made. The client releases following the preview period will then be considered stable.
 
 ## How did we get here?
 
@@ -25,13 +25,13 @@ Another important change is the focus on Pull Consumers. This change simplifies 
 
 ## The Anatomy of the New API
 
-To create an API that’s easy to grasp, yet powerful, and faithful to client language idioms, we designed the API around pivotal reference points that align with NATS architecture:
+To create an API that’s easy to grasp, yet powerful and faithful to client language idioms, we designed the API around pivotal reference points that align with NATS architecture:
 
 * JetStreamContext
 * Streams
 * Consumers
 
-Let’s delve into their functionalities, using the [Go client](https://pkg.go.dev/github.com/nats-io/nats.go@v1.26.0/jetstream) as an example.
+Let’s delve into their functionalities using the [Go client](https://pkg.go.dev/github.com/nats-io/nats.go@v1.26.0/jetstream) as an example.
 
 ### JetStreamContext
 
@@ -70,7 +70,7 @@ As shown above, you can retrieve a consumer from a stream just as you retrieved 
 
 ### Consumer
 
-Similar to a stream above, consumer is an object providing various methods for accessing information, but also provides a set of new mechanisms for fetch messages, including:
+Similar to the stream above, a consumer is an object providing various methods for accessing information, but also provides a set of new mechanisms for fetch messages, including:
 
 * next - get only next message
 * fetch - get a specified number of messages
