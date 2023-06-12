@@ -1,7 +1,7 @@
 +++
 date = "2023-06-12"
 draft = false
-title = "Preview Release New Jetstream Client Api"
+title = "Preview Release New JetStream Client API"
 author = "Tomasz Pietrek"
 categories = ["General"]
 tags = ["NATS", "API", "JetStream"]
@@ -27,13 +27,13 @@ Another important change is the focus on Pull Consumers. This change simplifies 
 
 To create an API that’s easy to grasp, yet powerful and faithful to client language idioms, we designed the API around pivotal reference points that align with NATS architecture:
 
-* JetStreamContext
+* JetStream Context
 * Streams
 * Consumers
 
 Let’s delve into their functionalities using the [Go client](https://pkg.go.dev/github.com/nats-io/nats.go@v1.26.0/jetstream) as an example.
 
-### JetStreamContext
+### JetStream Context
 
 Just like in the previous JetStream API, you initiate operations by creating a JetStream Context. Note how the new API exists in a separate package that is imported.
 
@@ -113,4 +113,4 @@ Your feedback has always been crucial to us, and we are eager to hear about your
 
 ## About the Author
 
-Tomasz is a Software Engineer at Synadia, working on various topics around NATS, from the Nats Server and Rust Client to abstraction layers like the microservices framework and Object Store. His journey to NATS was built on a broad spectrum of roles in the technology industry, having served as Principal Architect, Tech Lead, and Solution Architect in various fields, from Fintech and Industry 4.0 to eCommerce and Telecommunications. Today, Tomasz continues his tech journey focusing on innovative solutions and growth, leveraging NATS.
+[Tomasz Pietrek](https://www.linkedin.com/in/tomasz-pietrek/) is a Software Engineer at Synadia, working on various topics around NATS, from the NATS Server and Rust Client to abstraction layers like the microservices framework and Object Store. His journey to NATS was built on a broad spectrum of roles in the technology industry, having served as Principal Architect, Tech Lead, and Solution Architect in various fields, from Fintech and Industry 4.0 to eCommerce and Telecommunications. Today, Tomasz continues his tech journey focusing on innovative solutions and growth, leveraging NATS.
