@@ -111,3 +111,6 @@ We firmly believe that this new API represents a significant step forward in sim
 
 Your feedback has always been crucial to us, and we are eager to hear about your experiences with the new JetStream API. Happy coding!
 
+## About the Author
+
+Tomasz is a Software Engineer at Synadia, working on various topics around NATS, from the Nats Server and Rust Client to abstraction layers like the microservices framework and Object Store. His journey to NATS was built on a broad spectrum of roles in the technology industry, having served as Principal Architect, Tech Lead, and Solution Architect in various fields, from Fintech and Industry 4.0 to eCommerce and Telecommunications. Today, Tomasz continues his tech journey focusing on innovative solutions and growth, leveraging NATS.
