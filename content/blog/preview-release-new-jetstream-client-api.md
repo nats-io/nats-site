@@ -86,7 +86,7 @@ Here is an example:
 
 ```go
 consumer, err := stream.Consumer(ctx, “CONSUMER”)
-cons, _ := consumer.Consume(ctx, func(msg jetstream.Msg) {
+cons, _ := consumer.Consume(func(msg jetstream.Msg) {
     msg.Ack()
     fmt.Printf(“Received a JetStream message: %s\n”, string(msg.Data()))
 })
