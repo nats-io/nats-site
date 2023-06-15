@@ -18,7 +18,7 @@ This release was a smaller one than the prior few, but there are still some key 
 
 For the entirety of the improvements and fixes, check out the [release notes](https://github.com/nats-io/nats-server/releases/tag/v2.9.18).
 
-# 🗑️ Process purge replay properly on startup
+## 🗑️ Process purge replay properly on startup
 
 Purge is an on-demand operation that can be applied to a stream to delete a subset of messages in the stream. A purge operation takes a few [opt-in options](https://pkg.go.dev/github.com/nats-io/nats.go#StreamPurgeRequest) including:
 
