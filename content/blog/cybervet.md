@@ -2,7 +2,7 @@
 categories = ["Community", "Engineering"]
 date = "2023-06-26"
 tags = ["nats", "microservices", "technical", "telehealth", "synadia"]
-title = "Building a Data-Driven Healthcare Demo & NATS.io"
+title = "Building a Data-Driven Healthcare Demo with NATS.io"
 author = "David McGee"
 +++
 
