@@ -3,7 +3,7 @@ categories = ["Community", "Engineering"]
 date = "2023-06-26"
 tags = ["nats", "microservices", "technical", "telehealth", "synadia"]
 title = "Building a Data-Driven Healthcare Demo with NATS.io"
-author = "David McGee"
+author = "David Gee"
 +++
 
 We're lucky to have partners and customers in healthcare and even luckier to have a team of highly skilled and talented software engineers. So when the challenge came along to build a meaningful demo for a Telehealth scenario, we couldn't resist. No conversation on this topic would be complete without a sprinkle of AI or ML and so we posit that when used for good, these technologies can be applied to the preservation and quality of human life. That said, there are many challenges which range from measuring and digitizing signals from humans, to processing that data into meaningful actions and managing services at a high level for patient care.
