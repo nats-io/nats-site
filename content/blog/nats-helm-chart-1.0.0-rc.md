@@ -4,7 +4,7 @@ draft = false
 title = "Release Candidate - NATS 1.0.0 Helm Chart"
 author = "Caleb Lloyd"
 categories = ["Engineering"]
-tags = ["NATS", "Release"]
+tags = ["NATS", "Release","Kubernetes","Helm", "k8s"]
 +++
 
 As the Kubernetes ecosystem continues to grow, installing NATS via [Helm](https://helm.sh/) has become a very popular method.
@@ -13,13 +13,13 @@ The NATS 0.x series of the Helm Chart was initially released in 2020, a full yea
 
 The past 3 years have taught us that it is important to support all of the extensibility options possible in Kubernetes resources - custom Image Registries, ConfigMaps, TLS Secrets, Volumes and Mounts, Init Containers, and more.
 
-Today we are announcing the first [1.0.0 release candidate of the Helm Chart](https://github.com/nats-io/k8s/releases/tag/nats-1.0.0-rc.0), evolved from the 0.x series learnings.. This pre-release period will continue for the remainder of July 2023 with an expected GA timeline of August 2023.
+Today we are announcing the first [1.0.0 release candidate of the Helm Chart](https://github.com/nats-io/k8s/releases/tag/nats-1.0.0-rc.0), evolved from the 0.x series learnings. This pre-release period will continue for the remainder of July 2023 with an expected GA timeline of August 2023.
 
 ## New Service for Clients
 
 NATS uses a Stateful Set so that multiple containers in the NATS Cluster can discover each other via cluster Routes. Stateful Sets require defining a [Headless Service](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) to be used for discovery.
 
-In the 0.x Helm Chart, NATS only created a Headless Service. The first issue that users ran into is that this service type cannot be changed to a ClusterIP, NodePort, or LoadBalancer service. For those exposing NATS outside of their cluster, it was common to have to create a sub-chart for NATS and add the custom service type to the parent chart.
+In the 0.x Helm Chart, NATS only created a Headless Service. The first issue users ran into is that this service type cannot be changed to a ClusterIP, NodePort, or LoadBalancer service. For those exposing NATS outside of their cluster, it was common to have to create a sub-chart for NATS and add the custom service type to the parent chart.
 
 JetStream health checks have also evolved to be more comprehensive. New health checks have been added to ensure that JetStream starts and catches up on stream replication prior to being marked as ready. This resulted in having to enable `publishNotReadyAddresses` on the Headless Service, so that NATS containers could still discover each other prior to JetStream being ready. The downside was that clients connecting through the Headless Service could reach a server that was not ready.
 
