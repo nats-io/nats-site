@@ -31,6 +31,16 @@ The Headless Service has been renamed to add a suffix of “-headless”. It is 
 
 NATS supports connections over WebSockets, and the 1.0.0 Helm Chart makes it simple to expose WebSockets via an ingress:
 
+```yaml
+config:
+  websocket:
+    enabled: true
+  ingress:
+    enabled: true
+    hosts:
+      - demo.nats.io
+```
+
 ## Fully Customizable
 
 One of the pitfalls of Helm Charts is that they don’t always provide a way to customize a particular resource. In 0.x we spent a lot of time adding new values to the Helm Chart to customize the NATS Config and Kubernetes Resources.
@@ -39,7 +49,36 @@ One of the pitfalls of Helm Charts is that they don’t always provide a way to 
 
 For example, to set accounts/users in the NATS Config:
 
+```yaml
+config:
+  merge:
+    accounts:
+      A:
+        users:
+          - { user: a, password: a }
+      B:
+        users:
+          - { user: b, password: b }
+```
+
 Or to add resource constraints to the NATS Container:
+
+```yaml
+container:
+  env:
+    # different from k8s units, suffix must be B, KiB, MiB, GiB, or TiB
+    # should be ~90% of memory limit
+    GOMEMLIMIT: 7GiB
+  merge:
+    # recommended limit is at least 2 CPU cores and 8Gi Memory for production JetStream clusters
+    resources:
+      requests:
+        cpu: "2"
+        memory: 8Gi
+      limits:
+        cpu: "2"
+        memory: 8Gi
+```
 
 Any new NATS Config or Kubernetes option is immediately supported by the 1.0.0 Helm Chart without waiting for a new chart version to support specific functionality.
 
