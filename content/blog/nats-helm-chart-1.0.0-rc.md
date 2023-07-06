@@ -35,10 +35,10 @@ NATS supports connections over WebSockets, and the 1.0.0 Helm Chart makes it sim
 config:
   websocket:
     enabled: true
-  ingress:
-    enabled: true
-    hosts:
-      - demo.nats.io
+    ingress:
+      enabled: true
+      hosts:
+        - demo.nats.io
 ```
 
 ## Fully Customizable
