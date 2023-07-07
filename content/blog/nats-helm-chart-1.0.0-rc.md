@@ -84,7 +84,9 @@ Any new NATS Config or Kubernetes option is immediately supported by the 1.0.0 H
 
 ## Try it Today
 
-The 1.0.0 Helm Chart Release Candidate is available on [ArtifactHub](https://artifacthub.io/packages/helm/nats/nats) and [GitHub](https://github.com/nats-io/k8s). To leave feedback, please open issues or discussions on the [nats-io/k8s repo](https://github.com/nats-io/k8s) or ask questions in the [NATS #k8s channel](https://natsio.slack.com/archives/CTM4A2TR7). Thanks!
+The 1.0.0 Helm Chart Release Candidate is available on [ArtifactHub](https://artifacthub.io/packages/helm/nats/nats) and [GitHub](https://github.com/nats-io/k8s). If you are running on the existing 0.x series chart, check out the [upgrading guide](https://github.com/nats-io/k8s/blob/helm-nats-1.x/helm/charts/nats/UPGRADING.md).
+
+To leave feedback, please open issues or discussions on the [nats-io/k8s repo](https://github.com/nats-io/k8s) or ask questions in the [NATS #k8s channel](https://natsio.slack.com/archives/CTM4A2TR7). Thanks!
 
 ## About the Author
 
