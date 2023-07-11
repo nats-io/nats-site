@@ -33,7 +33,7 @@ We are excited to bring these advances to the NATS community and look forward to
 
 ### 2.10 Release
 
-_Coming June 2023_
+_Coming August 2023_
 
 The following list of items have been committed to for this release. A detailed blog post introducing these features will be available once released.
 
@@ -57,7 +57,7 @@ Nightly container image builds are available during development on Docker Hub un
 
 ### 2.11 Release
 
-_Coming Summer 2023_
+_Coming end of 2023_
 
 The following short-list of items have been committed to, but will be refined once the previous version is released.
 
