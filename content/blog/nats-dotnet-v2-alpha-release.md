@@ -63,7 +63,6 @@ await foreach (var msg in sub.Msgs.ReadAllAsync())
     await msg.ReplyAsync($"Answer is: { 2 * msg.Data }");
 }
 
-:
 await using var nats = new NatsConnection();
 
 // Send a request (message), expecting a reply. The client automatically
