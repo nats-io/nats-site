@@ -19,7 +19,7 @@ Today, we’re excited to announce our first developer preview release of [NATS.
 
 [NATS.Client.Core v2](https://www.nuget.org/packages/NATS.Client.Core) is a complete implementation of all Core NATS features including headers. We take full advantage of async/await, IAsyncDisposable, Channels, IAsyncEnumerable and ValueTask to provide a great developer experience and high performance.
 
-### Publish-subscribe
+### Publish-Subscribe
 
 ```csharp
 using NATS.Client.Core;
