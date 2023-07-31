@@ -7,9 +7,9 @@ categories = ["Community","Engineering"]
 tags = ["NATS","Kubernetes", "AWS"]
 +++
 
-<img alt="NASCAR Logo" src="https://www.nascar.com/wp-content/uploads/sites/7/2023/01/Footer_75thAnniversary_IDMark_rgb_OnDkBkgd-1-300x51-1.png" height="32" width="225">
+<img src="https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2023/06/24/NASCAR-1-scaled.jpg" height="180" width="300">
 
-How NASCAR uses NATS to deliver real-time racing data to broadcasters, racing teams, and fans.
+Pushing the boundaries from the edge to the cloud at ultra-low latency: how NASCAR uses NATS to deliver real-time racing data to broadcasters, racing teams, and fans.
 
 ## Distributing live telemetry data
 
