@@ -18,13 +18,13 @@ This telemetry data is transmitted over UHF radio waves to the NASCAR mobile dat
 
 ## Why NATS
 
-This is real-time data generated at such a high rate of speed, (literally! 😄) that it is imperative to transmit safely and with the lowest latency possible to the teams (amongst many other things, streaming sensor data can for example be used to predict mechanical failures as they are about to happen) both on-site and over the cloud to their home-bases.
+This is real-time data generated at such a high rate of speed (literally! 😄), that it is imperative to transmit safely and with the lowest latency possible to the teams (amongst many other things, streaming sensor data can for example be used to predict mechanical failures as they are about to happen) both on-site and over the cloud to their home-bases.
 
 Besides latency and throughput, security is another important aspect: "One key feature of NATS incorporated in this design is isolation of the data between different subscribers (multi-tenancy). Ensuring that a given racing team is the only recipient of their car’s telemetry data is essential for competition integrity. Thus, teams who connect to the ERDP to receive live telemetry data are only able to access the appropriate data set for them, in real time."
 
 ## The article
 
-Learn more about why NASCAR chose NATS in the full AWS blog:
+Learn more about how NASCAR uses NATS in the full AWS blog:
 
 https://aws.amazon.com/blogs/media/accelerating-motorsports-how-nascar-delivers-real-time-racing-data-to-broadcasters-racing-teams-and-fans/
 
