@@ -292,3 +292,8 @@ logo = "rxdb.svg"
 name = "Intervals.icu"
 home = "https://intervals.icu/"
 logo = "intervals.png"
+
+[companies.benzinga]
+name = "Benzinga"
+home = "https://benzinga.com/"
+logo = "benzinga.png"
