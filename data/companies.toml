@@ -297,3 +297,8 @@ logo = "intervals.png"
 name = "Benzinga"
 home = "https://benzinga.com/"
 logo = "benzinga.png"
+
+[companies.ego]
+name = "e.GO"
+home = "https://e-go-mobile.com/"
+logo = "ego.png"
