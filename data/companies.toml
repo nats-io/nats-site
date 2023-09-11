@@ -297,3 +297,8 @@ logo = "intervals.png"
 name = "Benzinga"
 home = "https://benzinga.com/"
 logo = "benzinga.png"
+
+[companies.sty-holdings]
+name = "STY Holdings"
+home = "https://sty-holdings.com"
+logo = "sty-holdings.png"
