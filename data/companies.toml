@@ -302,3 +302,8 @@ logo = "benzinga.png"
 name = "STY Holdings"
 home = "https://sty-holdings.com"
 logo = "sty-holdings.png"
+
+[companies.awarenesslabs]
+name = "Awareness Labs"
+home = "https://awareness-labs.github.io/"
+logo = "awarenesslabs.png"
