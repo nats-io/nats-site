@@ -302,3 +302,13 @@ logo = "benzinga.png"
 name = "e.GO"
 home = "https://e-go-mobile.com/"
 logo = "ego.png"
+
+[companies.sty-holdings]
+name = "STY Holdings"
+home = "https://sty-holdings.com"
+logo = "sty-holdings.png"
+
+[companies.awarenesslabs]
+name = "Awareness Labs"
+home = "https://awareness-labs.github.io/"
+logo = "awarenesslabs.png"
