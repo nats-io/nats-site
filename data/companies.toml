@@ -298,6 +298,11 @@ name = "Benzinga"
 home = "https://benzinga.com/"
 logo = "benzinga.png"
 
+[companies.ego]
+name = "e.GO"
+home = "https://e-go-mobile.com/"
+logo = "ego.png"
+
 [companies.sty-holdings]
 name = "STY Holdings"
 home = "https://sty-holdings.com"
