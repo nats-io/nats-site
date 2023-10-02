@@ -1,9 +1,9 @@
 [[events]]
 venue = "KubeCon + CloudNativeCon NA 2023"
-when = "November 6-9, 2023"
-who = "Synadia/NATS Team"
-what = "TBA"
-link = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
+when = "Wednesday, November 8, 2023 2:30pm CT"
+who = "Byron Ruth & Jeremy Saenz, Synadia"
+what = "How NATS Is Designed to Deliver AI Workloads at the Edge"
+link = "https://sched.co/1R2rE"
 where = "Chicago, Illinois"
 ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 
