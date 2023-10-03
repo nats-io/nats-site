@@ -31,7 +31,7 @@ Given the set of tests, the current code coverage is at 85%, up from 68% a year 
 
 These metrics are notable, but they only apply to the unit tests within the [NATS repo](https://github.com/nats-io/nats-server) and do not represent the additional distributed workloads Synadia is testing across cloud VMs, Kubernetes, and edge devices.
 
-These new methods and tools used to improve the 2.9.x series were applied during the entire 2.10 development cycle and have improved the rate at which we can spot and fix issues, and leveraged to improve performance.
+These new methods and tools used to improve the 2.9.x series were applied during the entire 2.10 development cycle and have improved the rate at which we can spot and fix issues, and were leveraged to improve performance.
 
 ## Laying the next foundation
 
@@ -62,7 +62,7 @@ That said, the current clustering mechanism relies on a single TCP connection be
 
 Given this degree of flexibility for clustering and the need to optimize latency and bandwidth, four key observations motivated the new design.
 
-The first observation was that the system account handles all Raft traffic, system events, etc. that does not need to be interleaved with application-defined traffic.
+The first observation was that the system account, which handles Raft traffic, system events etc, previously interleaved with application-defined traffic over a specific route.
 
 The second observation was that many NATS deployments leverage the native multi-tenancy feature, therefore having many accounts corresponding to their own customers or business units within their organization. Shuttling all of the messages across accounts over a single TCP connection could become a bottleneck.
 
