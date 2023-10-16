@@ -53,7 +53,7 @@ Now, run the provided cookiecutter command and fill out the relevant details to 
 cookiecutter https://github.com/airtai/cookiecutter-faststream.git
 ```
 
-The cookiecutter creatin process should look like this:
+The cookiecutter creation process should look like this:
 
 ```shell
 You`ve downloaded /Users/tvrtko/.cookiecutters/cookiecutter-faststream before. Is it okay to delete and re-download it? [y/n] (y): y
@@ -287,7 +287,7 @@ INFO:     Uvicorn running on http://localhost:8000 (Press CTRL+C to quit)
 
 Now open your browser at `http://localhost:8000` and enjoy in your automatically generated documentation!
 
-![Generated docs](https://raw.githubusercontent.com/sternakt/greetings_app_nats/main/assets/documentation_screenshot.png)
+<img class="img-responsive center-block" alt="FastStream NATS app documentation" src="/img/blog/nats-supported-by-faststream/docs_example.png">
 
 Aaaand, that's it! Feel free to experiment further with your application and checkout [the documentation](https://faststream.airt.ai/latest/) for more complex examples.
 
