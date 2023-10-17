@@ -301,4 +301,7 @@ FastStream is your go-to tool for efficient microservices development. It simpli
 
 We're immensely grateful for your interest, and we look forward to your potential contributions. With FastStream in your toolkit, you're prepared to conquer the challenges of data-centric microservices like never before. Happy coding!
 
+## About the Author
+
+Tvrtko Sternak is a developer at [AIRT](https://airt.ai/) and one of the creators of [FastStream](https://faststream.airt.ai/latest/).
 
