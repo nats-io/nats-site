@@ -1,7 +1,7 @@
 +++
 date = "2023-10-13"
 draft = true
-title = "NATS Supported by FastStream"
+title = "Streamlining Asynchronous Services with FastStream"
 author = "Tvrtko Sternak"
 categories = ["Engineering"]
 tags = ["NATS", "FastStream", "Python", "microservices"]
@@ -9,7 +9,7 @@ tags = ["NATS", "FastStream", "Python", "microservices"]
 
 Ever felt lost in the complexity of microservices and message queues? That's precisely why FastStream was created. Initially, it was our solution to the challenges we faced with messaging queues in our own projects. But as it simplified our lives, we realized it could do the same for others. So, we decided to share it with the world.
 
-FastStream streamlines the entire process of working with message queues in microservices. Parsing messages, managing networking, and keeping documentation updated—all handled effortlessly.
+FastStream is a Python framework for building asynchronous services that interact with event streams like Apache Kafka, RabbitMQ, and NATS. It streamlines the entire process of working with message queues in microservices. Parsing messages, managing networking, and keeping documentation updated—all handled effortlessly.
 
 We are happy to announce that FastStream supports NATS by building on top of the [official nats-io python client](https://github.com/nats-io/nats.py)!
 
