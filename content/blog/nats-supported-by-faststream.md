@@ -125,7 +125,7 @@ async def on_names(msg: Name, logger: Logger) -> None:
     await to_greetings.publish(greeting)
 ```
 
-The example application will subscribe to **persons** Nats subject and consume Name JSON messages from it. When the application consumes a message it will publish a Greetings JSON message **greetings** subject.
+The example application will subscribe to **persons** NATS subject and consume Name JSON messages from it. When the application consumes a message it will publish a Greetings JSON message **greetings** subject.
 
 We can save the application into the `application.py` file and let's take a closer look at the code.
 
