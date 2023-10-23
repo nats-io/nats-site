@@ -1,6 +1,6 @@
 +++
-date = "2023-10-13"
-draft = true
+date = "2023-10-23"
+draft = false
 title = "Streamlining Asynchronous Services with FastStream"
 author = "Tvrtko Sternak"
 categories = ["Engineering"]
