@@ -27,37 +27,15 @@ The purpose of the roadmap is to communicate the known set of features and chang
 
 We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
 
-{{< columns >}}
-
-{{< column >}}
-
-### 2.10 Release
-
-_Coming August 2023_
-
-The following list of items have been committed to for this release. A detailed blog post introducing these features will be available once released.
-
-- Authorization callout
-- Enhanced cluster routes
-- Large/fast updating KV optimizations
-- Multi-filter consumers
-- Stream subject transforms
-- On-disk stream compression
-- Native support for Windows certificate store
-- Stream and consumer metadata fields
-- Multi-CA OCSP support
-- Support for stream republish edits
-- Opt-in UTC-based log timestamps
-
 Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
 
-{{< /column >}}
+{{< columns >}}
 
 {{< column >}}
 
 ### 2.11 Release
 
-_Coming end of 2023_
+_Coming in 2024_
 
 The following short-list of items have been committed to, but will be refined once the previous version is released.
 
