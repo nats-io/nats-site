@@ -31,33 +31,9 @@ We are excited to bring these advances to the NATS community and look forward to
 
 {{< column >}}
 
-### 2.10 Release
-
-_Coming August 2023_
-
-The following list of items have been committed to for this release. A detailed blog post introducing these features will be available once released.
-
-- Authorization callout
-- Enhanced cluster routes
-- Large/fast updating KV optimizations
-- Multi-filter consumers
-- Stream subject transforms
-- On-disk stream compression
-- Native support for Windows certificate store
-- Stream and consumer metadata fields
-- Multi-CA OCSP support
-- Support for stream republish edits
-- Opt-in UTC-based log timestamps
-
-Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
-
-{{< /column >}}
-
-{{< column >}}
-
 ### 2.11 Release
 
-_Coming end of 2023_
+_Coming in 2024_
 
 The following short-list of items have been committed to, but will be refined once the previous version is released.
 
@@ -65,6 +41,8 @@ The following short-list of items have been committed to, but will be refined on
 - Message processing callout
 - Encryption key rotation
 - Key-Value typed values
+
+Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
 
 {{< /column >}}
 
