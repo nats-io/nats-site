@@ -27,8 +27,6 @@ The purpose of the roadmap is to communicate the known set of features and chang
 
 We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
 
-Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
-
 {{< columns >}}
 
 {{< column >}}
@@ -43,6 +41,8 @@ The following short-list of items have been committed to, but will be refined on
 - Message processing callout
 - Encryption key rotation
 - Key-Value typed values
+
+Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
 
 {{< /column >}}
 
