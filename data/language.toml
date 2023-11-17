@@ -265,6 +265,18 @@ author = "M K Hari Balaji"
 link = "https://github.com/mkharibalaji"
 release_date = "2017-01-20"
 
+[language.pascal]
+name = "Pascal"
+[[language.pascal.orgs]]
+org = "biot2"
+repo = "nats.pas"
+supported = false
+streaming_support = true
+author = "Vahid Nasehi Oskouei"
+link = "https://github.com/biot2/nats.pas"
+release_version = "3.3.0"
+release_date = "2022-04-22"
+
 [language.perl]
 name = "Perl"
 [[language.perl.orgs]]
