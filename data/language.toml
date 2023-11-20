@@ -271,7 +271,6 @@ name = "Pascal"
 org = "biot2"
 repo = "nats.pas"
 supported = false
-streaming_support = true
 author = "Vahid Nasehi Oskouei"
 link = "https://github.com/biot2/nats.pas"
 release_version = "3.3.0"
