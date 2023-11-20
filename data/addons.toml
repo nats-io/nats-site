@@ -467,6 +467,7 @@ support = "Community"
 author = "Synadia"
 authorHome = "https://synadia.com"
 
+
 [addons.mongodb]
 name = "MongoDB NATS Connector"
 home = "https://github.com/damianiandrea/mongodb-nats-connector"
@@ -483,6 +484,15 @@ description = "NATS JetStream Spark adapters - 2 adapters (balanced and partitio
 support = "Synadia"
 [[addons.apache_js_spark.authors]]
 author = "NATS Team"
+
+[addons.syslog2nats]
+name = "Syslog sidecar for NATS"
+home = "https://github.com/g41797/syslog2nats"
+description = "Receives, parses, filters syslog messages and publishes them to NATS JetStream"
+support = "Community"
+[[addons.syslog2nats.authors]]
+author = "g41797"
+authorHome = "https://github.com/g41797"
 
 
 
