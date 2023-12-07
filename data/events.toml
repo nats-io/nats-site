@@ -1,11 +1,10 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon NA 2023"
-when = "Wednesday, November 8, 2023 2:30pm CT"
-who = "Byron Ruth & Jeremy Saenz, Synadia"
-what = "How NATS Is Designed to Deliver AI Workloads at the Edge"
-link = "https://sched.co/1R2rE"
-where = "Chicago, Illinois"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
+venue = "RethinkConn 2024"
+when = "January 11, 2024 11:00 EST"
+who = "Hosted by Byron Ruth, Synadia"
+what = "Hear from users with diverse industry use cases, see some cool demos, and get a preview of what’s coming to NATS in 2024!"
+where = "Virtual Event"
+link = "https://www.crowdcast.io/c/rethinkconn-2024"
 
 # comment out to save
 #[[events]]
@@ -20,7 +19,8 @@ ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 # comment out to save
 #[[icymi]]
 # venue = "ICYMI"
-# when = "December 11, 2018"# who = "Colin Sullivan & Waldemar Quevedo"
+# when = "November 2023"
+# who = "Jeremy Saenz & Byron Ruth"
 # what = "Intro to NATS"
 # link = "https://youtu.be/EI6clwKZ-qs"
 # where = "Kubecon + CloudNativeCon Seattle 2018"
