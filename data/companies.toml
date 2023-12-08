@@ -317,3 +317,8 @@ logo = "awarenesslabs.png"
 name = "Rivian"
 home = "https://rivian.com/"
 logo = "rivian.png"
+
+[companies.holoplot]
+name = "HOLOPLOT"
+home = "https://holoplot.com/"
+logo = "holoplot.png"
