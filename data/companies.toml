@@ -311,7 +311,7 @@ logo = "sty-holdings.png"
 [companies.awarenesslabs]
 name = "Awareness Labs"
 home = "https://awareness-labs.github.io/"
-logo = "awarenesslabs.png"
+logo = "awarenesslab.png"
 
 [companies.rivian]
 name = "Rivian"
