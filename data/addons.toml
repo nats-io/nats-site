@@ -512,6 +512,15 @@ support = "RisingWave Team"
 author = "RisingWave Team"
 authorHome = "https://github.com/risingwavelabs/risingwave"
 
+[addons.timeplus]
+name = "Timeplus source for NATS"
+home = "https://timeplus.com"
+description = "Receives messages from NATS and NATS JetStream and publishes data to Timeplus streams. This is powered by https://benthos.dev/"
+support = "Community"
+[[addons.timeplus.authors]]
+author = "Gang Tao"
+authorHome = "https://github.com/gangtao"
+
 #[addons.xxx]
 #name = ""
 #home = ""
