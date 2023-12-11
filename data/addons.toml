@@ -494,6 +494,24 @@ support = "Community"
 author = "g41797"
 authorHome = "https://github.com/g41797"
 
+[addons.risingwave_nats]
+name = "NATS JetStream to RisingWave Connector"
+home = "https://docs.risingwave.com/docs/current/ingest-from-nats/"
+description = "A RisingWave built-in connector that allows RisingWave to receive messages from NATS JetStream. RisingWave is a distributed SQL streaming database that enables simple, efficient, and reliable processing of streaming data."
+support = "RisingWave Team"
+[[addons.risingwave_nats.authors]]
+author = "RisingWave Team"
+authorHome = "https://github.com/risingwavelabs/risingwave"
+
+[addons.nats_risingwave]
+name = "RisingWave to NATS Connector"
+home = "https://docs.risingwave.com/docs/current/sink-to-nats/"
+description = "A RisingWave built-in connector that allows RisingWave to send messages to NATS. RisingWave is a distributed SQL streaming database that enables simple, efficient, and reliable processing of streaming data."
+support = "RisingWave Team"
+[[addons.nats_risingwave.authors]]
+author = "RisingWave Team"
+authorHome = "https://github.com/risingwavelabs/risingwave"
+
 [addons.timeplus]
 name = "Timeplus source for NATS"
 home = "https://timeplus.com"
