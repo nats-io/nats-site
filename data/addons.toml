@@ -494,7 +494,14 @@ support = "Community"
 author = "g41797"
 authorHome = "https://github.com/g41797"
 
-
+[addons.timeplus]
+name = "Timeplus source for NATS"
+home = "https://timeplus.com"
+description = "Receives messages from NATS and NATS JetStream and publishes data to Timeplus streams. This is powered by https://benthos.dev/"
+support = "Community"
+[[addons.timeplus.authors]]
+author = "Gang Tao"
+authorHome = "https://github.com/gangtao"
 
 #[addons.xxx]
 #name = ""
