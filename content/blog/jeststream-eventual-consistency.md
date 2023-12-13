@@ -57,7 +57,7 @@ await jsm.streams.add({
 	name: "a",
 	subjects: ["a.*"],
 	// Deduplicate for 5 seconds
-	duplicate_window: 5.000.000.000
+	duplicate_window: 5_000_000_000
 });
 // create a jetstream client:
 const js = nc.jetstream();
