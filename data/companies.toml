@@ -322,3 +322,8 @@ logo = "rivian.png"
 name = "HOLOPLOT"
 home = "https://holoplot.com/"
 logo = "holoplot.png"
+
+[companies.volvo]
+name = "Volvo"
+home = "https://volvocars.com/"
+logo = "volvo.png"
