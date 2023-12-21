@@ -7,12 +7,16 @@ categories = ["Engineering"]
 tags = ["NATS", "JetStream", "Streams", "Multi-Cluster", "Eventual Consistency"]
 +++
 
+# Abstract
+Using stretch clusters and virtual streams to improve latency and availability in global NATS deployments. Includes a walk-through and associated repository as a practical example.
+
 # Introduction
-Whether it's the need for the data to be closer to the users to meet latency requirements, or the need to be resilient to a disaster such as a site or cloud provider regional outage, or even for regulatory requirements, many companies are looking to deploy their applications over multiple availability zones, sites, regions or cloud providers. And when you step into these kinds of geographically distributed deployments you need to worry about the distribution, replication and consistency of your data, both for 'reads' and 'writes'.
+
+As field cto at Synadia I have had the chance to work with some of the most interesting customer use cases for deploying NATS globally over multiple locations. Whether it's the need for the data to be closer to the users to meet latency requirements, or the need to be resilient to a disaster such as a site or cloud provider regional outage, or even for regulatory requirements, many companies are looking to deploy their applications over multiple availability zones, sites, regions or cloud providers. And when you step into these kinds of geographically distributed deployments you need to worry about the distribution, replication and consistency of your data, both for 'reads' and 'writes'.
 
 In case you're not familiar with consistency models in distributed data stores, just know that one of the ways distributed data stores can be classified is by their distributed consistency model: they can be either 'eventually' consistent or 'immediately' consistent. Both models have their advantages and inconveniences: immediately consistent systems can offer features such as distributed shared queuing for distribution of messages between consumers or 'compare and set' operations for concurrency access control that are not possible with eventually consistent systems. On the other hand, eventually consistent systems can offer lower latency and better availability.
 
-This blog post will review the spectrum of options offered by NATS JetStream in terms of replication and consistency when deployed over multiple availability zones, sites, regions or cloud providers and how you can have both eventual and immediate consistency at the same time, and therefore have your cake and eat it too.
+This blog post will review the spectrum of options offered by NATS JetStream in terms of replication and consistency when deployed over multiple availability zones, sites, regions or cloud providers and how you can have access to both eventual or immediate consistency at the same time.
 
 What is described here applies just as well to a deployment over multiple data centers, multiple regions within the same cloud provider, or multiple cloud providers or any combination thereof, but for the sake of simplicity, we will use the regional terms 'regions' ('east', 'central' and 'west' in the examples) in the rest of this blog post.
 
@@ -50,9 +54,11 @@ In this mode of deployment you can have a stream located in one regional cluster
 Deploying mirrors helps scale and provides low latency for read operations, it does not however help scaling or provide high availability between the regions when it comes to 'writes': the origin stream is located on a cluster that is in a single region, if that region goes down entirely while other regions can still read from their mirrors of the stream, the client applications will not be able to write to the stream until the region comes back up.
 
 # Immediately Consistent Multi-region Stretch Clusters
-When you need immediate consistency between regions, regardless of any particular region going down, you can still do that with JetStream thanks to its implementation of RAFT which works even between regions. This is done by creating a 'stretch cluster' where the cluster nodes are located in each one of _*at least*_ 3 regions. You then add this stretch cluster to your existing super-cluster (one cluster per region) and use stream placement tags to create streams that are stored in the stretch cluster. Those streams will be immediately consistent between regions, at the expense of higher latency. They will also be highly available as long as only one of the regions goes down, and if you can stretch (pun intended) to 5 regions then you can even survive two regions going down. Note that higher latency doesn't necessarily mean lower throughput, as long as your applications can leverage asynchronous publish operations.
+When you need immediate consistency between regions, regardless of any particular region going down, you can still do that with JetStream thanks to its implementation of RAFT which works even between regions. This is done by creating a 'stretch' cluster. A stretch cluster is called as such when the cluster nodes are all located in different regions and therefore the cluster is 'stretched' between the regions. In order to be able to create a stretch cluster you need _*at least*_ 3 regions. You then add this stretch cluster to your existing super-cluster (one cluster per region) and use stream placement tags to create streams that are stored in the stretch cluster. Those stretched streams will be immediately consistent between regions, at the expense of much higher latency of synchronous operations on them. They will also be highly available as long as only one of the regions goes down, and if you stretch to 5 regions and stream replication of 5 then you can survive two regions going down. Note that much higher latency doesn't necessarily mean much lower throughput (assuming there's enough bandwidth), as long as your applications can leverage asynchronous publish operations.
 
 You can combine this with the mirroring/sourcing feature to create mirrors of the streams on the stretch cluster into the regional clusters in order to have low read latency, but the latency on write operations will always be proportional to the latency between the regions.
+
+In practice, network conditions such as latency, packet loss, and bandwidth will dictate the limits of the applicability of a stretch cluster, if the RTT latencies between regions are high then operations will take much longer to complete and some client applications may start timing out waiting on synchronous calls. If the connectivity between the regions continuously changes, it could temporarily affect the stream's availability as well as at least 2 out of the 3 nodes must be up and reachable for RAFT votes to succeed.
 
 ## Real-world example
 With the proper choice of your 'regions' and provisioning of the network connection between them, you can still get pretty good latency of write and read operations on those stretched streams. If you are interested in the details of an actual production implementation of a stretch cluster spanning multiple cloud providers where the P99 write latency under load is < 20ms, you can view [Derek Collison's in-depth talk](https://www.youtube.com/watch?v=wvr0C0DfILU) at the [P99]( https://www.p99conf.io) conference.
@@ -276,7 +282,7 @@ So using the region 'west' as an example a message published on `foo.test` by an
 
 Drawing of the transformation of the subject of a message published on `foo.test` in region 'west' as it makes its way from a publishing to a consuming client application.
 
-## Interacting with the global stream
+## Interacting with the global virtual stream
 
 You can use `nats --context` to interact with the stream as would a client connecting to the different clusters.
 
@@ -373,9 +379,12 @@ nats --context sc-central stream view foo
 ```
 
 # What if you still want global ordering?
-You can use a stretch cluster to home a 'master' stream and have the local read streams mirror that stream. The write streams remain the same and that master stream sources from them. Compared to simply having the stream located in the stretch cluster and the read streams mirroring it, and having the client applications just publish directly to the stretched stream, this provides lower 'write' latency (the high availability remains the same either way) but does take away the 'compare-and-set' functionality (e.g. the KV Update operation) that you still retain when writing directly to the stretched stream.
+If you want to retain the ability to handle client writes locally and yet still want global ordering of the messages, you can use a stretch cluster to home an 'ordering' stream and have the local read streams mirror that stream. The write streams remain the same and that 'ordering' stream sources from them. Compared to simply having the stream located in the stretch cluster and the read streams mirroring it, and having the client applications just publish directly to the stretched stream, this provides lower 'write' latency and higher availability but does take away the 'compare-and-set' functionality (e.g. the KV Update operation) that you still retain when writing directly to the stretched stream.
 
 # Conclusion
 When it comes to multi-region/cloud/site/etc... active-active consistent 'global' deployments, NATS JetStream not only has all of the needed functionality built-in but also has extensive flexibility when it comes to replication, mirroring, sourcing, and generally creating local consistent copies of the data including the ability to have (on a per-stream basis) the choice between immediate or eventual global consistency. And leveraging some of the new features of 2.10, you can make eventually consistent globally distributed streams in a manner that is completely transparent to the client applications, such that the client application doesn't even need to know (e.g. need to be configured with a region name) which region it is deployed in, and yes still have both reading from, and writing to, the stream handled by the local regional NATS servers (thereby with low latency).
 
 When it comes to global distributed immediate or eventual data consistency with JetStream you can indeed have your cake and eat it too!
+
+# About the Author
+[Jean-Noël Moyne](https://www.linkedin.com/in/jean-noel-moyne/) is the field CTO of [Synadia](synadia.com) and has been using and designing distributed systems for messaging, streaming and data storage, protocols and networks since the days of 10 Mb/s coaxial Ethernet and external transceivers.
