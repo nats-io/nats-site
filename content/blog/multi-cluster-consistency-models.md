@@ -119,7 +119,7 @@ In this example, we're going to walk through setting up a local Super-Cluster an
 Make sure to install (or upgrade to) the latest version of the [NATS server](https://github.com/nats-io/nats-server/releases/latest) and of the [`nats` CLI tool](https://github.com/nats-io/natscli#installation) on your local machine.
 
 ```bash
-git clone https://github.com/ConnectEverything/eventually_consistent_global_stream.git
+git clone https://github.com/synadia-labs/eventually-consistent-virtual-global-stream.git
 ```
 
 ## The setup
