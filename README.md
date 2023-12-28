@@ -173,7 +173,7 @@ If you are a production end user of NATS and would like your company logo displa
 
 ## Local Development
 
-You can either user docker image for your local development or install requirements following this documentation.
+You can either use docker image for your local development or install requirements following this documentation.
 
 
 Clone your forked copy of the repository:
