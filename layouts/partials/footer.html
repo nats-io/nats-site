@@ -4,11 +4,7 @@
 {{ $year    := now.Year }}
 {{ $logo    := cond .IsHome "footer_dark" "footer_dark" }}
 {{ $menu    := site.Menus.main }}
-{{ $showHr  := not .IsHome }}
 
-{{ if $showHr }}
-<hr />
-{{ end }}
 <footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
 <div class="columns is-vcentered">
   <div class="column">
