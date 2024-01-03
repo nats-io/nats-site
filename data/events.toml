@@ -4,7 +4,7 @@ when = "January 11, 2024 11:00 EST"
 who = "Hosted by Byron Ruth, Synadia"
 what = "Hear from users with diverse industry use cases, see some cool demos, and get a preview of what’s coming to NATS in 2024!"
 where = "Virtual Event"
-link = "https://www.crowdcast.io/c/rethinkconn-2024"
+ref = "https://www.synadia.com/blog/rethinkconn-2024"
 
 # comment out to save
 #[[events]]
