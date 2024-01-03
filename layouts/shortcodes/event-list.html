@@ -8,7 +8,9 @@
 <strong>Who</strong>: {{ .who }}<br />
 <strong>What</strong>: {{ .what }}<br />
 <strong>Where</strong>: {{ .where }}<br />
+{{ with .link }}
 <strong>Link</strong>: {{ .link }}<br />
+{{ end }}
 
 <a href="{{ .ref }}" target="_blank">
   More Information
