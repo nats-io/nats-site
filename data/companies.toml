@@ -327,3 +327,18 @@ logo = "holoplot.png"
 name = "Volvo"
 home = "https://volvocars.com/"
 logo = "volvo.png"
+
+[companies.ferrari]
+name = "Ferrari"
+home = "https://www.ferrari.com/en-US"
+logo = "ferrari.png"
+
+[companies.paloaltonetworks]
+name = "Palo Alto Networks"
+home = "https://www.paloaltonetworks.com/"
+logo = "paloaltonetworks.png"
+
+[companies.hpe]
+name = "Hewlett Packard Enterprise"
+home = "https://www.hpe.com/us/en/home.html"
+logo = "hpe.png"
