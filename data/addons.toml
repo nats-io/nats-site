@@ -521,6 +521,15 @@ support = "Community"
 author = "Gang Tao"
 authorHome = "https://github.com/gangtao"
 
+[addons.qaze]
+name = "Qaze - The NATS Management GUI"
+home = "https://qaze.app/"
+description = "Qaze makes NATS cluster management easy. It provides an intuitive desktop client to explore & manage your NATS clusters."
+support = "Community"
+[[addons.qaze.authors]]
+author = "Qaze"
+authorHome = "https://qaze.app/"
+
 #[addons.xxx]
 #name = ""
 #home = ""
