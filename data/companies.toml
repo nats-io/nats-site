@@ -342,3 +342,8 @@ logo = "paloaltonetworks.png"
 name = "Hewlett Packard Enterprise"
 home = "https://www.hpe.com/us/en/home.html"
 logo = "hpe.png"
+
+[companies.mattilsynet]
+name = "Mattilsynet"
+home = "https://www.mattilsynet.no/en"
+logo = "mattilsynet.png"
