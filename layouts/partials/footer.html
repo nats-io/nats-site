@@ -6,13 +6,15 @@
 {{ $menu    := site.Menus.main }}
 
 <footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
-<div class="columns is-vcentered">
+<div class="columns">
   <div class="column">
-    {{ partial "social-buttons.html" (dict "align" "left") }}
-    <p class="has-text-weight-large">
-      Copyright &copy; NATS Authors {{ $year }}
-    </p>
-  </div>
+    <section class="section">
+      {{ partial "social-buttons.html" (dict "align" "left") }}
+      <p class="has-text-weight-large">
+        Copyright &copy; NATS Authors {{ $year }}
+      </p>
+    </section>
+  </div>  
   <div class="column">
 
     {{ partial "home/cncf.html" (dict "align" "right") }}
