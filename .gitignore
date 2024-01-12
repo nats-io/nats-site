@@ -6,6 +6,7 @@ ehthumbs.db
 # HUGO
 /public
 /resources
+.hugo_build.lock
 
 # Generated client pages
 content/download/*.md
