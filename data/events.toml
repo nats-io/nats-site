@@ -1,10 +1,10 @@
 [[events]]
-venue = "RethinkConn 2024"
-when = "January 11, 2024 11:00 EST"
+venue = "#ICYMI RethinkConn 2024"
+when = "January 2024"
 who = "Hosted by Byron Ruth, Synadia"
-what = "Hear from users with diverse industry use cases, see some cool demos, and get a preview of what’s coming to NATS in 2024!"
+what = "RethinkConn 2024 Virtual Dev Conference for NATS"
 where = "Virtual Event"
-ref = "https://www.synadia.com/blog/rethinkconn-2024"
+ref = "https://www.youtube.com/playlist?list=PLgqCaaYodvKZfOFK3MMk5YnSO0cNj-QuQ"
 
 # comment out to save
 #[[events]]
