@@ -7,7 +7,7 @@ categories = ["Engineering"]
 tags = ["NATS", "functions", "nex", "JavaScript", "WebAssembly", "microservices"]
 +++
 
-As people expand the reach of their NATS infrastructure and increase the number of apps and services that rely on NATS, we tend to see some common patterns emerge. People end up with two different views of their infrastructure: the NATS connectivity map and the cluster-style resource views that come from their workload scheduler(s).
+As people continue to leverage their NATS infrastructure by increasing the number of apps and services that rely on NATS, we tend to see some common patterns emerge. People end up with two different views of their infrastructure: the NATS connectivity map and the cluster-style resource views that come from their workload scheduler(s).
 
 With so many distributed applications, the infrastructure and connectivity is in place to support NATS and NATS-based applications, but is often underutilized. There's so much more that NATS can do besides messaging and streams.
 
