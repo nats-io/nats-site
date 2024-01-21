@@ -17,7 +17,7 @@ We are incredibly excited to announce our newest experimental tech preview produ
 
 Nex is designed and built with developer experience as the highest priority. All too often, systems that provide a convenient way to deploy applications come with a pile of mandatory dependencies or required SDKs and tooling. With Nex, we want you to be able to deploy your existing services with little or no change, and be able to deploy functions directly to your NATS environments.
 
-You can deploy virtually any kind of workload with Nex, which divides the world of distributed systems into two different categories:
+You can deploy virtually any kind of workload with Nex, which generalizes into two categories:
 
 * **Functions** - These are short-lived, on-demand units of compute that are triggered by some stimulus and return some value. You see this category everywhere, including CloudFlare, Amazon, Azure, Google, and more.
 * **Services** - Long-running units of compute that start, provide some service, and don't stop until explicitly told to stop via control plane. Common types of services are applications deployed directly to virtual machines or containers run in Kubernetes or other runtimes.
