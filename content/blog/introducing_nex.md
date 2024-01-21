@@ -20,7 +20,7 @@ Nex is designed and built with developer experience as the highest priority. All
 You can deploy virtually any kind of workload with Nex, which generalizes into two categories:
 
 * **Functions** - These are short-lived, on-demand units of compute that are triggered by some stimulus and return some value. You see this category everywhere, including CloudFlare, Amazon, Azure, Google, and more.
-* **Services** - Long-running units of compute that start, provide some service, and don't stop until explicitly told to stop via control plane. Common types of services are applications deployed directly to virtual machines or containers run in Kubernetes or other runtimes.
+* **Services** - Long-running units of compute that start, provide some service, and don't stop until explicitly told to stop via a control plane. Common types of services are applications deployed directly to virtual machines or containers that run in Kubernetes or other runtimes.
 
 With Nex, you can deploy _zero dependency_ **JavaScript** and **WebAssembly** functions as well as native, 64-bit Linux statically compiled services. All of these deployments can be monitored, interrogated, and controlled through the same unified interface. You can even deploy and run OCI containers if you absolutely must.
 
