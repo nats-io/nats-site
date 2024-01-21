@@ -29,3 +29,6 @@ If you're at all curious about Nex, check out our [announcement and live demo](h
 You can find the Nex creators in the NATS `#nex` [Slack](https://slack.nats.io/) channel, on videos and podcasts, through blogs, and on GitHub.
 
 Happy executing!
+
+## About the Author
+Kevin Hoffman is the Cloud Services Engineering Director at [Synadia Communications](https://synadia.com). He has devoted most of his career to building distributed systems and making it easier for developers to do the same.
