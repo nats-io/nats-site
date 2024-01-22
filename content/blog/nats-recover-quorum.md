@@ -4,7 +4,7 @@ date = 2024-01-20T19:35:31-07:00
 author = "John Weldon"
 categories = ["Engineering"]
 tags = ["nats", "helm", "kubernetes", "troubleshooting", "quorum"]
-draft = true
+draft = false
 +++
 
 Occasionally, a NATS cluster can lose quorum for various reasons.
