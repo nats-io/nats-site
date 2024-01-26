@@ -1,2 +1,3 @@
 #redirects file
 /docs   https://docs.nats.io
+/*      /404.html 404
