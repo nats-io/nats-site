@@ -1,0 +1,13 @@
+{{ $ambassadors := site.Data.ambassadors.ambassadors }}
+
+<div class="container">
+  {{ range $k, $v := $ambassadors }} {{ $img := printf "img/logos/people/%s"
+  $v.headshot | relURL }}
+  <div>
+    <h2>{{ $v.name }}</h2>
+    <img src="{{ $img }}" alt="{{ $v.name }} headshot" />
+    <a href="{{ $v.github }}">GitHub</a> |
+    <a href="{{ $v.linkedin }}">LinkedIn</a>
+  </div>
+  {{ end }}
+</div>

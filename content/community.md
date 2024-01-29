@@ -60,6 +60,12 @@ Join us at our upcoming events and talks. Have a suggested event or want us to j
 
 ---
 
+## Ambassadors
+
+{{< ambassadors >}}
+
+---
+
 ## Partners
 
 We work with a variety of companies to ensure NATS is delivered in a broad range of solutions used by our community. [Contact us to Partner](mailto:info@nats.io?Subject=Partner%20inquiry).
