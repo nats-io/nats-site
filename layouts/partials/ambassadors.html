@@ -1,13 +1,21 @@
 {{ $ambassadors := site.Data.ambassadors.ambassadors }}
 
 <div class="container">
-  {{ range $k, $v := $ambassadors }} {{ $img := printf "img/logos/people/%s"
-  $v.headshot | relURL }}
-  <div>
-    <h2>{{ $v.name }}</h2>
-    <img src="{{ $img }}" alt="{{ $v.name }} headshot" />
-    <a href="{{ $v.github }}">GitHub</a> |
-    <a href="{{ $v.linkedin }}">LinkedIn</a>
+  <div class="columns is-vcentered is-multiline">
+  {{ range $k, $v := $ambassadors }}
+  {{ $img := printf "img/people/%s" $v.headshot | relURL }}
+  <div class="column is-half">
+    <h3>{{ $v.name }}</h3>
+    <img class="is-people-logo" src="{{ $img }}" alt="{{ $v.name }} headshot" />
+    <div><a href="{{ $v.github }}"><i class="fab fa fa-github"></i> GitHub</a> |
+      <a href="{{ $v.linkedin }}"><i class="fab fa fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <div class="mt-2"><p>"{{ $v.about | markdownify }}"</p></div>
+      {{ if $v.interview }}
+      <div class="mt-4"><p>Check out our <a href="{{ $v.interview }}">interview</a> with {{ $v.name }}. </p></div>
+      {{ end }}
+    
   </div>
   {{ end }}
+</div>
 </div>
