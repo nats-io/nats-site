@@ -1,0 +1,8 @@
+[ambassadors]
+[ambassadors.mauricevanveen]
+name = "Maurice van Veen"
+github = "https://github.com/MauriceVanVeen"
+linkedin = "https://www.linkedin.com/in/maurice-van-veen/"
+headshot = "maurice-van-veen.jpg"
+interview = "https://youtu.be/mZh0qlCfqq8"
+about = 'After first stumbling upon NATS, I quickly fell in love with it. I had contributed to the Java client, and afterwards I just *had* to learn Go to be able to contribute to the server too! Happy to be a part of the community. <br>I am interested in distributed computing, fault tolerance, open source, being challenged during my work and having loads of fun while doing it!'
