@@ -347,3 +347,8 @@ logo = "hpe.png"
 name = "Mattilsynet"
 home = "https://www.mattilsynet.no/en"
 logo = "mattilsynet.png"
+
+[companies.appscode]
+name = "Appscode"
+home = "https://appscode.com"
+logo = "appscode.png"
