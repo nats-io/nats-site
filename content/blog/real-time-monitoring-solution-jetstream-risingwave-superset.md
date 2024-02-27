@@ -15,7 +15,7 @@ By combining the strengths of NATS JetStream, RisingWave, and Superset, a powerf
 
 ### What is NATS JetStream?
 
-NATS is a secure connectivity technology designed for discovering and exchanging messages in distributed systems. It can be deployed in any environment for different use cases such as microservices, data streaming, and IoT, supporting edge devices with a large number of languages and clients for interaction. JetStream is built on top of NATS with support for persistence for streams of messages.
+NATS is a secure connectivity technology designed for discovering and exchanging messages in distributed systems. It can be deployed in any environment for different use cases such as microservices, data streaming, and IoT, supporting edge devices with a large number of languages and clients for interaction. JetStream is a built-in distributed persistence engine for NATS. It enables new functionalities and higher qualities of service on top of the base 'Core NATS' functionalities and qualities of service.
 
 ### What is Superset?
 
