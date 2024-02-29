@@ -210,24 +210,24 @@ After successfully connecting RisingWave to Apache Superset, we add the material
 
 The table below presents temperature information such as the temperature sensor ID, temperature readings, and corresponding timestamps for each reading.
 
-<img class="img-responsive center-block" alt="Temperature Information" src="/img/blog/iot-temperature-table.png">
+<img class="img-responsive center-block" alt="Temperature Information" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/iot-temperature-table.png">
 
 
 The table below presents humidity information such as the humidity sensor ID, humidity readings, and timestamps associated with each reading.
 
-<img class="img-responsive center-block" alt="Humidity Information" src="/img/blog/iot-humidity-table.png">
+<img class="img-responsive center-block" alt="Humidity Information" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/iot-humidity-table.png">
 
 This bar chart is generated from the `avg_temperature_mv` dataset, showcasing the average temperature derived from temperature sensors within predefined 1-minute time windows.
 
-<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/avg-temperature-mv.png">
+<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-temperature-mv.png">
 
 This line chart is generated from the `avg_humidity_mv` dataset, illustrating the average humidity derived from humidity sensors within specified 1-minute time windows.
 
-<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/avg-humidity-mv.png">
+<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-humidity-mv.png">
 
 This unified dashboard offers a collection of charts that facilitate comprehensive real-time monitoring of IoT devices. By providing valuable insights into the readings of temperature and humidity sensors at each corresponding timestamp, it empowers users to make informed decisions and effectively monitor industrial IoT devices.
 
-<img class="img-responsive center-block" alt="IoT Monitoriing Dashboard" src="/img/blog/iot-monitoring-dashboard.png">
+<img class="img-responsive center-block" alt="IoT Monitoriing Dashboard" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/iot-monitoring-dashboard.png">
 
 ## Conclusion
 
