@@ -219,11 +219,11 @@ The table below presents humidity information such as the humidity sensor ID, hu
 
 This bar chart is generated from the `avg_temperature_mv` dataset, showcasing the average temperature derived from temperature sensors within predefined 1-minute time windows.
 
-<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-temperature-mv.png">
+<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-temperature-mv.jpg">
 
 This line chart is generated from the `avg_humidity_mv` dataset, illustrating the average humidity derived from humidity sensors within specified 1-minute time windows.
 
-<img class="img-responsive center-block" alt="Average Temperature" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-humidity-mv.png">
+<img class="img-responsive center-block" alt="Average Humidity" src="/img/blog/real-time-monitoring-solution-jetstream-risingwave-superset/avg-humidity-mv.jpg">
 
 This unified dashboard offers a collection of charts that facilitate comprehensive real-time monitoring of IoT devices. By providing valuable insights into the readings of temperature and humidity sensors at each corresponding timestamp, it empowers users to make informed decisions and effectively monitor industrial IoT devices.
 
