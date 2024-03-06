@@ -14,7 +14,7 @@ You can ask questions in our community forums in <a href="https://slack.nats.io"
 One of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
 
 - [Synadia Cloud](https://www.synadia.com/cloud) - A global, multi-cloud, multi-geo and extensible connectivity fabric for messaging, streaming, pub/sub, key-value, and object storage services. Synadia Cloud is powered by NATS.io and fully managed by Synadia.
-- [Synadia Platform](https://www.synadia.com/control-plane) - An all-in-one control plane for your NATS infrastructure, designed, built, and supported by Synadia. Available via self-hosted or [managed cloud](https://www.synadia.com/#managedcloud) deployment options.
+- [Synadia Platform](https://www.synadia.com/platform) - An all-in-one control plane for your NATS infrastructure, designed, built, and supported by Synadia. Available via self-hosted or [managed cloud](https://www.synadia.com/#managedcloud) deployment options.
 
 Includes:
 * Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
