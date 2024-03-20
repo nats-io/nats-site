@@ -328,11 +328,6 @@ name = "Volvo"
 home = "https://volvocars.com/"
 logo = "volvo.png"
 
-[companies.ferrari]
-name = "Ferrari"
-home = "https://www.ferrari.com/en-US"
-logo = "ferrari.png"
-
 [companies.paloaltonetworks]
 name = "Palo Alto Networks"
 home = "https://www.paloaltonetworks.com/"
