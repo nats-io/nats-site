@@ -173,8 +173,7 @@ If you are a production end user of NATS and would like your company logo displa
 
 ## Local Development
 
-You can either use docker image for your local development or install requirements following this documentation.
-
+You can either use docker image for your local development via `make docker` or install requirements following this documentation.
 
 Clone your forked copy of the repository:
 ```
@@ -195,7 +194,7 @@ Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started
 
 #### Building the Site
 
-See the makefile for run commands.
+See the [Makefile](./Makefile) for other commands.
 
 
 Thank you for your interest in NATS!
