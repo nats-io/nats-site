@@ -1,18 +1,10 @@
 [[events]]
-venue = "KubeCon EU 2024"
-when = "March 20th 16:30 - 17:05 CET"
+venue = "ICYMI"
+when = "KubeCon EU 2024"
 who = "Tomasz Pietrek & Jeremy Saenz, Synadia"
 what = "Distributed AI: Using NATS.io to Seamlessly Connect AI Applications from Cloud to Edge"
 where = "Paris, France"
-ref = "https://sched.co/1YhgF"
-
-[[events]]
-venue = "KubeCon EU 2024"
-when = "March 22nd 11:55 - 12:30 CET"
-who = "Cyril Becker & Vincent Bernaud, XBTO"
-what = "High Performance Multi Regions Messaging with NATS"
-where = "Paris, France"
-ref = "https://sched.co/1YeR8"
+ref = "https://youtu.be/ZcgFgb8dLOw?feature=shared"
 
 # comment out to save
 #[[events]]
