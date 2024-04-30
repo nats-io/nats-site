@@ -530,6 +530,15 @@ support = "Community"
 author = "Qaze"
 authorHome = "https://qaze.app/"
 
+[addons.nui]
+name = "NUI"
+home = "https://natsnui.app"
+description = "NATS UI - Free and open source UI to easily manage and explore servers, messages, streams, buckets both from desktop or web interface."
+support = "Community"
+[[addons.nui.authors]]
+author = "nats-nui"
+authorHome = "https://natsnui.app"
+
 #[addons.xxx]
 #name = ""
 #home = ""
