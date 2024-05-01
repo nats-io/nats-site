@@ -530,6 +530,7 @@ support = "Community"
 author = "Qaze"
 authorHome = "https://qaze.app/"
 
+
 [addons.nui]
 name = "NUI"
 home = "https://natsnui.app"
@@ -538,6 +539,16 @@ support = "Community"
 [[addons.nui.authors]]
 author = "nats-nui"
 authorHome = "https://natsnui.app"
+
+[addons.nats-ui]
+name = "NATS UI"
+home = "https://github.com/DefactoTechnology/nats-ui"
+description = "A solution for displaying NATS Streaming data streams in a user-friendly interface"
+support = "Community"
+[[addons.nats-ui.authors]]
+author = "Defacto Technology"
+authorHome = "https://github.com/DefactoTechnology"
+
 
 #[addons.xxx]
 #name = ""
