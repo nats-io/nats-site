@@ -83,11 +83,6 @@ name = "Duke Energy"
 home = "https://www.duke-energy.com/home"
 logo = "duke.png"
 
-[companies.tesla]
-name = "Tesla"
-home = "https://tesla.com"
-logo = "tesla.png"
-
 [companies.schaeffler]
 name = "Schaeffler"
 home = "https://schaeffler.com"
