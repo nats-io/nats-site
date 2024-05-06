@@ -8,6 +8,14 @@ support = "Community"
 author = "Matthew Ring"
 authorHome = "https://github.com/mring33621"
 
+[addons.ai2connect_stripe]
+name = "Ai2 Connect Stripe"
+home = "https://github.com/sty-holdings?tab=repositories"
+description = "Allows NATS message to be spent to Stripe APIs."
+support = "Ai2 Connect"
+[[addons.ai2connect_stripe.authors]]
+author = "Scott Yacko"
+authorHome = "https://github.com/syacko"
 
 [addons.nats_connector_framework]
 name = "NATS Connector Framework"
@@ -530,7 +538,6 @@ support = "Community"
 author = "Qaze"
 authorHome = "https://qaze.app/"
 
-
 [addons.nui]
 name = "NUI"
 home = "https://natsnui.app"
@@ -548,7 +555,6 @@ support = "Community"
 [[addons.nats-ui.authors]]
 author = "Defacto Technology"
 authorHome = "https://github.com/DefactoTechnology"
-
 
 #[addons.xxx]
 #name = ""
