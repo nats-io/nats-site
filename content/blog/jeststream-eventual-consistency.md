@@ -114,4 +114,4 @@ for await (const m of messages) {
 ```
 Yes message processing like this can help to build a state from all previous events. You rebuild the freshest state fetching previous events.
 
-All this solutions could live more elegantly in an [Aggreate](https://domaincentric.net/blog/event-sourcing-aggregates-vs-projections) if you need this tactic.
+All these solutions could be applied elegantly in an [Aggreate](https://domaincentric.net/blog/event-sourcing-aggregates-vs-projections) if you need this tactic.
