@@ -87,7 +87,6 @@ I can query my order subject like I would query my database. Data is up to date.
 Here I’ll check the `OrderPassed` event to get the amount and my business rule.
 
 ```typescript
-// connect to NATS
 const nc = connect();
 const jsm = await nc.jetstreamManager();
 const codec = JSONCodec();
