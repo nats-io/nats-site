@@ -67,7 +67,8 @@ await js.publish("a.b", Empty, { msgID: "a" });
 ## Order maintenance
 I have a payment system and for the refund process, I need first to have a double human validation. Then the refund can append. And it must append only once.
 
-For a refund subject, I will say that the refund must be exactly in 3rd place or crash.
+For a refund subject, I will say that the refund must be exactly in 3rd place or fail.
+
 ```typescript
 // connect to NATS
 const nc = connect();
