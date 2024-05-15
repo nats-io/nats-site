@@ -80,7 +80,16 @@ await js.publish(`refund.${orderID}`, Empty, {
 	expect: { lastSubjectSequence: 3 }
 });
 ```
-
+> There are two issues with this example.
+> If the "third place" is required, the last subject sequence would be 2 since this new message would result in sequence 3.
+> owever, the bigger issue is that the sequence applies to the whole stream, not on a per-subject basis. With a single refund in the stream, this would work, but when the second refund occurs, the sequence of the "third event" would be 6:
+>refund.100 -> seq 1
+>refund.100 -> seq 2
+>refund.100 -> seq 3
+>refund.200 -> seq 4
+> refund.200 -> seq 5
+>refund.200 -> seq 6
+> And this assumes these events are not interleaved. A correct way to model this is to either get the last message by subject, assert this is a proper state transition and use that sequence number as the expected one. Of if you need more than just the last message for the subject, you can take the same approach as in the Business rule example below of creating a temporary consumer.
 
 ## Business rule
 On my order process, I can’t refund more than the price of the order.
