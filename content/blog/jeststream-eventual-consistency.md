@@ -17,7 +17,7 @@ With a messaging system, you have to wait for the message to be processed and th
 
 With classing CRUD system, you write on your database, you query it directly with trust.
 
-How can I delegate the job and be sure that it’ll be done or that I get an error if it can’t be done ?
+How can I delegate the job and be sure that it’ll be done or that I get an error if it can’t be done?
 Let’s dive into use cases and tactics where I can get the same trust using NATS JetStream.
 
 ## Their could be only one
