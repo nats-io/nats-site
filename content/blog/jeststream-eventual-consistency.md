@@ -8,9 +8,7 @@ tags = ["jetstream", "eventsourcing", "idempotency"]
 +++
 # Delegate with trust
 
-When I speak about async patterns (messaging, event sourcing,…) with other developers.
-They are afraid of eventual consistency.
-It’s not said like that it’s :
+When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they come across as *afraid* of eventual consistency. However, it is stated in the form of:
 > The frontend needs the answer directly
 > The business process needs to be validated with perfect data
 > My next page needs fresh data to display properly
