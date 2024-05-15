@@ -20,7 +20,7 @@ With classing CRUD system, you write on your database, you query it directly wit
 How can I delegate the job and be sure that it’ll be done or that I get an error if it can’t be done?
 Let’s dive into use cases and tactics where I can get the same trust using NATS JetStream.
 
-## Their could be only one
+## Their can only be one
 I have a payment system, and in this system we must withdraw the customer for a given orderID only once !
 Sadly our partner who triggers the payment can call us multiple times with sometimes 1 day of delay.
 
