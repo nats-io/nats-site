@@ -44,7 +44,7 @@ await js.publish(`payment.${orderID}`, Empty, {
 
 ## The impatient clicker
 The customer always clicks multiple times on the same button, so it calls the backend and duplicates messages!
-This triggers side effects multiples times creating spam, and exploding the BI.
+This triggers side effects multiples times creating spam and downstream issues for business intelligence.
 
 NATS JetStream embed a deduplication system based on message ID for a given window. The window is configured in nano seconds at the stream level.
 
