@@ -40,7 +40,7 @@ await js.publish(`payment.${orderID}`, Empty, {
 });
 ```
 
-## The fat finger
+## The impatient clicker
 The customer always clicks multiple times on the same button, so it calls the backend and duplicates messages !
 This triggers side effects multiples times creating spam, and exploding the BI.
 
