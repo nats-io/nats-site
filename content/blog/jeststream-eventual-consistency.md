@@ -84,7 +84,7 @@ await js.publish(`refund.${orderID}`, Empty, {
 On my order process, I can’t refund more than the price of the order.
 
 I can query my order subject like I would query my database. Data is up to date.
-Here I’ll check the OrderPassed event to get the amount and my business rule
+Here I’ll check the `OrderPassed` event to get the amount and my business rule.
 
 ```typescript
 // connect to NATS
