@@ -46,7 +46,7 @@ await js.publish(`payment.${orderID}`, Empty, {
 The customer always clicks multiple times on the same button, so it calls the backend and duplicates messages!
 This triggers side effects multiples times creating spam and downstream issues for business intelligence.
 
-NATS JetStream embed a deduplication system based on message ID for a given window. The window is configured in nano seconds at the stream level.
+NATS JetStream has a built-in deduplication system based on message ID for a given time window. The window is configured in nano seconds at the stream level.
 
 ```typescript
 // connect to NATS
