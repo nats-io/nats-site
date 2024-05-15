@@ -49,19 +49,19 @@ This triggers side effects multiples times creating spam and downstream issues f
 NATS JetStream has a built-in deduplication system based on message ID for a given time window. The window is configured in nano seconds at the stream level.
 
 ```typescript
-// connect to NATS
 const nc = connect();
-// create the stream
 const jsm = await nc.jetstreamManager();
+
+// Create the stream with an explicit 5s dedupe window.
 await jsm.streams.add({
 	name: "a",
 	subjects: ["a.*"],
-	// Deduplicate for 5 seconds
 	duplicate_window: 5_000_000_000
 });
-// create a jetstream client:
+
 const js = nc.jetstream();
-// if this message is published twice within 5s, only the first published will be stored
+
+// If this message is published twice within 5s, only the first published will be stored.
 await js.publish("a.b", Empty, { msgID: "a" });
 ```
 
