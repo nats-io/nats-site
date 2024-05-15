@@ -24,7 +24,7 @@ Let’s dive into use cases and tactics where I can get the same trust using NAT
 I have a payment system, and in this system we must withdraw the customer for a given `orderID` only once!
 Sadly our partner who triggers the payment can call us multiple times with sometimes 1 day of delay.
 
-Here we use one subject by order to store its payment log.
+Here we use one subject per order to store its payment log.
 The subject will contains only one message the withdrawal.
 Using publish expectations, I can be sure that there will be only one subject by order’s payment.
 
