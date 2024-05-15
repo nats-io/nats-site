@@ -90,18 +90,18 @@ Here I’ll check the `OrderPassed` event to get the amount and my business rule
 const nc = connect();
 const jsm = await nc.jetstreamManager();
 const codec = JSONCodec();
+
 const refund = {
 	amount: 10
 };
-// Create a temporary consumer fetching all events for my order ID
-const c = await jsm.consumers.add(stream, {
+
+// Create an temporary ordered consumer fetching all events for my order ID.
+const c = await js.consumers.get(stream, {
    filterSubject: `*.${orderID}`
-   ack_policy: AckPolicy.None,
  });
 
-// Get all messages for this order from the beginning
-// and publish only if condition match
-const messages = await c.fetch();
+// Get all messages for this order and publish only if the condition matches.
+const messages = await c.consume();
 for await (const m of messages) {
 	const event = codec.decode(m.body);
 	if(event.name == 'OrderProcessed') {
@@ -109,7 +109,6 @@ for await (const m of messages) {
 			await js.publish(`refund.${orderID}`, codec.encode(refund)})
 			break;
 		}
-	}
   }
 }
 ```
