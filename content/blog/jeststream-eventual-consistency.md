@@ -6,7 +6,6 @@ author = "Vincent Vermersch @vinceveve"
 categories = ["Community"]
 tags = ["jetstream", "eventsourcing", "idempotency"]
 +++
-# Delegate with trust
 
 When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they come across as *afraid* of eventual consistency. However, it is stated in the form of:
 > The frontend needs the answer directly
