@@ -21,7 +21,7 @@ How can I delegate the job and be sure that it’ll be done or that I get an err
 Let’s dive into use cases and tactics where I can get the same trust using NATS JetStream.
 
 ## Their can only be one
-I have a payment system, and in this system we must withdraw the customer for a given orderID only once !
+I have a payment system, and in this system we must withdraw the customer for a given `orderID` only once!
 Sadly our partner who triggers the payment can call us multiple times with sometimes 1 day of delay.
 
 Here we use one subject by order to store its payment log.
