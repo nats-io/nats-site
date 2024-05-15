@@ -29,12 +29,14 @@ The subject will contains only one message the withdrawal.
 Using publish expectations, I can be sure that there will be only one subject per order payment.
 
 ```typescript
-// connect to NATS
 const nc = connect();
-// create a jetstream client:
 const js = nc.jetstream();
+
+// Generate a unique order ID.
 const orderID = shortUID();
-// The message should be the first on the subject
+
+// Using a lastSubjectSequence of 0 requires this message
+// is the first one for the subject in the stream.
 await js.publish(`payment.${orderID}`, Empty, {
 	expect: { lastSubjectSequence: 0 }
 });
