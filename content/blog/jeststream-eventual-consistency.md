@@ -7,24 +7,27 @@ categories = ["Community"]
 tags = ["jetstream", "eventsourcing", "idempotency"]
 +++
 
-When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they come across as *afraid* of eventual consistency. However, it is stated in the form of:
+When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they often seem *afraid* of eventual consistency. However, it is often expressed in the form of:
+
 > The frontend needs the answer directly
+>
 > The business process needs to be validated with perfect data
+>
 > My next page needs fresh data to display properly
 
-With a messaging system, you have to wait for the message to be processed and the state to be updated. Then you can query it with *trust*. In the happy path this could something reasonable like 30ms, but could be arbitrarily long if there is an interruption in the flow.
+With a messaging system, you have to wait for the message to be processed and the state to be updated. Then you can query it with *trust*. In the happy path, this could be something reasonable like 30ms, but it could be arbitrarily long if there is an interruption in the flow.
 
 With a classic CRUD system, you write to your database and query it directly with trust.
 
 How can I delegate the job and be sure that it’ll be done or that I get an error if it can’t be done?
-Let’s dive into use cases and tactics where I can get the same trust using NATS JetStream.
+Let’s dive into use cases and tactics where I can gain the same trust using NATS JetStream.
 
-## Their can only be one
-I have a payment system, and in this system we must withdraw the customer for a given `orderID` only once!
-Sadly our partner who triggers the payment can call us multiple times with sometimes 1 day of delay.
+## There can only be one
+I have a payment system, and in this system, we must withdraw the customer for a given `orderID` only once!
+Sadly, our partner who triggers the payment can call us multiple times with sometimes a 1-day delay.
 
-Here we use one subject per order to store its payment log.
-The subject will contains only one message the withdrawal.
+Here, we use one subject per order to store its payment log.
+The subject will contain only one message, the withdrawal.
 Using publish expectations, I can be sure that there will be only one subject per order payment.
 
 ```typescript
@@ -35,7 +38,7 @@ const js = nc.jetstream();
 const orderID = shortUID();
 
 // Using a lastSubjectSequence of 0 requires this message
-// is the first one for the subject in the stream.
+// to be the first one for the subject in the stream.
 await js.publish(`payment.${orderID}`, Empty, {
 	expect: { lastSubjectSequence: 0 }
 });
@@ -43,15 +46,15 @@ await js.publish(`payment.${orderID}`, Empty, {
 
 ## The impatient clicker
 The customer always clicks multiple times on the same button, so it calls the backend and duplicates messages!
-This triggers side effects multiples times creating spam and downstream issues for business intelligence.
+This triggers side effects multiple times, creating spam and downstream issues for business intelligence.
 
-NATS JetStream has a built-in deduplication system based on message ID for a given time window. The window is configured in nano seconds at the stream level.
+NATS JetStream has a built-in deduplication system based on message ID for a given time window. The window is configured in nanoseconds at the stream level.
 
 ```typescript
 const nc = connect();
 const jsm = await nc.jetstreamManager();
 
-// Create the stream with an explicit 5s dedupe window.
+// Create the stream with an explicit 5s deduplication window.
 await jsm.streams.add({
 	name: "a",
 	subjects: ["a.*"],
@@ -64,38 +67,11 @@ const js = nc.jetstream();
 await js.publish("a.b", Empty, { msgID: "a" });
 ```
 
-## Order maintenance
-I have a payment system and for the refund process, I need first to have a double human validation. Then the refund can append. And it must append only once.
-
-For a refund subject, I will say that the refund must be exactly in 3rd place or fail.
-
-```typescript
-// connect to NATS
-const nc = connect();
-// create a jetstream client:
-const js = nc.jetstream();
-const orderID = shortUID();
-// The message should be the first on the subject
-await js.publish(`refund.${orderID}`, Empty, {
-	expect: { lastSubjectSequence: 3 }
-});
-```
-> There are two issues with this example.
-> If the "third place" is required, the last subject sequence would be 2 since this new message would result in sequence 3.
-> owever, the bigger issue is that the sequence applies to the whole stream, not on a per-subject basis. With a single refund in the stream, this would work, but when the second refund occurs, the sequence of the "third event" would be 6:
->refund.100 -> seq 1
->refund.100 -> seq 2
->refund.100 -> seq 3
->refund.200 -> seq 4
-> refund.200 -> seq 5
->refund.200 -> seq 6
-> And this assumes these events are not interleaved. A correct way to model this is to either get the last message by subject, assert this is a proper state transition and use that sequence number as the expected one. Of if you need more than just the last message for the subject, you can take the same approach as in the Business rule example below of creating a temporary consumer.
-
 ## Business rule
-On my order process, I can’t refund more than the price of the order.
+In my order process, I can’t refund more than the price of the order.
 
 I can query my order subject like I would query my database. Data is up to date.
-Here I’ll check the `OrderPassed` event to get the amount and my business rule.
+Here, I’ll check the `OrderPassed` event to get the amount and my business rule.
 
 ```typescript
 const nc = connect();
@@ -106,7 +82,7 @@ const refund = {
 	amount: 10
 };
 
-// Create an temporary ordered consumer fetching all events for my order ID.
+// Create a temporary ordered consumer fetching all events for my order ID.
 const c = await js.consumers.get(stream, {
    filterSubject: `*.${orderID}`
  });
@@ -117,12 +93,50 @@ for await (const m of messages) {
 	const event = codec.decode(m.body);
 	if(event.name == 'OrderProcessed') {
 		if(event.data.price < refund.amount) {
-			await js.publish(`refund.${orderID}`, codec.encode(refund)})
+			await js.publish(`refund.${orderID}`, codec.encode(refund));
 			break;
 		}
   }
 }
 ```
-Yes message processing like this can help to build a state from all previous events. You rebuild the freshest state fetching previous events.
+Yes, message processing like this can help to build a state from all previous events. You rebuild the freshest state fetching previous events.
 
-All these solutions could be applied elegantly in an [Aggreate](https://domaincentric.net/blog/event-sourcing-aggregates-vs-projections) if you need this tactic.
+All these solutions could be elegantly applied in an [Aggregate](https://domaincentric.net/blog/event-sourcing-aggregates-vs-projections) if you need this tactic.
+
+## Order maintenance
+I have a payment system, and for the refund process, I need first to have double human validation. Then the refund can append. And it must append only once.
+
+For a refund subject, I will say that the refund must be exactly in 3rd place or fail.
+
+```typescript
+// connect to NATS
+const nc = connect();
+// create a JetStream client:
+const js = nc.jetstream();
+const orderID = shortUID();
+// The message should be the first on the subject
+await js.publish(`refund.${orderID}`, Empty, {
+	expect: { lastSubjectSequence: 2 }
+});
+```
+**Hint :**
+
+In NATS, the sequence applies to the whole stream.  
+In this example, I assume I have only one refund in the whole stream (which is not for production).
+
+For example, if I have in my streams 2 orders the sequences will be :
+- refund.uuid-order-1 -> seq 1
+- refund.uuid-order-1 -> seq 2
+- refund.uuid-order-2 -> seq 3
+- refund.uuid-order-2 -> seq 4
+- refund.uuid-order-2 -> seq 5
+
+If I write my Refund after all this, the `lastSubjectSequence` should be 6 to maintain ordering.
+
+To get the correct sequence, I have two solutions :
+1. When subscribing to a subject, the received event contains the sequence. I can store the last subscribed and use it.
+2. Fetching the last event metadata before writing (as in the `Business rule` example).
+
+## About the Author
+I've been immersed in the world of B2B SAAS since 2002, crafting solutions for businesses.  
+Outside of work, I delve into the realms of event sourcing and micro-phenomenology, exploring their intricacies with keen interest.
