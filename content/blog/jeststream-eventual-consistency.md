@@ -13,7 +13,7 @@ When speaking about async patterns (messaging, event sourcing, etc.) with other 
 > The business process needs to be validated with perfect data
 > My next page needs fresh data to display properly
 
-With messaging system, you have to wait the message to be processed, and the state to be updated, then you can query it with trust. Could be 30ms or more if sh*t appends.
+With a messaging system, you have to wait for the message to be processed and the state to be updated. Then you can query it with *trust*. In the happy path this could something reasonable like 30ms, but could be arbitrarily long if there is an interruption in the flow.
 
 With classing CRUD system, you write on your database, you query it directly with trust.
 
