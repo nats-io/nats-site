@@ -4,7 +4,7 @@ draft = true
 title = "Delegate with trust"
 author = "Vincent Vermersch @vinceveve"
 categories = ["Community"]
-tags = ["jetstream", "eventsourcing", "idempotency"]
+tags = ["jetstream", "eventsourcing", "idempotency", "optimistic concurrency"]
 +++
 
 When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they often seem *afraid* of eventual consistency. However, it is often expressed in the form of:
@@ -133,10 +133,12 @@ For example, if I have in my streams 2 orders the sequences will be :
 
 If I write my Refund after all this, the `lastSubjectSequence` should be 6 to maintain ordering.
 
-To get the correct sequence, I have two solutions :
+To get the current sequence :
 1. When subscribing to a subject, the received event contains the sequence. I can store the last subscribed and use it.
 2. Fetching the last event metadata before writing (as in the `Business rule` example).
+3. Save the sequence of your last write in memory
 
 ## About the Author
-I've been immersed in the world of B2B SAAS since 2002, crafting solutions for businesses.  
-Outside of work, I delve into the realms of event sourcing and micro-phenomenology, exploring their intricacies with keen interest.
+SAAAS Architect. I build digital factories since 2002.  
+Mainly for data driven products on marketing and e-commerce industry.
+Event sourcer, event modeler, Wardley mapper and micro phenomenology practitioner.
