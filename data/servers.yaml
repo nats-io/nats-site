@@ -6,8 +6,8 @@
     name: Synadia
     link: https://synadia.com
   release:
-    version: "2.10.14"
-    date: "2024-04-11"
+    version: "2.10.16"
+    date: "2024-05-21"
   docker: nats
   prefix: nats-server
   official: true
