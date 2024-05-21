@@ -1,13 +1,14 @@
 +++
 date = "2024-05-21"
-draft = true
+draft = false
 title = "Delegate with trust"
 author = "Vincent Vermersch"
 categories = ["Community"]
 tags = ["jetstream", "eventsourcing", "idempotency", "optimistic concurrency"]
 +++
 
-![The problem](jeststream-eventual-consistency.png)
+<img title="The problem" src="/img/blog/jetstream-eventual-consistency.png">
+
 When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they often seem *afraid* of eventual consistency. However, it is often expressed in the form of:
 
 > The frontend needs the answer directly
