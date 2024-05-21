@@ -121,7 +121,7 @@ await js.publish(`refund.${orderID}`, Empty, {
 ```
 **Hint :**
 
-In NATS, the sequence applies to the whole stream.  
+In NATS, the sequence applies to the whole stream.
 In this example, I assume I have only one refund in the whole stream (which is not for production).
 
 For example, if I have in my streams 2 orders the sequences will be :
@@ -139,6 +139,6 @@ To get the current sequence :
 3. Save the sequence of your last write in memory
 
 ## About the Author
-SAAAS Architect. I build digital factories since 2002.  
+[Vincent Vermersch](https://www.linkedin.com/in/vincent-vermersch), SAAAS Architect. I build digital factories since 2002.
 Mainly for data driven products on marketing and e-commerce industry.
 Event sourcer, event modeler, Wardley mapper and micro phenomenology practitioner.
