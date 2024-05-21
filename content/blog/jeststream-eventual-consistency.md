@@ -6,7 +6,7 @@ author = "Vincent Vermersch @vinceveve"
 categories = ["Community"]
 tags = ["jetstream", "eventsourcing", "idempotency", "optimistic concurrency"]
 +++
-
+![The problem](jeststream-eventual-consistency.png)
 When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they often seem *afraid* of eventual consistency. However, it is often expressed in the form of:
 
 > The frontend needs the answer directly
@@ -20,6 +20,7 @@ With a messaging system, you have to wait for the message to be processed and th
 With a classic CRUD system, you write to your database and query it directly with trust.
 
 How can I delegate the job and be sure that it’ll be done or that I get an error if it can’t be done?
+
 Let’s dive into use cases and tactics where I can gain the same trust using NATS JetStream.
 
 ## There can only be one
@@ -103,7 +104,7 @@ Yes, message processing like this can help to build a state from all previous ev
 
 All these solutions could be elegantly applied in an [Aggregate](https://domaincentric.net/blog/event-sourcing-aggregates-vs-projections) if you need this tactic.
 
-## Order maintenance
+## Maintain Order
 I have a payment system, and for the refund process, I need first to have double human validation. Then the refund can append. And it must append only once.
 
 For a refund subject, I will say that the refund must be exactly in 3rd place or fail.
@@ -137,6 +138,51 @@ To get the current sequence :
 1. When subscribing to a subject, the received event contains the sequence. I can store the last subscribed and use it.
 2. Fetching the last event metadata before writing (as in the `Business rule` example).
 3. Save the sequence of your last write in memory
+
+## Too many events
+I have a boiler that sends an event every 10 milliseconds.
+To adapt room temperature, I need to compare current temperature with an average water temperature from the last hour.
+
+To get this average water temperature I will need to read every events from the last hour, it means reading 36 0000 events.
+
+To make this faster, you can create one `snapshot` event every hour.
+Then read this snapshot stream to validate your business rule.
+
+```typescript
+const nc = connect();
+const jsm = await nc.jetstreamManager();
+const codec = JSONCodec();
+
+// Create a temporary ordered consumer fetching events from last hour
+const c = await js.consumers.get(stream, {
+   filterSubject: `boiler.${boilerID}`
+ });
+
+let totalTemperature = 0;
+let temperaturePoints = 0;
+let lastSnapshot = Date.now() / 1000 | 0;
+
+// Subscription to build the snapshot
+const messages = await c.consume();
+for await (const m of messages) {
+	const event = codec.decode(m.body);
+	totalTemperature+= event.data.temperature;
+	temperaturePoints++;
+	if(event.data.created_at-lastSnapshot >= 3600) {
+	   const now = Date.now() / 1000 | 0;
+		  // Publish to snapshot subject
+      await js.publish(`boiler.${boilerID}.hourly-snapshot`, {
+        temperature : averageTemperature/temperaturePoints,
+        created_at : now,
+        temperature_points: temperaturePoints
+      });
+      totalTemperature = 0;
+      temperaturePoints = 0;
+      lastSnapshot = now;
+	}
+}
+```
+
 
 ## About the Author
 [Vincent Vermersch](https://www.linkedin.com/in/vincent-vermersch), SAAAS Architect. I build digital factories since 2002.
