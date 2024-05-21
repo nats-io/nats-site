@@ -1,11 +1,12 @@
 +++
-date = "2023-12-09"
+date = "2024-05-21"
 draft = true
 title = "Delegate with trust"
-author = "Vincent Vermersch @vinceveve"
+author = "Vincent Vermersch"
 categories = ["Community"]
 tags = ["jetstream", "eventsourcing", "idempotency", "optimistic concurrency"]
 +++
+
 ![The problem](jeststream-eventual-consistency.png)
 When speaking about async patterns (messaging, event sourcing, etc.) with other developers, they often seem *afraid* of eventual consistency. However, it is often expressed in the form of:
 
