@@ -342,3 +342,8 @@ logo = "mattilsynet.png"
 name = "Appscode"
 home = "https://appscode.com"
 logo = "appscode.png"
+
+[companies.valiant]
+name = "Valiant Distribution, Inc."
+home = "http://www.valiant.com.ph/"
+logo = "valiantdistributioninc.jpg"
