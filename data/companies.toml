@@ -347,3 +347,8 @@ logo = "appscode.png"
 name = "Valiant Distribution, Inc."
 home = "http://www.valiant.com.ph/"
 logo = "valiantdistributioninc.jpg"
+
+[companies.proxus]
+name = "Proxus"
+home = "https://www.proxus.io/"
+logo = "proxus.png"
