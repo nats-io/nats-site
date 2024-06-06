@@ -352,3 +352,8 @@ logo = "valiantdistributioninc.jpg"
 name = "Proxus"
 home = "https://www.proxus.io/"
 logo = "proxus.png"
+
+[companies.marvelsoft]
+name = "Marvelsoft"
+home = "https://marvelsoft.net/"
+logo = "marvelsoft.png"
