@@ -502,6 +502,17 @@ support = "Community"
 author = "g41797"
 authorHome = "https://github.com/g41797"
 
+
+[addons.queue-nats]
+name = "Yii3 Queue Adapter for NATS"
+home = "https://github.com/g41797/queue-nats"
+description = "Uses NATS JetStream as queue for Yii asynchronous job processing"
+support = "Community"
+[[addons.queue-nats.authors]]
+author = "g41797"
+authorHome = "https://github.com/g41797"
+
+
 [addons.risingwave_nats]
 name = "NATS JetStream to RisingWave Connector"
 home = "https://docs.risingwave.com/docs/current/ingest-from-nats/"
