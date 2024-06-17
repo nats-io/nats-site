@@ -357,3 +357,8 @@ logo = "proxus.png"
 name = "Marvelsoft"
 home = "https://marvelsoft.net/"
 logo = "marvelsoft.png"
+
+[companies.tenets]
+name = "Tenets"
+home = "https://tenets.gg/"
+logo = "tenets.png"
