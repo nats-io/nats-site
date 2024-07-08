@@ -362,3 +362,8 @@ logo = "marvelsoft.png"
 name = "Tenets"
 home = "https://tenets.gg/"
 logo = "tenets.png"
+
+[companies.iflow]
+name = "i-flow"
+home = "https://i-flow.io/"
+logo = "iflow.png"
