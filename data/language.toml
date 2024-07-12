@@ -83,9 +83,9 @@ author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = "0.14.0"
 release_date = "2021-10-26"
-[[language.netp.orgs]]
+[[language.net.orgs]]
 org = "nats-io"
-repo = "nats.net"
+repo = "nats.net.v2"
 supported = true
 author = "NATS Authors"
 link = "https://github.com/nats-io/nats.net.v2"
