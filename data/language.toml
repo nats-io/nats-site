@@ -75,22 +75,22 @@ release_date = "2017-05-11"
 name = ".NET"
 [[language.net.orgs]]
 org = "nats-io"
-repo = "nats.net.v2"
+repo = "nats.net"
 supported = true
 streaming_support = true
 jetstream_support = true
 author = "NATS Authors"
-link = "https://github.com/nats-io"
-release_version = "0.14.0"
-release_date = "2021-10-26"
+link = "https://github.com/nats-io/nats.net"
+release_version = "2.3.2"
+release_date = "2024-07-10"
 [[language.net.orgs]]
 org = "nats-io"
-repo = "nats.net.v2"
+repo = "nats.net"
 supported = true
 author = "NATS Authors"
-link = "https://github.com/nats-io/nats.net.v2"
-release_version = "0.14.0"
-release_date = "2021-10-26"
+link = "https://github.com/nats-io/nats.net"
+release_version = "2.3.2"
+release_date = "2024-07-10"
 [[language.net.orgs]]
 org = "danielwertheim"
 repo = "mynatsclient"
