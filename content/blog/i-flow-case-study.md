@@ -1,10 +1,10 @@
 +++
-date = "2024-07-19"
+date = "2024-07-22"
 draft = false
 title = "Real-time analytics from Edge to multiple factories with NATS and i-flow"
-author = "Daniel Goldeband"
-categories = ["Engineering"]
-tags = ["NATS"]
+author = "Jan Strehl"
+categories = ["Engineering", "Microservices", "Edge"]
+tags = ["NATS", "i-flow"]
 +++
 
 
