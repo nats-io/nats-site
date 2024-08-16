@@ -551,3 +551,13 @@ supported = false
 jetstream_support = false
 author = "David Gofman"
 link = "https://github.com/dgofman"
+
+[language.ocaml]
+name = "OCaml"
+[[language.ocaml.orgs]]
+org = "romanchechyotkin"
+repo = "nats.ocaml"
+supported = false
+jetstream_support = false
+author = "Roman Chechyotkin"
+link = "https://github.com/romanchechyotkin"
