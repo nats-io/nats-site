@@ -367,3 +367,8 @@ logo = "tenets.png"
 name = "i-flow"
 home = "https://i-flow.io/"
 logo = "iflow.png"
+
+[companies.datasance]
+name = "Datasance"
+home = "https://datasance.com/"
+logo = "datasance.png"
