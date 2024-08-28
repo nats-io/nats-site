@@ -1,10 +1,18 @@
 [[events]]
-venue = "ICYMI"
-when = "KubeCon EU 2024"
-who = "Tomasz Pietrek & Jeremy Saenz, Synadia"
-what = "Distributed AI: Using NATS.io to Seamlessly Connect AI Applications from Cloud to Edge"
-where = "Paris, France"
-ref = "https://youtu.be/ZcgFgb8dLOw?feature=shared"
+venue = "KubeCon + CloudNativeCon North America 2024"
+when = "Friday November 15, 2:55pm MST"
+who = "Byron Ruth & Kevin Hoffman, Synadia"
+what = "Nothing but NATS: Going Beyond Cloud Native"
+where = "Salt Lat City, Utah"
+ref = "https://sched.co/1hoyU"
+
+
+# venue = "ICYMI"
+# when = "KubeCon EU 2024"
+# who = "Tomasz Pietrek & Jeremy Saenz, Synadia"
+# what = "Distributed AI: Using NATS.io to Seamlessly Connect AI Applications from Cloud to Edge"
+# where = "Paris, France"
+# ref = "https://youtu.be/ZcgFgb8dLOw?feature=shared"
 
 # comment out to save
 #[[events]]
