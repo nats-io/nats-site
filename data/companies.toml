@@ -372,3 +372,8 @@ logo = "iflow.png"
 name = "Datasance"
 home = "https://datasance.com/"
 logo = "datasance.png"
+
+[companies.bosach]
+name = "Bosach"
+home = "https://bosachtechnologies.com/"
+logo = "bosach.png"
