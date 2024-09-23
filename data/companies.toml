@@ -372,3 +372,8 @@ logo = "iflow.png"
 name = "Datasance"
 home = "https://datasance.com/"
 logo = "datasance.png"
+
+[companies.tiqs]
+name = "TIQS"
+home = "https://tiqs.in/"
+logo = "tiqs.svg"
