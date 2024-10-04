@@ -383,3 +383,8 @@ logo = "tiqs.svg"
 name = "Bosach"
 home = "https://bosachtechnologies.com/"
 logo = "bosach.png"
+
+[companies.eternal_empires]
+name = "Eternal Empires"
+home = "https://github.com/EternalEmpires"
+logo = "eternalempires.png"
