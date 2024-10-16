@@ -81,24 +81,8 @@ streaming_support = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io/nats.net"
-release_version = "2.3.2"
-release_date = "2024-07-10"
-[[language.net.orgs]]
-org = "nats-io"
-repo = "nats.net"
-supported = true
-author = "NATS Authors"
-link = "https://github.com/nats-io/nats.net"
-release_version = "2.3.2"
-release_date = "2024-07-10"
-[[language.net.orgs]]
-org = "danielwertheim"
-repo = "mynatsclient"
-supported = false
-author = "Daniel Wertheim"
-link = "https://github.com/danielwertheim"
-release_version = "0.10.0"
-release_date = "2017-01-10"
+release_version = "2.5.1"
+release_date = "2024-10-16"
 
 [language.lisp]
 name = "Common Lisp"

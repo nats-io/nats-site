@@ -63,17 +63,8 @@
       name: Synadia
       link: https://synadia.com
     release:
-      version: '0.10.0'
-      date: '2019-11-18'
-  - org: danielwertheim
-    repo: mynatsclient
-    supported: false
-    author:
-      name: Daniel Wertheim
-      link: https://github.com/danielwertheim
-    release:
-      version: '0.10.0'
-      date: '2017-01-10'
+      version: '2.5.1'
+      date: '2024-10-16'
 - language: Crystal
   clients:
   - org: nats-io
