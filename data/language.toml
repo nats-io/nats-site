@@ -77,7 +77,6 @@ name = ".NET"
 org = "nats-io"
 repo = "nats.net"
 supported = true
-streaming_support = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io/nats.net"
