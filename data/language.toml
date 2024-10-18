@@ -561,3 +561,10 @@ supported = false
 jetstream_support = false
 author = "Roman Chechyotkin"
 link = "https://github.com/romanchechyotkin"
+[[language.ocaml.orgs]]
+org = "vshender"
+repo = "nats.ml"
+supported = false
+jetstream_support = false
+author = "Vadim Shender"
+link = "https://github.com/vshender"
