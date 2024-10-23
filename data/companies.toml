@@ -388,3 +388,8 @@ logo = "bosach.png"
 name = "Eternal Empires"
 home = "https://github.com/EternalEmpires"
 logo = "eternalempires.png"
+
+[companies.oktopus]
+name = "Oktopus"
+home = "https://oktopus.app.br/controller"
+logo = "oktopus.png"
