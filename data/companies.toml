@@ -393,3 +393,8 @@ logo = "eternalempires.png"
 name = "Oktopus"
 home = "https://oktopus.app.br/controller"
 logo = "oktopus.png"
+
+[companies.sales_mania]
+name = "Sales Mania"
+home = "https://salesmania.id/"
+logo = "salesmania.jpeg"
