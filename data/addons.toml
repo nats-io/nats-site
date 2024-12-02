@@ -221,6 +221,16 @@ author = "Lovoo"
 authorHome = "http://lovoo.com/"
 
 
+[addons.rabbit_going_nats]
+name = "Rabbit-going-NATS"
+home = "https://github.com/ideaconnect/rabbit-going-nats"
+description = "Tool which allows to passthrough messages fetched from RabbitMQ's queue to NATS PubSub. Useful if you receive a data feed through RabbitMQ, but you need to redistribute it further to multiple clients."
+support = "Community"
+[[addons.rabbit_going_nats.authors]]
+author = "IDCT Bartosz Pachołek"
+authorHome = "https://idct.tech/"
+
+
 [addons.rancher_nats]
 name = "Rancher NATS"
 home = "http://bit.ly/1X36qKZ"
