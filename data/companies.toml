@@ -398,3 +398,8 @@ logo = "oktopus.png"
 name = "Sales Mania"
 home = "https://salesmania.id/"
 logo = "salesmania.jpeg"
+
+[companies.octotronic]
+name = "Octotronic"
+home = "https://octotronic.com/"
+logo = "octotronic.svg"
