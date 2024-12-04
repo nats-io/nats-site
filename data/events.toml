@@ -1,18 +1,10 @@
 [[events]]
-venue = "NATS user in SoCal? Join us!"
-when = "Friday October 18, 4:00pm PST"
-who = "NATS Maintainers + Team Synadia"
-what = "Pizza, Wine, & Connectivity: Celebrating the Nomadic App Revolution"
-where = "Venice Beach, Los Angeles"
-ref = "https://lu.ma/ppcazde3"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon North America 2024"
-when = "Friday November 15, 2:55pm MST"
-who = "Byron Ruth & Kevin Hoffman, Synadia"
-what = "Nothing but NATS: Going Beyond Cloud Native"
-where = "Salt Lake City, Utah"
-ref = "https://sched.co/1hoyU"
+venue = "KubeCon + CloudNativeCon EU 2025"
+when = "April 1-4, 2025"
+who = "Team Synadia NATS"
+what = "TBD"
+where = "London, England"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 # venue = "ICYMI"
 # when = "KubeCon EU 2024"
