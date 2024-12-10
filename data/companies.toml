@@ -403,3 +403,8 @@ logo = "salesmania.jpeg"
 name = "Octotronic"
 home = "https://octotronic.com/"
 logo = "octotronic.svg"
+
+[companies.cybus]
+name = "Cybus"
+home = "https://cybus.io/"
+logo = "cybus.png"
