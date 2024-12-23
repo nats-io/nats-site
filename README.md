@@ -195,7 +195,14 @@ Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started
 
 #### Building the Site
 
-See the makefile for run commands.
+See the [Makefile](./Makefile) for run commands. If the `Makefile` doesn't work, try the following:
+- `npm install`
+- Go to [https://github.com/gohugoio/hugo/releases/tag/v0.80.0](https://github.com/gohugoio/hugo/releases/tag/v0.80.0) and download the extended version of `hugo`. This is the version specified in the [netlify.toml](./netlify.toml) file.
+- Extract the ZIP file you downloaded and move the `hugo` executable to the `nats-site` project directory
+- Add the project directory to your PATH like `export PATH="$HOME/[insertPathHere]/nats-site:$PATH"`
+- Run `hugo server`
+- Make sure you have execute permission on the `hugo` executable file
+	- If on Mac, if you get a warning for using the executable you can allow it in Settings, Privacy & Security, and allow `hugo`
 
 
 Thank you for your interest in NATS!
