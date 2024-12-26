@@ -46,10 +46,10 @@ Stay up to date with the latest information on NATS.
 <script>
   function handleNewsletterFormSubmit(e) {
     e.preventDefault();
-    var email = document.getElementById("email").value;
-    let portalId = "47270392";
-    let formId = "b0a5d839-3b24-4e00-8b4c-fab17593f791";
-    var url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+    let email = document.getElementById("email").value;
+    const portalId = "47270392";
+    const formId = "b0a5d839-3b24-4e00-8b4c-fab17593f791";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
     var data = {
       email: email,
     };
@@ -81,13 +81,11 @@ Stay up to date with the latest information on NATS.
         if (response.ok) {
           document.getElementById("subscribe-message").style.display = "block";
           document.getElementById("subscribe-message").style.color = "green";
-          document.getElementById("subscribe-message").style.fontWeight = "700";
           document.getElementById("subscribe-message").innerText =
             successMessage;
         } else {
           document.getElementById("subscribe-message").style.display = "block";
           document.getElementById("subscribe-message").style.color = "red";
-          document.getElementById("subscribe-message").style.fontWeight = "700";
           document.getElementById("subscribe-message").innerText = errorMessage;
         }
       })
