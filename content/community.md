@@ -48,7 +48,7 @@ Stay up to date with the latest information on NATS.
     e.preventDefault();
     let email = document.getElementById("email").value;
     const portalId = "47270392";
-    const formId = "b0a5d839-3b24-4e00-8b4c-fab17593f791";
+    const formId = "46b2e433-14b9-4aef-8754-cdd173a9535c";
     const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
     var data = {
       email: email,
