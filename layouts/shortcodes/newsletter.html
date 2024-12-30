@@ -1,30 +1,59 @@
-<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
-
 <style type="text/css">
-  #mc_embed_signup form{margin: 0}
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:400px;}
-	#mc_embed_signup .button{background:#375C93;}
-  #mc_embed_signup div#mce-responses{padding: 0; margin: 0; float: none}
-  #mc_embed_signup div.response{padding: 0}
-	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #email {
+    width: 100%;
+    padding: 8px;
+    text-indent: 2%;
+    border: 1px solid #abb0b2;
+    border-radius: 3px;
+  }
+
+  #subscribe {
+    color: white;
+    background-color: #375c93;
+    border: none;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  #subscribe:hover {
+    background-color: #aaa;
+  }
+
+  #subscribe-message {
+    margin-top: 16px;
+    display: none;
+    font: 14px Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
 </style>
 
-<div id="mc_embed_signup">
-  <form action="https://synadia.us9.list-manage.com/subscribe/post?u=f24f113fa62835bf919c7cc0b&amp;id=015c47050c&amp;f_id=004c0be1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-      <div class="mc-field-group">
-	      <label for="mce-EMAIL"></label>
-	      <input type="email" placeholder="Enter your Email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
-	      <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
-      </div>
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f24f113fa62835bf919c7cc0b_015c47050c" tabindex="-1" value=""></div>
-      <div class="clear"><input type="submit" value="Subscribe Today!" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-	    <div id="mce-responses" class="clear">
-		    <div class="response" id="mce-error-response" style="display:none"></div>
-		    <div class="response" id="mce-success-response" style="display:none"></div>
-	    </div>
-    </div>
-  </form>
-</div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<form
+  id="subscribe-form"
+  name="subscribe-form"
+  onsubmit="handleNewsletterFormSubmit(event)"
+>
+  <input
+    type="email"
+    placeholder="Enter your Email"
+    value=""
+    name="EMAIL"
+    id="email"
+    required
+  />
+  <!--Honeypot-->
+  <input
+    type="submit"
+    value="Subscribe Today!"
+    name="subscribe"
+    id="subscribe"
+    class="button"
+  />
+</form>
+<div id="subscribe-message"></div>
