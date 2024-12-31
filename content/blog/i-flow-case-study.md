@@ -37,7 +37,7 @@ NATS ensures reliable communication between different components of the manufact
 * Scalability
 The architecture of NATS allows for easy scalability, accommodating the growth of the company’s manufacturing operations. As new factories and use cases are added, NATS can integrate them into the existing system without significant reconfiguration.
 * 100% deployed on premise
-NATS is easy to deploy and scale with the need for black boxed Cloud based services. This provides maximum confidentiality to the end user.
+NATS is easy to deploy and scale without the need for black boxed Cloud based services. This provides maximum confidentiality to the end user.
 
 ### Implementation Steps
 #### OT Connectivity with i-flow: 
