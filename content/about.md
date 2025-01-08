@@ -33,14 +33,17 @@ We are excited to bring these advances to the NATS community and look forward to
 
 ### 2.11 Release
 
-_Coming in 2024_
+_Coming in 2025_
 
-The following short-list of items have been committed to, but will be refined once the previous version is released.
-
-- Key-value based NATS resolver
-- Message processing callout
-- Encryption key rotation
-- Key-Value typed values
+- [Batch](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#batched-requests) and [multi-subject](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#multi-subject-requests) direct gets on streams
+  - Includes support for [start time](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#request)
+- [NATS message path tracing](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-41.md)
+- [Pull consumer priority groups](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-42.md)
+- [Per-message TTLs](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-43.md) on streams and key-value buckets (in progress)
+- [Versioning for JetStream assets](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-44.md)
+- [Consumer pause/unpause](https://github.com/nats-io/nats-server/pull/5066)
+- [MQTT Sparkplug B compatibility](https://github.com/nats-io/nats-server/pull/5241)
+- [JetStream encryption Windows TPM support](https://github.com/nats-io/nats-server/pull/5273)
 
 Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
 
