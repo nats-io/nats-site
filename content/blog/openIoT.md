@@ -27,6 +27,6 @@ If you are at all familiar with NATS, you know NATS is the opposite of this. NAT
 
 The lightweight, high performance profile of NATS make it ideal for IoT messaging where device characteristics and communication patterns mean a heavy, general purpose messaging system won’t scale.
 
-If you’re considering IoT development, and look for a messaging layer we would be interested to hear from you! You might also want to take a look at the [NATS Arduino client](https://nats.io/download/joshglendenning/arduino-nats/) developed by the Community.
+If you’re considering IoT development, and look for a messaging layer we would be interested to hear from you! You might also want to take a look at the [NATS Arduino client](https://nats.io/download/) developed by the Community.
 
 You can continue the conversation with us on [Twitter](https://twitter.com/nats_io), or join the [NATS Community](https://nats.io/community/) and let us know your thoughts.
