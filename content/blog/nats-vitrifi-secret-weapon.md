@@ -118,3 +118,9 @@ The success of our platform’s architecture demonstrates that the best solution
 ## Coming Up…
 
 In the second part of this series, we’ll take a deep dive into Shar and explore how it leverages NATS’ powerful features to create a one-of-a-kind workflow engine.
+
+## About the Author
+
+[Juan P. Genovese](https://www.linkedin.com/in/juanpgenovese/) "JP" is Head of Core Software at Vitrifi with over 25 years of experience delivering exceptional software solutions across industries such as banking, telecoms, pharmaceuticals, and government. A specialist in cloud-native computing, DevOps, and solutions architecture, he is known for solving complex challenges and building high-performing teams.
+
+He is passionate about mastering new technologies, mentoring talent, and driving innovation to deliver impactful results.
