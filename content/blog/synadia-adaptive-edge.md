@@ -9,7 +9,7 @@ tags = ["NATS", "Synadia"]
 
 # Overview
 
-At [Synadia](https://synadia.com) we have the goal of unifying all cloud, edge, and IoT communications.  We guide companies in their journey from where they are today toward efficiently operating a secure and resilient modern distributed communications system and leverage the [NATS.io](https://nats.io) project to get them there.  Derek Collison, creator of NATS, founded Synadia which stewards the NATS project.
+At [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) we have the goal of unifying all cloud, edge, and IoT communications.  We guide companies in their journey from where they are today toward efficiently operating a secure and resilient modern distributed communications system and leverage the [NATS.io](https://nats.io) project to get them there.  Derek Collison, creator of NATS, founded Synadia which stewards the NATS project.
 
 We see users deploy NATS in ways that fit into a few buckets - a single cluster [k8s](http://kubernetes.io) deployment, a cluster of NATS servers in the cloud, on VMs, or on bare metal.  As companies grow we see many multi-regional deployments spread out geographically, in data centers, across cloud providers or more often now with hybrid deployments.
 
@@ -39,7 +39,7 @@ This is fairly straightforward.  You establish a number of NATS clusters on the 
 
 Because accounts contain their own subject namespaces each edge deployment can look exactly the same and you won't have subject collisions.  No more meetings deciding how to hierarchically setup a namespace!  It's compartmentalized – meaning your applications are easy to enhance and it won't affect the rest of the system.  Exports and imports can allow any permitted NATS client to interact with any other permitted NATS client securely and seamlessly, from anywhere in the deployment.  Because a NATS server exists on the edge, **your remote services can still operate automonomously** when separated from the network.
 
-This also creates the ability to mix and match SaaS based systems with systems privately owned and operated.  We're seeing an uptick of this pattern with [NGS](https://synadia.com/ngs/pricing) where users run leaf nodes for local installations and then connect remotely for secure and reliable global communication.
+This also creates the ability to mix and match SaaS based systems with systems privately owned and operated.  We're seeing an uptick of this pattern with [NGS](https://www.synadia.com/cloud?utm_source=nats_io&utm_medium=nats) where users run leaf nodes for local installations and then connect remotely for secure and reliable global communication.
 
 ## Intentional Silos
 While you'll have complete connectivity, data flow should be restricted, sometimes isolated in silos with limited access.  One might do this for manageability - aggregating vast amounts of sensor data on the edge then using AI to provide meaningful context as a stream.  Or you may need to enforce policy such as keeping medical data concerning health within a set of servers on premises for GDPR compliance.  Account setup would guarantee that data never leaves a location unless it is supposed to.

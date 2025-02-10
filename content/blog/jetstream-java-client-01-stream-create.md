@@ -213,5 +213,5 @@ Stay tuned for the next blog post, Publishing!
 
 ## About the Author
 
-Scott Fauerbach is a member of the engineering team at [Synadia Communications](https://synadia.com).
+Scott Fauerbach is a member of the engineering team at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 

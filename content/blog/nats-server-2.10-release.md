@@ -15,7 +15,7 @@ We want to thank everyone who [contributed](https://nats.io/contributing/) throu
 
 Before diving into 2.10 itself, let’s reflect on the journey leading up to this release and why it is significant.
 
-It has been just over **a year** since the [2.9.x series started](https://nats.io/blog/nats-server-29-release/) and a record **22 patch releases** have landed since then. This is the result of a significant amount of investment by the [Synadia](https://synadia.com) team into NATS testing and quality assurance over the past year which has accelerated NATS’ maturity and stability due to dedicated effort in engineering, testing and QA.
+It has been just over **a year** since the [2.9.x series started](https://nats.io/blog/nats-server-29-release/) and a record **22 patch releases** have landed since then. This is the result of a significant amount of investment by the [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) team into NATS testing and quality assurance over the past year which has accelerated NATS’ maturity and stability due to dedicated effort in engineering, testing and QA.
 
 These efforts were briefly mentioned in the [2.9.15 announcement post](https://nats.io/blog/nats-server-2.9.15-release/) where we highlighted _quality engineering_ methods such as:
 
@@ -82,7 +82,7 @@ The best part about this feature is that nothing needs to be configured upfront.
 
 ### Extensibility
 
-The original concept of extensibility with NATS was the [leafnode](https://docs.nats.io/running-a-nats-service/configuration/leafnodes). The ability to spin up a new server anywhere, extending an existing NATS system, such as [NGS](https://synadia.com/ngs), out to arbitrary edge locations and edge.
+The original concept of extensibility with NATS was the [leafnode](https://docs.nats.io/running-a-nats-service/configuration/leafnodes). The ability to spin up a new server anywhere, extending an existing NATS system, such as [NGS](https://www.synadia.com/cloud?utm_source=nats_io&utm_medium=nats), out to arbitrary edge locations and edge.
 
 However, 2.10 brings a new extension point that integrates directly into a core layer of NATS: authentication and authorization.
 
@@ -104,4 +104,4 @@ Also, be sure to watch or listen to episode 6 of NATS.fm: [The journey and featu
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://synadia.com), a NATS release manager, and the co-host of the [NATS.fm](http://nats.fm) podcast.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats), a NATS release manager, and the co-host of the [NATS.fm](http://nats.fm) podcast.

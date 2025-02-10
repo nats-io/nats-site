@@ -16,6 +16,6 @@ This tutorial video shows you how you can easily use the NATS CLI tool to test a
 
 ## About the Author
 
-Jean-Noël Moyne is Technical Solutions Lead at [Synadia Communications](https://synadia.com).
+Jean-Noël Moyne is Technical Solutions Lead at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
 Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).

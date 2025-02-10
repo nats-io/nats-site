@@ -109,7 +109,7 @@ This _stall_ detection will reduce the time for a server to become healthy (via 
 
 ## ⚡ P99 performance
 
-[Synadia](https://synadia.com) was fortunate to work with a customer in the financial services industry measuring JetStream publish latency. They cared deeply about 99th percentile (P99) publish latencies, keeping the variance (even at peak load) as low as possible.
+[Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) was fortunate to work with a customer in the financial services industry measuring JetStream publish latency. They cared deeply about 99th percentile (P99) publish latencies, keeping the variance (even at peak load) as low as possible.
 
 Their setup consisted of ~200 R3 streams spread out across a private network tying together all three major public clouds. Their workload had peak publish throughput of ~180-200k messages/second.
 
@@ -137,4 +137,4 @@ As always, refer to the [download page](https://nats.io/download/) for direct li
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) and a long-time NATS user.

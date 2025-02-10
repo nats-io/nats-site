@@ -21,7 +21,7 @@ NATS is unique in its simplicity and performance, and as a result powers some of
 The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
 
 - Community, driven by GitHub and Slack interest and discussions
-- Customers, solicited from [Synadia's](https://synadia.com) customer use cases
+- Customers, solicited from [Synadia's](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) customer use cases
 - Support, sourced from recurring challenges with existing capabilities
 - Opportunity, ideated by the maintainers insight and vision
 
@@ -74,7 +74,7 @@ If you have any ideas or requests, be sure to contact us using one of the method
 In addition to our official [Documentation](https://docs.nats.io), the following resources are just a few available to learn, share, and grow your knowledge of NATS.
 If you would like to share your experience with NATS and would like help publishing you can [contact us](mailto:info@nats.io) or if you have an article published, tag us on [Twitter](https://twitter.com/nats_io) or ping us on [Slack](https://slack.nats.io).
 
-- [NATS News](https://www.synadia.com/newsletter) | [Byron Ruth](https://www.linkedin.com/in/byron-ruth/) has created a monthly NATS newsletter combining announcements, Slack Q&A, and updates. Additional featured NATS articles are also available.
+- [NATS News](https://www.synadia.com/newsletter?utm_source=nats_io&utm_medium=nats) | [Byron Ruth](https://www.linkedin.com/in/byron-ruth/) has created a monthly NATS newsletter combining announcements, Slack Q&A, and updates. Additional featured NATS articles are also available.
 - [NATS by Example](https://natsbyexample.com) | Learn NATS by Example with this evolving collection of runnable, cross-client reference examples for NATS.
 - [NATS.fm Podcast](http://nats.fm/) | Join us as we talk all things NATS.io on everything from the concepts & patterns, to use cases and real world outcomes.
 - [SlideShare](https://www.slideshare.net/nats_io/presentations) | Presentation slides from MeetUps, conferences and webinars.

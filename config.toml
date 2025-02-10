@@ -30,7 +30,7 @@ images = ["/img/new_social_nats.png"]
 description_long = """
 NATS.io is a simple, secure, high-performance, open source messaging system for cloud native applications, IoT messaging, and microservice architectures.
 
-Members of the [Synadia](https://synadia.com) team created and maintain the NATS and Streaming Servers, as well as clients written in Go, Java, JavaScript/TypeScript, Python, Ruby, C#, C, and NGINX. The community has also contributed a growing list of client libraries, including Arduino, Rust, Lua, PHP, Perl, and [more](https://nats.io/download).
+Members of the [Synadia](https://www.synadia.com/?utm_source=nats_io&utm_medium=nats) team created and maintain the NATS and Streaming Servers, as well as clients written in Go, Java, JavaScript/TypeScript, Python, Ruby, C#, C, and NGINX. The community has also contributed a growing list of client libraries, including Arduino, Rust, Lua, PHP, Perl, and [more](https://nats.io/download).
 
 Companies like MasterCard, Ericsson, HTC, Siemens, VMware, Pivotal, GE, and Baidu, among others, rely on the NATS.io messaging system for its highly performant, secure and resilient capabilities.
 """

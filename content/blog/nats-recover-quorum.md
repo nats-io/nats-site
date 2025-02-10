@@ -238,7 +238,7 @@ Finally, the state of the cluster should be restored now, with three servers.
 
 ## About The Author
 
-John Weldon is a Customer Solutions Architect at [Synadia Communications](https://www.synadia.com/).
+John Weldon is a Customer Solutions Architect at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
 [^chart-name]: The name of the helm release in this article is `nats-helm-kind`; it could be anything, often the default is just `nats`
 [^kind-repo]: You can replicate the [kind][] environment I used in this article, by referring to [this][nats-helm-kind-playground] repository.

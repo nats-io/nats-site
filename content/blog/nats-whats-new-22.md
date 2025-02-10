@@ -129,6 +129,6 @@ Businesses backed by NATS will experience low operational costs, can provide bet
 
 # About the Author
 
-I'm [Colin Sullivan](https://www.linkedin.com/in/colinsullivan/), Product Manager at [Synadia](www.synadia.com) for NATS.io and a long-time NATS maintainer.
+I'm [Colin Sullivan](https://www.linkedin.com/in/colinsullivan/), Product Manager at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) for NATS.io and a long-time NATS maintainer.
 
 If you're interested in learning more about NATS as an open source project, contact the NATS Maintainers at <info@nats.io>.

@@ -220,6 +220,6 @@ Finally, do remember that 'nothing comes for free': just like a proper data stor
 
 ## About the Author
 
-Jean-Noël Moyne is Field CTO at [Synadia Communications](https://synadia.com).
+Jean-Noël Moyne is Field CTO at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
 Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).
