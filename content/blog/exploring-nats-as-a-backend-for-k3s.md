@@ -50,7 +50,7 @@ Given this is one NATS system, an operator gets end-to-end visibility and manage
 [jetstream]: https://docs.nats.io/nats-concepts/jetstream
 [caleb]: https://www.linkedin.com/in/calebjlloyd
 [rethinkconn]: https://www.youtube.com/watch?v=CetW4eGkyS0
-[ngs]: https://synadia.com/ngs
+[ngs]: https://www.synadia.com/cloud
 [accounts]: https://docs.nats.io/running-a-nats-service/configuration/securing_nats/accounts
 [demo]: https://github.com/ConnectEverything/k3s-on-nats
 
@@ -107,4 +107,4 @@ Finally, The NATS team wants to give a BIG thank you and shoutout to the k3s/KIN
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth-97216a1b7/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth-97216a1b7/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) and a long-time NATS user.

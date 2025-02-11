@@ -25,6 +25,6 @@ frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media
 
 ### About the Author
 
-R.I. Pienaar is a long-time NATS Maintainer and a senior member of the engineering team at [Synadia Communications](https://synadia.com).
+R.I. Pienaar is a long-time NATS Maintainer and a senior member of the engineering team at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
 Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).

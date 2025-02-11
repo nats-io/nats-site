@@ -129,4 +129,4 @@ As always, refer to the [download page](https://nats.io/download/) for direct li
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) and a long-time NATS user.

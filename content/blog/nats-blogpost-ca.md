@@ -83,4 +83,4 @@ Happy CA Rollovers,
 -Phil
 
 ## About the Author
-Phil Pennock is a NATS Maintainer and a member of the engineering team at [Synadia Communications](https://synadia.com).
+Phil Pennock is a NATS Maintainer and a member of the engineering team at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).

@@ -5,7 +5,7 @@ clients:
   repo: nats.cr
   author:
     name: Synadia
-    link: https://synadia.com
+    link: https://www.synadia.com
   release:
     version: '0.0.0'
 - org: repomaa

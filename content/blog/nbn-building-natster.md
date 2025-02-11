@@ -82,4 +82,4 @@ We intend to keep the application available going forward and continue to refine
 None of us want to build applications any other way from now on.
 
 ## About the Author
-Kevin Hoffman is an Engineering Director at [Synadia Communications](https://synadia.com). He has devoted most of his career to building distributed systems and making it easier and _fun_ for developers to do the same.
+Kevin Hoffman is an Engineering Director at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats). He has devoted most of his career to building distributed systems and making it easier and _fun_ for developers to do the same.

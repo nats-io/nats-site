@@ -83,4 +83,4 @@ If you prefer to track nightly builds on the `main` branch, which follows the st
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) and a long-time NATS user.

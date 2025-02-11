@@ -499,4 +499,4 @@ Please refer to the granular release notes for the long tail of additions, chang
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth-97216a1b7/) is the Director of Developer Relations at [Synadia](https://synadia.com) and a long-time NATS user.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth-97216a1b7/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) and a long-time NATS user.

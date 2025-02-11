@@ -4,7 +4,7 @@
   language: Go
   author:
     name: Synadia
-    link: https://synadia.com
+    link: https://www.synadia.com
   release:
     version: "2.10.25"
     date: "2025-01-23"
@@ -17,7 +17,7 @@
 #  language: Go
 #  author:
 #    name: Synadia
-#    link: https://synadia.com
+#    link: https://www.synadia.com
 #  release:
 #    version: '0.17.0'
 #    date: '2020-02-11'

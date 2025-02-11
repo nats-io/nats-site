@@ -234,6 +234,6 @@ It is also important to note that leveraging nats.ws (or WebSockets in general) 
 
 ## About the author
 
-[Byron Ruth](https://twitter.com/thedevel) is the Director of Developer Relations at [Synadia](https://synadia.com).
+[Byron Ruth](https://twitter.com/thedevel) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
 Questions? Join our [Slack channel](https://slack.nats.io) or email [info@nats.io](mailto:info@nats.io).

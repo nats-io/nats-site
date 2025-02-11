@@ -478,12 +478,12 @@ authorHome = "https://github.com/YunaBraska"
 
 [addons.synadia_ngs]
 name = "Synadia NGS"
-home = "https://synadia.com/ngs"
+home = "https://www.synadia.com/cloud"
 description = "NGS is a global communications system built on NATS.io."
 support = "Community"
 [[addons.synadia_ngs.authors]]
 author = "Synadia"
-authorHome = "https://synadia.com"
+authorHome = "https://www.synadia.com?utm_source=nats_io&utm_medium=nats"
 
 
 [addons.mongodb]
