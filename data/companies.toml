@@ -408,3 +408,8 @@ logo = "octotronic.svg"
 name = "Cybus"
 home = "https://cybus.io/"
 logo = "cybus.png"
+
+[companies.sveltos]
+name = "Sveltos"
+home = "https://sveltos.projectsveltos.io/"
+logo = "sveltos.png"
