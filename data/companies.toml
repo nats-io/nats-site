@@ -413,3 +413,8 @@ logo = "cybus.png"
 name = "Sveltos"
 home = "https://sveltos.projectsveltos.io/"
 logo = "sveltos.png"
+
+[companies.vitrifi]
+name = "Vitrifi"
+home = "https://www.vitrifi.net/"
+logo = "vitrifi.png"
