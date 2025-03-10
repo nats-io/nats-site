@@ -418,3 +418,8 @@ logo = "sveltos.png"
 name = "Vitrifi"
 home = "https://www.vitrifi.net/"
 logo = "vitrifi.png"
+
+[companies.pathao]
+name = "Pathao"
+home = "https://pathao.com/"
+logo = "pathao.png"
