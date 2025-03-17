@@ -4,6 +4,7 @@
 <html{{ with $lang }} lang="{{ . }}"{{ end }}>
   <head>
     {{ partial "meta.html" . }}
+    
     <title>
       {{ block "title" . }}
       {{ site.Title }} &ndash; {{ site.Params.tagline }}
@@ -11,13 +12,17 @@
     </title>
     {{ partial "css.html" . }}
     {{ partial "favicon.html" . }}
-
+   
     {{ if $isDownload }}
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     {{ end }}
 
   </head>
+  
   <body class="is-page has-navbar-fixed-top">
+    
+      {{ partial "home/banner.html" . }}
+          
     <main class="is-main">
       
       {{ partial "navbar.html" . }}
