@@ -48,10 +48,6 @@ most impactful ones:
 This highly anticipated feature allows users to set a TTL for individual
 messages.
 
-- https://github.com/nats-io/nats-server/issues/2609
-- https://github.com/nats-io/nats-server/issues/3073
-- https://github.com/nats-io/nats-server/issues/3251
-
 It also enables receiving Delete Markers on Stream for messages that reached
 `MaxAge`. This is a big step in improving our Key Value Stores by being able to
 get notifications about expired keys and will be adopted by our clients in the
@@ -60,8 +56,6 @@ near future.
 ## Consumer Pinning and Overflow
 
 [Design document](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-42.md)
-
-- https://github.com/nats-io/nats-server/issues/5213
 
 Another frequently requested feature, built on top of the new `Consumer
 Priority Groups`, which we plan to expand further in future releases. For now,
