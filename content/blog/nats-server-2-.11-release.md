@@ -112,3 +112,5 @@ individually.
 NATS Server 2.11 includes numerous additional features and enhancements beyond
 those outlined here. For a complete overview, please consult the full [Changelog](https://github.com/nats-io/nats-server/releases/tag/v2.11.0).
 
+
+Additionally, review the version 2.11 documentation and upgrade guide [here](https://docs.nats.io/release-notes/whats_new/whats_new_211).
