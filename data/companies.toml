@@ -423,3 +423,8 @@ logo = "vitrifi.png"
 name = "Pathao"
 home = "https://pathao.com/"
 logo = "pathao.png"
+
+[companies.diversity]
+name = "Diversity"
+home = "https://ondiversity.cloud"
+logo = "diversity.png"
