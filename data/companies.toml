@@ -428,3 +428,8 @@ logo = "pathao.png"
 name = "Diversity"
 home = "https://ondiversity.cloud"
 logo = "diversity.png"
+
+[companies.icube]
+name = "iCube"
+home = "https://icube.co.th/"
+logo = "iCube.png"
