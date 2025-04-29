@@ -433,3 +433,8 @@ logo = "diversity.png"
 name = "iCube"
 home = "https://icube.co.th/"
 logo = "iCube.png"
+
+[companies.goosey]
+name = "Goosey"
+home = "https://goosey.org/"
+logo = "goosey.svg"
