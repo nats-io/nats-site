@@ -551,3 +551,15 @@ supported = false
 jetstream_support = false
 author = "Vadim Shender"
 link = "https://github.com/vshender"
+
+[language.zig]
+name = "Zig"
+[[language.zig.orgs]]
+org = "g41797"
+repo = "nats"
+supported = false
+jetstream_support = true
+author = "g41797"
+link = "https://github.com/g41797/nats"
+release_version = "0.0.4"
+release_date = "2025-05-17"
