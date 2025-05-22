@@ -18,6 +18,9 @@ NATS is unique in its simplicity and performance, and as a result powers some of
 
 ## Roadmap
 
+Features being included in the next release are tracked on [GitHub milestones](https://github.com/nats-io/nats-server/milestones).  
+
+
 The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
 
 - Community, driven by GitHub and Slack interest and discussions
@@ -27,39 +30,8 @@ The purpose of the roadmap is to communicate the known set of features and chang
 
 We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
 
-{{< columns >}}
-
-{{< column >}}
-
-### 2.11 Release
-
-_Coming early 2025_
-
-- [Batch](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#batched-requests) and [multi-subject](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#multi-subject-requests) direct gets on streams
-  - Includes support for [start time](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#request)
-- [NATS message path tracing](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-41.md)
-- [Pull consumer priority groups](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-42.md)
-- [Per-message TTLs](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-43.md) on streams and key-value buckets (in progress)
-- [Versioning for JetStream assets](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-44.md)
-- [Consumer pause/unpause](https://github.com/nats-io/nats-server/pull/5066)
-- [MQTT Sparkplug B compatibility](https://github.com/nats-io/nats-server/pull/5241)
-- [JetStream encryption Windows TPM support](https://github.com/nats-io/nats-server/pull/5273)
-
 Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
 
-{{< /column >}}
-
-{{< column >}}
-
-### Future Considerations
-
-_Coming soon!_
-
-If you have any ideas or requests, be sure to contact us using one of the methods above ☝️!
-
-{{< /column >}}
-
-{{< /columns >}}
 
 ---
 
