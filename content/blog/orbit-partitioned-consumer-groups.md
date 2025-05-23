@@ -6,7 +6,7 @@ title = "Client-side Partitioned Consumer Groups for JetStream"
 author = "Jean-Noël Moyne"
 +++
 
-Just added to [Orbit.go](https://github.com/synadia-io/orbit.go) is the new client-side implementation of a frequently requested feature: 'partitioned consumer groups' for NATS JetStream! 
+Just added to [Orbit.go](https://github.com/synadia-io/orbit.go) is the new client-side implementation of a frequently requested feature: '[partitioned consumer groups](https://github.com/synadia-io/orbit.go/tree/main/partitionedconsumergroups)' for NATS JetStream! 
 
 This library is so named because what it implements is functionally equivalent to what Apache Kafka calls 'consumer groups' and how they implement partitioning, although the functionality is not unique to Kafka. It is purely implemented by the clients using the library but requires new server functionalities introduced with NATS server version 2.11. Note that there may be some new server functionalities introduced in post 2.11 versions that would push some of this functionality into the server and would make this library much smaller.
 
