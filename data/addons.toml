@@ -577,6 +577,15 @@ support = "Community"
 author = "Defacto Technology"
 authorHome = "https://github.com/DefactoTechnology"
 
+[addons.nats-app]
+name = "NATS App"
+home = "https://github.com/gogap/nats-app"
+description = "A simple NATS UI client for easy subject publish/subscribe debugging."
+support = "Community"
+[[addons.nats-app.authors]]
+author = "Zeal"
+authorHome = "https://github.com/gogap"
+
 #[addons.xxx]
 #name = ""
 #home = ""
