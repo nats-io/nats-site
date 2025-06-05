@@ -1,6 +1,6 @@
 +++
 categories = ["Engineering", "General"]
-date = "2025-05-23"
+date = "2025-06-05"
 tags = ["NATS", "JetStream", "Partitioning", "Strictly-ordered","Kafka"]
 title = "Client-side Partitioned Consumer Groups for JetStream"
 author = "Jean-Noël Moyne"
