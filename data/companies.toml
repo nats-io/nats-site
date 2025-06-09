@@ -438,3 +438,8 @@ logo = "iCube.png"
 name = "Goosey"
 home = "https://goosey.org/"
 logo = "goosey.svg"
+
+[companies.invendor]
+name = "Invendor"
+home = "https://invendor.com"
+logo = "invendor.jpg"
