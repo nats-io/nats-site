@@ -1,18 +1,10 @@
 [[events]]
-venue = "RethinkConn 2025"
-when = "March 20th, 10am PT"
-who = "Synadia and the NATS Community"
-what = "The 2.11 release, Orbit, Connectors, the NATS roadmap, and much more"
-where = "Virtual"
-ref = "https://www.synadia.com/lp/rethink-conn-2025?utm_source=nats_io&utm_medium=nats&utm_campaign=rethink2025"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon EU 2025"
-when = "April 1-4, 2025"
-who = "Tomasz Pietrek and Jordan Rash, Synadia"
-what = "The NATS Stack: Libraries, Extensions, and the Execution Engine"
-where = "London, England"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/program/schedule/"
+venue = "KubeCon + CloudNativeCon NA 2025"
+when = "November 10-13, 2025"
+who = "TBD"
+what = "TBD"
+where = "Atlanta, Georgia USA"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
 
 # venue = "ICYMI"
 # when = "KubeCon EU 2024"
