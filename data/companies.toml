@@ -448,3 +448,8 @@ logo = "invendor.jpg"
 name = "NouLa"
 home = "https://nou-la.com/"
 logo = "noula.png"
+
+[companies.groww]
+name = "Groww"
+home = "https://groww.in/"
+logo = "groww.webp"
