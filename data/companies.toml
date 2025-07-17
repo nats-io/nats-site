@@ -453,3 +453,8 @@ logo = "noula.png"
 name = "Groww"
 home = "https://groww.in/"
 logo = "groww.webp"
+
+[companies.bluej]
+name = "blueJ"
+home = "https://bluej.com/"
+logo = "bluej.svg"
