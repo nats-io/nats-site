@@ -6,7 +6,7 @@ title = "Bitnami Helm Charts will be deprecated by August 28th, 2025. Migrate to
 author = "Andrew Connolly"
 +++
 
-## Important Notice for NATS.io Users on Bitnami Helm Charts**
+## Important Notice for NATS.io Users on Bitnami Helm Charts
 
 If you're running NATS using Bitnami Helm charts, we strongly recommend migrating to the official NATS charts maintained by Synadia.
 
@@ -21,5 +21,5 @@ If you're running NATS using Bitnami Helm charts, we strongly recommend migratin
 
 Don't wait for the deprecation deadline. Start your migration to the [official NATS helm chart](https://github.com/nats-io/k8s?tab=readme-ov-file#getting-started-with-nats-using-helm) today.
 
-* Questions? Ask in our community, https://slack.nats.io We're here to help make your transition smooth.
+* Questions? Ask in our community - https://slack.nats.io - we're here to help make your transition smooth.
 * Want formal support from NATS experts as you migrate? [Contact Synadia](https://www.synadia.com/contact).
