@@ -458,3 +458,8 @@ logo = "groww.webp"
 name = "blueJ"
 home = "https://bluej.com/"
 logo = "bluej.svg"
+
+[companies.foodhub]
+name = "FoodHub"
+home = "https://foodhub.com/"
+logo = "foodhub.png"
