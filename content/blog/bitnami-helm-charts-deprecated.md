@@ -2,7 +2,7 @@
 categories = ["Engineering", "General"]
 date = "2025-08-11"
 tags = ["NATS", "Kubernetes"]
-title = "Bitnami Helm Charts will be deprecated. Migrate to official NATS.io charts"
+title = "Bitnami Helm Charts will be deprecated by August 28th, 2025. Migrate to official NATS.io charts"
 author = "Andrew Connolly"
 +++
 
