@@ -13,7 +13,7 @@ If you're running NATS using Bitnami Helm charts, we strongly recommend migratin
 ### Why migrate now?
 - [Bitnami is deprecating the majority of it's community tier helm charts, including NATS](https://github.com/bitnami/charts/issues/35164)
 - Legacy Bitnami images stop receiving updates on August 28th
-- Future access to NATS via Bitnami will require a paid Bitnami Secure Images subscription ($72K annually)
+- Future access to NATS via Bitnami will require a paid Bitnami Secure Images subscription
 
 ### The solution:
 
