@@ -463,3 +463,8 @@ logo = "bluej.svg"
 name = "FoodHub"
 home = "https://foodhub.com/"
 logo = "foodhub.png"
+
+[companies.axiros]
+name = "Axiros GmbH"
+home = "https://www.axiros.com/"
+logo = "axiros.png"
