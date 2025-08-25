@@ -26,7 +26,7 @@ logo = "pivotal.jpg"
 [companies.ge]
 name = "GE"
 home = "https://www.ge.com/"
-logo = "ge.jpg"
+logo = "GE-Logo.png"
 
 [companies.baidu]
 name = "Baidu"
@@ -56,7 +56,7 @@ logo = "telia.png"
 [companies.mastercard]
 name = "Mastercard"
 home = "https://www.mastercard.us"
-logo = "mastercard.png"
+logo = "mastercard_horizontal.png"
 
 [companies.tinder]
 name = "Tinder"
@@ -98,11 +98,6 @@ name = "PayPal"
 home = "https://paypal.com"
 logo = "paypal.png"
 
-[companies.cruise]
-name = "Cruise"
-home = "https://getcruise.com"
-logo = "cruise.png"
-
 [companies.viacom]
 name = "ViacomCBS"
 home = "https://www.viacbs.com/home"
@@ -142,11 +137,6 @@ logo = "sote.png"
 name = "TeamSystem"
 home = "https://teamsystem.com"
 logo = "teamsystem.png"
-
-[companies.strech]
-name = "Strech"
-home = "https://strech.io"
-logo = "strech.png"
 
 [companies.ekeynow]
 name = "ekeynow"
@@ -442,7 +432,7 @@ logo = "goosey.svg"
 [companies.invendor]
 name = "Invendor"
 home = "https://invendor.com"
-logo = "invendor.jpg"
+logo = "invendor.png"
 
 [companies.noula]
 name = "NouLa"
