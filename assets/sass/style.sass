@@ -245,15 +245,25 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
    flex-wrap: wrap
    justify-content: right
 
-.is-user-logo
-     height: 50%
-     width: 50%
+/* Put logos in equal boxes for alignment */
+.logo
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 120px      /* same visual "box" for all logos */
 
-.is-user-logo[src$=".svg"]
-  /* Your styles here */
-  width: 75px;
-  height: auto;
+/* Make logos uniform size */
+.is-user-logo 
+  max-height: 45px   /* adjust as needed */
+  max-width: 100%
+  object-fit: contain
+  display: block
+  margin: 2 auto    /* centers logo */
 
+  // fallback for SVGs without intrinsic size
+  &[src$=".svg"]
+    height: 80px
+    width: auto
 
 .is-partner-logo
      height: 75%
