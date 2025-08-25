@@ -468,3 +468,8 @@ logo = "foodhub.png"
 name = "Axiros GmbH"
 home = "https://www.axiros.com/"
 logo = "axiros.png"
+
+[companies.sopho]
+name = "Sopho.tech"
+home = "https://sopho.tech/"
+logo = "sopho.png"
