@@ -5,6 +5,9 @@ author = "Synadia"
 categories = ["Engineering","Guest-Post","Use Case","Community"]
 +++
 
+<img alt="Sophotech Logo" src="/img/blog/sophotech_logo.png" height="32" width="225">
+
+
 After replacing RabbitMQ with NATS, [Sophotech](https://sopho.tech/) saw major improvements in performance and simplicity — here are their takeaways:
 
 ## High-level overview
