@@ -1,11 +1,9 @@
----
-title: How Sophotech Cut Latency by 3x Migrating from RabbitMQ to NATS
-image: /images/blog/sopho-tech.webp
-date: 2025-08-26
-author: synadia
-category: technology
-excerpt: Discover how Sophos Tech cut latency by 3x and simplified ops by migrating 50 microservices from RabbitMQ to NATS.
----
++++
+title = "How Sophotech Cut Latency by 3x Migrating from RabbitMQ to NATS"
+date = "2025-08-26"
+author = "Synadia"
+categories = ["Engineering","Guest-Post","Use Case","Community"]
++++
 
 After replacing RabbitMQ with NATS, [Sophotech](https://sopho.tech/) saw major improvements in performance and simplicity — here are their takeaways:
 
@@ -39,4 +37,4 @@ Sophotech migrated their ~50-service cluster from RabbitMQ to NATS. The change c
 
 ## About Sophotech
 
-Sophotech provides strategic technology consulting in software architecture, DevOps, cybersecurity, compliance, and FinOps. Our seasoned consultants empower startups and enterprises to build scalable, secure, and optimized systems, enabling efficient growth and industry-leading innovation.
+[Sophotech](https://sopho.tech/) provides strategic technology consulting in software architecture, DevOps, cybersecurity, compliance, and FinOps. Our seasoned consultants empower startups and enterprises to build scalable, secure, and optimized systems, enabling efficient growth and industry-leading innovation.
