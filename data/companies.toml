@@ -463,3 +463,8 @@ logo = "axiros.png"
 name = "Sopho.tech"
 home = "https://sopho.tech/"
 logo = "sopho.png"
+
+[companies.brightsign]
+name = "BrightSign"
+home = "https://brightsign.biz"
+logo = "brightsign.png"
