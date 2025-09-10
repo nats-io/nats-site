@@ -468,3 +468,8 @@ logo = "sopho.png"
 name = "BrightSign"
 home = "https://brightsign.biz"
 logo = "brightsign.png"
+
+[companies.pfoundation]
+name = "P Foundation"
+home = "https://p.foundation/"
+logo = "PFoundation.svg"
