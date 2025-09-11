@@ -444,6 +444,11 @@ name = "Groww"
 home = "https://groww.in/"
 logo = "groww.webp"
 
+[companies.inference]
+name = "Inference"
+home = "https://inference.net/"
+logo = "inference.png"
+
 [companies.bluej]
 name = "blueJ"
 home = "https://bluej.com/"
