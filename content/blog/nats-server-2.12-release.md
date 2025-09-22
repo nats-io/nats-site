@@ -11,17 +11,15 @@ We are thrilled to announce that NATS Server 2.12 is here! 🎉
 
 # A successful 6-month release cycle
 
-When we released the 2.11 version of the server back in March, we wrote the following [here](https://nats.io/blog/nats-server-2.11-release/#a-long-journey-to-211):
+When we released the 2.11 version of the server back in March, we mentioned in our [release blog](https://nats.io/blog/nats-server-2.11-release/#a-long-journey-to-211) that the 2.10.x series was our longest yet, having reached 26 patch releases.
 
-> The 2.10.x series was our longest yet, having currently reached 26 patch releases.
-
-With that, we have reflected on the need to be more predictable and transparent with our releases and have moved to a 6-monthly release cycle. This is not only important for us as maintainers, but more importantly our users for which their roadmaps may depend on new capabilities in NATS. Now, exactly 6 months later, we're releasing server version 2.12!
+With that, we have reflected on the need to be more predictable and transparent with our releases and have moved to a 6-month release cycle. This is not only important for us as maintainers, but more importantly our users for whose roadmaps may depend on new capabilities in NATS. Now, exactly 6 months later, we're releasing server version 2.12!
 
 We're really excited to release 2.12 with so many new features that will enable new and powerful usage patterns, all of this exactly within 6 months! 💪
 
 # What's New in 2.12
 
-The latest release brings several important features requested by Synadia customers and the community. While we won't cover every change here, we'll highlight the most impactful ones:
+The latest release brings several important features requested by the end-user community and customers. While we won't cover every change here, we'll highlight the most impactful ones.
 
 ## Atomic batch publish
 
@@ -57,7 +55,7 @@ Interestingly though, counter streams can still be mirrored and sourced! You can
 
 [Design document](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-42.md#prioritized-policy)
 
-The prior 2.11 release already added support for `Consumer Priority Groups`, allowing to pin consumers and overflowing messages to other regions. See also the mention of these features in the release post of 2.11 [here](https://nats.io/blog/nats-server-2.11-release/#consumer-pinning-and-overflow).
+The prior 2.11 release already added support for `Consumer Priority Groups`, allowing to pin consumers and overflowing messages to other regions. This was previously mentioned in the [release post of 2.11](https://nats.io/blog/nats-server-2.11-release/#consumer-pinning-and-overflow).
 
 The `Overflow` policy allows to spill over messages to remote clients, however it may take too long for this overflow to happen if no local clients are pulling for messages and the overflow threshold is not reached quickly.
 
@@ -77,7 +75,7 @@ Prior to 2.12 there was no way to use mirrors for failover or disaster recovery 
 
 This has been a tricky question for quite some time, and generally the advice would have been "make sure you're not using new features when downgrading" and "make sure you downgrade to a supported 2.11.x version".
 
-However, as long as you make sure to downgrade from 2.12 to 2.11.9 or later, the server will properly recognize you're using new stream or consumer features and put the respective asset into an "offline mode". These assets still respond to info and list requests, but can't be interacted with otherwise.
+However, as long as you downgrade from 2.12 to 2.11.9 or later, the server will properly recognize you're using new stream or consumer features and put the respective asset into an "offline mode". These assets still respond to info and list requests, but can't be interacted with otherwise.
 
 More importantly, the asset's data will remain untouched, ensuring the data remains and can't be corrupted in any way if an outdated server would try and fail to understand these new features. The asset can still be deleted if required, but will otherwise remain offline until the server is upgraded to a server version that supports the feature.
 
@@ -85,4 +83,4 @@ This is an important step to protecting your data when performing downgrades if 
 
 # Summary
 
-NATS Server 2.12 includes numerous additional features and enhancements beyond those outlined here. For a complete overview, please consult the full [release notes](https://github.com/nats-io/nats-server/releases/tag/v2.12.0). We have also published an upgrade/migration guide [here](https://docs.nats.io/release-notes/whats_new/whats_new_212) which includes additional considerations for upgrading an environment to 2.12.
+NATS Server 2.12 includes numerous additional features and enhancements beyond those outlined here. For a complete overview, please consult the full [release notes](https://github.com/nats-io/nats-server/releases/tag/v2.12.0). We have also published an [upgrade/migration guide](https://docs.nats.io/release-notes/whats_new/whats_new_212) which includes additional considerations for upgrading an environment to 2.12.
