@@ -478,3 +478,8 @@ logo = "brightsign.png"
 name = "P Foundation"
 home = "https://p.foundation/"
 logo = "PFoundation.svg"
+
+[companies.marble]
+name = "Marble Technologies"
+home = "https://www.seemarble.com/"
+logo = "marble.svg"
