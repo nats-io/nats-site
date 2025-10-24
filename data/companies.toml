@@ -483,3 +483,8 @@ logo = "PFoundation.svg"
 name = "ServiceRadar"
 home = "https://serviceradar.cloud"
 logo = "serviceradar.svg"
+
+[companies.marble]
+name = "Marble Technologies"
+home = "https://www.seemarble.com/"
+logo = "marble.svg"
