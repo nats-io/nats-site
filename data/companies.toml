@@ -479,6 +479,11 @@ name = "P Foundation"
 home = "https://p.foundation/"
 logo = "PFoundation.svg"
 
+[companies.serviceradar]
+name = "ServiceRadar"
+home = "https://serviceradar.cloud"
+logo = "serviceradar.svg"
+
 [companies.marble]
 name = "Marble Technologies"
 home = "https://www.seemarble.com/"
