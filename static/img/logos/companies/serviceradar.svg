@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="144.0" height="152" viewBox="0 0 144.0 152" role="img" aria-label="ServiceRadar logo static black">
+     width="400" height="96" viewBox="0 0 400 96" role="img" aria-label="ServiceRadar horizontal black fixed">
   <title>ServiceRadar</title>
   <defs>
     <style><![CDATA[
       .brand-text {
         font-family: "Inter","SF Pro Display","Helvetica Neue",Arial,sans-serif;
         font-weight: 800;
-        font-size: 22px;
-        text-anchor: middle;
+        font-size: 40px;
+        dominant-baseline: middle;
         fill: #000000;
       }
     ]]></style>
   </defs>
 
-  <!-- Centered static radar -->
-  <g id="logo-group" transform="translate(24.0,0)">
+  <!-- Radar logo on left -->
+  <g id="logo-group" transform="translate(0,0)">
     <svg x="0" y="0" width="96" height="96" viewBox="0 0 32 32">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <!-- Define a gradient for the wedge -->
@@ -48,8 +48,8 @@
     </svg>
   </g>
 
-  <!-- Black text underneath -->
-  <g id="text-group" transform="translate(72.0, 125.33333333333333)">
+  <!-- Text to the right of radar, vertically centered -->
+  <g id="text-group" transform="translate(120, 48.0)">
     <text class="brand-text">ServiceRadar</text>
   </g>
 </svg>
