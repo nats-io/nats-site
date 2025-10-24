@@ -478,3 +478,8 @@ logo = "brightsign.png"
 name = "P Foundation"
 home = "https://p.foundation/"
 logo = "PFoundation.svg"
+
+[companies.serviceradar]
+name = "ServiceRadar"
+home = "https://serviceradar.cloud"
+logo = "serviceradar.svg"
