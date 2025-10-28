@@ -1,4 +1,31 @@
 [addons]
+[addons.mage_ai]
+name = "Mage.ai"
+home = "https://github.com/mage-ai/mage-ai"
+description = "Build, deploy and run data pipelines using Mage.ai and NATS"
+support = "Community"
+[[addons.mage_ai.authors]]
+author = "Michael Freeman"
+authorHome = "https://github.com/mfreeman451"
+
+[addons.goflow2]
+name = "goflow2"
+home = "https://github.com/mfreeman451/goflow2"
+description = "Collect sFlow/IPFIX/Netflow data and forward to NATS"
+support = "Community"
+[[addons.goflow2.authors]]
+author = "Michael Freeman"
+authorHome = "https://github.com/mfreeman451"
+
+[addons.flowgger]
+name = "flowgger"
+home = "https://github.com/awslabs/flowgger"
+description = "A fast data collector in rust, for syslog, JSON (GELF), LTSV, and Cap'n Proto"
+support = "Community"
+[[addons.flowgger.authors]]
+author = "Michael Freeman"
+authorHome = "https://github.com/mfreeman451"
+
 [addons.apache_flink]
 name = "Apache Flink"
 home = "https://github.com/mring33621/nats-messaging-for-flink"

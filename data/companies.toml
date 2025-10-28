@@ -26,7 +26,7 @@ logo = "pivotal.jpg"
 [companies.ge]
 name = "GE"
 home = "https://www.ge.com/"
-logo = "ge.jpg"
+logo = "GE-Logo.png"
 
 [companies.baidu]
 name = "Baidu"
@@ -56,7 +56,7 @@ logo = "telia.png"
 [companies.mastercard]
 name = "Mastercard"
 home = "https://www.mastercard.us"
-logo = "mastercard.png"
+logo = "mastercard_horizontal.png"
 
 [companies.tinder]
 name = "Tinder"
@@ -98,11 +98,6 @@ name = "PayPal"
 home = "https://paypal.com"
 logo = "paypal.png"
 
-[companies.cruise]
-name = "Cruise"
-home = "https://getcruise.com"
-logo = "cruise.png"
-
 [companies.viacom]
 name = "ViacomCBS"
 home = "https://www.viacbs.com/home"
@@ -142,11 +137,6 @@ logo = "sote.png"
 name = "TeamSystem"
 home = "https://teamsystem.com"
 logo = "teamsystem.png"
-
-[companies.strech]
-name = "Strech"
-home = "https://strech.io"
-logo = "strech.png"
 
 [companies.ekeynow]
 name = "ekeynow"
@@ -442,7 +432,7 @@ logo = "goosey.svg"
 [companies.invendor]
 name = "Invendor"
 home = "https://invendor.com"
-logo = "invendor.jpg"
+logo = "invendor.png"
 
 [companies.noula]
 name = "NouLa"
@@ -454,7 +444,47 @@ name = "Groww"
 home = "https://groww.in/"
 logo = "groww.webp"
 
+[companies.inference]
+name = "Inference"
+home = "https://inference.net/"
+logo = "inference.png"
+
 [companies.bluej]
 name = "blueJ"
 home = "https://bluej.com/"
 logo = "bluej.svg"
+
+[companies.foodhub]
+name = "FoodHub"
+home = "https://foodhub.com/"
+logo = "foodhub.png"
+
+[companies.axiros]
+name = "Axiros GmbH"
+home = "https://www.axiros.com/"
+logo = "axiros.png"
+
+[companies.sopho]
+name = "Sopho.tech"
+home = "https://sopho.tech/"
+logo = "sopho.png"
+
+[companies.brightsign]
+name = "BrightSign"
+home = "https://brightsign.biz"
+logo = "brightsign.png"
+
+[companies.pfoundation]
+name = "P Foundation"
+home = "https://p.foundation/"
+logo = "PFoundation.svg"
+
+[companies.serviceradar]
+name = "ServiceRadar"
+home = "https://serviceradar.cloud"
+logo = "serviceradar.svg"
+
+[companies.marble]
+name = "Marble Technologies"
+home = "https://www.seemarble.com/"
+logo = "marble.svg"
