@@ -27,6 +27,3 @@ npm-debug.log
 #IntelliJ IDEA
 .idea/
 *.iml
-
-# Extracted content
-extracted-text.md
