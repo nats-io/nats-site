@@ -503,6 +503,15 @@ support = "Community"
 author = "Yuna Morgenstern"
 authorHome = "https://github.com/YunaBraska"
 
+[addons.symfony_messenger_nats_bridge]
+name = "Symfony/Messenger NATS Bridge"
+home = "https://github.com/ideaconnect/symfony-nats-messenger"
+description = "The PHP Symfony NATS Messenger Bridge, enables the integration of NATS as the queuing mechanism for asynchronous operations."
+support = "Community"
+[[addons.symfony_messenger_nats_bridge.authors]]
+author = "IDCT Bartosz Pachołek"
+authorHome = "https://idct.tech/"
+
 [addons.synadia_ngs]
 name = "Synadia NGS"
 home = "https://www.synadia.com/cloud"
