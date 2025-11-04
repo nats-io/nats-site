@@ -3,16 +3,69 @@ title = "About NATS"
 chart = true
 +++
 
-NATS is a connective technology built for the ever increasingly hyper-connected world. It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices.
-NATS consists of a family of open source products that are tightly integrated but can be deployed easily and independently. NATS is being used globally by thousands of companies, spanning use-cases including microservices, edge computing, mobile, IoT and can be used to augment or replace traditional messaging.
+## What is NATS? {#what-is-nats}
 
-The NATS Server acts as a central nervous system for building distributed applications. Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir and a CLI in addition to 30+ community-contributed clients. Real time data streaming, highly resilient data storage and flexible data retrieval are supported through [JetStream](https://docs.nats.io/jetstream/), the next generation streaming platform built into the NATS server. Check out the full list of [NATS clients](/download).
+NATS is a <a href="#high-performance" style="color: #27aae1; font-style: italic; text-decoration: none;">high-performance</a>, <a href="#lightweight" style="color: #27aae1; font-style: italic; text-decoration: none;">lightweight</a>, <a href="#open-source" style="color: #27aae1; font-style: italic; text-decoration: none;">open-source</a> messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.
 
-NATS was created by Derek Collison, in response to the market need for a simple, secure, and connective technology. NATS is currently deployed in some of the largest cloud platforms, including: VMware, CloudFoundry, Baidu, Siemens, and GE. NATS is 100% free to use under the Apache-2.0 Open Source License.
+NATS supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.
 
-NATS is unique in its simplicity and performance, and as a result powers some of the largest production environments. You can learn more about NATS in our [extensive documentation](https://docs.nats.io).
+Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack. [See all the clients.](/download#clients)
 
-<!--{{< throughput >}} -->
+#### <span style="color: #27aae1; font-style: italic;">High-Performance</span> {#high-performance}
+NATS uses a lightweight, single-threaded I/O loop written in Go, supports zero-copy message dispatch, and employs subject-based routing with minimal protocol overhead to deliver millions of messages per second with sub-millisecond latencies across globally distributed systems.
+
+#### <span style="color: #27aae1; font-style: italic;">Lightweight</span> {#lightweight}
+NATS is a single binary with no external dependencies, consuming minimal memory and CPU resources. The server typically uses less than 20MB of RAM, making it ideal for everything from resource-constrained edge devices to massive cloud deployments.
+
+#### <span style="color: #27aae1; font-style: italic;">Open Source</span> {#open-source}
+NATS server and its clients are open source under the Apache 2.0 license, with a vibrant community and transparent development process.
+
+---
+
+## Why NATS? {#why-nats}
+
+COPY STILL WIP
+
+NATS stands out as the ideal choice for modern distributed systems for several key reasons:
+
+### Simple
+NATS is incredibly easy to deploy, manage, and use. With a single binary and simple configuration, you can have a production-ready messaging system running in minutes. The client APIs are intuitive and consistent across all supported languages.
+
+### Secure
+NATS provides zero-trust security with decentralized authentication and authorization. With built-in support for TLS, user/password, token, and NKeys authentication, along with fine-grained subject-level permissions, you can secure your entire system without complex external dependencies.
+
+### Performant
+Process millions of messages per second per server with minimal latency and overhead. NATS is written in Go and optimized for performance, making it one of the fastest messaging systems available. Save money by minimizing cloud costs with reduced compute and network usage.
+
+### Resilient
+NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system. Built-in clustering provides automatic failover, and clients require zero awareness of NATS topology, allowing you to future-proof your system to meet your needs of today and tomorrow.
+
+---
+
+## Where NATS Thrives {#where-nats-thrives}
+
+COPY STILL WIP
+
+NATS excels in a wide variety of use cases and deployment scenarios:
+
+### Microservices
+Build scalable, distributed service architectures with NATS at the core. NATS provides the foundation for service discovery, request-reply patterns, and load balancing, making it easy to build and evolve microservices-based applications.
+
+### Edge Computing
+Connect devices, edge, cloud, and hybrid deployments seamlessly. With flexible deployment models using clusters, superclusters, and leaf nodes, NATS optimizes communications for your unique deployment. The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs across diverse environments.
+
+### Event Streaming
+Build real-time data pipelines and event-driven applications with JetStream. NATS provides durable streaming, message replay, and exactly-once semantics, making it ideal for event sourcing, CQRS, and stream processing use cases.
+
+### IoT & Mobile
+The lightweight NATS protocol is perfect for constrained environments. With minimal overhead and efficient wire protocol, NATS works seamlessly on IoT devices, mobile applications, and edge deployments where resources are limited.
+
+### Additional Use Cases
+- **Financial Services**: High-frequency trading, market data distribution
+- **Telecommunications**: Network operations, real-time monitoring
+- **Gaming**: Player matchmaking, real-time game state synchronization
+- **Manufacturing**: Industrial IoT, factory automation
+- **Healthcare**: Medical device integration, real-time patient monitoring
 
 ---
 

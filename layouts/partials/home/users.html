@@ -3,39 +3,69 @@
 
 <section class="section has-background-white">
   <div class="columns is-centered">
-    <div class="column has-text-centered is-one-fifth">
-      
-        <h1 class="title is-spaced is-size-2 is-size-3-mobile has-text-dark has-text-weight-light">Who uses NATS</h1>
-      
+    <div class="column has-text-centered">
+
+        <h1 class="title is-spaced is-size-2 is-size-3-mobile has-text-dark has-text-weight-light">Who uses NATS?</h1>
+        <p class="subtitle is-size-5 has-text-grey">Engineering teams at these industry leaders around the globe</p>
+
     </div>
   </div>
   <div class="container">
-    <div class="columns is-vcentered is-multiline">
+    <div class="columns is-vcentered is-multiline" id="companies-grid">
 
+          {{ $.Scratch.Set "counter" 0 }}
           {{ range $k, $v := $companies }}
           {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
-          <div class="column 
-          is-half-mobile 
-          is-one-third-tablet 
-          is-one-quarter-desktop 
-          is-one-fifth-widescreen 
-          logo">
+          {{ $counter := $.Scratch.Get "counter" }}
+          {{ $isHidden := ge $counter 25 }}
+          <div class="column
+          is-half-mobile
+          is-one-third-tablet
+          is-one-quarter-desktop
+          is-one-fifth-widescreen
+          logo company-logo{{ if $isHidden }} hidden-logo{{ end }}" {{ if $isHidden }}style="display: none;"{{ end }}>
 <a href="{{ $v.home }}" target="_blank">
   <img class="is-user-logo" src="{{ $img }}" alt="{{ $v.name }} logo">
 </a>
 </div>
-
+          {{ $.Scratch.Add "counter" 1 }}
           {{ end }}
     </div>
-    <div class="columns is-centered">
-      <div class="column has-text-centered is-one-fifth">
-          
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column has-text-centered is-narrow">
+        <button id="toggle-logos-btn" class="button is-normal is-link has-text-weight-bold" onclick="toggleLogos()" style="margin-right: 1rem;">
+          Show All Companies
+        </button>
         <a class="button is-normal is-primary has-text-weight-bold" href="https://github.com/nats-io/nats-site#adding-a-company-logo" target="_blank">
-          Add your logo
+          Add Your Company
         </a>
       </div>
     </div>
   </div>
   </div>
 </section>
+
+<script>
+function toggleLogos() {
+  const hiddenLogos = document.querySelectorAll('.hidden-logo');
+  const button = document.getElementById('toggle-logos-btn');
+  const isExpanded = button.getAttribute('data-expanded') === 'true';
+
+  hiddenLogos.forEach(logo => {
+    if (isExpanded) {
+      logo.style.display = 'none';
+    } else {
+      logo.style.display = '';
+    }
+  });
+
+  if (isExpanded) {
+    button.textContent = 'Show All Companies';
+    button.setAttribute('data-expanded', 'false');
+  } else {
+    button.textContent = 'Show Less';
+    button.setAttribute('data-expanded', 'true');
+  }
+}
+</script>
 
