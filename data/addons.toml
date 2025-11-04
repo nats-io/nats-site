@@ -513,9 +513,9 @@ author = "IDCT Bartosz Pachołek"
 authorHome = "https://idct.tech/"
 
 [addons.synadia_ngs]
-name = "Synadia NGS"
+name = "Synadia Cloud"
 home = "https://www.synadia.com/cloud"
-description = "NGS is a global communications system built on NATS.io."
+description = "A global, extensible, multi-cloud NATS platform with an easy-to-use admin portal and API, all fully managed by Synadia."
 support = "Community"
 [[addons.synadia_ngs.authors]]
 author = "Synadia"
