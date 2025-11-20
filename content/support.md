@@ -11,15 +11,17 @@ You can ask questions in our community forums in <a href="https://slack.nats.io"
 
 ### [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats)
 
-One of the lead corporate stewards of NATS.io, offers two enterprise-grade offerings.
+The lead corporate steward of NATS.io, Synadia offers a variety of products and services to companies who want to accelerate their NATS initiatives.
 
+- [Synadia Education](https://www.synadia.com/education?utm_source=nats_io&utm_medium=nats) - Instructor-led training programs designed to accelerate the development and deployment of your NATS-based applications. Hands-on courses for both developers and administrators, from core concepts to enterprise-scale operations.
 - [Synadia Cloud](https://www.synadia.com/cloud?utm_source=nats_io&utm_medium=nats) - A global, multi-cloud, multi-geo and extensible connectivity fabric for messaging, streaming, pub/sub, key-value, and object storage services. Synadia Cloud is powered by NATS.io and fully managed by Synadia.
-- [Synadia Platform](https://www.synadia.com/platform?utm_source=nats_io&utm_medium=nats) - An all-in-one control plane for your NATS infrastructure, designed, built, and supported by Synadia. Available via self-hosted or [managed cloud](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) deployment options.
+- [Synadia Deploy for Kubernetes](https://www.synadia.com/deploy-for-kubernetes?utm_source=nats_io&utm_medium=nats) - Self-service deployment of production-ready NATS clusters on your own Kubernetes infrastructure. Combines the simplicity of SaaS with complete control over your data plane, including automated deployments, upgrades, and unified monitoring.
+- [Synadia Platform](https://www.synadia.com/platform?utm_source=nats_io&utm_medium=nats) - An all-in-one control plane for your NATS infrastructure, designed, built, and supported by Synadia. Available via self-hosted or managed cloud deployment options.
 
-Includes:
-* Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
-* 24/7/365 support and troubleshooting on your specific issues from the expert engineers who know NATS inside and out.
-* Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
+  Platform Includes:
+  * Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
+  * 24/7/365 support and troubleshooting on your specific issues from the expert engineers who know NATS inside and out.
+  * Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
 <br><br>
 
 ### [Luxant Solutions](https://luxantsolutions.com)
