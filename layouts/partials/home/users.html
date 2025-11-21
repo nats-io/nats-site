@@ -14,8 +14,8 @@
     <div class="columns is-vcentered is-multiline" id="companies-grid">
 
           {{ $.Scratch.Set "counter" 0 }}
-          {{ range $k, $v := $companies }}
-          {{ $img := printf "img/logos/companies/%s" $v.logo | relURL }}
+          {{ range sort $companies "rank" }}
+          {{ $img := printf "img/logos/companies/%s" .logo | relURL }}
           {{ $counter := $.Scratch.Get "counter" }}
           {{ $isHidden := ge $counter 25 }}
           <div class="column
@@ -24,8 +24,8 @@
           is-one-quarter-desktop
           is-one-fifth-widescreen
           logo company-logo{{ if $isHidden }} hidden-logo{{ end }}" {{ if $isHidden }}style="display: none;"{{ end }}>
-<a href="{{ $v.home }}" target="_blank">
-  <img class="is-user-logo" src="{{ $img }}" alt="{{ $v.name }} logo">
+<a href="{{ .home }}" target="_blank">
+  <img class="is-user-logo" src="{{ $img }}" alt="{{ .name }} logo">
 </a>
 </div>
           {{ $.Scratch.Add "counter" 1 }}

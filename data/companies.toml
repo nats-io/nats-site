@@ -2,489 +2,586 @@
 name = "Ericsson"
 home = "https://www.ericsson.com/"
 logo = "ericsson.jpg"
+rank = 16
 
 [companies.htc]
 name = "HTC"
 home = "https://www.htc.com/"
 logo = "htc.jpg"
+rank = 17
 
 [companies.siemens]
 name = "Siemens"
 home = "https://www.siemens.com"
 logo = "siemens.jpg"
+rank = 4
 
 [companies.vmware]
 name = "VMware"
 home = "https://www.vmware.com/"
 logo = "vmware.jpg"
+rank = 23
 
 [companies.pivotal]
 name = "Pivotal"
 home = "https://pivotal.io/"
 logo = "pivotal.jpg"
+rank = 63
 
 [companies.ge]
 name = "GE"
 home = "https://www.ge.com/"
 logo = "GE-Logo.png"
+rank = 2
 
 [companies.baidu]
 name = "Baidu"
 home = "https://www.baidu.com/"
 logo = "baidu.jpg"
+rank = 19
 
 [companies.clarify]
 name = "Clarifai"
 home = "https://www.clarifai.com"
 logo = "clarifai.jpg"
+rank = 24
 
 [companies.netlify]
 name = "Netlify"
 home = "https://www.netlify.com"
 logo = "netlify.jpg"
+rank = 22
 
 [companies.zephyr]
 name = "Zephyr"
 home = "https://www.zephyrproject.org"
 logo = "zephyr.png"
+rank = 9
 
 [companies.telia]
 name = "Telia Company"
 home = "https://www.teliacompany.com"
 logo = "telia.png"
+rank = 64
 
 [companies.mastercard]
 name = "Mastercard"
 home = "https://www.mastercard.us"
 logo = "mastercard_horizontal.png"
+rank = 11
 
 [companies.tinder]
 name = "Tinder"
 home = "https://www.tinder.com"
 logo = "tinder.png"
+rank = 10
 
 [companies.lauchdarkly]
 name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
 logo = "launchdarkly.png"
+rank = 21
 
 [companies.zerodha]
 name = "Zerodha"
 home = "https://www.zerodha.com"
 logo = "zerodha.png"
+rank = 61
 
 [companies.compumark]
 name = "CompuMark"
 home = "https://www.clarivate.com/compumark"
 logo = "compumark.png"
+rank = 26
 
 [companies.dukeenergy]
 name = "Duke Energy"
 home = "https://www.duke-energy.com/home"
 logo = "duke.png"
+rank = 8
 
 [companies.schaeffler]
 name = "Schaeffler"
 home = "https://schaeffler.com"
 logo = "schaeffler.png"
+rank = 5
 
 [companies.samsclub]
 name = "Sam's Club"
 home = "https://samsclub.com"
 logo = "samsclub.png"
+rank = 7
 
 [companies.paypal]
 name = "PayPal"
 home = "https://paypal.com"
 logo = "paypal.png"
+rank = 12
 
 [companies.viacom]
 name = "ViacomCBS"
 home = "https://www.viacbs.com/home"
 logo = "viacom.png"
+rank = 20
 
 [companies.att]
 name = "AT&T"
 home = "https://att.com"
 logo = "att.png"
+rank = 18
 
 [companies.alibaba]
 name = "Alibaba Group"
 home = "https://alibaba.com"
 logo = "alibaba.png"
+rank = 14
 
 [companies.qlik]
 name = "Qlik"
 home = "https://qlik.com"
 logo = "qlik.png"
+rank = 90
 
 [companies.capitalone]
 name = "Capital One"
 home = "https://capitalone.com"
 logo = "capitalone.png"
+rank = 13
 
 [companies.walmart]
 name = "Walmart"
 home = "https://walmart.com"
 logo = "walmart.png"
+rank = 6
 
 [companies.sote]
 name = "Sote"
 home = "https://getsote.com"
 logo = "sote.png"
+rank = 27
 
 [companies.teamsystem]
 name = "TeamSystem"
 home = "https://teamsystem.com"
 logo = "teamsystem.png"
+rank = 28
 
 [companies.ekeynow]
 name = "ekeynow"
 home = "https://ekeynow.com"
 logo = "ekeynow.png"
+rank = 29
 
 [companies.portsip]
 name = "PortSIP"
 home = "https://portsip.com"
 logo = "portsip.png"
+rank = 30
 
 [companies.foodrocket]
 name = "Food Rocket"
 home = "https://foodrocket.me"
 logo = "foodrocket.png"
+rank = 31
 
 [companies.inspur]
 name = "Inspur Cloud"
 home = "https://cloud.inspur.com/"
 logo = "inspur.png"
+rank = 32
 
 [companies.brobridge]
 name = "Brobridge"
 home = "https://brobridge.com"
 logo = "brobridge.png"
+rank = 33
 
 [companies.litmus]
 name = "Litmus"
 home = "https://litmus.io"
 logo = "litmus.png"
+rank = 34
 
 [companies.cyscale]
 name = "Cyscale"
 home = "https://cyscale.com"
 logo = "cyscale.png"
+rank = 35
 
 [companies.noxum]
 name = "Noxum"
 home = "https://www.noxum.com/en/"
 logo = "noxum.png"
+rank = 36
 
 [companies.mrv]
 name = "MRV Collective"
 home = "https://MRVCollective.org"
 logo = "mrv.svg"
+rank = 37
 
 [companies.skyband]
 name = "Skyband"
 home = "https://www.skyband.com.sa/epos"
 logo = "skyband.png"
+rank = 38
 
 [companies.ninjalerts]
 name = "Ninjalerts"
 home = "https://www.ninjalerts.com"
 logo = "ninjalerts.png"
+rank = 39
 
 [companies.cabify]
 name = "Cabify"
 home = "https://cabify.tech/"
 logo = "cabify.png"
+rank = 40
 
 [companies.whiteprompt]
 name = "Whiteprompt"
 home = "https://www.whiteprompt.com/"
 logo = "whiteprompt.png"
+rank = 41
 
 [companies.templum]
 name = "Templum"
 home = "https://www.templuminc.com/"
 logo = "templum.png"
+rank = 42
 
 [companies.voxo]
 name = "Voxo"
 home = "https://voxo.co/"
 logo = "voxo.svg"
+rank = 43
 
 [companies.pleggi]
 name = "Pleggi"
 home = "https://pleggi.com"
 logo = "pleggi.png"
+rank = 44
 
 [companies.mender]
 name = "Mender"
 home = "https://mender.io"
 logo = "mender.png"
+rank = 45
 
 [companies.filewave]
 name = "Filewave"
 home = "https://filewave.com"
 logo = "filewave.png"
+rank = 46
 
 [companies.harperdb]
 name = "HarperDB"
 home = "https://harperdb.io/"
 logo = "harperdb.png"
+rank = 47
 
 [companies.loungeup]
 name = "Lounge Up"
 home = "https://www.loungeup.com/"
 logo = "loungeup.jpg"
+rank = 48
 
 [companies.deutsche-boerse]
 name = "Deutsche Böerse Group"
 home = "https://deutsche-boerse.com/dbg-en/"
 logo = "deutsche_borse.png"
+rank = 49
 
 [companies.aurora]
 name = "Aurora"
 home = "https://aurora.dev/"
 logo = "aurora-horiz.png"
+rank = 50
 
 [companies.wundergraph]
 name = "WunderGraph"
 home = "https://wundergraph.com/"
 logo = "wundergraph.png"
+rank = 51
 
 [companies.tessell]
 name = "Tessell"
 home = "https://tessell.io/"
 logo = "tessell.png"
+rank = 52
 
 [companies.epicode]
 name = "Epicode"
 home = "https://epicode.in"
 logo = "epicode.png"
+rank = 53
 
 [companies.eyetowers]
 name = "Eyetowers"
 home = "https://www.eyetowers.cz/en/"
 logo = "eyetowers.svg"
+rank = 54
 
 [companies.rxdb]
 name = "RxDB"
 home = "https://rxdb.info/"
 logo = "rxdb.svg"
+rank = 55
 
 [companies.intervals]
 name = "Intervals.icu"
 home = "https://intervals.icu/"
 logo = "intervals.png"
+rank = 56
 
 [companies.benzinga]
 name = "Benzinga"
 home = "https://benzinga.com/"
 logo = "benzinga.png"
+rank = 57
 
 [companies.ego]
 name = "e.GO"
 home = "https://e-go-mobile.com/"
 logo = "ego.png"
+rank = 58
 
 [companies.sty-holdings]
 name = "STY Holdings"
 home = "https://sty-holdings.com"
 logo = "sty-holdings.png"
+rank = 59
 
 [companies.awarenesslabs]
 name = "Awareness Labs"
 home = "https://awareness-labs.github.io/"
 logo = "awarenesslab.png"
+rank = 60
 
 [companies.rivian]
 name = "Rivian"
 home = "https://rivian.com/"
 logo = "rivian.png"
+rank = 1
 
 [companies.holoplot]
 name = "HOLOPLOT"
 home = "https://holoplot.com/"
 logo = "holoplot.png"
+rank = 62
 
 [companies.volvo]
 name = "Volvo"
 home = "https://volvocars.com/"
 logo = "volvo.png"
+rank = 3
 
 [companies.paloaltonetworks]
 name = "Palo Alto Networks"
 home = "https://www.paloaltonetworks.com/"
 logo = "paloaltonetworks.png"
+rank = 15
 
 [companies.hpe]
 name = "Hewlett Packard Enterprise"
 home = "https://www.hpe.com/us/en/home.html"
 logo = "hpe.png"
+rank = 65
 
 [companies.mattilsynet]
 name = "Mattilsynet"
 home = "https://www.mattilsynet.no/en"
 logo = "mattilsynet.png"
+rank = 66
 
 [companies.appscode]
 name = "Appscode"
 home = "https://appscode.com"
 logo = "appscode.png"
+rank = 67
 
 [companies.valiant]
 name = "Valiant Distribution, Inc."
 home = "http://www.valiant.com.ph/"
 logo = "valiantdistributioninc.jpg"
+rank = 68
 
 [companies.proxus]
 name = "Proxus"
 home = "https://www.proxus.io/"
 logo = "proxus.png"
+rank = 69
 
 [companies.marvelsoft]
 name = "Marvelsoft"
 home = "https://marvelsoft.net/"
 logo = "marvelsoft.png"
+rank = 70
 
 [companies.tenets]
 name = "Tenets"
 home = "https://tenets.gg/"
 logo = "tenets.png"
+rank = 71
 
 [companies.iflow]
 name = "i-flow"
 home = "https://i-flow.io/"
 logo = "iflow.png"
+rank = 72
 
 [companies.datasance]
 name = "Datasance"
 home = "https://datasance.com/"
 logo = "datasance.png"
-
+rank = 73
 
 [companies.tiqs]
 name = "TIQS"
 home = "https://tiqs.in/"
 logo = "tiqs.svg"
+rank = 74
 
 [companies.bosach]
 name = "Bosach"
 home = "https://bosachtechnologies.com/"
 logo = "bosach.png"
+rank = 75
 
 [companies.eternal_empires]
 name = "Eternal Empires"
 home = "https://eternalempires.net/"
 logo = "eternalempires.png"
+rank = 76
 
 [companies.oktopus]
 name = "Oktopus"
 home = "https://oktopus.app.br/controller"
 logo = "oktopus.png"
+rank = 77
 
 [companies.sales_mania]
 name = "Sales Mania"
 home = "https://salesmania.id/"
 logo = "salesmania.jpeg"
+rank = 78
 
 [companies.octotronic]
 name = "Octotronic"
 home = "https://octotronic.com/"
 logo = "octotronic.svg"
+rank = 79
 
 [companies.cybus]
 name = "Cybus"
 home = "https://cybus.io/"
 logo = "cybus.png"
+rank = 80
 
 [companies.sveltos]
 name = "Sveltos"
 home = "https://sveltos.projectsveltos.io/"
 logo = "sveltos.png"
+rank = 81
 
 [companies.vitrifi]
 name = "Vitrifi"
 home = "https://www.vitrifi.net/"
 logo = "vitrifi.png"
+rank = 82
 
 [companies.pathao]
 name = "Pathao"
 home = "https://pathao.com/"
 logo = "pathao.png"
+rank = 83
 
 [companies.diversity]
 name = "Diversity"
 home = "https://ondiversity.cloud"
 logo = "diversity.png"
+rank = 84
 
 [companies.icube]
 name = "iCube"
 home = "https://icube.co.th/"
 logo = "iCube.png"
+rank = 85
 
 [companies.goosey]
 name = "Goosey"
 home = "https://goosey.org/"
 logo = "goosey.svg"
+rank = 86
 
 [companies.invendor]
 name = "Invendor"
 home = "https://invendor.com"
 logo = "invendor.png"
+rank = 87
 
 [companies.noula]
 name = "NouLa"
 home = "https://nou-la.com/"
 logo = "noula.png"
+rank = 88
 
 [companies.groww]
 name = "Groww"
 home = "https://groww.in/"
 logo = "groww.webp"
+rank = 89
 
 [companies.inference]
 name = "Inference"
 home = "https://inference.net/"
 logo = "inference.png"
+rank = 25
 
 [companies.bluej]
 name = "blueJ"
 home = "https://bluej.com/"
 logo = "bluej.svg"
+rank = 91
 
 [companies.foodhub]
 name = "FoodHub"
 home = "https://foodhub.com/"
 logo = "foodhub.png"
+rank = 92
 
 [companies.axiros]
 name = "Axiros GmbH"
 home = "https://www.axiros.com/"
 logo = "axiros.png"
+rank = 93
 
 [companies.sopho]
 name = "Sopho.tech"
 home = "https://sopho.tech/"
 logo = "sopho.png"
+rank = 94
 
 [companies.brightsign]
 name = "BrightSign"
 home = "https://brightsign.biz"
 logo = "brightsign.png"
+rank = 95
 
 [companies.pfoundation]
 name = "P Foundation"
 home = "https://p.foundation/"
 logo = "PFoundation.svg"
+rank = 96
 
 [companies.serviceradar]
 name = "ServiceRadar"
 home = "https://serviceradar.cloud"
 logo = "serviceradar.svg"
+rank = 97
 
 [companies.marble]
 name = "Marble Technologies"
 home = "https://www.seemarble.com/"
 logo = "marble.svg"
+rank = 98
