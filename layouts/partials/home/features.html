@@ -1,77 +1,184 @@
 {{ $features := site.Params.features }}
 <section class="section is-light">
   <div class="container has-extra-top-margin has-extra-bottom-margin">
-    <div class="columns is-variable is-6" style="align-items: stretch;">
 
-      <!-- What is NATS -->
-      <div class="column is-one-third">
-        <div class="box" style="border: 3px solid #27aae1; border-radius: 8px; padding: 2rem 2rem 2rem 2rem; height: 100%; display: flex; flex-direction: column; position: relative; margin-top: 1rem;">
-          <h2 class="title is-4 has-text-weight-bold" style="color: #27aae1; position: absolute; top: -0.75rem; left: 1.5rem; background-color: #f5f5f5; padding: 0 0.75rem; margin: 0;">What is NATS?</h2>
-          <div class="content" style="flex-grow: 1; margin-top: 1rem;">
-            <p class="is-size-6">
-              NATS is a high-performance, lightweight, open-source messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.<br><br>
-              It supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.<br><br>
-              Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack.
-            </p>
-          </div>
-          <div style="text-align: right; margin-top: 1rem;">
-            <a href="/about#what-is-nats" class="has-text-weight-bold" style="color: #27aae1;">High performance? Lightweight? →</a>
-          </div>
-        </div>
+    <!-- Carousel Box Container -->
+    <div class="features-box" style="max-width: 1100px; margin: 0 auto; margin-top: 1.5rem; border: 3px solid #27aae1; border-radius: 8px; background: #f5f5f5; padding: 2rem; position: relative;">
+
+      <!-- Tab Navigation - positioned on top of border -->
+      <div class="carousel-tabs" style="position: absolute; top: -0.85rem; left: 1.5rem; right: 1rem; display: flex; align-items: center; gap: 1.5rem;">
+        <button class="carousel-tab" data-slide="0" style="background: #f5f5f5; border: none; color: #27aae1; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">What is NATS?</button>
+        <button class="carousel-tab" data-slide="1" style="background: #f5f5f5; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">Why NATS</button>
+        <button class="carousel-tab" data-slide="2" style="background: #f5f5f5; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">Where NATS Thrives</button>
       </div>
 
-      <!-- Why NATS -->
-      <div class="column is-one-third">
-        <div class="box" style="border: 3px solid #27aae1; border-radius: 8px; padding: 2rem 2rem 2rem 2rem; height: 100%; display: flex; flex-direction: column; position: relative; margin-top: 1rem;">
-          <h2 class="title is-4 has-text-weight-bold" style="color: #27aae1; position: absolute; top: -0.75rem; left: 1.5rem; background-color: #f5f5f5; padding: 0 0.75rem; margin: 0;">Why NATS?</h2>
-          <div class="content" style="flex-grow: 1; margin-top: 1rem;">
-            <p class="is-size-6" style="margin-bottom: 1rem;">
-              <strong>COPY STILL WIP</strong>
-            </p>
-            <p class="is-size-6">
-              <strong>Simple:</strong> Easy to deploy, manage, and use.<br><br>
-              <strong>Secure:</strong> Zero-trust security with decentralized authentication and authorization.<br><br>
-              <strong>Performant:</strong> Process millions of messages per second with minimal latency.<br><br>
-              <strong>Resilient:</strong> Self-healing with built-in clustering and automatic failover.
-            </p>
-          </div>
-          <div style="text-align: right; margin-top: 1rem;">
-            <a href="/about#why-nats" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+      <!-- Carousel Container -->
+      <div class="features-carousel" style="position: relative; overflow: hidden;">
+
+        <!-- Carousel Track -->
+        <div class="carousel-track" style="display: flex; transition: transform 0.4s ease-in-out;">
+
+        <!-- Slide 1: What is NATS -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6">
+                  NATS is a high-performance, lightweight, open-source messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.<br><br>
+                  It supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.<br><br>
+                  Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#what-is-nats" class="has-text-weight-bold" style="color: #27aae1;">High performance? Lightweight? →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram -->
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px; padding: 1rem;">
+              <img src="/img/pubsubreqreply.svg" alt="NATS Pub/Sub and Request/Reply patterns" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Where NATS Thrives -->
-      <div class="column is-one-third">
-        <div class="box" style="border: 3px solid #27aae1; border-radius: 8px; padding: 2rem 2rem 2rem 2rem; height: 100%; display: flex; flex-direction: column; position: relative; margin-top: 1rem;">
-          <h2 class="title is-4 has-text-weight-bold" style="color: #27aae1; position: absolute; top: -0.75rem; left: 1.5rem; background-color: #f5f5f5; padding: 0 0.75rem; margin: 0;">Where NATS Thrives</h2>
-          <div class="content" style="flex-grow: 1; margin-top: 1rem;">
-            <p class="is-size-6" style="margin-bottom: 1rem;">
-              <strong>COPY STILL WIP</strong>
-            </p>
-            <p class="is-size-6">
-              <strong>Microservices:</strong> Build scalable, distributed service architectures.<br><br>
-              <strong>Edge Computing:</strong> Connect devices, edge, cloud, and hybrid deployments.<br><br>
-              <strong>Event Streaming:</strong> Real-time data pipelines and event-driven applications.<br><br>
-              <strong>IoT & Mobile:</strong> Lightweight protocol perfect for constrained environments.
-            </p>
+        <!-- Slide 2: Why NATS -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6" style="margin-bottom: 1rem;">
+                  <strong>COPY STILL WIP</strong>
+                </p>
+                <p class="is-size-6">
+                  <strong>Simple:</strong> Easy to deploy, manage, and use.<br><br>
+                  <strong>Secure:</strong> Zero-trust security with decentralized authentication and authorization.<br><br>
+                  <strong>Performant:</strong> Process millions of messages per second with minimal latency.<br><br>
+                  <strong>Resilient:</strong> Self-healing with built-in clustering and automatic failover.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#why-nats" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram placeholder -->
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px;">
+              <span style="color: #27aae1; font-weight: bold; text-align: center;">Architecture Diagram<br>Placeholder</span>
+            </div>
           </div>
-          <div style="text-align: right; margin-top: 1rem;">
-            <a href="/about#where-nats-thrives" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+        </div>
+
+        <!-- Slide 3: Where NATS Thrives -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6" style="margin-bottom: 1rem;">
+                  <strong>COPY STILL WIP</strong>
+                </p>
+                <p class="is-size-6">
+                  <strong>Microservices:</strong> Build scalable, distributed service architectures.<br><br>
+                  <strong>Edge Computing:</strong> Connect devices, edge, cloud, and hybrid deployments.<br><br>
+                  <strong>Event Streaming:</strong> Real-time data pipelines and event-driven applications.<br><br>
+                  <strong>IoT & Mobile:</strong> Lightweight protocol perfect for constrained environments.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#where-nats-thrives" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram placeholder -->
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px;">
+              <span style="color: #27aae1; font-weight: bold; text-align: center;">Architecture Diagram<br>Placeholder</span>
+            </div>
           </div>
+        </div>
+
         </div>
       </div>
 
     </div>
+
     <div class="columns is-centered has-extra-top-margin">
       <a class="button is-normal is-primary has-text-weight-bold" href="/support">
-      <span class="icon">
+        <span class="icon">
           <i class="far fa-comments"></i>
         </span>
-      <span>
+        <span>
           Talk with an Expert
         </span>
       </a>
-      </div>
+    </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const tabsContainer = document.querySelector('.carousel-tabs');
+  let currentSlide = 0;
+
+  const tabData = [
+    { name: 'What is NATS?', slide: 0 },
+    { name: 'Why NATS', slide: 1 },
+    { name: 'Where NATS Thrives', slide: 2 }
+  ];
+
+  function renderTabs() {
+    // Sort tabs so current slide is first
+    const sortedTabs = [...tabData].sort((a, b) => {
+      if (a.slide === currentSlide) return -1;
+      if (b.slide === currentSlide) return 1;
+      return a.slide - b.slide;
+    });
+
+    // Clear and rebuild tabs
+    tabsContainer.innerHTML = '';
+
+    sortedTabs.forEach((tab, index) => {
+      const isActive = tab.slide === currentSlide;
+      const button = document.createElement('button');
+      button.className = 'carousel-tab';
+      button.dataset.slide = tab.slide;
+      button.style.cssText = `background: #f5f5f5; border: none; color: ${isActive ? '#27aae1' : '#a3d4f0'}; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;`;
+      button.textContent = tab.name;
+      button.addEventListener('click', () => goToSlide(tab.slide));
+      tabsContainer.appendChild(button);
+    });
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    currentSlide = index;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    renderTabs();
+  }
+
+  // Initial render
+  renderTabs();
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+    if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) goToSlide(currentSlide + 1);
+    if (touchEndX - touchStartX > 50) goToSlide(currentSlide - 1);
+  });
+});
+</script>
