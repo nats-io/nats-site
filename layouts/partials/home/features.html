@@ -127,17 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   function renderTabs() {
-    // Sort tabs so current slide is first
-    const sortedTabs = [...tabData].sort((a, b) => {
-      if (a.slide === currentSlide) return -1;
-      if (b.slide === currentSlide) return 1;
-      return a.slide - b.slide;
-    });
-
     // Clear and rebuild tabs
     tabsContainer.innerHTML = '';
 
-    sortedTabs.forEach((tab, index) => {
+    tabData.forEach((tab, index) => {
       const isActive = tab.slide === currentSlide;
       const button = document.createElement('button');
       button.className = 'carousel-tab';
