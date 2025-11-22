@@ -3,24 +3,28 @@ name = "Ericsson"
 home = "https://www.ericsson.com/"
 logo = "ericsson.jpg"
 rank = 16
+industry = "telecom"
 
 [companies.htc]
 name = "HTC"
 home = "https://www.htc.com/"
 logo = "htc.jpg"
 rank = 17
+industry = "telecom"
 
 [companies.siemens]
 name = "Siemens"
 home = "https://www.siemens.com"
 logo = "siemens.jpg"
 rank = 4
+industry = "automotive"
 
 [companies.vmware]
 name = "VMware"
 home = "https://www.vmware.com/"
 logo = "vmware.jpg"
 rank = 23
+industry = "tech"
 
 [companies.pivotal]
 name = "Pivotal"
@@ -33,30 +37,35 @@ name = "GE"
 home = "https://www.ge.com/"
 logo = "GE-Logo.png"
 rank = 2
+industry = "automotive"
 
 [companies.baidu]
 name = "Baidu"
 home = "https://www.baidu.com/"
 logo = "baidu.jpg"
 rank = 19
+industry = "telecom"
 
 [companies.clarify]
 name = "Clarifai"
 home = "https://www.clarifai.com"
 logo = "clarifai.jpg"
 rank = 24
+industry = "tech"
 
 [companies.netlify]
 name = "Netlify"
 home = "https://www.netlify.com"
 logo = "netlify.jpg"
 rank = 22
+industry = "tech"
 
 [companies.zephyr]
 name = "Zephyr"
 home = "https://www.zephyrproject.org"
 logo = "zephyr.png"
 rank = 9
+industry = "retail"
 
 [companies.telia]
 name = "Telia Company"
@@ -69,18 +78,21 @@ name = "Mastercard"
 home = "https://www.mastercard.us"
 logo = "mastercard_horizontal.png"
 rank = 11
+industry = "financial"
 
 [companies.tinder]
 name = "Tinder"
 home = "https://www.tinder.com"
 logo = "tinder.png"
 rank = 10
+industry = "retail"
 
 [companies.lauchdarkly]
 name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
 logo = "launchdarkly.png"
 rank = 21
+industry = "tech"
 
 [companies.zerodha]
 name = "Zerodha"
@@ -99,42 +111,49 @@ name = "Duke Energy"
 home = "https://www.duke-energy.com/home"
 logo = "duke.png"
 rank = 8
+industry = "retail"
 
 [companies.schaeffler]
 name = "Schaeffler"
 home = "https://schaeffler.com"
 logo = "schaeffler.png"
 rank = 5
+industry = "automotive"
 
 [companies.samsclub]
 name = "Sam's Club"
 home = "https://samsclub.com"
 logo = "samsclub.png"
 rank = 7
+industry = "retail"
 
 [companies.paypal]
 name = "PayPal"
 home = "https://paypal.com"
 logo = "paypal.png"
 rank = 12
+industry = "financial"
 
 [companies.viacom]
 name = "ViacomCBS"
 home = "https://www.viacbs.com/home"
 logo = "viacom.png"
 rank = 20
+industry = "telecom"
 
 [companies.att]
 name = "AT&T"
 home = "https://att.com"
 logo = "att.png"
 rank = 18
+industry = "telecom"
 
 [companies.alibaba]
 name = "Alibaba Group"
 home = "https://alibaba.com"
 logo = "alibaba.png"
 rank = 14
+industry = "financial"
 
 [companies.qlik]
 name = "Qlik"
@@ -147,12 +166,14 @@ name = "Capital One"
 home = "https://capitalone.com"
 logo = "capitalone.png"
 rank = 13
+industry = "financial"
 
 [companies.walmart]
 name = "Walmart"
 home = "https://walmart.com"
 logo = "walmart.png"
 rank = 6
+industry = "retail"
 
 [companies.sote]
 name = "Sote"
@@ -363,6 +384,7 @@ name = "Rivian"
 home = "https://rivian.com/"
 logo = "rivian.png"
 rank = 1
+industry = "automotive"
 
 [companies.holoplot]
 name = "HOLOPLOT"
@@ -375,12 +397,14 @@ name = "Volvo"
 home = "https://volvocars.com/"
 logo = "volvo.png"
 rank = 3
+industry = "automotive"
 
 [companies.paloaltonetworks]
 name = "Palo Alto Networks"
 home = "https://www.paloaltonetworks.com/"
 logo = "paloaltonetworks.png"
 rank = 15
+industry = "financial"
 
 [companies.hpe]
 name = "Hewlett Packard Enterprise"
@@ -537,6 +561,7 @@ name = "Inference"
 home = "https://inference.net/"
 logo = "inference.png"
 rank = 25
+industry = "tech"
 
 [companies.bluej]
 name = "blueJ"

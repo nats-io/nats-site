@@ -5,8 +5,16 @@
   <div class="columns is-centered">
     <div class="column has-text-centered">
 
-        <h1 class="title is-spaced is-size-2 is-size-3-mobile has-text-dark has-text-weight-light">Who uses NATS?</h1>
-        <p class="subtitle is-size-5 has-text-grey">Engineering teams at these industry leaders around the globe</p>
+        <h2 class="title is-spaced is-size-3 is-size-4-mobile has-text-dark has-text-weight-light">Powering Industry Leaders</h2>
+
+        <!-- Industry filter tabs -->
+        <div class="industry-filters" style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+          <button class="industry-tab" data-industry="automotive" style="background: transparent; border: none; color: #27aae1; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Automotive & Industrial</button>
+          <button class="industry-tab" data-industry="financial" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Financial Services</button>
+          <button class="industry-tab" data-industry="telecom" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Telecom & Media</button>
+          <button class="industry-tab" data-industry="tech" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Tech & Cloud</button>
+          <button class="industry-tab" data-industry="retail" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Retail & Consumer</button>
+        </div>
 
     </div>
   </div>
@@ -18,12 +26,13 @@
           {{ $img := printf "img/logos/companies/%s" .logo | relURL }}
           {{ $counter := $.Scratch.Get "counter" }}
           {{ $isHidden := ge $counter 25 }}
+          {{ $industry := .industry | default "tech" }}
           <div class="column
           is-half-mobile
           is-one-third-tablet
           is-one-quarter-desktop
           is-one-fifth-widescreen
-          logo company-logo{{ if $isHidden }} hidden-logo{{ end }}" {{ if $isHidden }}style="display: none;"{{ end }}>
+          logo company-logo{{ if $isHidden }} hidden-logo{{ end }}" data-industry="{{ $industry }}" {{ if $isHidden }}style="display: none;"{{ end }}>
 <a href="{{ .home }}" target="_blank">
   <img class="is-user-logo" src="{{ $img }}" alt="{{ .name }} logo">
 </a>
@@ -67,5 +76,37 @@ function toggleLogos() {
     button.setAttribute('data-expanded', 'true');
   }
 }
+
+// Industry filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.industry-tab');
+  const logos = document.querySelectorAll('.company-logo');
+
+  function filterByIndustry(industry) {
+    // Update tab styles
+    tabs.forEach(t => {
+      t.style.color = t.getAttribute('data-industry') === industry ? '#27aae1' : '#a3d4f0';
+    });
+
+    // Filter logos
+    logos.forEach(logo => {
+      if (logo.getAttribute('data-industry') === industry) {
+        logo.style.display = '';
+      } else {
+        logo.style.display = 'none';
+      }
+    });
+  }
+
+  // Filter on page load (default to automotive)
+  filterByIndustry('automotive');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const industry = this.getAttribute('data-industry');
+      filterByIndustry(industry);
+    });
+  });
+});
 </script>
 
