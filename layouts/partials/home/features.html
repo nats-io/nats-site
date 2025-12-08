@@ -81,7 +81,14 @@
             </div>
             <!-- Right column: Architecture diagram -->
             <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px; padding: 1rem;">
-              <img src="/img/pubsubreqreply.svg" alt="NATS Pub/Sub and Request/Reply patterns" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+              <div 
+                class="nats-flow" 
+                data-scenario="publishSubscribe"
+                data-width="500"
+                data-height="320"
+                data-show-controls="false"
+                style="width: 100%; height: 100%;">
+              </div>
             </div>
           </div>
         </div>
@@ -159,7 +166,14 @@
           </p>
         </div>
         <div class="diagram">
-          <img src="/img/pubsubreqreply.svg" alt="NATS Pub/Sub and Request/Reply patterns">
+          <div 
+            class="nats-flow" 
+            data-scenario="publishSubscribe"
+            data-width="600"
+            data-height="400"
+            data-show-controls="true"
+            style="width: 100%; max-width: 600px; margin: 0 auto;">
+          </div>
         </div>
         <div style="margin-top: 1rem;">
           <a href="/about#what-is-nats" class="has-text-weight-bold" style="color: #27aae1;">High performance? Lightweight? →</a>
