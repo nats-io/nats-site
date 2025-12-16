@@ -229,6 +229,16 @@ support = "Community"
 author = "Leif Madsen"
 authorHome = "https://github.com/leifmadsen"
 
+[addons.pgnats]
+name = "PostgreSQL NATS extension"
+home = "https://github.com/luxms/pgnats"
+description = "PostgreSQL extension for bidirectional NATS communications: Key/Value, Pub/Sub, Object Store, JetStream."
+support = "Community"
+[[addons.prometheus.authors]]
+author = "Luxms Group"
+authorHome = "https://luxmsbi.com"
+
+
 [addons.prometheus]
 name = "NATS Prometheus Exporter"
 home = "https://github.com/nats-io/prometheus-nats-exporter"
