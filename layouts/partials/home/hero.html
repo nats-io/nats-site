@@ -1,3 +1,45 @@
+<style>
+  /* Hero metrics grid */
+  .hero-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-metric {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  /* Mobile: 2-2-1 layout */
+  @media (max-width: 768px) {
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-metric {
+      padding: 0.75rem 0.5rem;
+      /* Fixed width so all boxes match */
+      width: calc((320px - 0.75rem) / 2);
+    }
+
+    /* Center the 5th metric */
+    .hero-metric:nth-child(5) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+</style>
+
 <section class="hero is-dark is-medium">
   <div class="background-con">
   <div class="hero-body">
@@ -14,25 +56,25 @@
         </p>
 
         <!-- Metrics row -->
-        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;">
-          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
-            <p class="is-size-4 has-text-weight-bold has-text-white">45+</p>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <p class="is-size-4 is-size-5-mobile has-text-weight-bold has-text-white">45+</p>
             <p class="is-size-7 has-text-white">Client Libraries</p>
           </div>
-          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
-            <p class="is-size-4 has-text-weight-bold has-text-white">400M+</p>
+          <div class="hero-metric">
+            <p class="is-size-4 is-size-5-mobile has-text-weight-bold has-text-white">400M+</p>
             <p class="is-size-7 has-text-white">Downloads</p>
           </div>
-          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
-            <p class="is-size-4 has-text-weight-bold has-text-white">1K+</p>
+          <div class="hero-metric">
+            <p class="is-size-4 is-size-5-mobile has-text-weight-bold has-text-white">1K+</p>
             <p class="is-size-7 has-text-white">Contributors</p>
           </div>
-          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
-            <p class="is-size-4 has-text-weight-bold has-text-white">11K+</p>
+          <div class="hero-metric">
+            <p class="is-size-4 is-size-5-mobile has-text-weight-bold has-text-white">11K+</p>
             <p class="is-size-7 has-text-white">Slack Members</p>
           </div>
-          <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem 1.5rem; text-align: center;">
-            <p class="is-size-4 has-text-weight-bold has-text-white">18K+</p>
+          <div class="hero-metric">
+            <p class="is-size-4 is-size-5-mobile has-text-weight-bold has-text-white">18K+</p>
             <p class="is-size-7 has-text-white">GitHub Stars</p>
           </div>
         </div>
