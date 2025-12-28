@@ -110,6 +110,29 @@
       background: #27aae1;
       transform: scale(1.2);
     }
+
+    /* Mobile logo grid: 2-2-1 layout */
+    #companies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+    }
+
+    #companies-grid .company-logo {
+      width: 50%;
+      padding: 0.5rem;
+    }
+
+    /* Center the 5th logo (last one in the row) */
+    #companies-grid .company-logo.mobile-last {
+      width: 50%;
+    }
+
+    /* Hide logos beyond 5 on mobile */
+    #companies-grid .company-logo.mobile-hidden {
+      display: none !important;
+    }
   }
 </style>
 
@@ -270,17 +293,39 @@ document.addEventListener('DOMContentLoaded', function() {
       t.classList.toggle('active', t.getAttribute('data-industry') === industry);
     });
 
+    const isMobile = window.innerWidth <= 768;
+    let visibleCount = 0;
+
     // Filter logos
     logos.forEach(logo => {
+      // Reset mobile classes
+      logo.classList.remove('mobile-visible', 'mobile-hidden', 'mobile-last');
+
       if (logo.getAttribute('data-industry') === industry) {
-        logo.style.display = '';
+        // On mobile, only show first 5 logos
+        if (isMobile) {
+          if (visibleCount < 5) {
+            logo.style.display = '';
+            logo.classList.add('mobile-visible');
+            visibleCount++;
+            // Mark the 5th logo as last for centering
+            if (visibleCount === 5) {
+              logo.classList.add('mobile-last');
+            }
+          } else {
+            logo.style.display = 'none';
+            logo.classList.add('mobile-hidden');
+          }
+        } else {
+          logo.style.display = '';
+        }
       } else {
         logo.style.display = 'none';
       }
     });
 
     // Scroll clicked tab into view on mobile
-    if (clickedTab && filtersContainer && window.innerWidth <= 768) {
+    if (clickedTab && filtersContainer && isMobile) {
       const containerRect = filtersContainer.getBoundingClientRect();
       const tabRect = clickedTab.getBoundingClientRect();
       const scrollOffset = tabRect.left - containerRect.left - (containerRect.width / 2) + (tabRect.width / 2);
@@ -288,14 +333,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Track current industry for resize handler
+  let currentIndustry = 'automotive';
+
   // Filter on page load (default to automotive)
   filterByIndustry('automotive', null);
 
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
-      const industry = this.getAttribute('data-industry');
-      filterByIndustry(industry, this);
+      currentIndustry = this.getAttribute('data-industry');
+      filterByIndustry(currentIndustry, this);
     });
+  });
+
+  // Re-apply filter on resize to handle mobile/desktop switching
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      filterByIndustry(currentIndustry, null);
+    }, 150);
   });
 });
 </script>
