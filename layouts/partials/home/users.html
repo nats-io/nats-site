@@ -133,6 +133,17 @@
     #companies-grid .company-logo.mobile-hidden {
       display: none !important;
     }
+
+    /* Stack CTA buttons vertically on mobile */
+    .cta-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cta-buttons .button {
+      width: 100%;
+      margin: 0 !important;
+    }
   }
 </style>
 
@@ -186,12 +197,14 @@
     </div>
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column has-text-centered is-narrow">
-        <button id="toggle-logos-btn" class="button is-normal is-link has-text-weight-bold" onclick="toggleLogos()" style="margin-right: 1rem;">
-          Show All Companies
-        </button>
-        <a class="button is-normal is-primary has-text-weight-bold" href="https://github.com/nats-io/nats-site#adding-a-company-logo" target="_blank">
-          Add Your Company
-        </a>
+        <div class="cta-buttons" style="display: flex; justify-content: center; gap: 1rem;">
+          <button id="toggle-logos-btn" class="button is-normal is-link has-text-weight-bold" onclick="toggleLogos()">
+            Show All Companies
+          </button>
+          <a class="button is-normal is-primary has-text-weight-bold" href="https://github.com/nats-io/nats-site#adding-a-company-logo" target="_blank">
+            Add Your Company
+          </a>
+        </div>
       </div>
     </div>
   </div>
