@@ -1,6 +1,118 @@
 {{ $desc      := site.Params.description_long | markdownify }}
 {{ $companies := site.Data.companies.companies }}
 
+<style>
+  /* Industry filter tabs - scrollable on mobile */
+  .industry-filters-wrapper {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .industry-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .industry-tab {
+    background: transparent;
+    border: none;
+    color: #a3d4f0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .industry-tab.active {
+    color: #27aae1;
+  }
+
+  /* Scroll indicators - hidden by default */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .industry-filters {
+      justify-content: flex-start;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+      padding: 0.5rem 1rem;
+      gap: 1rem;
+    }
+
+    .industry-filters::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .industry-tab {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.25rem;
+    }
+
+    /* Fade indicators on edges */
+    .industry-filters-wrapper::before,
+    .industry-filters-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 24px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .industry-filters-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, white 0%, transparent 100%);
+    }
+
+    .industry-filters-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, white 0%, transparent 100%);
+    }
+
+    .industry-filters-wrapper.can-scroll-left::before {
+      opacity: 1;
+    }
+
+    .industry-filters-wrapper.can-scroll-right::after {
+      opacity: 1;
+    }
+
+    /* Scroll dots indicator */
+    .scroll-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 0.75rem;
+    }
+
+    .scroll-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d0d0d0;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .scroll-dot.active {
+      background: #27aae1;
+      transform: scale(1.2);
+    }
+  }
+</style>
+
 <section class="section has-background-white">
   <div class="columns is-centered">
     <div class="column has-text-centered">
@@ -8,12 +120,21 @@
         <h2 class="title is-spaced is-size-3 is-size-4-mobile has-text-dark has-text-weight-light">Powering Industry Leaders</h2>
 
         <!-- Industry filter tabs -->
-        <div class="industry-filters" style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
-          <button class="industry-tab" data-industry="automotive" style="background: transparent; border: none; color: #27aae1; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Automotive & Industrial</button>
-          <button class="industry-tab" data-industry="financial" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Financial Services</button>
-          <button class="industry-tab" data-industry="telecom" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Telecom & Media</button>
-          <button class="industry-tab" data-industry="tech" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Tech & Cloud</button>
-          <button class="industry-tab" data-industry="retail" style="background: transparent; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1rem; padding: 0.5rem;">Retail & Consumer</button>
+        <div class="industry-filters-wrapper">
+          <div class="industry-filters" id="industry-filters">
+            <button class="industry-tab active" data-industry="automotive">Automotive & Industrial</button>
+            <button class="industry-tab" data-industry="financial">Financial Services</button>
+            <button class="industry-tab" data-industry="telecom">Telecom & Media</button>
+            <button class="industry-tab" data-industry="tech">Tech & Cloud</button>
+            <button class="industry-tab" data-industry="retail">Retail & Consumer</button>
+          </div>
+          <div class="scroll-indicator" id="scroll-indicator">
+            <span class="scroll-dot active" data-index="0"></span>
+            <span class="scroll-dot" data-index="1"></span>
+            <span class="scroll-dot" data-index="2"></span>
+            <span class="scroll-dot" data-index="3"></span>
+            <span class="scroll-dot" data-index="4"></span>
+          </div>
         </div>
 
     </div>
@@ -81,11 +202,72 @@ function toggleLogos() {
 document.addEventListener('DOMContentLoaded', function() {
   const tabs = document.querySelectorAll('.industry-tab');
   const logos = document.querySelectorAll('.company-logo');
+  const filtersContainer = document.getElementById('industry-filters');
+  const filtersWrapper = document.querySelector('.industry-filters-wrapper');
+  const scrollDots = document.querySelectorAll('.scroll-dot');
 
-  function filterByIndustry(industry) {
-    // Update tab styles
+  // Update scroll fade indicators
+  function updateScrollIndicators() {
+    if (!filtersContainer || !filtersWrapper) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = filtersContainer;
+    const canScrollLeft = scrollLeft > 5;
+    const canScrollRight = scrollLeft < scrollWidth - clientWidth - 5;
+
+    filtersWrapper.classList.toggle('can-scroll-left', canScrollLeft);
+    filtersWrapper.classList.toggle('can-scroll-right', canScrollRight);
+
+    // Update scroll dots based on which tab is most visible
+    if (scrollDots.length > 0) {
+      const tabElements = Array.from(tabs);
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      tabElements.forEach((tab, index) => {
+        const tabRect = tab.getBoundingClientRect();
+        const containerRect = filtersContainer.getBoundingClientRect();
+        const tabCenter = tabRect.left + tabRect.width / 2;
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const distance = Math.abs(tabCenter - containerCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      scrollDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === closestIndex);
+      });
+    }
+  }
+
+  // Scroll to tab when dot is clicked
+  scrollDots.forEach(dot => {
+    dot.addEventListener('click', function() {
+      const index = parseInt(this.getAttribute('data-index'));
+      const targetTab = tabs[index];
+      if (targetTab && filtersContainer) {
+        const containerRect = filtersContainer.getBoundingClientRect();
+        const tabRect = targetTab.getBoundingClientRect();
+        const scrollOffset = tabRect.left - containerRect.left - (containerRect.width / 2) + (tabRect.width / 2);
+        filtersContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Listen for scroll events
+  if (filtersContainer) {
+    filtersContainer.addEventListener('scroll', updateScrollIndicators);
+    // Initial check
+    setTimeout(updateScrollIndicators, 100);
+    window.addEventListener('resize', updateScrollIndicators);
+  }
+
+  function filterByIndustry(industry, clickedTab) {
+    // Update tab active class
     tabs.forEach(t => {
-      t.style.color = t.getAttribute('data-industry') === industry ? '#27aae1' : '#a3d4f0';
+      t.classList.toggle('active', t.getAttribute('data-industry') === industry);
     });
 
     // Filter logos
@@ -96,15 +278,23 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.style.display = 'none';
       }
     });
+
+    // Scroll clicked tab into view on mobile
+    if (clickedTab && filtersContainer && window.innerWidth <= 768) {
+      const containerRect = filtersContainer.getBoundingClientRect();
+      const tabRect = clickedTab.getBoundingClientRect();
+      const scrollOffset = tabRect.left - containerRect.left - (containerRect.width / 2) + (tabRect.width / 2);
+      filtersContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+    }
   }
 
   // Filter on page load (default to automotive)
-  filterByIndustry('automotive');
+  filterByIndustry('automotive', null);
 
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
       const industry = this.getAttribute('data-industry');
-      filterByIndustry(industry);
+      filterByIndustry(industry, this);
     });
   });
 });
