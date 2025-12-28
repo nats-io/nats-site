@@ -307,6 +307,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const isMobile = window.innerWidth <= 768;
+    // Limit to 5 logos on mobile for all categories, and on desktop for tech
+    const shouldLimit = isMobile || industry === 'tech';
     let visibleCount = 0;
 
     // Filter logos
@@ -315,8 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
       logo.classList.remove('mobile-visible', 'mobile-hidden', 'mobile-last');
 
       if (logo.getAttribute('data-industry') === industry) {
-        // On mobile, only show first 5 logos
-        if (isMobile) {
+        // Limit to 5 logos when applicable
+        if (shouldLimit) {
           if (visibleCount < 5) {
             logo.style.display = '';
             logo.classList.add('mobile-visible');
