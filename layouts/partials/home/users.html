@@ -306,6 +306,13 @@ document.addEventListener('DOMContentLoaded', function() {
       t.classList.toggle('active', t.getAttribute('data-industry') === industry);
     });
 
+    // Reset the "Show All Companies" button
+    const toggleBtn = document.getElementById('toggle-logos-btn');
+    if (toggleBtn) {
+      toggleBtn.textContent = 'Show All Companies';
+      toggleBtn.setAttribute('data-expanded', 'false');
+    }
+
     const isMobile = window.innerWidth <= 768;
     // Limit to 5 logos on mobile for all categories, and on desktop for tech
     const shouldLimit = isMobile || industry === 'tech';
