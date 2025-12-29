@@ -498,3 +498,8 @@ logo = "anyDB.png"
 name = "Siden.io"
 home = "https://siden.io/"
 logo = "siden.png"
+
+[companies.phaseshift]
+name = "Phaseshift"
+home = "https://www.phaseshiftdata.com/"
+logo = "phaseshift.png"
