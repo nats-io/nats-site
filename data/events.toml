@@ -1,18 +1,10 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon NA 2025"
-when = "November 11, 2025 3:15 pm EST"
-who = "Byron Ruth, Synadia"
-what = "State of NATS: Scale, Performance, and Flexibility"
-where = "Atlanta, Georgia USA"
-ref = "https://sched.co/27NlR"
-
-[[events]]
-venue = "KubeCon + CloudNativeCon NA 2025"
-when = "November 11, 2025 3:15 pm EST"
-who = "Colin Lacy & Grace Brickley, Cisco Systems"
-what = "Message In, Job Out: Build Event-Driven Workflows in Kubernetes Using NATS, CloudEvents, and Sveltos"
-where = "Atlanta, Georgia USA"
-ref = "https://sched.co/27FXI"
+venue = "KubeCon + CloudNativeCon Europe 2026"
+when = "March 23-26, 2026"
+who = "TBD"
+what = "TBD"
+where = "Amsterdam, The Netherlands"
+ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
 
 # venue = "ICYMI"
 # when = "KubeCon EU 2024"
