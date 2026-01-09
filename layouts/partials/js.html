@@ -10,6 +10,18 @@
     anchors.add('h1,h2,h3');
 </script>
 
+<!-- Year JS -->
+
+<script>
+    (function () {
+      var el = document.getElementById("current-year");
+      if (el) {
+        el.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+  
+
 <!-- Site code -->
 <script>
     function copyToClipboard(text, el) {
