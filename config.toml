@@ -17,7 +17,7 @@ category = "categories"
 [params]
 tagline = "Cloud Native, Open Source, High-performance Messaging"
 favicon = "favicon.ico"
-font_awesome_version = "6.4.0"
+font_awesome_version = "6.5.1"
 leftNav = false
 description = "NATS is a connective technology powering modern distributed systems, unifying Cloud, On-Premise, Edge, and IoT."
 author = "The NATS Team"
@@ -47,9 +47,9 @@ home = [ "HTML", "REDIRECTS" ]
 
 [[params.social]]
 label = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/nats_io"
-color = "twitter-blue"
+icon = "x-twitter"
+url = "https://x.com/nats_io"
+color = "x-twitter-black"
 
 [[params.social]]
 label = "GitHub"
