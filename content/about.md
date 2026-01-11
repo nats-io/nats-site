@@ -24,8 +24,6 @@ NATS server and its clients are open source under the Apache 2.0 license, with a
 
 ## Why NATS? {#why-nats}
 
-COPY STILL WIP
-
 NATS stands out as the ideal choice for modern distributed systems for several key reasons:
 
 ### Simple
@@ -43,8 +41,6 @@ NATS self-heals and can scale up, down, or handle topology changes anytime with 
 ---
 
 ## Where NATS Thrives {#where-nats-thrives}
-
-COPY STILL WIP
 
 NATS excels in a wide variety of use cases and deployment scenarios:
 
