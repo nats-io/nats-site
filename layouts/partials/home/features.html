@@ -76,14 +76,16 @@
               </div>
             </div>
             <!-- Right column: Architecture diagram -->
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px; padding: 1rem;">
-              <div 
-                class="nats-flow" 
-                data-scenario="publishSubscribe"
-                data-width="500"
-                data-height="320"
-                data-show-controls="false"
-                >
+            <div style="flex: 1; display: flex; flex-direction: column; background: #d4e9f7; border-radius: 6px; padding: 1rem; position: relative;">
+              <div style="color: #27aae1; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Publish Subscribe</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div
+                  class="nats-flow"
+                  data-component="PublishSubscribeAnimated"
+                  data-width="500"
+                  data-height="290"
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -97,7 +99,7 @@
               <div class="content" style="flex-grow: 1;">
                 <p class="is-size-6">
                   NATS was built on intentional design choices: location independence, many-to-many communication, and an async-first model.<br><br>
-                  These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
+                  These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, queueing, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
                   The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
                 </p>
               </div>
@@ -105,9 +107,18 @@
                 <a href="/about#why-nats" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
               </div>
             </div>
-            <!-- Right column: Architecture diagram placeholder -->
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: #d4e9f7; border-radius: 6px;">
-              <span style="color: #27aae1; font-weight: bold; text-align: center;">Architecture Diagram<br>Placeholder</span>
+            <!-- Right column: Architecture diagram -->
+            <div style="flex: 1; display: flex; flex-direction: column; background: #d4e9f7; border-radius: 6px; padding: 1rem; position: relative;">
+              <div style="color: #27aae1; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Request Reply Queue Group</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div
+                  class="nats-flow"
+                  data-scenario="requestReplyQueueGroup"
+                  data-width="500"
+                  data-height="290"
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -120,7 +131,7 @@
               <div class="content" style="flex-grow: 1;">
                 <p class="is-size-6">
                   NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.<br><br>
-                  It also excels at the edge. Beyond the data center—on low-resource devices, fleets of vehicles, or closer to users—NATS provides a consistent connective layer that works the same way wherever computing happens.<br><br>
+                  NATS also excels at the edge: on low-resource devices, across fleets of vehicles, or anywhere computing moves closer to users. The same connective layer works consistently, no matter the environment.<br><br>
                   With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
                 </p>
               </div>
@@ -174,7 +185,7 @@
         <div class="content">
           <p class="is-size-6">
             NATS was built on intentional design choices: location independence, many-to-many communication, and an async-first model.<br><br>
-            These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
+            These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, queueing, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
             The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
           </p>
         </div>
@@ -192,7 +203,7 @@
         <div class="content">
           <p class="is-size-6">
             NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.<br><br>
-            It also excels at the edge. Beyond the data center—on low-resource devices, fleets of vehicles, or closer to users—NATS provides a consistent connective layer that works the same way wherever computing happens.<br><br>
+            NATS also excels at the edge: on low-resource devices, across fleets of vehicles, or anywhere computing moves closer to users. The same connective layer works consistently, no matter the environment.<br><br>
             With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
           </p>
         </div>

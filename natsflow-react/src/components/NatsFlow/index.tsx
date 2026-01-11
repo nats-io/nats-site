@@ -10,7 +10,7 @@ import '@xyflow/react/dist/style.css';
 
 import { PublisherNode, SubscriberNode, ServiceNode, ServerNode } from './nodes';
 import { AnimatedEdge } from './edges';
-import type { NatsFlowProps } from '../../types';
+import type { NatsFlowProps } from './types';
 
 const nodeTypes: NodeTypes = {
   publisher: PublisherNode,
@@ -88,7 +88,7 @@ export function NatsFlow({
         elementsSelectable={false}
         zoomOnScroll={false}
         panOnDrag={false}
-        preventScrolling={true}
+        preventScrolling={false}
         minZoom={0.5}
         maxZoom={1.5}
         proOptions={{ hideAttribution: true }}
@@ -101,3 +101,6 @@ export function NatsFlow({
 }
 
 NatsFlow.displayName = 'NatsFlow';
+
+export * from './scenarios';
+export * from './types';

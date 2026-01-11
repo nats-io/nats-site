@@ -10,9 +10,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { NatsFlow } from './components/NatsFlow';
-import { scenarios } from './components/NatsFlow/scenarios';
+import {
+  scenarios,
+  PublishSubscribeAnimated,
+  QueueGroupAnimated,
+  SubjectsWildcardAnimated,
+  WildcardComparison,
+  ToggleableSubscribersScenario,
+} from './components/NatsFlow/scenarios';
 
 import './index.css';
+
+// Components that can be rendered directly via data-component attribute
+const components: Record<string, React.ComponentType<{ width?: number; height?: number }>> = {
+  PublishSubscribeAnimated,
+  QueueGroupAnimated,
+  SubjectsWildcardAnimated,
+  WildcardComparison,
+  ToggleableSubscribersScenario,
+};
 
 // Expose React, ReactDOM, and NatsFlow to the window for the loader
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,25 +43,43 @@ window.dispatchEvent(new Event('natsflow-loaded'));
 
 // Auto-initialize function
 function initializeFlows() {
-  // console.log('[NatsFlow] Searching for .nats-flow elements...');
   const containers = document.querySelectorAll<HTMLElement>(
     '.nats-flow:not([data-initialized])'
   );
 
-  // console.log(`[NatsFlow] Found ${containers.length} containers`);
   if (containers.length === 0) {
     return;
   }
 
   containers.forEach((container) => {
+    const componentName = container.dataset.component;
     const scenarioName = container.dataset.scenario;
     const width = parseInt(container.dataset.width || '600', 10);
     const height = parseInt(container.dataset.height || '400', 10);
     const showControls = container.dataset.showControls === 'true';
 
-    // console.log(`[NatsFlow] Initializing scenario: ${scenarioName}, ${width}x${height}`);
-
     try {
+      const root = ReactDOM.createRoot(container);
+
+      // Check if rendering a component directly
+      if (componentName) {
+        const Component = components[componentName];
+        if (!Component) {
+          console.error(`Unknown component: ${componentName}`);
+          container.innerHTML = `<div style="padding: 1rem; background: #fee; border: 1px solid #fcc; border-radius: 4px;">
+            <strong>Error:</strong> Unknown component "${componentName}".
+            <br>Available components: ${Object.keys(components).join(', ')}
+          </div>`;
+          container.setAttribute('data-initialized', 'true');
+          return;
+        }
+
+        root.render(React.createElement(Component, { width, height }));
+        container.setAttribute('data-initialized', 'true');
+        return;
+      }
+
+      // Otherwise render a scenario with NatsFlow wrapper
       const scenario = scenarios[scenarioName || ''];
 
       if (!scenario) {
@@ -58,8 +92,6 @@ function initializeFlows() {
         return;
       }
 
-      // Create a root and render the NatsFlow component
-      const root = ReactDOM.createRoot(container);
       root.render(
         React.createElement(NatsFlow, {
           scenario,
@@ -72,7 +104,7 @@ function initializeFlows() {
       container.setAttribute('data-initialized', 'true');
     } catch (error) {
       console.error(
-        `Failed to initialize flow for scenario ${scenarioName}:`,
+        `Failed to initialize flow for ${componentName || scenarioName}:`,
         error
       );
       container.innerHTML = `<div style="padding: 1rem; background: #fee; border: 1px solid #fcc; border-radius: 4px;">

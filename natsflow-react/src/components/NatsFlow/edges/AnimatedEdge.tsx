@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { BaseEdge, EdgeLabelRenderer, type EdgeProps, getBezierPath } from '@xyflow/react';
-import type { AnimatedEdgeData } from '../../../types';
+import type { AnimatedEdgeData } from '../types';
 
 interface Circle {
   id: number;
@@ -46,11 +46,17 @@ export function AnimatedEdge(props: EdgeProps) {
     targetPosition,
   });
 
-  // Add a circle every 2 seconds if animated
+  // Add a circle every interval (default 2 seconds) if animated
   useEffect(() => {
     if (!edgeData?.animated) return;
 
-    const interval = setInterval(() => {
+    const delay = edgeData?.delay || 0;
+    const repeatInterval = edgeData?.interval || 2000;
+    let interval: NodeJS.Timeout | undefined;
+
+    // Wait for the delay before starting the animation
+    const delayTimeout = setTimeout(() => {
+      // Add the first circle immediately after delay
       const newCircle: Circle = {
         id: nextId.current++,
         progress: 0,
@@ -58,10 +64,24 @@ export function AnimatedEdge(props: EdgeProps) {
         startTime: Date.now(),
       };
       setCircles((prev) => [...prev, newCircle]);
-    }, 2000);
 
-    return () => clearInterval(interval);
-  }, [edgeData?.animated]);
+      // Then add a circle every repeatInterval milliseconds
+      interval = setInterval(() => {
+        const newCircle: Circle = {
+          id: nextId.current++,
+          progress: 0,
+          isActive: true,
+          startTime: Date.now(),
+        };
+        setCircles((prev) => [...prev, newCircle]);
+      }, repeatInterval);
+    }, delay);
+
+    return () => {
+      clearTimeout(delayTimeout);
+      if (interval) clearInterval(interval);
+    };
+  }, [edgeData?.animated, edgeData?.delay, edgeData?.interval]);
 
   // Animation loop
   useEffect(() => {
@@ -118,13 +138,13 @@ export function AnimatedEdge(props: EdgeProps) {
           <div
             style={{
               position: 'absolute',
-              transform: `translate(-50%, -50%) translate(${labelX}px,${labelY - 15}px)`,
+              transform: `translate(-50%, -50%) translate(${labelX}px,${labelY + (edgeData.labelOffset || -15)}px)`,
               background: 'white',
               padding: '2px 6px',
               borderRadius: '4px',
               fontSize: '11px',
               fontWeight: 500,
-              color: '#666',
+              color: edgeData.labelColor || '#666',
               pointerEvents: 'all',
             }}
             className="nodrag nopan"
