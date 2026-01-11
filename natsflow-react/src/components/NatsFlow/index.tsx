@@ -8,7 +8,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-import { PublisherNode, SubscriberNode, ServiceNode, ServerNode } from './nodes';
+import { PublisherNode, SubscriberNode, ServiceNode, ServerNode, ClusterNode, GroupNode } from './nodes';
 import { AnimatedEdge } from './edges';
 import type { NatsFlowProps } from './types';
 
@@ -17,6 +17,8 @@ const nodeTypes: NodeTypes = {
   subscriber: SubscriberNode,
   service: ServiceNode,
   server: ServerNode,
+  cluster: ClusterNode,
+  container: GroupNode,
 };
 
 const edgeTypes: EdgeTypes = {
@@ -60,6 +62,7 @@ export function NatsFlow({
   width = 600,
   height = 400,
   showControls = false,
+  padding = 0.2,
 }: NatsFlowProps) {
   useEffect(() => {
     return suppressResizeObserverError();
@@ -82,7 +85,7 @@ export function NatsFlow({
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         fitView
-        fitViewOptions={{ padding: 0.2 }}
+        fitViewOptions={{ padding }}
         nodesDraggable={false}
         nodesConnectable={false}
         elementsSelectable={false}

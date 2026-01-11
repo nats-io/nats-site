@@ -20,6 +20,7 @@ export interface NatsFlowProps {
   showControls?: boolean;
   autoPlay?: boolean;
   animationSpeed?: number;
+  padding?: number; // fitView padding (default 0.2, lower = more zoomed in)
 }
 
 export type AnimatedEdgeData = {
@@ -32,10 +33,14 @@ export type AnimatedEdgeData = {
   animated?: boolean;
   delay?: number; // Delay in milliseconds before starting animation
   interval?: number; // Interval in milliseconds between circles (default: 2000)
+  bidirectional?: boolean; // If true, dot goes back and forth instead of disappearing
 };
 
 export type NatsNodeData = {
   label: string;
+  subtitle?: string; // Custom subtitle (defaults to node type like "Server")
   type?: 'publisher' | 'subscriber' | 'service' | 'queue';
   status?: 'active' | 'inactive' | 'processing';
+  labelPosition?: 'left' | 'right' | 'center'; // Position label outside the node
+  opacity?: number; // Node opacity (0-1, default 1)
 };

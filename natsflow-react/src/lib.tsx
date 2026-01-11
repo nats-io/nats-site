@@ -57,6 +57,7 @@ function initializeFlows() {
     const width = parseInt(container.dataset.width || '600', 10);
     const height = parseInt(container.dataset.height || '400', 10);
     const showControls = container.dataset.showControls === 'true';
+    const padding = container.dataset.padding ? parseFloat(container.dataset.padding) : undefined;
 
     try {
       const root = ReactDOM.createRoot(container);
@@ -98,6 +99,7 @@ function initializeFlows() {
           width,
           height,
           showControls,
+          padding,
         })
       );
 

@@ -7,6 +7,7 @@ interface Circle {
   progress: number;
   isActive: boolean;
   startTime: number;
+  direction: 1 | -1; // 1 = forward, -1 = backward
 }
 
 const getPositionAlongPath = (path: string, progress: number) => {
@@ -52,6 +53,7 @@ export function AnimatedEdge(props: EdgeProps) {
 
     const delay = edgeData?.delay || 0;
     const repeatInterval = edgeData?.interval || 2000;
+    const isBidirectional = edgeData?.bidirectional;
     let interval: NodeJS.Timeout | undefined;
 
     // Wait for the delay before starting the animation
@@ -62,32 +64,37 @@ export function AnimatedEdge(props: EdgeProps) {
         progress: 0,
         isActive: true,
         startTime: Date.now(),
+        direction: 1,
       };
       setCircles((prev) => [...prev, newCircle]);
 
-      // Then add a circle every repeatInterval milliseconds
-      interval = setInterval(() => {
-        const newCircle: Circle = {
-          id: nextId.current++,
-          progress: 0,
-          isActive: true,
-          startTime: Date.now(),
-        };
-        setCircles((prev) => [...prev, newCircle]);
-      }, repeatInterval);
+      // Only add more circles if NOT bidirectional (bidirectional just bounces one dot)
+      if (!isBidirectional) {
+        interval = setInterval(() => {
+          const newCircle: Circle = {
+            id: nextId.current++,
+            progress: 0,
+            isActive: true,
+            startTime: Date.now(),
+            direction: 1,
+          };
+          setCircles((prev) => [...prev, newCircle]);
+        }, repeatInterval);
+      }
     }, delay);
 
     return () => {
       clearTimeout(delayTimeout);
       if (interval) clearInterval(interval);
     };
-  }, [edgeData?.animated, edgeData?.delay, edgeData?.interval]);
+  }, [edgeData?.animated, edgeData?.delay, edgeData?.interval, edgeData?.bidirectional]);
 
   // Animation loop
   useEffect(() => {
     if (circles.length === 0) return;
 
     const animationDuration = 1500;
+    const isBidirectional = edgeData?.bidirectional;
 
     const animate = () => {
       const currentTime = Date.now();
@@ -96,13 +103,32 @@ export function AnimatedEdge(props: EdgeProps) {
         prevCircles
           .map((circle) => {
             const elapsedTime = currentTime - circle.startTime;
-            const progress = Math.min(elapsedTime / animationDuration, 1);
+            const rawProgress = elapsedTime / animationDuration;
 
-            if (progress >= 1) {
-              return { ...circle, isActive: false };
+            if (isBidirectional) {
+              // For bidirectional, bounce back and forth
+              if (rawProgress >= 1) {
+                // Reverse direction and reset start time
+                return {
+                  ...circle,
+                  progress: circle.direction === 1 ? 1 : 0,
+                  direction: (circle.direction * -1) as 1 | -1,
+                  startTime: Date.now(),
+                };
+              }
+              // Calculate progress based on direction
+              const progress = circle.direction === 1
+                ? Math.min(rawProgress, 1)
+                : Math.max(1 - rawProgress, 0);
+              return { ...circle, progress };
+            } else {
+              // Original one-way behavior
+              const progress = Math.min(rawProgress, 1);
+              if (progress >= 1) {
+                return { ...circle, isActive: false };
+              }
+              return { ...circle, progress };
             }
-
-            return { ...circle, progress };
           })
           .filter((circle) => circle.isActive)
       );
@@ -119,7 +145,7 @@ export function AnimatedEdge(props: EdgeProps) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [circles]);
+  }, [circles, edgeData?.bidirectional]);
 
   const color = edgeData?.color || '#3b82f6';
   const size = edgeData?.size || 5;

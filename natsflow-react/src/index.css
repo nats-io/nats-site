@@ -10,3 +10,17 @@ body,
   height: 100%;
   margin: 0;
 }
+
+/* Remove React Flow default node styling for container nodes */
+.react-flow__node-container {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Also override any built-in group styling */
+.react-flow__node-group {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}

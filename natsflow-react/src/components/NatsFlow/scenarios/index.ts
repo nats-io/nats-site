@@ -5,6 +5,7 @@ import { requestReplyScatterGatherScenario } from './requestReplyScatterGather';
 import { requestReplyQueueGroupScenario } from './requestReplyQueueGroup';
 import { queueGroupScenario } from './queueGroup';
 import { fanOutScenario } from './fanOut';
+import { superclusterLeafNodesScenario } from './superclusterLeafNodes';
 import { toggleableSubscribersScenario, ToggleableSubscribersScenario } from './toggleableSubscribers';
 import { QueueGroupAnimated } from './queueGroupAnimated';
 import { PublishSubscribeAnimated } from './publishSubscribeAnimated';
@@ -19,6 +20,7 @@ export {
   requestReplyQueueGroupScenario,
   queueGroupScenario,
   fanOutScenario,
+  superclusterLeafNodesScenario,
   toggleableSubscribersScenario,
   ToggleableSubscribersScenario,
   QueueGroupAnimated,
@@ -35,5 +37,6 @@ export const scenarios: Record<string, NatsFlowScenario> = {
   requestReplyQueueGroup: requestReplyQueueGroupScenario,
   queueGroup: queueGroupScenario,
   fanOut: fanOutScenario,
+  superclusterLeafNodes: superclusterLeafNodesScenario,
   toggleableSubscribers: toggleableSubscribersScenario,
 };

@@ -16,6 +16,7 @@ export function PublisherNode({ data, selected }: NodeProps) {
         type="source"
         position={Position.Right}
         className="!h-3 !w-3 !bg-blue-500"
+        style={{ opacity: 0 }}
       />
       {/* Request handle for request-reply scenarios (top) - hidden but functional */}
       <Handle
