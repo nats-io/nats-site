@@ -24,44 +24,21 @@ NATS server and its clients are open source under the Apache 2.0 license, with a
 
 ## Why NATS? {#why-nats}
 
-NATS stands out as the ideal choice for modern distributed systems for several key reasons:
+NATS was built on intentional design choices: location independence, many-to-many communication, and an async-first model.
 
-### Simple
-NATS is incredibly easy to deploy, manage, and use. With a single binary and simple configuration, you can have a production-ready messaging system running in minutes. The client APIs are intuitive and consistent across all supported languages.
+These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, queueing, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.
 
-### Secure
-NATS provides zero-trust security with decentralized authentication and authorization. With built-in support for TLS, user/password, token, and NKeys authentication, along with fine-grained subject-level permissions, you can secure your entire system without complex external dependencies.
-
-### Performant
-Process millions of messages per second per server with minimal latency and overhead. NATS is written in Go and optimized for performance, making it one of the fastest messaging systems available. Save money by minimizing cloud costs with reduced compute and network usage.
-
-### Resilient
-NATS self-heals and can scale up, down, or handle topology changes anytime with zero downtime to your system. Built-in clustering provides automatic failover, and clients require zero awareness of NATS topology, allowing you to future-proof your system to meet your needs of today and tomorrow.
+The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
 
 ---
 
 ## Where NATS Thrives {#where-nats-thrives}
 
-NATS excels in a wide variety of use cases and deployment scenarios:
+NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.
 
-### Microservices
-Build scalable, distributed service architectures with NATS at the core. NATS provides the foundation for service discovery, request-reply patterns, and load balancing, making it easy to build and evolve microservices-based applications.
+NATS also excels at the edge: on low-resource devices, across fleets of vehicles, or anywhere computing moves closer to users. The same connective layer works consistently, no matter the environment.
 
-### Edge Computing
-Connect devices, edge, cloud, and hybrid deployments seamlessly. With flexible deployment models using clusters, superclusters, and leaf nodes, NATS optimizes communications for your unique deployment. The NATS Adaptive Edge Architecture allows for a perfect fit for unique needs across diverse environments.
-
-### Event Streaming
-Build real-time data pipelines and event-driven applications with JetStream. NATS provides durable streaming, message replay, and exactly-once semantics, making it ideal for event sourcing, CQRS, and stream processing use cases.
-
-### IoT & Mobile
-The lightweight NATS protocol is perfect for constrained environments. With minimal overhead and efficient wire protocol, NATS works seamlessly on IoT devices, mobile applications, and edge deployments where resources are limited.
-
-### Additional Use Cases
-- **Financial Services**: High-frequency trading, market data distribution
-- **Telecommunications**: Network operations, real-time monitoring
-- **Gaming**: Player matchmaking, real-time game state synchronization
-- **Manufacturing**: Industrial IoT, factory automation
-- **Healthcare**: Medical device integration, real-time patient monitoring
+With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
 
 ---
 
