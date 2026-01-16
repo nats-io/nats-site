@@ -145,6 +145,29 @@
       margin: 0 !important;
     }
   }
+  /* Intermediate sizes (desktop): force 3-over-2 layout instead of 4-over-1 */
+  @media (min-width: 769px) and (max-width: 1215px) {
+    #companies-grid {
+      justify-content: center !important;
+    }
+    #companies-grid .company-logo {
+      flex: 0 0 33.333% !important;
+      max-width: 33.333% !important;
+    }
+  }
+
+  /* Scale up specific compact logos */
+  img[src*="nvidia"], img[src*="replit"], img[src*="capitalone"] {
+    transform: scale(1.4);
+  }
+  img[src*="activision"] {
+    transform: scale(2.75);
+  }
+
+  /* Scale down specific wide logos */
+  img[src*="paloalto"], img[src*="inference"], img[src*="siemens"], img[src*="schaeffler"], img[src*="form3"] {
+    transform: scale(0.85);
+  }
 </style>
 
 <section class="section has-background-white">

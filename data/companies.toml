@@ -1,21 +1,21 @@
 [companies.ericsson]
 name = "Ericsson"
 home = "https://www.ericsson.com/"
-logo = "ericsson.jpg"
+logo = "ericsson.svg"
 rank = 16
 industry = "telecom"
 
 [companies.htc]
 name = "HTC"
 home = "https://www.htc.com/"
-logo = "htc.jpg"
+logo = "htc.svg"
 rank = 17
 industry = "telecom"
 
 [companies.siemens]
 name = "Siemens"
 home = "https://www.siemens.com"
-logo = "siemens.jpg"
+logo = "siemens.svg"
 rank = 4
 industry = "automotive"
 
@@ -23,7 +23,7 @@ industry = "automotive"
 name = "VMware"
 home = "https://www.vmware.com/"
 logo = "vmware.jpg"
-rank = 23
+rank = 100
 industry = "tech"
 
 [companies.pivotal]
@@ -42,7 +42,7 @@ industry = "automotive"
 [companies.baidu]
 name = "Baidu"
 home = "https://www.baidu.com/"
-logo = "baidu.jpg"
+logo = "baidu.svg"
 rank = 19
 industry = "telecom"
 
@@ -50,20 +50,20 @@ industry = "telecom"
 name = "Clarifai"
 home = "https://www.clarifai.com"
 logo = "clarifai.jpg"
-rank = 24
+rank = 101
 industry = "tech"
 
 [companies.netlify]
 name = "Netlify"
 home = "https://www.netlify.com"
 logo = "netlify.jpg"
-rank = 22
+rank = 102
 industry = "tech"
 
-[companies.zephyr]
-name = "Zephyr"
-home = "https://www.zephyrproject.org"
-logo = "zephyr.png"
+[companies.activision]
+name = "Activision Blizzard"
+home = "https://www.activisionblizzard.com/"
+logo = "activision-blizzard.png"
 rank = 9
 industry = "retail"
 
@@ -91,7 +91,7 @@ industry = "retail"
 name = "LaunchDarkly"
 home = "https://www.launchdarkly.com"
 logo = "launchdarkly.png"
-rank = 21
+rank = 22
 industry = "tech"
 
 [companies.zerodha]
@@ -110,7 +110,7 @@ rank = 26
 name = "Duke Energy"
 home = "https://www.duke-energy.com/home"
 logo = "duke.png"
-rank = 8
+rank = 7
 industry = "retail"
 
 [companies.schaeffler]
@@ -124,7 +124,7 @@ industry = "automotive"
 name = "Sam's Club"
 home = "https://samsclub.com"
 logo = "samsclub.png"
-rank = 7
+rank = 8
 industry = "retail"
 
 [companies.paypal]
@@ -403,8 +403,8 @@ industry = "automotive"
 name = "Palo Alto Networks"
 home = "https://www.paloaltonetworks.com/"
 logo = "paloaltonetworks.png"
-rank = 15
-industry = "financial"
+rank = 24
+industry = "tech"
 
 [companies.hpe]
 name = "Hewlett Packard Enterprise"
@@ -610,3 +610,30 @@ name = "Marble Technologies"
 home = "https://www.seemarble.com/"
 logo = "marble.svg"
 rank = 98
+
+[companies.nvidia]
+name = "NVIDIA"
+home = "https://www.nvidia.com/"
+logo = "nvidia.svg"
+rank = 21
+industry = "tech"
+
+[companies.replit]
+name = "Replit"
+home = "https://replit.com/"
+logo = "replit.svg"
+rank = 23
+industry = "tech"
+
+[companies.form3]
+name = "Form3"
+home = "https://www.form3.tech/"
+logo = "form3.svg"
+rank = 15
+industry = "financial"
+
+[companies.zephyr]
+name = "Zephyr"
+home = "https://www.zephyrproject.org"
+logo = "zephyr.png"
+rank = 103
