@@ -64,19 +64,3 @@ Nightly container image builds are available during development on Docker Hub un
 ## Recent posts
 
 {{< recent-posts >}}
-
----
-
-## Resources
-
-In addition to our official [Documentation](https://docs.nats.io), the following resources are just a few available to learn, share, and grow your knowledge of NATS.
-If you would like to share your experience with NATS and would like help publishing you can [contact us](mailto:info@nats.io) or if you have an article published, tag us on [Twitter](https://twitter.com/nats_io) or ping us on [Slack](https://slack.nats.io).
-
-- [NATS News](https://www.synadia.com/newsletter?utm_source=nats_io&utm_medium=nats) | [Byron Ruth](https://www.linkedin.com/in/byron-ruth/) has created a monthly NATS newsletter combining announcements, Slack Q&A, and updates. Additional featured NATS articles are also available.
-- [NATS by Example](https://natsbyexample.com) | Learn NATS by Example with this evolving collection of runnable, cross-client reference examples for NATS.
-- [NATS.fm Podcast](http://nats.fm/) | Join us as we talk all things NATS.io on everything from the concepts & patterns, to use cases and real world outcomes.
-- [SlideShare](https://www.slideshare.net/nats_io/presentations) | Presentation slides from MeetUps, conferences and webinars.
-- [YouTube](https://www.youtube.com/c/nats_messaging/videos) | NATS informational and educational video collection.
-
-
-{{< resources >}}
