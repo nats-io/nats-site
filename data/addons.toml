@@ -1,4 +1,14 @@
 [addons]
+
+[addons.gofr]
+name = "GoFr"
+home = "https://github.com/gofr-dev/gofr"
+description = "An opinionated Go framework for accelerated microservice development"
+support = "Community"
+[[addons.gofr.authors]]
+author = "Michael Freeman"
+authorHome = "https://github.com/mfreeman451"
+
 [addons.mage_ai]
 name = "Mage.ai"
 home = "https://github.com/mage-ai/mage-ai"
