@@ -112,41 +112,6 @@ Join us at our upcoming events and talks. Have a suggested event or want us to j
 
 ---
 
-## NATS Ambassador Program
-
-The NATS Ambassador Program celebrates people who have demonstrated significant value in the NATS community, by developing a track record of providing valuable help through community channels as well as contributing to issues and discussions, reporting detailed bugs, suggesting code changes, and improving the NATS documentation.
-
-{{< columns >}}
-{{< column >}}
-
-### How to become an ambassador
-
-- Current NATS maintainers and ambassadors can suggest a candidate
-- A semi-annual vote occurs among the maintainers and ambassadors
-- The person is elected and voted in as a NATS Ambassador
-
-{{< /column >}}
-{{< column >}}
-
-### Once you are chosen as an ambassador
-
-You will -
-- Be added to the [AMBASSADORS.md](https://github.com/nats-io/nats-server/blob/main/AMBASSADORS.md) file in the nats-io/nats-server repo
-- Be added to the NATS community page with your picture and bio
-- Receive unique ambassador swag 😊
-- Receive a complimentary conference registration
-- Participate in an optional review of the NATS roadmap
-- Participate in an optional quarterly call with the NATS maintainers
-
-{{< /column >}}
-{{< /columns >}}
-
-## Current NATS Ambassadors
-
-{{< ambassadors >}}
-
----
-
 ## Partners
 
 We work with a variety of companies to ensure NATS is delivered in a broad range of solutions used by our community. [Contact us to Partner](mailto:info@nats.io?Subject=Partner%20inquiry).
