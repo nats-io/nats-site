@@ -1,7 +1,6 @@
 {{ $title   := site.Title }}
 {{ $bgColor := cond .IsHome "black" "black" }}
 {{ $color   := cond .IsHome "white-bis" "white-bis" }}
-{{ $year    := now.Year }}
 {{ $logo    := cond .IsHome "footer_dark" "footer_dark" }}
 {{ $menu    := site.Menus.main }}
 
@@ -11,8 +10,10 @@
     <section class="section">
       {{ partial "social-buttons.html" (dict "align" "left") }}
       <p class="has-text-weight-large">
-        Copyright &copy; NATS Authors {{ $year }}
+        Copyright &copy; NATS Authors
+        <span id="current-year"></span>
       </p>
+      
     </section>
   </div>  
   <div class="column">

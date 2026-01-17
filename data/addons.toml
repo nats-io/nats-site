@@ -229,6 +229,16 @@ support = "Community"
 author = "Leif Madsen"
 authorHome = "https://github.com/leifmadsen"
 
+[addons.pgnats]
+name = "PostgreSQL NATS extension"
+home = "https://github.com/luxms/pgnats"
+description = "PostgreSQL extension for bidirectional NATS communications: Key/Value, Pub/Sub, Object Store, JetStream."
+support = "Community"
+[[addons.pgnats.authors]]
+author = "Luxms Group"
+authorHome = "https://luxmsbi.com"
+
+
 [addons.prometheus]
 name = "NATS Prometheus Exporter"
 home = "https://github.com/nats-io/prometheus-nats-exporter"
@@ -503,10 +513,19 @@ support = "Community"
 author = "Yuna Morgenstern"
 authorHome = "https://github.com/YunaBraska"
 
+[addons.symfony_messenger_nats_bridge]
+name = "Symfony/Messenger NATS Bridge"
+home = "https://github.com/ideaconnect/symfony-nats-messenger"
+description = "The PHP Symfony NATS Messenger Bridge, enables the integration of NATS as the queuing mechanism for asynchronous operations."
+support = "Community"
+[[addons.symfony_messenger_nats_bridge.authors]]
+author = "IDCT Bartosz Pachołek"
+authorHome = "https://idct.tech/"
+
 [addons.synadia_ngs]
-name = "Synadia NGS"
+name = "Synadia Cloud"
 home = "https://www.synadia.com/cloud"
-description = "NGS is a global communications system built on NATS.io."
+description = "A global, extensible, multi-cloud NATS platform with an easy-to-use admin portal and API, all fully managed by Synadia."
 support = "Community"
 [[addons.synadia_ngs.authors]]
 author = "Synadia"

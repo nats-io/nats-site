@@ -637,3 +637,21 @@ name = "Zephyr"
 home = "https://www.zephyrproject.org"
 logo = "zephyr.png"
 rank = 103
+
+[companies.anydb]
+name = "AnyDB"
+home = "https://www.anydb.com/"
+logo = "anyDB.png"
+rank = 104
+
+[companies.siden]
+name = "Siden.io"
+home = "https://siden.io/"
+logo = "siden.png"
+rank = 105
+
+[companies.phaseshift]
+name = "Phaseshift"
+home = "https://www.phaseshiftdata.com/"
+logo = "phaseshift.png"
+rank = 106
