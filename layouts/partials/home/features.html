@@ -38,6 +38,47 @@
       display: none !important;
     }
   }
+
+  /* Tab hover effects */
+  .carousel-tab {
+    background: #f5f5f5 !important;
+    border: none !important;
+    padding: 0 0.5rem !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .carousel-tab:hover {
+    color: #27aae1 !important;
+  }
+
+  /* Dot indicators */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .carousel-dot:hover {
+    background: #a3d4f0;
+    transform: scale(1.2);
+  }
+
+  .carousel-dot.active {
+    background: #27aae1;
+    transform: scale(1.2);
+  }
 </style>
 
 <section class="section is-light" id="learn-more">
@@ -159,6 +200,13 @@
         </div>
       </div>
 
+      <!-- Dot indicators -->
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+      </div>
+
     </div>
 
     <!-- Mobile Layout (stacked) -->
@@ -245,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.carousel-track');
   const slides = document.querySelectorAll('.carousel-slide');
   const tabsContainer = document.querySelector('.carousel-tabs');
+  const dots = document.querySelectorAll('.carousel-dot');
   let currentSlide = 0;
 
   const tabData = [
@@ -260,12 +309,18 @@ document.addEventListener('DOMContentLoaded', function() {
     tabData.forEach((tab, index) => {
       const isActive = tab.slide === currentSlide;
       const button = document.createElement('button');
-      button.className = 'carousel-tab';
+      button.className = 'carousel-tab' + (isActive ? ' active' : '');
       button.dataset.slide = tab.slide;
-      button.style.cssText = `background: #f5f5f5; border: none; color: ${isActive ? '#27aae1' : '#a3d4f0'}; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;`;
+      button.style.cssText = `color: ${isActive ? '#27aae1' : '#a3d4f0'}; cursor: pointer; font-weight: bold; font-size: 1.1rem; white-space: nowrap;`;
       button.textContent = tab.name;
       button.addEventListener('click', () => goToSlide(tab.slide));
       tabsContainer.appendChild(button);
+    });
+  }
+
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
     });
   }
 
@@ -276,10 +331,19 @@ document.addEventListener('DOMContentLoaded', function() {
     currentSlide = index;
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
     renderTabs();
+    updateDots();
   }
+
+  // Initialize dots click handlers
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      goToSlide(parseInt(dot.dataset.slide));
+    });
+  });
 
   // Initial render
   renderTabs();
+  updateDots();
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
