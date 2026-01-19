@@ -156,17 +156,45 @@
     }
   }
 
-  /* Scale up specific compact logos */
-  img[src*="nvidia"], img[src*="replit"], img[src*="capitalone"] {
+  /* Logo scaling for visual balance */
+
+  /* Scale up compact logos */
+  img[src*="nvidia"], img[src*="capitalone"] {
     transform: scale(1.4);
   }
+  img[src*="replit"] {
+    transform: scale(1.8);
+  }
   img[src*="activision"] {
-    transform: scale(2.75);
+    transform: scale(3.0);
+  }
+  img[src*="tinder"] {
+    transform: scale(1.5);
   }
 
-  /* Scale down specific wide logos */
+  /* Scale down wide logos */
   img[src*="paloalto"], img[src*="inference"], img[src*="siemens"], img[src*="schaeffler"], img[src*="form3"] {
     transform: scale(0.85);
+  }
+
+  /* Automotive & Industrial - scale down wide logos */
+  img[src*="rivian"], img[src*="machinemetrics"], img[src*="volvo"], img[src*="wirelesscar"] {
+    transform: scale(0.8);
+  }
+
+  /* Energy */
+  img[src*="eviny"] {
+    transform: scale(1.5);
+  }
+
+  /* Telecom */
+  img[src*="att"] {
+    transform: scale(1.4);
+  }
+
+  /* Tech & Cloud */
+  img[src*="vmware"], img[src*="netlify"], img[src*="gitlab"] {
+    transform: scale(1.4);
   }
 </style>
 
@@ -179,10 +207,12 @@
         <!-- Industry filter tabs -->
         <div class="industry-filters-wrapper">
           <div class="industry-filters" id="industry-filters">
-            <button class="industry-tab active" data-industry="automotive">Automotive & Industrial</button>
+            <button class="industry-tab active" data-industry="ai">AI</button>
+            <button class="industry-tab" data-industry="automotive">Automotive & Industrial</button>
+            <button class="industry-tab" data-industry="energy">Energy</button>
             <button class="industry-tab" data-industry="financial">Financial Services</button>
-            <button class="industry-tab" data-industry="telecom">Telecom & Media</button>
             <button class="industry-tab" data-industry="tech">Tech & Cloud</button>
+            <button class="industry-tab" data-industry="telecom">Telecom & Media</button>
             <button class="industry-tab" data-industry="retail">Retail & Consumer</button>
           </div>
           <div class="scroll-indicator" id="scroll-indicator">
@@ -191,6 +221,8 @@
             <span class="scroll-dot" data-index="2"></span>
             <span class="scroll-dot" data-index="3"></span>
             <span class="scroll-dot" data-index="4"></span>
+            <span class="scroll-dot" data-index="5"></span>
+            <span class="scroll-dot" data-index="6"></span>
           </div>
         </div>
 
@@ -235,7 +267,19 @@
 </section>
 
 <script>
+// Auto-rotate state (global so toggleLogos can access it)
+let autoRotateInterval = null;
+
+function stopAutoRotate() {
+  if (autoRotateInterval) {
+    clearInterval(autoRotateInterval);
+    autoRotateInterval = null;
+  }
+}
+
 function toggleLogos() {
+  stopAutoRotate(); // Stop auto-rotate when user expands logos
+
   const hiddenLogos = document.querySelectorAll('.hidden-logo');
   const button = document.getElementById('toggle-logos-btn');
   const isExpanded = button.getAttribute('data-expanded') === 'true';
@@ -379,14 +423,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Track current industry for resize handler
-  let currentIndustry = 'automotive';
+  let currentIndustry = 'ai';
+  const industries = ['ai', 'automotive', 'energy', 'financial', 'tech', 'telecom', 'retail'];
+  let currentIndex = 0;
 
-  // Filter on page load (default to automotive)
-  filterByIndustry('automotive', null);
+  // Auto-rotate through industries every 4 seconds
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % industries.length;
+      currentIndustry = industries[currentIndex];
+      filterByIndustry(currentIndustry, null);
+    }, 4000);
+  }
+
+  // Filter on page load (default to ai)
+  filterByIndustry('ai', null);
+  startAutoRotate();
 
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
+      stopAutoRotate(); // Stop auto-rotate when user interacts
       currentIndustry = this.getAttribute('data-industry');
+      currentIndex = industries.indexOf(currentIndustry);
       filterByIndustry(currentIndustry, this);
     });
   });

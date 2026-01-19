@@ -17,13 +17,13 @@ name = "Siemens"
 home = "https://www.siemens.com"
 logo = "siemens.svg"
 rank = 4
-industry = "automotive"
+industry = "energy"
 
 [companies.vmware]
 name = "VMware"
 home = "https://www.vmware.com/"
 logo = "vmware.jpg"
-rank = 100
+rank = 21
 industry = "tech"
 
 [companies.pivotal]
@@ -37,7 +37,7 @@ name = "GE"
 home = "https://www.ge.com/"
 logo = "GE-Logo.png"
 rank = 2
-industry = "automotive"
+industry = "energy"
 
 [companies.baidu]
 name = "Baidu"
@@ -57,14 +57,14 @@ industry = "tech"
 name = "Netlify"
 home = "https://www.netlify.com"
 logo = "netlify.jpg"
-rank = 102
+rank = 23
 industry = "tech"
 
 [companies.activision]
 name = "Activision Blizzard"
 home = "https://www.activisionblizzard.com/"
 logo = "activision-blizzard.png"
-rank = 9
+rank = 7
 industry = "retail"
 
 [companies.telia]
@@ -111,7 +111,7 @@ name = "Duke Energy"
 home = "https://www.duke-energy.com/home"
 logo = "duke.png"
 rank = 7
-industry = "retail"
+industry = "energy"
 
 [companies.schaeffler]
 name = "Schaeffler"
@@ -152,8 +152,7 @@ industry = "telecom"
 name = "Alibaba Group"
 home = "https://alibaba.com"
 logo = "alibaba.png"
-rank = 14
-industry = "financial"
+rank = 104
 
 [companies.qlik]
 name = "Qlik"
@@ -257,7 +256,8 @@ rank = 39
 name = "Cabify"
 home = "https://cabify.tech/"
 logo = "cabify.png"
-rank = 40
+rank = 9
+industry = "retail"
 
 [companies.whiteprompt]
 name = "Whiteprompt"
@@ -308,10 +308,11 @@ logo = "loungeup.jpg"
 rank = 48
 
 [companies.deutsche-boerse]
-name = "Deutsche Böerse Group"
+name = "Deutsche Börse Group"
 home = "https://deutsche-boerse.com/dbg-en/"
 logo = "deutsche_borse.png"
-rank = 49
+rank = 14
+industry = "financial"
 
 [companies.aurora]
 name = "Aurora"
@@ -560,8 +561,8 @@ rank = 89
 name = "Inference"
 home = "https://inference.net/"
 logo = "inference.png"
-rank = 25
-industry = "tech"
+rank = 2
+industry = "ai"
 
 [companies.bluej]
 name = "blueJ"
@@ -615,15 +616,15 @@ rank = 98
 name = "NVIDIA"
 home = "https://www.nvidia.com/"
 logo = "nvidia.svg"
-rank = 21
-industry = "tech"
+rank = 3
+industry = "ai"
 
 [companies.replit]
 name = "Replit"
 home = "https://replit.com/"
 logo = "replit.svg"
-rank = 23
-industry = "tech"
+rank = 1
+industry = "ai"
 
 [companies.form3]
 name = "Form3"
@@ -655,3 +656,52 @@ name = "Phaseshift"
 home = "https://www.phaseshiftdata.com/"
 logo = "phaseshift.png"
 rank = 106
+
+[companies.powerflex]
+name = "PowerFlex"
+home = "https://www.powerflex.com/"
+logo = "powerflex.svg"
+rank = 3
+industry = "energy"
+
+[companies.eviny]
+name = "Eviny"
+home = "https://www.eviny.no/"
+logo = "eviny.svg"
+rank = 6
+industry = "energy"
+
+[companies.machinemetrics]
+name = "MachineMetrics"
+home = "https://www.machinemetrics.com/"
+logo = "machinemetrics.svg"
+rank = 2
+industry = "automotive"
+
+[companies.wirelesscar]
+name = "WirelessCar"
+home = "https://www.wirelesscar.com/"
+logo = "wirelesscar.svg"
+rank = 4
+industry = "automotive"
+
+[companies.browserbase]
+name = "Browserbase"
+home = "https://www.browserbase.com/"
+logo = "browserbase.svg"
+rank = 5
+industry = "ai"
+
+[companies.uniphore]
+name = "Uniphore"
+home = "https://www.uniphore.com/"
+logo = "uniphore.svg"
+rank = 4
+industry = "ai"
+
+[companies.gitlab]
+name = "GitLab"
+home = "https://about.gitlab.com/"
+logo = "gitlab.svg"
+rank = 25
+industry = "tech"
