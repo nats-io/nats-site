@@ -1,22 +1,368 @@
 {{ $features := site.Params.features }}
-<section class="section is-light">
+<style>
+  /* Mobile styles - stack content vertically */
+  @media (max-width: 999px) {
+    .features-carousel-wrapper {
+      display: none !important;
+    }
+    .features-mobile {
+      display: block !important;
+    }
+    .features-mobile-section {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #27aae1;
+    }
+    .features-mobile-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .features-mobile-section h3 {
+      color: #27aae1;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .features-mobile-section .diagram {
+      display: none !important;
+    }
+    .features-mobile-section .diagram img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Desktop styles - show carousel */
+  @media (min-width: 1000px) {
+    .features-mobile {
+      display: none !important;
+    }
+  }
+
+  /* Tab hover effects */
+  .carousel-tab {
+    background: #f5f5f5 !important;
+    border: none !important;
+    padding: 0 0.5rem !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .carousel-tab:hover {
+    color: #27aae1 !important;
+  }
+
+  /* Dot indicators */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .carousel-dot:hover {
+    background: #a3d4f0;
+    transform: scale(1.2);
+  }
+
+  .carousel-dot.active {
+    background: #27aae1;
+    transform: scale(1.2);
+  }
+</style>
+
+<section class="section is-light" id="learn-more">
   <div class="container has-extra-top-margin has-extra-bottom-margin">
-    <div class="columns is-multiline is-variable is-6">
-      {{ range $features }}
-      <div class="column is-centered is-one-third">
-        {{ partial "home/feature.html" . }}
+
+    <!-- Carousel Box Container (Desktop) -->
+    <div class="features-box features-carousel-wrapper" style="max-width: 1100px; margin: 0 auto; margin-top: 1.5rem; border: 3px solid #27aae1; border-radius: 8px; background: #f5f5f5; padding: 2rem; position: relative;">
+
+      <!-- Tab Navigation - positioned on top of border -->
+      <div class="carousel-tabs" style="position: absolute; top: -0.85rem; left: 1.5rem; right: 1rem; display: flex; align-items: center; gap: 1.5rem;">
+        <button class="carousel-tab" data-slide="0" style="background: #f5f5f5; border: none; color: #27aae1; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">What is NATS?</button>
+        <button class="carousel-tab" data-slide="1" style="background: #f5f5f5; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">Why NATS</button>
+        <button class="carousel-tab" data-slide="2" style="background: #f5f5f5; border: none; color: #a3d4f0; cursor: pointer; font-weight: bold; font-size: 1.1rem; padding: 0 0.5rem; white-space: nowrap;">Where NATS Thrives</button>
       </div>
-      {{ end }}
+
+      <!-- Carousel Container -->
+      <div class="features-carousel" style="position: relative; overflow: hidden;">
+
+        <!-- Carousel Track -->
+        <div class="carousel-track" style="display: flex; transition: transform 0.4s ease-in-out;">
+
+        <!-- Slide 1: What is NATS -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6">
+                  NATS is a high-performance, lightweight, open-source messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.<br><br>
+                  It supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.<br><br>
+                  Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#what-is-nats" class="has-text-weight-bold" style="color: #27aae1;">High performance? Lightweight? →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram -->
+            <div style="flex: 1; display: flex; flex-direction: column; background: #d4e9f7; border-radius: 6px; padding: 1rem; position: relative;">
+              <div style="color: #27aae1; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Publish Subscribe</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div
+                  class="nats-flow"
+                  data-component="PublishSubscribeAnimated"
+                  data-width="500"
+                  data-height="290"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Why NATS -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6">
+                  NATS was built on intentional design choices: location independence, many-to-many communication, and an async-first model.<br><br>
+                  These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, queueing, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
+                  The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#why-nats" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram -->
+            <div style="flex: 1; display: flex; flex-direction: column; background: #d4e9f7; border-radius: 6px; padding: 1rem; position: relative;">
+              <div style="color: #27aae1; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Request Reply Queue Group</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div
+                  class="nats-flow"
+                  data-scenario="requestReplyQueueGroup"
+                  data-width="500"
+                  data-height="290"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Where NATS Thrives -->
+        <div class="carousel-slide" style="min-width: 100%; padding: 0;">
+          <div style="display: flex; gap: 2rem; min-height: 350px;">
+            <!-- Left column: Content -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div class="content" style="flex-grow: 1;">
+                <p class="is-size-6">
+                  NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.<br><br>
+                  NATS also excels at the edge: on low-resource devices, across fleets of vehicles, or anywhere computing moves closer to users. The same connective layer works consistently, no matter the environment.<br><br>
+                  With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
+                </p>
+              </div>
+              <div style="text-align: left; margin-top: 1rem;">
+                <a href="/about#where-nats-thrives" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+              </div>
+            </div>
+            <!-- Right column: Architecture diagram -->
+            <div style="flex: 1; display: flex; flex-direction: column; background: #d4e9f7; border-radius: 6px; padding: 1rem; position: relative;">
+              <div style="color: #27aae1; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Cloud Supercluster + Edge Leaf Nodes</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <div
+                  class="nats-flow"
+                  data-scenario="superclusterLeafNodes"
+                  data-width="500"
+                  data-height="290"
+                  data-padding="0.05"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+      <!-- Dot indicators -->
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+      </div>
+
     </div>
-    <div class="columns is-centered has-extra-top-margin">
+
+    <!-- Mobile Layout (stacked) -->
+    <div class="features-mobile" style="display: none; max-width: 1100px; margin: 0 auto; padding: .25rem 1rem 0 1rem;">
+
+      <!-- Section 1: What is NATS? -->
+      <div class="features-mobile-section">
+        <h3>What is NATS?</h3>
+        <div class="content">
+          <p class="is-size-6">
+            NATS is a high-performance, lightweight, open-source messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.<br><br>
+            It supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.<br><br>
+            Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack.
+          </p>
+        </div>
+        <div class="diagram">
+          <div 
+            class="nats-flow" 
+            data-scenario="publishSubscribe"
+            data-width="600"
+            data-height="400"
+            data-show-controls="false"
+            style="width: 100%; max-width: 600px; margin: 0 auto;">
+          </div>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/about#what-is-nats" class="has-text-weight-bold" style="color: #27aae1;">High performance? Lightweight? →</a>
+        </div>
+      </div>
+
+      <!-- Section 2: Why NATS -->
+      <div class="features-mobile-section">
+        <h3>Why NATS</h3>
+        <div class="content">
+          <p class="is-size-6">
+            NATS was built on intentional design choices: location independence, many-to-many communication, and an async-first model.<br><br>
+            These principles shape how NATS works across environments—from a single process to global systems. Core communication and data patterns emerge naturally. Pub/sub, request/reply, queueing, streaming, key-value, and object storage all operate within the same system, without extra infra or fragile abstractions.<br><br>
+            The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
+          </p>
+        </div>
+        <div class="diagram">
+          <span style="color: #27aae1; font-weight: bold;">Architecture Diagram Placeholder</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/about#why-nats" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Section 3: Where NATS Thrives -->
+      <div class="features-mobile-section">
+        <h3>Where NATS Thrives</h3>
+        <div class="content">
+          <p class="is-size-6">
+            NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.<br><br>
+            NATS also excels at the edge: on low-resource devices, across fleets of vehicles, or anywhere computing moves closer to users. The same connective layer works consistently, no matter the environment.<br><br>
+            With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
+          </p>
+        </div>
+        <div class="diagram">
+          <span style="color: #27aae1; font-weight: bold;">Architecture Diagram Placeholder</span>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/about#where-nats-thrives" class="has-text-weight-bold" style="color: #27aae1;">Learn More →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
       <a class="button is-normal is-primary has-text-weight-bold" href="/support">
-      <span class="icon">
+        <span class="icon">
           <i class="far fa-comments"></i>
         </span>
-      <span>
+        <span>
           Talk with an Expert
         </span>
       </a>
-      </div>
+    </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const tabsContainer = document.querySelector('.carousel-tabs');
+  const dots = document.querySelectorAll('.carousel-dot');
+  let currentSlide = 0;
+
+  const tabData = [
+    { name: 'What is NATS?', slide: 0 },
+    { name: 'Why NATS', slide: 1 },
+    { name: 'Where NATS Thrives', slide: 2 }
+  ];
+
+  function renderTabs() {
+    // Clear and rebuild tabs
+    tabsContainer.innerHTML = '';
+
+    tabData.forEach((tab, index) => {
+      const isActive = tab.slide === currentSlide;
+      const button = document.createElement('button');
+      button.className = 'carousel-tab' + (isActive ? ' active' : '');
+      button.dataset.slide = tab.slide;
+      button.style.cssText = `color: ${isActive ? '#27aae1' : '#a3d4f0'}; cursor: pointer; font-weight: bold; font-size: 1.1rem; white-space: nowrap;`;
+      button.textContent = tab.name;
+      button.addEventListener('click', () => goToSlide(tab.slide));
+      tabsContainer.appendChild(button);
+    });
+  }
+
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    currentSlide = index;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    renderTabs();
+    updateDots();
+  }
+
+  // Initialize dots click handlers
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      goToSlide(parseInt(dot.dataset.slide));
+    });
+  });
+
+  // Initial render
+  renderTabs();
+  updateDots();
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+    if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) goToSlide(currentSlide + 1);
+    if (touchEndX - touchStartX > 50) goToSlide(currentSlide - 1);
+  });
+});
+</script>

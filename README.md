@@ -171,6 +171,37 @@ If you are a production end user of NATS and would like your company logo displa
 
 ---
 
+## NatsFlow Interactive Diagrams
+
+The NATS site includes interactive diagrams built with React Flow that visualize NATS messaging patterns. These diagrams are embedded throughout the site to help users understand concepts like publish-subscribe, request-reply, and other NATS messaging patterns.
+
+### Development and Usage
+
+The interactive diagrams are built and maintained in the `natsflow-react/` directory. This is a standalone React project that can be developed independently and then bundled for use in the Hugo static site.
+
+For detailed information on:
+- Building and developing the diagrams
+- Adding new scenarios
+- Embedding diagrams in pages
+- Customizing diagram behavior
+
+Please refer to the [NatsFlow React README](./natsflow-react/README.md).
+
+### Quick Build
+
+To rebuild the NatsFlow diagrams after making changes:
+
+```bash
+cd natsflow-react
+npm install
+npm run build:lib
+npm run build:copy
+```
+
+This will build the library and copy the bundled assets to the Hugo `static/` directory.
+
+---
+
 ## Local Development
 
 You can either use docker image for your local development or install requirements following this documentation.
