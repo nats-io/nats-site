@@ -705,3 +705,10 @@ home = "https://about.gitlab.com/"
 logo = "gitlab.svg"
 rank = 25
 industry = "tech"
+
+[companies.osc]
+name = "OSC"
+home = "https://www.osc.no/"
+logo = "osc.svg"
+rank = 112
+industry = "tech"
