@@ -80,7 +80,6 @@
     }
 
     $(document).ready(function() {
-        checkTrack();
         $('.js-tooltip').tooltip({container: "body"});
         $('.js-copy').click(function() {
             var el = $(this);
@@ -119,10 +118,6 @@
         setTimeout(function() {
             processGraphVizSections();
         }, 1);
-    });
-
-    $('#priv').on('click', function(e) {
-        openPrivacy();
     });
 </script>
 
