@@ -678,13 +678,6 @@ logo = "machinemetrics.svg"
 rank = 2
 industry = "automotive"
 
-[companies.wirelesscar]
-name = "WirelessCar"
-home = "https://www.wirelesscar.com/"
-logo = "wirelesscar.svg"
-rank = 4
-industry = "automotive"
-
 [companies.browserbase]
 name = "Browserbase"
 home = "https://www.browserbase.com/"
