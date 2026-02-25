@@ -605,6 +605,15 @@ support = "Community"
 author = "Qaze"
 authorHome = "https://qaze.app/"
 
+[addons.nats-desktop]
+name = "NATS Desktop"
+home = "https://github.com/thedataflows/nats-desktop"
+description = "NATS Dekstop is a GUI alternative to the official NATS cli"
+support = "Community"
+[[addons.nats-desktop.authors]]
+author = "DataFlows"
+authorHome = "https://thedataflows.com/"
+
 [addons.nui]
 name = "NUI"
 home = "https://natsnui.app"
