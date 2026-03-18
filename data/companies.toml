@@ -712,3 +712,10 @@ home = "https://tabaarakict.com/"
 logo = "tabaarak.svg"
 rank = 113
 industry = "tech"
+
+[companies.astrolle]
+name = "Astrolle"
+home = "https://astrolle.com/"
+logo = "astrolle.webp"
+rank = 114
+industry = "tech"
