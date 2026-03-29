@@ -4,7 +4,7 @@
 
 
 <ul class="list-unstyled row">
-    {{ range .Site.Data }}
+    {{ range hugo.Data }}
     {{ range .events }}
 
     <li class="col-sm-12">
@@ -22,7 +22,7 @@
 </ul>
 
     <ul class="list-unstyled row">
-        {{ range .Site.Data }}
+        {{ range hugo.Data }}
         {{ range .icymi }}
 
     <li class="col-sm-12">

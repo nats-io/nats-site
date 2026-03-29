@@ -1,4 +1,4 @@
-{{ $lang       := site.LanguageCode }}
+{{ $lang       := site.Language.Locale }}
 {{ $isDownload := eq .Section "download" }}
 <!DOCTYPE html>
 <html{{ with $lang }} lang="{{ . }}"{{ end }}>

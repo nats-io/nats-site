@@ -1,5 +1,5 @@
 baseURL = "https://nats.io/"
-languageCode = "en-us"
+locale = "en-us"
 defaultLanguage = "en"
 title = "NATS.io"
 

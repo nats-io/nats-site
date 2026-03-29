@@ -1,7 +1,7 @@
 {{/* Template for the client listing on every page in the /download domain */}}
 
 {{ $isMain  := eq $.Page.Title "Download" }}
-{{ $clients := site.Data.clients }} {{/* All clients */}}
+{{ $clients := hugo.Data.clients }} {{/* All clients */}}
 {{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $clients }}
 {{ $this := . }}
