@@ -221,14 +221,14 @@ cd nats-site/
 
 Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node). 
 
-> Building the NATS site/documentation currently requires Hugo version 0.80 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
+> Building the NATS site/documentation currently requires Hugo version 0.159.0 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
 
 #### Building the Site
 
 See the [Makefile](./Makefile) for run commands. If the `Makefile` doesn't work, try the following:
 - `npm install`
-- Go to [https://github.com/gohugoio/hugo/releases/tag/v0.80.0](https://github.com/gohugoio/hugo/releases/tag/v0.80.0) and download the extended version of `hugo`. This is the version specified in the [netlify.toml](./netlify.toml) file.
+- Go to https://github.com/gohugoio/hugo/releases/tag/v0.159.1 and download the extended version of `hugo`. This is the version specified in the [netlify.toml](./netlify.toml) file.
 - Extract the ZIP file you downloaded and move the `hugo` executable to the `nats-site` project directory
 - Add the project directory to your PATH like `export PATH="$HOME/[insertPathHere]/nats-site:$PATH"`
 - Run `hugo server`

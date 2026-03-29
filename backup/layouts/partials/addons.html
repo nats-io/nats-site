@@ -11,7 +11,7 @@
         </thead>
         <tbody>
 
-        {{ range .Site.Data }}
+        {{ range hugo.Data }}
         {{ range .addons }}
             <tr>
                 <td><a href="{{ .home }}" target="_blank">{{ .name }}</a></td>
