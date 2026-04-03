@@ -12,7 +12,7 @@ Deduplication of messages is a key NATS JetStream feature needed by the LinuxFor
 While messaging from a smart contract is desirable, every blockchain node runs the same smart contract and, as such, will publish the same NATS message.  Thus, deduplication is a necessity.  The remainder of this post explains the LinuxForHealth blockchain solution flow and the NATS JetStream configuration that enabled it.
 
 ## Solution Data Flows
-LinuxForHealth handles healthcare protocol validation, data syncronization and secure transmission of healthcare data to downstream servers and includes a blockchain client.  An example deployment is shown below.
+LinuxForHealth handles healthcare protocol validation, data synchronization and secure transmission of healthcare data to downstream servers and includes a blockchain client.  An example deployment is shown below.
 
 {{< figure src="/img/blog/NATS-JetStream-DeDuplication-For-LFH/LFH-NATS-Arch.png" alt="LinuxForHealth NATS Architecture" >}}
 
