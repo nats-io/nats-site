@@ -563,3 +563,15 @@ author = "g41797"
 link = "https://github.com/g41797/nats"
 release_version = "0.0.4"
 release_date = "2025-05-17"
+
+[language.laravel]
+name = "Laravel"
+[[language.laravel.orgs]]
+org = "zaeem2396"
+repo = "laravel-nats"
+supported = false
+jetstream_support = true
+author = "Zaeem Ansari"
+link = "https://github.com/zaeem2396/laravel-nats"
+release_version = "1.5.0"
+release_date = "2026-03-31"
