@@ -719,3 +719,10 @@ home = "https://astrolle.com/"
 logo = "astrolle.webp"
 rank = 114
 industry = "tech"
+
+[companies.degould]
+name = "DeGould"
+home = "https://www.degould.com/"
+logo = "degould.svg"
+rank = 115
+industry = "automotive"
