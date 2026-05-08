@@ -726,3 +726,10 @@ home = "https://www.degould.com/"
 logo = "degould.svg"
 rank = 115
 industry = "automotive"
+
+[companies.ghostlabs]
+name = "Ghost Labs"
+home = "https://ghostoracle.io/"
+logo = "ghostlabs.png"
+rank = 107
+industry = "tech"
