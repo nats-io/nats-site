@@ -252,13 +252,17 @@ $colors: mergeColorMaps(("primary-dark": ($nats-dark-blue, $white), "light-green
   justify-content: center
   height: 120px      /* same visual "box" for all logos */
 
+  > a
+    display: block
+    width: 100%
+
 /* Make logos uniform size */
-.is-user-logo 
-  max-height: 45px   /* adjust as needed */
+.is-user-logo
+  max-height: 45px
   max-width: 100%
   object-fit: contain
   display: block
-  margin: 2 auto    /* centers logo */
+  margin: 0 auto
 
   // fallback for SVGs without intrinsic size
   &[src$=".svg"]
