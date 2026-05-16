@@ -12,6 +12,11 @@ Here, we'll look at one specific case, and how to recover from it.
 
 <!--more-->
 
+> **Note on nats-server 2.12+:** This recovery procedure was the sanctioned path on nats-server 2.10 and 2.11.
+> As of 2.12.0 ([PR #7038][pr-7038]), the scale-up recovery path no longer works:
+> a fresh empty node can no longer force itself into the peer set, so the meta election never passes.
+> If you are running 2.12 or later, see [Recovery on 2.12 and Later](#recovery-on-212-and-later) below.
+
 # Context
 
 ## How To Rename Servers in a Cluster
@@ -35,6 +40,10 @@ helm release, you'll cause all of the servers in the cluster to be simultaneousl
 This will double the number of recorded servers in the cluster (half with the old name, and
 half with the new name, per the changed `serverNamePrefix`).
 Consequently, there will not be enough servers active in the cluster to retain quorum.
+
+On nats-server 2.12 and later, reverting the `serverNamePrefix` change does **not** unbrick the cluster on its own.
+The original-named pods have to actually come back online -- empty disks are fine, but the names must match -- for the meta election to pass.
+See [Recovery on 2.12 and Later](#recovery-on-212-and-later) below.
 
 ## A Case Study
 
@@ -137,7 +146,67 @@ nats: error: nats: no servers available for connection
 command terminated with exit code 1
 ```
 
-# How To Recover
+# Recovery on 2.12 and Later
+
+On 2.12 and later, the scale-up recovery path no longer works.
+A fresh empty node can no longer force itself into the peer set on first contact (see [PR #7038][pr-7038]),
+so adding a new node to a cluster that has lost quorum will not trigger a meta election.
+
+The safe recovery path is to **bring the renamed (or downed) nodes back under their original names**.
+The cluster recognizes peers by name; restoring the original names is what re-establishes quorum.
+
+## Revert the Rename
+
+For the canonical case in this article (a bulk rename caused by changing `serverNamePrefix`),
+revert the change in `values.yaml` and upgrade the helm release:
+
+```sh
+$ helm upgrade <release-name> nats/nats -f values.yaml
+```
+
+A `helm upgrade` updates the StatefulSet template in place without deleting pods, so the existing
+PVCs stay attached and the originally-named pods come back with their original JetStream data intact.
+Once the originally-named nodes are online, the meta election succeeds and quorum is regained.
+
+Verify with:
+
+```sh
+$ nats server report jetstream
+```
+
+Once a leader is elected, clean up any stale peer entries left over from the failure
+(see [Clean Up Stale Peers](#clean-up-stale-peers) below).
+
+## When the Original Disks Are Wiped
+
+If the PVCs were deleted or the storage was destroyed but the hostnames can be reused,
+bring the originally-named nodes back with empty disks.
+On 2.12+, a peer with an empty disk uses an "empty vote" (introduced by [PR #7038][pr-7038])
+that only counts when **all** peers in the original set vote, so every originally-named node
+has to be available at the same time for the leader election to pass.
+If even one original peer cannot come back, this path is also blocked.
+
+## Clean Up Stale Peers
+
+After quorum is restored, the meta group may still list peer entries left over from the failure
+(for example, the new-prefix server names that were added before the rename was reverted).
+Remove them with `peer-remove`, using the peer ID from `nats server report jetstream`:
+
+```sh
+$ nats server cluster peer-remove -f <peer ID>
+```
+
+## When Original Names Cannot Be Reclaimed
+
+If the original hostnames cannot be brought back at all (machines truly destroyed, names
+unrecoverable), there is no in-product recovery path on 2.12 and later at the time of writing.
+Restore from backup.
+
+# Recovery on 2.10 and 2.11
+
+The procedure below relies on the pre-2.12 behavior where a fresh empty node could force itself
+into the peer set on first contact; that path is closed on 2.12 and later
+(see the note at the top and [Recovery on 2.12 and Later](#recovery-on-212-and-later)).
 
 ## Regain Quorum
 
@@ -236,7 +305,7 @@ $ nats server cluster peer-remove -f G7oD67bf
 
 Finally, the state of the cluster should be restored now, with three servers.
 
-## About The Author
+# About The Author
 
 John Weldon is a Customer Solutions Architect at [Synadia Communications](https://www.synadia.com?utm_source=nats_io&utm_medium=nats).
 
@@ -252,6 +321,7 @@ John Weldon is a Customer Solutions Architect at [Synadia Communications](https:
 
 [^nodes]: NATS Servers are also called "nodes" - sometimes interchangeably.
 
+[pr-7038]: https://github.com/nats-io/nats-server/pull/7038 "PR #7038 -- NRG: Empty log protection"
 [helm-chart]: https://github.com/nats-io/k8s/blob/main/helm/charts/nats/README.md "HELM Chart README"
 [values.yaml]: https://github.com/nats-io/k8s/blob/main/helm/charts/nats/values.yaml "default values.yaml"
 [serverNamePrefix]: https://github.com/nats-io/k8s/blob/2ce9a408f17b823d51223e04e806b73cead51993/helm/charts/nats/values.yaml#L273 "in the default values.yaml"
