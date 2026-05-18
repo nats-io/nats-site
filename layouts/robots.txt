@@ -1,0 +1,52 @@
+User-agent: *
+Allow: /
+
+# AI content usage preferences (Content Signals)
+# https://contentsignals.org/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# OpenAI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI crawler
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Amazon crawler
+User-agent: Amazonbot
+Allow: /
+
+# Meta crawler
+User-agent: FacebookBot
+Allow: /
+
+# Apple crawler
+User-agent: Applebot-Extended
+Allow: /
+
+# Disallow pure training scrapers
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}
