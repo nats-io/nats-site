@@ -2,17 +2,17 @@
 categories = ["Engineering"]
 date = "2026-05-25"
 tags = ["NATS", "AI", "Agents"]
-title = "A NATS-native protocol for AI agents"
+title = "What's old is new: A NATS-native protocol for AI agents"
 author = "Andrew Connolly"
 +++
 
-## What's old is new
+## A agent protocol for NATS
 
 Agent systems are becoming distributed systems, and NATS already solves many of the communication problems those systems are rediscovering.
 
-NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, NATS gives them a simple way to find and talk to one another. NATS provides a fabric that easily bridges different cloud vendors, geographies, runtimes, or hardware.
+NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, NATS gives them a simple way to find and talk to one another. NATS easily bridges different cloud vendors, geographies, runtimes, or hardware.
 
-These characteristics make NATS an obvious solution for multi-agent architectures. **If you set aside the AI language, agents have most of the same needs as microservices**:
+These traits make NATS an obvious solution for multi-agent architectures. **Set aside the AI language, and agents have most of the same needs as microservices**:
 
 * Discover peers and capabilities
 * Exchange messages across boundaries
@@ -20,7 +20,7 @@ These characteristics make NATS an obvious solution for multi-agent architecture
 * Coordinate work asynchronously
 * Avoid central bottlenecks
 
-And as organizations race to ship products and services enabled by agents (or build internal agentic workflows), **they aren’t building on one unified agent stack**. They’re mixing models, clouds, runtimes, private data, and physical environments that no layer of their stack can fully understand or control.
+And as orgs race to ship products and services enabled by agents (or build internal agentic workflows), **they aren’t building on one unified agent stack**. They’re mixing models, clouds, runtimes, private data, and physical environments that no layer of their stack can fully understand or control.
 
 > At production scale, agentic systems are distributed systems in a trench coat.
 
