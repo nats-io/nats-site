@@ -8,7 +8,7 @@ author = "Andrew Connolly"
 
 Agent systems are becoming distributed systems, and NATS already solves many of the communication problems those systems are rediscovering.
 
-NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, NATS gives them a simple way to find and talk to one another. And NATS easily bridges different cloud vendors, geographies, runtimes, or hardware.
+NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, it gives them a simple way to find and talk to one another. It also easily bridges different cloud vendors, geographies, runtimes, or hardware—with an integrated security model that naturally extends everywhere NATS does.
 
 These traits make NATS an obvious choice for multi-agent architectures. **Set aside the AI language, and agents have many of the same needs as microservices**:
 
