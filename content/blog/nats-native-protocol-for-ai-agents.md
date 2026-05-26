@@ -10,9 +10,9 @@ author = "Andrew Connolly"
 
 Agent systems are becoming distributed systems, and NATS already solves many of the communication problems those systems are rediscovering.
 
-NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, NATS gives them a simple way to find and talk to one another. NATS gives software engineers and architects a fabric that easily bridges different cloud vendors, geographies, runtimes, or hardware.
+NATS has long been a natural fit for distributed, heterogeneous systems. No matter where your devices run, what languages your services use, or how ephemeral your clients are, NATS gives them a simple way to find and talk to one another. NATS provides a fabric that easily bridges different cloud vendors, geographies, runtimes, or hardware.
 
-These characteristics make NATS an obvious solution for multi-agent architectures. If you set aside the AI language, agents have most of the same needs as microservices:
+These characteristics make NATS an obvious solution for multi-agent architectures. **If you set aside the AI language, agents have most of the same needs as microservices**:
 
 * Discover peers and capabilities
 * Exchange messages across boundaries
@@ -20,11 +20,15 @@ These characteristics make NATS an obvious solution for multi-agent architecture
 * Coordinate work asynchronously
 * Avoid central bottlenecks
 
-And as organizations race to ship products and services enabled by agents (or build internal agentic workflows), they aren’t building on one unified agent stack. They’re mixing models, clouds, runtimes, private data, and physical environments that no layer of their stack can fully understand or control.
+And as organizations race to ship products and services enabled by agents (or build internal agentic workflows), **they aren’t building on one unified agent stack**. They’re mixing models, clouds, runtimes, private data, and physical environments that no layer of their stack can fully understand or control.
 
-At production scale, agentic systems are distributed systems in a trench coat — and most teams are stuck gluing them together with HTTP or shoehorning everything into a vendor’s gateway or mesh.
+> At production scale, agentic systems are distributed systems in a trench coat.
 
-The open source [Synadia Agent Protocol for NATS](https://github.com/synadia-ai/synadia-agent-sdk-docs) lets agents of any kind be addressed on a single fabric. This new protocol on top of NATS isn’t an agent framework, or a runtime, or a product of any kind. It’s a contract that says: _if an agent does these few specific things, anything else on the same NATS system can find it and talk to it without knowing what framework you built the agent with_.
+And most teams are stuck gluing them together with HTTP or shoehorning everything into a vendor’s gateway or mesh.
+
+The open source [Synadia Agent Protocol for NATS](https://github.com/synadia-ai/synadia-agent-sdk-docs) lets agents of any kind be addressed on a single fabric. This new protocol on top of NATS isn’t an agent framework, or a runtime, or a product of any kind. It’s a contract that says:
+
+> _If an agent does these few specific things, anything else on the same NATS system can find it and talk to it without knowing what framework you built the agent with_.
 
 The payoff is that callers don't need to care whether an agent is a Python script, a hosted model wrapper, a CLI session, or a long-running service. They discover capabilities, send a prompt, receive a typed stream, and observe liveness the same way every time.
 
