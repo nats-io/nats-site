@@ -91,6 +91,16 @@ That's deliberately the same shape NATS itself takes. NATS handles subjects, hea
 
 The same way a NATS micro service today can be written in any language and consumed from any other, a compliant agent today can be a wrapped Claude Code session, a DSPy ReAct loop, a long-running daemon written in Go, or a one-shot Python script — and any caller that speaks the protocol can talk to all of them with the same code path.
 
+## What's not included (but might be soon)
+
+Some pieces are deliberately deferred to keep the initial version small. A few of the areas we expect to touch in upcoming extensions of the protocol:
+
+* a chunked `attachments` endpoint for large files
+* JetStream-backed at-least-once delivery
+* stronger per-agent identity
+* durable state and handoff
+* audit traces
+
 ## Where to find it
 
 Reference SDKs in TypeScript and Python implement the protocol, but the NATS CLI can speak it by hand and anything else that knows the rules can join the conversation.
