@@ -12,6 +12,10 @@
   "dependencies": {
     "anchor-js": "^4.2.2",
     "bulma": "^0.9.4",
-    "bulma-switch": "^2.0.0"
+    "bulma-switch": "^2.0.0",
+    "minimatch": "^10.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^10.4.1"
   }
 }
