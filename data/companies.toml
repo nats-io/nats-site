@@ -733,3 +733,10 @@ home = "https://ghostoracle.io/"
 logo = "ghostlabs.png"
 rank = 107
 industry = "tech"
+
+[companies.topicus]
+name = "Ghost Labs"
+home = "https://topicus.nl/"
+logo = "topicus.png"
+rank = 108
+industry = "tech"
