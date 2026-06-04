@@ -653,7 +653,7 @@ authorHome = "https://gitlab.com/sencillodev"
 [addons.nopa]
 name = "NOPA"
 home = "https://gitlab.com/sencillodev/nopa"
-description = "Store OPA bundles in NATs object storage and have the bundle updated in real time."
+description = "Store OPA bundles in NATS object storage and have the bundle updated in real time."
 support = "Community"
 [[addons.nopa.authors]]
 author = "John Hooks"
