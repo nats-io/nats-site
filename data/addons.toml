@@ -641,6 +641,24 @@ support = "Community"
 author = "Zeal"
 authorHome = "https://github.com/gogap"
 
+[addons.natssse]
+name = "NATSSSE"
+home = "https://gitlab.com/sencillodev/natssse"
+description = "A simple library to allow publishing, SSE subscriptions, request/reply, and KV operations over HTTP."
+support = "Community"
+[[addons.natssse.authors]]
+author = "John Hooks"
+authorHome = "https://gitlab.com/sencillodev"
+
+[addons.natssse]
+name = "NOPA"
+home = "https://gitlab.com/sencillodev/nopa"
+description = "Store OPA bundles in NATs object storage and have the bundle updated in real time."
+support = "Community"
+[[addons.natssse.authors]]
+author = "John Hooks"
+authorHome = "https://gitlab.com/sencillodev"
+
 #[addons.xxx]
 #name = ""
 #home = ""
