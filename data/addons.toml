@@ -650,12 +650,12 @@ support = "Community"
 author = "John Hooks"
 authorHome = "https://gitlab.com/sencillodev"
 
-[addons.natssse]
+[addons.nopa]
 name = "NOPA"
 home = "https://gitlab.com/sencillodev/nopa"
 description = "Store OPA bundles in NATs object storage and have the bundle updated in real time."
 support = "Community"
-[[addons.natssse.authors]]
+[[addons.nopa.authors]]
 author = "John Hooks"
 authorHome = "https://gitlab.com/sencillodev"
 
