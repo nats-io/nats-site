@@ -4,6 +4,7 @@ command = "make netlify-production-build"
 
 [build.environment]
 HUGO_VERSION = "0.80.0"
+NODE_VERSION = "20"
 
 [context.deploy-preview]
 command = "make netlify-preview-build"
