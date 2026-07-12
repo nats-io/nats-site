@@ -71,6 +71,18 @@ author = "Employee Republic"
 link = "https://github.com/employeerepublic/"
 release_date = "2017-05-11"
 
+[language.pure_clojure]
+name = "Pure Clojure"
+[[language.pure_clojure.orgs]]
+org = "lispyclouds"
+repo = "claxon"
+supported = false
+jetstream_support = true
+author = "Rahul De"
+link = "https://github.com/lispyclouds"
+release_date = "2026-07-02"
+release_version = "1.1"
+
 [language.net]
 name = ".NET"
 [[language.net.orgs]]
