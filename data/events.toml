@@ -1,10 +1,18 @@
 [[events]]
-venue = "KubeCon + CloudNativeCon Europe 2026"
-when = "March 23-26, 2026"
+venue = "Ignition Community Conference (ICC) 2026"
+when = "September 22-24, 2026"
 who = "TBD"
 what = "TBD"
-where = "Amsterdam, The Netherlands"
-ref = "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/"
+where = "Sacramento, CA"
+ref = "https://icc.inductiveautomation.com/"
+
+[[events]]
+venue = "MQ Summit 2026"
+when = "October 21-22, 2026"
+who = "TBD"
+what = "TBD"
+where = "Haarlem, The Netherlands & online"
+ref = "https://mqsummit.com/"
 
 # venue = "ICYMI"
 # when = "KubeCon EU 2024"
