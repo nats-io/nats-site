@@ -113,10 +113,11 @@ composing what was already there.
 
 ## Try it
 
-Cotal is Apache-2.0, and a local mesh is two commands:
+Cotal is Apache-2.0, and a local mesh is three commands:
 
 ```bash
-npx cotal-ai setup
+curl -fsSL https://get.cotal.ai | sh
+cotal setup
 cotal up
 ```
 
