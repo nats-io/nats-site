@@ -740,3 +740,10 @@ home = "https://topicus.nl/"
 logo = "topicus.png"
 rank = 108
 industry = "tech"
+
+[companies.cotal]
+name = "Cotal.ai"
+home = "https://cotal.ai/"
+logo = "cotal.png"
+rank = 109
+industry = "ai"
