@@ -156,6 +156,21 @@
     }
   }
 
+  /* Widescreen: give the grid extra room and fit six logos per row, so the
+     largest category (AI) stays on a single line instead of wrapping one
+     logo onto a second row. */
+  @media (min-width: 1216px) {
+    /* !important to beat Bulma's own .container max-width rules */
+    .container.companies-container {
+      max-width: min(1440px, calc(100% - 3rem)) !important;
+    }
+
+    #companies-grid .company-logo {
+      flex: 0 0 16.666%;
+      max-width: 16.666%;
+    }
+  }
+
   /* Reserve space for the logo grid while logos are hidden/loading,
      preventing cumulative layout shift. Heights match 1–3 rows of
      120px logo boxes at each breakpoint. */
@@ -209,7 +224,7 @@
 
     </div>
   </div>
-  <div class="container">
+  <div class="container companies-container">
     <div class="columns is-vcentered is-multiline" id="companies-grid">
 
           {{ $.Scratch.Set "counter" 0 }}
