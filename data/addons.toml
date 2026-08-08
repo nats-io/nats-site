@@ -659,6 +659,15 @@ support = "Community"
 author = "John Hooks"
 authorHome = "https://gitlab.com/sencillodev"
 
+[addons.easy_nats]
+name = "Easy NATS"
+home = "https://easy-nats.sworld.club/"
+description = "A fast Rust NATS GUI with powerful search and a dockable workspace."
+support = "Community"
+[[addons.easy_nats.authors]]
+author = "Sworld"
+authorHome = "https://github.com/mcthesw"
+
 #[addons.xxx]
 #name = ""
 #home = ""
