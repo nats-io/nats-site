@@ -310,6 +310,15 @@ link = "https://github.com/repejota"
 release_version = "0.8.6"
 release_date = "2017-07-17"
 [[language.php.orgs]]
+org = "ideaconnect"
+repo = "php-nats-jetstream-client"
+supported = false
+jetstream_support = true
+author = "IDCT Bartosz Pachołek"
+link = "https://github.com/ideaconnect"
+release_version = "2.8.0"
+release_date = "2026-08-08"
+[[language.php.orgs]]
 org = "byrnedo"
 repo = "php-nats-streaming"
 supported = false
