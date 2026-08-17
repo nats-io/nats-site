@@ -275,26 +275,21 @@ function stopAutoRotate() {
 
 function applyFilter(industry) {
   const logos = document.querySelectorAll('.company-logo');
-  const isMobile = window.innerWidth <= 768;
-  const shouldLimit = isMobile || industry === 'tech';
   let visibleCount = 0;
 
   logos.forEach(logo => {
     logo.classList.remove('mobile-visible', 'mobile-hidden', 'mobile-last');
 
     if (logo.getAttribute('data-industry') === industry) {
-      if (shouldLimit) {
-        if (visibleCount < 5) {
-          logo.style.display = '';
-          logo.classList.add('mobile-visible');
-          visibleCount++;
-          if (visibleCount === 5) logo.classList.add('mobile-last');
-        } else {
-          logo.style.display = 'none';
-          logo.classList.add('mobile-hidden');
-        }
-      } else {
+      // Every tab shows only its top 5 by rank; the rest are reachable via "Show All Companies"
+      if (visibleCount < 5) {
         logo.style.display = '';
+        logo.classList.add('mobile-visible');
+        visibleCount++;
+        if (visibleCount === 5) logo.classList.add('mobile-last');
+      } else {
+        logo.style.display = 'none';
+        logo.classList.add('mobile-hidden');
       }
     } else {
       logo.style.display = 'none';
