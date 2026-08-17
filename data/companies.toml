@@ -557,10 +557,10 @@ home = "https://groww.in/"
 logo = "groww.webp"
 rank = 89
 
-[companies.inference]
-name = "Inference"
-home = "https://inference.net/"
-logo = "inference.png"
+[companies.lovable]
+name = "Lovable"
+home = "https://lovable.dev/"
+logo = "lovable.svg"
 rank = 2
 industry = "ai"
 
@@ -746,4 +746,5 @@ name = "Cotal.ai"
 home = "https://cotal.ai/"
 logo = "cotal.png"
 rank = 109
-industry = "ai"
+industry = "tech"
+
