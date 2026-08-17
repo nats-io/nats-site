@@ -275,26 +275,21 @@ function stopAutoRotate() {
 
 function applyFilter(industry) {
   const logos = document.querySelectorAll('.company-logo');
-  const isMobile = window.innerWidth <= 768;
-  const shouldLimit = isMobile || industry === 'tech';
   let visibleCount = 0;
 
   logos.forEach(logo => {
     logo.classList.remove('mobile-visible', 'mobile-hidden', 'mobile-last');
 
     if (logo.getAttribute('data-industry') === industry) {
-      if (shouldLimit) {
-        if (visibleCount < 5) {
-          logo.style.display = '';
-          logo.classList.add('mobile-visible');
-          visibleCount++;
-          if (visibleCount === 5) logo.classList.add('mobile-last');
-        } else {
-          logo.style.display = 'none';
-          logo.classList.add('mobile-hidden');
-        }
-      } else {
+      // Every tab shows only its top 5 by rank; the rest are reachable via "Show All Companies"
+      if (visibleCount < 5) {
         logo.style.display = '';
+        logo.classList.add('mobile-visible');
+        visibleCount++;
+        if (visibleCount === 5) logo.classList.add('mobile-last');
+      } else {
+        logo.style.display = 'none';
+        logo.classList.add('mobile-hidden');
       }
     } else {
       logo.style.display = 'none';
@@ -308,6 +303,7 @@ function toggleLogos() {
   const button = document.getElementById('toggle-logos-btn');
   const isExpanded = button.getAttribute('data-expanded') === 'true';
   const allTabs = document.querySelectorAll('.industry-tab');
+  const allDots = document.querySelectorAll('.scroll-dot');
   const grid = document.getElementById('companies-grid');
 
   grid.classList.add('fading');
@@ -317,17 +313,20 @@ function toggleLogos() {
       button.textContent = 'Show All Companies';
       button.setAttribute('data-expanded', 'false');
       applyFilter(currentIndustry);
-      allTabs.forEach(t => {
-        t.classList.toggle('active', t.getAttribute('data-industry') === currentIndustry);
+      const activeIndex = Array.from(allTabs).findIndex(t => t.getAttribute('data-industry') === currentIndustry);
+      allTabs.forEach((t, i) => {
+        t.classList.toggle('active', i === activeIndex);
       });
+      allDots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
     } else {
-      // Expanding: show every logo and remove the active tab highlight
+      // Expanding: show every logo and clear the active tab/dot highlight
       document.querySelectorAll('.company-logo').forEach(logo => {
         logo.style.display = '';
       });
       button.textContent = 'Show Less';
       button.setAttribute('data-expanded', 'true');
       allTabs.forEach(t => t.classList.remove('active'));
+      allDots.forEach(dot => dot.classList.remove('active'));
     }
     requestAnimationFrame(() => grid.classList.remove('fading'));
   }, 300);
@@ -350,43 +349,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     filtersWrapper.classList.toggle('can-scroll-left', canScrollLeft);
     filtersWrapper.classList.toggle('can-scroll-right', canScrollRight);
-
-    // Update scroll dots based on which tab is most visible
-    if (scrollDots.length > 0) {
-      const tabElements = Array.from(tabs);
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-
-      tabElements.forEach((tab, index) => {
-        const tabRect = tab.getBoundingClientRect();
-        const containerRect = filtersContainer.getBoundingClientRect();
-        const tabCenter = tabRect.left + tabRect.width / 2;
-        const containerCenter = containerRect.left + containerRect.width / 2;
-        const distance = Math.abs(tabCenter - containerCenter);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      scrollDots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === closestIndex);
-      });
-    }
   }
 
-  // Scroll to tab when dot is clicked
+  // The dots mirror the selected industry, so they stay in sync whether the
+  // industry changed from a tab tap, a dot tap, or the auto-rotation.
+  function updateDots(industry) {
+    const activeIndex = Array.from(tabs).findIndex(t => t.getAttribute('data-industry') === industry);
+    scrollDots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeIndex);
+    });
+  }
+
+  // Select (and scroll to) the matching industry when a dot is tapped
   scrollDots.forEach(dot => {
     dot.addEventListener('click', function() {
       const index = parseInt(this.getAttribute('data-index'));
       const targetTab = tabs[index];
-      if (targetTab && filtersContainer) {
-        const containerRect = filtersContainer.getBoundingClientRect();
-        const tabRect = targetTab.getBoundingClientRect();
-        const scrollOffset = tabRect.left - containerRect.left - (containerRect.width / 2) + (tabRect.width / 2);
-        filtersContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
-      }
+      if (!targetTab) return;
+
+      stopAutoRotate();
+      currentIndustry = targetTab.getAttribute('data-industry');
+      currentIndex = index;
+      filterByIndustry(currentIndustry, targetTab);
     });
   });
 
@@ -402,10 +386,11 @@ document.addEventListener('DOMContentLoaded', function() {
   let fadeTimeout = null;
 
   function filterByIndustry(industry, clickedTab) {
-    // Update tab active class immediately
+    // Update tab active class and dots immediately
     tabs.forEach(t => {
       t.classList.toggle('active', t.getAttribute('data-industry') === industry);
     });
+    updateDots(industry);
 
     // Reset the "Show All Companies" button
     const toggleBtn = document.getElementById('toggle-logos-btn');
