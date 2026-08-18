@@ -7,8 +7,6 @@ categories = ["General", "Engineering", "Guest Post", "JetStream", "Fintech"]
 tags = ["NATS", "JetStream", "Fintech"]
 +++
 
-# Building a Wallet Event Backbone with NATS JetStream: Lessons from BroSettlement's Staging Tests
-
 I am Vadym Rozov, founder of [BroLabel](https://www.brolabel.io), where we are building [BroSettlement](https://www.brolabel.io/en/brosettlement): API-first, noncustodial MPC wallet, ledger, and settlement infrastructure for fintech, iGaming, and crypto-native platforms. A wallet transaction is not one synchronous request. It moves through policy checks, MPC signing, blockchain broadcast, confirmation, ledger posting, and client notification, and any of those stages may be delayed or fail independently. We selected NATS early in the architecture—not as a replacement for another broker, but to avoid coupling every service through synchronous calls as the platform grew.
 
 ## Closing the dual-write gap with a transactional outbox
