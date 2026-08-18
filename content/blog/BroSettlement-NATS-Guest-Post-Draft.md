@@ -65,10 +65,3 @@ The resilience tests also helped us define the next production-hardening step. W
 ## About the author
 
 Vadym Rozov is the founder of BroLabel, a fintech company building digital-asset infrastructure products. BroSettlement provides API-first MPC wallets, a client-controlled Co-Signer, an immutable operating ledger, blockchain broadcast, and real-time lifecycle events for teams embedding stablecoin and crypto wallet operations.
-
-## Editorial notes
-
-- All numerical results above come from BroSettlement's staging environment; the article does not claim production-adopter status.
-- The architecture diagram is intentionally sanitized and contains no credentials, internal hostnames, or private topology.
-- Suggested canonical link for BroSettlement: `https://www.brolabel.io/en/brosettlement`.
-- The accompanying editable vector is `brosettlement-nats-architecture.svg`; the publication image is `brosettlement-nats-architecture.png`.
