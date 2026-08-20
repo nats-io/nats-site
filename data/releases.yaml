@@ -23,9 +23,9 @@ Releases:
   author:
     - name:
       link:
-  version_num: 2.4.0
+  version_num: 3.7.0
   release_notes: |
-    Release v2.4.0 on March 23rd, 2021.
+    Release v3.7.0 on October 12, 2021.
   github:
     - user: nats-io
       repo: nats.c
