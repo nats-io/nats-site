@@ -748,3 +748,10 @@ logo = "cotal.png"
 rank = 109
 industry = "ai"
 
+[companies.mulgadc]
+name = "Mulga DC"
+home = "https://github.com/mulgadc/spinifex"
+logo = "mulgadc.svg"
+rank = 116
+industry = "tech"
+
