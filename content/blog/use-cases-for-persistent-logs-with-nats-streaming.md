@@ -121,7 +121,7 @@ handle := func(msg *stan.Msg) {
     // This will only fail if the connection with the server
     // has gone awry.
     if err := msg.Ack(); err != nil {
-        log.Prinf("failed to ACK msg: %d", msg.Sequence)
+        log.Printf("failed to ACK msg: %d", msg.Sequence)
     }
 }
 
