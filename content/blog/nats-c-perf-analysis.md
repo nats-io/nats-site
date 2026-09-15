@@ -34,13 +34,13 @@ Next, although we don't want the delivery thread spending time in a condition wa
 
 It is not surprising to see that the majority of time spent in this function is the creation of the message. The problem is that this was done under the subscription lock. There was no need for the creation of the message to be done under the subscription lock.
 
-By moving the creation of the message before acquiring the lock, and getting rid of the connection lock in the delivery message thread, I got a 23% boost in performance between the pre and alpha release (see results at the end of this post). The GO Client was later updated with this [change](https://github.com/nats-io/nats/commit/4ff5c72332b0b733caaefc65379f952ae4947ddb).
+By moving the creation of the message before acquiring the lock, and getting rid of the connection lock in the delivery message thread, I got a 23% boost in performance between the pre and alpha release (see results at the end of this post). The Go Client was later updated with this [change](https://github.com/nats-io/nats/commit/4ff5c72332b0b733caaefc65379f952ae4947ddb).
 
 The last graph also showed something interesting: creating a message required a lot of memory allocations: 1 calloc, 1 malloc, and 2 calls to `nats_CreateStringFromBuffer`, which, since there is no reply subject, would result in 1 more malloc.
 
 Also, in the delivery message thread, we see that destroying the message is very costly.
 
-Taking all this into account, I was able to optimize further in subsequent releases to a point of doubling the performance between the first and last release (at the time of this writting, verion [1.2.8](https://github.com/nats-io/cnats/tree/v1.2.8)). Creating a message now requires a single malloc, and destroying a message is off-loaded to a dedicated thread.
+Taking all this into account, I was able to optimize further in subsequent releases to a point of doubling the performance between the first and last release (at the time of this writing, version [1.2.8](https://github.com/nats-io/cnats/tree/v1.2.8)). Creating a message now requires a single malloc, and destroying a message is off-loaded to a dedicated thread.
 
 
 
