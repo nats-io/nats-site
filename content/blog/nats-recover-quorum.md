@@ -12,10 +12,15 @@ Here, we'll look at one specific case, and how to recover from it.
 
 <!--more-->
 
-> **Note on nats-server 2.12+:** This recovery procedure was the sanctioned path on nats-server 2.10 and 2.11.
-> As of 2.12.0 ([PR #7038][pr-7038]), the scale-up recovery path no longer works:
-> a fresh empty node can no longer force itself into the peer set, so the meta election never passes.
-> If you are running 2.12 or later, see [Recovery on 2.12 and Later](#recovery-on-212-and-later) below.
+> **Note on newer nats-server versions:** This recovery procedure was the sanctioned path on nats-server 2.10 and 2.11.
+>
+> - **2.12 and 2.14:** the scale-up recovery path no longer works ([PR #7038][pr-7038]):
+>   a fresh empty node can no longer force itself into the peer set, so the meta election never passes.
+>   Bring the servers back under their original names instead;
+>   see [Recovery on 2.12 and 2.14](#recovery-on-212-and-214) below.
+> - **2.15 and later:** there's no need to revert the rename. Use [meta rescue][meta-rescue]
+>   so the renamed servers can elect a leader, then remove the old names;
+>   see [Recovery on 2.15 and Later](#recovery-on-215-and-later) below.
 
 # Context
 
@@ -41,9 +46,10 @@ This will double the number of recorded servers in the cluster (half with the ol
 half with the new name, per the changed `serverNamePrefix`).
 Consequently, there will not be enough servers active in the cluster to retain quorum.
 
-On nats-server 2.12 and later, reverting the `serverNamePrefix` change does **not** unbrick the cluster on its own.
+On nats-server 2.12 and 2.14, reverting the `serverNamePrefix` change does **not** unbrick the cluster on its own.
 The original-named pods have to actually come back online -- empty disks are fine, but the names must match -- for the meta election to pass.
-See [Recovery on 2.12 and Later](#recovery-on-212-and-later) below.
+See [Recovery on 2.12 and 2.14](#recovery-on-212-and-214) below.
+On 2.15 and later, you can keep the new names instead; see [Recovery on 2.15 and Later](#recovery-on-215-and-later).
 
 ## A Case Study
 
@@ -146,9 +152,25 @@ nats: error: nats: no servers available for connection
 command terminated with exit code 1
 ```
 
-# Recovery on 2.12 and Later
+# Recovery on 2.15 and Later
 
-On 2.12 and later, the scale-up recovery path no longer works.
+On 2.15 and later, there's no need to revert the rename.
+A [meta rescue][meta-rescue] temporarily lowers the meta group's quorum on the servers that are online,
+so the renamed servers can elect a meta leader among themselves.
+See the NATS docs for how to issue the rescue.
+
+Once a leader is elected, remove the peer entries of the old server names straight away,
+using the peer IDs from `nats server report jetstream`:
+
+```sh
+$ nats server cluster peer-remove -f <peer ID>
+```
+
+With the old names removed, the meta group is back to its normal quorum with the renamed servers.
+
+# Recovery on 2.12 and 2.14
+
+On 2.12 and 2.14, the scale-up recovery path no longer works.
 A fresh empty node can no longer force itself into the peer set on first contact (see [PR #7038][pr-7038]),
 so adding a new node to a cluster that has lost quorum will not trigger a meta election.
 
@@ -199,14 +221,14 @@ $ nats server cluster peer-remove -f <peer ID>
 ## When Original Names Cannot Be Reclaimed
 
 If the original hostnames cannot be brought back at all (machines truly destroyed, names
-unrecoverable), there is no in-product recovery path on 2.12 and later at the time of writing.
+unrecoverable), there is no in-product recovery path on 2.12 and 2.14.
 Restore from backup.
 
 # Recovery on 2.10 and 2.11
 
 The procedure below relies on the pre-2.12 behavior where a fresh empty node could force itself
 into the peer set on first contact; that path is closed on 2.12 and later
-(see the note at the top and [Recovery on 2.12 and Later](#recovery-on-212-and-later)).
+(see the note at the top and [Recovery on 2.12 and 2.14](#recovery-on-212-and-214)).
 
 ## Regain Quorum
 
@@ -322,6 +344,7 @@ John Weldon is a Customer Solutions Architect at [Synadia Communications](https:
 [^nodes]: NATS Servers are also called "nodes" - sometimes interchangeably.
 
 [pr-7038]: https://github.com/nats-io/nats-server/pull/7038 "PR #7038 -- NRG: Empty log protection"
+[meta-rescue]: https://docs.nats.io/learn/backup-recovery/disaster-recovery#last-resort-rescue-the-meta-group "Last resort: rescue the meta group"
 [helm-chart]: https://github.com/nats-io/k8s/blob/main/helm/charts/nats/README.md "HELM Chart README"
 [values.yaml]: https://github.com/nats-io/k8s/blob/main/helm/charts/nats/values.yaml "default values.yaml"
 [serverNamePrefix]: https://github.com/nats-io/k8s/blob/2ce9a408f17b823d51223e04e806b73cead51993/helm/charts/nats/values.yaml#L273 "in the default values.yaml"
