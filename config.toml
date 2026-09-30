@@ -66,7 +66,7 @@ color = "slack-purple"
 [[params.social]]
 label = "YouTube"
 icon = "youtube"
-url = "https://www.youtube.com/@SynadiaCommunications"
+url = "https://www.youtube.com/@nats_io"
 color = "youtube-red"
 
 [[params.social]]
