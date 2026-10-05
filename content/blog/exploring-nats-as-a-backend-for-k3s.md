@@ -39,7 +39,7 @@ The main takeaways:
 - Applications running in k3s can leverage the same NATS system for their workloads (within their own accounts) as what k3s does.
 - Cross-region mirrors of the KV buckets can be created for straightforward backup/restore disaster recovery scenarios.
 
-Given this is one NATS system, an operator gets end-to-end visibility and management of all of these assets out-of-the-box. Check out the [k3s-on-nats demo repo][demo] to try it out youself.
+Given this is one NATS system, an operator gets end-to-end visibility and management of all of these assets out-of-the-box. Check out the [k3s-on-nats demo repo][demo] to try it out yourself.
 
 [k3s]: https://k3s.io
 [kine]: https://github.com/k3s-io/kine

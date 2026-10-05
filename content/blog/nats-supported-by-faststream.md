@@ -113,7 +113,7 @@ app = FastStream(broker, title=title, version=version, description=description)
 
 to_greetings = broker.publisher(
     "greetings",
-    description="Produces a message on greetings after receiving a meesage on names",
+    description="Produces a message on greetings after receiving a message on names",
 )
 
 

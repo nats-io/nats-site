@@ -75,7 +75,7 @@ func main() {
 }
 ```
 The proxy itself does not implement any mechanisms to apply filters before the request is passed to the proxy handler as this could be implemented by decorating the proxy handler or other similar techniques.
-Because the implementation does not allow writing data to the `http.ResponseWriter` after the handler is applied, the proxy provides `natsproxy.Hook` interface. This hook is applied on the response before it is written to `http.ResponseWriter`. The example bellow shows the usage of hook to translate JWT token with all user info to meaningless reference token.
+Because the implementation does not allow writing data to the `http.ResponseWriter` after the handler is applied, the proxy provides `natsproxy.Hook` interface. This hook is applied on the response before it is written to `http.ResponseWriter`. The example below shows the usage of hook to translate JWT token with all user info to meaningless reference token.
 
 ```go
 proxyHandler.AddHook(".*", func(r *Response) {

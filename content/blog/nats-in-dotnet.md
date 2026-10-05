@@ -12,7 +12,7 @@ In developing the [NATS C# .NET Client](https://github.com/nats-io/csharp-nats),
 
 While mirroring functionality and internals of other Apcera supported clients, the NATS .NET client public API will make the .NET developer feel at home with object serialization, IDisposable interfaces, and delegates for handling NATS events.  The NATS .NET client is fully managed and strong named.
 
-One feature of the NATS .NET client that faciliates development is object serialization.  Here is example code that creates a connection and publishes an object into a NATS cluster:
+One feature of the NATS .NET client that facilitates development is object serialization.  Here is example code that creates a connection and publishes an object into a NATS cluster:
 
 ```c#
 [Serializable]
@@ -74,7 +74,7 @@ void processMessage(object sender, MsgHandlerEventArgs e)
 {
     count++;
 
-    IAsyncSubscription sub = (IAsyncSubscription)e.Message.ArrivalSubcription;
+    IAsyncSubscription sub = (IAsyncSubscription)e.Message.ArrivalSubscription;
     if (count == 3)
     {
         sub.MessageHandler += printMessage;
@@ -99,6 +99,6 @@ public void demonstrateRuntimeDelegates()
 ```
 
 
-Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance.  Please don't hesistate to contact us with comments, feature requests, or contributions!
+Having added TLS 1.2 support, future plans include offering NATS as a WCF Binding, and always, increased performance.  Please don't hesitate to contact us with comments, feature requests, or contributions!
 
 Download the NATS .NET client at [NuGet](https://www.nuget.org/packages/NATS.Client), or get it from [github](https://github.com/nats-io/csharp-nats), and browse the [API documentation](https://github.com/nats-io/csharp-nats/).  Let us know what you think, and visit our [Community](https://nats.io/community/) Page!  Contributors are welcome!

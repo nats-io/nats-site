@@ -8,7 +8,7 @@ author = "Farzad Azima"
 
 ## NATS as the IoT mobile messaging system for an earthquake early warning network
 
-I’m a programmer. I like to find difficult problems to solve, and work on effective solutions to these problems. We’ve all seen earthquakes covered in the news, sadly, , and earthquakes are on the rise globally. The average frequency and magnitude of earthquakes has increased recently, and more people than ever are living in urban areas which are dangerous during earthquakes.
+I’m a programmer. I like to find difficult problems to solve, and work on effective solutions to these problems. We’ve all seen earthquakes covered in the news, sadly, and earthquakes are on the rise globally. The average frequency and magnitude of earthquakes has increased recently, and more people than ever are living in urban areas which are dangerous during earthquakes.
 
 Decreasing the number of people killed by earthquakes is a problem I want to help solve - approximately 10,000 people are killed each year by earthquakes, and tens of thousands are injured. For the last 2 years, I have been working on an Earthquake Early Warning System using smartphones through my non-profit, A Circular World. I’ve been designing a series of new algorithms for this, and two weeks ago in early April, eventually all of its modules get ready to be released except sending alert message to people in the crisis area. Our app is called Earling (Early Warning).
 
