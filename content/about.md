@@ -56,8 +56,9 @@ The purpose of the roadmap is to communicate the known set of features and chang
 
 We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
 
-Nightly `nats-server` images are published under the `synadia/nats-server` namespace to provide access to development builds containing the latest upstream NATS changes, including new and experimental features that have not yet been included in an official release. The namespace reflects the infrastructure used to build and publish the nightly images; these images are built from the upstream NATS project and are not a separate distribution of NATS.
-- Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
+Nightly `nats-server` images are published under the `synadia/nats-server` namespace to provide access to development builds containing the latest upstream NATS changes, including new and experimental features that have not yet been included in an official release. The namespace reflects the infrastructure used to build and publish the nightly images; these images are built from the upstream NATS project code and do not contain any additional functionality beyond that in NATS.
+- These images are tagged with the mutable tag nightly, so the latest is available from Docker Hub as `synadia/nats-server:nightly`
+- Other tags can be seen in the Docker Hub repo's tags list
 
 
 
