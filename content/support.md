@@ -7,38 +7,64 @@ title = "Support"
 
 You can ask questions in our community forums in <a href="https://slack.nats.io" target="_blank">Slack</a> or <a href="https://groups.google.com/g/natsio" target="_blank">Google Groups</a>, both of which have many knowledgeable users.
 
+## Reporting Bugs
+
+If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so on our [Community page](/contributing).
+
 ## Commercial Support and Services
 
-### [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats)
+The following organizations provide commercial support, consulting, training, managed services, or other professional services related to NATS.
 
-The lead corporate steward of NATS.io, Synadia offers a variety of products and services to companies who want to accelerate their NATS initiatives.
+This directory is provided as a community resource. Inclusion does not constitute endorsement by the NATS project or its maintainers. Vendors are listed alphabetically and are responsible for the accuracy of their information.
 
-- [Synadia Insights](https://www.synadia.com/insights?utm_source=nats_io&utm_medium=nats) - High-cardinality monitoring and operational intelligence for production NATS systems. Indexes all system-level data NATS exposes — servers, clusters, leaf nodes, connections, JetStream assets, accounts, subscriptions, and configurations — with entity-level graph navigation, time-series history, and 100+ built-in diagnostic checks.
-- [Synadia Education](https://www.synadia.com/education?utm_source=nats_io&utm_medium=nats) - Instructor-led training programs designed to accelerate the development and deployment of your NATS-based applications. Hands-on courses for both developers and administrators, from core concepts to enterprise-scale operations.
-- [Synadia Cloud](https://www.synadia.com/cloud?utm_source=nats_io&utm_medium=nats) - A multi-region, extensible connectivity fabric for messaging, streaming, pub/sub, key-value, and object storage services. Synadia Cloud is powered by NATS.io and fully managed by Synadia.
-- [Synadia Deploy for Kubernetes](https://www.synadia.com/deploy-for-kubernetes?utm_source=nats_io&utm_medium=nats) - Self-service deployment of production-ready NATS clusters on your own Kubernetes infrastructure. Combines the simplicity of SaaS with complete control over your data plane, including automated deployments, upgrades, and unified monitoring.
-- [Synadia Platform](https://www.synadia.com/platform?utm_source=nats_io&utm_medium=nats) - An all-in-one control plane for your NATS infrastructure, designed, built, and supported by Synadia. Available via self-hosted or managed cloud deployment options.
+### Vendor Directory
 
-  Platform Includes:
-  * Expert support for your NATS deployment by the core contributors and maintainers of NATS.io.
-  * 24/7/365 support and troubleshooting on your specific issues from the expert engineers who know NATS inside and out.
-  * Architecture Design reviews and recommendations to scale, secure and operate your NATS infrastructure.
-<br><br>
+#### [Luxant Solutions](https://luxantsolutions.com/)
+NATS is the first choice Luxant Solutions uses when enabling businesses to best leverage their distributed computing and communication technologies and is owned and operated by a NATS Maintainer. Whether your environment is cloud, edge, device, or on-premise, Luxant can help.
 
-### [Luxant Solutions](https://luxantsolutions.com)
+**Website:** [luxantsolutions.com](https://luxantsolutions.com/)
 
-NATS is the first choice that [Luxant Solutions](https://luxantsolutions.com) uses when enabling businesses to best leverage their distributed computing and communication technologies.  
+**NATS services:** Consulting, architecture and design guidance, assessments, proofs of concept, benchmarking, implementation assistance, and advisory services.
 
-Services include:
+**Support availability:** Contact vendor for availability and service options.
 
-* Strategy and guidance around NATS enabled distributed applications, microservices, and devices
-* Architectural guidance and assessments
-* POCs / Benchmarks
-* Implementation or Advisory roles
+#### [Synadia](https://www.synadia.com/)
+Synadia offers a variety of products and services to companies and NATS adopters who want to accelerate their NATS initiatives and employs NATS Maintainers as subject matter experts.
 
-Whether your environment is cloud, edge, device, or on-premise, Luxant can help. Luxant Solutions is owned and operated by a NATS maintainer.
+**Website:** [synadia.com](https://www.synadia.com/)
 
-## Reporting bugs
+**NATS services:** Commercial support, consulting, training, managed NATS services, deployment and operational tooling, architecture guidance, and implementation assistance.
 
-If you'd like to report a bug/defect, please open a GitHub Issue on the relevant NATS repository. We've provided some guidelines for doing so [here](/contributing).
+**Support availability:** Commercial support options, including 24/7 support, are available. Contact the vendor for service levels and availability.
 
+### Vendor Inclusion Criteria
+
+Organizations may request inclusion in this directory if they:
+
+* Provide commercial support, consulting, training, managed services, implementation services, or other professional services specifically related to NATS.
+* Maintain a publicly accessible website describing their organization and services.
+* Provide current contact information or another public method for prospective customers to request information about their NATS-related services.
+
+Listings are informational and do not imply endorsement, certification, partnership, or preference by the NATS project or its maintainers.
+
+The NATS maintainers may remove listings that no longer meet these criteria, contain inaccurate or outdated information, or are primarily promotional rather than informational.
+
+### Add or Update a Vendor Listing
+
+Organizations that meet the inclusion criteria may request a new listing or update an existing listing by submitting a pull request to [https://nats-io/nats-site](https://nats-io/nats-site).
+
+Vendor listings should use the following format:
+
+**Vendor name**
+
+**Short description**
+
+**Website:** Public company or organization website.
+
+**NATS services:** A brief, factual description of the categories of NATS-related services provided.
+
+**Support availability:** A brief description of support availability or "Contact vendor for availability and service options."
+
+Listings should describe service categories rather than individual commercial products, product features, pricing, marketing claims, or promotional content.
+
+Requests will be reviewed using the same criteria regardless of the vendor's relationship with individual NATS maintainers or their employers.
