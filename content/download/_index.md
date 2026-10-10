@@ -10,7 +10,8 @@ Here you will find the NATS Server and officially supported & community [clients
 Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at [info@nats.io](mailto:info@nats.io) to share what you have built using NATS!
 
 {{< servers >}}
-Want to try out what our engineers are working on? Check out the NATS Server Nightly Build. This Docker image is not an official release but contains new engineering coming to NATS Server soon.
+Want to try out what our engineers are working on? Check out the NATS Server Nightly Build. This Docker image is not an official release but contains new engineering coming to NATS Server soon. Nightly images are currently published under the `synadia/nats-server` Docker Hub namespace because that infrastructure builds and publishes NATS development images from upstream project code; these images do not include Synadia-specific functionality.
+
 ## Clients
 NATS clients are used to connect to and communicate with NATS Server. If you would like to contribute your own client or add one not listed here,  you can submit a pull request to update the contents of [this file](https://github.com/nats-io/nats-site/blob/main/data/language.toml).
 
