@@ -164,7 +164,7 @@ With it, you get decoded metrics:
 
 ```json
 {
-  "subject": "spBv1.0/edgedev/DDATA/edge1/MDCTransmitter",
+  "subject": "spBv1.0/edgedev/DDATA/edgedev/edge1",
   "timestamp": 1727123456789,
   "seq": 4,
   "metrics": {
