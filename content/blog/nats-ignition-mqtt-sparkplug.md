@@ -192,4 +192,4 @@ This is a solid dev bench and works fine for a single site. Natural next steps:
 - **Historian** -- feed metrics into TimescaleDB; the NATS subject is already a clean tag path
 - **Leaf node** -- when you add more sites, this standalone server becomes a leaf that connects back to a hub. Local telemetry keeps flowing even if the WAN link drops.
 
-Repo: [github.com/code-runner-100/nats-ignition](https://github.com/code-runner-100/nats-ignition)
+*** Public Repo: [github.com/code-runner-100/nats-ignition](https://github.com/code-runner-100/nats-ignition)
