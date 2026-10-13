@@ -139,7 +139,7 @@ Hit the monitoring endpoint to confirm MQTT clients are connected:
 curl http://localhost:8222/connz
 ```
 
-<img class="img-responsive center-block" src=""/static/img/blog/nats-ignition/nats-connz.png" alt="NATS connz showing two active MQTT connections with live message counts">
+<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/nats-connz.png" alt="NATS connz showing two active MQTT connections with live message counts">
 
 Two MQTT clients, `in_msgs` climbing -- that's Transmission publishing Sparkplug B data.
 
