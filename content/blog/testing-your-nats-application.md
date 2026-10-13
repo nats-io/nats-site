@@ -129,7 +129,7 @@ Engine subscribes to NATS and surfaces the tags in Ignition's tag tree. Add a se
 
 Once Engine connects and Transmission publishes its first `DBIRTH`, tags appear under `Edge Nodes / <GroupID> / <EdgeNodeID>` in the tag browser. The left side below is the source in Transmission, the right is Engine receiving the same tags with live values.
 
-<img class="img-responsive center-block" src=""/static/img/blog/nats-ignition/tag-browser.png" alt="Tag browser side by side -- Transmission source on the left, Engine receiving on the right">
+<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/tag-browser.png" alt="Tag browser side by side -- Transmission source on the left, Engine receiving on the right">
 
 ## Verify NATS connections
 
