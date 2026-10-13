@@ -1,195 +1,132 @@
 +++
-categories = ["Engineering"]
-date = "2026-10-05"
-tags = ["NATS", "MQTT", "IIoT", "Ignition", "Sparkplug B", "Docker"]
-title = "NATS + Ignition MQTT: Sparkplug B from Edge to Subscriber"
-author = "Alex Miller"
+categories = ["engineering", "community"]
+tags = ["gatling", "nats", "testing"]
+date = "2016-10-19"
+title = "Need to test your NATS application? Gatling might be the solution."
+author = "Laurent Magnin"
 +++
 
-I've been building out an IIoT pipeline using NATS as the backbone for Sparkplug B telemetry from Ignition SCADA. This post covers the Docker setup: standalone NATS with JetStream and MQTT, Ignition Transmission publishing from the edge, and a Python subscriber decoding Sparkplug B on the other end.
+[NATS](https://nats.io) is about connecting different components: this allows you to test the components individually as well as their integration. As such, it’s essential to be able to generate and inject NATS messages. This is where a tool such as [Gatling](https://gatling.io) (an open-source load testing framework) is useful.
 
-No leaf nodes, no hub. Just a single NATS server you can drop anywhere and start connecting clients.
+## The Missing Piece (Until Now)
+To generate and send messages to NATS, you could use the [Java client for NATS (aka JNATS)](https://github.com/nats-io/jnats) by implementing your own Java code. However, in a complex ‘enterprise’ implementation you may start to generate a high volume of data required, or have complex integration scenarios in mind prior to deployment.
 
-## What we're building
+To make our lives easier, we at [Logimethods](https://logimethods.com) have developed the [NATS Gatling Connector](https://github.com/Logimethods/nats-connector-gatling/), a connector that can be embedded into [Gatling](https://gatling.io) to send messages to NATS & [NATS Streaming](https://nats.io/documentation/streaming/nats-streaming-intro/).
 
-```
-Ignition Transmission (edge)
-        │
-        │  MQTT / Sparkplug B  (tcp://<NATS_HOST>:1883)
-        ▼
-  NATS + JetStream (Docker)
-        │
-        │  NATS core  (nats://localhost:4222)
-        ▼
-  Python subscriber  (decodes Sparkplug B protobuf)
-```
+## Basic Usage
+This NATS connector is available on [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cnats-connector-gatling). It provides a new Gatling “Protocol” (the archetype of such protocols being an [http connection](https://gatling.io/docs/2.1.7/http/http_protocol.html)), which can be used through “Gatling scenarios”, such as in the following code:
 
-Everything is in the [nats-ignition](https://github.com/code-runner-100/nats-ignition) repo.
-
-## Stand up NATS
-
-Two files.
-
-**docker-compose.yml**
-
-```yaml
-services:
-  nats:
-    image: nats:latest
-    container_name: nats
-    restart: unless-stopped
-    ports:
-      - "4222:4222"   # NATS client
-      - "8222:8222"   # HTTP monitoring
-      - "1883:1883"   # MQTT
-    volumes:
-      - ./nats.conf:/etc/nats/nats.conf
-      - nats-data:/data/jetstream
-    command: ["-c", "/etc/nats/nats.conf"]
-
-volumes:
-  nats-data:
-    driver: local
-```
-
-**nats.conf**
-
-```
-port: 4222
-http_port: 8222
-server_name: "nats"
-jetstream: enabled
-
-jetstream {
-  store_dir: "/data/jetstream"
+```scala
+class NatsInjection extends Simulation {
+  val properties = new Properties()
+  properties.setProperty(io.nats.client.Constants.PROP_URL, "nats://localhost:4222")
+  val natsProtocol = NatsProtocol(properties, "GatlingSubject")
+  val natsScn = scenario("NATS call").exec(NatsBuilder("Message from Gatling!"))
+  setUp(
+    natsScn.inject(constantUsersPerSec(15) during (1 minute))
+  ).protocols(natsProtocol)
 }
+```
 
-accounts {
-  DEFAULT: {
-    users: [
-      { user: "nats-client", password: "natspass123" }
-    ]
-    jetstream: enabled
+The above code is divided into three parts:
+
+  1. The NatsProtocol that describes the (permanent) connection to NATS.
+  2. The natsScn scenario (based on NatsBuilder), which defines the individual messages sent to NATS.
+  3. Finally, the setup that specifies the orchestration of the calls to natsScn scenario, under the control of the previously defined natsProtocol.
+
+Take note that, in order to send messages through the [NATS Streaming protocol](https://nats.io/documentation/streaming/nats-streaming-intro/), you should instead use  NatsStreamingProtocol & NatsStreamingBuilder:
+
+```scala
+val natsProtocol = NatsStreamingProtocol("nats://localhost:4222", clusterID, subject)
+val natsScn = scenario("NATS call").exec(NatsStreamingBuilder("Message from Gatling!"))
+```
+
+As you may have noticed, the code is written in [Scala](https://www.scala-lang.org), the native language of Gatling. This improves performance and parallelism (thanks to [Akka](https://akka.io) & [Netty](https://netty.io)). A good incentive to try that language (at least one of the multiple DSL builds on top of it) for those of you who haven’t yet!
+
+## More Advanced Usages
+Thanks to the Gatling’s flexibility, you can also develop [more complex scenarios](https://gatling.io/docs/2.1.7/advanced_tutorial.html).
+
+For example, it’s possible to generate NATS messages that may change over time: the NatsBuilder & NatsStreamingBuilder API accepts not only String, but also any type of instances from which the call to the toString() method will generate the actual messages.
+
+Let see how we could generate loops of values between 100 to 150 with a 10 increment:
+
+```scala
+import akka.actor.{ActorRef, Props}
+import io.gatling.core.Predef._
+import io.gatling.core.action.builder.ActionBuilder
+import io.gatling.core.config.{Protocol, Protocols}
+import com.logimethods.nats.connector.gatling._
+
+import scala.concurrent.duration._
+import java.util.Properties
+import io.nats.client.Constants.PROP_URL
+
+class NatsInjection extends Simulation {
+
+  val properties = new Properties()
+  // The URI of the NATS server is provided by an environment variable:
+  // >export NATS_URI=nats://nats-main:4222
+  val natsUrl = System.getenv("NATS_URI")
+  properties.setProperty(io.nats.client.Constants.PROP_URL, natsUrl)
+
+  // The NATS Subject is also provided by an environment variable:
+  // >export GATLING.TO_NATS.SUBJECT=FROM_GATLING
+  var subject = System.getenv("GATLING.TO_NATS.SUBJECT")
+
+  if (subject == null) {
+    println("No Subject has been defined through the 'GATLING.TO_NATS.SUBJECT' Environment Variable!!!")
+  } else {
+    println("Will emit messages to " + subject)
+    val natsProtocol = NatsProtocol(properties, subject)
+
+    // The messages sent to NATS will not be constant thanks to the ValueProvider.
+    val natsScn = scenario("NATS call").exec(NatsBuilder(new ValueProvider()))
+
+    setUp(
+      natsScn.inject(constantUsersPerSec(15) during (1 minute))
+    ).protocols(natsProtocol)
   }
 }
 
-mqtt {
-  port: 1883
-  ack_wait: "1m"
-  max_ack_pending: 100
-  no_auth_user: "nats-client"
-}
-```
+/**
+ * The ValueProvider will generate a loop of values: 100, 110, 120, 130, 140, 150, 100...
+ */
+class ValueProvider {
+  val incr = 10
+  val baseValue = 100 -incr
+  val maxIncr = 50
+  var actualIncr = 0
 
-`no_auth_user` lets MQTT clients connect without credentials. Ignition Transmission doesn't send credentials by default, so this keeps the config simple.
-
-```bash
-# Linux / Mac
-docker compose up -d
-
-# Windows
-docker-compose up -d
-```
-
-Verify it's running:
-
-```bash
-curl http://localhost:8222/varz
-```
-
-## Configure Ignition Transmission
-
-In Ignition Designer, go to MQTT Transmission, Settings, Servers, and add a server:
-
-| Field | Value |
-|-------|-------|
-| Name | Nats-Gen |
-| URL | `tcp://<NATS_HOST>:1883` |
-
-> **Note:** The screenshots below show port `1880` instead of `1883`. I mapped the host port to `1880` on my test machine to avoid conflicts with other MQTT brokers I had running. The repo and config use the standard `1883:1883` mapping -- change the host port if you need to do the same.
-
-<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/transmission-servers.png" alt="Transmission server entry showing Nats-Gen connected 1 of 1">
-
-Then set your Group ID and Edge Node ID under Transmitters. These become the Sparkplug B namespace segments.
-
-<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/transmitter-sparkplug.png" alt="Transmitter Sparkplug settings -- Group ID and Edge Node ID">
-
-**Watch your naming.** NATS maps MQTT topics directly to subjects. Dots (`.`) are the NATS subject delimiter, so a dot in your Group ID or Edge Node ID will break things. No spaces either. Use underscores or hyphens: `site_01`, `edge-01`, `device_01`. Tag names inside the Sparkplug payload are fine since they don't hit the topic.
-
-## Configure Ignition Engine
-
-Engine subscribes to NATS and surfaces the tags in Ignition's tag tree. Add a server under MQTT Engine, Settings, Servers:
-
-| Field | Value |
-|-------|-------|
-| Name | Nats-Local |
-| URL | `tcp://<NATS_HOST>:1883` |
-
-<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/engine-server.png" alt="Engine server config">
-
-Once Engine connects and Transmission publishes its first `DBIRTH`, tags appear under `Edge Nodes / <GroupID> / <EdgeNodeID>` in the tag browser. The left side below is the source in Transmission, the right is Engine receiving the same tags with live values.
-
-<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/tag-browser.png" alt="Tag browser side by side -- Transmission source on the left, Engine receiving on the right">
-
-## Verify NATS connections
-
-Hit the monitoring endpoint to confirm MQTT clients are connected:
-
-```bash
-curl http://localhost:8222/connz
-```
-
-<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/nats-connz.png" alt="NATS connz showing two active MQTT connections with live message counts">
-
-Two MQTT clients, `in_msgs` climbing -- that's Transmission publishing Sparkplug B data.
-
-## Python subscriber
-
-```bash
-pip install nats-py
-python examples/subscriber.py
-```
-
-Connects on port 4222 (NATS, not MQTT) and subscribes to everything. To decode Sparkplug B, generate the protobuf module first:
-
-```bash
-pip install grpcio-tools
-python -m grpc_tools.protoc \
-  -I examples/sparkplug \
-  --python_out=examples/sparkplug \
-  examples/sparkplug/sparkplug_b.proto
-```
-
-With it, you get decoded metrics:
-
-```json
-{
-  "subject": "spBv1.0/edgedev/DDATA/edge1/MDCTransmitter",
-  "timestamp": 1727123456789,
-  "seq": 4,
-  "metrics": {
-    "tag1": 0.52,
-    "tag2": 0.51,
-    "tag3": 0.08,
-    "tag4": true
+  override def toString(): String = {
+    actualIncr = (actualIncr % (maxIncr + incr)) + incr
+    (baseValue + actualIncr).toString()
   }
 }
 ```
 
-Point it at a remote server:
+The NATS URI and the NATS Subject are provided here through environment variables. This is convenient when you embed your code into [Docker Images](https://www.docker.com), as we did for the [docker-nats-connector-spark project](https://github.com/Logimethods/docker-nats-connector-spark/tree/version_0.1.0) in order to test the Gatling to NATS Connector, in conjunction with NATS to [Spark](https://spark.apache.org/docs/1.5.2/), then [Spark to NATS connectors](https://github.com/Logimethods/nats-connector-spark) (also developed by us). This application is defined as a composition of Docker Containers (you might also have a look at the [Docker Compose + NATS: Microservices Development Made Easy](https://nats.io/blog/docker-compose-plus-nats/) blog):
 
-```bash
-python examples/subscriber.py \
-  --server nats://nats-client:natspass123@10.0.0.215:4222 \
-  --subject "spBv1.0/>"
-```
+![Blog Image](/img/blog/testing-your-nats-application/testing-nats-01.png "Blog Image")
 
-Repo: [github.com/code-runner-100/nats-ignition](https://github.com/code-runner-100/nats-ignition)
+The build of all of those components is fully automated, through Gihub, [Wercker](https://wercker.com), Nexus & finally Docker Hub…
+
+![Blog Image](/img/blog/testing-your-nats-application/testing-nats-02.png "Blog Image")
+
+## How did we implement that connector?
+We might have followed an approach based on the official [NATS Connector Framework](https://github.com/nats-io/nats-connector-framework), as the [NATS Redis Publish Subscribe Connector](https://github.com/nats-io/nats-connector-redis) does.
+
+However, in our case, we don’t need to build a bridge between two platforms, but to develop pure Gatling components that are able to send messages to NATS & NATS Streaming. That’s why we got our inspiration from the brilliant [Write a Custom Protocol for Gatling](https://www.trivento.io/write-custom-protocol-for-gatling/) blog, combined with the (also excellent!) [NATS - Java client](https://github.com/nats-io/jnats/) & [NATS Streaming Java Client](https://github.com/nats-io/java-nats-streaming). Actually, all the code of this connector (except the tests, build, etc.) is defined by only two files, [NatsAction.scala](https://github.com/Logimethods/nats-connector-gatling/blob/master/src/main/scala/com/logimethods/connector/gatling/to_nats/NatsAction.scala) (which, by the way, needed a [major refactoring](https://github.com/Logimethods/nats-connector-gatling/blob/master/src/main/scala/com/logimethods/connector/gatling/to_nats/NatsAction.scala) to be compatible with Gatling version 2.2.2) & [NatsStreamingAction.scala](https://github.com/Logimethods/nats-connector-gatling/blob/master/src/main/scala/com/logimethods/connector/gatling/to_nats/NatsStreamingAction.scala).
+
+The code of the [Gatling to NATS Connector](https://github.com/Logimethods/nats-connector-gatling/) is Open Source (Copyright (c) 2016 Logimethods, under the MIT License), hosted by Github.
 
 ---
 
 ## About the Author
+[Laurent Magnin](https://ca.linkedin.com/in/lmagnin) is a Senior Consultant at Logimethods with a strong expertise in various domains (Big Data, BRMS, etc.). He holds a Ph.D. in Artificial Intelligence from the University of Paris VI (France).
 
-Alex Miller is a Staff Instrumentation & Controls Engineer at [Crusoe](https://www.crusoe.ai/) with a background spanning Manufacturing, Aerospace, Oil and Gas, and industrial data center infrastructure. He specializes in controls system architecture, designing IIoT pipelines, SCADA/Control systems, and the software infrastructure that ties them together.
+[Logimethods](https://logimethods.com) is a highly specialized consulting firm providing Enterprise Architecture, Enterprise Integration and Business Intelligence services to large organizations to help them:
 
-Crusoe Energy is a vertically integrated AI infrastructure company building sustainable, high-performance data centers powered by low-carbon energy.
+  - Align, simplify and integrate their IT environment for greater efficiency and asset reuse, and
+  - Achieve higher levels of process performance.
+
+Logimethods is headquartered in Montreal, with offices in Toronto, Calgary, Victoria and Chicago.
