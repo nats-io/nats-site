@@ -125,7 +125,7 @@ Engine subscribes to NATS and surfaces the tags in Ignition's tag tree. Add a se
 | Name | Nats-Local |
 | URL | `tcp://<NATS_HOST>:1883` |
 
-<img class="img-responsive center-block" src=""/static/img/blog/nats-ignition/engine-server.png" alt="Engine server config">
+<img class="img-responsive center-block" src="/static/img/blog/nats-ignition/engine-server.png" alt="Engine server config">
 
 Once Engine connects and Transmission publishes its first `DBIRTH`, tags appear under `Edge Nodes / <GroupID> / <EdgeNodeID>` in the tag browser. The left side below is the source in Transmission, the right is Engine receiving the same tags with live values.
 
