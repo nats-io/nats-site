@@ -190,6 +190,6 @@ Repo: [github.com/code-runner-100/nats-ignition](https://github.com/code-runner-
 
 ## About the Author
 
-Alex Miller is a Staff Instrumentation & Controls Engineer at [Crusoe Energy](https://www.crusoe.ai/) with a background spanning Manufacturing, Aerospace, Oil and Gas, and industrial data center infrastructure. He specializes in controls system architecture -- designing IIoT pipelines, SCADA systems, and the software infrastructure that ties them together.
+Alex Miller is a Staff Instrumentation & Controls Engineer at [Crusoe](https://www.crusoe.ai/) with a background spanning Manufacturing, Aerospace, Oil and Gas, and industrial data center infrastructure. He specializes in controls system architecture, designing IIoT pipelines, SCADA/Control systems, and the software infrastructure that ties them together.
 
 Crusoe Energy is a vertically integrated AI infrastructure company building sustainable, high-performance data centers powered by low-carbon energy.
