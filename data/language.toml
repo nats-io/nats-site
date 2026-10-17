@@ -555,6 +555,13 @@ supported = false
 jetstream_support = false
 author = "David Gofman"
 link = "https://github.com/dgofman"
+[[language.dart.orgs]]
+org = "dart-nats"
+repo = "dart-nats"
+supported = false
+jetstream_support = true
+author = "dart-nats"
+link = "https://github.com/dart-nats"
 
 [language.ocaml]
 name = "OCaml"
