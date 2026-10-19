@@ -560,8 +560,8 @@ org = "dart-nats"
 repo = "dart-nats"
 supported = false
 jetstream_support = true
-author = "dart-nats"
-link = "https://github.com/dart-nats"
+author = "Chart Chongcharoen"
+link = "https://github.com/chartchuo"
 
 [language.ocaml]
 name = "OCaml"
