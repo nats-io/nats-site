@@ -668,6 +668,15 @@ support = "Community"
 author = "Sworld"
 authorHome = "https://github.com/mcthesw"
 
+[addons.nats_client_ui]
+name = "NATS Client UI"
+home = "https://github.com/nverbeek/nats_client_flutter"
+description = "Cross-platform desktop and web GUI to watch, filter and publish messages and manage JetStream, Key-Value and Object Store. Windows (Microsoft Store), macOS (Homebrew), Linux and Docker."
+support = "Community"
+[[addons.nats_client_ui.authors]]
+author = "Nathan Ver Beek"
+authorHome = "https://github.com/nverbeek"
+
 #[addons.xxx]
 #name = ""
 #home = ""
