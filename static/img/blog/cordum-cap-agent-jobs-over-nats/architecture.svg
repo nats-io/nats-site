@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="920" viewBox="0 0 1440 920" role="img" aria-labelledby="title desc">
+  <title id="title">Cordum job flow over NATS</title>
+  <desc id="desc">Three rows show submission from the gateway through NATS to the scheduler, dispatch from the scheduler through NATS to a worker, and a result from the worker through NATS to the scheduler. Gateway admission and scheduler dispatch are separate policy gates. Redis stores payloads and job state. Core NATS carries heartbeat, cancellation and progress messages. Stream capture does not imply a durable worker consumer.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+  </defs>
+  <rect width="1440" height="920" fill="#ffffff"/>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; fill: #17212f; }
+    .row { font-size: 23px; font-weight: 700; letter-spacing: 1px; }
+    .node { fill: #f5f7f9; stroke: #a9b5c2; stroke-width: 2; rx: 12; }
+    .bus { fill: #edf5fc; stroke: #8eb4d4; stroke-width: 2; rx: 12; }
+    .name { font-size: 30px; font-weight: 700; }
+    .detail { font-size: 25px; }
+    .subject { font-family: 'DejaVu Sans Mono', monospace; font-size: 24px; }
+    .note { font-size: 25px; }
+    .arrow { fill: none; stroke: #334155; stroke-width: 3; marker-end: url(#arrow); }
+  </style>
+  <text x="44" y="45" class="row">1   SUBMIT AFTER ADMISSION</text>
+  <rect x="44" y="68" width="340" height="128" class="node"/>
+  <text x="214" y="115" class="name" text-anchor="middle">API gateway</text>
+  <text x="214" y="155" class="detail" text-anchor="middle">Admission policy gate</text>
+  <path d="M 392 132 L 492 132" class="arrow"/>
+  <rect x="504" y="68" width="432" height="128" class="bus"/>
+  <text x="720" y="115" class="name" text-anchor="middle">NATS</text>
+  <text x="720" y="155" class="subject" text-anchor="middle">sys.job.submit</text>
+  <path d="M 944 132 L 1044 132" class="arrow"/>
+  <rect x="1056" y="68" width="340" height="128" class="node"/>
+  <text x="1226" y="115" class="name" text-anchor="middle">Scheduler</text>
+  <text x="1226" y="155" class="detail" text-anchor="middle">Dispatch policy gate</text>
+  <text x="44" y="253" class="row">2   DISPATCH TO AN ELIGIBLE WORKER</text>
+  <rect x="44" y="276" width="340" height="128" class="node"/>
+  <text x="214" y="323" class="name" text-anchor="middle">Scheduler</text>
+  <text x="214" y="363" class="detail" text-anchor="middle">Select pool and worker</text>
+  <path d="M 392 340 L 492 340" class="arrow"/>
+  <rect x="504" y="276" width="432" height="128" class="bus"/>
+  <text x="720" y="317" class="name" text-anchor="middle">NATS</text>
+  <text x="720" y="353" class="subject" text-anchor="middle">worker.&lt;id&gt;.jobs</text>
+  <text x="720" y="386" class="subject" text-anchor="middle">or topic under job.&gt;</text>
+  <path d="M 944 340 L 1044 340" class="arrow"/>
+  <rect x="1056" y="276" width="340" height="128" class="node"/>
+  <text x="1226" y="323" class="name" text-anchor="middle">Worker</text>
+  <text x="1226" y="363" class="detail" text-anchor="middle">Read context and execute</text>
+  <text x="44" y="461" class="row">3   RECORD THE RESULT</text>
+  <rect x="44" y="484" width="340" height="128" class="node"/>
+  <text x="214" y="531" class="name" text-anchor="middle">Worker</text>
+  <text x="214" y="571" class="detail" text-anchor="middle">Store result and publish</text>
+  <path d="M 392 548 L 492 548" class="arrow"/>
+  <rect x="504" y="484" width="432" height="128" class="bus"/>
+  <text x="720" y="531" class="name" text-anchor="middle">NATS</text>
+  <text x="720" y="571" class="subject" text-anchor="middle">sys.job.result</text>
+  <path d="M 944 548 L 1044 548" class="arrow"/>
+  <rect x="1056" y="484" width="340" height="128" class="node"/>
+  <text x="1226" y="531" class="name" text-anchor="middle">Scheduler</text>
+  <text x="1226" y="571" class="detail" text-anchor="middle">Record accepted result</text>
+  <line x1="44" y1="662" x2="1396" y2="662" stroke="#c8d2dc" stroke-width="2"/>
+  <text x="44" y="706" class="name">Supporting paths</text>
+  <text x="44" y="750" class="note">Safety Kernel via gRPC</text>
+  <text x="44" y="786" class="note">Both policy gates</text>
+  <text x="522" y="750" class="note">Redis</text>
+  <text x="522" y="786" class="note">Payloads and job state</text>
+  <text x="992" y="750" class="note">Core NATS</text>
+  <text x="992" y="786" class="note">Heartbeat, cancel, progress</text>
+  <text x="44" y="853" class="note">Repeated boxes represent the same services and NATS deployment.</text>
+  <text x="44" y="889" class="note">JetStream can store eligible subjects; the example worker uses a Core queue subscription.</text>
+</svg>
