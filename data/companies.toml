@@ -755,3 +755,10 @@ logo = "mulgadc.svg"
 rank = 116
 industry = "tech"
 
+[companies.darkstone]
+name = "Darkstone Cloud"
+home = "https://darkstone.de"
+logo = "darkstone_cloud.svg"
+rank = 117
+industry = "tech"
+
