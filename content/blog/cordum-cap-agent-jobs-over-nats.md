@@ -56,3 +56,7 @@ Redis and NATS also do not share a transaction. Persisting state and publishing 
 The implementation is available in [Cordum](https://github.com/cordum-io/cordum), whose core is licensed under BUSL 1.1. CAP is a separate [Apache 2.0 licensed project](https://github.com/cordum-io/cap/blob/5a5d5e312caca6420437a5d64a01f409a833f025/LICENSE). The distinction matters for anyone evaluating the protocol, integrating a worker or reusing code.
 
 NATS fits this design because subject-based routing lets the gateway, scheduler and workers communicate without hard-wiring every peer, while queue subscriptions and JetStream provide distinct tools for distributing work and retaining messages. I can keep policy decisions and job state in the control plane and choose delivery semantics at each boundary. To explore the design, start with [Cordum](https://cordum.io) and the [CAP protocol](https://cordum.io/protocol), then follow the linked code for the exact behavior of each component.
+
+## About the Author
+
+Yaron Torgeman is the developer of [Cordum](https://cordum.io), a control plane for policy-governed AI agents. He has around 15 years of experience in software, infrastructure and cybersecurity.
