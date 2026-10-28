@@ -1,6 +1,6 @@
 +++
 date = "2026-10-26"
-draft = true
+draft = false
 title = "How Cordum routes agent jobs over NATS"
 author = "Yaron Torgeman"
 categories = ["Engineering"]
