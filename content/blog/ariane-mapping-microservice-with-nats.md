@@ -57,7 +57,7 @@ So, all these nanoservices are speaking together in the same Java process throug
 But while HTTP and REST APIs are great for human interface, we believe machine to machine communications deserve more efficient network transport:
 
 * We want to reduce transport latency and cost as much as possible. HTTP is slow and more expensive compared to MoM.
-* We may need routing accross datacenters and firewalls while installing ProcOS and Docker plugins as local agents on the operating systems to map. The majority of MoM provide easy solutions for that.
+* We may need routing across datacenters and firewalls while installing ProcOS and Docker plugins as local agents on the operating systems to map. The majority of MoM provide easy solutions for that.
 
 Since Ariane 0.8.0 we're providing a messaging implementation for the Ariane mapping service and since then ProcOS and Docker plugins are able to push the data to the mapping service through messaging bus.
 

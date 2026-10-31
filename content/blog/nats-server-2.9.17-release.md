@@ -20,7 +20,7 @@ For the entirety of the improvements and fixes, check out the [release notes](ht
 
 ## 🐘 WebSocket transport truncation
 
-As part of the [P99 peformance work in the 2.9.16 release](https://nats.io/blog/nats-server-2.9.16-release/#-p99-performance), a regression was introduced, resulting in [faulty subscription behavior in clients](https://github.com/nats-io/nats.ws/issues/194) receiving fairly large messages over the WebSocket transport. Internally this had to do with prematurely deallocating a buffer to a shared pool before data was entirely flushed on a connection.
+As part of the [P99 performance work in the 2.9.16 release](https://nats.io/blog/nats-server-2.9.16-release/#-p99-performance), a regression was introduced, resulting in [faulty subscription behavior in clients](https://github.com/nats-io/nats.ws/issues/194) receiving fairly large messages over the WebSocket transport. Internally this had to do with prematurely deallocating a buffer to a shared pool before data was entirely flushed on a connection.
 
 However, the upside of addressing this issue is more optimizations for the WebSocket transport, including reducing the overall memory footprint and switching to a [faster compression algorithm](https://github.com/nats-io/nats-server/pull/4087).
 
@@ -92,7 +92,7 @@ func main() {
 }
 ```
 
-Below is an example output. Note the local times are differentiated by that `m=+` value shown in the output, with a calculated 83ns difference between the times. The second set of times are converted to UTC before printing and performing the time substraction. Note how the times are no longer differentiated and the difference is zero.
+Below is an example output. Note the local times are differentiated by that `m=+` value shown in the output, with a calculated 83ns difference between the times. The second set of times are converted to UTC before printing and performing the time subtraction. Note how the times are no longer differentiated and the difference is zero.
 
 ```
 byron@nats ~ % go run time.go

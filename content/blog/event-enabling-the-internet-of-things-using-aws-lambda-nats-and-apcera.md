@@ -28,7 +28,7 @@ So when, or rather why, is your &lambda; function executed? Well, you can config
 
 `$ curl https://myawsdomain.com/myfunction`
 
-Everytime you hit that URL, &lambda;::
+Every time you hit that URL, &lambda;::
 
 * instantiates the compute resources required to execute your function
 * marshalls the input data, executes your function
