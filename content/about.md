@@ -44,7 +44,26 @@ With leaf nodes and superclusters, NATS lets teams evolve topology over time. Ne
 
 ## Roadmap
 
-Features being included in the next release are tracked on [GitHub milestones](https://github.com/nats-io/nats-server/milestones).  
+NATS Server ships a minor release roughly every six months.
+
+### NATS Server 2.16 — targeted March 2027
+
+**Planned**
+
+- KV TTL refresh
+- Automatic recovery of lost or corrupt data across cluster replicas
+- Checksums for all filestore and Raft metadata files
+- Raft pre-vote to reduce disruptive leader elections
+- Option to skip num-pending calculations on consumers
+- Stream backups from a start sequence
+
+**Under consideration**
+
+- Per-subject max ack pending
+- Opt-in read-after-write consistency for KV
+- Group commit for R1 streams
+
+Plans can change, and items under consideration may move to a later release.
 
 
 The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
