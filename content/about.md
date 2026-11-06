@@ -46,22 +46,19 @@ With leaf nodes and superclusters, NATS lets teams evolve topology over time. Ne
 
 NATS Server ships a minor release roughly every six months.
 
-### NATS Server 2.16 — targeted March 2027
+### NATS Server 2.16 (target: March 2027)
 
-**Planned**
-
-- KV TTL refresh
-- Automatic recovery of lost or corrupt data across cluster replicas
-- Checksums for all filestore and Raft metadata files
-- Raft pre-vote to reduce disruptive leader elections
-- Option to skip num-pending calculations on consumers
-- Stream backups from a start sequence
-
-**Under consideration**
-
-- Per-subject max ack pending
-- Opt-in read-after-write consistency for KV
-- Group commit for R1 streams
+| Feature | What it means | Status |
+|---|---|---|
+| Key expiration refresh | Extend how long a key lives without rewriting its value | Planned |
+| Automatic data repair | Servers in a cluster find missing or damaged data and restore it from each other | Planned |
+| Stronger integrity checks | Every file the server writes to disk is checksummed, so damage is caught during recovery | Planned |
+| Steadier cluster leadership | A server that drops off and rejoins no longer triggers needless leader changes | Planned |
+| Lighter consumers | Consumers can skip tracking how many messages are pending, cutting overhead on very large streams | Planned |
+| Incremental stream backups | Back up a stream starting from a chosen message instead of from the beginning | Planned |
+| Per-subject delivery limits | Limit unacknowledged messages for each subject, not just for the whole consumer | Under consideration |
+| Read-your-writes for key-value | An option to guarantee a read always sees the latest write | Under consideration |
+| Faster writes without replication | Group disk writes together on single-copy streams for higher throughput | Under consideration |
 
 Plans can change, and items under consideration may move to a later release.
 
