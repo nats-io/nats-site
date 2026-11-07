@@ -2,10 +2,12 @@
 {{- $includePaths := (slice "node_modules") }}
 {{- $sass         := "sass/style.sass" }}
 {{- $cssOutput    := "css/style.css" }}
-{{- $devOpts      := (dict "targetPath" $cssOutput "includePaths" $includePaths "enableSourceMap" true) }}
-{{- $prodOpts     := (dict "targetPath" $cssOutput "includePaths" $includePaths "outputStyle" "compressed") }}
+{{- /* Bulma 0.9 is themed by setting variables before @import; moving to @use requires Bulma 1.x. */}}
+{{- $baseOpts     := (dict "transpiler" "dartsass" "targetPath" $cssOutput "includePaths" $includePaths "silenceDependencyDeprecations" true "silenceDeprecations" (slice "import")) }}
+{{- $devOpts      := merge $baseOpts (dict "enableSourceMap" true) }}
+{{- $prodOpts     := merge $baseOpts (dict "outputStyle" "compressed") }}
 {{- $cssOpts      := cond $inServerMode $devOpts $prodOpts }}
-{{- $css          := resources.Get $sass | resources.ExecuteAsTemplate $sass . | toCSS $cssOpts }}
+{{- $css          := resources.Get $sass | resources.ExecuteAsTemplate $sass . | css.Sass $cssOpts }}
 {{- if $inServerMode }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- else }}
