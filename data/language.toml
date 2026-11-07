@@ -71,6 +71,18 @@ author = "Employee Republic"
 link = "https://github.com/employeerepublic/"
 release_date = "2017-05-11"
 
+[language.pure_clojure]
+name = "Pure Clojure"
+[[language.pure_clojure.orgs]]
+org = "lispyclouds"
+repo = "claxon"
+supported = false
+jetstream_support = true
+author = "Rahul De"
+link = "https://github.com/lispyclouds"
+release_date = "2026-07-02"
+release_version = "1.1"
+
 [language.net]
 name = ".NET"
 [[language.net.orgs]]
@@ -297,6 +309,15 @@ author = "Raül Pérez"
 link = "https://github.com/repejota"
 release_version = "0.8.6"
 release_date = "2017-07-17"
+[[language.php.orgs]]
+org = "ideaconnect"
+repo = "php-nats-jetstream-client"
+supported = false
+jetstream_support = true
+author = "IDCT Bartosz Pachołek"
+link = "https://github.com/ideaconnect"
+release_version = "2.8.0"
+release_date = "2026-08-08"
 [[language.php.orgs]]
 org = "byrnedo"
 repo = "php-nats-streaming"
@@ -534,6 +555,13 @@ supported = false
 jetstream_support = false
 author = "David Gofman"
 link = "https://github.com/dgofman"
+[[language.dart.orgs]]
+org = "dart-nats"
+repo = "dart-nats"
+supported = false
+jetstream_support = true
+author = "Chart Chongcharoen"
+link = "https://github.com/chartchuo"
 
 [language.ocaml]
 name = "OCaml"
@@ -563,3 +591,15 @@ author = "g41797"
 link = "https://github.com/g41797/nats"
 release_version = "0.0.4"
 release_date = "2025-05-17"
+
+[language.laravel]
+name = "Laravel"
+[[language.laravel.orgs]]
+org = "zaeem2396"
+repo = "laravel-nats"
+supported = false
+jetstream_support = true
+author = "Zaeem Ansari"
+link = "https://github.com/zaeem2396/laravel-nats"
+release_version = "1.5.0"
+release_date = "2026-03-31"

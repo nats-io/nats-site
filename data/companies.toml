@@ -557,10 +557,10 @@ home = "https://groww.in/"
 logo = "groww.webp"
 rank = 89
 
-[companies.inference]
-name = "Inference"
-home = "https://inference.net/"
-logo = "inference.png"
+[companies.lovable]
+name = "Lovable"
+home = "https://lovable.dev/"
+logo = "lovable.svg"
 rank = 2
 industry = "ai"
 
@@ -719,3 +719,46 @@ home = "https://astrolle.com/"
 logo = "astrolle.webp"
 rank = 114
 industry = "tech"
+
+[companies.degould]
+name = "DeGould"
+home = "https://www.degould.com/"
+logo = "degould.svg"
+rank = 115
+industry = "automotive"
+
+[companies.ghostlabs]
+name = "Ghost Labs"
+home = "https://ghostoracle.io/"
+logo = "ghostlabs.png"
+rank = 107
+industry = "tech"
+
+[companies.topicus]
+name = "Ghost Labs"
+home = "https://topicus.nl/"
+logo = "topicus.png"
+rank = 108
+industry = "tech"
+
+[companies.cotal]
+name = "Cotal.ai"
+home = "https://cotal.ai/"
+logo = "cotal.png"
+rank = 109
+industry = "ai"
+
+[companies.mulgadc]
+name = "Mulga DC"
+home = "https://github.com/mulgadc/spinifex"
+logo = "mulgadc.svg"
+rank = 116
+industry = "tech"
+
+[companies.darkstone]
+name = "Darkstone Cloud"
+home = "https://darkstone.de"
+logo = "darkstone_cloud.svg"
+rank = 117
+industry = "tech"
+

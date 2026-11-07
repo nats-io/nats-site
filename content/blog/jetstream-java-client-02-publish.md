@@ -100,7 +100,7 @@ PublishAck publish(Message message, PublishOptions options) throws IOException, 
 Synchronous publishes *block* until the ack is received. Here is the basic publish: 
 
 ```java
-byte[] messsageBytes = ...
+byte[] messageBytes = ...
 
 PublishAck pa = js.publish("subject", messageBytes);
 
@@ -110,7 +110,7 @@ System.out.println("Published Acknowledged: stream " + pa.getStream() + ", seqno
 ... or use the form that takes Publish Options. Notice there is a fluent style builder available.
 
 ```java
-byte[] messsageBytes = ...
+byte[] messageBytes = ...
 
 PublishOptions po = PublishOptions.builder()
         .stream("my-stream")
@@ -126,7 +126,7 @@ and the last sequence was 1. Remember that Publish Ack contains the sequence num
 message that was just published.
 
 ```java
-byte[] messsageBytes = ...
+byte[] messageBytes = ...
 
 PublishOptions po = PublishOptions.builder()
         .stream("my-stream")
@@ -142,7 +142,7 @@ PublishAck pa = js.publish("subject", messageBytes, po);
 You can also build the message.
 
 ```java
-String messsage = "some string message";
+String message = "some string message";
 
 PublishOptions po = PublishOptions.builder()
         .stream("my-stream")
@@ -177,7 +177,7 @@ CompletableFuture<PublishAck> publishAsync(Message message, PublishOptions optio
 Asynchronous published *do not block* so, as soon as you make the publish call, the method returns with the future.
 
 ```java
-byte[] messsageBytes = ...
+byte[] messageBytes = ...
 
 CompletableFuture<PublishAck> futurePa = js.publish("subject", messageBytes);
 

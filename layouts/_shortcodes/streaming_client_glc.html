@@ -3,10 +3,14 @@
 {{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $languages }}
 {{ $this := . }}
+{{ $hasJetstream := false }}
 {{ range .orgs }}
 {{ if .jetstream_support }}
-{{ $streaming = $streaming | append $this }}
+{{ $hasJetstream = true }}
 {{ end }}
+{{ end }}
+{{ if $hasJetstream }}
+{{ $streaming = $streaming | append $this }}
 {{ end }}
 {{ end }}
 
@@ -37,11 +41,7 @@
   {{ range $k, $v := $streaming }}
     <tr>
     <td>
-    {{ range $k, $a := $v.orgs }}
-      {{ if $a.jetstream_support }}
       {{ $v.name }}
-      {{ end }}
-      {{ end }}
     </td>
     <!--<td>
       {{ $n := len $v.orgs }}

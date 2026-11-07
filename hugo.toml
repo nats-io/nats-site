@@ -2,6 +2,7 @@ baseURL = "https://nats.io/"
 locale = "en-us"
 defaultLanguage = "en"
 title = "NATS.io"
+enableRobotsTXT = true
 
 pygmentsCodeFences = "true"
 pygmentsUseClasses = "true"
@@ -63,7 +64,7 @@ color = "slack-purple"
 [[params.social]]
 label = "YouTube"
 icon = "youtube"
-url = "https://www.youtube.com/@SynadiaCommunications"
+url = "https://www.youtube.com/@nats_io"
 color = "youtube-red"
 
 [[params.social]]

@@ -130,7 +130,7 @@ No extra code is needed for updating the model on events that modifies the state
 
 ## Additional benefits
 
-Apart from the obvious benefit of getting data syncronized between clients in real time, there is more to gain. This blog post is mainly a basic introduction to NATS+Resgate, but I will quickly describe a few other features that each could deserve their own blog post:
+Apart from the obvious benefit of getting data synchronized between clients in real time, there is more to gain. This blog post is mainly a basic introduction to NATS+Resgate, but I will quickly describe a few other features that each could deserve their own blog post:
 
 **Caching**  
 All resources are cacheable by Resgate. This means that if multiple clients requests the same resource, it will only need to send a single *get* request, taking load off the service.
@@ -170,7 +170,7 @@ Or find me in the [NATS Community](https://natsio.slack.com/messages/DBET737GV).
 
 Samuel Jirénius is a long time developer with his roots in C64 Basic and Amiga's Motorola 68k assembler, but is now using a wide variety of technologies (with a passion for [Go](https://golang.org/)) to bring highly interactive web experiences to end users.
 
-He has been working as the system architect and lead developer of Altitude Xperience, a cloud based call center solution developed by [Altitude](https://www.altitude.com/). The call center market's requirement of scalability, high availablity, and real time client synchronization, seeded the ideas that would eventually, after leaving Altitude, lead to the development of Resgate.
+He has been working as the system architect and lead developer of Altitude Xperience, a cloud based call center solution developed by [Altitude](https://www.altitude.com/). The call center market's requirement of scalability, high availability, and real time client synchronization, seeded the ideas that would eventually, after leaving Altitude, lead to the development of Resgate.
 
 Samuel is currently working at [PRO NON X](https://www.prononx.se/).
 

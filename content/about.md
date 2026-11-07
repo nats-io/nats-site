@@ -44,19 +44,39 @@ With leaf nodes and superclusters, NATS lets teams evolve topology over time. Ne
 
 ## Roadmap
 
-Features being included in the next release are tracked on [GitHub milestones](https://github.com/nats-io/nats-server/milestones).  
+NATS Server ships a minor release roughly every six months.
+
+### NATS Server 2.16 (target: March 2027)
+
+| Feature | Status |
+|---|---|
+| **Key expiration refresh.** Extend a key's lifetime without rewriting its value. | Planned |
+| **Automatic data repair.** Cluster servers restore missing or damaged data from each other. | Planned |
+| **Stronger integrity checks.** Checksums on every file written to disk, so damage is caught on recovery. | Planned |
+| **Steadier cluster leadership.** A server rejoining the cluster no longer forces a leader change. | Planned |
+| **Lighter consumers.** Optionally skip pending-message counts to cut overhead on large streams. | Planned |
+| **Incremental stream backups.** Back up a stream from a chosen message onward. | Planned |
+| **Per-subject delivery limits.** Cap unacknowledged messages per subject, not just per consumer. | Under consideration |
+| **Read-your-writes for key-value.** Optionally guarantee a read sees the latest write. | Under consideration |
+| **Faster unreplicated writes.** Batch disk writes on single-copy streams for higher throughput. | Under consideration |
+
+This reflects current intent. Scope may change, and items under consideration may move to a later release.
 
 
 The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
 
-- Community, driven by GitHub and Slack interest and discussions
-- Customers, solicited from [Synadia's](https://www.synadia.com?utm_source=nats_io&utm_medium=nats) customer use cases
+- Community, driven by GitHub and Slack interest and discussions, adopters, and vendor feedback
+- Customers, solicited from commercial users and support providers' customer use cases
 - Support, sourced from recurring challenges with existing capabilities
-- Opportunity, ideated by the maintainers insight and vision
+- Opportunity, ideated by the maintainers' insight and vision
 
 We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
 
-Nightly container image builds are available during development on Docker Hub under the [`synadia/nats-server:nightly`](https://hub.docker.com/r/synadia/nats-server) repo.
+Nightly `nats-server` images are published under the `synadia/nats-server` namespace to provide access to development builds containing the latest upstream NATS changes, including new and experimental features that have not yet been included in an official release. The namespace reflects the infrastructure used to build and publish the nightly images; these images are built from the upstream NATS project code and do not contain any additional functionality beyond that in NATS.
+- These images are tagged with the mutable tag nightly, so the latest is available from Docker Hub as `synadia/nats-server:nightly`
+- Other tags can be seen in the [Docker Hub repo's tags list](https://hub.docker.com/r/synadia/nats-server/tags)
+
+
 
 
 ---
