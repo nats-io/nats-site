@@ -204,7 +204,9 @@ This will build the library and copy the bundled assets to the Hugo `static/` di
 
 ## Local Development
 
-You can either use docker image for your local development or install requirements following this documentation.
+You can either run the site in Docker or install the requirements below.
+
+With Docker, `make docker` serves the site at http://localhost:1313 using the official Hugo image at the version pinned in [netlify.toml](./netlify.toml). npm dependencies are installed on first run.
 
 
 Clone your forked copy of the repository:

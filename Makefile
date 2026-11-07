@@ -1,9 +1,15 @@
+HUGO_VERSION := $(shell sed -n 's/^HUGO_VERSION = "\(.*\)"/\1/p' netlify.toml)
+
 setup:
 	npm install
 	brew install hugo
 
 develop:
 	hugo server --buildDrafts --buildFuture
+
+docker:
+	docker run --rm -it -p 1313:1313 -v "$(CURDIR)":/project ghcr.io/gohugoio/hugo:v$(HUGO_VERSION) \
+		server --bind 0.0.0.0 --buildDrafts --buildFuture
 
 netlify-production-build:
 	hugo --minify
