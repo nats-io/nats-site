@@ -2,7 +2,7 @@
   <div class="col-md-3 col-md-offset-3">
     <h3>Download it</h3>
 
-    {{ range $.Site.Data.clients }}
+    {{ range hugo.Data.clients }}
     {{ range .Releases }}
     {{ if eq .name "NATS Server" }}
 

@@ -1,6 +1,6 @@
 {{/* Template for the server listings on /download (NATS Server, NATS Streaming Server, etc.) */}}
 
-{{ $servers := site.Data.servers }} {{/* All servers */}}
+{{ $servers := hugo.Data.servers }} {{/* All servers */}}
 {{ $platforms := (slice "darwin-amd64" "linux-amd64" "linux-386" "linux-arm6" "linux-arm7" "linux-arm64" "windows-386" "windows-amd64") }}
 
 

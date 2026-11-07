@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-12">
       {{ .Content }}
-      {{ range $.Site.Data }}
+      {{ range hugo.Data }}
       {{ range .Releases }}
 
         {{ range first 1 .github }}

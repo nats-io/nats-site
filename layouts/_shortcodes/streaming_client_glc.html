@@ -1,5 +1,5 @@
-{{ $languages := site.Data.language.language }}
-{{ $clients := site.Data.clients }}
+{{ $languages := hugo.Data.language.language }}
+{{ $clients := hugo.Data.clients }}
 {{ $streaming := (slice) }} {{/* Assemble a list of streaming clients */}}
 {{ range $languages }}
 {{ $this := . }}

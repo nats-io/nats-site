@@ -7,7 +7,7 @@
 {{ $lang        := .Title }}
 {{ $displayLang := cond (eq .Title "C-sharp") "C#" .Title }}
 {{ $display     := printf "%s Clients" $displayLang }}
-{{ $clients     := where site.Data.clients ".language" $title }}
+{{ $clients     := where hugo.Data.clients ".language" $title }}
 
 
 <section class="hero is-light is-small">
