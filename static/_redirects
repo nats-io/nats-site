@@ -1,3 +1,6 @@
 #redirects file
 /docs   https://docs.nats.io
+# Taxonomy pages are not built; send inbound tag/category links to the blog.
+/tags/*         /blog/  301
+/categories/*   /blog/  301
 /*      /404.html 404

@@ -11,6 +11,10 @@ pygmentsStyle = "native"
 [markup.goldmark.renderer]
 unsafe = true
 
+# Hugo denies text/html content by default; content/nats_connect.html needs it.
+[security]
+allowContent = ['^text/(markdown|html)$']
+
 [params]
 tagline = "Cloud Native, Open Source, High-performance Messaging"
 favicon = "favicon.ico"
