@@ -42,7 +42,7 @@ The first point to highlight, which is a core principle held by the maintainers 
 
 In this case, we can see that enabling WebSocket support on the server is a matter of declaring a server configuration block. For nats.ws itself, it comes in the form of only **two** transitive dependencies for the library (`node_modules` memes do not apply here 😄).
 
-Another example of NATS simpicity is being able to try it without any additional steps. Here is a full working example that can be pasted into an HTML file and opened locally within your browser. The output is written to the browser's console. No frameworks or build tools required.
+Another example of NATS simplicity is being able to try it without any additional steps. Here is a full working example that can be pasted into an HTML file and opened locally within your browser. The output is written to the browser's console. No frameworks or build tools required.
 
 ```html
 <!doctype html>
