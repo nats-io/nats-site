@@ -2,7 +2,7 @@
 
 This repo houses the code for the NATS site at [https://nats.io](https://nats.io). NATS documentation is not included in this repo, see the [nats.docs](https://github.com/nats-io/nats.docs) or [https://docs.nats.io](https://docs.nats.io)]
 
-The NATS website is based on the [Hugo](https://gohugo.io) framework using the  [Bulma](https://bulma.io) CSS framework. The content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
+The NATS website is based on the [Hugo](https://gohugo.io) framework, styled with a small Sass stylesheet in `assets/sass/` (no CSS framework). The content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
 Please keep these principles in mind as you modify existing content or design new content for the [nats.io](https://nats.io) site.
 
 ---
@@ -17,6 +17,7 @@ Please keep these principles in mind as you modify existing content or design ne
 - [Adding Clients](#adding-clients-and-utilities)
 - [Adding a Blog Entry](#adding-a-blog-entry)
 - [Adding a Company Logo](#adding-a-company-logo)
+- [Adding a Support Vendor](#adding-a-support-vendor)
 - [Local Development](#local-development)
 
 ---
@@ -171,34 +172,35 @@ If you are a production end user of NATS and would like your company logo displa
 
 ---
 
-## NatsFlow Interactive Diagrams
+## Adding a Support Vendor
 
-The NATS site includes interactive diagrams built with React Flow that visualize NATS messaging patterns. These diagrams are embedded throughout the site to help users understand concepts like publish-subscribe, request-reply, and other NATS messaging patterns.
+Organizations may be listed in the [Support](https://nats.io/support/) page vendor directory if they:
 
-### Development and Usage
+* Provide commercial support, consulting, training, managed services, implementation services, or other professional services specifically related to NATS.
+* Maintain a publicly accessible website describing their organization and services.
+* Provide current contact information or another public method for prospective customers to request information about their NATS-related services.
 
-The interactive diagrams are built and maintained in the `natsflow-react/` directory. This is a standalone React project that can be developed independently and then bundled for use in the Hugo static site.
+Listings are informational and do not imply endorsement, certification, partnership, or preference by the NATS project or its maintainers.
 
-For detailed information on:
-- Building and developing the diagrams
-- Adding new scenarios
-- Embedding diagrams in pages
-- Customizing diagram behavior
+The NATS maintainers may remove listings that no longer meet these criteria, contain inaccurate or outdated information, or are primarily promotional rather than informational.
 
-Please refer to the [NatsFlow React README](./natsflow-react/README.md).
+To add or update a listing, open a pull request against `content/support.md`.
 
-### Quick Build
+Use this format:
 
-To rebuild the NatsFlow diagrams after making changes:
+**Vendor name**
 
-```bash
-cd natsflow-react
-npm install
-npm run build:lib
-npm run build:copy
-```
+**Short description**
 
-This will build the library and copy the bundled assets to the Hugo `static/` directory.
+**Website:** Public company or organization website.
+
+**NATS services:** A brief, factual description of the categories of NATS-related services provided.
+
+**Support availability:** A brief description of support availability or "Contact vendor for availability and service options."
+
+Listings should describe service categories rather than individual commercial products, product features, pricing, marketing claims, or promotional content.
+
+Requests will be reviewed using the same criteria regardless of the vendor's relationship with individual NATS maintainers or their employers.
 
 ---
 
@@ -206,7 +208,7 @@ This will build the library and copy the bundled assets to the Hugo `static/` di
 
 You can either run the site in Docker or install the requirements below.
 
-With Docker, `make docker` serves the site at http://localhost:1313 using the official Hugo image at the version pinned in [netlify.toml](./netlify.toml). npm dependencies are installed on first run.
+With Docker, `make docker` serves the site at http://localhost:1313 using the official Hugo image at the version pinned in [netlify.toml](./netlify.toml).
 
 
 Clone your forked copy of the repository:
@@ -221,7 +223,7 @@ cd nats-site/
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [Dart Sass](https://sass-lang.com/install/) and [npm](https://docs.npmjs.com/getting-started/installing-node). Hugo uses the `sass` executable on your PATH, which must be Dart Sass (on macOS: `brew install sass/sass/sass`).
+Install [Hugo](https://gohugo.io/) and [Dart Sass](https://sass-lang.com/install/). Hugo uses the `sass` executable on your PATH, which must be Dart Sass (on macOS: `brew install sass/sass/sass`).
 
 > Building the NATS site/documentation currently requires Hugo version 0.169.0 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
@@ -229,7 +231,6 @@ Install [Hugo](https://gohugo.io/), [Dart Sass](https://sass-lang.com/install/) 
 #### Building the Site
 
 See the [Makefile](./Makefile) for run commands. If the `Makefile` doesn't work, try the following:
-- `npm install`
 - Go to https://github.com/gohugoio/hugo/releases/tag/v0.169.0 and download the extended version of `hugo`. This is the version specified in the [netlify.toml](./netlify.toml) file.
 - Extract the ZIP file you downloaded and move the `hugo` executable to the `nats-site` project directory
 - Add the project directory to your PATH like `export PATH="$HOME/[insertPathHere]/nats-site:$PATH"`

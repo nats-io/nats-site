@@ -2,11 +2,8 @@
 date = "2023-03-01"
 type = "privacy"
 cssid = "privacy"
-title = "Privacy"
+title = "Privacy Policy"
 +++
-
-
-## NATS Privacy Policy and Cookie Usage
 
 Effective Date: **March 01, 2023**
 

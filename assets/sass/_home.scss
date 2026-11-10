@@ -1,0 +1,279 @@
+@use "tokens" as *;
+
+.sec { padding-top: 56px; padding-bottom: 56px; }
+.sec > h2 { font-size: 1.375rem; margin-bottom: 20px; }
+@media (max-width: $bp-phone) { .sec { padding-top: 40px; padding-bottom: 40px; } }
+
+// A faint drifting network behind the hero. The mask keeps it lightest under the headline and
+// strongest around the system diagram; it stays partly visible everywhere so low-contrast screens still show it.
+.hero-band { position: relative; overflow: hidden; }
+.hero-net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 85% 125% at 74% 45%, #000 30%, rgba(0, 0, 0, .45) 65%, rgba(0, 0, 0, .15) 100%);
+  mask-image: radial-gradient(ellipse 85% 125% at 74% 45%, #000 30%, rgba(0, 0, 0, .45) 65%, rgba(0, 0, 0, .15) 100%);
+  @media (max-width: $bp-mid) {
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, .3), #000 70%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, .3), #000 70%);
+  }
+}
+
+// Hero: thesis on the left, the system diagram on the right.
+.hero2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: 48px;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 48px;
+  h1 { font-size: clamp(1.875rem, 1.45rem + 1.3vw, 2.625rem); line-height: 1.14; letter-spacing: -.02em; }
+  .sub { font-size: 1.125rem; line-height: 1.55; color: var(--ink-2); margin: 16px 0 0; max-width: 38em; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
+  .quiet {
+    margin-left: 6px;
+    font-size: .9375rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    text-decoration: none;
+    &:hover { color: var(--link); text-decoration: underline; }
+  }
+  @media (max-width: $bp-mid) { grid-template-columns: 1fr; }
+  @media (max-width: $bp-phone) {
+    padding-top: 36px;
+    padding-bottom: 32px;
+    h1 { font-size: 1.75rem; }
+    .sub { font-size: 1.0625rem; }
+    .quiet { margin-left: 0; flex-basis: 100%; padding-top: 2px; }
+  }
+}
+
+figure.sys {
+  margin: 0;
+  justify-self: end;
+  width: 100%;
+  max-width: 440px;
+  svg { display: block; width: 100%; height: auto; }
+  @media (max-width: $bp-mid) { justify-self: start; }
+  // The diagram scales with its width, so the text size steps up as it shrinks to keep ~12px on screen.
+  @media (max-width: $bp-phone) { .sx-n, .sx-d { font-size: 13px; } .sx-k { font-size: 12px; } }
+  @media (max-width: 420px) { .sx-n, .sx-d { font-size: 14px; } .sx-k { font-size: 13px; } }
+}
+.sx-chip { fill: var(--bg); stroke: var(--stroke); stroke-width: 1; }
+.sx-sys { fill: var(--bg-2); stroke: var(--stroke); stroke-width: 1; }
+.sx-band { fill: var(--bg); stroke: var(--rule-2); stroke-width: 1; }
+.sx-ten { fill: none; stroke: var(--stroke); stroke-width: 1; stroke-dasharray: 3 3; }
+.sx-rule { stroke: var(--rule-2); stroke-width: 1; }
+.sx-link { fill: none; stroke: var(--stroke); stroke-width: 1; }
+// Diagram type, home page wide: one size; sans for names (semibold) and descriptions (regular),
+// mono only for literal tokens such as subjects, keys and values. Mono is set 1px smaller because its
+// x-height and width run larger, so both read as the same size.
+$dg-size: 12px;
+$dg-mono: 11px;
+.sx-n, .mx-n { font: 600 $dg-size var(--sans); fill: var(--ink); }
+.sx-d, .mx-d { font: 400 $dg-size var(--sans); fill: var(--ink-2); }
+.sx-k, .mx-k { font: 500 $dg-mono var(--mono); fill: var(--ink); }
+.sx-dot { fill: var(--ink); }
+.sw-blue { fill: var(--l-blue); }
+.sw-green { fill: var(--l-green); }
+.sw-dkblue { fill: var(--l-dkblue); }
+.sw-lgreen { fill: var(--l-lgreen); }
+.m-line { fill: none; stroke: var(--l-blue); stroke-width: 1.5; stroke-linecap: round; }
+.m-pub { fill: var(--l-blue); }
+.m-sub { fill: var(--bg); stroke: var(--l-blue); stroke-width: 1.5; transition: fill .5s; &.hit { fill: var(--l-blue); } }
+.s-cell {
+  fill: var(--bg);
+  stroke: var(--stroke);
+  stroke-width: 1;
+  transition: fill .6s, stroke .6s;
+  &.on { fill: color-mix(in srgb, var(--l-green) 28%, var(--bg)); stroke: var(--l-green); }
+}
+.s-cur { fill: var(--ink); }
+.kv-box { fill: var(--bg); stroke: var(--l-dkblue); stroke-width: 1.5; transition: fill .5s; &.hit { fill: color-mix(in srgb, var(--l-dkblue) 18%, var(--bg)); } }
+.v-line { fill: none; stroke: var(--l-lgreen); stroke-width: 1.5; stroke-linecap: round; }
+.v-req { fill: var(--l-lgreen); }
+.v-branch { stroke-width: 1.25; stroke-dasharray: 3 3; }
+.v-inst { fill: var(--bg); stroke: var(--l-lgreen); stroke-width: 1.5; transition: fill .5s; &.hit { fill: var(--l-lgreen); } }
+
+// Navy in both themes, like the header and footer, so it closes off the hero.
+.statsbar {
+  background: var(--head-strip);
+  border-top: 1px solid var(--head-rule);
+  border-bottom: 1px solid var(--head-rule);
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 24px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: .875rem;
+    color: var(--head-ink-2);
+  }
+  .stats { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .stats b { color: var(--head-ink); font-variant-numeric: tabular-nums; }
+  .cncf { display: flex; align-items: center; gap: 10px; color: var(--head-ink); }
+  .cncf img { height: 20px; width: auto; }
+  .cncf .cncf-light { display: none; }
+  .cncf .cncf-dark { display: block; }
+}
+
+// What is NATS: three columns, text first, one small diagram under each.
+.what { padding-bottom: 24px; }
+.what-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  > div { min-width: 0; }
+  h3 { font-size: 1.125rem; margin: 0 0 6px; }
+  p { color: var(--ink-2); font-size: .9375rem; margin: 0; }
+  @media (max-width: $bp-nav) {
+    grid-template-columns: 1fr;
+    gap: 0;
+    > div { padding-bottom: 22px; }
+  }
+}
+.what-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+svg.mini {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 18px 0 0;
+  overflow: hidden;
+}
+// Same parts as the hero diagram: the grey system panel, labelled boxes, 1px grey links,
+// outlined squares for devices, and blue for anything carrying messages.
+.mx-box { fill: var(--bg-2); stroke: var(--stroke); stroke-width: 1; }
+.mx-chip { fill: var(--bg); stroke: var(--stroke); stroke-width: 1; transition: stroke .5s, fill .5s; &.hit { stroke: var(--l-blue); fill: color-mix(in srgb, var(--l-blue) 10%, var(--bg)); } }
+.mx-wire { fill: none; stroke: var(--stroke); stroke-width: 1; }
+.mx-route { fill: none; stroke: var(--l-blue); stroke-width: 1; stroke-linejoin: round; }
+.mx-gw { fill: none; stroke: var(--l-blue); stroke-width: 1.5; stroke-linecap: round; }
+.mx-leaf { fill: none; stroke: var(--l-blue); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.mx-node { fill: var(--bg); stroke: var(--l-blue); stroke-width: 1.5; transition: fill .5s; &.hit { fill: var(--l-blue); } }
+.mx-sq { fill: var(--bg); stroke: var(--stroke); stroke-width: 1.25; transition: fill .5s, stroke .5s; &.hit { fill: var(--l-blue); stroke: var(--l-blue); } }
+.mx-new { transition: opacity .9s ease; }
+.mini.detached .mx-new { opacity: .12; }
+
+// Powering Industry Leaders: industry tabs over a hairline logo grid.
+.leaders h2 { font-size: 1.375rem; margin-bottom: 12px; }
+.ind-tabs-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  border-bottom: 1px solid var(--rule);
+  button {
+    all: unset;
+    cursor: pointer;
+    flex: none;
+    padding: 10px 0 9px;
+    font: 600 .9375rem/1.2 var(--sans);
+    color: var(--ink-3);
+    white-space: nowrap;
+    &:hover, &[aria-selected="true"] { color: var(--ink); }
+    &:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  }
+}
+.ind-scroll {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+.tab-ind {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--l-blue);
+  pointer-events: none;
+  transition: transform .4s var(--ease), width .4s var(--ease);
+  &.instant { transition: none; }
+}
+.ind-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 10px;
+  button { all: unset; cursor: pointer; width: 6px; height: 6px; border-radius: 50%; background: var(--rule-2); }
+  button.on { background: var(--l-blue); }
+}
+.logo-stage {
+  position: relative;
+  overflow: hidden;
+  &:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  &.sizing { transition: height .6s var(--ease); }
+  > .logo-grid.incoming {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-bottom-color: transparent;
+    transition: background-color .3s, border-color .3s;
+    > * { background: transparent; transition: background-color .3s; }
+    &.settled { background: var(--rule); border-bottom-color: var(--rule); }
+    &.settled > * { background: var(--bg); }
+  }
+}
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border-bottom: 1px solid var(--rule);
+  &.all { grid-template-columns: repeat(6, 1fr); }
+  > * { background: var(--bg); height: 92px; display: grid; place-items: center; padding: 16px 20px; }
+  a { text-decoration: none; }
+  // One muted treatment hides the white backgrounds baked into some JPG logos.
+  img {
+    max-height: 24px;
+    max-width: min(100%, 132px);
+    width: auto;
+    filter: grayscale(1) contrast(1.15);
+    mix-blend-mode: multiply;
+    opacity: .72;
+    transition: opacity .45s ease, filter .3s ease;
+    @include when-dark { filter: grayscale(1) invert(1) contrast(1.1); mix-blend-mode: screen; opacity: .8; }
+  }
+  // Brand colour on hover. In dark mode invert plus a half-turn of hue keeps each logo's hues
+  // while making dark artwork light and baked-in white backgrounds black, which screen drops.
+  a:hover img, a:focus-visible img {
+    filter: none; opacity: 1 !important;
+    @include when-dark { filter: invert(1) hue-rotate(180deg); }
+  }
+  .out img, &.incoming .pre img { opacity: 0 !important; }
+}
+.addco {
+  margin: 12px 0 0;
+  font-size: .875rem;
+  color: var(--ink-3);
+  a { font-weight: 600; text-decoration: none; &:hover { text-decoration: underline; } }
+}
+@media (max-width: $bp-phone) {
+  .tab-all { padding-left: 14px !important; border-left: 1px solid var(--rule); }
+  .ind-scroll {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+  }
+  .ind-dots { display: flex; }
+  .logo-grid, .logo-grid.all { grid-template-columns: repeat(3, 1fr); }
+  .logo-grid > * { height: 76px; padding: 12px; }
+  .logo-grid img { max-height: 20px; max-width: 100%; }
+}

@@ -1,56 +1,19 @@
-{{ $connectors := hugo.Data.addons.addons }}
-{{ $clients := hugo.Data.clients}}
-
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Description
-      </th>
-      <th>
-        Developer
-      </th>
-      <th>
-        Support
-      </th>
-    </tr>
-  </thead>
+<div class="ref-wrap">
+<table class="ref">
+  <thead><tr><th scope="col">Name</th><th scope="col">Description</th><th scope="col">Developer</th><th scope="col">Support</th></tr></thead>
   <tbody>
-    {{ range $k, $v := $connectors }}
+    {{- range hugo.Data.addons.addons }}
     <tr>
+      <td><a href="{{ .home }}">{{ .name }}</a></td>
+      <td>{{ .description | markdownify }}</td>
       <td>
-        <a href="{{ $v.home }}" target="_blank">
-          {{ $v.name }}
-        </a>
+        {{- range .authors }}
+        <span class="who">{{ if .authorHome }}<a href="{{ .authorHome }}">{{ .author }}</a>{{ else }}{{ .author }}{{ end }}</span>
+        {{- end }}
       </td>
-      <td>
-        {{ $v.description | markdownify }}
-      </td>
-      <td>
-        {{ $n := len $v.authors }}
-        {{ range $idx, $a := $v.authors }}
-        {{ $isLast := eq (sub $n 1) $idx }}
-        {{ if $a.authorHome }}
-        <a href="{{ $a.authorHome }}">
-          {{ $a.author }}
-        </a>
-        {{ else }}
-        {{ $a.author }}
-        {{ end }}
-        {{ if not $isLast }}<br />{{ end }}
-        {{ end }}
-      </td>
-      <td>
-        {{ $v.support }}
-      </td>
+      <td>{{ .support }}</td>
     </tr>
-    {{ end }}
+    {{- end }}
   </tbody>
 </table>
-
-
-
-
+</div>

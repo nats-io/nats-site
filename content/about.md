@@ -5,22 +5,20 @@ chart = true
 
 ## What is NATS? {#what-is-nats}
 
-NATS is a <a href="#high-performance" style="color: #27aae1; font-style: italic; text-decoration: none;">high-performance</a>, <a href="#lightweight" style="color: #27aae1; font-style: italic; text-decoration: none;">lightweight</a>, <a href="#open-source" style="color: #27aae1; font-style: italic; text-decoration: none;">open-source</a> messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.
+NATS is a [high-performance](#high-performance), [lightweight](#lightweight), [open-source](#open-source) messaging system designed for building modern distributed systems, across any cloud or any arbitrary, user-defined edge.
 
 NATS supports pub/sub, request/reply, and streaming with persistence (via JetStream), all through a single binary with minimal resource usage and sub-millisecond latency.
 
 Official clients are available in Go, Rust, JavaScript (Node and Web), TypeScript (Deno), Python, Java, C#, C, Ruby, Elixir, and a CLI—plus 30+ community-contributed clients—making it easy to integrate across nearly any tech stack. [See all the clients.](/download#clients)
 
-#### <span style="color: #27aae1; font-style: italic;">High-Performance</span> {#high-performance}
+### High performance {#high-performance}
 NATS uses a lightweight, single-threaded I/O loop written in Go, supports zero-copy message dispatch, and employs subject-based routing with minimal protocol overhead to deliver millions of messages per second with sub-millisecond latencies across globally distributed systems.
 
-#### <span style="color: #27aae1; font-style: italic;">Lightweight</span> {#lightweight}
+### Lightweight {#lightweight}
 NATS is a single binary with no external dependencies, consuming minimal memory and CPU resources. The server typically uses less than 20MB of RAM, making it ideal for everything from resource-constrained edge devices to massive cloud deployments.
 
-#### <span style="color: #27aae1; font-style: italic;">Open Source</span> {#open-source}
+### Open source {#open-source}
 NATS server and its clients are open source under the Apache 2.0 license, with a vibrant community and transparent development process.
-
----
 
 ## Why NATS? {#why-nats}
 
@@ -30,8 +28,6 @@ These principles shape how NATS works across environments—from a single proces
 
 The result: a single connective fabric that stays simple as systems scale. Apps remain decoupled, resilient, and easier to operate, while teams avoid the complexity and sprawl that come with stitching together specialized tools.
 
----
-
 ## Where NATS Thrives {#where-nats-thrives}
 
 NATS thrives anywhere systems are distributed. Its core foundations are designed for environments with many endpoints and services—where components are dynamic, loosely coupled, and constantly changing.
@@ -40,13 +36,11 @@ NATS also excels at the edge: on low-resource devices, across fleets of vehicles
 
 With leaf nodes and superclusters, NATS lets teams evolve topology over time. New clouds, regions, or edge locations can be added without downtime or redesign, allowing architectures to grow organically instead of being locked into early decisions.
 
----
-
 ## Roadmap
 
 NATS Server ships a minor release roughly every six months.
 
-### NATS Server 2.16 (target: March 2027)
+### 2.16 (target: March 2027)
 
 | Feature | Status |
 |---|---|
@@ -60,26 +54,7 @@ NATS Server ships a minor release roughly every six months.
 | **Read-your-writes for key-value.** Optionally guarantee a read sees the latest write. | Under consideration |
 | **Faster unreplicated writes.** Batch disk writes on single-copy streams for higher throughput. | Under consideration |
 
-This reflects current intent. Scope may change, and items under consideration may move to a later release.
-
-
-The purpose of the roadmap is to communicate the known set of features and changes coming in a release. Each release contains a set of strategic and high-value changes decided by the NATS maintainers. There are several sources of input for this decision making:
-
-- Community, driven by GitHub and Slack interest and discussions, adopters, and vendor feedback
-- Customers, solicited from commercial users and support providers' customer use cases
-- Support, sourced from recurring challenges with existing capabilities
-- Opportunity, ideated by the maintainers' insight and vision
-
-We are excited to bring these advances to the NATS community and look forward to your valuable input! Feel free to reach out on our [Slack channel](https://slack.nats.io), start a [GitHub discussion](https://github.com/nats-io/nats-server/discussions), or [email us](mailto:info@nats.io) with any questions, comments, or requests.
-
-Nightly `nats-server` images are published under the `synadia/nats-server` namespace to provide access to development builds containing the latest upstream NATS changes, including new and experimental features that have not yet been included in an official release. The namespace reflects the infrastructure used to build and publish the nightly images; these images are built from the upstream NATS project code and do not contain any additional functionality beyond that in NATS.
-- These images are tagged with the mutable tag nightly, so the latest is available from Docker Hub as `synadia/nats-server:nightly`
-- Other tags can be seen in the [Docker Hub repo's tags list](https://hub.docker.com/r/synadia/nats-server/tags)
-
-
-
-
----
+This reflects current intent. Scope may change, and items under consideration may move to a later release. The NATS maintainers set each release from community discussion, commercial users, recurring support issues, and their own direction. Share ideas on [Slack](https://slack.nats.io), in [GitHub discussions](https://github.com/nats-io/nats-server/discussions), or at [info@nats.io](mailto:info@nats.io). To try unreleased changes, see the [nightly build](/download/).
 
 ## Recent posts
 

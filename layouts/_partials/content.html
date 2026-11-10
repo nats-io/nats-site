@@ -1,7 +1,14 @@
-<section class="section has-background-white">
-  <div class="container is-light">
-    <div class="content is-medium has-bottom-padding">
-      {{ .Content }}
-    </div>
-  </div>
-</section>
+{{- /* Long pages get an "On this page" list; short ones read better full width. */}}
+{{- $entries := len (findRE "<li>" .TableOfContents) }}
+{{- $toc := and (ge $entries 3) (ne .Params.toc false) }}
+<div class="wrap doc{{ if not $toc }} single{{ end }}">
+  {{- if $toc }}
+  <aside class="toc" aria-label="On this page">
+    <p>On this page</p>
+    {{ .TableOfContents }}
+  </aside>
+  {{- end }}
+  <article class="prose{{ if .Params.wide }} wide{{ end }}">
+    {{ .Content }}
+  </article>
+</div>

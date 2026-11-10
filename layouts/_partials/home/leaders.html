@@ -1,0 +1,26 @@
+{{- /* Companies sorted by rank; an entry without an industry counts as Tech & Cloud.
+       The data is a map, so sort by name first or equal ranks come out in a different order each build. */}}
+{{- $companies := slice }}
+{{- range sort (sort hugo.Data.companies.companies "name") "rank" }}
+{{- $companies = $companies | append (dict "n" .name "l" .logo "h" .home "i" (.industry | default "tech") "r" .rank) }}
+{{- end }}
+{{- $base := "img/logos/companies/" | relURL }}
+<section class="wrap sec leaders" id="leaders" aria-labelledby="h-leaders">
+  <h2 id="h-leaders">Powering Industry Leaders</h2>
+  <div class="ind-tabs-wrap" role="tablist" aria-label="Industry" id="ind-tabs">
+    <div class="ind-scroll" role="presentation" id="ind-scroll"></div>
+    <span class="tab-ind" id="tab-ind" aria-hidden="true"></span>
+    <button type="button" role="tab" id="tab-all" class="tab-all" aria-controls="logo-panel" aria-selected="false" tabindex="-1">All</button>
+  </div>
+  <div class="ind-dots" id="ind-dots" aria-hidden="true"></div>
+  <div class="logo-stage" id="logo-panel" role="tabpanel" tabindex="0" data-logo-base="{{ $base }}">
+    {{- /* Without JavaScript the first industry's logos still show. */}}
+    <div class="logo-grid">
+      {{- range first 5 (where $companies "i" "ai") }}
+      <a href="{{ .h }}" title="{{ .n }}"><img src="{{ $base }}{{ .l }}" alt="{{ .n }}"></a>
+      {{- end }}
+    </div>
+  </div>
+  <p class="addco">Using NATS? <a href="https://github.com/nats-io/nats-site#adding-a-company-logo">Add your company &rarr;</a></p>
+  <script type="application/json" id="companies-data">{{ $companies | jsonify | safeJS }}</script>
+</section>

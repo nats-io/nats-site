@@ -1,0 +1,20 @@
+{{- /* Client table from data/language.toml, one row per client, leaving out legacy NATS Streaming clients.
+       The language is shown only on the first of its rows so each language reads as one group. */}}
+<div class="ref-wrap">
+<table class="ref clients">
+  <thead><tr><th scope="col">Language</th><th scope="col">Repository</th><th scope="col">Maintainer</th><th scope="col">JetStream</th></tr></thead>
+  <tbody>
+  {{- range hugo.Data.language.language }}
+  {{- $lang := .name }}
+  {{- range $i, $c := where .orgs "streaming_support" "!=" true }}
+  <tr{{ if $i }} class="same"{{ end }}>
+    <td>{{ if not $i }}{{ $lang }}{{ end }}</td>
+    <td><a href="https://github.com/{{ .org }}/{{ .repo }}">{{ .org }}/{{ .repo }}</a></td>
+    <td>{{ .author }}{{ if eq .org "nats-io" }}<i class="fa-solid fa-star official" title="Maintained by the NATS authors" aria-label="official"></i>{{ end }}</td>
+    <td>{{ if .jetstream_support }}<span class="yes">Yes</span>{{ end }}</td>
+  </tr>
+  {{- end }}
+  {{- end }}
+  </tbody>
+</table>
+</div>

@@ -1,54 +1,35 @@
-{{ $title   := site.Title }}
-{{ $bgColor := cond .IsHome "black" "black" }}
-{{ $color   := cond .IsHome "white-bis" "white-bis" }}
-{{ $logo    := cond .IsHome "footer_dark" "footer_dark" }}
-{{ $menu    := site.Menus.main }}
-
-<footer class="footer has-background-{{ $bgColor }} has-text-{{ $color }}">
-<div class="columns">
-  <div class="column">
-    <section class="section">
-      {{ partial "social-buttons.html" (dict "align" "left") }}
-      <p class="has-text-weight-large">
-        Copyright &copy; NATS Authors
-        <span id="current-year"></span>
-      </p>
-      
-    </section>
-  </div>  
-  <div class="column">
-
-    {{ partial "home/cncf.html" (dict "align" "right") }}
-
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="{{ "/" | relURL }}" aria-label="NATS home"><img src="{{ "img/logos/nats-horizontal-color.png" | relURL }}" alt="NATS" width="94" height="24"></a>
+      <img class="cncf" src="{{ "img/logos/cncf-white.png" | relURL }}" alt="Cloud Native Computing Foundation" width="140" height="26">
+      <p class="about">NATS is a <a href="https://cncf.io">Cloud Native Computing Foundation</a> Graduated Project.</p>
+    </div>
+    <div><h3>Project</h3><ul>
+      <li><a href="{{ "/about/" | relURL }}">About</a></li>
+      <li><a href="{{ "/download/" | relURL }}">Download</a></li>
+      <li><a href="https://docs.nats.io">Documentation</a></li>
+      <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
+    </ul></div>
+    <div><h3>Community</h3><ul>
+      <li><a href="https://github.com/nats-io">GitHub</a></li>
+      <li><a href="https://slack.nats.io">Slack</a></li>
+      <li><a href="{{ "/community/" | relURL }}">Community</a></li>
+      <li><a href="{{ "/support/" | relURL }}">Support</a></li>
+    </ul></div>
+    <div><h3>Legal</h3><ul>
+      {{- range site.Menus.legal }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{- end }}
+    </ul></div>
+    <div class="base">
+      <span>Copyright &copy; NATS Authors {{ now.Year }}</span>
+      <span class="tm">The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/legal/trademark-usage">Trademark Usage page</a>.</span>
+      <div class="social">
+        {{- range site.Params.social }}
+        <a class="ib" href="{{ .url }}" aria-label="{{ .label }}"><i class="fa-brands fa-{{ .icon }}" aria-hidden="true"></i></a>
+        {{- end }}
+      </div>
+    </div>
   </div>
-     <!--<div class="columns is-gapless">
-       <div class="column">
-          <p class="title is-size-1 is-size-3-mobile has-text-weight-bold is-spaced">
-        <span class="has-text-nats-blue">
-          Secure.
-        </span>
-            <span class="has-text-nats-green">
-          Simple.
-        </span>
-            <span class="has-text-nats-dark-blue">
-          Scalable.
-        </span>
-            <span class="has-text-nats-light-green">
-          Open Source.
-        </span>
-          </p>
-        </div> -->
-
-  </div>
-
 </footer>
-<style>
-  :target::before {
-  content: "";
-  display: block;
-  margin-top: -80px;
-  height: 80px;
-  width: 1px;
-}
-</style>
-{{ partial "js.html" . }}

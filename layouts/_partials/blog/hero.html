@@ -1,15 +1,7 @@
-{{ $author := .Params.author }}
-{{ $date   := dateFormat "January 2, 2006" .Date }}
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <p class="title is-size-2 is-size-2-mobile has-text-weight-light is-spaced">
-        {{ .Title }}
-      </p>
-
-      <p class="subtitle is-size-3 is-size-4-mobile">
-        <strong>{{ $author }}</strong> &mdash; {{ $date }}
-      </p>
-    </div>
+<header class="page-head">
+  <div class="wrap">
+    <a class="back more" href="{{ "/blog/" | relURL }}">&larr; Blog</a>
+    <h1>{{ .Title }}</h1>
+    <p class="byline">{{ with .Params.author }}<b>{{ . }}</b> &middot; {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
   </div>
-</section>
+</header>

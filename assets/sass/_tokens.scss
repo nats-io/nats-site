@@ -1,0 +1,78 @@
+// Every colour is a token so both themes stay in step. Line colours hold 3:1
+// against --bg and --bg-2; text tokens hold 4.5:1.
+:root {
+  --navy: #00011f;
+  --blue: #27aae1;
+  --bg: #ffffff;
+  --bg-2: #f5f6f8;
+  --ink: #10131f;
+  --ink-2: #474d63;
+  --ink-3: #636a80;
+  --rule: #e2e5ea;
+  --rule-2: #cdd2db;
+  --stroke: #7b8195;
+  --l-blue: #1782b6;
+  --l-green: #27875c;
+  --l-dkblue: #375c93;
+  --l-lgreen: #5f9126;
+  --link: #13699a;
+  --btn: #1474a6;
+  --btn-ink: #ffffff;
+  --btn-hover: #0f5d86;
+  --focus: #1474a6;
+  --err: #b42318;
+  --sel: rgba(39, 170, 225, .22);
+  --head: #00011f;
+  // Thin navy strips against white read darker than the large footer, so in light mode they sit a step lighter.
+  --head-strip: #0a0c2e;
+  --head-ink: #e9ecf5;
+  --head-ink-2: #a3adc8;
+  --head-link: #5cc6f2;
+  --head-rule: rgba(255, 255, 255, .1);
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ease: cubic-bezier(.3, .7, .2, 1);
+  color-scheme: light;
+}
+
+@mixin dark-tokens {
+  --bg: #0e1018;
+  --bg-2: #161925;
+  --ink: #e8eaf1;
+  --ink-2: #aab0c3;
+  --ink-3: #8e94a9;
+  --rule: #262a3a;
+  --rule-2: #343a4f;
+  --stroke: #7f86a0;
+  --l-blue: #27aae1;
+  --l-green: #34a574;
+  --l-dkblue: #5b80c0;
+  --l-lgreen: #8dc63f;
+  --link: #5cc6f2;
+  --btn: #27aae1;
+  --btn-ink: #00011f;
+  --btn-hover: #4bbbea;
+  --focus: #5cc6f2;
+  --err: #f97066;
+  --sel: rgba(39, 170, 225, .35);
+  --head-strip: #00011f;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+}
+:root[data-theme="dark"] { @include dark-tokens; }
+
+// Rules that differ by theme beyond token values (logo filters, light/dark artwork).
+@mixin when-dark {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) & { @content; }
+  }
+  :root[data-theme="dark"] & { @content; }
+}
+
+$bp-wide: 1100px;
+$bp-mid: 960px;
+$bp-nav: 860px;
+$bp-phone: 640px;

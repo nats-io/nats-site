@@ -1,11 +1,13 @@
 +++
 title = "Community"
+# Three content columns need the full width; a side list would squeeze them.
+toc = false
+wide = true
 +++
 
-Our NATS community consists of company end-users, partners, and OSS contributors that make up a vibrant ecosystem.
-If you’d like to help make NATS and its resources better, check out the [Ways to Contribute](#contribute) below. Chances are, if you find a feature useful, others will too.
+Our NATS community consists of company end-users and OSS contributors that make up a vibrant ecosystem.
+If you’d like to help make NATS and its resources better, check out the [Ways to Contribute](#contribute) below.
 
----
 {{< columns >}}
 {{< column >}}
 ## Social
@@ -33,9 +35,9 @@ Please [contact us](mailto:info@nats.io) with any other suggestions.
 
 ## Branding
 
-NATS is an open source project hosted by the CNCF. All colors, logos, and styles should be used as governed by the Linux Foundation/CNCF.
+NATS is a CNCF project. All colors, logos, and styles should be used as governed by the Linux Foundation/CNCF.
 
-* [NATS Logo Colors and Images](https://github.com/cncf/artwork/blob/master/examples/incubating.md#nats-logos)
+* [NATS Logo Colors and Images](https://github.com/cncf/artwork/tree/main/projects/nats)
 * [CNCF Style Guide](https://github.com/cncf/artwork#cncf-brand-guidelines)
 
 ## NATS Newsletter
@@ -43,57 +45,6 @@ NATS is an open source project hosted by the CNCF. All colors, logos, and styles
 Stay up to date with the latest information on NATS.
 
 
-<script>
-  function handleNewsletterFormSubmit(e) {
-    e.preventDefault();
-    let email = document.getElementById("email").value;
-    const portalId = "47270392";
-    const formId = "46b2e433-14b9-4aef-8754-cdd173a9535c";
-    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
-    var data = {
-      email: email,
-    };
-
-    const errorMessage = "An error has occurred upon submission.";
-    const successMessage = "Thank you for subscribing!";
-
-    const payload = {
-      fields: [
-        {
-          name: "email",
-          value: email,
-        },
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title,
-      },
-    };
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(function (response) {
-        if (response.ok) {
-          document.getElementById("subscribe-message").style.display = "block";
-          document.getElementById("subscribe-message").style.color = "green";
-          document.getElementById("subscribe-message").innerText =
-            successMessage;
-        } else {
-          document.getElementById("subscribe-message").style.display = "block";
-          document.getElementById("subscribe-message").style.color = "red";
-          document.getElementById("subscribe-message").innerText = errorMessage;
-        }
-      })
-      .finally(() => {
-        document.getElementById("subscribe-form").reset();
-      });
-  }
-</script>
 
 {{< newsletter >}}
 
@@ -109,11 +60,3 @@ Join us at our upcoming events and talks. Have a suggested event or want us to j
 {{< event-list >}}
 {{< /column >}}
 {{< /columns >}}
-
----
-
-## Partners
-
-We work with a variety of companies to ensure NATS is delivered in a broad range of solutions used by our community. [Contact us to Partner](mailto:info@nats.io?Subject=Partner%20inquiry).
-
-{{< partners >}}

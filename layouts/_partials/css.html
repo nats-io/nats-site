@@ -1,17 +1,22 @@
 {{- $inServerMode := hugo.IsServer }}
-{{- $includePaths := (slice "node_modules") }}
-{{- $sass         := "sass/style.sass" }}
-{{- $cssOutput    := "css/style.css" }}
-{{- /* Bulma 0.9 is themed by setting variables before @import; moving to @use requires Bulma 1.x. */}}
-{{- $baseOpts     := (dict "transpiler" "dartsass" "targetPath" $cssOutput "includePaths" $includePaths "silenceDependencyDeprecations" true "silenceDeprecations" (slice "import")) }}
+{{- $baseOpts     := (dict "transpiler" "dartsass" "targetPath" "css/style.css") }}
 {{- $devOpts      := merge $baseOpts (dict "enableSourceMap" true) }}
 {{- $prodOpts     := merge $baseOpts (dict "outputStyle" "compressed") }}
-{{- $cssOpts      := cond $inServerMode $devOpts $prodOpts }}
-{{- $css          := resources.Get $sass | resources.ExecuteAsTemplate $sass . | css.Sass $cssOpts }}
+{{- $css          := resources.Get "sass/main.scss" | css.Sass (cond $inServerMode $devOpts $prodOpts) }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap">
+{{- with site.Params.font_awesome_version }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ . }}/css/all.min.css">
+{{- end }}
 {{- if $inServerMode }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- else }}
-{{- $prodCss      := $css | fingerprint }}
+{{- $prodCss := $css | fingerprint }}
 <link rel="stylesheet" href="{{ $prodCss.RelPermalink }}" integrity="{{ $prodCss.Data.Integrity }}">
 {{- end }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+{{- if eq .Section "blog" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+{{- end }}
+{{- /* Set the theme before first paint so a saved choice never flashes the other one. */}}
+<script>try{var t=localStorage.getItem('nats-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
