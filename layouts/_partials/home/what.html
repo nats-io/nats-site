@@ -1,0 +1,66 @@
+<section class="wrap sec what" aria-labelledby="h-what">
+  <h2 id="h-what" class="vh">What is NATS</h2>
+  <div class="what-cols">
+    <div>
+      <h3>Why it's different</h3>
+      <p>Built on intentional design choices: location independence, many-to-many communication, and an async-first model.</p>
+      <svg class="mini" id="mini-subj" viewBox="0 0 320 150" role="img" aria-labelledby="mini-subj-t"><title id="mini-subj-t">Billing and checkout connect to different servers in one NATS cluster; a message on orders.&gt; reaches shipping and analytics wherever they are connected.</title>
+        <rect class="mx-box" x="104" y="26" width="112" height="98" rx="3"/>
+        <text class="mx-k" x="160" y="45" text-anchor="middle">orders.&gt;</text>
+        <path class="mx-wire" d="M76 35 L136 64 M76 115 L160 98 M244 35 L184 64 M244 115 L160 98"/>
+        <path class="mx-route" d="M136 64 L184 64 L160 98 Z"/>
+        <circle class="mx-node" cx="136" cy="64" r="6"/><circle class="mx-node" cx="184" cy="64" r="6"/><circle class="mx-node" cx="160" cy="98" r="6"/>
+        <rect class="mx-chip" x="8" y="24" width="68" height="22" rx="3"/><text class="mx-n" x="42" y="39" text-anchor="middle">billing</text>
+        <rect class="mx-chip" x="8" y="104" width="68" height="22" rx="3"/><text class="mx-n" x="42" y="119" text-anchor="middle">checkout</text>
+        <rect class="mx-chip" x="244" y="24" width="68" height="22" rx="3"/><text class="mx-n" x="278" y="39" text-anchor="middle">shipping</text>
+        <rect class="mx-chip" x="244" y="104" width="68" height="22" rx="3"/><text class="mx-n" x="278" y="119" text-anchor="middle">analytics</text>
+      </svg>
+    </div>
+    <div>
+      <h3>Where it runs</h3>
+      <p>Anywhere systems are distributed. Leaf nodes and superclusters add clouds, regions, or edge locations without downtime or redesign.</p>
+      <svg class="mini" id="mini-topo" viewBox="0 0 320 150" role="img" aria-labelledby="mini-topo-t"><title id="mini-topo-t">Devices connect to leaf nodes at the edge, which connect to clusters in two cloud regions; a third region attaches through gateways without changing the others.</title>
+        <g class="mx-new" id="m2-new">
+          <path class="mx-gw" d="M210 39 L286 71 M210 103 L286 71"/>
+          <rect class="mx-box" x="260" y="48" width="52" height="46" rx="3"/>
+          <path class="mx-route" d="M273 82 L299 82 L286 60 Z"/>
+          <circle class="mx-node m2-b" cx="273" cy="82" r="5"/><circle class="mx-node m2-b" cx="299" cy="82" r="5"/><circle class="mx-node m2-b" cx="286" cy="60" r="5"/>
+        </g>
+        <path class="mx-gw" d="M210 39 V103"/>
+        <path class="mx-leaf" d="M118 40 L210 39 M118 104 L210 103"/>
+        <rect class="mx-box" x="184" y="16" width="52" height="46" rx="3"/>
+        <rect class="mx-box" x="184" y="80" width="52" height="46" rx="3"/>
+        <path class="mx-route" d="M197 50 L223 50 L210 28 Z M197 114 L223 114 L210 92 Z"/>
+        <circle class="mx-node m2-a" cx="197" cy="50" r="5"/><circle class="mx-node m2-a" cx="223" cy="50" r="5"/><circle class="mx-node m2-a" cx="210" cy="28" r="5"/>
+        <circle class="mx-node" cx="197" cy="114" r="5"/><circle class="mx-node" cx="223" cy="114" r="5"/><circle class="mx-node" cx="210" cy="92" r="5"/>
+        <path class="mx-wire" d="M40 24 L118 40 M52 56 L118 40 M40 92 L118 104 M52 124 L118 104"/>
+        <circle class="mx-node" id="m2-l1" cx="118" cy="40" r="6"/><circle class="mx-node" cx="118" cy="104" r="6"/>
+        <rect class="mx-sq" id="m2-d1" x="35.5" y="19.5" width="9" height="9" rx="1.5"/><rect class="mx-sq" x="47.5" y="51.5" width="9" height="9" rx="1.5"/>
+        <rect class="mx-sq" x="35.5" y="87.5" width="9" height="9" rx="1.5"/><rect class="mx-sq" x="47.5" y="119.5" width="9" height="9" rx="1.5"/>
+        <text class="mx-d" x="46" y="145" text-anchor="middle">devices</text>
+        <text class="mx-d" x="118" y="145" text-anchor="middle">edge</text>
+        <text class="mx-d" x="248" y="145" text-anchor="middle">cloud regions</text>
+      </svg>
+    </div>
+    <div>
+      <h3>What you get</h3>
+      <p>A single connective fabric that stays simple as systems scale, with official clients for 10+ languages and 30+ more from the community.</p>
+      <svg class="mini" id="mini-fab" viewBox="0 0 320 150" role="img" aria-labelledby="mini-fab-t"><title id="mini-fab-t">Go, Rust, Python, JavaScript, Java and C# clients connect to a three-server NATS cluster and reach each other through it.</title>
+        <rect class="mx-box" x="116" y="24" width="88" height="102" rx="3"/>
+        <path class="mx-wire" d="M84 25 L160 50 M84 75 L138 92 M84 125 L138 92 M236 25 L160 50 M236 75 L182 92 M236 125 L182 92"/>
+        <path class="mx-route" d="M160 50 L182 92 L138 92 Z"/>
+        <circle class="mx-node" cx="160" cy="50" r="6"/><circle class="mx-node" cx="138" cy="92" r="6"/><circle class="mx-node" cx="182" cy="92" r="6"/>
+        <rect class="mx-chip" x="12" y="14" width="72" height="22" rx="3"/><text class="mx-n" x="48" y="29" text-anchor="middle">Go</text>
+        <rect class="mx-chip" x="12" y="64" width="72" height="22" rx="3"/><text class="mx-n" x="48" y="79" text-anchor="middle">Rust</text>
+        <rect class="mx-chip" x="12" y="114" width="72" height="22" rx="3"/><text class="mx-n" x="48" y="129" text-anchor="middle">Python</text>
+        <rect class="mx-chip" x="236" y="14" width="72" height="22" rx="3"/><text class="mx-n" x="272" y="29" text-anchor="middle">JavaScript</text>
+        <rect class="mx-chip" x="236" y="64" width="72" height="22" rx="3"/><text class="mx-n" x="272" y="79" text-anchor="middle">Java</text>
+        <rect class="mx-chip" x="236" y="114" width="72" height="22" rx="3"/><text class="mx-n" x="272" y="129" text-anchor="middle">C#</text>
+      </svg>
+    </div>
+  </div>
+  <div class="what-foot">
+    <a class="more" href="{{ "/about/" | relURL }}">How NATS works &rarr;</a>
+    <a class="more" href="https://docs.nats.io/concepts/what-is-nats">Concepts in the docs &rarr;</a>
+  </div>
+</section>

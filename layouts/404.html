@@ -1,25 +1,13 @@
+{{ define "title" }}Page not found | {{ site.Title }}{{ end }}
+
 {{ define "main" }}
-{{ partial "hero_no_title.html" . }}
-
-
-<section class="section is-medium has-background-white">
-    <div class="columns is-centered">
-        
-        <div class="column has-text-centered is-one-half is-size-5">
-            <div class="is-size-2">404 Page Not Found</div>
-        It looks like you have followed a broken link or entered a URL that doesn't exist on this site. <br>
-    Can't find what you're looking for? Join our <a href="https://slack.nats.io" target="_blank">Slack Community</a>.<br></br>
-          <a class="button is-normal is-primary has-text-weight-bold" href="https://nats.io">
-            Back to Home
-          </a>
-        </div>
-      </div>
-    </div>
+<section class="wrap notfound">
+  <p class="code">404</p>
+  <h1>Page not found</h1>
+  <p>The link you followed is broken, or the page has moved. The documentation lives at <a href="https://docs.nats.io">docs.nats.io</a>, and the community can help on <a href="https://slack.nats.io">Slack</a>.</p>
+  <div class="actions">
+    <a class="btn primary" href="{{ "/" | relURL }}">Back to home</a>
+    <a class="btn" href="https://docs.nats.io">Documentation</a>
+  </div>
 </section>
-<section class="section is-medium has-background-white">
-
-
-</section>
-
-
 {{ end }}

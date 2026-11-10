@@ -1,1 +1,0 @@
-export { AnimatedEdge } from './AnimatedEdge';

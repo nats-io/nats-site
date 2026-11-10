@@ -1,42 +1,27 @@
-{{ $posts  := where site.RegularPages "Section" "blog" }}
-{{ $recent := first 10 $posts }}
-
-
-<section class="section has-background-white">
-  <div class="container">
-    <div class="columns is-variable is-12">
-      <p class="is-size-5 is-size-6-mobile">Welcome to the NATS Blog! We have content from NATS Maintainers, end-users, and community contributors. We always appreciate outside contributions so if you would like to contribute a blog post, see our <a href="/contributing/#contributing-a-blog-post">Contributor's Guide</a> for more information.
-    </p>
-    </div>
-      <div class="columns is-variable is-12">
-        <div class="column is-three-fourths">
-
-        {{ range (.Paginator 10).Pages }}
-        {{ $author := .Params.author | upper }}
-        {{ $date   := dateFormat "January 2, 2006" .Date }}
-        <div class="card">
-          <div class="card-content">
-            <p class="title is-spaced">
-              <a class="is-size-4 is-size-5-mobile" href="{{ .RelPermalink }}">
-                {{ .Title }}
-              </a>
-            </p>
-
-            <p class="subtitle">
-              <strong>{{ $author }}</strong> &mdash; {{ $date }}
-            </p>
-
-            <div class="content">
-              {{ .Summary }}
-
-              <a href="{{ .RelPermalink }}">Read more...</a>
-            </div>
-          </div>
+{{- $pager := .Paginator 10 }}
+<div class="wrap doc single">
+  <div>
+    {{- if eq $pager.PageNumber 1 }}
+    <p class="blog-intro">Posts from NATS maintainers, end users and community contributors. To write one, see the <a href="{{ "/contributing/#contributing-a-blog-post" | relURL }}">contributor guide</a>.</p>
+    {{- end }}
+    <ol class="post-list">
+      {{- range $pager.Pages }}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <div>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{- with .Params.author }}<p class="by">{{ . }}</p>{{ end }}
+          <div class="sum">{{ .Summary }}</div>
         </div>
-        {{ end }}
-      <br>
-        {{ partial "pagination.html" . }}
-      </div>
-
+      </li>
+      {{- end }}
+    </ol>
+    {{- if gt $pager.TotalPages 1 }}
+    <nav class="pager" aria-label="Blog pages">
+      {{- if $pager.HasPrev }}<a class="btn small" href="{{ $pager.Prev.URL }}">&larr; Newer posts</a>{{ else }}<span class="off"></span>{{ end }}
+      <span class="count">Page {{ $pager.PageNumber }} of {{ $pager.TotalPages }}</span>
+      {{- if $pager.HasNext }}<a class="btn small" href="{{ $pager.Next.URL }}">Older posts &rarr;</a>{{ else }}<span class="off"></span>{{ end }}
+    </nav>
+    {{- end }}
   </div>
-</section>
+</div>

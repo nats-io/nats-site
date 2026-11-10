@@ -2,8 +2,6 @@
 title = "NATS Contributor Guide"
 +++
 
-# Contributing
-
 Do you want to contribute to NATS? Awesome! We’d love your help. To make it easier for you to contribute, we’ve provided some guidelines below to ensure that you (the contributor) know what we (the project maintainers) look for in terms of content as well as the criteria and procedures we use when reviewing your submissions.
 
 ## A Word On Governance
@@ -25,10 +23,10 @@ NATS is designed with four goals in mind:
 
 Venue | Description
 :-----|:-----------
-<span class = "has-text-slack-purple"><i class="fab fa-lg fa-slack"></i></span> Slack  | The NATS Slack workspace is a great place to ask and answer questions about the NATS project and ecosystem and to compare notes with other users. We welcome your contribution to the discussion there, especially in sharing your experiences implementing with NATS and answering the questions of other users. [Join now](https://slack.nats.io)!
-<span class = "has-text-twitter-blue"><i class="fab fa-lg fa-twitter"></i></span> Twitter ([@nats_io](https://twitter.com/nats_io)) | You can follow NATS on [Twitter](https://twitter.com/nats_io/) to get updates on NATS. You can also tweet us questions or just share blogs or stories.
-<span class = "has-text-reddit-orange"><i class="fab fa-lg fa-stack-overflow"></i></span> Stack Overflow | We regularly monitor [NATS questions](https://stackoverflow.com/search?tab=newest&q=NATS.IO) and so do many other knowledgeable NATS users. 
-<span class = "has-text-primary"><i class="fab fa-lg fa-google"></i></span> Google Groups | The [natsio](https://groups.google.com/forum/#!topic/natsio) Google group is for contributors and other people contributing to the NATS project. You can join them without a google account by sending an email to [natsio+subscribe@googlegroups.com](mailto:natsio+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription. 
+<i class="fab fa-lg fa-slack"></i> Slack  | The NATS Slack workspace is a great place to ask and answer questions about the NATS project and ecosystem and to compare notes with other users. We welcome your contribution to the discussion there, especially in sharing your experiences implementing with NATS and answering the questions of other users. [Join now](https://slack.nats.io)!
+<i class="fab fa-lg fa-twitter"></i> Twitter ([@nats_io](https://twitter.com/nats_io)) | You can follow NATS on [Twitter](https://twitter.com/nats_io/) to get updates on NATS. You can also tweet us questions or just share blogs or stories.
+<i class="fab fa-lg fa-stack-overflow"></i> Stack Overflow | We regularly monitor [NATS questions](https://stackoverflow.com/search?tab=newest&q=NATS.IO) and so do many other knowledgeable NATS users. 
+<i class="fab fa-lg fa-google"></i> Google Groups | The [natsio](https://groups.google.com/forum/#!topic/natsio) Google group is for contributors and other people contributing to the NATS project. You can join them without a google account by sending an email to [natsio+subscribe@googlegroups.com](mailto:natsio+subscribe@googlegroups.com). After receiving the join-request message, you can simply reply to that to confirm the subscription. 
 
 ## Contributing A Blog Post
 

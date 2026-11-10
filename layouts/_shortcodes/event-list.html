@@ -1,19 +1,17 @@
-{{ $events := hugo.Data.events.events }}
-{{ range $events }}
-<h4 class="has-text-primary-dark">
-  {{ .venue }}
-</h4>
-
-<strong>When</strong>: {{ .when }}<br />
-<strong>Who</strong>: {{ .who }}<br />
-<strong>What</strong>: {{ .what }}<br />
-<strong>Where</strong>: {{ .where }}<br />
-{{ with .link }}
-<strong>Link</strong>: {{ .link }}<br />
-{{ end }}
-
-<a href="{{ .ref }}" target="_blank">
-  More Information
-</a>
-<br /><br />
-{{ end }}
+{{- /* Fields still marked TBD in data/events.toml are left out rather than shown as placeholders. */}}
+<ul class="events">
+  {{- range hugo.Data.events.events }}
+  <li>
+    <h3>{{ .venue }}</h3>
+    <dl>
+      {{- range slice (slice "When" .when) (slice "Where" .where) (slice "Who" .who) (slice "What" .what) }}
+      {{- $v := index . 1 }}
+      {{- if and $v (ne $v "TBD") }}<div><dt>{{ index . 0 }}</dt><dd>{{ $v }}</dd></div>{{ end }}
+      {{- end }}
+    </dl>
+    {{- with .ref }}<a class="more" href="{{ . }}">Event details &rarr;</a>{{ end }}
+  </li>
+  {{- else }}
+  <li>No events are scheduled right now.</li>
+  {{- end }}
+</ul>

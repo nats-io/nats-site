@@ -1,0 +1,19 @@
+{{- $site := resources.Get "js/site.js" | js.Build (dict "minify" true) | fingerprint }}
+<script src="{{ $site.RelPermalink }}" integrity="{{ $site.Data.Integrity }}" defer></script>
+{{- if .IsHome }}
+{{- range slice "js/net.js" "js/diagram.js" "js/logos.js" }}
+{{- $js := resources.Get . | js.Build (dict "minify" true) | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{- end }}
+{{- end }}
+{{- if not .IsHome }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js"></script>
+<script>anchors.options.placement = 'left'; anchors.add('.prose h2, .prose h3');</script>
+{{- end }}
+{{- if eq .Section "download" }}
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+{{- end }}
+{{- if eq .Section "blog" }}
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>docsearch({ apiKey: '22d6bf4e34b8974d2f19c337df8f33c4', indexName: 'nats', inputSelector: '#search-bar', debug: false });</script>
+{{- end }}

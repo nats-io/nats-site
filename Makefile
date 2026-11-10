@@ -1,7 +1,6 @@
 HUGO_VERSION := $(shell sed -n 's/^HUGO_VERSION = "\(.*\)"/\1/p' netlify.toml)
 
 setup:
-	npm install
 	brew install hugo sass/sass/sass
 
 develop:

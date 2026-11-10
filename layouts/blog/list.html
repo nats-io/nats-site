@@ -1,10 +1,6 @@
-{{ define "title" }}
-{{ .Title }}
-{{ end }}
+{{ define "title" }}{{ .Title }} | {{ site.Title }}{{ end }}
 
 {{ define "main" }}
 {{ partial "hero.html" . }}
 {{ partial "blog/posts.html" . }}
 {{ end }}
-
-

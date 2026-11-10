@@ -1,0 +1,7 @@
+{{- /* Submitted by site.js to the NATS newsletter form on HubSpot. */}}
+<form class="newsletter" data-newsletter>
+  <label class="sr" for="newsletter-email-{{ .id }}">Email address</label>
+  <input type="email" placeholder="you@example.com" name="email" id="newsletter-email-{{ .id }}" autocomplete="email" required>
+  <button type="submit" class="btn primary">Subscribe</button>
+  <p class="newsletter-msg" role="status" hidden></p>
+</form>

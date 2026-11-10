@@ -1,33 +1,25 @@
 ---
 title: Download
+# The client tables need the full column width.
+wide: true
 aliases: 
   - /download/nats-server/
   - /download/nats-streaming-server/
 ---
 
-Here you will find the NATS Server and officially supported & community [clients](#clients) and our [JetStream enabled clients](#nats-jetstream-enabled-clients). Our [documentation](https://docs.nats.io) provides detailed instructions on how to get started.
-
-Also available are a wide variety of community contributed clients, connectors, and utilities. We are always happy to receive contributions to review - send us a PR, or contact us at [info@nats.io](mailto:info@nats.io) to share what you have built using NATS!
+The NATS Server, its [clients](#clients), and community [connectors and utilities](#connectors-and-utilities). The [documentation](https://docs.nats.io) covers getting started.
 
 {{< servers >}}
-Want to try out what our engineers are working on? Check out the NATS Server Nightly Build. This Docker image is not an official release but contains new engineering coming to NATS Server soon. Nightly images are currently published under the `synadia/nats-server` Docker Hub namespace because that infrastructure builds and publishes NATS development images from upstream project code; these images do not include Synadia-specific functionality.
+The Nightly build is an unreleased development image, published as `synadia/nats-server:nightly` and built from upstream NATS code with nothing added ([all tags](https://hub.docker.com/r/synadia/nats-server/tags)).
 
 ## Clients
-NATS clients are used to connect to and communicate with NATS Server. If you would like to contribute your own client or add one not listed here,  you can submit a pull request to update the contents of [this file](https://github.com/nats-io/nats-site/blob/main/data/language.toml).
+Starred <span><i class="fas fa-star fa-xs fa-star-blue"></i></span> clients are maintained by the NATS authors in the `nats-io` GitHub organization. To add a client, send a pull request updating [language.toml](https://github.com/nats-io/nats-site/blob/main/data/language.toml).
 
-Starred <span><i class="fas fa-star fa-xs fa-star-blue"></i></span> clients are maintained by official NATS Authors and belong to the `nats-io` GitHub organization.
-
-### NATS Clients
 {{< client_glc >}}
-
-### NATS JetStream Enabled Clients
-
-NATS 2.2 release welcomed our newest persistence engine, JetStream. Additional JetStream enabled clients will be introduced soon. 
-{{< streaming_client_glc >}}
 
 ## Connectors and Utilities
 
-To add a new connector or utility, you can submit a pull request to update the contents of [this file](https://github.com/nats-io/nats-site/blob/main/data/addons.toml).
+To add a connector or utility, send a pull request updating [addons.toml](https://github.com/nats-io/nats-site/blob/main/data/addons.toml).
 
 {{< connectors >}}
 
