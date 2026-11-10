@@ -1,7 +1,7 @@
 @use "tokens" as *;
 
 .sec { padding-top: 56px; padding-bottom: 56px; }
-.sec > h2 { font-size: 1.375rem; margin-bottom: 20px; }
+.sec > h2 { font-size: $fs-h2; margin-bottom: 20px; }
 @media (max-width: $bp-phone) { .sec { padding-top: 40px; padding-bottom: 40px; } }
 
 // A faint drifting network behind the hero. The mask keeps it lightest under the headline and
@@ -27,15 +27,15 @@
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
   gap: 48px;
-  align-items: center;
+  align-items: start;
   padding-top: 56px;
   padding-bottom: 48px;
-  h1 { font-size: clamp(1.875rem, 1.45rem + 1.3vw, 2.625rem); line-height: 1.14; letter-spacing: -.02em; }
-  .sub { font-size: 1.125rem; line-height: 1.55; color: var(--ink-2); margin: 16px 0 0; max-width: 38em; }
+  h1 { font-size: $fs-display; line-height: 1.14; letter-spacing: -.02em; }
+  .sub { font-size: $fs-h3; line-height: 1.55; color: var(--ink-2); margin: 16px 0 0; max-width: 38em; }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
   .quiet {
     margin-left: 6px;
-    font-size: .9375rem;
+    font-size: $fs-ui;
     font-weight: 600;
     color: var(--ink-2);
     text-decoration: none;
@@ -46,7 +46,6 @@
     padding-top: 36px;
     padding-bottom: 32px;
     h1 { font-size: 1.75rem; }
-    .sub { font-size: 1.0625rem; }
     .quiet { margin-left: 0; flex-basis: 100%; padding-top: 2px; }
   }
 }
@@ -98,11 +97,11 @@ $dg-mono: 11px;
 .v-branch { stroke-width: 1.25; stroke-dasharray: 3 3; }
 .v-inst { fill: var(--bg); stroke: var(--l-lgreen); stroke-width: 1.5; transition: fill .5s; &.hit { fill: var(--l-lgreen); } }
 
-// Navy in both themes, like the header and footer, so it closes off the hero.
+// A grey band closes off the hero without competing with the navy header.
 .statsbar {
-  background: var(--head-strip);
-  border-top: 1px solid var(--head-rule);
-  border-bottom: 1px solid var(--head-rule);
+  background: var(--bg-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
   .line {
     display: flex;
     align-items: center;
@@ -111,15 +110,13 @@ $dg-mono: 11px;
     flex-wrap: wrap;
     padding-top: 12px;
     padding-bottom: 12px;
-    font-size: .875rem;
-    color: var(--head-ink-2);
+    font-size: $fs-small;
+    color: var(--ink-2);
   }
   .stats { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 18px; }
-  .stats b { color: var(--head-ink); font-variant-numeric: tabular-nums; }
-  .cncf { display: flex; align-items: center; gap: 10px; color: var(--head-ink); }
+  .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cncf { display: flex; align-items: center; gap: 10px; color: var(--ink); }
   .cncf img { height: 20px; width: auto; }
-  .cncf .cncf-light { display: none; }
-  .cncf .cncf-dark { display: block; }
 }
 
 // What is NATS: three columns, text first, one small diagram under each.
@@ -129,8 +126,8 @@ $dg-mono: 11px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px;
   > div { min-width: 0; }
-  h3 { font-size: 1.125rem; margin: 0 0 6px; }
-  p { color: var(--ink-2); font-size: .9375rem; margin: 0; }
+  h3 { font-size: $fs-h3; margin: 0 0 6px; }
+  p { color: var(--ink-2); font-size: $fs-body; margin: 0; }
   @media (max-width: $bp-nav) {
     grid-template-columns: 1fr;
     gap: 0;
@@ -143,6 +140,7 @@ $dg-mono: 11px;
   gap: 12px 24px;
   flex-wrap: wrap;
   margin-top: 28px;
+  .more { font-size: $fs-ui; }
 }
 svg.mini {
   display: block;
@@ -166,7 +164,7 @@ svg.mini {
 .mini.detached .mx-new { opacity: .12; }
 
 // Powering Industry Leaders: industry tabs over a hairline logo grid.
-.leaders h2 { font-size: 1.375rem; margin-bottom: 12px; }
+.leaders h2 { margin-bottom: 12px; }
 .ind-tabs-wrap {
   position: relative;
   display: flex;
@@ -178,7 +176,7 @@ svg.mini {
     cursor: pointer;
     flex: none;
     padding: 10px 0 9px;
-    font: 600 .9375rem/1.2 var(--sans);
+    font: 600 #{$fs-ui}/1.2 var(--sans);
     color: var(--ink-3);
     white-space: nowrap;
     &:hover, &[aria-selected="true"] { color: var(--ink); }
@@ -226,10 +224,7 @@ svg.mini {
     right: 0;
     background: transparent;
     border-bottom-color: transparent;
-    transition: background-color .3s, border-color .3s;
-    > * { background: transparent; transition: background-color .3s; }
-    &.settled { background: var(--rule); border-bottom-color: var(--rule); }
-    &.settled > * { background: var(--bg); }
+    > * { background: transparent; }
   }
 }
 .logo-grid {
@@ -238,6 +233,8 @@ svg.mini {
   gap: 1px;
   background: var(--rule);
   border-bottom: 1px solid var(--rule);
+  transition: background-color .3s, border-color .3s;
+  &.lines-off { background: var(--bg); border-bottom-color: var(--bg); }
   &.all { grid-template-columns: repeat(6, 1fr); }
   > * { background: var(--bg); height: 92px; display: grid; place-items: center; padding: 16px 20px; }
   a { text-decoration: none; }
@@ -259,10 +256,11 @@ svg.mini {
     @include when-dark { filter: invert(1) hue-rotate(180deg); }
   }
   .out img, &.incoming .pre img { opacity: 0 !important; }
+  .out img { transition-duration: .3s; }
 }
 .addco {
   margin: 12px 0 0;
-  font-size: .875rem;
+  font-size: $fs-small;
   color: var(--ink-3);
   a { font-weight: 600; text-decoration: none; &:hover { text-decoration: underline; } }
 }

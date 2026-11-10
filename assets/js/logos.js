@@ -1,5 +1,5 @@
 // "Powering Industry Leaders": seven industry tabs plus "All", in one tablist. Industry tabs show the
-// top five logos by rank; "All" shows every logo. Auto-rotation cycles the industries only, every 4s,
+// top five logos by rank; "All" shows every logo. Auto-rotation cycles the industries only, every 6s,
 // until any interaction, and never runs under reduced motion, off screen or in a hidden tab.
 (() => {
   const list = document.getElementById('ind-tabs'); if (!list) return;
@@ -42,10 +42,14 @@
     g.insertAdjacentHTML('beforeend', '<span aria-hidden="true"></span>'.repeat((cols - count % cols) % cols));
     return cols;
   }
+  const itemsFor = i => i === ALL ? companies : companies.filter(c => c.i === INDUSTRIES[i][0]).slice(0, 5);
+  // Wait for the incoming logos before cross-fading, or a slow link shows empty cells mid-fade.
   const preload = g => Promise.race([
     Promise.all([...g.querySelectorAll('img')].slice(0, 30).map(i => i.decode ? i.decode().catch(() => {}) : null)),
-    new Promise(r => setTimeout(r, 400)),
+    new Promise(r => setTimeout(r, 1500)),
   ]);
+  // Fetch the next industry's logos ahead of the rotation reaching it.
+  const warm = i => { if (i < ALL) itemsFor(i).forEach(c => { new Image().src = logoBase + c.l; }); };
 
   function syncTabs() {
     panel.setAttribute('aria-labelledby', tabs[current].id);
@@ -53,15 +57,17 @@
     dots.forEach((d, i) => d.classList.toggle('on', i === current));
   }
 
-  // Cross-fade: the incoming grid sits over the outgoing one with transparent cells, each cell's
-  // new logo fades in while the logo under it fades out, staggered left to right. The stage height
-  // animates between the two grids, then the incoming grid takes over the hairlines and the old one goes.
+  // The incoming grid sits over the outgoing one with transparent cells. Cell by cell, left to right, the
+  // old logo fades out and then the new one fades in, so only one or two logos move at once. Cell backgrounds never
+  // fade, since a part-transparent cell over the hairline-grey grid washes grey. When the column count
+  // changes, the old hairlines fade out first and the new ones fade in after the swap.
   async function render(animate) {
     const showAll = current === ALL, token = {};
-    const items = showAll ? companies : companies.filter(c => c.i === INDUSTRIES[current][0]).slice(0, 5);
+    const items = itemsFor(current);
     render.token = token;
     syncTabs(); placeIndicator(!animate);
     if (finishing) finishing();
+    if (!showAll) warm((current + 1) % INDUSTRIES.length);
     const next = buildGrid(items, showAll);
     if (!grid || !animate || reduce.matches) {
       panel.innerHTML = ''; panel.appendChild(next); padGrid(next, items.length);
@@ -75,29 +81,40 @@
     await preload(next);
     // A newer render took over while this one waited on images; its grid must not linger as an invisible overlay.
     if (render.token !== token) { next.remove(); return; }
+    const relines = getComputedStyle(prev).gridTemplateColumns.split(' ').length !== cols;
+    if (relines) prev.classList.add('lines-off');
     const h0 = prev.offsetHeight, h1 = next.offsetHeight;
     panel.style.height = h0 + 'px'; panel.offsetHeight; // commit the start height
     if (h0 !== h1) { panel.classList.add('sizing'); panel.style.height = h1 + 'px'; }
     const oldCells = [...prev.children], newCells = [...next.children];
-    const delay = i => Math.min(i % cols, 5) * 50 + Math.min(Math.floor(i / cols), 6) * 20;
-    newCells.forEach((c, i) => { const img = c.querySelector('img'); if (img) img.style.transitionDelay = delay(i) + 'ms'; c.classList.remove('pre'); });
-    oldCells.forEach((c, i) => { const img = c.querySelector('img'); if (img) img.style.transitionDelay = delay(i) + 'ms'; c.classList.add('out'); });
+    // 170ms between cells; a long grid such as "All" compresses its steps so the sweep stays near a second.
+    const OUT = 300, IN = 450;
+    const sweep = n => { const step = Math.min(170, 1000 / Math.max(1, n - 1)); return i => Math.round(i * step); };
+    const dNew = sweep(newCells.length), dOld = sweep(oldCells.length);
+    newCells.forEach((c, i) => { const img = c.querySelector('img'); if (img) img.style.transitionDelay = dNew(i) + OUT + 'ms'; c.classList.remove('pre'); });
+    oldCells.forEach((c, i) => { const img = c.querySelector('img'); if (img) img.style.transitionDelay = dOld(i) + 'ms'; c.classList.add('out'); });
     let done = false;
     const finish = () => {
       if (done) return; done = true; finishing = null;
       prev.remove();
-      next.classList.remove('incoming', 'settled');
+      // Swap the overlay for a normal grid without animating its hairlines in from transparent.
+      next.style.transition = 'none';
+      if (relines) next.classList.add('lines-off');
+      next.classList.remove('incoming');
+      next.offsetHeight;
+      next.style.transition = '';
+      next.classList.remove('lines-off');
       newCells.forEach(c => { const img = c.querySelector('img'); if (img) img.style.transitionDelay = ''; });
       panel.classList.remove('sizing'); panel.style.height = '';
       if (grid === prev) grid = next;
     };
     finishing = finish;
     grid = next;
-    setTimeout(() => { if (!done) next.classList.add('settled'); }, 450);
-    setTimeout(finish, 760);
+    setTimeout(finish, Math.max(dNew(newCells.length - 1), dOld(oldCells.length - 1)) + OUT + IN + 50);
   }
   function select(i, fromUser) {
     if (fromUser) stop();
+    if (i === current) return;
     current = i;
     render(true);
     // Scroll only the tab strip. scrollIntoView would also scroll every scrollable ancestor, including the
@@ -110,7 +127,7 @@
   function stop() { stopped = true; clearInterval(timer); timer = null; }
   function sync() {
     const run = visible && !stopped && !reduce.matches && !document.hidden;
-    if (run && !timer) timer = setInterval(() => select((current + 1) % INDUSTRIES.length, false), 4000);
+    if (run && !timer) timer = setInterval(() => select((current + 1) % INDUSTRIES.length, false), 6000);
     if (!run && timer) { clearInterval(timer); timer = null; }
   }
 
