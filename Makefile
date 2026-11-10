@@ -2,7 +2,7 @@ HUGO_VERSION := $(shell sed -n 's/^HUGO_VERSION = "\(.*\)"/\1/p' netlify.toml)
 
 setup:
 	npm install
-	brew install hugo
+	brew install hugo sass/sass/sass
 
 develop:
 	hugo server --buildDrafts --buildFuture
@@ -13,8 +13,13 @@ docker:
 		ghcr.io/gohugoio/hugo:v$(HUGO_VERSION) \
 		server --bind 0.0.0.0 --buildDrafts --buildFuture
 
-netlify-production-build:
-	hugo --minify
+# Netlify's build image has no Dart Sass; install the version pinned in netlify.toml.
+netlify-dart-sass:
+	mkdir -p $(HOME)/.local
+	curl -sfL https://github.com/sass/dart-sass/releases/download/$(DART_SASS_VERSION)/dart-sass-$(DART_SASS_VERSION)-linux-x64.tar.gz | tar -xz -C $(HOME)/.local
 
-netlify-preview-build:
-	hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture
+netlify-production-build: netlify-dart-sass
+	PATH="$(HOME)/.local/dart-sass:$$PATH" hugo --minify
+
+netlify-preview-build: netlify-dart-sass
+	PATH="$(HOME)/.local/dart-sass:$$PATH" hugo --baseURL $(DEPLOY_PRIME_URL) --buildDrafts --buildFuture

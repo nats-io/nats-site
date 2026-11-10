@@ -221,7 +221,7 @@ cd nats-site/
 
 #### Install Prerequisites
 
-Install [Hugo](https://gohugo.io/), [npm](https://docs.npmjs.com/getting-started/installing-node). 
+Install [Hugo](https://gohugo.io/), [Dart Sass](https://sass-lang.com/install/) and [npm](https://docs.npmjs.com/getting-started/installing-node). Hugo uses the `sass` executable on your PATH, which must be Dart Sass (on macOS: `brew install sass/sass/sass`).
 
 > Building the NATS site/documentation currently requires Hugo version 0.169.0 or higher. Installation instructions can be found [here](https://gohugo.io/getting-started/installing).
 
