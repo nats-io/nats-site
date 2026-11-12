@@ -56,7 +56,8 @@
   color: var(--head-ink-2);
   &:hover, &:active, &:focus { background: none; box-shadow: none; color: #fff; }
   &:focus-visible { outline: 2px solid #5cc6f2; }
-  .DocSearch-Search-Icon { width: 18px; height: 18px; color: currentColor; stroke-width: 1.5; }
+  // The glyph fills its whole box, so it is drawn smaller to sit level with the brand icons beside it.
+  .DocSearch-Search-Icon { width: 14px; height: 14px; color: currentColor; stroke-width: 1.9; }
 }
 .top .DocSearch-Button-Container { display: flex; }
 .top .DocSearch-Button-Placeholder,
