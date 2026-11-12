@@ -74,6 +74,7 @@
     border-left: 3px solid var(--rule-2);
     color: var(--ink-2);
     font-style: italic;
+    > :last-child { margin-bottom: 0; }
   }
   figure { margin-left: 0; margin-right: 0; }
   figcaption { font-size: .875rem; color: var(--ink-3); margin-top: 6px; text-align: center; }
