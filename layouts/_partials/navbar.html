@@ -1,20 +1,30 @@
 {{- $here    := .RelPermalink }}
 {{- $section := printf "/%s/" .Section }}
+{{- /* Lucide-style outlines, keyed by menu identifier. */}}
+{{- $icons := dict
+  "about" `<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>`
+  "download" `<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>`
+  "doc" `<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/>`
+  "blog" `<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>`
+  "community" `<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>`
+  "support" `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M14.8 9.2l3.6-3.6M5.6 18.4l3.6-3.6"/>`
+}}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="{{ "/" | relURL }}" aria-label="NATS home"><img src="{{ "img/logos/nats-horizontal-color.png" | relURL }}" alt="NATS" width="94" height="24"></a>
     <nav aria-label="Main" id="main-nav"><ul>
       {{- range site.Menus.main }}
       {{- $current := and (not (hasPrefix .URL "http")) (or (eq .URL $here) (and (ne $section "//") (eq .URL $section))) }}
-      <li><a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+      <li><a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>
+        {{- with index $icons .Identifier }}<svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ . | safeHTML }}</svg>{{ end }}{{ .Name }}</a></li>
       {{- end }}
     </ul>
-    {{- /* Inside the nav so the mobile menu carries it too. */}}
-    {{- if eq .Section "blog" }}
-    <form class="search" role="search" onsubmit="return false"><label class="sr" for="search-bar">Search the blog</label><input type="search" id="search-bar" placeholder="Search the blog"></form>
-    {{- end }}
     </nav>
     <div class="end">
+      {{- if eq .Section "blog" }}
+      {{- /* DocSearch renders its button here; the slot holds the space until it does. */}}
+      <div id="docsearch" class="ds"></div>
+      {{- end }}
       <a class="ib" href="https://github.com/nats-io" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
       <a class="ib" href="https://slack.nats.io" aria-label="Slack"><i class="fa-brands fa-slack" aria-hidden="true"></i></a>
       <button class="ib" id="theme" type="button" aria-label="Theme: System"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>

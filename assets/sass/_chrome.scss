@@ -21,20 +21,12 @@
     white-space: nowrap;
   }
   nav a:hover, nav a[aria-current] { color: #fff; }
+  nav a { display: flex; align-items: center; gap: 6px; }
+  // A quiet hint beside the label, not a second label.
+  nav a .ni { width: 16px; height: 16px; flex: none; opacity: .7; }
+  nav a:hover .ni, nav a[aria-current] .ni { opacity: 1; }
   nav a[aria-current] { box-shadow: inset 0 -2px 0 var(--blue); }
   .end { margin-left: auto; display: flex; align-items: center; gap: 2px; }
-  .search { margin: 0 8px 0 auto; }
-  .search input {
-    width: 180px;
-    height: 32px;
-    padding: 0 10px;
-    border: 1px solid var(--head-rule);
-    border-radius: 4px;
-    background: rgba(255, 255, 255, .06);
-    color: var(--head-ink);
-    font: 400 .875rem var(--sans);
-    &::placeholder { color: var(--head-ink-2); }
-  }
 }
 .ib {
   all: unset;
@@ -51,8 +43,54 @@
 }
 .top .menu { display: none; }
 
+// Blog search: DocSearch's button reduced to an icon like .ib; its modal is the search palette.
+.top .ds { width: 34px; height: 34px; flex: none; }
+.top .DocSearch-Button {
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  border-radius: 4px;
+  background: none;
+  color: var(--head-ink-2);
+  &:hover, &:active, &:focus { background: none; box-shadow: none; color: #fff; }
+  &:focus-visible { outline: 2px solid #5cc6f2; }
+  .DocSearch-Search-Icon { width: 18px; height: 18px; color: currentColor; stroke-width: 1.5; }
+}
+.top .DocSearch-Button-Container { display: flex; }
+.top .DocSearch-Button-Placeholder,
+.top .DocSearch-Button-Keys { display: none; }
+// DocSearch only knows an explicit dark theme, so its colours come from the site tokens instead.
+.DocSearch {
+  --docsearch-primary-color: var(--btn);
+  --docsearch-highlight-color: var(--btn);
+  --docsearch-hit-active-color: var(--btn-ink);
+  --docsearch-text-color: var(--ink);
+  --docsearch-muted-color: var(--ink-3);
+  --docsearch-container-background: rgb(4 6 24 / .5);
+  --docsearch-modal-background: var(--bg-2);
+  --docsearch-modal-shadow: 0 12px 32px rgb(0 0 0 / .3);
+  --docsearch-searchbox-background: var(--bg);
+  --docsearch-searchbox-focus-background: var(--bg);
+  --docsearch-searchbox-shadow: inset 0 0 0 1px var(--focus);
+  --docsearch-hit-background: var(--bg);
+  --docsearch-hit-color: var(--ink-2);
+  --docsearch-hit-shadow: 0 0 0 1px var(--rule);
+  --docsearch-footer-background: var(--bg);
+  --docsearch-footer-shadow: 0 -1px 0 var(--rule);
+  --docsearch-logo-color: var(--ink-3);
+  --docsearch-key-gradient: linear-gradient(var(--bg-2), var(--bg-2));
+  --docsearch-key-shadow: inset 0 0 0 1px var(--rule-2);
+  --docsearch-key-pressed-shadow: inset 0 0 0 1px var(--stroke);
+}
+
 @media (max-width: $bp-wide) {
   .top nav a { padding: 6px 7px; }
+}
+// The icons give way before the links do; between here and $bp-nav they would push into the buttons.
+@media (max-width: $bp-mid) {
+  .top:not(.open) nav a .ni { display: none; }
 }
 @media (max-width: $bp-nav) {
   .top nav { display: none; }
@@ -69,10 +107,6 @@
   }
   .top.open nav ul { flex-direction: column; padding: 6px 20px 14px; }
   .top.open nav a { padding: 10px 0; }
-  .top.open .search { display: block; width: 100%; margin: 0; padding: 0 20px 16px; }
-  .top.open .search input { width: 100%; height: 40px; }
-  // DocSearch wraps the input in an inline-block span with an inline style.
-  .top.open .search .algolia-autocomplete { display: block !important; }
 }
 
 .foot {

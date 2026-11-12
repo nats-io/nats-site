@@ -14,6 +14,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 {{- end }}
 {{- if eq .Section "blog" }}
-<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-<script>docsearch({ apiKey: '22d6bf4e34b8974d2f19c337df8f33c4', indexName: 'nats', inputSelector: '#search-bar', debug: false });</script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.9.0/dist/umd/index.js"></script>
+{{- /* BH4D9OD16A is the shared app that holds DocSearch's hosted indexes, this one included. */}}
+<script>docsearch({ container: '#docsearch', appId: 'BH4D9OD16A', apiKey: '22d6bf4e34b8974d2f19c337df8f33c4', indexName: 'nats', placeholder: 'Search the blog', translations: { button: { buttonText: 'Search the blog', buttonAriaLabel: 'Search the blog' } } });</script>
 {{- end }}
