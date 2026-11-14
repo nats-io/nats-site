@@ -104,4 +104,4 @@ Also, be sure to watch or listen to episode 6 of NATS.fm: [The journey and featu
 
 ## About the Author
 
-[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats), a NATS release manager, and the co-host of the [NATS.fm](http://nats.fm) podcast.
+[Byron Ruth](https://www.linkedin.com/in/byron-ruth/) is the Director of Developer Relations at [Synadia](https://www.synadia.com?utm_source=nats_io&utm_medium=nats), a NATS release manager, and the co-host of the [NATS.fm](https://nats.fm) podcast.
