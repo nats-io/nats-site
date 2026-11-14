@@ -1,6 +1,6 @@
 # <a name="about"></a>NATS.io
 
-This repo houses the code for the NATS site at [https://nats.io](https://nats.io). NATS documentation is not included in this repo, see the [nats.docs](https://github.com/nats-io/nats.docs) or [https://docs.nats.io](https://docs.nats.io)]
+This repo houses the code for the NATS site at <https://nats.io>. NATS documentation pages are not included in this repo, you find them in a [separate repo](https://github.com/nats-io/nats.docs.v2) which it also used for the deployment of the [NATS documentation site](https://docs.nats.io).
 
 The NATS website is based on the [Hugo](https://gohugo.io) framework, styled with a small Sass stylesheet in `assets/sass/` (no CSS framework). The content structure is designed to be simple, informative, intuitive and fast -- just like NATS!
 Please keep these principles in mind as you modify existing content or design new content for the [nats.io](https://nats.io) site.
@@ -77,7 +77,7 @@ The **html files** or **directories** should be pretty self-explanatory for what
 
 ## Adding Documentation
 
-The NATS documentation has moved to the [nats-io/nats.docs](https://github.com/nats-io/nats.docs/) repo.
+The NATS documentation has moved to the [nats-io/nats.docs.v2](https://github.com/nats-io/nats.docs.v2/) repo.
 
 ## Adding Content Pages
 

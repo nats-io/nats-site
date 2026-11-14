@@ -48,7 +48,7 @@ authorHome = "https://github.com/mring33621"
 [addons.ai2connect_stripe]
 name = "Ai2 Connect Stripe"
 home = "https://github.com/sty-holdings?tab=repositories"
-description = "Allows NATS message to be spent to Stripe APIs."
+description = "Allows NATS message to be sent to Stripe APIs."
 support = "Ai2 Connect"
 [[addons.ai2connect_stripe.authors]]
 author = "Scott Yacko"
@@ -281,7 +281,7 @@ authorHome = "https://idct.tech/"
 [addons.rancher_nats]
 name = "Rancher NATS"
 home = "http://bit.ly/1X36qKZ"
-description = "This is an extended version of the official Docker image for nats. It adds support to set up a cluster easily onrancher."
+description = "This is an extended version of the official Docker image for nats. It adds support to set up a cluster easily on rancher."
 support = "Community"
 [[addons.rancher_nats.authors]]
 author = ""
@@ -618,7 +618,7 @@ authorHome = "https://qaze.app/"
 [addons.nats-desktop]
 name = "NATS Desktop"
 home = "https://github.com/thedataflows/nats-desktop"
-description = "NATS Dekstop is a GUI alternative to the official NATS cli"
+description = "NATS Desktop is a GUI alternative to the official NATS cli"
 support = "Community"
 [[addons.nats-desktop.authors]]
 author = "DataFlows"
