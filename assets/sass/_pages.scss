@@ -345,7 +345,7 @@ ul.social-list {
     align-items: center;
     @media (max-width: $bp-nav) { grid-template-columns: minmax(0, 1fr); }
   }
-  h2 { font-size: 1.375rem; margin-bottom: 6px; }
+  h2 { font-size: $fs-h2; margin-bottom: 6px; }
   p { color: var(--ink-2); margin: 0; }
   .newsletter { margin: 0; }
 }
