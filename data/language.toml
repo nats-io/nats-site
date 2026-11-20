@@ -45,7 +45,7 @@ name = "C"
 [[language.c.orgs]]
 org = "nats-io"
 repo= "nats.c"
-suported = true
+supported = true
 jetstream_support = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
@@ -55,7 +55,7 @@ release_date = '2019-10-02'
 org = "nats-io"
 repo= "stan.c"
 streaming_support = true
-suported = true
+supported = true
 author = "NATS Authors"
 link = "https://github.com/nats-io"
 release_version = '3.0.0'

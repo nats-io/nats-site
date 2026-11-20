@@ -52,7 +52,7 @@ The `correlationId` follows one workflow across the API transaction, outbox publ
 
 Blockchain gateways, ledger workers, audit consumers, and the WebSocket gateway consume NATS events independently. TLS, service credentials, and subject-level permissions limit what each producer and consumer may publish or read. Event payloads carry resource identifiers but never private key material or signing shares. The public WebSocket layer does not expose internal NATS subjects directly: it authenticates the external client with its BroSettlement API key, binds the connection to one organization, filters the allowed event families, and translates approved internal messages into a stable client lifecycle contract. The target gateway model uses filtered JetStream consumers with explicit acknowledgments and redelivery backoff, while PostgreSQL read APIs remain available even if live WebSocket delivery is degraded.
 
-<img class="img-responsive center-block" src="/img/blog/brosettlement-nats-architecture-1.png" alt="Sanitized Brosettlement Staging Architechture using NATS JetStream">
+<img class="img-responsive center-block" src="/img/blog/brosettlement-nats-architecture-1.png" alt="Sanitized Brosettlement Staging Architecture using NATS JetStream">
 
 ## What staging tests taught us
 
